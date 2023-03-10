@@ -54,7 +54,7 @@ class UsersController extends AppController
       //   debug($user);die; 
 
             if (!isset($user) or !$this->issetVerification($user)) {
-                throw new UnauthorizedException("name n'est liée à aucun compte Partenaire.");
+                throw new UnauthorizedException("email n'est pas liée à aucun compte .");
             }
         }
 

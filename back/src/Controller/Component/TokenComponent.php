@@ -36,7 +36,7 @@ class TokenComponent extends Component
         $token = JWT::encode(
             [
                 'id'=>$user->id,
-                'name'=>$user->name,
+                'email'=>$user->email,
                 'role' => $user->role->label,
                 'iss'=>'Kusa-api',
             //    'exp' =>  strtotime("+30 minutes", time())
