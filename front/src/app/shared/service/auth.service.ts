@@ -91,9 +91,9 @@ export class AuthService {
     const activeUser: UserInterface[] = [
       {
         id: result.id,
-        name: result.name,
-        role: result.role,
-        sk: result.sk,
+        email: result.email,
+        role: result.role
+
 
       }
     ];
