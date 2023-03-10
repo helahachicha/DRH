@@ -8,6 +8,9 @@ import { RegisterComponent } from './Authentification/register/register.componen
 import { LoginComponent } from './Authentification/login/login.component';
 import { HeaderComponent } from './Layout/header/header.component';
 import { FooterComponent } from './Layout/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -22,7 +25,13 @@ import { FooterComponent } from './Layout/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
