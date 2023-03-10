@@ -1,1 +1,17 @@
+<div class="signin-content">
+ 
+        <form [formGroup]="userForm"  >
+          <p>Login</p>
 
+            <input matInput placeholder="User"   formControlName="name" required>
+   
+
+     
+            <input matInput type="password" placeholder="Password" formControlName="password" required>
+
+              Please inform your password
+     
+          <button mat-raised-button color="primary" type="submit" (click)="submit()" >Login</button>
+        </form>
+  
+</div>
