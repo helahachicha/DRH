@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : ven. 10 mars 2023 à 16:31
--- Version du serveur : 10.4.27-MariaDB
--- Version de PHP : 8.1.12
+-- Host: 127.0.0.1
+-- Generation Time: Mar 10, 2023 at 03:13 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,49 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `drh`
+-- Database: `drh`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `formaexternes`
---
-
-CREATE TABLE `formaexternes` (
-  `id` int(11) NOT NULL,
-  `typecomp` varchar(255) NOT NULL,
-  `themforma` varchar(255) NOT NULL,
-  `participant` varchar(255) NOT NULL,
-  `nbparticipant` int(11) NOT NULL,
-  `raisonforma` varchar(255) NOT NULL,
-  `organismeforma` varchar(255) NOT NULL,
-  `formalite` varchar(255) NOT NULL,
-  `formateur` varchar(255) NOT NULL,
-  `raisonchoix` varchar(255) NOT NULL,
-  `dureeforma` varchar(255) NOT NULL,
-  `nbjour` int(11) NOT NULL,
-  `nbhjour` int(11) NOT NULL,
-  `date` datetime NOT NULL,
-  `horaireforma` varchar(255) NOT NULL,
-  `pause` varchar(255) NOT NULL,
-  `lieuforma` varchar(255) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Déchargement des données de la table `formaexternes`
---
-
-INSERT INTO `formaexternes` (`id`, `typecomp`, `themforma`, `participant`, `nbparticipant`, `raisonforma`, `organismeforma`, `formalite`, `formateur`, `raisonchoix`, `dureeforma`, `nbjour`, `nbhjour`, `date`, `horaireforma`, `pause`, `lieuforma`, `created`, `modified`) VALUES
-(1, 'test', 'test', 'test', 52, 'test', 'test', 'test', 'test', 'test', '2h', 5, 6, '0000-00-00 00:00:00', '2h', 'test', 'test', '2023-03-10 15:28:50', '2023-03-10 15:28:50'),
-(2, 'test', 'test', 'test', 52, 'test', 'test', 'test', 'test', 'test', '2h', 5, 6, '2023-03-10 15:28:50', '2h', 'test', 'test', '2023-03-10 15:29:26', '2023-03-10 15:29:26');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -71,7 +35,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
@@ -81,7 +45,7 @@ INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -95,52 +59,40 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `token`, `role_id`, `created`, `modified`) VALUES
 (1, 'helatest@gmail.com', '$2y$10$X2xZ9SDDJUvw4KQjE/3/heD.F4vykCn.j9ZEZuWrVH8UObiI6qJk2', '', 1, '2023-03-10 14:37:00', '2023-03-10 14:37:00');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `formaexternes`
---
-ALTER TABLE `formaexternes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `formaexternes`
---
-ALTER TABLE `formaexternes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT pour la table `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
