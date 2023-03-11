@@ -1,0 +1,89 @@
+
+<div class="container">
+    
+    <form formGroup="externeForm">
+        <div class="row g-3 ">
+        <div class="col-md-4">
+            <label>Type de compétence</label>
+    <input matInput placeholder="type"   formControlName="typecomp" required>
+    </div>
+    <div class="col-md-4">
+        <label>Thème de formation</label>
+    <input matInput placeholder="Thème"   formControlName="themforma" required>
+    </div>
+    </div>
+    <div class="row g-3 ">
+    <div class="col-md-4">
+        <label>participant</label>
+    <input matInput placeholder="participant"   formControlName="participant" required>
+       </div>
+       <div class="col-md-4">
+        <label>Nomber de participants</label>
+    <input matInput placeholder="Nparticipants" type="number"  formControlName="nbparticipant" required>
+       </div>
+    </div>
+    <div class="row g-3 ">
+       <div class="col-md-4">
+        <label>Raison de formation</label>
+    <input matInput placeholder="Raison"   formControlName="raisonforma" required>
+    </div>
+    <div class="col-md-4">
+        <label>Organisme de formation </label>
+        <input matInput placeholder="Organisme"   formControlName="organismeforma" required>
+        </div>
+        </div>
+        <div class="row g-3 ">
+        <div class="col-md-4">
+            <label>Formalité de réalisation </label>
+    <input matInput placeholder="Formalité"   formControlName="formalite" required>
+    </div>
+    <div class="col-md-4">
+        <label>Formateur</label>
+    <input matInput placeholder="Formateur"   formControlName="formateur" required>
+    </div>
+    </div>
+    <div class="row g-3 ">
+    <div class="col-md-4"> 
+        <label>Raison de choix</label>
+    <input matInput placeholder="Raison"   formControlName="raisonchoix" required>
+    </div>
+    <div class="col-md-4">
+        <label>Durée de formation </label>
+    <input matInput placeholder="Durée"   formControlName="dureeforma" required>
+    </div>
+    </div>
+    <div class="row g-3 ">
+    <div class="col-md-4">
+        <label>NB/jour</label>
+    <input matInput placeholder="NBjour"  type="number"   formControlName="nbjour" required>
+    </div>
+    <div class="col-md-4">
+        <label>NB/H de jour</label>
+    <input matInput placeholder="NBHjour "  type="number" formControlName="nbhjour" required>
+    </div>
+    </div>
+    <div class="row g-3 ">
+    <div class="col-md-4"> 
+        <label>Date</label>
+    <input matInput type="date"   formControlName="date" required>
+    </div>
+    <div class="col-md-4">
+        <label>Horaire formation </label>
+    <input matInput placeholder="Horaire" type="time"   formControlName="horaireforma" required>
+    </div>
+    </div>
+    <div class="row g-3 ">
+    <div class="col-md-4">
+        <label>Pause café </label>
+    <input matInput placeholder="Pause café"   formControlName="pause" required>
+    </div>
+    <div class="col-md-4">
+        <label>Lieu de formation </label>
+    <input matInput placeholder="Lieu" formControlName="lieuforma" required>
+    </div>
+    </div>
+    </form>
+    <button mat-raised-button color="primary" >Ajouter</button>
+    <button mat-raised-button color="primary" (click)="getFormaexterne()" >getAll</button>
+    
+    </div>

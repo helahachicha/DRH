@@ -1,0 +1,124 @@
+<body>
+    <div class="p-20 bg-light">
+
+        <form formGroup="externeForm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Type de compétence</label>
+                            <input type="text" placeholder="type" formControlName="typecomp" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Thème de formation</label>
+                            <input type="text" placeholder="Thème" formControlName="themforma" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">participant</label>
+                            <input type="text" placeholder="participant" formControlName="participant" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Nomber de participants</label>
+                            <input placeholder="Nparticipants" type="number" formControlName="nbparticipant" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Raison de formation</label>
+                            <input type="text" placeholder="Raison" formControlName="raisonforma" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Organisme de formation </label>
+                            <input type="text" placeholder="Organisme" formControlName="organismeforma" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Formalité de réalisation </label>
+                            <input type="text" placeholder="Formalité" formControlName="formalite" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Formateur</label>
+                            <input type="text" placeholder="Formateur" formControlName="formateur" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Raison de choix</label>
+                            <input type="text" placeholder="Raison" formControlName="raisonchoix" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Durée de formation </label>
+                            <input type="number" placeholder="Durée" formControlName="dureeforma" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row  ">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">NB/jour</label>
+                            <input placeholder="NBjour" type="number" formControlName="nbjour" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">NB/H de jour</label>
+                            <input placeholder="NBHjour " type="number" formControlName="nbhjour" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Date</label>
+                            <input type="date" formControlName="date" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Horaire formation </label>
+                            <input placeholder="Horaire" type="time" formControlName="horaireforma" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Pause café </label>
+                            <input type="text" placeholder="Pause café" formControlName="pause" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Lieu de formation </label>
+                            <input type="text" placeholder="Lieu" formControlName="lieuforma" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button mat-raised-button color="primary" type="submit" (click)="submit()">Ajouter</button>
+
+    </div>
+</body>
