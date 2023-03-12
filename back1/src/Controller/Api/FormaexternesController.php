@@ -51,22 +51,22 @@ class FormaexternesController extends AppController
          /* create formaexternes entity */
         if (1==1){
             $formaexternes = $this->Formaexternes->newEmptyEntity();
-            $formaexternes->typecomp =$data->typecomp;  
-            $formaexternes->themforma =$data->themforma;  
-            $formaexternes->participant =$data->participant;  
-            $formaexternes->nbparticipant =$data->nbparticipant;  
-            $formaexternes->raisonforma =$data->raisonforma ;  
-            $formaexternes->organismeforma  =$data->organismeforma ;  
-            $formaexternes->formalite  =$data->formalite ;  
+            $formaexternes->typecomp=$data->typecomp;  
+            $formaexternes->themforma=$data->themforma;  
+            $formaexternes->participant=$data->participant;  
+            $formaexternes->nbparticipant=$data->nbparticipant;  
+            $formaexternes->raisonforma=$data->raisonforma ;  
+            $formaexternes->organismeforma=$data->organismeforma ;  
+            $formaexternes->formalite=$data->formalite ;  
             $formaexternes->formateur=$data->formateur;  
-            $formaexternes->raisonchoix =$data->raisonchoix ;  
-            $formaexternes->dureeforma =$data->dureeforma;  
-            $formaexternes->nbjour =$data->nbjour;  
-            $formaexternes-> nbhjour=$data-> nbhjour;  
-            $formaexternes->date =$data->date;  
+            $formaexternes->raisonchoix=$data->raisonchoix ;  
+            $formaexternes->dureeforma=$data->dureeforma;  
+            $formaexternes->nbjour=$data->nbjour;  
+            $formaexternes->nbhjour=$data->nbhjour;  
+            $formaexternes->date=$data->date;  
             $formaexternes->horaireforma=$data->horaireforma;  
-            $formaexternes->pause  =$data->pause ;  
-            $formaexternes->lieuforma =$data->lieuforma;  
+            $formaexternes->pause=$data->pause ;  
+            $formaexternes->lieuforma=$data->lieuforma;  
 
             $this->Formaexternes->save($formaexternes); 
         }
@@ -112,7 +112,7 @@ class FormaexternesController extends AppController
             $querry=$this->request->getData();
             $data=json_decode($querry['data']); 
             //$data=$this->request->getData();
-           // debug($data);die;
+            // debug($data);die;
 
         }
         $id=$this->request->getQuery('id');
@@ -120,22 +120,22 @@ class FormaexternesController extends AppController
          /* create formaexternes entity */
         if (1==1){
             $formaexternes = $this->Formaexternes->newEmptyEntity();
-            $formaexternes->typecomp =$data->typecomp;  
-            $formaexternes->themforma =$data->themforma;  
-            $formaexternes->participant =$data->participant;  
-            $formaexternes->nbparticipant =$data->nbparticipant;  
-            $formaexternes->raisonforma =$data->raisonforma ;  
-            $formaexternes->organismeforma  =$data->organismeforma ;  
-            $formaexternes->formalite  =$data->formalite ;  
+            $formaexternes->typecomp=$data->typecomp;  
+            $formaexternes->themforma=$data->themforma;  
+            $formaexternes->participant=$data->participant;  
+            $formaexternes->nbparticipant=$data->nbparticipant;  
+            $formaexternes->raisonforma=$data->raisonforma ;  
+            $formaexternes->organismeforma=$data->organismeforma ;  
+            $formaexternes->formalite=$data->formalite ;  
             $formaexternes->formateur=$data->formateur;  
-            $formaexternes->raisonchoix =$data->raisonchoix ;  
-            $formaexternes->dureeforma =$data->dureeforma;  
-            $formaexternes->nbjour =$data->nbjour;  
-            $formaexternes-> nbhjour=$data-> nbhjour;  
-            $formaexternes->date =$data->date;  
+            $formaexternes->raisonchoix=$data->raisonchoix ;  
+            $formaexternes->dureeforma=$data->dureeforma;  
+            $formaexternes->nbjour=$data->nbjour;  
+            $formaexternes->nbhjour=$data->nbhjour;  
+            $formaexternes->date=$data->date;  
             $formaexternes->horaireforma=$data->horaireforma;  
-            $formaexternes->pause  =$data->pause ;  
-            $formaexternes->lieuforma =$data->lieuforma;  
+            $formaexternes->pause=$data->pause ;  
+            $formaexternes->lieuforma=$data->lieuforma;  
 
             $this->Formaexternes->save($formaexternes); 
         }

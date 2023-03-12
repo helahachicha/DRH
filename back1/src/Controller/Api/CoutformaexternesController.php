@@ -32,21 +32,21 @@ class CoutformaexternesController extends AppController
 
         /* format data */
         if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-           // debug($data);die;
+            //$querry=$this->request->getData();
+            //$data=json_decode($querry['data']); 
+            $data=$this->request->getData();
+           debug($data);die;
 
         }
          /* create coutformaexternes entity */
         if (1==1){
             $coutformaexternes = $this->coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data->typecomp;  
-            $coutformaexternes->tocoformadt=$data->themforma;  
-            $coutformaexternes->locaespace=$data->participant;  
-            $coutformaexternes->comax=$data->nbparticipant;  
-            $coutformaexternes->tocout=$data->raisonforma ;  
-            $coutformaexternes->chargeto=$data->organismeforma ;   
+            $coutformaexternes->coutformahd=$data["coutformahd"];  
+            $coutformaexternes->tocoformadt=$data["tocoformadt"];  
+            $coutformaexternes->locaespace=$data["locaespace"];  
+            $coutformaexternes->comax=$data["comax"];  
+            $coutformaexternes->tocout=$data["tocout"];  
+            $coutformaexternes->chargeto=$data["chargeto"];   
 
             $this->Coutformaexternes->save($coutformaexternes); 
         }
@@ -79,10 +79,10 @@ class CoutformaexternesController extends AppController
 
         /* format data */
         if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-           // debug($data);die;
+            //$querry=$this->request->getData();
+            //$data=json_decode($querry['data']); 
+            $data=$this->request->getData();
+            debug($data);die;
 
         }
         $id=$this->request->getQuery('id');
@@ -90,12 +90,12 @@ class CoutformaexternesController extends AppController
          /* create coutformaexternes entity */
         if (1==1){
             $coutformaexternes = $this->coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data->typecomp;  
-            $coutformaexternes->tocoformadt=$data->themforma;  
-            $coutformaexternes->locaespace=$data->participant;  
-            $coutformaexternes->comax=$data->nbparticipant;  
-            $coutformaexternes->tocout=$data->raisonforma ;  
-            $coutformaexternes->chargeto=$data->organismeforma ; 
+            $coutformaexternes->coutformahd=$data["coutformahd"];  
+            $coutformaexternes->tocoformadt=$data["tocoformadt"];  
+            $coutformaexternes->locaespace=$data["locaespace"];  
+            $coutformaexternes->comax=$data["comax"];  
+            $coutformaexternes->tocout=$data["tocout"];  
+            $coutformaexternes->chargeto=$data["chargeto"]; 
 
             $this->Coutformaexternes->save($coutformaexternes); 
         }
@@ -110,34 +110,34 @@ class CoutformaexternesController extends AppController
 
 
     /**
-    * getAllFormaexterne
+    * getAllCoutformaexterne
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllFormaexterne()
+    public function getAllCoutformaexterne()
     {
 
         /* search */
-        $formaexternes = $this->Formaexternes->find('all');
+        $coutformaexternes = $this-Coutformaexternes->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $formaexternes,
+            'data' => $coutformaexternes,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getFormaexternes
+      * getCoutformaexternes
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getFormaexternes(){
+     public function getCoutformaexternes(){
  
          $id = $this->request->getQuery('id');
          
@@ -150,20 +150,20 @@ class CoutformaexternesController extends AppController
              }
          }
  
-         $formaexterne = $this->Formaexternes->find('all', [
+         $coutformaexterne = $this->Coutformaexternes->find('all', [
              'conditions'=>[
                  'id'=>$id,
              ],
             
          ])->first();
  
-         if(empty($formaexternes)){
-             throw new UnauthorizedException('Formaexterne not found');
+         if(empty($coutformaexternes)){
+             throw new UnauthorizedException('Coutformaexterne not found');
          }
  
          $this->set([
              'success' => true,
-             'data' => $formaexternes,
+             'data' => $coutformaexternes,
              '_serialize' => ['success', 'data']
          ]);
      }
