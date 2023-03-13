@@ -24,7 +24,7 @@
                                         <div class="form-group">
                                             <label class="form-label">Type de compétence</label>
                                             <input type="text" class="form-control" placeholder="Type de compétence"
-                                                required="required" formControlName="typecomp">
+                                                required="required" formControlName="typecomp" [(ngModel)]="formaexternes.typecomp">
 
                                         </div>
                                     </div>
@@ -32,7 +32,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Thème de formation</label>
                                             <input type="text" class="form-control" placeholder="Thème"
-                                                required="required" formControlName="themforma">
+                                                required="required" formControlName="themforma" [(ngModel)]="formaexternes.themforma">
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Participant</label>
                                             <input type="text" class="form-control" placeholder="Participant"
-                                                required="required" formControlName="participant">
+                                                required="required" formControlName="participant" [(ngModel)]="formaexternes.participant">
 
                                         </div>
                                     </div>
@@ -49,7 +49,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Nomber de participants</label>
                                             <input type="number" class="form-control" placeholder="0"
-                                                required="required" formControlName="nbparticipant">
+                                                required="required" formControlName="nbparticipant" [(ngModel)]="formaexternes.nbparticipant">
                                         </div>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Raison de formation</label>
                                             <input type="text" class="form-control" placeholder="Raison"
-                                                required="required" formControlName="raisonforma">
+                                                required="required" formControlName="raisonforma" [(ngModel)]="formaexternes.raisonforma">
 
                                         </div>
                                     </div>
@@ -66,7 +66,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Organisme de formation</label>
                                             <input type="text" class="form-control" placeholder="Organisme"
-                                                required="required" formControlName="organismeforma" >
+                                                required="required" formControlName="organismeforma"  [(ngModel)]="formaexternes.organismeforma">
                                         </div>
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Formalité de réalisation</label>
                                             <input type="text" class="form-control" placeholder="Formalité"
-                                                required="required" formControlName="formalite">
+                                                required="required" formControlName="formalite" [(ngModel)]="formaexternes.formalite"> 
 
                                         </div>
                                     </div>
@@ -83,7 +83,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Formateur</label>
                                             <input type="text" class="form-control" placeholder="Formateur"
-                                                required="required" formControlName="formateur">
+                                                required="required" formControlName="formateur"  [(ngModel)]="formaexternes.formateur">
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Raison de choix</label>
                                             <input type="text" class="form-control" placeholder="Raison de choix"
-                                                required="required" formControlName="raisonchoix">
+                                                required="required" formControlName="raisonchoix" [(ngModel)]="formaexternes.raisonchoix">
 
                                         </div>
                                     </div>
@@ -101,7 +101,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Durée de formation </label>
                                             <input type="number" class="form-control" placeholder="0"
-                                                required="required" formControlName="dureeforma"> 
+                                                required="required" formControlName="dureeforma" [(ngModel)]="formaexternes.dureeforma"> 
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                                         <div class="form-group">
                                             <label for="form_label">NB/jour</label>
                                             <input type="number" class="form-control" placeholder="NB/jour"
-                                                required="required" formControlName="nbjour">
+                                                required="required" formControlName="nbjour" [(ngModel)]="formaexternes.nbjour">
 
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@
                                         <div class="form-group">
                                             <label for="form_label">NB/H de jour </label>
                                             <input type="number" class="form-control" placeholder="0"
-                                                required="required" formControlName="nbhjour"> 
+                                                required="required" formControlName="nbhjour"  [(ngModel)]="formaexternes.nbhjour"> 
                                         </div>
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Date</label>
                                             <input type="date" class="form-control" 
-                                                required="required" formControlName="date">
+                                                required="required" formControlName="date"  [(ngModel)]="formaexternes.date">
 
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Horaire formation </label>
                                             <input type="time" class="form-control" 
-                                                required="required" formControlName="horaireforma" > 
+                                                required="required"  formControlName="horaireforma" [(ngModel)]="formaexternes.horaireforma" > 
                                         </div>
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Pause café</label>
                                             <input type="text" class="form-control" placeholder="Pause café"
-                                                required="required" formControlName="pause" >
+                                                required="required" formControlName="pause" [(ngModel)]="formaexternes.pause">
 
                                         </div>
                                     </div>
@@ -156,7 +156,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Lieu de formation</label>
                                             <input type="text" class="form-control" placeholder="Lieu"
-                                                required="required" formControlName="lieuforma" > 
+                                                required="required" formControlName="lieuforma"  [(ngModel)]="formaexternes.lieuforma"> 
                                         </div>
                                     </div>
                                 </div>
@@ -165,9 +165,9 @@
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <button class="btn btn-primary m-5" type="submit" >Ajouter</button>
-                                        <button class="btn btn-primary m-5" type="submit" >GET</button>
-                                        <button class="btn btn-primary m-5" type="submit" >edit</button>
+                                        
+                                        <button class="btn btn-primary m-5" type="submit"   (click)="editforma()">edit</button>
+                                        
 
                                     </div>
                                 </div>

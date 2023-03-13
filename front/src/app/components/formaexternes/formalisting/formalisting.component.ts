@@ -50,10 +50,5 @@ export class FormalistingComponent implements OnInit {
     })
   }
 
-  editforma(){
-
-    this.dataService.post('formaexternes/editFormaexterne.json?id='+this._id,this.externeForm.value).subscribe(res=> {
-    this.router.navigate(['/listingforma'])
-    })
-  }
+  
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/service/data.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./editforma.component.scss']
 })
 export class EditformaComponent implements OnInit {
+ public formaexternes ;
+ id: any;
 
   public externeForm = new FormGroup({
     typecomp: new FormControl('', [Validators.required]),
@@ -30,33 +32,41 @@ export class EditformaComponent implements OnInit {
   });
 
 
-  //[(ngModel)]="agent[0].user.name"
   
-  id: any;
-  route: any;
+  
+ 
+  
+
   
   
   constructor(
     private dataService:DataService,
-    private router :Router
+    private router :Router,
+    private route:ActivatedRoute
     
   ) { }
-
+  
   ngOnInit(): void {
+    this.getformaById();
+
   }
 
- /*  getformaByAgentId() {
-    this.id=this.router.snapshot.params['id'];
-    this.dataService.get('parkings/getParkingByAgentId.json?id='+this.id).subscribe(
+   getformaById() {
+    this.id=this.route.snapshot.params['id'];
+    this.dataService.get('formaexternes/getFormaexternes.json?id='+this.id).subscribe(
       res => {
-      this.externeForm=res.data;
+      this.formaexternes=res.data;
+      console.log("hello",this.formaexternes)
+
+      
     })
-  }*/
+  }
 
   editforma(){
-
+      
     this.dataService.post('formaexternes/editFormaexterne.json?id='+this.id,this.externeForm.value).subscribe(res=> {
-    this.route.navigate(['/editforma'])
+      console.log("hello",this.externeForm.value)
+    this.router.navigate(['/listingforma'])
     })
   }
 

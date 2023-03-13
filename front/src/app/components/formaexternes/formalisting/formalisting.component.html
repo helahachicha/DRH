@@ -1,9 +1,24 @@
+
+    
+        
+<header >
+       <div class="position-relative">
+        <div class="position-relative  ">
+            <button class="btn text-primary" type="button">Formation Externe</button>
+        </div>
+        <div class="position-absolute top-0 end-0">
+            <button class="btn btn-primary " type="button" routerLink="/">déconnecter</button>
+        </div>
+        </div>
+    </header>
+
+
 <div class="container mt-5">
     <div class="row header " style="text-align:center">
     <h3>Table formation externe</h3>
     </div>
-    <div class=" mx-auto">
-    <table  class="  table  table-responsive card-1 p-4  rounded border mt-5 ">
+    <div class=" table-responsive ">
+    <table  class="  table table-bordered ">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -23,6 +38,7 @@
                     <th scope="col">Horaire formation</th>
                     <th scope="col">Pause café</th>
                     <th scope="col" >Lieu de formation</th>
+                    <th scope="col" >Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,7 +60,11 @@
                     <td>{{formationex.horaireforma}}</td>
                     <td>{{formationex.pause}}</td>
                     <td>{{formationex.lieuforma}}</td>
-                    
+                    <td>
+                        <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                        <button type="button" class="btn btn-success" routerLink="/editforma/{{formationex.id}}"><i class="fas fa-edit">Edit</i></button>
+                      
+                      </td>
                 </tr>
                 
                 
@@ -54,7 +74,7 @@
         <div class="col-md-12">
 
             <button class="btn btn-primary m-5" type="submit" (click)="getallforma()">GETALL</button>
-            <button class="btn btn-primary m-5" type="submit" (click)="editforma()">edit</button>
+            
 
         </div>
         

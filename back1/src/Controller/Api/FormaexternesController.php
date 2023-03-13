@@ -183,7 +183,6 @@ class FormaexternesController extends AppController
      public function getFormaexterne(){
  
          $id = $this->request->getQuery('id');
-
          /* search */
          if(1==1){
              if (!isset($id) or empty($id) or $id == null ){
@@ -204,29 +203,21 @@ class FormaexternesController extends AppController
  
          $formaexterne = $this->Formaexternes->find('all', [
              'conditions'=>[
-                 'id'=>$id,
+                 'id IS'=>$id,
              ],
             
          ])->first();
+        // debug($formaexterne);die;
+
+         if(empty($formaexterne)){
+             throw new UnauthorizedException('Formaexterne not found');
+         }
  
          /*send result */
-         
-         if(empty($formaexterne)){
-            $this->set([
-                'failed' => true,
-                'data' =>  "Formaexterne not found",
-                '_serialize' => ['failed', 'data']
-            ]);
-         }
-         if(!empty($formaexterne)){
-            $this->set([
+         $this->set([
              'success' => true,
              'data' => $formaexterne,
              '_serialize' => ['success', 'data']
-            ]);
-         }
- 
- 
-        
+         ]);
      }
 }
