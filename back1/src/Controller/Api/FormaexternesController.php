@@ -185,21 +185,16 @@ class FormaexternesController extends AppController
          $id = $this->request->getQuery('id');
          /* search */
          if(1==1){
+
              if (!isset($id) or empty($id) or $id == null ){
-                $this->set([
-                    'success' => true,
-                    'data' =>  "Id is Required",
-                    '_serialize' => ['success', 'data']
-                ]);
+             throw new UnauthorizedException('Id is Required');
              }
+
              if(!is_numeric($id)){
-                $this->set([
-                    'failed' => true,
-                    'data' =>  "Id is not Valid",
-                    '_serialize' => ['failed', 'data']
-                ]);
+             throw new UnauthorizedException('Id is not Valid');
              }
          }
+
  
          $formaexterne = $this->Formaexternes->find('all', [
              'conditions'=>[
@@ -207,7 +202,7 @@ class FormaexternesController extends AppController
              ],
             
          ])->first();
-        // debug($formaexterne);die;
+            debug($formaexterne);die;
 
          if(empty($formaexterne)){
              throw new UnauthorizedException('Formaexterne not found');
