@@ -145,7 +145,7 @@ class FormaexternesController extends AppController
          /*send result */
         $this->set([
             'success' => true,
-            'data' =>  "Added with success",
+            'data' =>  "Updated with success",
             '_serialize' => ['success', 'data']
         ]);
     
@@ -201,7 +201,7 @@ class FormaexternesController extends AppController
              ],
             
          ])->first();
-            debug($formaexterne);die;
+           // debug($formaexterne);die;
 
          if(empty($formaexterne)){
              throw new UnauthorizedException('Formaexterne not found');
