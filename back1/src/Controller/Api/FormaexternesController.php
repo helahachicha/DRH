@@ -180,17 +180,25 @@ class FormaexternesController extends AppController
       *
       * @Output: data
       */
-     public function getFormaexternes(){
+     public function getFormaexterne(){
  
          $id = $this->request->getQuery('id');
 
          /* search */
          if(1==1){
              if (!isset($id) or empty($id) or $id == null ){
-                 throw new UnauthorizedException('Id is Required');
+                $this->set([
+                    'success' => true,
+                    'data' =>  "Id is Required",
+                    '_serialize' => ['success', 'data']
+                ]);
              }
              if(!is_numeric($id)){
-                 throw new UnauthorizedException('Id is not Valid');
+                $this->set([
+                    'failed' => true,
+                    'data' =>  "Id is not Valid",
+                    '_serialize' => ['failed', 'data']
+                ]);
              }
          }
  
@@ -201,15 +209,24 @@ class FormaexternesController extends AppController
             
          ])->first();
  
-         if(empty($formaexternes)){
-             throw new UnauthorizedException('Formaexterne not found');
+         /*send result */
+         
+         if(empty($formaexterne)){
+            $this->set([
+                'failed' => true,
+                'data' =>  "Formaexterne not found",
+                '_serialize' => ['failed', 'data']
+            ]);
+         }
+         if(!empty($formaexterne)){
+            $this->set([
+             'success' => true,
+             'data' => $formaexterne,
+             '_serialize' => ['success', 'data']
+            ]);
          }
  
-         /*send result */
-         $this->set([
-             'success' => true,
-             'data' => $formaexternes,
-             '_serialize' => ['success', 'data']
-         ]);
+ 
+        
      }
 }

@@ -32,15 +32,15 @@ class CoutformaexternesController extends AppController
 
         /* format data */
         if (1 == 1) {
-            //$querry=$this->request->getData();
-            //$data=json_decode($querry['data']); 
-            $data=$this->request->getData();
-           debug($data);die;
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
 
         }
          /* create coutformaexternes entity */
         if (1==1){
-            $coutformaexternes = $this->coutformaexternes->newEmptyEntity();
+            $coutformaexternes = $this->Coutformaexternes->newEmptyEntity();
             $coutformaexternes->coutformahd=$data->coutformahd;  
             $coutformaexternes->tocoformadt=$data->tocoformadt;  
             $coutformaexternes->locaespace=$data->locaespace;  
@@ -77,26 +77,32 @@ class CoutformaexternesController extends AppController
     public function editCoutformaexterne(){
         
         $this->request->allowMethod(['post', 'put']);
+        $id=$this->request->getQuery('id');
+        $coutformaexterne = $this->Coutformaexternes->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
 
         /* format data */
         if (1 == 1) {
             //$querry=$this->request->getData();
             //$data=json_decode($querry['data']); 
             $data=$this->request->getData();
-            debug($data);die;
-
+            $this->set([
+                'data' => $data,
+            ]);
         }
-        $id=$this->request->getQuery('id');
-        $coutformaexternes=$this->Coutformaexternes->get($id);
          /* create coutformaexternes entity */
         if (1==1){
-            $coutformaexternes = $this->coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto; 
+            $coutformaexternes = $this->Coutformaexternes->newEmptyEntity();
+            $coutformaexternes->coutformahd=$data["coutformahd"];  
+            $coutformaexternes->tocoformadt=$data["tocoformadt"];  
+            $coutformaexternes->locaespace=$data["locaespace"];  
+            $coutformaexternes->comax=$data["comax"];  
+            $coutformaexternes->tocout=$data["tocout"];  
+            $coutformaexternes->chargeto=$data["chargeto"]; 
 
             $this->Coutformaexternes->save($coutformaexternes); 
         }
@@ -121,7 +127,7 @@ class CoutformaexternesController extends AppController
     {
 
         /* search */
-        $coutformaexternes = $this-Coutformaexternes->find('all');
+        $coutformaexternes = $this->Coutformaexternes->find('all');
  
         /*send result */
         $this->set([
@@ -138,17 +144,25 @@ class CoutformaexternesController extends AppController
       *
       * @Output: data
       */
-     public function getCoutformaexternes(){
+     public function getCoutformaexterne(){
  
          $id = $this->request->getQuery('id');
          
          /* search */
          if(1==1){
              if (!isset($id) or empty($id) or $id == null ){
-                 throw new UnauthorizedException('Id is Required');
+                $this->set([
+                    'success' => true,
+                    'data' =>  "Id is Required",
+                    '_serialize' => ['success', 'data']
+                ]);
              }
              if(!is_numeric($id)){
-                 throw new UnauthorizedException('Id is not Valid');
+                $this->set([
+                    'failed' => true,
+                    'data' =>  "Id is not Valid",
+                    '_serialize' => ['failed', 'data']
+                ]);
              }
          }
  
@@ -159,15 +173,43 @@ class CoutformaexternesController extends AppController
             
          ])->first();
  
-         if(empty($coutformaexternes)){
-             throw new UnauthorizedException('Coutformaexterne not found');
-         }
- 
          /*send result */
-         $this->set([
+
+         if(empty($coutformaexterne)){
+            $this->set([
+                'failed' => true,
+                'data' =>  "Coutformaexterne not found",
+                '_serialize' => ['failed', 'data']
+            ]);
+         }
+
+         if(!empty($coutformaexterne)){
+            $this->set([
              'success' => true,
-             'data' => $coutformaexternes,
+             'data' => $coutformaexterne,
              '_serialize' => ['success', 'data']
-         ]);
+            ]);
+         }
+     }
+
+
+     public function deleteCoutformaexterne(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        $coutformaexternes = $this->Coutformaexternes->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+        if ($this->Coutformaexternes->delete($coutformaexternes)){
+            $this->set([
+                'success' => true,
+                '_serialize' => ['success']
+            ]);
+        }
      }
 }
