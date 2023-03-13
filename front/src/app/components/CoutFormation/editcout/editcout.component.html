@@ -1,0 +1,110 @@
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class=" text-center mt-5 ">
+
+        <h1>Cout Formation Externe</h1>
+
+
+    </div>
+
+
+    <div class="row ">
+        <div class="col-lg-10 mx-auto">
+            <div class="card mt-2 mx-auto p-4 bg-light">
+                <div class="card-body bg-light">
+
+                    <div class="container">
+                        <form id="contact-form" role="form" [formGroup]="coutForm">
+
+
+
+                            <div class="controls">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Cout formateur/h en DT</label>
+                                            <input type="text" class="form-control" placeholder="Cout formateur"
+                                                required="required" formControlName="coutformahd">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="form_label">Total cout formateur en DT</label>
+                                            <input type="number" class="form-control" placeholder="Total cout"
+                                                required="required" formControlName="tocoformadt">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="form_label">Location Espace</label>
+                                            <input type="text" class="form-control" placeholder="Location"
+                                                required="required" formControlName="locaespace">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="form_label">Cout max (Salé+Sucré)</label>
+                                            <input type="number" class="form-control" placeholder="0"
+                                                required="required" formControlName="comax">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="form_label">Total cout</label>
+                                            <input type="number" class="form-control" placeholder="Total cout"
+                                                required="required" formControlName="tocout">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="form_label">Charge Total </label>
+                                            <input type="text" class="form-control" placeholder="charge total"
+                                                required="required" formControlName="chargeto" >
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <button class="btn btn-primary m-5" type="submit" >Ajouter</button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.8 -->
+
+        </div>
+        <!-- /.row-->
+
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/service/auth.service';
 import { DataService } from 'src/app/shared/service/data.service';
 
 @Component({
-  selector: 'app-getforma',
-  templateUrl: './getforma.component.html',
-  styleUrls: ['./getforma.component.scss']
+  selector: 'app-formalisting',
+  templateUrl: './formalisting.component.html',
+  styleUrls: ['./formalisting.component.scss']
 })
-export class GetformaComponent implements OnInit {
-
-  public externeForm = new FormControl({
-    email: new FormControl('', [Validators.required]),
+export class FormalistingComponent implements OnInit {
+  
+  
+  public externeForm = new FormGroup({
+    typecomp: new FormControl('', [Validators.required]),
     themforma: new FormControl('', [Validators.required]),
     participant: new FormControl('', [Validators.required]),
     nbparticipant: new FormControl('', [Validators.required]),
@@ -29,21 +29,31 @@ export class GetformaComponent implements OnInit {
     pause: new FormControl('', [Validators.required]),
     lieuforma: new FormControl('', [Validators.required]),
   });
-
+  private _id: string;
+  
+  
   constructor(
-    private auth: AuthService ,
     private dataService:DataService,
     private router :Router
   ) { }
-
+  formaexternes
   ngOnInit(): void {
+    this.getallforma();
   }
-  getFormaexterne() {
-    this.dataService.get('externeForm /getAllFormaexterne.json').subscribe(res => {
-      this.externeForm  = res.data;
-      //this.open=true
+
+
+  getallforma() {
+    this.dataService.get('formaexternes/getAllFormaexterne.json').subscribe(res => {
+      this.formaexternes = res.data;
+      
 
     })
   }
 
+  editforma(){
+
+    this.dataService.post('formaexternes/editFormaexterne.json?id='+this._id,this.externeForm.value).subscribe(res=> {
+    this.router.navigate(['/listingforma'])
+    })
+  }
 }

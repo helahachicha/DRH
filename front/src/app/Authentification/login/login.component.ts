@@ -28,24 +28,16 @@ export class LoginComponent implements OnInit {
 
   }
   submit() {
-   console.log(this.userForm.value) 
-    if (this.userForm.invalid) {
-      this.error = "Username and Password not valid !";
-      return;
-    } else {
+  
        this.dataService.post('users/login.json',this.userForm.value).subscribe(
-         data => this.handleResponse(data.data),
-         error => this.handleError(error))
-    }
+         data => this.handleResponse(data.data)
+    
 
-  }
+ ) }
   handleResponse(data) {
     this.auth.login(data.token);
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/addforma']);
   }
-  handleError(error) {
-    this.error = error.originalError.error.message;
-    console.log( error)
-  }
+
 
 }

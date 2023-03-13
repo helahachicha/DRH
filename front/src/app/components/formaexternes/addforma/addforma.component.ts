@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/service/auth.service';
+
 import { DataService } from 'src/app/shared/service/data.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class AddformaComponent implements OnInit {
   
   public externeForm = new FormGroup({
-    email: new FormControl('', [Validators.required]),
+    typecomp: new FormControl('', [Validators.required]),
     themforma: new FormControl('', [Validators.required]),
     participant: new FormControl('', [Validators.required]),
     nbparticipant: new FormControl('', [Validators.required]),
@@ -29,10 +29,13 @@ export class AddformaComponent implements OnInit {
     pause: new FormControl('', [Validators.required]),
     lieuforma: new FormControl('', [Validators.required]),
   });
+  
   constructor(
-    private auth: AuthService ,
+    
     private dataService:DataService,
     private router :Router
+
+    
   
   )
   {}
@@ -41,8 +44,10 @@ export class AddformaComponent implements OnInit {
   }
 
   submit() {
-    this.dataService.post('externeForm/addFormaexterne.json',this.externeForm.value).subscribe(res=> {
-      this.router.navigate(['/list-agents'])
+    //console.log("hello",this.externeForm.value)
+
+    this.dataService.post('formaexternes/addFormaexterne.json',this.externeForm.value).subscribe(res=> {
+      this.router.navigate(['/addforma'])
       })
    }
   

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GetformaComponent } from './getforma.component';
+import { CoutlistingComponent } from './coutlisting.component';
 
-describe('GetformaComponent', () => {
-  let component: GetformaComponent;
-  let fixture: ComponentFixture<GetformaComponent>;
+describe('CoutlistingComponent', () => {
+  let component: CoutlistingComponent;
+  let fixture: ComponentFixture<CoutlistingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GetformaComponent ]
+      declarations: [ CoutlistingComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GetformaComponent);
+    fixture = TestBed.createComponent(CoutlistingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

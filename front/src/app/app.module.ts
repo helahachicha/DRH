@@ -13,7 +13,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { AddformaComponent } from './components/formaexternes/addforma/addforma.component';
 import { ForgetpasswordComponent } from './Authentification/forgetpassword/forgetpassword.component';
-import { GetformaComponent } from './components/formaexternes/getforma/getforma.component';
+
+import { AddcoutComponent } from './components/CoutFormation/addcout/addcout.component';
+
+import { FormalistingComponent } from './components/formaexternes/formalisting/formalisting.component';
+import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.component';
+import { CoutlistingComponent } from './components/CoutFormation/coutlisting/coutlisting.component';
 import { EditformaComponent } from './components/formaexternes/editforma/editforma.component';
 
 
@@ -28,7 +33,12 @@ import { EditformaComponent } from './components/formaexternes/editforma/editfor
     FooterComponent,
     AddformaComponent,
     ForgetpasswordComponent,
-    GetformaComponent,
+   
+    AddcoutComponent,
+    
+    FormalistingComponent,
+    EditcoutComponent,
+    CoutlistingComponent,
     EditformaComponent,
     
    
