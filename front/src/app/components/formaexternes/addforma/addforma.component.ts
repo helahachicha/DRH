@@ -47,7 +47,7 @@ export class AddformaComponent implements OnInit {
     //console.log("hello",this.externeForm.value)
 
     this.dataService.post('formaexternes/addFormaexterne.json',this.externeForm.value).subscribe(res=> {
-      this.router.navigate(['/addforma'])
+      this.router.navigate(['/listingforma'])
       })
    }
   

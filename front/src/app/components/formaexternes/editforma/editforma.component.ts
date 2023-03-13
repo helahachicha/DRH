@@ -53,7 +53,7 @@ export class EditformaComponent implements OnInit {
 
    getformaById() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('formaexternes/getFormaexternes.json?id='+this.id).subscribe(
+    this.dataService.get('formaexternes/getFormaexterne.json?id='+this.id).subscribe(
       res => {
       this.formaexternes=res.data;
       console.log("hello",this.formaexternes)
