@@ -41,16 +41,17 @@ class CoutformaexternesController extends AppController
          /* create coutformaexternes entity */
         if (1==1){
             $coutformaexternes = $this->coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data["coutformahd"];  
-            $coutformaexternes->tocoformadt=$data["tocoformadt"];  
-            $coutformaexternes->locaespace=$data["locaespace"];  
-            $coutformaexternes->comax=$data["comax"];  
-            $coutformaexternes->tocout=$data["tocout"];  
-            $coutformaexternes->chargeto=$data["chargeto"];   
+            $coutformaexternes->coutformahd=$data->coutformahd;  
+            $coutformaexternes->tocoformadt=$data->tocoformadt;  
+            $coutformaexternes->locaespace=$data->locaespace;  
+            $coutformaexternes->comax=$data->comax;  
+            $coutformaexternes->tocout=$data->tocout;  
+            $coutformaexternes->chargeto=$data->chargeto;   
 
             $this->Coutformaexternes->save($coutformaexternes); 
         }
        
+         /*send result */
         $this->set([
             'success' => true,
             'data' =>  "Added with success",
@@ -90,16 +91,16 @@ class CoutformaexternesController extends AppController
          /* create coutformaexternes entity */
         if (1==1){
             $coutformaexternes = $this->coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data["coutformahd"];  
-            $coutformaexternes->tocoformadt=$data["tocoformadt"];  
-            $coutformaexternes->locaespace=$data["locaespace"];  
-            $coutformaexternes->comax=$data["comax"];  
-            $coutformaexternes->tocout=$data["tocout"];  
-            $coutformaexternes->chargeto=$data["chargeto"]; 
+            $coutformaexternes->coutformahd=$data->coutformahd;  
+            $coutformaexternes->tocoformadt=$data->tocoformadt;  
+            $coutformaexternes->locaespace=$data->locaespace;  
+            $coutformaexternes->comax=$data->comax;  
+            $coutformaexternes->tocout=$data->tocout;  
+            $coutformaexternes->chargeto=$data->chargeto; 
 
             $this->Coutformaexternes->save($coutformaexternes); 
         }
-       
+        /*send result */
         $this->set([
             'success' => true,
             'data' =>  "Added with success",
@@ -141,6 +142,7 @@ class CoutformaexternesController extends AppController
  
          $id = $this->request->getQuery('id');
          
+         /* search */
          if(1==1){
              if (!isset($id) or empty($id) or $id == null ){
                  throw new UnauthorizedException('Id is Required');
@@ -161,6 +163,7 @@ class CoutformaexternesController extends AppController
              throw new UnauthorizedException('Coutformaexterne not found');
          }
  
+         /*send result */
          $this->set([
              'success' => true,
              'data' => $coutformaexternes,
