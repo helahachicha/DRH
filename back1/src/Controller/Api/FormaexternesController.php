@@ -120,22 +120,22 @@ class FormaexternesController extends AppController
          /* create formaexternes entity */
         if (1==1){
             $formaexternes = $this->Formaexternes->newEmptyEntity();
-            $formaexternes->typecomp=$data->typecomp;  
-            $formaexternes->themforma=$data->themforma;  
-            $formaexternes->participant=$data->participant;  
-            $formaexternes->nbparticipant=$data->nbparticipant;  
-            $formaexternes->raisonforma=$data->raisonforma ;  
-            $formaexternes->organismeforma=$data->organismeforma ;  
-            $formaexternes->formalite=$data->formalite ;  
-            $formaexternes->formateur=$data->formateur;  
-            $formaexternes->raisonchoix=$data->raisonchoix ;  
-            $formaexternes->dureeforma=$data->dureeforma;  
-            $formaexternes->nbjour=$data->nbjour;  
-            $formaexternes->nbhjour=$data->nbhjour;  
-            $formaexternes->date=$data->date;  
-            $formaexternes->horaireforma=$data->horaireforma;  
-            $formaexternes->pause=$data->pause ;  
-            $formaexternes->lieuforma=$data->lieuforma;  
+            $formaexternes->typecomp=$data["typecomp"];  
+            $formaexternes->themforma=$data["themforma"];  
+            $formaexternes->participant=$data["participant"];  
+            $formaexternes->nbparticipant=$data["nbparticipant"];  
+            $formaexternes->raisonforma=$data["raisonforma"] ;  
+            $formaexternes->organismeforma=$data["organismeforma"] ;  
+            $formaexternes->formalite=$data["formalite"] ;  
+            $formaexternes->formateur=$data["formateur"];  
+            $formaexternes->raisonchoix=$data["raisonchoix"] ;  
+            $formaexternes->dureeforma=$data["dureeforma"];  
+            $formaexternes->nbjour=$data["nbjour"];  
+            $formaexternes->nbhjour=$data["nbhjour"];  
+            $formaexternes->date=$data["date"];  
+            $formaexternes->horaireforma=$data["horaireforma"];  
+            $formaexternes->pause=$data["pause"] ;  
+            $formaexternes->lieuforma=$data["lieuforma"];  
 
             $this->Formaexternes->save($formaexternes); 
         }
@@ -181,21 +181,8 @@ class FormaexternesController extends AppController
  
          $id = $this->request->getQuery('id');
          
-         if(1==1){
-             if (!isset($id) or empty($id) or $id == null ){
-                 throw new UnauthorizedException('Id is Required');
-             }
-             if(!is_numeric($id)){
-                 throw new UnauthorizedException('Id is not Valid');
-             }
-         }
- 
-         $formaexterne = $this->Formaexternes->find('all', [
-             'conditions'=>[
-                 'id'=>$id,
-             ],
-            
-         ])->first();
+         
+         $formaexterne = $this->Formaexternes->get($id );
  
          if(empty($formaexternes)){
              throw new UnauthorizedException('Formaexterne not found');
