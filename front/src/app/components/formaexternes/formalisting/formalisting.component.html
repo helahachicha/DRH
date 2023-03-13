@@ -17,6 +17,8 @@
     <div class="row header " style="text-align:center">
     <h3>Table formation externe</h3>
     </div>
+    <button type="button" class="btn btn-primary" routerLink="/addforma/"><i class="far fa-add"></i>Add</button>
+
     <div class=" table-responsive ">
     <table  class="  table table-bordered ">
             <thead>
@@ -61,7 +63,6 @@
                     <td>{{formationex.pause}}</td>
                     <td>{{formationex.lieuforma}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
                         <button type="button" class="btn btn-success" routerLink="/editforma/{{formationex.id}}"><i class="fas fa-edit">Edit</i></button>
                       
                       </td>
