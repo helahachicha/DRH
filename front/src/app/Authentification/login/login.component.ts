@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
  ) }
   handleResponse(data) {
     this.auth.login(data.token);
-    this.router.navigate(['/addforma']);
+    this.router.navigate(['/listingforma']);
   }
 
 

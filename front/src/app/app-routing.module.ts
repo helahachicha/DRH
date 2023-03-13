@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'addforma', component: AddformaComponent },
   { path: 'forgetpass', component: ForgetpasswordComponent },
-  { path: 'editforma', component: EditformaComponent},
+  { path: 'editforma/:id', component: EditformaComponent},
   { path: 'listingforma', component: FormalistingComponent },
   { path: 'addcout', component: AddcoutComponent},
   
