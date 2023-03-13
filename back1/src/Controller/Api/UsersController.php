@@ -25,15 +25,15 @@ class UsersController extends AppController
 
      /* format data */
      if (1 == 1) {
-        // $querry=$this->request->getData();
-        // $data=json_decode($querry['data']); 
-       $data=$this->request->getData();
+        $querry=$this->request->getData();
+        $data=json_decode($querry['data']); 
+       //$data=$this->request->getData();
 
     }
 
         /* vérifier l'existance des données */
         if (1 == 1) {
-            if ((!isset($data["email"]) or !$this->issetVerification($data["email"])) or (!isset($data["password"]) or !$this->issetVerification($data["password"]))) {
+            if ((!isset($data->email) or !$this->issetVerification($data->email)) or (!isset($data->password) or !$this->issetVerification($data->password))) {
                 throw new UnauthorizedException("Veuillez vérifier votre email ou votre mot de passe.");
             }
         }
@@ -44,7 +44,7 @@ class UsersController extends AppController
             /* try to find the user */
             $user = $this->Users->find('all', [
                 'conditions' => [
-                    'email' => $data["email"],
+                    'email' => $data->email,
                 ],
                 'contain'=> [
                     'Roles'
@@ -60,7 +60,7 @@ class UsersController extends AppController
 
         /* vérifier la mot de passe */
         if (1 == 1) {
-            $postedPassword = $data["password"];
+            $postedPassword = $data->password;
             $userPassword = $user->password;
 
             /* verify password matching */
