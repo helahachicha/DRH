@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 <div class="container">
     <div class=" text-center mt-5 ">
 
@@ -32,8 +24,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="form-label">Cout formateur/h en DT</label>
-                                            <input type="text" class="form-control" placeholder="Cout formateur"
-                                                required="required" formControlName="coutformahd">
+                                            <input type="number" class="form-control" placeholder="Cout formateur"
+                                                required="required" formControlName="coutformahd" [(ngModel)]="coutformaexternes.coutformahd">
 
                                         </div>
                                     </div>
@@ -41,7 +33,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Total cout formateur en DT</label>
                                             <input type="number" class="form-control" placeholder="Total cout"
-                                                required="required" formControlName="tocoformadt">
+                                                required="required" formControlName="tocoformadt" [(ngModel)]="coutformaexternes.tocoformadt">
                                         </div>
                                     </div>
                                 </div>
@@ -49,8 +41,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_label">Location Espace</label>
-                                            <input type="text" class="form-control" placeholder="Location"
-                                                required="required" formControlName="locaespace">
+                                            <input type="number" class="form-control" placeholder="Location"
+                                                required="required" formControlName="locaespace" [(ngModel)]="coutformaexternes.locaespace">
 
                                         </div>
                                     </div>
@@ -58,7 +50,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Cout max (Salé+Sucré)</label>
                                             <input type="number" class="form-control" placeholder="0"
-                                                required="required" formControlName="comax">
+                                                required="required" formControlName="comax" [(ngModel)]="coutformaexternes.comax">
                                         </div>
                                     </div>
                                 </div>
@@ -67,15 +59,15 @@
                                         <div class="form-group">
                                             <label for="form_label">Total cout</label>
                                             <input type="number" class="form-control" placeholder="Total cout"
-                                                required="required" formControlName="tocout">
+                                                required="required" formControlName="tocout" [(ngModel)]="coutformaexternes.tocout">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_label">Charge Total </label>
-                                            <input type="text" class="form-control" placeholder="charge total"
-                                                required="required" formControlName="chargeto" >
+                                            <input type="number" class="form-control" placeholder="charge total"
+                                                required="required" formControlName="chargeto" [(ngModel)]="coutformaexternes.chargeto">
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +75,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <button class="btn btn-primary m-5" type="submit" >Ajouter</button>
+                                        <button class="btn btn-primary m-5" type="submit"   (click)="editcout()">Edit</button>
 
                                     </div>
                                 </div>

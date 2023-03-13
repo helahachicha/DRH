@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ForgetpasswordComponent } from './Authentification/forgetpassword/forgetpassword.component';
 import { LoginComponent } from './Authentification/login/login.component';
 import { AddcoutComponent } from './components/CoutFormation/addcout/addcout.component';
+import { CoutlistingComponent } from './components/CoutFormation/coutlisting/coutlisting.component';
+import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.component';
 import { AddformaComponent } from './components/formaexternes/addforma/addforma.component';
 import { EditformaComponent } from './components/formaexternes/editforma/editforma.component';
 import { FormalistingComponent } from './components/formaexternes/formalisting/formalisting.component';
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'editforma/:id', component: EditformaComponent},
   { path: 'listingforma', component: FormalistingComponent },
   { path: 'addcout', component: AddcoutComponent},
+  { path: 'coutlisting', component: CoutlistingComponent},
+  { path: 'editcout/:id', component: EditcoutComponent},
   
 
 ];

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 12 mars 2023 à 00:58
+-- Généré le : lun. 13 mars 2023 à 22:25
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -39,6 +39,13 @@ CREATE TABLE `coutformaexternes` (
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `coutformaexternes`
+--
+
+INSERT INTO `coutformaexternes` (`id`, `coutformahd`, `tocoformadt`, `locaespace`, `comax`, `tocout`, `chargeto`, `created`, `modified`) VALUES
+(1, 42, 42, 7, 0, 0, 0, '2023-03-13 17:26:37', '2023-03-13 17:26:37');
+
 -- --------------------------------------------------------
 
 --
@@ -66,6 +73,33 @@ CREATE TABLE `formaexternes` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `formaexternes`
+--
+
+INSERT INTO `formaexternes` (`id`, `typecomp`, `themforma`, `participant`, `nbparticipant`, `raisonforma`, `organismeforma`, `formalite`, `formateur`, `raisonchoix`, `dureeforma`, `nbjour`, `nbhjour`, `date`, `horaireforma`, `pause`, `lieuforma`, `created`, `modified`) VALUES
+(1, '', '', '', 0, '', '', '', '', '', '', 0, 0, '0000-00-00 00:00:00', '', '', '', '2023-03-12 20:17:51', '2023-03-13 15:34:25'),
+(2, 'test', 'test', 'test', 22, 'test', 'test', 'test', 'test', 'test', 'test', 6, 8, '2023-03-13 13:46:20', 'test', 'test', 'test', '2023-03-13 13:46:20', '2023-03-13 13:46:20');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `formainternes`
+--
+
+CREATE TABLE `formainternes` (
+  `id` int(11) NOT NULL,
+  `tycomp` varchar(255) NOT NULL,
+  `themforma` varchar(255) NOT NULL,
+  `animateur` varchar(255) NOT NULL,
+  `poste` varchar(255) NOT NULL,
+  `date` datetime NOT NULL,
+  `hentrer` varchar(255) NOT NULL,
+  `hsortie` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -128,6 +162,12 @@ ALTER TABLE `formaexternes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `formainternes`
+--
+ALTER TABLE `formainternes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `roles`
 --
 ALTER TABLE `roles`
@@ -147,12 +187,18 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `coutformaexternes`
 --
 ALTER TABLE `coutformaexternes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `formaexternes`
 --
 ALTER TABLE `formaexternes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `formainternes`
+--
+ALTER TABLE `formainternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

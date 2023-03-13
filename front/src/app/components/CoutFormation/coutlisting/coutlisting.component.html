@@ -1,1 +1,59 @@
-<p>coutlisting works!</p>
+
+    
+        
+<header >
+    <div class="position-relative">
+     <div class="position-relative  ">
+         <button class="btn text-primary" type="button">Formation Externe</button>
+     </div>
+     <div class="position-absolute top-0 end-0">
+         <button class="btn btn-primary " type="button" routerLink="/">déconnecter</button>
+     </div>
+     </div>
+ </header>
+
+
+<div class="container mt-5">
+ <div class="row header " style="text-align:center">
+ <h3>Table Cout Formation Externe</h3>
+ </div>
+ <button type="button" class="btn btn-primary justifier-content-start" routerLink="/addcout/"><i class="far fa-add"></i>Add</button>
+
+ <div class=" table-responsive ">
+ <table  class="  table table-bordered ">
+         <thead>
+             <tr>
+                 <th scope="col">Id</th>
+                 <th scope="col">Coût formateur / heure en DT</th>
+                 <th scope="col">Total coût formateur en DT</th>
+                 <th scope="col">Location espace</th>
+                 <th scope="col">Coût max (Salé + Sucré)</th>
+                 <th scope="col">Total coût</th>
+                 <th scope="col">Charge Total</th>
+                 <th scope="col" >Action</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr *ngFor="let coutformaex of Coutformaexternes">
+                 <td>{{coutformaex._id}}</td>
+                 <td>{{coutformaex.coutformahd}}</td>
+                 <td>{{coutformaex.tocoformadt}}</td>
+                 <td>{{coutformaex.locaespace}}</td>
+                 <td>{{coutformaex.comax}}</td>
+                 <td>{{coutformaex.tocout}}</td>
+                 <td>{{coutformaex.chargeto}}</td>
+                 <td>
+                     <button type="button" class="btn btn-success" routerLink="/editcout/{{coutformaex.id}}"><i class="fas fa-edit">Edit</i></button>
+                   
+                   </td>
+             </tr>
+             
+             
+         </tbody>
+         
+     </table>
+     
+     
+ </div>
+     </div>
+

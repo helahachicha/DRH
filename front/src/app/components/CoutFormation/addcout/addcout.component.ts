@@ -32,9 +32,9 @@ export class AddcoutComponent implements OnInit {
 
 
   submit() {
-    console.log("hello",this.coutForm.value)
+    //console.log("hello",this.coutForm.value)
     this.dataService.post('Coutformaexternes/addCoutformaexterne.json',this.coutForm.value).subscribe(res=> {
-      this.router.navigate(['/addcout'])
+      this.router.navigate(['/coutlisting'])
      
       })
    }

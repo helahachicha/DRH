@@ -9,7 +9,7 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./formalisting.component.scss']
 })
 export class FormalistingComponent implements OnInit {
-  
+  public   formaexternes
   
   public externeForm = new FormGroup({
     typecomp: new FormControl('', [Validators.required]),
@@ -36,7 +36,7 @@ export class FormalistingComponent implements OnInit {
     private dataService:DataService,
     private router :Router
   ) { }
-  formaexternes
+
   ngOnInit(): void {
     this.getallforma();
   }
