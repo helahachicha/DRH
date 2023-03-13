@@ -20,6 +20,9 @@ import { FormalistingComponent } from './components/formaexternes/formalisting/f
 import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.component';
 import { CoutlistingComponent } from './components/CoutFormation/coutlisting/coutlisting.component';
 import { EditformaComponent } from './components/formaexternes/editforma/editforma.component';
+import { AddformainterneComponent } from './components/FormationInternes/addformainterne/addformainterne.component';
+import { EditformainterneComponent } from './components/FormationInternes/editformainterne/editformainterne.component';
+import { ListingformainterneComponent } from './components/FormationInternes/listingformainterne/listingformainterne.component';
 
 
 
@@ -40,6 +43,9 @@ import { EditformaComponent } from './components/formaexternes/editforma/editfor
     EditcoutComponent,
     CoutlistingComponent,
     EditformaComponent,
+    AddformainterneComponent,
+    EditformainterneComponent,
+    ListingformainterneComponent,
     
    
   ],

@@ -1,0 +1,62 @@
+
+    
+        
+<header >
+    <div class="position-relative">
+     <div class="position-relative  ">
+         <button class="btn text-primary" type="button">Formation Externe</button>
+     </div>
+     <div class="position-absolute top-0 end-0">
+         <button class="btn btn-primary " type="button" routerLink="/">déconnecter</button>
+     </div>
+     </div>
+ </header>
+
+
+<div class="container mt-5">
+ <div class="row header " style="text-align:center">
+ <h3>Table Formation interne</h3>
+ </div>
+ <button type="button" class="btn btn-primary justifier-content-start" routerLink="/addformainterne/"><i class="far fa-add"></i>Add</button>
+
+ <div class=" table-responsive ">
+ <table  class="  table table-bordered ">
+         <thead>
+             <tr>
+                 <th scope="col">Id</th>
+                 <th scope="col">Type de compétence</th>
+                 <th scope="col">Thème de formation </th>
+                 <th scope="col">Animateur</th>
+                 <th scope="col">Poste</th>
+                 <th scope="col">Date</th>
+                 <th scope="col">Heur entrer </th>
+                 <th scope="col">Heur sortie</th>
+                 <th scope="col" >Action</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr *ngFor="let formainter of formainternes">
+                 <td>{{formainternes._id}}</td>
+                 <td>{{formainternes.tycomp}}</td>
+                 <td>{{formainternes.themforma}}</td>
+                 <td>{{formainternes.animateur}}</td>
+                 <td>{{formainternes.poste}}</td>
+                 <td>{{formainternes.date}}</td>
+                 <td>{{formainternes.hentrer}}</td>
+                 <td>{{formainternes.hsortie}}</td>
+                 <td>
+                     <button type="button" class="btn btn-success" routerLink="/editformainterne/{{formainter.id}}"><i class="fas fa-edit">Edit</i></button>
+                   
+                   </td>
+             </tr>
+             
+             
+         </tbody>
+         
+     </table>
+     
+     
+ </div>
+     </div>
+
+

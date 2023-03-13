@@ -9,7 +9,6 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./coutlisting.component.scss']
 })
 export class CoutlistingComponent implements OnInit {
-  private _id: string;
   public Coutformaexternes
 
   public coutForm = new FormGroup({

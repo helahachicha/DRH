@@ -8,6 +8,9 @@ import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.
 import { AddformaComponent } from './components/formaexternes/addforma/addforma.component';
 import { EditformaComponent } from './components/formaexternes/editforma/editforma.component';
 import { FormalistingComponent } from './components/formaexternes/formalisting/formalisting.component';
+import { AddformainterneComponent } from './components/FormationInternes/addformainterne/addformainterne.component';
+import { EditformainterneComponent } from './components/FormationInternes/editformainterne/editformainterne.component';
+import { ListingformainterneComponent } from './components/FormationInternes/listingformainterne/listingformainterne.component';
 import { HeaderComponent } from './Layout/header/header.component';
 
 const routes: Routes = [
@@ -20,6 +23,9 @@ const routes: Routes = [
   { path: 'addcout', component: AddcoutComponent},
   { path: 'coutlisting', component: CoutlistingComponent},
   { path: 'editcout/:id', component: EditcoutComponent},
+  { path: 'addformainterne', component: AddformainterneComponent},
+  { path: 'formainternelisting', component: ListingformainterneComponent},
+  { path: 'editformainterne/:id', component: EditformainterneComponent},
   
 
 ];
