@@ -11,6 +11,7 @@ import { FormalistingComponent } from './components/formaexternes/formalisting/f
 import { AddformainterneComponent } from './components/FormationInternes/addformainterne/addformainterne.component';
 import { EditformainterneComponent } from './components/FormationInternes/editformainterne/editformainterne.component';
 import { ListingformainterneComponent } from './components/FormationInternes/listingformainterne/listingformainterne.component';
+import { EditdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/editdevjunior/editdevjunior.component';
 import { ListingdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/listingdevjunior/listingdevjunior.component';
 import { HeaderComponent } from './Layout/header/header.component';
 
@@ -28,6 +29,8 @@ const routes: Routes = [
   { path: 'formainternelisting', component: ListingformainterneComponent},
   { path: 'editformainterne/:id', component: EditformainterneComponent},
   { path: 'listingdj', component: ListingdevjuniorComponent},
+  { path: 'editprofilpdj/:id', component: EditdevjuniorComponent},
+
   
 
 ];

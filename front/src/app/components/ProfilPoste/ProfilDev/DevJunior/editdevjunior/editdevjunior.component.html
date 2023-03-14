@@ -1,1 +1,211 @@
-<p>editdevjunior works!</p>
+<nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <img class="m-2" src="assets/img/djagora1.png " height="50" width="150">
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="mt-2">
+
+                    <p>Formulaire</p>
+                </li>
+
+            </ul>
+        </div>
+        <a><img class="navbar-brand" href="#" src="assets/img/profile.png" height="50" width="50"></a>
+    </div>
+</nav>
+
+
+
+
+
+
+
+<div class="border border-primary row ">
+
+    <div class="col-7 text-end">
+        <h1> Profil de Poste</h1>
+    </div>
+    <div class="col text-end mt-2 ">
+        <p>
+            Code:PR07F01<br>
+            Version:00
+        </p>
+    </div>
+</div>
+
+
+
+
+
+<body>
+    <div class="container">
+        <div class="dj1" *ngFor="let tetejunior of Idproposte">
+            <div class="row">
+                <div class="text-start mt-2">
+                    <label type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp"> {{tetejunior.majn}}</label>
+                </div>
+                <div class="text-center">
+                    <label type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp">Du: {{tetejunior.du}}</label>
+                </div>
+            </div>
+
+            <label class="m-2" type="label" required="required" formControlName="tycomp"
+            [(ngModel)]="formainternes.tycomp"> Fonction: {{tetejunior.Fonction}} </label>
+            <br>
+            <label class="m-2" type="label" required="required" formControlName="tycomp"
+            [(ngModel)]="formainternes.tycomp"> Catégorie: {{tetejunior.Categorie}} </label>
+            <br>
+            <label class="m-2" type="label" required="required" formControlName="tycomp"
+            [(ngModel)]="formainternes.tycomp">Supérieur hiérarchique: {{tetejunior.Suphier}} </label>
+            <br>
+            <label class="m-2" type="label" required="required" formControlName="tycomp"
+            [(ngModel)]="formainternes.tycomp">Supervision: {{tetejunior.Super}} </label>
+            <br>
+            <label class="m-2" type="label" required="required" formControlName="tycomp"
+            [(ngModel)]="formainternes.tycomp">Intérim: {{tetejunior.Interim}}</label>
+        </div>
+        <div class="dj2" *ngFor="let profilp of Profilposte">
+
+            <div class="shadow p-3 mb-5 bg-body rounded">
+                <div class="text-center">
+                    <h4>Profil du poste</h4>
+                    <label class="m-2" type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp"> {{profilp.ct}} </label>
+                </div>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> {{profilp.contenuct}} </label>
+
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp">{{profilp.co}}</label><br>
+                    <label class="m-2" type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp"> {{profilp.gt}}</label>
+                </div>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> Niveau visé : {{profilp.nivvisegt}} </label>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> Indicateurs de suivi : <br>{{profilp.isuivigt}} </label>
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp"> {{profilp.cc}}</label>
+                </div>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp">{{profilp.ge}} </label>
+
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp">{{profilp.au}} </label>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp">{{profilp.po}} </label>
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp"> {{profilp.ci}}</label>
+                </div>
+
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> Niveau visé : {{profilp.nivviseci}}</label>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> Indicateurs de suivi : <br> {{profilp.isuivici}}</label>
+
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp">{{profilp.tc}}</label>
+                </div>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> Niveau visé : {{profilp.nivvisetc}} </label>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> Indicateurs de suivi : <br> {{profilp.isuivitc}}</label>
+
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp">{{profilp.rp}}</label>
+                </div>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> Niveau visé : {{profilp.nivviserp}}</label>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> Indicateurs de suivi : <br>{{profilp.isuivirp}} </label>
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp">{{profilp.se}}</label>
+                </div>
+
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> Niveau visé : {{profilp.nivvisese}}</label>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> Indicateurs de suivi : <br>{{profilp.isuivise}} </label>
+            </div>
+
+            <div class="shadow p-3 mb-5 bg-body rounded">
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp">{{profilp.dr}} </label>
+                </div>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> {{profilp.contenudroit}} </label>
+
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp">{{profilp.dev}}</label>
+                </div>
+                <label class="m-2" type="label" required="required" formControlName="tycomp"
+                [(ngModel)]="formainternes.tycomp"> {{profilp.contenudev}} </label>
+
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="tycomp"
+                    [(ngModel)]="formainternes.tycomp">{{profilp.validation}} </label>
+                </div>
+                <label class="m-2" type="label"> •	La validation d’un développeur Junior doit être après passation 6 mois de l’entrée en fonction. </label>
+
+                <div class=" table-responsive ">
+                    <table class="  table table-bordered ">
+                        <thead>
+                            <tr class="text-bold">
+                                <th scope="col" ></th>
+                                <th scope="col" required="required" formControlName="tycomp"
+                                [(ngModel)]="formainternes.tycomp">Élaboration</th>
+                                <th scope="col" required="required" formControlName="tycomp"
+                                [(ngModel)]="formainternes.tycomp">Vérification</th>
+                                <th scope="col" required="required" formControlName="tycomp"
+                                [(ngModel)]="formainternes.tycomp">Approbation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td class="text-bold">Fonction</td>
+                                <td class="text-bold" required="required" formControlName="tycomp"
+                                [(ngModel)]="formainternes.tycomp">{{profilp.fonc}}</td>
+                                <td class="text-bold" required="required" formControlName="tycomp"
+                                [(ngModel)]="formainternes.tycomp">{{profilp.fonc1}}</td>
+                                <td class="text-bold" required="required" formControlName="tycomp"
+                                [(ngModel)]="formainternes.tycomp">{{profilp.fonc2}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="text-bold">Nom et Prénom</td>
+                                <td class="text-bold" required="required" formControlName="tycomp"
+                                [(ngModel)]="formainternes.tycomp">{{profilp.np}}</td>
+                                <td class="text-bold" required="required" formControlName="tycomp"
+                                [(ngModel)]="formainternes.tycomp">{{profilp.np1}}</td>
+                                <td class="text-bold" required="required" formControlName="tycomp"
+                                [(ngModel)]="formainternes.tycomp">{{profilp.np2}}</td>
+
+                            </tr>
+                            
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
