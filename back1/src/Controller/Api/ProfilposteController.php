@@ -66,6 +66,7 @@ class ProfilposteController extends AppController
      *          devoir (String) 
      *          contenudevoir (String) 
      *          validation (String) 
+     *          contenuvalid (String)
      *          fonction (String) 
      *          nompre (String) 
      *          fonction1 (String) 
@@ -122,6 +123,7 @@ class ProfilposteController extends AppController
             $profilposte->devoir=$data->devoir;  
             $profilposte->contenudevoir=$data->contenudevoir;  
             $profilposte->validation=$data->validation;  
+            $profilposte->contenuvalid=$data->contenuvalid;
             $profilposte->fonction=$data->fonction;  
             $profilposte->nompre=$data->nompre;  
             $profilposte->fonction1=$data->fonction1;  
