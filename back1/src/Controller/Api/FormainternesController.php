@@ -18,12 +18,12 @@ class FormainternesController extends AppController
      * @Input:
      *         data:
      *          tycomp (String) *Required
-     *          themforma (String) *Required
+     *          themeforma (String) *Required
      *          animateur (String) *Required
      *          poste (String) *Required
-     *          date (DateTime) *Required
-     *          hentrer (String) *Required
-     *          hsortie (String) *Required
+     *          datee (DateTime) *Required
+     *          hentrer (Time) *Required
+     *          hsortie (Time) *Required
      * 
      * @Output: data : success message
      */
@@ -43,10 +43,10 @@ class FormainternesController extends AppController
         if (1==1){
             $formainternes = $this->Formainterne->newEmptyEntity();
             $formainternes->tycomp=$data->tycomp;  
-            $formainternes->themforma=$data->themforma;  
+            $formainternes->themeforma=$data->themeforma;  
             $formainternes->animateur=$data->animateur;  
             $formainternes->poste=$data->poste;  
-            $formainternes->date=$data->date;  
+            $formainternes->datee=$data->datee;  
             $formainternes->hentrer=$data->hentrer; 
             $formainternes->hsortie=$data->hsortie;     
 
@@ -68,13 +68,12 @@ class FormainternesController extends AppController
      * @Input:
      *         data:
      *          tycomp (String) *Required
-     *          themforma (String) *Required
+     *          themeforma (String) *Required
      *          animateur (String) *Required
      *          poste (String) *Required
-     *          date (DateTime) *Required
-     *          hentrer (String) *Required
-     *          hsortie (String) *Required
-     * 
+     *          datee (DateTime) *Required
+     *          hentrer (Time) *Required
+     *          hsortie (Time) *Required
      * @Output: data : success message
      */
     public function editformainterne(){
@@ -94,10 +93,10 @@ class FormainternesController extends AppController
          /* create coutformaexternes entity */
         if (1==1){
             $formainternes->tycomp=$data->tycomp;  
-            $formainternes->themforma=$data->themforma;  
+            $formainternes->themeforma=$data->themeforma;  
             $formainternes->animateur=$data->animateur;  
             $formainternes->poste=$data->poste;  
-            $formainternes->date=$data->date;  
+            $formainternes->datee=$data->datee;  
             $formainternes->hentrer=$data->hentrer; 
             $formainternes->hsortie=$data->hsortie;  
 
