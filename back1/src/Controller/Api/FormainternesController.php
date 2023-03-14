@@ -41,7 +41,7 @@ class FormainternesController extends AppController
         }
          /* create $formainternes entity */
         if (1==1){
-            $formainternes = $this->Formainterne->newEmptyEntity();
+            $formainternes = $this->Formainternes->newEmptyEntity();
             $formainternes->tycomp=$data->tycomp;  
             $formainternes->themeforma=$data->themeforma;  
             $formainternes->animateur=$data->animateur;  
@@ -50,7 +50,7 @@ class FormainternesController extends AppController
             $formainternes->hentrer=$data->hentrer; 
             $formainternes->hsortie=$data->hsortie;     
 
-            $this->Formainterne->save($formainternes); 
+            $this->Formainternes->save($formainternes); 
         }
        
          /*send result */
