@@ -23,6 +23,8 @@ import { EditformaComponent } from './components/formaexternes/editforma/editfor
 import { AddformainterneComponent } from './components/FormationInternes/addformainterne/addformainterne.component';
 import { EditformainterneComponent } from './components/FormationInternes/editformainterne/editformainterne.component';
 import { ListingformainterneComponent } from './components/FormationInternes/listingformainterne/listingformainterne.component';
+import { EditdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/editdevjunior/editdevjunior.component';
+import { ListingdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/listingdevjunior/listingdevjunior.component';
 
 
 
@@ -46,6 +48,8 @@ import { ListingformainterneComponent } from './components/FormationInternes/lis
     AddformainterneComponent,
     EditformainterneComponent,
     ListingformainterneComponent,
+    EditdevjuniorComponent,
+    ListingdevjuniorComponent,
     
    
   ],
