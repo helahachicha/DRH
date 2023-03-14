@@ -39,39 +39,40 @@ class ProfilposteController extends AppController
      *
      * @Input:
      *         data:
-     *          ct (String) 
-     *          contenuct (String) 
-     *          co (String)
-     *          gt (int) 
-     *          nivvisegt (String) 
-     *          isuivigt (String) 
-     *          cc (String) 
-     *      	ge (String) 
-     *      	au (String) 
-     *          po (String) 
-     *          ci (int) 
-     *          nivviseci (int) 
-     *          isuivici	 (DateTime) 
-     *          tc (String) 
-     * 	        nivvisetc (String) 
-     *          isuivitc (String) 
-     *          rp (String) 
-     *          nivviserp (String) 
-     *          isuivirp (String) 
-     *          se (int) 
-     *          nivvisese (String) 
-     *          isuivise (String) 
-     *          dr (int) 
+     *          comptech (String) 
+     *          contenucomptech (String) 
+     *          comporgan (String)
+     *          gestemps (String) 
+     *          nvisegestemp (String) 
+     *          isuivigestemp (String) 
+     *          compcompor (String) 
+     *      	geek (String) 
+     *      	autod (String) 
+     *          positivite (String) 
+     *          commintera (String) 
+     *          nvisecommintera (String) 
+     *          isuivicommintera (String) 
+     *          tracoll (String) 
+     * 	        nvisetracoll (String) 
+     *          isuivitracoll (String) 
+     *          resprob (String) 
+     *          nviseresprob (String) 
+     *          isuiviresprob (String) 
+     *          servexcell (String) 
+     *          nviseservexcell (String) 
+     *          isuiviservexcell (String) 
+     *          droit (String) 
      *          contenudroit (String) 
-     *          dev (String) 
-     *          contenudev (int) 
+     *          devoir (String) 
+     *          contenudevoir (String) 
      *          validation (String) 
-     *          fonc (String) 
-     *          np (String) 
-     *          fonc1 (int) 
-     *          np1 (String) 
-     *          fonc2 (String) 
-     *          np2 (String) 
+     *          fonction (String) 
+     *          nompre (String) 
+     *          fonction1 (String) 
+     *          nompre1 (String) 
+     *          fonction2 (String) 
+     *          nompre2 (String) 
+ 
 
      *         
      *         
@@ -91,42 +92,42 @@ class ProfilposteController extends AppController
         }
         $id=$this->request->getQuery('id');
         $profilposte=$this->Profilposte->get($id);
-         /* create formaexternes entity */
+         /* create profilposte entity */
         
         if (1==1){
-            $formaexternes->ct=$data->ct;  
-            $formaexternes->contenuct=$data->contenuct;  
-            $formaexternes->co=$data->co;  
-            $formaexternes->gt=$data->gt;  
-            $formaexternes->nivvisegt=$data->nivvisegt;  
-            $formaexternes->isuivigt=$data->isuivigt;  
-            $formaexternes->cc=$data->cc;  
-            $formaexternes->ge=$data->ge;  
-            $formaexternes->au=$data->au;  
-            $formaexternes->po=$data->po;  
-            $formaexternes->ci=$data->ci;  
-            $formaexternes->nivviseci=$data->nivviseci;  
-            $formaexternes->isuivici=$data->isuivici;  
-            $formaexternes->tc=$data->tc;  
-            $formaexternes->nivvisetc=$data->nivvisetc;  
-            $formaexternes->isuivitc=$data->isuivitc;  
-            $formaexternes->rp=$data->rp;  
-            $formaexternes->nivviserp=$data->nivviserp;  
-            $formaexternes->isuivirp=$data->isuivirp;  
-            $formaexternes->se=$data->se;  
-            $formaexternes->nivvisese=$data->nivvisese;  
-            $formaexternes->isuivise=$data->isuivise;  
-            $formaexternes->dr=$data->dr;  
-            $formaexternes->contenudroit=$data->contenudroit;  
-            $formaexternes->dev=$data->dev;  
-            $formaexternes->contenudev=$data->contenudev;  
-            $formaexternes->validation=$data->validation;  
-            $formaexternes->fonc=$data->fonc;  
-            $formaexternes->np=$data->np;  
-            $formaexternes->fonc1=$data->fonc1;  
-            $formaexternes->np1=$data->np1;  
-            $formaexternes->fonc2=$data->fonc2;  
-            $formaexternes->np2=$data->np2;  
+            $profilposte->comptech=$data->comptech;  
+            $profilposte->contenucomptech=$data->contenucomptech;  
+            $profilposte->comporgan=$data->comporgan;  
+            $profilposte->gestemps=$data->gestemps;  
+            $profilposte->nvisegestemp=$data->nvisegestemp;  
+            $profilposte->isuivigestemp=$data->isuivigestemp;  
+            $profilposte->compcompor=$data->compcompor;  
+            $profilposte->geek=$data->geek;  
+            $profilposte->autod=$data->autod;  
+            $profilposte->positivite=$data->positivite;  
+            $profilposte->commintera=$data->commintera;  
+            $profilposte->nvisecommintera=$data->nvisecommintera;  
+            $profilposte->isuivicommintera=$data->isuivicommintera;  
+            $profilposte->tracoll=$data->tracoll;  
+            $profilposte->nvisetracoll=$data->nvisetracoll;  
+            $profilposte->isuivitracoll=$data->isuivitracoll;  
+            $profilposte->resprob=$data->resprob;  
+            $profilposte->nviseresprob=$data->nviseresprob;  
+            $profilposte->isuiviresprob=$data->isuiviresprob;  
+            $profilposte->servexcell=$data->servexcell;  
+            $profilposte->nviseservexcell=$data->nviseservexcell;  
+            $profilposte->isuiviservexcell=$data->isuiviservexcell;  
+            $profilposte->droit=$data->droit;  
+            $profilposte->contenudroit=$data->contenudroit;  
+            $profilposte->devoir=$data->devoir;  
+            $profilposte->contenudevoir=$data->contenudevoir;  
+            $profilposte->validation=$data->validation;  
+            $profilposte->fonction=$data->fonction;  
+            $profilposte->nompre=$data->nompre;  
+            $profilposte->fonction1=$data->fonction1;  
+            $profilposte->nompre1=$data->nompre1;  
+            $profilposte->fonction2=$data->fonction2;  
+            $profilposte->nompre2=$data->nompre2;   
 
             $this->Profilposte->save($profilposte); 
         }
