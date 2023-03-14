@@ -51,28 +51,28 @@
             <div class="row">
                 <div class="text-start mt-2">
                     <label type="label" required="required" formControlName="majn"
-                    [(ngModel)]="Idproposte.tycomp"> {{tetejunior.majn}}</label>
+                    [(ngModel)]="Idproposte.majn"> {{tetejunior.majn}}</label>
                 </div>
                 <div class="text-center">
                     <label type="label" required="required" formControlName="du"
-                    [(ngModel)]="Idproposte.tycomp">Du: {{tetejunior.du}}</label>
+                    [(ngModel)]="Idproposte.du">Du: {{tetejunior.du}}</label>
                 </div>
             </div>
 
             <label class="m-2" type="label" required="required" formControlName="Fonction"
-            [(ngModel)]="Idproposte.tycomp"> Fonction: {{tetejunior.Fonction}} </label>
+            [(ngModel)]="Idproposte.Fonction"> Fonction: {{tetejunior.Fonction}} </label>
             <br>
             <label class="m-2" type="label" required="required" formControlName="Categorie"
-            [(ngModel)]="Idproposte.tycomp"> Catégorie: {{tetejunior.Categorie}} </label>
+            [(ngModel)]="Idproposte.Categorie"> Catégorie: {{tetejunior.Categorie}} </label>
             <br>
             <label class="m-2" type="label" required="required" formControlName="Suphier"
-            [(ngModel)]="Idproposte.tycomp">Supérieur hiérarchique: {{tetejunior.Suphier}} </label>
+            [(ngModel)]="Idproposte.Suphier">Supérieur hiérarchique: {{tetejunior.Suphier}} </label>
             <br>
             <label class="m-2" type="label" required="required" formControlName="Super"
-            [(ngModel)]="Idproposte.tycomp">Supervision: {{tetejunior.Super}} </label>
+            [(ngModel)]="Idproposte.Super">Supervision: {{tetejunior.Super}} </label>
             <br>
             <label class="m-2" type="label" required="required" formControlName="Interim"
-            [(ngModel)]="Idproposte.tycomp">Intérim: {{tetejunior.Interim}}</label>
+            [(ngModel)]="Idproposte.Interim">Intérim: {{tetejunior.Interim}}</label>
         </div>
         <div class="dj2" *ngFor="let profilp of Profilposte">
 
@@ -86,118 +86,117 @@
                 [(ngModel)]="Profilposte.contenucomptech"> {{profilp.contenucomptech}} </label>
 
                 <div class="text-center">
-                    <label class="m-2" type="label" required="required" formControlName="tycomp"
-                    [(ngModel)]="Profilposte.tycomp">{{profilp.co}}</label><br>
-                    <label class="m-2" type="label" required="required" formControlName="tycomp"
-                    [(ngModel)]="Profilposte.tycomp"> {{profilp.gt}}</label>
+                    <label class="m-2" type="label" required="required" formControlName="comporgan"
+                    [(ngModel)]="Profilposte.comporgan">{{profilp.comporgan}}</label><br>
+                    <label class="m-2" type="label" required="required" formControlName="gestemps"
+                    [(ngModel)]="Profilposte.gestemps"> {{profilp.gestemps}}</label>
                 </div>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> Niveau visé : {{profilp.nivvisegt}} </label>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> Indicateurs de suivi : <br>{{profilp.isuivigt}} </label>
-                <div class="text-center">
-                    <label class="m-2" type="label" required="required" formControlName="tycomp"
-                    [(ngModel)]="Profilposte.tycomp"> {{profilp.cc}}</label>
-                </div>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp">{{profilp.ge}} </label>
+                <label class="m-2" type="label" required="required" formControlName="nvisegestemp"
+                [(ngModel)]="Profilposte.nvisegestemp"> Niveau visé : {{profilp.nvisegestemp}} </label>
 
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp">{{profilp.au}} </label>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp">{{profilp.po}} </label>
+                <label class="m-2" type="label" required="required" formControlName="isuivigestemp"
+                [(ngModel)]="Profilposte.isuivigestemp"> Indicateurs de suivi : <br>{{profilp.isuivigestemp}} </label>
                 <div class="text-center">
-                    <label class="m-2" type="label" required="required" formControlName="tycomp"
-                    [(ngModel)]="Profilposte.tycomp"> {{profilp.ci}}</label>
+                    <label class="m-2" type="label" required="required" formControlName="compcompor"
+                    [(ngModel)]="Profilposte.compcompor"> {{profilp.compcompor}}</label>
                 </div>
+                <label class="m-2" type="label" required="required" formControlName="geek"
+                [(ngModel)]="Profilposte.geek">{{profilp.geek}} </label>
 
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> Niveau visé : {{profilp.nivviseci}}</label>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> Indicateurs de suivi : <br> {{profilp.isuivici}}</label>
-
+                <label class="m-2" type="label" required="required" formControlName="autod"
+                [(ngModel)]="Profilposte.autod">{{profilp.autod}} </label>
+                <label class="m-2" type="label" required="required" formControlName="positivite"
+                [(ngModel)]="Profilposte.positivite">{{profilp.positivite}} </label>
                 <div class="text-center">
-                    <label class="m-2" type="label" required="required" formControlName="tycomp"
-                    [(ngModel)]="Profilposte.tycomp">{{profilp.tc}}</label>
-                </div>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> Niveau visé : {{profilp.nivvisetc}} </label>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> Indicateurs de suivi : <br> {{profilp.isuivitc}}</label>
-
-                <div class="text-center">
-                    <label class="m-2" type="label" required="required" formControlName="tycomp"
-                    [(ngModel)]="Profilposte.tycomp">{{profilp.rp}}</label>
-                </div>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> Niveau visé : {{profilp.nivviserp}}</label>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> Indicateurs de suivi : <br>{{profilp.isuivirp}} </label>
-                <div class="text-center">
-                    <label class="m-2" type="label" required="required" formControlName="tycomp"
-                    [(ngModel)]="Profilposte.tycomp">{{profilp.se}}</label>
+                    <label class="m-2" type="label" required="required" formControlName="commintera"
+                    [(ngModel)]="Profilposte.commintera"> {{profilp.commintera}}</label>
                 </div>
 
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> Niveau visé : {{profilp.nivvisese}}</label>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> Indicateurs de suivi : <br>{{profilp.isuivise}} </label>
+                <label class="m-2" type="label" required="required" formControlName="nvisecommintera"
+                [(ngModel)]="Profilposte.nvisecommintera"> Niveau visé : {{profilp.nvisecommintera}}</label>
+                <label class="m-2" type="label" required="required" formControlName="isuivicommintera"
+                [(ngModel)]="Profilposte.isuivicommintera"> Indicateurs de suivi : <br> {{profilp.isuivicommintera}}</label>
+
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="tracoll"
+                    [(ngModel)]="Profilposte.tracoll">{{profilp.tracoll}}</label>
+                </div>
+                <label class="m-2" type="label" required="required" formControlName="nvisetracoll"
+                [(ngModel)]="Profilposte.nvisetracoll"> Niveau visé : {{profilp.nvisetracoll}} </label>
+                <label class="m-2" type="label" required="required" formControlName="isuivitracoll"
+                [(ngModel)]="Profilposte.isuivitracoll"> Indicateurs de suivi : <br> {{profilp.isuivitracoll}}</label>
+
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="resprob"
+                    [(ngModel)]="Profilposte.resprob">{{profilp.resprob}}</label>
+                </div>
+                <label class="m-2" type="label" required="required" formControlName="nviseresprob"
+                [(ngModel)]="Profilposte.nviseresprob"> Niveau visé : {{profilp.nviseresprob}}</label>
+                <label class="m-2" type="label" required="required" formControlName="isuiviresprob"
+                [(ngModel)]="Profilposte.isuiviresprob"> Indicateurs de suivi : <br>{{profilp.isuiviresprob}} </label>
+                <div class="text-center">
+                    <label class="m-2" type="label" required="required" formControlName="servexcell"
+                    [(ngModel)]="Profilposte.servexcell">{{profilp.servexcell}}</label>
+                </div>
+
+                <label class="m-2" type="label" required="required" formControlName="nviseservexcell"
+                [(ngModel)]="Profilposte.nviseservexcell"> Niveau visé : {{profilp.nviseservexcell}}</label>
+                <label class="m-2" type="label" required="required" formControlName="isuiviservexcell"
+                [(ngModel)]="Profilposte.isuiviservexcell"> Indicateurs de suivi : <br>{{profilp.isuiviservexcell}} </label>
             </div>
 
             <div class="shadow p-3 mb-5 bg-body rounded">
                 <div class="text-center">
-                    <label class="m-2" type="label" required="required" formControlName="tycomp"
-                    [(ngModel)]="Profilposte.tycomp">{{profilp.dr}} </label>
+                    <label class="m-2" type="label" required="required" formControlName="droit"
+                    [(ngModel)]="Profilposte.droit">{{profilp.droit}} </label>
                 </div>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> {{profilp.contenudroit}} </label>
+                <label class="m-2" type="label" required="required" formControlName="contenudroit"
+                [(ngModel)]="Profilposte.contenudroit"> {{profilp.contenudroit}} </label>
 
                 <div class="text-center">
-                    <label class="m-2" type="label" required="required" formControlName="tycomp"
-                    [(ngModel)]="Profilposte.tycomp">{{profilp.dev}}</label>
+                    <label class="m-2" type="label" required="required" formControlName="devoir"
+                    [(ngModel)]="Profilposte.devoir">{{profilp.devoir}}</label>
                 </div>
-                <label class="m-2" type="label" required="required" formControlName="tycomp"
-                [(ngModel)]="Profilposte.tycomp"> {{profilp.contenudev}} </label>
+                <label class="m-2" type="label" required="required" formControlName="contenudevoir"
+                [(ngModel)]="Profilposte.contenudevoir"> {{profilp.contenudevoir}} </label>
 
                 <div class="text-center">
-                    <label class="m-2" type="label" required="required" formControlName="tycomp"
-                    [(ngModel)]="Profilposte.tycomp">{{profilp.validation}} </label>
+                    <label class="m-2" type="label" required="required" formControlName="validation"
+                    [(ngModel)]="Profilposte.validation">{{profilp.validation}} </label>
                 </div>
-                <label class="m-2" type="label"> •	La validation d’un développeur Junior doit être après passation 6 mois de l’entrée en fonction. </label>
+                <label class="m-2" type="label" required="required" formControlName="contenuvalid"
+                [(ngModel)]="Profilposte.contenuvalid"> {{profilp.contenuvalid}}  </label>
 
                 <div class=" table-responsive ">
                     <table class="  table table-bordered ">
                         <thead>
                             <tr class="text-bold">
                                 <th scope="col" ></th>
-                                <th scope="col" required="required" formControlName="tycomp"
-                                [(ngModel)]="Profilposte.tycomp">Élaboration</th>
-                                <th scope="col" required="required" formControlName="tycomp"
-                                [(ngModel)]="Profilposte.tycomp">Vérification</th>
-                                <th scope="col" required="required" formControlName="tycomp"
-                                [(ngModel)]="Profilposte.tycomp">Approbation</th>
+                                <th scope="col">Élaboration</th>
+                                <th scope="col" >Vérification</th>
+                                <th scope="col" >Approbation</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td></td>
                                 <td class="text-bold">Fonction</td>
-                                <td class="text-bold" required="required" formControlName="tycomp"
-                                [(ngModel)]="Profilposte.tycomp">{{profilp.fonc}}</td>
-                                <td class="text-bold" required="required" formControlName="tycomp"
-                                [(ngModel)]="Profilposte.tycomp">{{profilp.fonc1}}</td>
-                                <td class="text-bold" required="required" formControlName="tycomp"
-                                [(ngModel)]="Profilposte.tycomp">{{profilp.fonc2}}</td>
+                                <td class="text-bold" required="required" formControlName="fonction"
+                                [(ngModel)]="Profilposte.fonction">{{profilp.fonction}}</td>
+                                <td class="text-bold" required="required" formControlName="fonction1"
+                                [(ngModel)]="Profilposte.fonction1">{{profilp.fonction1}}</td>
+                                <td class="text-bold" required="required" formControlName="fonction2"
+                                [(ngModel)]="Profilposte.fonction2">{{profilp.fonction2}}</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td class="text-bold">Nom et Prénom</td>
-                                <td class="text-bold" required="required" formControlName="tycomp"
-                                [(ngModel)]="Profilposte.tycomp">{{profilp.np}}</td>
-                                <td class="text-bold" required="required" formControlName="tycomp"
-                                [(ngModel)]="Profilposte.tycomp">{{profilp.np1}}</td>
-                                <td class="text-bold" required="required" formControlName="tycomp"
-                                [(ngModel)]="Profilposte.tycomp">{{profilp.np2}}</td>
+                                <td class="text-bold" required="required" formControlName="nompre"
+                                [(ngModel)]="Profilposte.nompre">{{profilp.nompre}}</td>
+                                <td class="text-bold" required="required" formControlName="nompre1"
+                                [(ngModel)]="Profilposte.nompre1">{{profilp.nompre1}}</td>
+                                <td class="text-bold" required="required" formControlName="nompre2"
+                                [(ngModel)]="Profilposte.nompre2">{{profilp.nompre2}}</td>
 
                             </tr>
                             
@@ -206,6 +205,12 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="col-md-12">
+
+            <button class="btn btn-primary m-5" type="submit"
+                (click)="getallProfilP()"  (click)="editdetailFormulair()" >Edit</button>
+
         </div>
     </div>
 </body>

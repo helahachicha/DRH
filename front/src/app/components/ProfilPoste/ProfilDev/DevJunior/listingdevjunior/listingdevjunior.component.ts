@@ -53,7 +53,7 @@ export class ListingdevjuniorComponent implements OnInit {
     devoir: new FormControl('', [Validators.required]),
     contenudevoir: new FormControl('', [Validators.required]),
     validation: new FormControl('', [Validators.required]),
-    //validation: new FormControl('', [Validators.required]),
+    contenuvalid: new FormControl('', [Validators.required]),
     fonction: new FormControl('', [Validators.required]),
     nompre: new FormControl('', [Validators.required]),
     fonction1: new FormControl('', [Validators.required]),
