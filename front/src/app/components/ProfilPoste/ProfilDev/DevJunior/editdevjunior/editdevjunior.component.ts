@@ -9,7 +9,7 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./editdevjunior.component.scss']
 })
 export class EditdevjuniorComponent implements OnInit {
-test=false
+
 id :any;
    Idproposte:any={}
    Profilposte:any={};

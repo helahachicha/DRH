@@ -47,98 +47,103 @@
 
 
 <body>
-    <div class="container" *ngFor="let tetejunior of Idproposte">
+    <div class="container" *ngFor="let a of Idpropostedc">
         <div class="shadow-lg p-3 mb-5 bg-body rounded">
             <div class=" mt-2 mb-2 end-50">
-                <button type="button" class="btn btn-primary " routerLink="/editprofilpdj/{{tetejunior.id}}"><i
+                <button type="button" class="btn btn-primary " routerLink="/editprofilpdc/{{a.id}}"><i
                         class="far fa-add"></i>Edit</button>
             </div>
             <div class="dj1">
                 <div class="row">
                     <div class="text-start mt-2 ">
-                        <label type="label"> MAJ N°: {{tetejunior.majn}}</label>
+                        <label type="label"> MAJ N°: {{a.majndc}}</label>
                     </div>
                     <div class="text-center">
-                        <label type="label">Du: {{tetejunior.du}}</label>
+                        <label type="label">Du: {{a.dudc}}</label>
                     </div>
                 </div>
                 <div class="text-bold">
-                    <label class="m-2" type="label"> Fonction: {{tetejunior.Fonction}} </label>
+                    <label class="m-2" type="label"> Fonction: {{a.Fonctiondc}} </label>
                     <br>
-                    <label class="m-2" type="label"> Catégorie: {{tetejunior.Categorie}} </label>
+                    <label class="m-2" type="label"> Catégorie: {{a.categoriedc}} </label>
                     <br>
-                    <label class="m-2" type="label">Supérieur hiérarchique: {{tetejunior.Suphier}} </label>
+                    <label class="m-2" type="label">Supérieur hiérarchique: {{a.Suphierdc}} </label>
                     <br>
-                    <label class="m-2" type="label">Supervision: {{tetejunior.Super}} </label>
+                    <label class="m-2" type="label">Supervision: {{a.Superdc}} </label>
                     <br>
-                    <label class="m-2" type="label">Intérim: {{tetejunior.Interim}}</label>
+                    <label class="m-2" type="label">Intérim: {{a.interidc}}</label>
                 </div>
             </div>
 
         </div>
-        <div class="dj2" *ngFor="let profilp of Profilposte">
+        <div class="dj2" *ngFor="let p of Profilpostedc">
 
             <div class="shadow-lg p-3 mb-5 bg-body rounded">
                 <div class="text-center">
                     <h4>Profil du poste</h4>
-                    <h5 class="mt-3 mb-2"> {{profilp.comptech}} </h5>
+                    <h5 class="mt-3 mb-2"> {{p.comptechdc}} </h5>
                 </div>
-                <label class="m-2" type="label"> {{profilp.contenucomptech}} </label>
+                <label class="m-2" type="label"> {{p.contenucomptechdc}} </label>
 
                 <div class="text-center">
-                    <h5 class="mt-3 mb-2">{{profilp.comporgan}}</h5>
-                    <h6 class="mt-2"> {{profilp.gestemps}}</h6>
+                    <h5 class="mt-3 mb-2">{{p.comporgandc}}</h5>
+                    <h6 class="mt-2"> {{p.gestempsdc}}</h6>
                 </div>
-                <label class="m-2" type="label"> NIVEAU VISE : {{profilp.nvisegestemp}} </label>
-                <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br>{{profilp.isuivigestemp}} </label>
+                <label class="m-2" type="label"> NIVEAU VISE : {{p.nvisegestempdc}} </label>
+                <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br>{{p.isuivigestempdc}} </label>
                 <div class="text-center">
-                    <h5 class="m-2"> {{profilp.compcompor}}</h5>
+                    <h5 class="m-2"> {{p.compcompordc}}</h5>
                 </div>
-                <h6 class="m-2">{{profilp.geek}} </h6>
+                <h6 class="m-2">{{p.autonomiedc}} </h6>
 
-                <h6 class="m-2">{{profilp.autod}} </h6>
-                <h6 class="m-2">{{profilp.positivite}} </h6>
+                
                 <div class="text-center">
-                    <h6 class="m-2"> {{profilp.commintera}}</h6>
-                </div>
-
-                <label class="m-2" type="label"> NIVEAU VISE : {{profilp.nvisecommintera}}</label>
-                <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br> {{profilp.isuivicommintera}}</label>
-
-                <div class="text-center">
-                    <h6 class="m-2">{{profilp.tracoll}}</h6>
-                </div>
-                <label class="m-2" type="label"> NIVEAU VISE : {{profilp.nvisetracoll}} </label>
-                <label class="m-2" type="label">INDICATEURS DE SUIVI : <br> {{profilp.isuivitracoll}}</label>
-
-                <div class="text-center">
-                    <h6 class="m-2">{{profilp.resprob}}</h6>
-                </div>
-                <label class="m-2" type="label"> NIVEAU VISE : {{profilp.nviseresprob}}</label>
-                <label class="m-2" type="label"> INDICATEURS DE SUIVI :<br>{{profilp.isuiviresprob}} </label>
-                <div class="text-center">
-                    <h6 class="m-2">{{profilp.servexcell}}</h6>
+                    <h6 class="m-2"> {{p.comminteradc}}</h6>
                 </div>
 
-                <label class="m-2" type="label"> NIVEAU VISE : {{profilp.nviseservexcell}}</label>
-                <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br>{{profilp.isuiviservexcell}} </label>
+                <label class="m-2" type="label"> NIVEAU VISE : {{p.nvisecomminteradc}}</label>
+                <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br> {{p.isuivicomminteradc}}</label>
+
+                <div class="text-center">
+                    <h6 class="m-2">{{p.tracolldc}}</h6>
+                </div>
+                <label class="m-2" type="label"> NIVEAU VISE : {{p.nvisetracolldc}} </label>
+                <label class="m-2" type="label">INDICATEURS DE SUIVI : <br> {{p.isuivitracolldc}}</label>
+
+                <div class="text-center">
+                    <h6 class="m-2">{{p.resprobdc}}</h6>
+                </div>
+                <label class="m-2" type="label"> NIVEAU VISE : {{p.nviseresprobdc}}</label>
+                <label class="m-2" type="label"> INDICATEURS DE SUIVI :<br>{{p.isuiviresprobdc}} </label>
+                <div class="text-center">
+                    <h6 class="m-2">{{p.servexcelldc}}</h6>
+                </div>
+
+                <label class="m-2" type="label"> NIVEAU VISE : {{p.nviseservexcelldc}}</label>
+                <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br>{{p.isuiviservexcelldc}} </label>
+                <div class="text-center">
+                    <h6 class="m-2">{{p.raisconcepdc}}</h6>
+                </div>
+
+                <label class="m-2" type="label"> NIVEAU VISE : {{p.nviseraisconcepdc}}</label>
+                <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br>{{p.isuiviraisconcepdc}} </label>
             </div>
 
             <div class="shadow-lg p-3 mb-5 bg-body rounded">
                 <div class="text-center">
-                    <h5 class="m-2">{{profilp.droit}} </h5>
+                    <h5 class="m-2">{{p.droitdc}} </h5>
                 </div>
-                <label class="m-2" type="label"> {{profilp.contenudroit}} </label>
+                <label class="m-2" type="label"> {{p.contenudroitdc}} </label>
 
                 <div class="text-center">
-                    <h5 class="m-2">{{profilp.devoir}}</h5>
+                    <h5 class="m-2">{{p.devoirdc}}</h5>
                 </div>
-                <label class="m-2" type="label"> {{profilp.contenudevoir}} </label>
+                <label class="m-2" type="label"> {{p.contenudevoirdc}} </label>
 
                 <div class="text-center">
-                    <h5 class="m-2">{{profilp.validation}} </h5>
+                    <h5 class="m-2">{{p.validationdc}} </h5>
                 </div>
-                <label class="m-2" type="label"> {{profilp.contenuvalid}}</label>
+                <label class="m-2" type="label"> {{p.contenuvaliddc}}</label>
 
                 <div class=" table-responsive ">
                     <table class="  table table-bordered ">
@@ -154,16 +159,16 @@
                             <tr>
 
                                 <th class="text-bold">Fonction</th>
-                                <td>{{profilp.fonction}}</td>
-                                <td>{{profilp.fonction1}}</td>
-                                <td>{{profilp.fonction2}}</td>
+                                <td>{{p.fonctiondc}}</td>
+                                <td>{{p.fonctiondc1}}</td>
+                                <td>{{p.fonctiondc2}}</td>
                             </tr>
                             <tr>
 
                                 <th class="text-bold">Nom et Prénom</th>
-                                <td>{{profilp.nompre}}</td>
-                                <td>{{profilp.nompre1}}</td>
-                                <td>{{profilp.nompre2}}</td>
+                                <td>{{p.nompredc}}</td>
+                                <td>{{p.nompredc1}}</td>
+                                <td>{{p.nompredc2}}</td>
 
                             </tr>
 
