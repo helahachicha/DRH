@@ -41,10 +41,10 @@ class IdpropostedcController extends AppController
      *          majndc (Int) 
      *          dudc(Date)
      *          Fonctiondc (String)
-     *          Categoriedc (String) 
-     *          suphierdc (String) 
+     *          categoriedc (String) 
+     *          Suphierdc (String) 
      *          Superdc (String) 
-     *          Interimdc (String) 
+     *          interidc (String) 
      *          
      *         
      * @Output: data : success message
@@ -68,10 +68,10 @@ class IdpropostedcController extends AppController
             $idpropostedc->majndc=$data->majndc;  
             $idpropostedc->dudc=$data->dudc;  
             $idpropostedc->Fonctiondc=$data->Fonctiondc;  
-            $idpropostedc->Categoriedc=$data->Categoriedc;  
-            $idpropostedc->suphierdc=$data->suphierdc;  
+            $idpropostedc->categoriedc=$data->categoriedc;  
+            $idpropostedc->Suphierdc=$data->Suphierdc;  
             $idpropostedc->Superdc=$data->Superdc; 
-            $idpropostedc->Interimdc=$data->Interimdc; 
+            $idpropostedc->interidc=$data->interidc; 
 
             $this->Idpropostedc->save($idpropostedc); 
         }
@@ -115,7 +115,7 @@ class IdpropostedcController extends AppController
         // debug($idproposte);die;
         
         if(empty($idpropostedc)){
-           throw new UnauthorizedException('Coutformaexterne not found');
+           throw new UnauthorizedException('Idpropostedc not found');
        }
 
        /*send result */

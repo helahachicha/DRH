@@ -6,50 +6,50 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Idproposte Controller
+ * Idproposteds Controller
  *
- * @method \App\Model\Entity\Idproposte[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Idproposted[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class IdproposteController extends AppController
+class IdpropostedsController extends AppController
 {
-      /**
-    * getAllIdproposte
+    /**
+    * getAllIdproposteds
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllIdproposte()
+    public function getAllIdproposteds()
     {
 
         /* search */
-        $idproposte = $this->Idproposte->find('all');
+        $idproposteds = $this->Idproposteds->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $idproposte,
+            'data' => $idproposteds,
             '_serialize' => ['success', 'data']
         ]);
     }
 
     /**
-     * editIdproposte
+     * editIdproposteds
      *
      * @Input:
      *         data:
-     *          majn (Int) 
-     *          du(Date)
-     *          Fonction (String)
-     *          Categorie (String) 
-     *          Suphier(String) 
-     *          Super (String) 
-     *          Interim(String) 
+     *          majnds (Int) 
+     *          duds(Date)
+     *          Fonctionds (String)
+     *          Categorieds(String) 
+     *          Suphierds (String) 
+     *          Superds (String) 
+     *          Interimds (String) 
      *          
      *         
      * @Output: data : success message
      */
-    public function editIdproposte(){
+    public function editIdproposteds(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -62,18 +62,18 @@ class IdproposteController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $idproposte=$this->Idproposte->get($id);
-         /* create Idproposte entity */
+        $idproposteds=$this->Idproposteds->get($id);
+         /* create Idproposteds entity */
         if (1==1){
-            $idproposte->majn=$data->majn;  
-            $idproposte->du=$data->du;  
-            $idproposte->Fonction=$data->Fonction;  
-            $idproposte->Categorie=$data->Categorie;  
-            $idproposte->Suphier=$data->Suphier;  
-            $idproposte->Super=$data->Super; 
-            $idproposte->Interim=$data->Interim; 
+            $idproposteds->majnds=$data->majnds;  
+            $idproposteds->duds=$data->duds;  
+            $idproposteds->Fonctionds=$data->Fonctionds;  
+            $idproposteds->Categorieds=$data->Categorieds;  
+            $idproposteds->Suphierds=$data->Suphierds;  
+            $idproposteds->Superds=$data->Superds; 
+            $idproposteds->Interimds=$data->Interimds; 
 
-            $this->Idproposte->save($idproposte); 
+            $this->Idproposteds->save($idproposteds); 
         }
         /*send result */
         $this->set([
@@ -85,13 +85,13 @@ class IdproposteController extends AppController
     }
 
     /**
-      *  getIdproposte
+      *  getIdproposteds
       *
       * @Input: id
       *
       * @Output: data
       */
-      public function getIdproposte(){
+      public function getIdproposteds(){
  
         $id = $this->request->getQuery('id');
         
@@ -106,7 +106,7 @@ class IdproposteController extends AppController
             }
         }
 
-        $idproposte = $this->Idproposte->find('all', [
+        $idproposteds = $this->Idproposteds->find('all', [
             'conditions'=>[
                 'id IS'=>$id,
             ],
@@ -114,15 +114,15 @@ class IdproposteController extends AppController
         ])->first();
         // debug($idproposte);die;
         
-        if(empty($idproposte)){
-           throw new UnauthorizedException('Idproposte not found');
+        if(empty($idproposteds)){
+           throw new UnauthorizedException('Idproposteds not found');
        }
 
        /*send result */
 
        $this->set([
            'success' => true,
-           'data' => $idproposte,
+           'data' => $idproposteds,
            '_serialize' => ['success', 'data']
        ]);
     }

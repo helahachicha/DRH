@@ -176,7 +176,7 @@ class ProfilposteController extends AppController
         // debug($profilposte);die;
         
         if(empty($profilposte)){
-           throw new UnauthorizedException('Coutformaexterne not found');
+           throw new UnauthorizedException('Profilposte not found');
        }
 
        /*send result */

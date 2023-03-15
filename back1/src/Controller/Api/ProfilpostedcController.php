@@ -178,7 +178,7 @@ class ProfilpostedcController extends AppController
         // debug($profilpostedc);die;
         
         if(empty($profilpostedc)){
-           throw new UnauthorizedException('Coutformaexterne not found');
+           throw new UnauthorizedException('Profilpostedc not found');
        }
 
        /*send result */
