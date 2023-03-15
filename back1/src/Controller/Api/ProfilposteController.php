@@ -146,7 +146,7 @@ class ProfilposteController extends AppController
 
 
     /**
-      * getCoutformaexternes
+      * getProfilposte
       *
       * @Input: id
       *
@@ -173,7 +173,7 @@ class ProfilposteController extends AppController
             ],
            
         ])->first();
-        // debug($coutformaexterne);die;
+        // debug($profilposte);die;
         
         if(empty($profilposte)){
            throw new UnauthorizedException('Coutformaexterne not found');
