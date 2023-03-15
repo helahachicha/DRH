@@ -83,4 +83,47 @@ class IdproposteController extends AppController
         ]);
     
     }
+
+    /**
+      * getCoutformaexternes
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+      public function getIdproposte(){
+ 
+        $id = $this->request->getQuery('id');
+        
+        /* search */
+        if(1==1){
+            if (!isset($id) or empty($id) or $id == null ){
+               throw new UnauthorizedException('Id is Required');
+            }
+
+            if(!is_numeric($id)){
+               throw new UnauthorizedException('Id is not Valid');
+            }
+        }
+
+        $idproposte = $this->Idproposte->find('all', [
+            'conditions'=>[
+                'id IS'=>$id,
+            ],
+           
+        ])->first();
+        // debug($coutformaexterne);die;
+        
+        if(empty($idproposte)){
+           throw new UnauthorizedException('Coutformaexterne not found');
+       }
+
+       /*send result */
+
+       $this->set([
+           'success' => true,
+           'data' => $idproposte,
+           '_serialize' => ['success', 'data']
+       ]);
+    }
 }

@@ -14,7 +14,7 @@ export class ListingdevjuniorComponent implements OnInit {
   public Profilposte
 
 
-  public DevJForm= new FormGroup({
+  public DevJForm = new FormGroup({
     majn: new FormControl('', [Validators.required]),
     du: new FormControl('', [Validators.required]),
     Fonction: new FormControl('', [Validators.required]),
@@ -22,10 +22,10 @@ export class ListingdevjuniorComponent implements OnInit {
     Suphier: new FormControl('', [Validators.required]),
     Super: new FormControl('', [Validators.required]),
     Interim: new FormControl('', [Validators.required]),
-    
+
   });
 
-  public ProfilPForm= new FormGroup({
+  public ProfilPForm = new FormGroup({
     comptech: new FormControl('', [Validators.required]),
     contenucomptech: new FormControl('', [Validators.required]),
     comporgan: new FormControl('', [Validators.required]),
@@ -61,11 +61,11 @@ export class ListingdevjuniorComponent implements OnInit {
     fonction2: new FormControl('', [Validators.required]),
     nompre2: new FormControl('', [Validators.required]),
 
-    
+
   });
-  
+
   constructor(
-    private dataService:DataService,
+    private dataService: DataService,
   ) { }
 
   ngOnInit(): void {
@@ -76,8 +76,8 @@ export class ListingdevjuniorComponent implements OnInit {
   getallDevJ() {
     this.dataService.get('Idproposte/getAllIdproposte.json').subscribe(res => {
       this.Idproposte = res.data;
-      console.log("hello",this.Idproposte)
-      
+      console.log("hello", this.Idproposte)
+
 
     })
   }
@@ -85,8 +85,8 @@ export class ListingdevjuniorComponent implements OnInit {
   getallProfilP() {
     this.dataService.get('Profilposte/getAllProfilposte.json').subscribe(res => {
       this.Profilposte = res.data;
-      console.log("hello",this.Profilposte)
-      
+      console.log("hello", this.Profilposte)
+
 
     })
   }

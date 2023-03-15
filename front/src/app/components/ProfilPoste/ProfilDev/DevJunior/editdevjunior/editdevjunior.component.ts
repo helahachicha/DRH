@@ -9,10 +9,10 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./editdevjunior.component.scss']
 })
 export class EditdevjuniorComponent implements OnInit {
-
+test=false
 id :any;
-  public Idproposte
-  public Profilposte
+   Idproposte:any={}
+   Profilposte:any={};
 
 
   public DevJForm= new FormGroup({
@@ -71,16 +71,18 @@ id :any;
   ) { }
 
   ngOnInit(): void {
-    /*this.getdetailFormulairById();
-  this.getprofilById(); */ 
-  this.getallDevJ();
-  this.getallProfilP()
+    this.getdetailFormulairById();
+
+    this.getprofilById(); 
+
+  /*this.getallDevJ();
+  this.getallProfilP()*/
 }
 
 
 
 
-  getallDevJ() {
+  /*getallDevJ() {
     this.dataService.get('Idproposte/getAllIdproposte.json').subscribe(res => {
       this.Idproposte = res.data;
       console.log("hello",this.Idproposte)
@@ -96,19 +98,20 @@ id :any;
       
 
     })
-  }
+  }*/
 
 //getById + Edit pour le table  
- /* getdetailFormulairById() {
+  getdetailFormulairById() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Idproposte/.json?id='+this.id).subscribe(
+    this.dataService.get('Idproposte/getIdproposte.json?id='+this.id).subscribe(
       res => {
       this.Idproposte=res.data;
       console.log("hello",this.Idproposte)
-
       
+
+
     })
-  }*/
+  }
 
   editdetailFormulair(){
       
@@ -120,16 +123,15 @@ id :any;
 
 //getById + Edit pour le table profil poste   
 
- /* getprofilById() {
+  getprofilById() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Profilposte/.json?id='+this.id).subscribe(
+    this.dataService.get('Profilposte/getProfilposte.json?id='+this.id).subscribe(
       res => {
       this.Profilposte=res.data;
       console.log("hello",this.Profilposte)
 
-      
     })
-  }*/
+  }
 
   editprofil(){
       

@@ -143,4 +143,48 @@ class ProfilposteController extends AppController
         ]);
     
     }
+
+
+    /**
+      * getCoutformaexternes
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+      public function getProfilposte(){
+ 
+        $id = $this->request->getQuery('id');
+        
+        /* search */
+        if(1==1){
+            if (!isset($id) or empty($id) or $id == null ){
+               throw new UnauthorizedException('Id is Required');
+            }
+
+            if(!is_numeric($id)){
+               throw new UnauthorizedException('Id is not Valid');
+            }
+        }
+
+        $profilposte = $this->Profilposte->find('all', [
+            'conditions'=>[
+                'id IS'=>$id,
+            ],
+           
+        ])->first();
+        // debug($coutformaexterne);die;
+        
+        if(empty($profilposte)){
+           throw new UnauthorizedException('Coutformaexterne not found');
+       }
+
+       /*send result */
+
+       $this->set([
+           'success' => true,
+           'data' => $profilposte,
+           '_serialize' => ['success', 'data']
+       ]);
+    }
 }
