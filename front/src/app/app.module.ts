@@ -25,6 +25,8 @@ import { EditformainterneComponent } from './components/FormationInternes/editfo
 import { ListingformainterneComponent } from './components/FormationInternes/listingformainterne/listingformainterne.component';
 import { EditdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/editdevjunior/editdevjunior.component';
 import { ListingdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/listingdevjunior/listingdevjunior.component';
+import { ListingdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirme/listingdevc/listingdevc.component';
+import { EditdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirme/editdevc/editdevc.component';
 
 
 
@@ -50,6 +52,8 @@ import { ListingdevjuniorComponent } from './components/ProfilPoste/ProfilDev/De
     ListingformainterneComponent,
     EditdevjuniorComponent,
     ListingdevjuniorComponent,
+    ListingdevcComponent,
+    EditdevcComponent,
     
    
   ],

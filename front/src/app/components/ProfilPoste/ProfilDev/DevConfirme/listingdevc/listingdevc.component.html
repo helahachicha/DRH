@@ -1,0 +1,179 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <img class="m-2" src="assets/img/djagora1.png " height="50" width="150">
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="mt-2">
+
+                    <p>Formulaire</p>
+                </li>
+
+            </ul>
+        </div>
+        <a><img class="navbar-brand" href="#" src="assets/img/profile.png" height="50" width="50"></a>
+    </div>
+</nav>
+
+
+
+
+
+
+
+<div class="border border-primary  ">
+
+    <div class="col  ">
+        <h1 class="text-center"> Profil de Poste</h1>
+    </div>
+    <div class="col ">
+        <p class="text-center">
+            Code:PR07F01<br>
+            Version:00
+        </p>
+
+    </div>
+</div>
+
+
+
+
+
+<body>
+    <div class="container" *ngFor="let tetejunior of Idproposte">
+        <div class="shadow-lg p-3 mb-5 bg-body rounded">
+            <div class=" mt-2 mb-2 end-50">
+                <button type="button" class="btn btn-primary " routerLink="/editprofilpdj/{{tetejunior.id}}"><i
+                        class="far fa-add"></i>Edit</button>
+            </div>
+            <div class="dj1">
+                <div class="row">
+                    <div class="text-start mt-2 ">
+                        <label type="label"> MAJ N°: {{tetejunior.majn}}</label>
+                    </div>
+                    <div class="text-center">
+                        <label type="label">Du: {{tetejunior.du}}</label>
+                    </div>
+                </div>
+                <div class="text-bold">
+                    <label class="m-2" type="label"> Fonction: {{tetejunior.Fonction}} </label>
+                    <br>
+                    <label class="m-2" type="label"> Catégorie: {{tetejunior.Categorie}} </label>
+                    <br>
+                    <label class="m-2" type="label">Supérieur hiérarchique: {{tetejunior.Suphier}} </label>
+                    <br>
+                    <label class="m-2" type="label">Supervision: {{tetejunior.Super}} </label>
+                    <br>
+                    <label class="m-2" type="label">Intérim: {{tetejunior.Interim}}</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="dj2" *ngFor="let profilp of Profilposte">
+
+            <div class="shadow-lg p-3 mb-5 bg-body rounded">
+                <div class="text-center">
+                    <h4>Profil du poste</h4>
+                    <h5 class="mt-3 mb-2"> {{profilp.comptech}} </h5>
+                </div>
+                <label class="m-2" type="label"> {{profilp.contenucomptech}} </label>
+
+                <div class="text-center">
+                    <h5 class="mt-3 mb-2">{{profilp.comporgan}}</h5>
+                    <h6 class="mt-2"> {{profilp.gestemps}}</h6>
+                </div>
+                <label class="m-2" type="label"> NIVEAU VISE : {{profilp.nvisegestemp}} </label>
+                <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br>{{profilp.isuivigestemp}} </label>
+                <div class="text-center">
+                    <h5 class="m-2"> {{profilp.compcompor}}</h5>
+                </div>
+                <h6 class="m-2">{{profilp.geek}} </h6>
+
+                <h6 class="m-2">{{profilp.autod}} </h6>
+                <h6 class="m-2">{{profilp.positivite}} </h6>
+                <div class="text-center">
+                    <h6 class="m-2"> {{profilp.commintera}}</h6>
+                </div>
+
+                <label class="m-2" type="label"> NIVEAU VISE : {{profilp.nvisecommintera}}</label>
+                <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br> {{profilp.isuivicommintera}}</label>
+
+                <div class="text-center">
+                    <h6 class="m-2">{{profilp.tracoll}}</h6>
+                </div>
+                <label class="m-2" type="label"> NIVEAU VISE : {{profilp.nvisetracoll}} </label>
+                <label class="m-2" type="label">INDICATEURS DE SUIVI : <br> {{profilp.isuivitracoll}}</label>
+
+                <div class="text-center">
+                    <h6 class="m-2">{{profilp.resprob}}</h6>
+                </div>
+                <label class="m-2" type="label"> NIVEAU VISE : {{profilp.nviseresprob}}</label>
+                <label class="m-2" type="label"> INDICATEURS DE SUIVI :<br>{{profilp.isuiviresprob}} </label>
+                <div class="text-center">
+                    <h6 class="m-2">{{profilp.servexcell}}</h6>
+                </div>
+
+                <label class="m-2" type="label"> NIVEAU VISE : {{profilp.nviseservexcell}}</label>
+                <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br>{{profilp.isuiviservexcell}} </label>
+            </div>
+
+            <div class="shadow-lg p-3 mb-5 bg-body rounded">
+                <div class="text-center">
+                    <h5 class="m-2">{{profilp.droit}} </h5>
+                </div>
+                <label class="m-2" type="label"> {{profilp.contenudroit}} </label>
+
+                <div class="text-center">
+                    <h5 class="m-2">{{profilp.devoir}}</h5>
+                </div>
+                <label class="m-2" type="label"> {{profilp.contenudevoir}} </label>
+
+                <div class="text-center">
+                    <h5 class="m-2">{{profilp.validation}} </h5>
+                </div>
+                <label class="m-2" type="label"> {{profilp.contenuvalid}}</label>
+
+                <div class=" table-responsive ">
+                    <table class="  table table-bordered ">
+                        <thead>
+                            <tr class="text-bold">
+                                <th scope="col"></th>
+                                <th scope="col">Élaboration</th>
+                                <th scope="col">Vérification</th>
+                                <th scope="col">Approbation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <th class="text-bold">Fonction</th>
+                                <td>{{profilp.fonction}}</td>
+                                <td>{{profilp.fonction1}}</td>
+                                <td>{{profilp.fonction2}}</td>
+                            </tr>
+                            <tr>
+
+                                <th class="text-bold">Nom et Prénom</th>
+                                <td>{{profilp.nompre}}</td>
+                                <td>{{profilp.nompre1}}</td>
+                                <td>{{profilp.nompre2}}</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
