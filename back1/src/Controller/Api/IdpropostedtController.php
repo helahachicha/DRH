@@ -6,50 +6,51 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Idproposteds Controller
+ * Idpropostedt Controller
  *
- * @method \App\Model\Entity\Idproposted[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Idpropostedt[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class IdpropostedsController extends AppController
+class IdpropostedtController extends AppController
 {
-    /**
-    * getAllIdproposteds
+     /**
+    * getAllIdpropostedt
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllIdproposteds()
+    public function getAllIdpropostedt()
     {
 
         /* search */
-        $idproposteds = $this->Idproposteds->find('all');
+        $idpropostedt = $this->Idpropostedt->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $idproposteds,
+            'data' => $idpropostedt,
             '_serialize' => ['success', 'data']
         ]);
     }
 
     /**
-     * editIdproposteds
+     * editIdpropostedt
      *
      * @Input:
      *         data:
-     *          majnds (Int) 
-     *          duds(Date)
-     *          Fonctionds (String)
-     *          Categorieds(String) 
-     *          Suphierds (String) 
-     *          Superds (String) 
-     *          Interimds (String) 
+     *          refdt (String) 
+     *          majndt (Int) 
+     *          dudt(Date)
+     *          Fonctiondt (String)
+     *          Categoriedt (String) 
+     *          Suphierdt (String) 
+     *          Superdt (String) 
+     *          Interimdt (String) 
      *          
      *         
      * @Output: data : success message
      */
-    public function editIdproposteds(){
+    public function editIdpropostedt(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -62,18 +63,19 @@ class IdpropostedsController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $idproposteds=$this->Idproposteds->get($id);
-         /* create Idproposteds entity */
+        $idpropostedt=$this->Idpropostedt->get($id);
+         /* create Idpropostedt entity */
         if (1==1){
-            $idproposteds->majnds=$data->majnds;  
-            $idproposteds->duds=$data->duds;  
-            $idproposteds->Fonctionds=$data->Fonctionds;  
-            $idproposteds->Categorieds=$data->Categorieds;  
-            $idproposteds->Suphierds=$data->Suphierds;  
-            $idproposteds->Superds=$data->Superds; 
-            $idproposteds->Interimds=$data->Interimds; 
+            $idpropostedt->refdt=$data->refdt;  
+            $idpropostedt->majndt=$data->majndt;  
+            $idpropostedt->dudt=$data->dudt;  
+            $idpropostedt->Fonctiondt=$data->Fonctiondt;  
+            $idpropostedt->Categoriedt=$data->Categoriedt;  
+            $idpropostedt->Suphierdt=$data->Suphierdt;  
+            $idpropostedt->Superdt=$data->Superdt; 
+            $idpropostedt->Interimdt=$data->Interimdt; 
 
-            $this->Idproposteds->save($idproposteds); 
+            $this->Idpropostedt->save($idpropostedt); 
         }
         /*send result */
         $this->set([
@@ -85,13 +87,13 @@ class IdpropostedsController extends AppController
     }
 
     /**
-      *  getIdproposteds
+      *  getIdpropostedt
       *
       * @Input: id
       *
       * @Output: data
       */
-      public function getIdproposteds(){
+      public function getIdpropostedt(){
  
         $id = $this->request->getQuery('id');
         
@@ -106,23 +108,23 @@ class IdpropostedsController extends AppController
             }
         }
 
-        $idproposteds = $this->Idproposteds->find('all', [
+        $idpropostedt = $this->Idpropostedt->find('all', [
             'conditions'=>[
                 'id IS'=>$id,
             ],
            
         ])->first();
-        // debug($idproposteds);die;
+        // debug($idpropostedt);die;
         
-        if(empty($idproposteds)){
-           throw new UnauthorizedException('Idproposteds not found');
+        if(empty($idpropostedt)){
+           throw new UnauthorizedException('Idpropostedt not found');
        }
 
        /*send result */
 
        $this->set([
            'success' => true,
-           'data' => $idproposteds,
+           'data' => $idpropostedt,
            '_serialize' => ['success', 'data']
        ]);
     }

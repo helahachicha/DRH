@@ -46,7 +46,6 @@ class ProfilpostedsController extends AppController
      *          nvisegestempds (String) 
      *          isuivigestempds (String) 
      *          compcompords (String) 
-     * 
      *      	comminterads (String) 
      *      	nvisecomminterads (String) 
      *          isuivicomminterads (String) 
