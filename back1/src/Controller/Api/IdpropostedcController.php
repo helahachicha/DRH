@@ -112,7 +112,7 @@ class IdpropostedcController extends AppController
             ],
            
         ])->first();
-        // debug($idproposte);die;
+        // debug($idpropostedc);die;
         
         if(empty($idpropostedc)){
            throw new UnauthorizedException('Idpropostedc not found');
