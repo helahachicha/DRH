@@ -1,16 +1,7 @@
 
     
         
-<header >
-    <div class="position-relative">
-     <div class="position-relative  ">
-         <button class="btn text-primary" type="button">Formation Externe</button>
-     </div>
-     <div class="position-absolute top-0 end-0">
-         <button class="btn btn-primary " type="button" routerLink="/">déconnecter</button>
-     </div>
-     </div>
- </header>
+
 
 
 <div class="container mt-5">
@@ -18,7 +9,7 @@
  <h3>Table Cout Formation Externe</h3>
  </div>
  <div class="mb-2 end-50 ">
- <button type="button" class="btn btn-primary " routerLink="/addcout/"><i class="far fa-add"></i>Add</button>
+ <button type="button" class="btn btn-primary " routerLink="/addcout/"><i class=" fas fa-plus-circle"></i> Ajouter</button>
 </div>
  <div class=" table-responsive ">
  <table  class="  table table-bordered ">
@@ -44,8 +35,9 @@
                  <td>{{coutformaex.tocout}}</td>
                  <td>{{coutformaex.chargeto}}</td>
                  <td>
-                     <button type="button" class="btn btn-success" routerLink="/editcout/{{coutformaex.id}}"><i class="fas fa-edit">Edit</i></button>
-                   
+                     <button type="button" class="btn btn-success" routerLink="/editcout/{{coutformaex.id}}"><i class="fas fa-edit">Modifier</i></button>
+                     <button type="button" class="btn btn-danger mt-2"><i
+                        class="fas fa-trash">Supprimer</i></button>
                    </td>
              </tr>
              

@@ -32,6 +32,7 @@ import { ListingdevsComponent } from './components/ProfilPoste/ProfilDev/DevSeni
 import { EditdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/editdevt/editdevt.component';
 import { ListingdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/listingdevt/listingdevt.component';
 import { HomeComponent } from './Home/home/home.component';
+import { SidebarComponent } from './Layout/sidebar/sidebar.component';
 
 
 
@@ -64,6 +65,7 @@ import { HomeComponent } from './Home/home/home.component';
     EditdevtComponent,
     ListingdevtComponent,
     HomeComponent,
+    SidebarComponent,
     
    
   ],

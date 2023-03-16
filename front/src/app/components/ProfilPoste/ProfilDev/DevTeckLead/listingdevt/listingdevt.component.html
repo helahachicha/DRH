@@ -1,26 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light ">
-    <div class="container-fluid">
 
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <img class="m-2" src="assets/img/djagora1.png " height="50" width="150">
-
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-                <li class="mt-2">
-
-                    <p>Formulaire</p>
-                </li>
-
-            </ul>
-        </div>
-        <a><img class="navbar-brand" href="#" src="assets/img/profile.png" height="50" width="50"></a>
-    </div>
-</nav>
 
 
 
@@ -50,8 +28,8 @@
     <div class="container" *ngFor="let b of Idpropostedt">
         <div class="shadow-lg p-3 mb-5 bg-body rounded">
             <div class=" mt-2 mb-2 end-50">
-                <button type="button" class="btn btn-primary " routerLink="/editprofilpdt/{{b.id}}"><i
-                        class="far fa-add"></i>Edit</button>
+                <button type="button" class="btn btn-success " routerLink="/editprofilpdt/{{b.id}}"><i
+                        class="far fa-edit"></i> Modifier</button>
             </div>
             <div class="dj1">
                 <div class="row">

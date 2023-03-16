@@ -8,7 +8,7 @@
 <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
     data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
     <app-header *ngIf="router.url != '/' "></app-header>
-    <app-footer *ngIf="router.url != '/' "></app-footer>
+    <app-sidebar *ngIf="router.url != '/' "></app-sidebar>
     <div class="page-wrapper">
 
         <router-outlet></router-outlet>

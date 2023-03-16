@@ -20,9 +20,10 @@
       <div class="row">
         <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Formation Externe</h5>
+              <button type="button" class="btn btn-primary " routerLink="/coutlisting"> Cout formation</button>
+              <h2 class="text-center">Formation Externe</h2>
               <div class=" mb-2 end-50  ">
-                <button type="button" class="btn btn-primary " routerLink="/addforma/"><i class="far fa-add"></i>Add</button>
+                <button type="button" class="btn btn-primary " routerLink="/addforma/"><i class=" fas fa-plus-circle"></i> Ajouter</button>
             </div>
               <div class="table-responsive">
                 <table
@@ -71,7 +72,9 @@
                         <td>{{formationex.pause}}</td>
                         <td>{{formationex.lieuforma}}</td>
                         <td>  <button type="button" class="btn btn-success" routerLink="/editforma/{{formationex.id}}"><i
-                            class="fas fa-edit">Edit</i></button>
+                            class="fas fa-edit">Modifier</i></button>
+                            <button type="button" class="btn btn-danger mt-2" routerLink="/editforma/{{formationex.id}}"><i
+                              class="fas fa-trash">Supprimer</i></button>
 </td>
                     </tr>
                   </tbody>
