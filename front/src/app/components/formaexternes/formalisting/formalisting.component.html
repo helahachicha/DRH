@@ -1,80 +1,85 @@
-<header>
-    <div class="position-relative">
-        <div class="position-relative  ">
-            <button class="btn text-primary" type="button" routerLink="/coutlisting">Cout Des Formation</button>
+
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+          <h4 class="page-title"></h4>
+          <div class="ms-auto text-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"></a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  
+                </li>
+              </ol>
+            </nav>
+          </div>
         </div>
-        <div class="position-absolute top-0 start-50 translate-middle-x  ">
-            <button class="btn text-primary" type="button" routerLink="/formainternelisting">Formation Interne</button>
-        </div>
-        <div class="position-absolute top-0 end-0">
-            <button class="btn btn-primary " type="button" routerLink="/">Déconnecter</button>
-        </div>
+      </div>
     </div>
-</header>
-
-
-<div class="container mt-5">
-    <div class="row header " style="text-align:center">
-        <h3>Table formation externe</h3>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Formation Externe</h5>
+              <div class=" mb-2 end-50  ">
+                <button type="button" class="btn btn-primary " routerLink="/addforma/"><i class="far fa-add"></i>Add</button>
+            </div>
+              <div class="table-responsive">
+                <table
+                  id="zero_config"
+                  class="table table-striped table-bordered"
+                >
+                  <thead>
+                    <tr>
+                        <th >Id</th>
+                        <th >Type de compétence</th>
+                        <th >Thème de formation</th>
+                        <th >Participant</th>
+                        <th >Nomber de participants</th>
+                        <th >Raison de formation</th>
+                        <th >Organisme de formation</th>
+                        <th >Formalité de réalisation</th>
+                        <th >Formateur</th>
+                        <th >Raison de choix</th>
+                        <th >Durée de formation</th>
+                        <th >NB/jour</th>
+                        <th >NB/H de jour</th>
+                        <th >Date</th>
+                        <th >Horaire formation</th>
+                        <th >Pause café</th>
+                        <th >Lieu de formation</th>
+                        <th >Action</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let formationex of formaexternes">
+                    <tr>
+                        <td>{{formationex._id}}</td>
+                        <td>{{formationex.typecomp}}</td>
+                        <td>{{formationex.themforma}}</td>
+                        <td>{{formationex.participant}}</td>
+                        <td>{{formationex.nbparticipant}}</td>
+                        <td>{{formationex.raisonforma}}</td>
+                        <td>{{formationex.organismeforma}}</td>
+                        <td>{{formationex.formalite}}</td>
+                        <td>{{formationex.formateur}}</td>
+                        <td>{{formationex.raisonchoix}}</td>
+                        <td>{{formationex.dureeforma}}</td>
+                        <td>{{formationex.nbjour}}</td>
+                        <td>{{formationex.nbhjour}}</td>
+                        <td>{{formationex.date}}</td>
+                        <td>{{formationex.horaireforma}}</td>
+                        <td>{{formationex.pause}}</td>
+                        <td>{{formationex.lieuforma}}</td>
+                        <td>  <button type="button" class="btn btn-success" routerLink="/editforma/{{formationex.id}}"><i
+                            class="fas fa-edit">Edit</i></button>
+</td>
+                    </tr>
+                  </tbody>
+                  
+                </table>
+              </div>
+            </div>
+          </div>
+      </div>
+      
     </div>
-    <div class=" mb-2 end-50  ">
-        <button type="button" class="btn btn-primary " routerLink="/addforma/"><i class="far fa-add"></i>Add</button>
-    </div>
-    <div class=" table-responsive ">
-        <table class="  table table-bordered ">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Type de compétence</th>
-                    <th scope="col">Thème de formation</th>
-                    <th scope="col">Participant</th>
-                    <th scope="col">Nomber de participants</th>
-                    <th scope="col">Raison de formation</th>
-                    <th scope="col">Organisme de formation</th>
-                    <th scope="col">Formalité de réalisation</th>
-                    <th scope="col">Formateur</th>
-                    <th scope="col">Raison de choix</th>
-                    <th scope="col">Durée de formation</th>
-                    <th scope="col">NB/jour</th>
-                    <th scope="col">NB/H de jour</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Horaire formation</th>
-                    <th scope="col">Pause café</th>
-                    <th scope="col">Lieu de formation</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let formationex of formaexternes">
-                    <td>{{formationex._id}}</td>
-                    <td>{{formationex.typecomp}}</td>
-                    <td>{{formationex.themforma}}</td>
-                    <td>{{formationex.participant}}</td>
-                    <td>{{formationex.nbparticipant}}</td>
-                    <td>{{formationex.raisonforma}}</td>
-                    <td>{{formationex.organismeforma}}</td>
-                    <td>{{formationex.formalite}}</td>
-                    <td>{{formationex.formateur}}</td>
-                    <td>{{formationex.raisonchoix}}</td>
-                    <td>{{formationex.dureeforma}}</td>
-                    <td>{{formationex.nbjour}}</td>
-                    <td>{{formationex.nbhjour}}</td>
-                    <td>{{formationex.date}}</td>
-                    <td>{{formationex.horaireforma}}</td>
-                    <td>{{formationex.pause}}</td>
-                    <td>{{formationex.lieuforma}}</td>
-                    <td>
-                        <button type="button" class="btn btn-success" routerLink="/editforma/{{formationex.id}}"><i
-                                class="fas fa-edit">Edit</i></button>
-
-                    </td>
-                </tr>
-
-
-            </tbody>
-
-        </table>
-
-
-    </div>
-</div>

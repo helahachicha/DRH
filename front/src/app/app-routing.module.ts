@@ -24,7 +24,7 @@ import { FooterComponent } from './Layout/footer/footer.component';
 import { HeaderComponent } from './Layout/header/header.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
+  //{ path: '', component: LoginComponent},
   { path: 'home', component: HomeComponent},
   { path: 'footer', component: FooterComponent},
   { path: 'header', component: HeaderComponent },
