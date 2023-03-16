@@ -1,63 +1,63 @@
-
-    
-        
-<header >
-    <div class="position-relative">
-     <div class="position-relative  ">
-         <button class="btn text-primary" type="button" routerLink="/listingforma">Formation Externe</button>
-     </div>
-     <div class="position-absolute top-0 end-0">
-         <button class="btn btn-primary " type="button" routerLink="/">déconnecter</button>
-     </div>
-     </div>
- </header>
+<body>
+    <header>
+        <div class="position-relative">
+            <div class="position-relative  ">
+                <button class="btn text-primary" type="button" routerLink="/listingforma">Formation Externe</button>
+            </div>
+            <div class="position-absolute top-0 end-0">
+                <button class="btn btn-primary " type="button" routerLink="/">déconnecter</button>
+            </div>
+        </div>
+    </header>
 
 
-<div class="container mt-5">
- <div class="row header " style="text-align:center">
- <h3>Table Formation interne</h3>
- </div>
- <div class=" mb-2 end-50" >
- <button type="button" class="btn btn-primary " routerLink="/addformainterne/"><i class="far fa-add"></i>Add</button>
-</div>
- <div class=" table-responsive ">
- <table  class="  table table-bordered ">
-         <thead>
-             <tr>
-                 <th scope="col">Id</th>
-                 <th scope="col">Type de compétence</th>
-                 <th scope="col">Thème de formation </th>
-                 <th scope="col">Animateur</th>
-                 <th scope="col">Poste</th>
-                 <th scope="col">Date</th>
-                 <th scope="col">Heur entrer </th>
-                 <th scope="col">Heur sortie</th>
-                 <th scope="col" >Action</th>
-             </tr>
-         </thead>
-         <tbody>
-             <tr *ngFor="let formainter of formainternes">
-                 <td>{{formainter._id}}</td>
-                 <td>{{formainter.tycomp}}</td>
-                 <td>{{formainter.themeforma}}</td>
-                 <td>{{formainter.animateur}}</td>
-                 <td>{{formainter.poste}}</td>
-                 <td>{{formainter.datee}}</td>
-                 <td>{{formainter.hentrer}}</td>
-                 <td>{{formainter.hsortie}}</td>
-                 <td>
-                     <button type="button" class="btn btn-success" routerLink="/editformainterne/{{formainter.id}}"><i class="fas fa-edit">Edit</i></button>
-                   
-                   </td>
-             </tr>
-             
-             
-         </tbody>
-         
-     </table>
-     
-     
- </div>
-     </div>
+    <div class="container mt-5">
+        <div class="row header " style="text-align:center">
+            <h3>Table Formation interne</h3>
+        </div>
+        <div class=" mb-2 end-50">
+            <button type="button" class="btn btn-primary " routerLink="/addformainterne/"><i
+                    class="far fa-add"></i>Add</button>
+        </div>
+        <div class=" table-responsive ">
+            <table class="  table table-bordered ">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Type de compétence</th>
+                        <th scope="col">Thème de formation </th>
+                        <th scope="col">Animateur</th>
+                        <th scope="col">Poste</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Heur entrer </th>
+                        <th scope="col">Heur sortie</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let formainter of formainternes">
+                        <td>{{formainter._id}}</td>
+                        <td>{{formainter.tycomp}}</td>
+                        <td>{{formainter.themeforma}}</td>
+                        <td>{{formainter.animateur}}</td>
+                        <td>{{formainter.poste}}</td>
+                        <td>{{formainter.datee}}</td>
+                        <td>{{formainter.hentrer}}</td>
+                        <td>{{formainter.hsortie}}</td>
+                        <td>
+                            <button type="button" class="btn btn-success"
+                                routerLink="/editformainterne/{{formainter.id}}"><i
+                                    class="fas fa-edit">Edit</i></button>
+
+                        </td>
+                    </tr>
 
 
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+</body>

@@ -15,10 +15,16 @@ import { EditdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirm
 import { ListingdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirme/listingdevc/listingdevc.component';
 import { EditdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/editdevjunior/editdevjunior.component';
 import { ListingdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/listingdevjunior/listingdevjunior.component';
+import { EditdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/editdevs/editdevs.component';
+import { ListingdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/listingdevs/listingdevs.component';
+import { EditdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/editdevt/editdevt.component';
+import { ListingdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/listingdevt/listingdevt.component';
+import { FooterComponent } from './Layout/footer/footer.component';
 import { HeaderComponent } from './Layout/header/header.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
+  { path: 'footer', component: FooterComponent},
   { path: 'header', component: HeaderComponent },
   { path: 'addforma', component: AddformaComponent },
   { path: 'forgetpass', component: ForgetpasswordComponent },
@@ -34,6 +40,13 @@ const routes: Routes = [
   { path: 'editprofilpdj/:id', component: EditdevjuniorComponent},
   { path: 'listingdc', component: ListingdevcComponent},
   { path: 'editprofilpdc/:id', component: EditdevcComponent},
+  { path: 'listingds', component: ListingdevsComponent},
+  { path: 'editprofilpds/:id', component: EditdevsComponent},
+  { path: 'listingdt', component: ListingdevtComponent},
+  { path: 'editprofilpdt/:id', component: EditdevtComponent},
+
+
+
 
 
   

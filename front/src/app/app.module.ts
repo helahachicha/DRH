@@ -27,6 +27,10 @@ import { EditdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJu
 import { ListingdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/listingdevjunior/listingdevjunior.component';
 import { ListingdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirme/listingdevc/listingdevc.component';
 import { EditdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirme/editdevc/editdevc.component';
+import { EditdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/editdevs/editdevs.component';
+import { ListingdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/listingdevs/listingdevs.component';
+import { EditdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/editdevt/editdevt.component';
+import { ListingdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/listingdevt/listingdevt.component';
 
 
 
@@ -54,6 +58,10 @@ import { EditdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirm
     ListingdevjuniorComponent,
     ListingdevcComponent,
     EditdevcComponent,
+    EditdevsComponent,
+    ListingdevsComponent,
+    EditdevtComponent,
+    ListingdevtComponent,
     
    
   ],
