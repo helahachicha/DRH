@@ -11,8 +11,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class EditdevtComponent implements OnInit {
 
   id:any;
-  Idpropostedt:any={}
-  Profilpostedt:any={};
+  Infogenteckleads:any={}
+  Profilposteteckleads:any={};
 
 
   public DevTForm = new FormGroup({
@@ -85,10 +85,10 @@ export class EditdevtComponent implements OnInit {
 //getById + Edit pour le table  
 getdetailFormulairById() {
   this.id=this.route.snapshot.params['id'];
-  this.dataService.get('Idpropostedt/getIdpropostedt.json?id='+this.id).subscribe(
+  this.dataService.get('Infogenteckleads/getInfogentecklead.json?id='+this.id).subscribe(
     res => {
-    this.Idpropostedt=res.data;
-    console.log("hello",this.Idpropostedt)
+    this.Infogenteckleads=res.data;
+    console.log("hello",this.Infogenteckleads)
     
 
 
@@ -97,7 +97,7 @@ getdetailFormulairById() {
 
 editdetailFormulair(){
     
-  this.dataService.post('Idpropostedt/editIdpropostedt.json?id='+this.id,this.DevTForm.value).subscribe(res=> {
+  this.dataService.post('Infogenteckleads/editInfogentecklead.json?id='+this.id,this.DevTForm.value).subscribe(res=> {
     console.log("hello",this.DevTForm.value)
   this.router.navigate(['/listingdt'])
   })
@@ -107,17 +107,17 @@ editdetailFormulair(){
 
 getprofilById() {
 this.id=this.route.snapshot.params['id'];
-this.dataService.get('Profilpostedt/getProfilpostedt.json?id='+this.id).subscribe(
+this.dataService.get('Profilposteteckleads/getProfilpostetecklead.json?id='+this.id).subscribe(
   res => {
-  this.Profilpostedt=res.data;
-  console.log("hello",this.Profilpostedt)
+  this.Profilposteteckleads=res.data;
+  console.log("hello",this.Profilposteteckleads)
 
 })
 }
 
 editprofil(){
   
-this.dataService.post('Profilpostedt/editProfilpostedt.json?id='+this.id,this.ProfilPForm.value).subscribe(res=> {
+this.dataService.post('Profilposteteckleads/editProfilpostetecklead.json?id='+this.id,this.ProfilPForm.value).subscribe(res=> {
   console.log("hello",this.ProfilPForm.value)
 this.router.navigate(['/listingdt'])
 })

@@ -10,8 +10,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class ListingdevjuniorComponent implements OnInit {
 
 
-  public Idproposte
-  public Profilposte
+  public Infogenjuniors
+  public Profilpostejuniors
 
 
   public DevJForm = new FormGroup({
@@ -74,18 +74,18 @@ export class ListingdevjuniorComponent implements OnInit {
   }
 
   getallDevJ() {
-    this.dataService.get('Idproposte/getAllIdproposte.json').subscribe(res => {
-      this.Idproposte = res.data;
-      console.log("hello", this.Idproposte)
+    this.dataService.get('Infogenjuniors/getAllInfogenjunior.json').subscribe(res => {
+      this.Infogenjuniors = res.data;
+      console.log("hello", this.Infogenjuniors)
 
 
     })
   }
 
   getallProfilP() {
-    this.dataService.get('Profilposte/getAllProfilposte.json').subscribe(res => {
-      this.Profilposte = res.data;
-      console.log("hello", this.Profilposte)
+    this.dataService.get('Profilpostejuniors/getAllProfilpostejunior.json').subscribe(res => {
+      this.Profilpostejuniors = res.data;
+      console.log("hello", this.Profilpostejuniors)
 
 
     })

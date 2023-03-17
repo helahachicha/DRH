@@ -5,6 +5,7 @@ import { LoginComponent } from './Authentification/login/login.component';
 import { AddcoutComponent } from './components/CoutFormation/addcout/addcout.component';
 import { CoutlistingComponent } from './components/CoutFormation/coutlisting/coutlisting.component';
 import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.component';
+import { ListingficherenComponent } from './components/Fiche de rensignement/listingficheren/listingficheren.component';
 import { AddformaComponent } from './components/formaexternes/addforma/addforma.component';
 import { EditformaComponent } from './components/formaexternes/editforma/editforma.component';
 import { FormalistingComponent } from './components/formaexternes/formalisting/formalisting.component';
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'editprofilpds/:id', component: EditdevsComponent},
   { path: 'listingdt', component: ListingdevtComponent},
   { path: 'editprofilpdt/:id', component: EditdevtComponent},
+  { path: 'ficherensig', component: ListingficherenComponent},
 
 
 

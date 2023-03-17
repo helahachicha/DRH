@@ -11,8 +11,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class EditdevsComponent implements OnInit {
 
   id :any;
-  Idproposteds:any={}
-  Profilposteds:any={};
+  Infogenseniors:any={}
+  Profilposteseniors:any={};
 
 
 
@@ -87,10 +87,10 @@ export class EditdevsComponent implements OnInit {
   //getById + Edit pour le table  
   getdetailFormulairById() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Idproposteds/getIdproposteds.json?id='+this.id).subscribe(
+    this.dataService.get('Infogenseniors/getInfogensenior.json?id='+this.id).subscribe(
       res => {
-      this.Idproposteds=res.data;
-      console.log("hello",this.Idproposteds)
+      this.Infogenseniors=res.data;
+      console.log("hello",this.Infogenseniors)
       
 
 
@@ -99,7 +99,7 @@ export class EditdevsComponent implements OnInit {
 
   editdetailFormulair(){
       
-    this.dataService.post('Idproposteds/editIdproposteds.json?id='+this.id,this.DevSForm.value).subscribe(res=> {
+    this.dataService.post('Infogenseniors/editInfogensenior.json?id='+this.id,this.DevSForm.value).subscribe(res=> {
       console.log("hello",this.DevSForm.value)
     this.router.navigate(['/listingds'])
     })
@@ -109,17 +109,17 @@ export class EditdevsComponent implements OnInit {
 
 getprofilById() {
   this.id=this.route.snapshot.params['id'];
-  this.dataService.get('Profilposteds/getProfilposteds.json?id='+this.id).subscribe(
+  this.dataService.get('Profilposteseniors/getProfilpostesenior.json?id='+this.id).subscribe(
     res => {
-    this.Profilposteds=res.data;
-    console.log("hello",this.Profilposteds)
+    this.Profilposteseniors=res.data;
+    console.log("hello",this.Profilposteseniors)
 
   })
 }
 
 editprofil(){
     
-  this.dataService.post('Profilposteds/editProfilposteds.json?id='+this.id,this.ProfilPForm.value).subscribe(res=> {
+  this.dataService.post('Profilposteseniors/editProfilpostesenior.json?id='+this.id,this.ProfilPForm.value).subscribe(res=> {
     console.log("hello",this.ProfilPForm.value)
   this.router.navigate(['/listingds'])
   })

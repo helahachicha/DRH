@@ -11,8 +11,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class EditdevcComponent implements OnInit {
 
    id: any;
-   Idpropostedc:any={};
-   Profilpostedc:any={};
+   Infogenconfimes:any={};
+   Profilposteconfirmes:any={};
 
 
   public DevCForm = new FormGroup({
@@ -82,10 +82,10 @@ export class EditdevcComponent implements OnInit {
   //getById + Edit pour le table  
   getdetailFormulairById() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Idpropostedc/getIdpropostedc.json?id='+this.id).subscribe(
+    this.dataService.get('Infogenconfimes/getInfogenconfime.json?id='+this.id).subscribe(
       res => {
-      this.Idpropostedc=res.data;
-      console.log("hello",this.Idpropostedc)
+      this.Infogenconfimes=res.data;
+      console.log("hello",this.Infogenconfimes)
       
 
 
@@ -94,7 +94,7 @@ export class EditdevcComponent implements OnInit {
 
   editdetailFormulair(){
       
-    this.dataService.post('Idpropostedc/editIdpropostedc.json?id='+this.id,this.DevCForm.value).subscribe(res=> {
+    this.dataService.post('Infogenconfimes/editInfogenconfime.json?id='+this.id,this.DevCForm.value).subscribe(res=> {
       console.log("hello",this.DevCForm.value)
     this.router.navigate(['/listingdc'])
     })
@@ -104,17 +104,17 @@ export class EditdevcComponent implements OnInit {
 
   getprofilById() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Profilpostedc/getProfilpostedc.json?id='+this.id).subscribe(
+    this.dataService.get('Profilposteconfirmes/getProfilposteconfirme.json?id='+this.id).subscribe(
       res => {
-      this.Profilpostedc=res.data;
-      console.log("hello",this.Profilpostedc)
+      this.Profilposteconfirmes=res.data;
+      console.log("hello",this.Profilposteconfirmes)
 
     })
   }
 
   editprofil(){
       
-    this.dataService.post('Profilpostedc/editProfilpostedc.json?id='+this.id,this.ProfilPdcForm.value).subscribe(res=> {
+    this.dataService.post('Profilposteconfirmes/editProfilposteconfirme.json?id='+this.id,this.ProfilPdcForm.value).subscribe(res=> {
       console.log("hello",this.ProfilPdcForm.value)
     this.router.navigate(['/listingdc'])
     })

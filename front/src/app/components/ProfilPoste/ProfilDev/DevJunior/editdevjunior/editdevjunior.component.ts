@@ -11,8 +11,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class EditdevjuniorComponent implements OnInit {
 
 id :any;
-   Idproposte:any={}
-   Profilposte:any={};
+Infogenjuniors:any={}
+Profilpostejuniors:any={};
 
 
   public DevJForm= new FormGroup({
@@ -103,10 +103,10 @@ id :any;
 //getById + Edit pour le table  
   getdetailFormulairById() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Idproposte/getIdproposte.json?id='+this.id).subscribe(
+    this.dataService.get('Infogenjuniors/getInfogenjunior.json?id='+this.id).subscribe(
       res => {
-      this.Idproposte=res.data;
-      console.log("hello",this.Idproposte)
+      this.Infogenjuniors=res.data;
+      console.log("hello",this.Infogenjuniors)
       
 
 
@@ -115,7 +115,7 @@ id :any;
 
   editdetailFormulair(){
       
-    this.dataService.post('Idproposte/editIdproposte.json?id='+this.id,this.DevJForm.value).subscribe(res=> {
+    this.dataService.post('Infogenjuniors/editInfogenjunior.json?id='+this.id,this.DevJForm.value).subscribe(res=> {
       console.log("hello",this.DevJForm.value)
     this.router.navigate(['/listingdj'])
     })
@@ -125,17 +125,17 @@ id :any;
 
   getprofilById() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Profilposte/getProfilposte.json?id='+this.id).subscribe(
+    this.dataService.get('Profilpostejuniors/getProfilpostejunior.json?id='+this.id).subscribe(
       res => {
-      this.Profilposte=res.data;
-      console.log("hello",this.Profilposte)
+      this.Profilpostejuniors=res.data;
+      console.log("hello",this.Profilpostejuniors)
 
     })
   }
 
   editprofil(){
       
-    this.dataService.post('Profilposte/editProfilposte.json?id='+this.id,this.ProfilPForm.value).subscribe(res=> {
+    this.dataService.post('Profilpostejuniors/editProfilpostejunior.json?id='+this.id,this.ProfilPForm.value).subscribe(res=> {
       console.log("hello",this.ProfilPForm.value)
     this.router.navigate(['/listingdj'])
     })

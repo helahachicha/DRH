@@ -33,6 +33,9 @@ import { EditdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLea
 import { ListingdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/listingdevt/listingdevt.component';
 import { HomeComponent } from './Home/home/home.component';
 import { SidebarComponent } from './Layout/sidebar/sidebar.component';
+import { EditficherenComponent } from './components/Fiche de rensignement/editficheren/editficheren.component';
+import { ListingficherenComponent } from './components/Fiche de rensignement/listingficheren/listingficheren.component';
+import { AddficherenComponent } from './components/Fiche de rensignement/addficheren/addficheren.component';
 
 
 
@@ -66,6 +69,9 @@ import { SidebarComponent } from './Layout/sidebar/sidebar.component';
     ListingdevtComponent,
     HomeComponent,
     SidebarComponent,
+    EditficherenComponent,
+    ListingficherenComponent,
+    AddficherenComponent,
     
    
   ],
