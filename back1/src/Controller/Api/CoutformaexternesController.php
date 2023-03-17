@@ -13,7 +13,7 @@ use App\Controller\AppController;
 class CoutformaexternesController extends AppController
 {
    /**
-     * addcoutformaexterne
+     * addCoutformaexterne
      *
      * @Input:
      *         data:
@@ -102,7 +102,7 @@ class CoutformaexternesController extends AppController
         /*send result */
         $this->set([
             'success' => true,
-            'data' =>  "Added with success",
+            'data' =>  "Updated with success",
             '_serialize' => ['success', 'data']
         ]);
     
@@ -131,7 +131,7 @@ class CoutformaexternesController extends AppController
     }
     
     /**
-      * getCoutformaexternes
+      * getCoutformaexterne
       *
       * @Input: id
       *
@@ -152,23 +152,23 @@ class CoutformaexternesController extends AppController
              }
          }
  
-         $coutformaexterne = $this->Coutformaexternes->find('all', [
+         $coutformaexternes = $this->Coutformaexternes->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
             
          ])->first();
-         // debug($coutformaexterne);die;
+         // debug($coutformaexternes);die;
          
-         if(empty($coutformaexterne)){
-            throw new UnauthorizedException('Coutformaexterne not found');
+         if(empty($coutformaexternes)){
+            throw new UnauthorizedException('Coutformaexternes not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $coutformaexterne,
+            'data' => $coutformaexternes,
             '_serialize' => ['success', 'data']
         ]);
      }
