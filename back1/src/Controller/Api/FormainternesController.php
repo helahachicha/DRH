@@ -13,7 +13,7 @@ use App\Controller\AppController;
 class FormainternesController extends AppController
 {
     /**
-     * addformainterne
+     * addFormainterne
      *
      * @Input:
      *         data:
@@ -27,7 +27,7 @@ class FormainternesController extends AppController
      * 
      * @Output: data : success message
      */
-    public function addformainterne(){
+    public function addFormainterne(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -39,7 +39,7 @@ class FormainternesController extends AppController
             //debug($data);die;
 
         }
-         /* create $formainternes entity */
+         /* create formainternes entity */
         if (1==1){
             $formainternes = $this->Formainternes->newEmptyEntity();
             $formainternes->tycomp=$data->tycomp;  
@@ -63,7 +63,7 @@ class FormainternesController extends AppController
     }
 
  /**
-     * editformainterne
+     * editFormainterne
      *
      * @Input:
      *         data:
@@ -76,7 +76,7 @@ class FormainternesController extends AppController
      *          hsortie (Time) *Required
      * @Output: data : success message
      */
-    public function editformainterne(){
+    public function editFormainterne(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -163,7 +163,7 @@ class FormainternesController extends AppController
         // debug($formainternes);die;
         
         if(empty($formainternes)){
-           throw new UnauthorizedException('Coutformaexterne not found');
+           throw new UnauthorizedException('Coutformaexternes not found');
        }
 
        /*send result */
