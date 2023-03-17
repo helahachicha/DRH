@@ -14,7 +14,7 @@
             <table class="  table table-bordered ">
                 <thead>
                     <tr>
-                        <th scope="col">Id</th>
+                      
                         <th scope="col">Type de compétence</th>
                         <th scope="col">Thème de formation </th>
                         <th scope="col">Animateur</th>
@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let formainter of formainternes">
-                        <td>{{formainter._id}}</td>
+                        
                         <td>{{formainter.tycomp}}</td>
                         <td>{{formainter.themeforma}}</td>
                         <td>{{formainter.animateur}}</td>
@@ -38,7 +38,7 @@
                         <td>
                             <button type="button" class="btn btn-success"
                                 routerLink="/editformainterne/{{formainter.id}}"><i
-                                    class="fas fa-edit">Edit</i></button>
+                                    class="fas fa-edit">Modifier</i></button>
                                     <button type="button" class="btn btn-danger mt-2" ><i
                                         class="fas fa-trash">Supprimer</i></button>
 

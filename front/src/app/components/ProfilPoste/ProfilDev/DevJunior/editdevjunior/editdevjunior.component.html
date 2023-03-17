@@ -1,26 +1,3 @@
-<nav class="navbar navbar-expand-lg navbar-light ">
-    <div class="container-fluid">
-
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <img class="m-2" src="assets/img/djagora1.png " height="50" width="150">
-
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-                <li class="mt-2">
-
-                    <p>Formulaire</p>
-                </li>
-
-            </ul>
-        </div>
-        <a><img class="navbar-brand" href="#" src="assets/img/profile.png" height="50" width="50"></a>
-    </div>
-</nav>
 
 
 
@@ -28,9 +5,10 @@
 
 
 
-<div class="border border-primary row ">
 
-    <div class="col-7 text-end">
+<div class="border border-primary row mt-1">
+
+    <div class="col-7 text-end mt-2">
         <h1> Profil de Poste</h1>
     </div>
     <div class="col text-end mt-2 ">
@@ -49,272 +27,285 @@
 
     <div class="container">
         <form id="contact-form" role="form" [formGroup]="DevJForm">
-        <div class="row">
-            <div class="text-start mt-2">
-                <label type="label" >MAJ N°: </label>
-                <input type="text" class="form-control" required="required" formControlName="majn" [(ngModel)]="Idproposte.majn">
+            <div class="row">
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+                    <label type="label">MAJ N°: </label>
+                    <input type="text" class="form-control" required="required" formControlName="majn"
+                        [(ngModel)]="Idproposte.majn">
+                </div>
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+                    <label type="label">Du:</label>
+                    <input type="text" class="form-control" required="required" formControlName="du"
+                        [(ngModel)]="Idproposte.du">
+                </div>
+
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+                    <label class="m-2" type="label"> Fonction: </label>
+                    <input type="text" class="form-control" required="required" formControlName="Fonction"
+                        [(ngModel)]="Idproposte.Fonction">
+                </div>
+
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+                    <label class="m-2" type="label"> Catégorie: </label>
+                    <input type="text" class="form-control" required="required" formControlName="Categorie"
+                        [(ngModel)]="Idproposte.Categorie">
+                </div>
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+                    <label class="m-2" type="label">Supérieur hiérarchique:</label>
+                    <input type="text" class="form-control" required="required" formControlName="Suphier"
+                        [(ngModel)]="Idproposte.Suphier">
+
+                </div>
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+                    <label class="m-2" type="label">Supervision: </label>
+                    <input type="text" class="form-control" required="required" formControlName="Super"
+                        [(ngModel)]="Idproposte.Super">
+                </div>
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+                    <label class="m-2" type="label">Intérim:</label>
+
+                    <input type="text" class="form-control" required="required" formControlName="Interim"
+                        [(ngModel)]="Idproposte.Interim">
+
+                </div>
             </div>
-            <div class="text-center">
-                <label type="label" >Du:</label>
-                <input type="text" class="form-control" required="required" formControlName="du" [(ngModel)]="Idproposte.du">
-            </div>
-        </div>
-
-        <label class="m-2" type="label" > Fonction: </label>
-            <input type="text" class="form-control" required="required" formControlName="Fonction"
-            [(ngModel)]="Idproposte.Fonction">
-
-        <br>
-        <label class="m-2" type="label" > Catégorie: </label>
-            <input type="text" class="form-control" required="required" formControlName="Categorie"
-            [(ngModel)]="Idproposte.Categorie">
-        <br>
-        <label class="m-2" type="label" >Supérieur hiérarchique:</label>
-            <input type="text" class="form-control" required="required" formControlName="Suphier"
-            [(ngModel)]="Idproposte.Suphier">
-        <br>
-        <label class="m-2" type="label" >Supervision: </label>
-            <input type="text" class="form-control" required="required" formControlName="Super"
-            [(ngModel)]="Idproposte.Super">
-        <br>
-        <label class="m-2" type="label" >Intérim:</label>
-
-            <input type="text" class="form-control" required="required" formControlName="Interim"
-            [(ngModel)]="Idproposte.Interim">
-
-
-    </form>
+        </form>
         <form id="contact-form" role="form" [formGroup]="ProfilPForm">
+            <div class="row">
+                <div class="shadow p-3 mb-5 bg-body rounded">
+                    <div class="form-group mx-sm-3 mb-2 mt-2">
 
-            <div class="shadow p-3 mb-5 bg-body rounded">
-                <div class="text-center">
-                    <h4>Profil du poste</h4>
+                        <h4>Profil du poste</h4>
 
                         <input type="text" class="form-control" required="required" formControlName="comptech"
-                        [(ngModel)]="Profilposte.comptech">
+                            [(ngModel)]="Profilposte.comptech">
 
+
+
+
+                        <input type="text" class="form-control mt-3" required="required"
+                            formControlName="contenucomptech" [(ngModel)]="Profilposte.contenucomptech">
+
+
+
+
+
+                        <input type="text" class="form-control mt-3" required="required" formControlName="comporgan"
+                            [(ngModel)]="Profilposte.comporgan">
+
+
+
+                        <input type="text" class="form-control mt-3" required="required" formControlName="gestemps"
+                            [(ngModel)]="Profilposte.gestemps">
+
+
+                        <label class="m-2" type="label"> Niveau visé : </label>
+
+                        <input type="text" class="form-control mt-2" required="required" formControlName="nvisegestemp"
+                            [(ngModel)]="Profilposte.nvisegestemp">
+
+
+                        <label class="m-2" type="label"> Indicateurs de suivi : <br>
+
+                            <input type="text" class="form-control mt-2" required="required"
+                                formControlName="isuivigestemp" [(ngModel)]="Profilposte.isuivigestemp">
+
+                        </label>
+
+
+
+                        <input type="text" class="form-control mt-3" required="required" formControlName="compcompor"
+                            [(ngModel)]="Profilposte.compcompor">
+
+
+
+
+                        <input type="text" class="form-control mt-3" required="required" formControlName="geek"
+                            [(ngModel)]="Profilposte.geek">
+
+
+
+
+                        <input type="text" class="form-control mt-3" required="required" formControlName="autod"
+                            [(ngModel)]="Profilposte.autod">
+
+
+
+                        <input type="text" class="form-control mt-3" required="required" formControlName="positivite"
+                            [(ngModel)]="Profilposte.positivite">
+
+
+
+
+                        <input type="text" class="form-control mt-3" required="required" formControlName="commintera"
+                            [(ngModel)]="Profilposte.commintera">
+
+
+
+                        <label class="m-2" type="label"> Niveau visé : </label>
+
+                        <input type="text" class="form-control mt-2" required="required"
+                            formControlName="nvisecommintera" [(ngModel)]="Profilposte.nvisecommintera">
+
+                        <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                        </label>
+
+                        <input type="text" class="form-control mt-2" required="required"
+                            formControlName="isuivicommintera" [(ngModel)]="Profilposte.isuivicommintera">
+
+
+
+
+                        <input type="text" class="form-control mt-3" required="required" formControlName="tracoll"
+                            [(ngModel)]="Profilposte.tracoll">
+
+
+                        <label class="m-2" type="label"> Niveau visé : </label>
+
+                        <input type="text" class="form-control mt-2" required="required" formControlName="nvisetracoll"
+                            [(ngModel)]="Profilposte.nvisetracoll">
+
+                        <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                        </label>
+
+                        <input type="text" class="form-control mt-2" required="required" formControlName="isuivitracoll"
+                            [(ngModel)]="Profilposte.isuivitracoll">
+
+
+
+
+
+                        <input type="text" class="form-control mt-3" required="required" formControlName="resprob"
+                            [(ngModel)]="Profilposte.resprob">
+
+
+                        <label class="m-2" type="label"> Niveau visé :</label>
+
+                        <input type="text" class="form-control mt-2" required="required" formControlName="nviseresprob"
+                            [(ngModel)]="Profilposte.nviseresprob">
+
+                        <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                        </label>
+
+                        <input type="text" class="form-control mt-2 " required="required"
+                            formControlName="isuiviresprob" [(ngModel)]="Profilposte.isuiviresprob">
+
+
+
+
+                        <input type="text" class="form-control mt-3 " required="required" formControlName="servexcell"
+                            [(ngModel)]="Profilposte.servexcell">
+
+
+
+                        <label class="m-2" type="label"> Niveau visé :</label>
+
+                        <input type="text" class="form-control mt-2" required="required"
+                            formControlName="nviseservexcell" [(ngModel)]="Profilposte.nviseservexcell">
+
+                        <label class="m-2" type="label "> Indicateurs de suivi : <br>
+                        </label>
+
+                        <input type="text" class="form-control mt-2" required="required"
+                            formControlName="isuiviservexcell" [(ngModel)]="Profilposte.isuiviservexcell">
+                    </div>
                 </div>
-                
-
-                    <input type="text" class="form-control"required="required" formControlName="contenucomptech"
-                    [(ngModel)]="Profilposte.contenucomptech">
-
-
-                <div class="text-center">
-                  
-
-                        <input type="text" class="form-control" required="required" formControlName="comporgan"
-                        [(ngModel)]="Profilposte.comporgan">
-            <br>
-                    
-
-                        <input type="text" class="form-control"required="required" formControlName="gestemps"
-                        [(ngModel)]="Profilposte.gestemps">
-
-                </div>
-                <label class="m-2" type="label"> Niveau visé : </label>
-
-                    <input type="text" class="form-control"  required="required" formControlName="nvisegestemp"
-                    [(ngModel)]="Profilposte.nvisegestemp">
-
-
-                <label class="m-2" type="label" > Indicateurs de suivi : <br>
-
-                    <input type="text" class="form-control" required="required" formControlName="isuivigestemp"
-                    [(ngModel)]="Profilposte.isuivigestemp">
-
-                </label>
-                <div class="text-center">
-                    
-
-                        <input type="text" class="form-control"  required="required" formControlName="compcompor"
-                        [(ngModel)]="Profilposte.compcompor">
-
-                </div>
-               
-
-                    <input type="text" class="form-control" required="required" formControlName="geek"
-                    [(ngModel)]="Profilposte.geek">
-
-
-                
-
-                    <input type="text" class="form-control"  required="required" formControlName="autod"
-                    [(ngModel)]="Profilposte.autod">
-
-                
-
-                    <input type="text" class="form-control" required="required" formControlName="positivite"
-                    [(ngModel)]="Profilposte.positivite">
-
-                <div class="text-center">
-                    
-
-                        <input type="text" class="form-control"required="required" formControlName="commintera"
-                        [(ngModel)]="Profilposte.commintera">
-
-                </div>
-
-                <label class="m-2" type="label" > Niveau visé : </label>
-
-                    <input type="text" class="form-control" required="required" formControlName="nvisecommintera"
-                    [(ngModel)]="Profilposte.nvisecommintera">
-
-                <label class="m-2" type="label" > Indicateurs de suivi : <br>
-                </label>
-
-                <input type="text" class="form-control" required="required" formControlName="isuivicommintera"
-                [(ngModel)]="Profilposte.isuivicommintera">
-
-                <div class="text-center">
-                  
-
-                        <input type="text" class="form-control" required="required" formControlName="tracoll"
-                        [(ngModel)]="Profilposte.tracoll">
-
-                </div>
-                <label class="m-2" type="label" > Niveau visé : </label>
-
-                    <input type="text" class="form-control"required="required" formControlName="nvisetracoll"
-                    [(ngModel)]="Profilposte.nvisetracoll">
-
-                <label class="m-2" type="label" > Indicateurs de suivi : <br>
-                </label>
-
-                <input type="text" class="form-control" required="required" formControlName="isuivitracoll"
-                [(ngModel)]="Profilposte.isuivitracoll">
-
-
-                <div class="text-center">
-                    
-
-                        <input type="text" class="form-control" required="required" formControlName="resprob"
-                        [(ngModel)]="Profilposte.resprob">
-
-                </div>
-                <label class="m-2" type="label" > Niveau visé :</label>
-
-                    <input type="text" class="form-control" required="required" formControlName="nviseresprob"
-                    [(ngModel)]="Profilposte.nviseresprob">
-
-                <label class="m-2" type="label" > Indicateurs de suivi : <br>
-                </label>
-
-                <input type="text" class="form-control" required="required" formControlName="isuiviresprob"
-                [(ngModel)]="Profilposte.isuiviresprob">
-
-                <div class="text-center">
-                  
-
-                        <input type="text" class="form-control"  required="required" formControlName="servexcell"
-                        [(ngModel)]="Profilposte.servexcell">
-
-                </div>
-
-                <label class="m-2" type="label"> Niveau visé :</label>
-
-                    <input type="text" class="form-control"  required="required" formControlName="nviseservexcell"
-                    [(ngModel)]="Profilposte.nviseservexcell">
-
-                <label class="m-2" type="label" > Indicateurs de suivi : <br>
-                </label>
-
-                <input type="text" class="form-control" required="required" formControlName="isuiviservexcell"
-                [(ngModel)]="Profilposte.isuiviservexcell">
-
             </div>
 
+
             <div class="shadow p-3 mb-5 bg-body rounded">
-                <div class="text-center">
-                   
+                <div class="form-group mx-sm-3 mb-2 mt-2">
 
-                        <input type="text" class="form-control" required="required" formControlName="droit"
-                        [(ngModel)]="Profilposte.droit">
 
-                </div>
-                
 
-                    <input type="text" class="form-control" required="required" formControlName="contenudroit"
+                <input type="text" class="form-control mt-2" required="required" formControlName="droit"
+                    [(ngModel)]="Profilposte.droit">
+
+
+
+
+                <input type="text" class="form-control mt-3" required="required" formControlName="contenudroit"
                     [(ngModel)]="Profilposte.contenudroit">
 
 
-                <div class="text-center">
-                   
 
-                        <input type="text" class="form-control" required="required" formControlName="devoir"
-                        [(ngModel)]="Profilposte.devoir">
 
-                </div>
-                
 
-                    <input type="text" class="form-control"  required="required" formControlName="contenudevoir"
+                <input type="text" class="form-control mt-3" required="required" formControlName="devoir"
+                    [(ngModel)]="Profilposte.devoir">
+
+
+
+
+                <input type="text" class="form-control mt-3" required="required" formControlName="contenudevoir"
                     [(ngModel)]="Profilposte.contenudevoir">
 
 
-                <div class="text-center">
-                  
 
-                        <input type="text" class="form-control" required="required" formControlName="validation"
-                        [(ngModel)]="Profilposte.validation">
 
-                </div>
-             
 
-                    <input type="text" class="form-control"  required="required" formControlName="contenuvalid"
+                <input type="text" class="form-control mt-3 " required="required" formControlName="validation"
+                    [(ngModel)]="Profilposte.validation">
+
+
+
+
+                <input type="text" class="form-control mt-3" required="required" formControlName="contenuvalid"
                     [(ngModel)]="Profilposte.contenuvalid">
-
-
-                <div class=" table-responsive ">
-                    <table class="  table table-bordered ">
-                        <thead>
-                            <tr class="text-bold">
-                                <th scope="col"></th>
-                                <th scope="col">Élaboration</th>
-                                <th scope="col">Vérification</th>
-                                <th scope="col">Approbation</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                
-                                <td class="text-bold">Fonction</td>
-                               
-                                <td class="text-bold" >  <input type="text" class="form-control" required="required" formControlName="fonction"
-                                    [(ngModel)]="Profilposte.fonction"></td>
-                                    
-                                <td class="text-bold" ><input type="text" class="form-control" required="required" formControlName="fonction1"
-                                    [(ngModel)]="Profilposte.fonction1"></td>
-                                   
-                                <td class="text-bold" > <input type="text" class="form-control" required="required" formControlName="fonction2"
-                                    [(ngModel)]="Profilposte.fonction2"></td>
-                            </tr>
-                            <tr>
-                              
-                                <td class="text-bold">Nom et Prénom</td>
-                                
-                                <td class="text-bold" ><input type="text" class="form-control" required="required" formControlName="nompre"
-                                    [(ngModel)]="Profilposte.nompre"></td>
-                                    
-                                <td class="text-bold" ><input type="text" class="form-control" required="required" formControlName="nompre1"
-                                    [(ngModel)]="Profilposte.nompre1"></td>
-                                    
-                                <td class="text-bold" ><input type="text" class="form-control" required="required" formControlName="nompre2"
-                                    [(ngModel)]="Profilposte.nompre2"></td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-                </div>
             </div>
 
-        </form>
-        <div class="col-md-12">
+            <div class=" table-responsive ">
+                <table class="  table table-bordered ">
+                    <thead>
+                        <tr class="text-bold">
+                            <th scope="col"></th>
+                            <th scope="col">Élaboration</th>
+                            <th scope="col">Vérification</th>
+                            <th scope="col">Approbation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
 
-            <button class="btn btn-primary m-5" type="submit" (click)="editdetailFormulair()" (click)="editprofil()">Terminer</button>
+                            <td class="text-bold">Fonction</td>
 
-        </div>
+                            <td class="text-bold"> <input type="text" class="form-control" required="required"
+                                    formControlName="fonction" [(ngModel)]="Profilposte.fonction"></td>
+
+                            <td class="text-bold"><input type="text" class="form-control" required="required"
+                                    formControlName="fonction1" [(ngModel)]="Profilposte.fonction1"></td>
+
+                            <td class="text-bold"> <input type="text" class="form-control" required="required"
+                                    formControlName="fonction2" [(ngModel)]="Profilposte.fonction2"></td>
+                        </tr>
+                        <tr>
+
+                            <td class="text-bold">Nom et Prénom</td>
+
+                            <td class="text-bold"><input type="text" class="form-control" required="required"
+                                    formControlName="nompre" [(ngModel)]="Profilposte.nompre"></td>
+
+                            <td class="text-bold"><input type="text" class="form-control" required="required"
+                                    formControlName="nompre1" [(ngModel)]="Profilposte.nompre1"></td>
+
+                            <td class="text-bold"><input type="text" class="form-control" required="required"
+                                    formControlName="nompre2" [(ngModel)]="Profilposte.nompre2"></td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+    </div>
+
+    </form>
+    <div class="col-md-12">
+
+        <button class="btn btn-primary m-5" type="submit" (click)="editdetailFormulair()"
+            (click)="editprofil()">Terminer</button>
+
+    </div>
     </div>
 
 
