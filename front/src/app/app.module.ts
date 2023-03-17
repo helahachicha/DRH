@@ -31,6 +31,8 @@ import { EditdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/
 import { ListingdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/listingdevs/listingdevs.component';
 import { EditdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/editdevt/editdevt.component';
 import { ListingdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/listingdevt/listingdevt.component';
+import { HomeComponent } from './Home/home/home.component';
+import { SidebarComponent } from './Layout/sidebar/sidebar.component';
 
 
 
@@ -62,6 +64,8 @@ import { ListingdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeck
     ListingdevsComponent,
     EditdevtComponent,
     ListingdevtComponent,
+    HomeComponent,
+    SidebarComponent,
     
    
   ],

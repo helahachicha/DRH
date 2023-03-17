@@ -1,1 +1,353 @@
-<p>editdevt works!</p>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <img class="m-2" src="assets/img/djagora1.png " height="50" width="150">
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="mt-2">
+
+                        <p>Formulaire</p>
+                    </li>
+
+                </ul>
+            </div>
+            <a><img class="navbar-brand" href="#" src="assets/img/profile.png" height="50" width="50"></a>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+    <div class="border border-primary row ">
+
+        <div class="col-7 text-end">
+            <h1> Profil de Poste</h1>
+        </div>
+        <div class="col text-end mt-2 ">
+            <p>
+                Code:PR07F01<br>
+                Version:00
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="container">
+        <form id="contact-form" role="form" [formGroup]="DevTForm">
+            <div class="row">
+                <div class="text-start mt-2">
+                    <label type="label">MAJ N°: </label>
+                    <input type="text" class="form-control" required="required" formControlName="refdt"
+                        [(ngModel)]="  Idpropostedt.refdt">
+                </div>
+                <div class="text-center">
+                    <label type="label">Du:</label>
+                    <input type="text" class="form-control" required="required" formControlName="majndt"
+                        [(ngModel)]="  Idpropostedt.majndt">
+                </div>
+                <div class="text-end">
+                   
+                    <input type="text" class="form-control" required="required" formControlName="dudt"
+                        [(ngModel)]="  Idpropostedt.dudt">
+                </div>
+            </div>
+
+            <label class="m-2" type="label"> Fonction: </label>
+            <input type="text" class="form-control" required="required" formControlName="Fonctiondt"
+                [(ngModel)]="  Idpropostedt.Fonctiondt">
+
+            <br>
+            <label class="m-2" type="label"> Catégorie: </label>
+            <input type="text" class="form-control" required="required" formControlName="Categoriedt"
+                [(ngModel)]="  Idpropostedt.Categoriedt">
+            <br>
+            <label class="m-2" type="label">Supérieur hiérarchique:</label>
+            <input type="text" class="form-control" required="required" formControlName="Suphierdt"
+                [(ngModel)]="  Idpropostedt.Suphierdt">
+            <br>
+            <label class="m-2" type="label">Supervision: </label>
+            <input type="text" class="form-control" required="required" formControlName="Superdt"
+                [(ngModel)]="  Idpropostedt.Superdt">
+            <br>
+            <label class="m-2" type="label">Intérim:</label>
+
+            <input type="text" class="form-control" required="required" formControlName="Interimdt"
+                [(ngModel)]="  Idpropostedt.Interimdt">
+
+
+        </form>
+        <form id="contact-form" role="form" [formGroup]="ProfilPForm">
+
+            <div class="shadow p-3 mb-5 bg-body rounded">
+                <div class="text-center">
+                    <h4>Profil du poste</h4>
+
+                    <input type="text" class="form-control" required="required" formControlName="comptechdt"
+                        [(ngModel)]="Profilpostedt.comptechdt">
+
+                </div>
+
+
+                <input type="text" class="form-control" required="required" formControlName="contenucomptechdt"
+                    [(ngModel)]="Profilpostedt.contenucomptechdt">
+
+
+                <div class="text-center">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="comporgandt"
+                        [(ngModel)]="Profilpostedt.comporgandt">
+                    <br>
+
+
+                    <input type="text" class="form-control" required="required" formControlName="gestempsdt"
+                        [(ngModel)]="Profilpostedt.gestempsdt">
+
+                </div>
+                <label class="m-2" type="label"> Niveau visé : </label>
+
+                <input type="text" class="form-control" required="required" formControlName="nvisegestempdt"
+                    [(ngModel)]="Profilpostedt.nvisegestempdt">
+
+
+                <label class="m-2" type="label"> Indicateurs de suivi : <br>
+
+                    <input type="text" class="form-control" required="required" formControlName="isuivigestempdt"
+                        [(ngModel)]="Profilpostedt.isuivigestempdt">
+
+                </label>
+                <div class="text-center">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="compcompordt"
+                        [(ngModel)]="Profilpostedt.compcompordt">
+
+                </div>
+
+
+                <input type="text" class="form-control" required="required" formControlName="comminteradt"
+                    [(ngModel)]="Profilpostedt.comminteradt">
+
+                <label class="m-2" type="label"> Niveau visé : </label>
+
+                <input type="text" class="form-control" required="required" formControlName="nvisecomminteradt"
+                    [(ngModel)]="Profilpostedt.nvisecomminteradt">
+
+                <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                </label>
+
+                <input type="text" class="form-control" required="required" formControlName="isuivicomminteradt"
+                    [(ngModel)]="Profilpostedt.isuivicomminteradt">
+
+
+
+                <div class="text-center">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="tracolldt"
+                        [(ngModel)]="Profilpostedt.tracolldt">
+
+                </div>
+
+                <label class="m-2" type="label"> Niveau visé : </label>
+
+                <input type="text" class="form-control" required="required" formControlName="nvisetracolldt"
+                    [(ngModel)]="Profilpostedt.nvisetracolldt">
+
+                <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                </label>
+
+                <input type="text" class="form-control" required="required" formControlName="isuivitracolldt"
+                    [(ngModel)]="Profilpostedt.isuivitracolldt">
+
+                <div class="text-center">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="resprobdt"
+                        [(ngModel)]="Profilpostedt.resprobdt">
+
+                </div>
+                <label class="m-2" type="label"> Niveau visé : </label>
+
+                <input type="text" class="form-control" required="required" formControlName="nviseresprobdt"
+                    [(ngModel)]="Profilpostedt.nviseresprobdt">
+
+                <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                </label>
+
+                <input type="text" class="form-control" required="required" formControlName="isuiviresprobdt"
+                    [(ngModel)]="Profilpostedt.isuiviresprobdt">
+
+
+                <div class="text-center">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="raisanaldt"
+                        [(ngModel)]="Profilpostedt.raisanaldt">
+
+                </div>
+                <label class="m-2" type="label"> Niveau visé :</label>
+
+                <input type="text" class="form-control" required="required" formControlName="nviseraisanaldt"
+                    [(ngModel)]="Profilpostedt.nviseraisanaldt">
+
+                <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                </label>
+
+                <input type="text" class="form-control" required="required" formControlName="isuiviraisanaldt"
+                    [(ngModel)]="Profilpostedt.isuiviraisanaldt">
+
+                <div class="text-center">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="leadershipdt"
+                        [(ngModel)]="Profilpostedt.leadershipdt">
+
+                </div>
+
+                <label class="m-2" type="label"> Niveau visé :</label>
+
+                <input type="text" class="form-control" required="required" formControlName="nviseleadershipdt"
+                    [(ngModel)]="Profilpostedt.nviseleadershipdt">
+
+                <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                </label>
+
+                <input type="text" class="form-control" required="required" formControlName="isuivileadershipdt"
+                    [(ngModel)]="Profilpostedt.isuivileadershipdt">
+
+                <div class="text-center">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="soudevdt"
+                        [(ngModel)]="Profilpostedt.soudevdt">
+
+                </div>
+
+                <label class="m-2" type="label"> Niveau visé :</label>
+
+                <input type="text" class="form-control" required="required" formControlName="nvisesoudevdt"
+                    [(ngModel)]="Profilpostedt.nvisesoudevdt">
+
+                <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                </label>
+
+                <input type="text" class="form-control" required="required" formControlName="isuivisoudevdt"
+                    [(ngModel)]="Profilpostedt.isuivisoudevdt">
+
+
+            </div>
+
+            <div class="shadow p-3 mb-5 bg-body rounded">
+                <div class="text-center">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="droitdt"
+                        [(ngModel)]="Profilpostedt.droitdt">
+
+                </div>
+
+
+                <input type="text" class="form-control" required="required" formControlName="contenudroitdt"
+                    [(ngModel)]="Profilpostedt.contenudroitdt">
+
+
+                <div class="text-center">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="devoirdt"
+                        [(ngModel)]="Profilpostedt.devoirdt">
+
+                </div>
+
+
+                <input type="text" class="form-control" required="required" formControlName="contenudevoirdt"
+                    [(ngModel)]="Profilpostedt.contenudevoirdt">
+
+
+                <div class="text-center">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="validationdt"
+                        [(ngModel)]="Profilpostedt.validationdt">
+
+                </div>
+
+
+                <input type="text" class="form-control" required="required" formControlName="contenuvaliddt"
+                    [(ngModel)]="Profilpostedt.contenuvaliddt">
+
+
+                <div class=" table-responsive ">
+                    <table class="  table table-bordered ">
+                        <thead>
+                            <tr class="text-bold">
+                                <th scope="col"></th>
+                                <th scope="col">Élaboration</th>
+                                <th scope="col">Vérification</th>
+                                <th scope="col">Approbation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="text-bold">Fonction</td>
+
+                                <td class="text-bold"> <input type="text" class="form-control" required="required"
+                                        formControlName="fonctiondt" [(ngModel)]="  Profilpostedt.fonctiondt"></td>
+
+                                <td class="text-bold"><input type="text" class="form-control" required="required"
+                                        formControlName="fonctiondt1" [(ngModel)]="  Profilpostedt.fonctiondt1"></td>
+
+                                <td class="text-bold"> <input type="text" class="form-control" required="required"
+                                        formControlName="fonctiondt2" [(ngModel)]="  Profilpostedt.fonctiondt2"></td>
+                            </tr>
+                            <tr>
+
+                                <td class="text-bold">Nom et Prénom</td>
+
+                                <td class="text-bold"><input type="text" class="form-control" required="required"
+                                        formControlName="nompredt" [(ngModel)]="  Profilpostedt.nompredt"></td>
+
+                                <td class="text-bold"><input type="text" class="form-control" required="required"
+                                        formControlName="nompredt1" [(ngModel)]="  Profilpostedt.nompredt1"></td>
+
+                                <td class="text-bold"><input type="text" class="form-control" required="required"
+                                        formControlName="nompredt2" [(ngModel)]="  Profilpostedt.nompredt2"></td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+        </form>
+        <div class="col-md-12">
+
+            <button class="btn btn-primary m-5" type="submit" (click)="editdetailFormulair()"
+                (click)="editprofil()">Terminer</button>
+
+        </div>
+    </div>
+
+
+</body>

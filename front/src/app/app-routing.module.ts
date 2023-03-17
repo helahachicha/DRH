@@ -19,11 +19,13 @@ import { EditdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/
 import { ListingdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/listingdevs/listingdevs.component';
 import { EditdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/editdevt/editdevt.component';
 import { ListingdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/listingdevt/listingdevt.component';
+import { HomeComponent } from './Home/home/home.component';
 import { FooterComponent } from './Layout/footer/footer.component';
 import { HeaderComponent } from './Layout/header/header.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
+  //{ path: '', component: LoginComponent},
+  { path: 'home', component: HomeComponent},
   { path: 'footer', component: FooterComponent},
   { path: 'header', component: HeaderComponent },
   { path: 'addforma', component: AddformaComponent },
