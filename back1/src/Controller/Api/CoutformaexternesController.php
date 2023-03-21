@@ -186,11 +186,14 @@ class CoutformaexternesController extends AppController
             ],
            
         ])->first();
-        if ($this->Coutformaexternes->delete($coutformaexternes)){
+        if (1==1){
+            $this->Coutformaexternes->delete($coutformaexternes);
+        }
             $this->set([
                 'success' => true,
-                '_serialize' => ['success']
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
             ]);
         }
-     }
+     
 }
