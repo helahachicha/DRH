@@ -9,27 +9,19 @@ use Cake\ORM\Entity;
  * Profilposteconfirme Entity
  *
  * @property int $id
- * @property string $comptechdc
+ * @property int $competence_id
+ * @property int $indicateurcomp_id
  * @property string $contenucomptechdc
- * @property string $comporgandc
- * @property string $gestempsdc
  * @property string $nvisegestempdc
  * @property string $isuivigestempdc
- * @property string $compcompordc
- * @property string $autonomiedc
- * @property string $comminteradc
  * @property string $nvisecomminteradc
  * @property string $isuivicomminteradc
- * @property string $tracolldc
  * @property string $nvisetracolldc
  * @property string $isuivitracolldc
- * @property string $resprobdc
  * @property string $nviseresprobdc
  * @property string $isuiviresprobdc
- * @property string $servexcelldc
  * @property string $nviseservexcelldc
  * @property string $isuiviservexcelldc
- * @property string $raisconcepdc
  * @property string $nviseraisconcepdc
  * @property string $isuiviraisconcepdc
  * @property string $droitdc
@@ -59,27 +51,19 @@ class Profilposteconfirme extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'comptechdc' => true,
+        'competence_id' => true,
+        'indicateurcomp_id' => true,
         'contenucomptechdc' => true,
-        'comporgandc' => true,
-        'gestempsdc' => true,
         'nvisegestempdc' => true,
         'isuivigestempdc' => true,
-        'compcompordc' => true,
-        'autonomiedc' => true,
-        'comminteradc' => true,
         'nvisecomminteradc' => true,
         'isuivicomminteradc' => true,
-        'tracolldc' => true,
         'nvisetracolldc' => true,
         'isuivitracolldc' => true,
-        'resprobdc' => true,
         'nviseresprobdc' => true,
         'isuiviresprobdc' => true,
-        'servexcelldc' => true,
         'nviseservexcelldc' => true,
         'isuiviservexcelldc' => true,
-        'raisconcepdc' => true,
         'nviseraisconcepdc' => true,
         'isuiviraisconcepdc' => true,
         'droitdc' => true,

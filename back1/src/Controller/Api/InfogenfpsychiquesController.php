@@ -162,4 +162,43 @@ class InfogenfpsychiquesController extends AppController
            '_serialize' => ['success', 'data']
        ]);
     }
+
+
+    /**
+      * deleteInfogenfpsychique
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteInfogenfpsychique(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $infogenfpsychiques = $this->Infogenfpsychiques->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete infogenfpsychiques  */
+
+        if (1==1){
+            $this->Infogenfpsychiques->delete($infogenfpsychiques);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
 }

@@ -173,6 +173,13 @@ class CoutformaexternesController extends AppController
         ]);
      }
 
+     /**
+      * deleteCoutformaexterne
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
 
      public function deleteCoutformaexterne(){
 
@@ -180,15 +187,23 @@ class CoutformaexternesController extends AppController
 
         $this->request->allowMethod(['post','delete']);
 
+        /* search */
+
         $coutformaexternes = $this->Coutformaexternes->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
+
+        /* delete coutformaexternes  */
+
         if (1==1){
             $this->Coutformaexternes->delete($coutformaexternes);
         }
+
+        /*send result */
+
             $this->set([
                 'success' => true,
                 'data' => "Deleted with success",

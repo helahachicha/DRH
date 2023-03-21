@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 21 mars 2023 à 10:17
+-- Généré le : mar. 21 mars 2023 à 15:51
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `drh`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `competences`
+--
+
+CREATE TABLE `competences` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `competences`
+--
+
+INSERT INTO `competences` (`id`, `label`, `created`, `modified`) VALUES
+(1, 'COMPÉTENCE ORGANISATIONNELLE\r\nGESTION DE TEMPS & PRIORITÉS', '2023-03-21 14:41:32', '2023-03-21 14:41:32'),
+(2, 'COMPÉTENCES COMPORTEMENTALES', '2023-03-21 14:41:32', '2023-03-21 14:41:32');
 
 -- --------------------------------------------------------
 
@@ -94,50 +115,6 @@ CREATE TABLE `expproffrs` (
 
 INSERT INTO `expproffrs` (`id`, `societeex`, `duauex`, `fonctionex`, `inidiffex`, `salaireex`, `created`, `modified`) VALUES
 (1, 'test', '2018-2022', 'test', 'test', '500dt', '2023-03-16 14:44:44', '2023-03-16 14:44:44');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `fecomminteras`
---
-
-CREATE TABLE `fecomminteras` (
-  `id` int(11) NOT NULL,
-  `numeroci` int(11) NOT NULL,
-  `indimesureci` varchar(255) NOT NULL,
-  `pointsci` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `fecomminteras`
---
-
-INSERT INTO `fecomminteras` (`id`, `numeroci`, `indimesureci`, `pointsci`, `created`, `modified`) VALUES
-(1, 5, 'test', 6, '2023-03-20 13:51:36', '2023-03-20 13:51:36');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `fecomporganisations`
---
-
-CREATE TABLE `fecomporganisations` (
-  `id` int(11) NOT NULL,
-  `numeroco` int(11) NOT NULL,
-  `indimesureco` varchar(255) NOT NULL,
-  `pointsco` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `fecomporganisations`
---
-
-INSERT INTO `fecomporganisations` (`id`, `numeroco`, `indimesureco`, `pointsco`, `created`, `modified`) VALUES
-(1, 1, 'test', 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -261,7 +238,6 @@ CREATE TABLE `formaexternes` (
 --
 
 INSERT INTO `formaexternes` (`id`, `typecomp`, `themforma`, `participant`, `nbparticipant`, `raisonforma`, `organismeforma`, `formalite`, `formateur`, `raisonchoix`, `dureeforma`, `nbjour`, `nbhjour`, `date`, `horaireforma`, `pause`, `lieuforma`, `created`, `modified`) VALUES
-(1, '', '', '', 0, '', '', '', '', '', '', 0, 0, '0000-00-00 00:00:00', '', '', '', '2023-03-12 20:17:51', '2023-03-13 15:34:25'),
 (2, 'test', 'test', 'test', 22, 'test', 'test', 'test', 'bolbol', 'test', 'test', 25, 8, '2023-03-13 13:46:20', 'test', 'test', 'test', '2023-03-13 13:46:20', '2023-03-17 19:40:51');
 
 -- --------------------------------------------------------
@@ -288,16 +264,52 @@ CREATE TABLE `formainternes` (
 --
 
 INSERT INTO `formainternes` (`id`, `tycomp`, `themeforma`, `animateur`, `poste`, `datee`, `hentrer`, `hsortie`, `created`, `modified`) VALUES
-(1, 'test', 'test', 'test', 'test', '2023-03-13 22:41:34', '00:00:14', '16h', '2023-03-13 22:41:34', '2023-03-13 22:41:34'),
-(2, 'hhhhhh', 'hhhhhhh', 'hhhhh', 'hhhh', '2023-03-13 22:42:15', '00:00:12', '17h', '2023-03-13 22:42:15', '2023-03-13 22:42:15');
+(1, 'test', 'test', 'test', 'test', '2023-03-13 22:41:34', '00:00:14', '16h', '2023-03-13 22:41:34', '2023-03-13 22:41:34');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `infogenconfimes`
+-- Structure de la table `indicateurcomps`
 --
 
-CREATE TABLE `infogenconfimes` (
+CREATE TABLE `indicateurcomps` (
+  `id` int(11) NOT NULL,
+  `label` text NOT NULL,
+  `souscompetence_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `indicateurcomps`
+--
+
+INSERT INTO `indicateurcomps` (`id`, `label`, `souscompetence_id`, `created`, `modified`) VALUES
+(1, 'Planifier & compléter les tâches/projets à temps efficacement', 0, '2023-03-21 14:49:07', '2023-03-21 14:49:07'),
+(2, 'Informer de la progression des tâches ou du projet', 0, '2023-03-21 14:49:07', '2023-03-21 14:49:07'),
+(3, 'Déclarer en cas de difficulté technique : c’est à dire après dépasser 50 % du temps prévu de réalisation d’une tâche au maximum à l’essai de résolution d’une difficulté technique ', 0, '2023-03-21 14:49:38', '2023-03-21 14:49:38'),
+(4, 'Écouter activement afin de bien comprendre le message.', 1, '2023-03-21 14:51:06', '2023-03-21 14:51:06'),
+(5, 'Essayer de partager l’information liée à l’exécution de travail et la communiquer clairement (quelque soit de la part développeur junior et de son vis-à-vis)', 1, '2023-03-21 14:51:06', '2023-03-21 14:51:06'),
+(6, 'Répondre de manière appropriée en donnant l’information et les faits de façon logique, claire et cohérente.', 1, '2023-03-21 14:51:38', '2023-03-21 14:51:38'),
+(7, 'Transmet et reçoit le besoin facile à comprendre : c’est à dire transmet, reçoit et vérifie la bonne compréhension de la part de l’émetteur et récepteur', 1, '2023-03-21 14:51:38', '2023-03-21 14:51:38'),
+(8, 'Tenir compte de l’objectif de toute l’équipe  ', 2, '2023-03-21 14:51:59', '2023-03-21 14:51:59'),
+(9, 'Réussite collective ou échec collective ! : c’est toute l’équipe est responsable soit en cas de la réussite ou en cas d’échec', 2, '2023-03-21 14:51:59', '2023-03-21 14:51:59'),
+(10, 'Appuyer les décisions ou les activités de l’équipe et aider à réaliser l’objectif principal', 2, '2023-03-21 14:52:34', '2023-03-21 14:52:34'),
+(11, 'Répartition des tâches d’une manière équitable', 2, '2023-03-21 14:52:34', '2023-03-21 14:52:34'),
+(12, 'Poser les questions adéquates et distinguer entre les renseignements pertinents et ceux qui ne le sont pas.', 3, '2023-03-21 14:52:34', '2023-03-21 14:52:34'),
+(13, 'Identifier la cause principale du problème affronté', 3, '2023-03-21 14:52:34', '2023-03-21 14:52:34'),
+(14, 'Fournir une réponse claire & logique aux questions ou préoccupations', 4, '2023-03-21 14:52:34', '2023-03-21 14:52:34'),
+(15, 'Fournir un service, y compris des renseignements utiles ou une aide, conforme aux normes de service et aux lignes directrices pertinentes', 4, '2023-03-21 14:52:34', '2023-03-21 14:52:34'),
+(17, 'Connaissance de l’architecture de développement Orientée Objet', 0, '2023-03-21 14:52:34', '2023-03-21 14:52:34'),
+(18, 'Une bonne maîtrise du SQL   ', 0, '2023-03-21 14:52:34', '2023-03-21 14:52:34');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `infogenconfirmes`
+--
+
+CREATE TABLE `infogenconfirmes` (
   `id` int(11) NOT NULL,
   `majndc` int(11) NOT NULL,
   `dudc` date NOT NULL,
@@ -311,11 +323,12 @@ CREATE TABLE `infogenconfimes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `infogenconfimes`
+-- Déchargement des données de la table `infogenconfirmes`
 --
 
-INSERT INTO `infogenconfimes` (`id`, `majndc`, `dudc`, `Fonctiondc`, `categoriedc`, `Suphierdc`, `Superdc`, `interidc`, `created`, `modified`) VALUES
-(1, 2, '2022-02-07', 'Ingénieur Recherche et Développement', 'Développeur Confirmé', 'Gérant', 'Développeur Senior', 'Développeur Senior', '2023-03-15 14:24:46', '2023-03-15 14:24:46');
+INSERT INTO `infogenconfirmes` (`id`, `majndc`, `dudc`, `Fonctiondc`, `categoriedc`, `Suphierdc`, `Superdc`, `interidc`, `created`, `modified`) VALUES
+(1, 2, '2022-02-07', 'Ingénieur Recherche et Développement', 'Développeur Confirmé', 'Gérant', 'Développeur Senior', 'Développeur Senior', '2023-03-15 14:24:46', '2023-03-15 14:24:46'),
+(2, 2, '2023-03-08', 'h', 'h', 'h', 'h', 'h', '2023-03-21 11:04:41', '2023-03-21 11:04:41');
 
 -- --------------------------------------------------------
 
@@ -338,8 +351,7 @@ CREATE TABLE `infogenfpsychiques` (
 --
 
 INSERT INTO `infogenfpsychiques` (`id`, `nomprenom`, `dateevaluation`, `objetevaluation`, `decisiondirection`, `created`, `modified`) VALUES
-(1, 'bolbol', '2023-03-01', 'bolbol', 'bolbol', '2023-03-17 16:01:37', '2023-03-17 16:01:37'),
-(2, 'hamza', '2023-03-08', 'hamza', 'hamza', '2023-03-17 16:02:07', '2023-03-17 16:02:07');
+(1, 'bolbol', '2023-03-01', 'bolbol', 'bolbol', '2023-03-17 16:01:37', '2023-03-17 16:01:37');
 
 -- --------------------------------------------------------
 
@@ -428,41 +440,21 @@ INSERT INTO `infogenteckleads` (`id`, `refdt`, `majndt`, `dudt`, `Fonctiondt`, `
 
 CREATE TABLE `profilposteconfirmes` (
   `id` int(11) NOT NULL,
-  `comptechdc` varchar(255) NOT NULL,
+  `competence_id` int(11) NOT NULL,
+  `indicateurcomp_id` int(11) NOT NULL,
   `contenucomptechdc` varchar(255) NOT NULL,
-  `comporgandc` varchar(255) NOT NULL,
-  `gestempsdc` varchar(255) NOT NULL,
   `nvisegestempdc` varchar(255) NOT NULL,
   `isuivigestempdc` varchar(255) NOT NULL,
-  `compcompordc` varchar(255) NOT NULL,
-  `autonomiedc` varchar(255) NOT NULL,
-  `comminteradc` varchar(255) NOT NULL,
   `nvisecomminteradc` varchar(255) NOT NULL,
   `isuivicomminteradc` varchar(255) NOT NULL,
-  `tracolldc` varchar(255) NOT NULL,
   `nvisetracolldc` varchar(255) NOT NULL,
   `isuivitracolldc` varchar(255) NOT NULL,
-  `resprobdc` varchar(255) NOT NULL,
   `nviseresprobdc` varchar(255) NOT NULL,
   `isuiviresprobdc` varchar(255) NOT NULL,
-  `servexcelldc` varchar(255) NOT NULL,
   `nviseservexcelldc` varchar(255) NOT NULL,
   `isuiviservexcelldc` varchar(255) NOT NULL,
-  `raisconcepdc` varchar(255) NOT NULL,
   `nviseraisconcepdc` varchar(255) NOT NULL,
   `isuiviraisconcepdc` varchar(255) NOT NULL,
-  `droitdc` varchar(255) NOT NULL,
-  `contenudroitdc` varchar(255) NOT NULL,
-  `devoirdc` varchar(255) NOT NULL,
-  `contenudevoirdc` varchar(255) NOT NULL,
-  `validationdc` varchar(255) NOT NULL,
-  `contenuvaliddc` varchar(255) NOT NULL,
-  `fonctiondc` varchar(255) NOT NULL,
-  `nompredc` varchar(255) NOT NULL,
-  `fonctiondc1` varchar(255) NOT NULL,
-  `nompredc1` varchar(255) NOT NULL,
-  `fonctiondc2` varchar(255) NOT NULL,
-  `nompredc2` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -471,8 +463,8 @@ CREATE TABLE `profilposteconfirmes` (
 -- Déchargement des données de la table `profilposteconfirmes`
 --
 
-INSERT INTO `profilposteconfirmes` (`id`, `comptechdc`, `contenucomptechdc`, `comporgandc`, `gestempsdc`, `nvisegestempdc`, `isuivigestempdc`, `compcompordc`, `autonomiedc`, `comminteradc`, `nvisecomminteradc`, `isuivicomminteradc`, `tracolldc`, `nvisetracolldc`, `isuivitracolldc`, `resprobdc`, `nviseresprobdc`, `isuiviresprobdc`, `servexcelldc`, `nviseservexcelldc`, `isuiviservexcelldc`, `raisconcepdc`, `nviseraisconcepdc`, `isuiviraisconcepdc`, `droitdc`, `contenudroitdc`, `devoirdc`, `contenudevoirdc`, `validationdc`, `contenuvaliddc`, `fonctiondc`, `nompredc`, `fonctiondc1`, `nompredc1`, `fonctiondc2`, `nompredc2`, `created`, `modified`) VALUES
-(1, 'COMPÉTENCES TECHNIQUES', '- Maîtrise fonctionnel (Certification dans l’une des trois dernières versions)\r\n- Compétence technique (produit odoo) \r\n', 'COMPÉTENCES ORGANISATIONNELLES', 'GESTION DE TEMPS & PRIORITÉS', 'Niveau 2 – Actif : Gérer des priorités multiples ', '- Déterminer l’importance des tâches/activités, et passer rapidement et efficacement d’une tâche à l’autre\r\n- Veiller à accomplir le travail en utilisant des solutions efficaces\r\n', 'COMPÉTENCES COMPORTEMENTALES  ', '1. Autonomie', '2. COMMUNICATION INTERACTIVE EFFICACE', 'Niveau 2 – Actif: Vérifier la compréhension du message', '- Valider la compréhension du message par l’autre partie \r\n- Reconnaître les signes non verbaux et les utilise pour identifier les pensées ou les préoccupations non exprimées afin de répondre de façon appropriée\r\n- Utiliser des techniques de communication', '3. TRAVAIL EN ÉQUIPE & COLLABORATION ', 'Niveau 2 – Actif: Aide le groupe', '- Prendre l’initiative \r\n- Faire part des connaissances,  expérience ou expertise pertinente et utile en vue d’aider les membres du groupe à réaliser leurs objectifs de façon plus efficace ou efficiente.\r\n- S’efforcer de faire quelque chose de plus pour a', '4. RÉSOLUTION DES PROBLÈMES', 'Niveau 2 – Actif: Trouver une solution à un problème ou une situation', '- Recueillir des faits et des renseignements additionnels pour acquérir une meilleure compréhension de la situation.\r\n- Reconnaître les situations où les procédures habituelles peuvent ne pas s’appliquer et où une solution différente est requise.\r\n', '5. SERVICE D’EXCELLENCE ', 'Niveau 2 – Actif: Prendre la responsabilité de traiter le besoin ou de satisfaire aux exigences de service', '- S’assurer que le besoin est traité; cela peut nécessiter l’intervention d’un tiers.\r\n- Assurer un suivi auprès du client lorsque nécessaire ou prend d’autres mesures.\r\n', '6. RAISONNEMENT CONCEPTUEL ', 'Niveau 2 – Actif: Appliquer les règles de base et reconnaître des constantes en se basant sur son vécu', '- Prendre l’initiative et gérer les difficultés \r\n- Appliquer des règles simples, jugement et expériences passées pour cerner les problèmes\r\n- Remarquer qu\'une situation présente est similaire à une situation passée ou est différente d\'une situation passé', 'DROITS', '• Prime mensuelle catégorie développeur confirmé (selon grille de salaire)\r\n• Mission en cas de besoin (accompagner par un développeur senior)\r\n• Prêt 2 Salaires sous validation  de la direction \r\n', 'DEVOIRS ', '• Veille technique\r\n• Amélioration continu\r\n• Proposer des modules à publier dans odoo Apps\r\n• Partage de l’information\r\n• Collaboration avec l’équipe de travail\r\n• Encadrement des stagiaires d’été (pendant 1 mois au minimum)\r\n• Respecter les règles RH et', 'VALIDATION', '• La validation d’un développeur confirmé doit être après avoir passer 18 mois dans le niveau précédent . ', 'Responsable développement RH', 'Jawaher KHMIRI', 'Responsable Qualité', 'Hayet BEN SALEM', 'Gérant', 'Rochdi ABID', '2023-03-15 15:02:35', '2023-03-15 15:02:35');
+INSERT INTO `profilposteconfirmes` (`id`, `competence_id`, `indicateurcomp_id`, `contenucomptechdc`, `nvisegestempdc`, `isuivigestempdc`, `nvisecomminteradc`, `isuivicomminteradc`, `nvisetracolldc`, `isuivitracolldc`, `nviseresprobdc`, `isuiviresprobdc`, `nviseservexcelldc`, `isuiviservexcelldc`, `nviseraisconcepdc`, `isuiviraisconcepdc`, `created`, `modified`) VALUES
+(1, 0, 0, '- Maîtrise fonctionnel (Certification dans l’une des trois dernières versions)\r\n- Compétence technique (produit odoo) \r\n', 'Niveau 2 – Actif : Gérer des priorités multiples ', '- Déterminer l’importance des tâches/activités, et passer rapidement et efficacement d’une tâche à l’autre\r\n- Veiller à accomplir le travail en utilisant des solutions efficaces\r\n', 'Niveau 2 – Actif: Vérifier la compréhension du message', '- Valider la compréhension du message par l’autre partie \r\n- Reconnaître les signes non verbaux et les utilise pour identifier les pensées ou les préoccupations non exprimées afin de répondre de façon appropriée\r\n- Utiliser des techniques de communication', 'Niveau 2 – Actif: Aide le groupe', '- Prendre l’initiative \r\n- Faire part des connaissances,  expérience ou expertise pertinente et utile en vue d’aider les membres du groupe à réaliser leurs objectifs de façon plus efficace ou efficiente.\r\n- S’efforcer de faire quelque chose de plus pour a', 'Niveau 2 – Actif: Trouver une solution à un problème ou une situation', '- Recueillir des faits et des renseignements additionnels pour acquérir une meilleure compréhension de la situation.\r\n- Reconnaître les situations où les procédures habituelles peuvent ne pas s’appliquer et où une solution différente est requise.\r\n', 'Niveau 2 – Actif: Prendre la responsabilité de traiter le besoin ou de satisfaire aux exigences de service', '- S’assurer que le besoin est traité; cela peut nécessiter l’intervention d’un tiers.\r\n- Assurer un suivi auprès du client lorsque nécessaire ou prend d’autres mesures.\r\n', 'Niveau 2 – Actif: Appliquer les règles de base et reconnaître des constantes en se basant sur son vécu', '- Prendre l’initiative et gérer les difficultés \r\n- Appliquer des règles simples, jugement et expériences passées pour cerner les problèmes\r\n- Remarquer qu\'une situation présente est similaire à une situation passée ou est différente d\'une situation passé', '2023-03-15 15:02:35', '2023-03-15 15:02:35');
 
 -- --------------------------------------------------------
 
@@ -661,6 +653,33 @@ INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `souscompetences`
+--
+
+CREATE TABLE `souscompetences` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `competence_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `souscompetences`
+--
+
+INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `created`, `modified`) VALUES
+(1, 'COMMUNICATION INTERACTIVE EFFICACE', 2, '2023-03-21 14:43:04', '2023-03-21 14:43:04'),
+(2, 'TRAVAIL EN ÉQUIPE & COLLABORATION', 2, '2023-03-21 14:43:04', '2023-03-21 14:43:04'),
+(3, 'RÉSOLUTION DE PROBLÈMES', 2, '2023-03-21 14:43:58', '2023-03-21 14:43:58'),
+(4, 'SERVICE D’EXCELLENCE', 2, '2023-03-21 14:43:58', '2023-03-21 14:43:58'),
+(5, 'GEEK', 2, '2023-03-21 14:44:24', '2023-03-21 14:44:24'),
+(6, 'AUTODÉTERMINATION', 2, '2023-03-21 14:44:24', '2023-03-21 14:44:24'),
+(7, 'POSITIVITÉ', 2, '2023-03-21 14:45:00', '2023-03-21 14:45:00');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -686,6 +705,12 @@ INSERT INTO `users` (`id`, `email`, `password`, `token`, `role_id`, `created`, `
 --
 
 --
+-- Index pour la table `competences`
+--
+ALTER TABLE `competences`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `coutformaexternes`
 --
 ALTER TABLE `coutformaexternes`
@@ -701,18 +726,6 @@ ALTER TABLE `enfantsfrs`
 -- Index pour la table `expproffrs`
 --
 ALTER TABLE `expproffrs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `fecomminteras`
---
-ALTER TABLE `fecomminteras`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `fecomporganisations`
---
-ALTER TABLE `fecomporganisations`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -740,9 +753,15 @@ ALTER TABLE `formainternes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `infogenconfimes`
+-- Index pour la table `indicateurcomps`
 --
-ALTER TABLE `infogenconfimes`
+ALTER TABLE `indicateurcomps`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `infogenconfirmes`
+--
+ALTER TABLE `infogenconfirmes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -800,6 +819,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `souscompetences`
+--
+ALTER TABLE `souscompetences`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -808,6 +833,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `competences`
+--
+ALTER TABLE `competences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `coutformaexternes`
@@ -819,37 +850,25 @@ ALTER TABLE `coutformaexternes`
 -- AUTO_INCREMENT pour la table `enfantsfrs`
 --
 ALTER TABLE `enfantsfrs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `expproffrs`
 --
 ALTER TABLE `expproffrs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `fecomminteras`
---
-ALTER TABLE `fecomminteras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `fecomporganisations`
---
-ALTER TABLE `fecomporganisations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `ficherenseignements`
 --
 ALTER TABLE `ficherenseignements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `formacomplfrs`
 --
 ALTER TABLE `formacomplfrs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `formaexternes`
@@ -864,10 +883,16 @@ ALTER TABLE `formainternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `infogenconfimes`
+-- AUTO_INCREMENT pour la table `indicateurcomps`
 --
-ALTER TABLE `infogenconfimes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `indicateurcomps`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT pour la table `infogenconfirmes`
+--
+ALTER TABLE `infogenconfirmes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `infogenfpsychiques`
@@ -879,25 +904,25 @@ ALTER TABLE `infogenfpsychiques`
 -- AUTO_INCREMENT pour la table `infogenjuniors`
 --
 ALTER TABLE `infogenjuniors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `infogenseniors`
 --
 ALTER TABLE `infogenseniors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `infogenteckleads`
 --
 ALTER TABLE `infogenteckleads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `profilposteconfirmes`
 --
 ALTER TABLE `profilposteconfirmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `profilpostejuniors`
@@ -924,6 +949,12 @@ ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT pour la table `souscompetences`
+--
+ALTER TABLE `souscompetences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
@@ -946,12 +977,6 @@ ALTER TABLE `expproffrs`
   ADD CONSTRAINT `expproffrs_ibfk_1` FOREIGN KEY (`id`) REFERENCES `ficherenseignements` (`id`);
 
 --
--- Contraintes pour la table `fecomminteras`
---
-ALTER TABLE `fecomminteras`
-  ADD CONSTRAINT `fecomminteras_ibfk_1` FOREIGN KEY (`id`) REFERENCES `fecomporganisations` (`id`);
-
---
 -- Contraintes pour la table `formacomplfrs`
 --
 ALTER TABLE `formacomplfrs`
@@ -961,7 +986,7 @@ ALTER TABLE `formacomplfrs`
 -- Contraintes pour la table `profilposteconfirmes`
 --
 ALTER TABLE `profilposteconfirmes`
-  ADD CONSTRAINT `profilposteconfirmes_ibfk_1` FOREIGN KEY (`id`) REFERENCES `infogenconfimes` (`id`);
+  ADD CONSTRAINT `profilposteconfirmes_ibfk_1` FOREIGN KEY (`id`) REFERENCES `infogenconfirmes` (`id`);
 
 --
 -- Contraintes pour la table `profilpostejuniors`

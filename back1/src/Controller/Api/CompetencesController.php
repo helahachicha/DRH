@@ -6,44 +6,38 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Formacomplfrs Controller
+ * Competences Controller
  *
- * @method \App\Model\Entity\Formacomplfr[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Competence[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class FormacomplfrsController extends AppController
+class CompetencesController extends AppController
 {
     /**
-     * addFormacomplfr
+     * addCompetence
      *
      * @Input:
      *         data:
-     *          formationf   (String) *Required
-     *          attestationf(String) *Required
-     *          anneef (year) *Required
-     *          etablissementf (String) *Required
+     *          label(String) *Required
+     *         
      * @Output: data : success message
      */
-    public function addFormacomplfr(){
+    public function addCompetence(){
         
         $this->request->allowMethod(['post', 'put']);
 
         /* format data */
         if (1 == 1) {
-            //$querry=$this->request->getData();
-            //$data=json_decode($querry['data']); 
-            $data=$this->request->getData();
-            debug($data);die;
-
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
         }
-         /* create formacomplfrs entity */
+         /* create competences entity */
         if (1==1){
-            $formacomplfrs = $this->Formacomplfrs->newEmptyEntity();
-            $formacomplfrs->formationf=$data->formationf;  
-            $formacomplfrs->attestationf=$data->attestationf;  
-            $formacomplfrs->anneef=$data->anneef;  
-            $formacomplfrs->etablissementf=$data->etablissementf;    
+            $competences = $this->Competences->newEmptyEntity();
+            $competences->label=$data->label;  
 
-            $this->Formacomplfrs->save($formacomplfrs); 
+            $this->Competences->save($competences); 
         }
        
          /*send result */
@@ -56,18 +50,15 @@ class FormacomplfrsController extends AppController
     }
 
      /**
-     * editFormacomplfr
+     * editCompetence
      *
      * @Input:
      *         data:
-     *          formationf   (String) *Required
-     *          attestationf(String) *Required
-     *          anneef (year) *Required
-     *          etablissementf (String) *Required
+     *          label(String) *Required
      *         
      * @Output: data : success message
      */
-    public function editFormacomplfr(){
+    public function editCompetence(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -80,15 +71,12 @@ class FormacomplfrsController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $formacomplfrs=$this->Formacomplfrs->get($id);
-         /* create formacomplfrs entity */
+        $competences=$this->Competences->get($id);
+         /* create competences entity */
         if (1==1){
-            $formacomplfrs->formationf=$data->formationf;  
-            $formacomplfrs->attestationf=$data->attestationf;  
-            $formacomplfrs->anneef=$data->anneef;  
-            $formacomplfrs->etablissementf=$data->etablissementf;  
+            $competences->label=$data->label;  
 
-            $this->Formacomplfrs->save($formacomplfrs); 
+            $this->Competences->save($competences); 
         }
         /*send result */
         $this->set([
@@ -101,34 +89,34 @@ class FormacomplfrsController extends AppController
 
 
     /**
-    * getAllFormacomplfr
+    * getAllCompetence
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllFormacomplfr()
+    public function getAllCompetence()
     {
 
         /* search */
-        $formacomplfrs = $this->Formacomplfrs->find('all');
+        $competences = $this->Competences->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $formacomplfrs,
+            'data' => $competences,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getFormacomplfr
+      * getCompetence
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getFormacomplfr(){
+     public function getCompetence(){
  
          $id = $this->request->getQuery('id');
          
@@ -143,36 +131,36 @@ class FormacomplfrsController extends AppController
              }
          }
  
-         $formacomplfrs = $this->Formacomplfrs->find('all', [
+         $competences = $this->Competences->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
             
          ])->first();
-         // debug($formacomplfr);die;
+         // debug($competences);die;
          
-         if(empty($formacomplfrs)){
-            throw new UnauthorizedException('Formacomplfrs not found');
+         if(empty($competences)){
+            throw new UnauthorizedException('Competences not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $formacomplfrs,
+            'data' => $competences,
             '_serialize' => ['success', 'data']
         ]);
      }
 
-     /**
-      * deleteFormacomplfr
+      /**
+      * deleteCompetence
       *
       * @Input: id
       *
       * @Output: data
       */
 
-      public function deleteFormacomplfr(){
+      public function deleteCompetence(){
 
         $id = $this->request->getQuery('id');
 
@@ -180,17 +168,17 @@ class FormacomplfrsController extends AppController
 
         /* search */
 
-        $formacomplfrs = $this->Formacomplfrs->find('all', [
+        $competences = $this->Competences->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete formacomplfrs  */
+        /* delete competences  */
 
         if (1==1){
-            $this->Formacomplfrs->delete($formacomplfrs);
+            $this->Competences->delete($competences);
         }
 
         /*send result */
@@ -200,5 +188,5 @@ class FormacomplfrsController extends AppController
                 'data' => "Deleted with success",
                 '_serialize' => ['success','data']
             ]);
-        }
+        } 
 }

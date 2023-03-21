@@ -128,4 +128,43 @@ class InfogenteckleadsController extends AppController
            '_serialize' => ['success', 'data']
        ]);
     }
+
+
+    /**
+      * deleteInfogentecklead
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteInfogentecklead(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $infogenteckleads = $this->Infogenteckleads->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete infogenteckleads  */
+
+        if (1==1){
+            $this->Infogenteckleads->delete($infogenteckleads);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
 }

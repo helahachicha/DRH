@@ -6,20 +6,16 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Infogenconfime Entity
+ * Competence Entity
  *
  * @property int $id
- * @property int $majndc
- * @property \Cake\I18n\FrozenDate $dudc
- * @property string $Fonctiondc
- * @property string $categoriedc
- * @property string $Suphierdc
- * @property string $Superdc
- * @property string $interidc
+ * @property string $label
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\Indicateurcomp[] $indicateurcomps
  */
-class Infogenconfime extends Entity
+class Competence extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -31,14 +27,9 @@ class Infogenconfime extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'majndc' => true,
-        'dudc' => true,
-        'Fonctiondc' => true,
-        'categoriedc' => true,
-        'Suphierdc' => true,
-        'Superdc' => true,
-        'interidc' => true,
+        'label' => true,
         'created' => true,
         'modified' => true,
+        'indicateurcomps' => true,
     ];
 }

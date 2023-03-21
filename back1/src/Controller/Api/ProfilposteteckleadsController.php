@@ -193,4 +193,43 @@ class ProfilposteteckleadsController extends AppController
            '_serialize' => ['success', 'data']
        ]);
     }
+
+
+    /**
+      * deleteProfilpostetecklead
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteProfilpostetecklead(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $profilposteteckleads = $this->Profilposteteckleads->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete profilposteteckleads  */
+
+        if (1==1){
+            $this->Profilposteteckleads->delete($profilposteteckleads);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
 }

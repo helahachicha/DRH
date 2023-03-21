@@ -126,4 +126,43 @@ class InfogenjuniorsController extends AppController
            '_serialize' => ['success', 'data']
        ]);
     }
+
+
+    /**
+      * deleteInfogenjunior
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteInfogenjunior(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $infogenjuniors = $this->Infogenjuniors->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete infogenjuniors  */
+
+        if (1==1){
+            $this->Infogenjuniors->delete($infogenjuniors);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
 }

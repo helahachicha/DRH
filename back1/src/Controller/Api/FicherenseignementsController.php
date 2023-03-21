@@ -337,4 +337,70 @@ class FicherenseignementsController extends AppController
              '_serialize' => ['success', 'data']
          ]);
      }
+
+     /**
+      * deleteFicherenseignement
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteFicherenseignement(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $ficherenseignements = $this->Ficherenseignements->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete ficherenseignements  */
+
+        if (1==1){
+            $this->Ficherenseignements->delete($ficherenseignements);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
+
+      /**
+      * deleteFicherenseignement
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+
+        public function searchFicherenseignement(){
+            $key = $this->request->getQuery('key');
+            $query =  $this->Ficherenseignements->find('all',[
+                'conditions'=> [
+                'nomprenomfr like'=>'%'.$key.'%' ,
+            ]
+            ])->First();
+            debug($query);die;
+
+
+        /*send result */
+
+        $this->set([
+            'success' => true,
+            'data' =>$query,
+            '_serialize' => ['success','data']
+        ]);
+    }
 }

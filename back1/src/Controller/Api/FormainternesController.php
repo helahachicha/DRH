@@ -175,4 +175,43 @@ class FormainternesController extends AppController
        ]);
     }
 
+
+    /**
+      * deleteFormainterne
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteFormainterne(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $formainternes = $this->Formainternes->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete formainternes  */
+
+        if (1==1){
+            $this->Formainternes->delete($formainternes);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
+
 }

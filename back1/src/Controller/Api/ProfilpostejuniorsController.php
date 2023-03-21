@@ -187,4 +187,42 @@ class ProfilpostejuniorsController extends AppController
            '_serialize' => ['success', 'data']
        ]);
     }
+
+    /**
+      * deleteProfilpostejunior
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteProfilpostejunior(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $profilpostejuniors = $this->Profilpostejuniors->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete profilpostejuniors  */
+
+        if (1==1){
+            $this->Profilpostejuniors->delete($profilpostejuniors);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
 }

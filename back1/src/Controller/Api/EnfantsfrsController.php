@@ -172,4 +172,42 @@ class EnfantsfrsController extends AppController
         ]);
      }
 
+      /**
+      * deleteEnfantsfr
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteEnfantsfr(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $enfantsfrs = $this->Enfantsfrs->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete enfantsfrs  */
+
+        if (1==1){
+            $this->Enfantsfrs->delete($enfantsfrs);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
+
 }

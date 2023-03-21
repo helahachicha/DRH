@@ -6,16 +6,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Fecomporganisation Entity
+ * Indicateurcomp Entity
  *
  * @property int $id
- * @property int $numeroco
- * @property string $indimesureco
- * @property int $pointsco
+ * @property string $label
+ * @property int $souscompetence_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\Competence $competence
  */
-class Fecomporganisation extends Entity
+class Indicateurcomp extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -27,10 +28,10 @@ class Fecomporganisation extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'numeroco' => true,
-        'indimesureco' => true,
-        'pointsco' => true,
+        'label' => true,
+        'souscompetence_id' => true,
         'created' => true,
         'modified' => true,
+        'competence' => true,
     ];
 }

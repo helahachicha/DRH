@@ -168,4 +168,42 @@ class ExpproffrsController extends AppController
             '_serialize' => ['success', 'data']
         ]);
      }
+
+      /**
+      * deleteExpproffr
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteExpproffr(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $expproffrs = $this->Expproffrs->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete expproffrs  */
+
+        if (1==1){
+            $this->Expproffrs->delete($expproffrs);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
 }

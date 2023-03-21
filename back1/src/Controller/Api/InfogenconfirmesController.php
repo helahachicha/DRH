@@ -6,50 +6,50 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Infogenseniors Controller
+ * Infogenconfirmes Controller
  *
- * @method \App\Model\Entity\Infogensenior[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Infogenconfirme[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class InfogenseniorsController extends AppController
+class InfogenconfirmesController extends AppController
 {
-    /**
-    * getAllInfogensenior
+     /**
+    * getAllInfogenconfirme
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllInfogensenior()
+    public function getAllInfogenconfirme()
     {
 
         /* search */
-        $infogenseniors = $this->Infogenseniors->find('all');
+        $infogenconfirmes = $this->Infogenconfirmes->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $infogenseniors,
+            'data' => $infogenconfirmes,
             '_serialize' => ['success', 'data']
         ]);
     }
 
     /**
-     * editInfogensenior
+     * editInfogenconfirme
      *
      * @Input:
      *         data:
-     *          majnds (Int) 
-     *          duds(Date)
-     *          Fonctionds (String)
-     *          Categorieds(String) 
-     *          Suphierds (String) 
-     *          Superds (String) 
-     *          Interimds (String) 
+     *          majndc (Int) 
+     *          dudc(Date)
+     *          Fonctiondc (String)
+     *          categoriedc (String) 
+     *          Suphierdc (String) 
+     *          Superdc (String) 
+     *          interidc (String) 
      *          
      *         
      * @Output: data : success message
      */
-    public function editInfogensenior(){
+    public function editInfogenconfirme(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -62,18 +62,18 @@ class InfogenseniorsController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $infogenseniors=$this->Infogenseniors->get($id);
-         /* create infogenseniors entity */
+        $infogenconfirmes=$this->Infogenconfirmes->get($id);
+         /* create infogenconfirmes entity */
         if (1==1){
-            $infogenseniors->majnds=$data->majnds;  
-            $infogenseniors->duds=$data->duds;  
-            $infogenseniors->Fonctionds=$data->Fonctionds;  
-            $infogenseniors->Categorieds=$data->Categorieds;  
-            $infogenseniors->Suphierds=$data->Suphierds;  
-            $infogenseniors->Superds=$data->Superds; 
-            $infogenseniors->Interimds=$data->Interimds; 
+            $infogenconfirmes->majndc=$data->majndc;  
+            $infogenconfirmes->dudc=$data->dudc;  
+            $infogenconfirmes->Fonctiondc=$data->Fonctiondc;  
+            $infogenconfirmes->categoriedc=$data->categoriedc;  
+            $infogenconfirmes->Suphierdc=$data->Suphierdc;  
+            $infogenconfirmes->Superdc=$data->Superdc; 
+            $infogenconfirmes->interidc=$data->interidc; 
 
-            $this->Infogenseniors->save($infogenseniors); 
+            $this->Infogenconfirmes->save($infogenconfirmes); 
         }
         /*send result */
         $this->set([
@@ -85,13 +85,13 @@ class InfogenseniorsController extends AppController
     }
 
     /**
-      *  getInfogensenior
+      *  getInfogenconfirme
       *
       * @Input: id
       *
       * @Output: data
       */
-      public function getInfogensenior(){
+      public function getInfogenconfirme(){
  
         $id = $this->request->getQuery('id');
         
@@ -106,37 +106,37 @@ class InfogenseniorsController extends AppController
             }
         }
 
-        $infogenseniors = $this->Infogenseniors->find('all', [
+        $infogenconfirmes = $this->Infogenconfirmes->find('all', [
             'conditions'=>[
                 'id IS'=>$id,
             ],
            
         ])->first();
-        // debug($infogenseniors);die;
+        // debug($infogenconfirmes);die;
         
-        if(empty($infogenseniors)){
-           throw new UnauthorizedException('Infogenseniors not found');
+        if(empty($infogenconfirmes)){
+           throw new UnauthorizedException('Infogenconfirmes not found');
        }
 
        /*send result */
 
        $this->set([
            'success' => true,
-           'data' => $infogenseniors,
+           'data' => $infogenconfirmes,
            '_serialize' => ['success', 'data']
        ]);
     }
 
 
     /**
-      * deleteInfogensenior
+      * deleteInfogenconfirme
       *
       * @Input: id
       *
       * @Output: data
       */
 
-      public function deleteInfogensenior(){
+      public function deleteInfogenconfirme(){
 
         $id = $this->request->getQuery('id');
 
@@ -144,17 +144,17 @@ class InfogenseniorsController extends AppController
 
         /* search */
 
-        $infogenseniors = $this->Infogenseniors->find('all', [
+        $infogenconfirmes = $this->Infogenconfirmes->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete infogenseniors  */
+        /* delete infogenconfirmes  */
 
         if (1==1){
-            $this->Infogenseniors->delete($infogenseniors);
+            $this->Infogenconfirmes->delete($infogenconfirmes);
         }
 
         /*send result */

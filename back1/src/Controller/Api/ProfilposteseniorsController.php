@@ -192,4 +192,43 @@ class ProfilposteseniorsController extends AppController
            '_serialize' => ['success', 'data']
        ]);
     }
+
+
+    /**
+      * deleteProfilpostesenior
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteProfilpostesenior(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $profilposteseniors = $this->Profilposteseniors->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete profilposteseniors  */
+
+        if (1==1){
+            $this->Profilposteseniors->delete($profilposteseniors);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
 }
