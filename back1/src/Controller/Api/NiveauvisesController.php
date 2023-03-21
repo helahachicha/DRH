@@ -6,23 +6,22 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Competences Controller
+ * Niveauvises Controller
  *
- * @property \App\Model\Table\CompetencesTable $Competences
- * @method \App\Model\Entity\Competence[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Niveauvise[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class CompetencesController extends AppController
+class NiveauvisesController extends AppController
 {
-    /**
-     * addCompetence
+   /**
+     * addNiveauvise
      *
      * @Input:
      *         data:
      *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          souscompetence_id(Int) *Required
      * @Output: data : success message
      */
-    public function addCompetence(){
+    public function addNiveauvise(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -34,13 +33,13 @@ class CompetencesController extends AppController
             //debug($data);die;
 
         }
-         /* create competences entity */
+         /* create niveauvises entity */
         if (1==1){
-            $competences = $this->Competences->newEmptyEntity();
-            $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $niveauvises = $this->Niveauvises->newEmptyEntity();
+            $niveauvises->label=$data->label;  
+            $niveauvises->souscompetence_id=$data->souscompetence_id;  
 
-            $this->Competences->save($competences); 
+            $this->Niveauvises->save($niveauvises); 
         }
        
          /*send result */
@@ -53,16 +52,16 @@ class CompetencesController extends AppController
     }
 
      /**
-     * editCompetence
+     * editNiveauvise
      *
      * @Input:
      *         data:
      *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          souscompetence_id(Int) *Required
      *         
      * @Output: data : success message
      */
-    public function editCompetence(){
+    public function editNiveauvise(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -75,14 +74,14 @@ class CompetencesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $competences=$this->Competences->get($id);
-         /* create competences entity */
+        $niveauvises=$this->Niveauvises->get($id);
+         /* create niveauvises entity */
         if (1==1){
-            $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $niveauvises->label=$data->label;  
+            $niveauvises->souscompetence_id=$data->souscompetence_id;  
 
 
-            $this->Competences->save($competences); 
+            $this->Niveauvises->save($niveauvises); 
         }
         /*send result */
         $this->set([
@@ -95,34 +94,34 @@ class CompetencesController extends AppController
 
 
     /**
-    * getAllCompetence
+    * getAllNiveauvise
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllCompetence()
+    public function getAllNiveauvise()
     {
 
         /* search */
-        $competences = $this->Competences->find('all');
+        $niveauvises = $this->Niveauvises->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $competences,
+            'data' => $niveauvises,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getCompetence
+      * getNiveauvise
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getCompetence(){
+     public function getNiveauvise(){
  
          $id = $this->request->getQuery('id');
          
@@ -137,36 +136,36 @@ class CompetencesController extends AppController
              }
          }
  
-         $competences = $this->Competences->find('all', [
+         $niveauvises = $this->Niveauvises->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
-             ['contain'=>'Categories']
+             ['contain'=>'Souscompetences']
          ])->first();
-         // debug($competences);die;
+         // debug($niveauvises);die;
        
-         if(empty($competences)){
-            throw new UnauthorizedException('Competences not found');
+         if(empty($niveauvises)){
+            throw new UnauthorizedException('Niveauvises not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $competences,
+            'data' => $niveauvises,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteCompetence
+      * deleteNiveauvise
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteCompetence(){
+     public function deleteNiveauvise(){
 
         $id = $this->request->getQuery('id');
 
@@ -174,17 +173,17 @@ class CompetencesController extends AppController
 
         /* search */
 
-        $competences = $this->Competences->find('all', [
+        $niveauvises = $this->Niveauvises->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete competences  */
+        /* delete niveauvises  */
 
         if (1==1){
-            $this->Competences->delete($competences);
+            $this->Niveauvises->delete($niveauvises);
         }
 
         /*send result */

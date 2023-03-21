@@ -6,23 +6,23 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Competences Controller
+ * Categories Controller
  *
- * @property \App\Model\Table\CompetencesTable $Competences
- * @method \App\Model\Entity\Competence[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Category[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class CompetencesController extends AppController
+class CategoriesController extends AppController
 {
     /**
-     * addCompetence
+     * addCategorie
      *
      * @Input:
      *         data:
      *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          profilposte_id(Int) *Required
+     *         
      * @Output: data : success message
      */
-    public function addCompetence(){
+    public function addCategorie(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -34,13 +34,13 @@ class CompetencesController extends AppController
             //debug($data);die;
 
         }
-         /* create competences entity */
+         /* create categories entity */
         if (1==1){
-            $competences = $this->Competences->newEmptyEntity();
-            $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $categories = $this->Categories->newEmptyEntity();
+            $categories->label=$data->label;  
+            $categories->profilposte_id=$data->profilposte_id;     
 
-            $this->Competences->save($competences); 
+            $this->Categories->save($categories); 
         }
        
          /*send result */
@@ -53,16 +53,16 @@ class CompetencesController extends AppController
     }
 
      /**
-     * editCompetence
+     * editCategorie
      *
      * @Input:
      *         data:
      *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          profilposte_id(Int) *Required
      *         
      * @Output: data : success message
      */
-    public function editCompetence(){
+    public function editCategorie(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -75,14 +75,13 @@ class CompetencesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $competences=$this->Competences->get($id);
-         /* create competences entity */
+        $categories=$this->Categories->get($id);
+         /* create categories entity */
         if (1==1){
-            $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $categories->label=$data->label;  
+            $categories->profilposte_id=$data->profilposte_id;  
 
-
-            $this->Competences->save($competences); 
+            $this->Categories->save($categories); 
         }
         /*send result */
         $this->set([
@@ -95,34 +94,34 @@ class CompetencesController extends AppController
 
 
     /**
-    * getAllCompetence
+    * getAllCategorie
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllCompetence()
+    public function getAllCategorie()
     {
 
         /* search */
-        $competences = $this->Competences->find('all');
+        $categories = $this->Categories->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $competences,
+            'data' => $categories,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getCompetence
+      * getCategorie
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getCompetence(){
+     public function getCategorie(){
  
          $id = $this->request->getQuery('id');
          
@@ -137,36 +136,36 @@ class CompetencesController extends AppController
              }
          }
  
-         $competences = $this->Competences->find('all', [
+         $categories = $this->Categories->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
-             ['contain'=>'Categories']
+            ['contain'=>'Profilpostes']
          ])->first();
-         // debug($competences);die;
-       
-         if(empty($competences)){
-            throw new UnauthorizedException('Competences not found');
+         // debug($categories);die;
+         
+         if(empty($categories)){
+            throw new UnauthorizedException('Categories not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $competences,
+            'data' => $categories,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteCompetence
+      * deleteCategorie
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteCompetence(){
+     public function deleteCategorie(){
 
         $id = $this->request->getQuery('id');
 
@@ -174,17 +173,17 @@ class CompetencesController extends AppController
 
         /* search */
 
-        $competences = $this->Competences->find('all', [
+        $categories = $this->Categories->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
-           
+
         ])->first();
 
-        /* delete competences  */
+        /* delete categories  */
 
         if (1==1){
-            $this->Competences->delete($competences);
+            $this->Categories->delete($categories);
         }
 
         /*send result */

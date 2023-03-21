@@ -44,6 +44,11 @@ class InfogenfpsychiquesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Indicateurcomps', [
+            'foreignKey' => 'indicateurcomp_id',
+            'joinType' => 'INNER',
+        ]);
     }
 
     /**
@@ -54,6 +59,15 @@ class InfogenfpsychiquesTable extends Table
      */
     public function validationDefault(Validator $validator): Validator
     {
+        $validator
+            ->integer('indicateurcomp_id')
+            ->notEmptyString('indicateurcomp_id');
+
+        $validator
+            ->integer('points')
+            ->requirePresence('points', 'create')
+            ->notEmptyString('points');
+
         $validator
             ->scalar('nomprenom')
             ->maxLength('nomprenom', 255)
@@ -78,5 +92,19 @@ class InfogenfpsychiquesTable extends Table
             ->notEmptyString('decisiondirection');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->existsIn('indicateurcomp_id', 'Indicateurcomps'), ['errorField' => 'indicateurcomp_id']);
+
+        return $rules;
     }
 }

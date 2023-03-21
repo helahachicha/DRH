@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\IndicateurcompsTable;
+use App\Model\Table\CategorieppsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\IndicateurcompsTable Test Case
+ * App\Model\Table\CategorieppsTable Test Case
  */
-class IndicateurcompsTableTest extends TestCase
+class CategorieppsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\IndicateurcompsTable
+     * @var \App\Model\Table\CategorieppsTable
      */
-    protected $Indicateurcomps;
+    protected $Categoriepps;
 
     /**
      * Fixtures
@@ -24,8 +24,8 @@ class IndicateurcompsTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Indicateurcomps',
-        'app.Souscompetences',
+        'app.Categoriepps',
+        'app.Profilpostes',
     ];
 
     /**
@@ -36,8 +36,8 @@ class IndicateurcompsTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Indicateurcomps') ? [] : ['className' => IndicateurcompsTable::class];
-        $this->Indicateurcomps = $this->getTableLocator()->get('Indicateurcomps', $config);
+        $config = $this->getTableLocator()->exists('Categoriepps') ? [] : ['className' => CategorieppsTable::class];
+        $this->Categoriepps = $this->getTableLocator()->get('Categoriepps', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class IndicateurcompsTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Indicateurcomps);
+        unset($this->Categoriepps);
 
         parent::tearDown();
     }
@@ -56,7 +56,7 @@ class IndicateurcompsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\IndicateurcompsTable::validationDefault()
+     * @uses \App\Model\Table\CategorieppsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +67,7 @@ class IndicateurcompsTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\IndicateurcompsTable::buildRules()
+     * @uses \App\Model\Table\CategorieppsTable::buildRules()
      */
     public function testBuildRules(): void
     {

@@ -6,9 +6,9 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * SouscompetencesFixture
+ * NiveauvisesFixture
  */
-class SouscompetencesFixture extends TestFixture
+class NiveauvisesFixture extends TestFixture
 {
     /**
      * Init method
@@ -21,9 +21,9 @@ class SouscompetencesFixture extends TestFixture
             [
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
-                'competence_id' => 1,
-                'created' => '2023-03-21 22:01:40',
-                'modified' => '2023-03-21 22:01:40',
+                'souscompetence_id' => 1,
+                'created' => '2023-03-21 22:14:17',
+                'modified' => '2023-03-21 22:14:17',
             ],
         ];
         parent::init();

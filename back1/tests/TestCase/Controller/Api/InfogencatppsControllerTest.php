@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller\Api;
 
-use App\Controller\Api\InfogenfpsychiquesController;
+use App\Controller\Api\InfogencatppsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\Api\InfogenfpsychiquesController Test Case
+ * App\Controller\Api\InfogencatppsController Test Case
  *
- * @uses \App\Controller\Api\InfogenfpsychiquesController
+ * @uses \App\Controller\Api\InfogencatppsController
  */
-class InfogenfpsychiquesControllerTest extends TestCase
+class InfogencatppsControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,15 +22,15 @@ class InfogenfpsychiquesControllerTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Infogenfpsychiques',
-        'app.Indicateurcomps',
+        'app.Infogencatpps',
+        'app.Categoriepps',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\Api\InfogenfpsychiquesController::index()
+     * @uses \App\Controller\Api\InfogencatppsController::index()
      */
     public function testIndex(): void
     {
@@ -41,7 +41,7 @@ class InfogenfpsychiquesControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\Api\InfogenfpsychiquesController::view()
+     * @uses \App\Controller\Api\InfogencatppsController::view()
      */
     public function testView(): void
     {
@@ -52,7 +52,7 @@ class InfogenfpsychiquesControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\Api\InfogenfpsychiquesController::add()
+     * @uses \App\Controller\Api\InfogencatppsController::add()
      */
     public function testAdd(): void
     {
@@ -63,7 +63,7 @@ class InfogenfpsychiquesControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\Api\InfogenfpsychiquesController::edit()
+     * @uses \App\Controller\Api\InfogencatppsController::edit()
      */
     public function testEdit(): void
     {
@@ -74,7 +74,7 @@ class InfogenfpsychiquesControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\Api\InfogenfpsychiquesController::delete()
+     * @uses \App\Controller\Api\InfogencatppsController::delete()
      */
     public function testDelete(): void
     {

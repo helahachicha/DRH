@@ -26,7 +26,6 @@ class SouscompetencesTableTest extends TestCase
     protected $fixtures = [
         'app.Souscompetences',
         'app.Competences',
-        'app.Indicateurcomps',
     ];
 
     /**

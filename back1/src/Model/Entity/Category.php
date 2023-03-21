@@ -6,17 +6,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Competence Entity
+ * Category Entity
  *
  * @property int $id
  * @property string $label
- * @property int $categorie_id
+ * @property int $profilposte_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Souscompetence[] $souscompetences
+ * @property \App\Model\Entity\Profilposte $profilposte
  */
-class Competence extends Entity
+class Category extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -29,9 +29,9 @@ class Competence extends Entity
      */
     protected $_accessible = [
         'label' => true,
-        'categorie_id' => true,
+        'profilposte_id' => true,
         'created' => true,
         'modified' => true,
-        'souscompetences' => true,
+        'profilposte' => true,
     ];
 }

@@ -6,9 +6,9 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * SouscompetencesFixture
+ * ProfilpostesFixture
  */
-class SouscompetencesFixture extends TestFixture
+class ProfilpostesFixture extends TestFixture
 {
     /**
      * Init method
@@ -20,10 +20,9 @@ class SouscompetencesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'label' => 'Lorem ipsum dolor sit amet',
-                'competence_id' => 1,
-                'created' => '2023-03-21 22:01:40',
-                'modified' => '2023-03-21 22:01:40',
+                'nom' => 'Lorem ipsum dolor sit amet',
+                'created' => '2023-03-21 17:09:55',
+                'modified' => '2023-03-21 17:09:55',
             ],
         ];
         parent::init();

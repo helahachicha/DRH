@@ -21,7 +21,7 @@ class FormainternesController extends AppController
      *          themeforma (String) *Required
      *          animateur (String) *Required
      *          poste (String) *Required
-     *          datee (DateTime) *Required
+     *          datee (Date) *Required
      *          hentrer (Time) *Required
      *          hsortie (Time) *Required
      * 
@@ -33,10 +33,10 @@ class FormainternesController extends AppController
 
         /* format data */
         if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-            //debug($data);die;
+            //$querry=$this->request->getData();
+            //$data=json_decode($querry['data']); 
+            $data=$this->request->getData();
+            debug($data);die;
 
         }
          /* create formainternes entity */
@@ -71,7 +71,7 @@ class FormainternesController extends AppController
      *          themeforma (String) *Required
      *          animateur (String) *Required
      *          poste (String) *Required
-     *          datee (DateTime) *Required
+     *          datee (Date) *Required
      *          hentrer (Time) *Required
      *          hsortie (Time) *Required
      * @Output: data : success message

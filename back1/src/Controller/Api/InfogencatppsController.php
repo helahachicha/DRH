@@ -6,23 +6,28 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Competences Controller
+ * Infogencatpps Controller
  *
- * @property \App\Model\Table\CompetencesTable $Competences
- * @method \App\Model\Entity\Competence[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property \App\Model\Table\InfogencatppsTable $Infogencatpps
+ * @method \App\Model\Entity\Infogencatpp[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class CompetencesController extends AppController
+class InfogencatppsController extends AppController
 {
     /**
-     * addCompetence
+     * addInfogencatpp
      *
      * @Input:
      *         data:
-     *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          fonction (String) *Required
+     *          label(String) *Required
+     *          suphierar (String) *Required
+     *          supervision (String) *Required
+     *          interim(String) *Required
+     *          categorie_id (String) *Required
+     *         
      * @Output: data : success message
      */
-    public function addCompetence(){
+    public function addInfogencatpp(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -34,13 +39,17 @@ class CompetencesController extends AppController
             //debug($data);die;
 
         }
-         /* create competences entity */
+         /* create infogencatpps entity */
         if (1==1){
-            $competences = $this->Competences->newEmptyEntity();
-            $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $infogencatpps = $this->Infogencatpps->newEmptyEntity();
+            $infogencatpps->fonction=$data->fonction;  
+            $infogencatpps->label=$data->label;  
+            $infogencatpps->suphierar=$data->suphierar;  
+            $infogencatpps->supervision=$data->supervision;  
+            $infogencatpps->interim=$data->interim;  
+            $infogencatpps->categorie_id=$data->categorie_id;   
 
-            $this->Competences->save($competences); 
+            $this->Infogencatpps->save($infogencatpps); 
         }
        
          /*send result */
@@ -53,16 +62,20 @@ class CompetencesController extends AppController
     }
 
      /**
-     * editCompetence
+     * editInfogencatpp
      *
      * @Input:
      *         data:
-     *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          fonction (String) *Required
+     *          label(String) *Required
+     *          suphierar (String) *Required
+     *          supervision (String) *Required
+     *          interim(String) *Required
+     *          categorie_id (String) *Required
      *         
      * @Output: data : success message
      */
-    public function editCompetence(){
+    public function editInfogencatpp(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -75,14 +88,17 @@ class CompetencesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $competences=$this->Competences->get($id);
-         /* create competences entity */
+        $infogencatpps=$this->Infogencatpps->get($id);
+         /* create infogencatpps entity */
         if (1==1){
-            $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $infogencatpps->fonction=$data->fonction;  
+            $infogencatpps->label=$data->label;  
+            $infogencatpps->suphierar=$data->suphierar;  
+            $infogencatpps->supervision=$data->supervision;  
+            $infogencatpps->interim=$data->interim;  
+            $infogencatpps->categorie_id=$data->categorie_id;  
 
-
-            $this->Competences->save($competences); 
+            $this->Infogencatpps->save($infogencatpps); 
         }
         /*send result */
         $this->set([
@@ -95,34 +111,34 @@ class CompetencesController extends AppController
 
 
     /**
-    * getAllCompetence
+    * getAllInfogencatpp
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllCompetence()
+    public function getAllInfogencatpp()
     {
 
         /* search */
-        $competences = $this->Competences->find('all');
+        $infogencatpps = $this->Infogencatpps->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $competences,
+            'data' => $infogencatpps,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getCompetence
+      * getInfogencatpp
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getCompetence(){
+     public function getInfogencatpp(){
  
          $id = $this->request->getQuery('id');
          
@@ -137,36 +153,36 @@ class CompetencesController extends AppController
              }
          }
  
-         $competences = $this->Competences->find('all', [
+         $infogencatpps = $this->Infogencatpps->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
              ['contain'=>'Categories']
          ])->first();
-         // debug($competences);die;
-       
-         if(empty($competences)){
-            throw new UnauthorizedException('Competences not found');
+         // debug($infogencatpps);die;
+         
+         if(empty($infogencatpps)){
+            throw new UnauthorizedException('Infogencatpps not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $competences,
+            'data' => $infogencatpps,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteCompetence
+      * deleteInfogencatpp
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteCompetence(){
+     public function deleteInfogencatpp(){
 
         $id = $this->request->getQuery('id');
 
@@ -174,17 +190,17 @@ class CompetencesController extends AppController
 
         /* search */
 
-        $competences = $this->Competences->find('all', [
+        $infogencatpps = $this->Infogencatpps->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
-           
+            
         ])->first();
 
-        /* delete competences  */
+        /* delete infogencatpps  */
 
         if (1==1){
-            $this->Competences->delete($competences);
+            $this->Infogencatpps->delete($infogencatpps);
         }
 
         /*send result */

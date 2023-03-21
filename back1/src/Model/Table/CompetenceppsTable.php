@@ -9,25 +9,27 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Competences Model
+ * Competencepps Model
  *
- * @method \App\Model\Entity\Competence newEmptyEntity()
- * @method \App\Model\Entity\Competence newEntity(array $data, array $options = [])
- * @method \App\Model\Entity\Competence[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Competence get($primaryKey, $options = [])
- * @method \App\Model\Entity\Competence findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \App\Model\Entity\Competence patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Competence[] patchEntities(iterable $entities, array $data, array $options = [])
- * @method \App\Model\Entity\Competence|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Competence saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Competence[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Competence[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
- * @method \App\Model\Entity\Competence[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Competence[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
+ *
+ * @method \App\Model\Entity\Competencepp newEmptyEntity()
+ * @method \App\Model\Entity\Competencepp newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\Competencepp[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Competencepp get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Competencepp findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Competencepp patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Competencepp[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Competencepp|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Competencepp saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Competencepp[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Competencepp[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Competencepp[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Competencepp[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class CompetencesTable extends Table
+class CompetenceppsTable extends Table
 {
     /**
      * Initialize method
@@ -39,7 +41,7 @@ class CompetencesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('competences');
+        $this->setTable('competencepps');
         $this->setDisplayField('label');
         $this->setPrimaryKey('id');
 

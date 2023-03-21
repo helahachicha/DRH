@@ -9,27 +9,27 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Indicateurcomps Model
+ * Niveauvises Model
  *
  * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\BelongsTo $Souscompetences
  *
- * @method \App\Model\Entity\Indicateurcomp newEmptyEntity()
- * @method \App\Model\Entity\Indicateurcomp newEntity(array $data, array $options = [])
- * @method \App\Model\Entity\Indicateurcomp[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Indicateurcomp get($primaryKey, $options = [])
- * @method \App\Model\Entity\Indicateurcomp findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \App\Model\Entity\Indicateurcomp patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Indicateurcomp[] patchEntities(iterable $entities, array $data, array $options = [])
- * @method \App\Model\Entity\Indicateurcomp|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Indicateurcomp saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Indicateurcomp[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Indicateurcomp[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
- * @method \App\Model\Entity\Indicateurcomp[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Indicateurcomp[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Niveauvise newEmptyEntity()
+ * @method \App\Model\Entity\Niveauvise newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\Niveauvise[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Niveauvise get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Niveauvise findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Niveauvise patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Niveauvise[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Niveauvise|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Niveauvise saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Niveauvise[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Niveauvise[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Niveauvise[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Niveauvise[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class IndicateurcompsTable extends Table
+class NiveauvisesTable extends Table
 {
     /**
      * Initialize method
@@ -41,7 +41,7 @@ class IndicateurcompsTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('indicateurcomps');
+        $this->setTable('niveauvises');
         $this->setDisplayField('label');
         $this->setPrimaryKey('id');
 
@@ -50,12 +50,6 @@ class IndicateurcompsTable extends Table
         $this->belongsTo('Souscompetences', [
             'foreignKey' => 'souscompetence_id',
             'joinType' => 'INNER',
-        ]);
-        $this->hasMany('Infogenfpsychiques', [
-            'foreignKey' => 'indicateurcomp_id',
-        ]);
-        $this->hasMany('Profilposteconfirmes', [
-            'foreignKey' => 'indicateurcomp_id',
         ]);
     }
 
@@ -69,6 +63,7 @@ class IndicateurcompsTable extends Table
     {
         $validator
             ->scalar('label')
+            ->maxLength('label', 255)
             ->requirePresence('label', 'create')
             ->notEmptyString('label');
 

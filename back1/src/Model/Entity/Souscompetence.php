@@ -15,7 +15,6 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Competence $competence
- * @property \App\Model\Entity\Indicateurcomp[] $indicateurcomps
  */
 class Souscompetence extends Entity
 {
@@ -34,6 +33,5 @@ class Souscompetence extends Entity
         'created' => true,
         'modified' => true,
         'competence' => true,
-        'indicateurcomps' => true,
     ];
 }

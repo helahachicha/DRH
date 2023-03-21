@@ -6,23 +6,22 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Competences Controller
+ * Profilpostes Controller
  *
- * @property \App\Model\Table\CompetencesTable $Competences
- * @method \App\Model\Entity\Competence[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Profilposte[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class CompetencesController extends AppController
+class ProfilpostesController extends AppController
 {
     /**
-     * addCompetence
+     * addProfilposte
      *
      * @Input:
      *         data:
-     *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          nom (String) *Required
+     *         
      * @Output: data : success message
      */
-    public function addCompetence(){
+    public function addProfilposte(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -34,13 +33,12 @@ class CompetencesController extends AppController
             //debug($data);die;
 
         }
-         /* create competences entity */
+         /* create profilpostes entity */
         if (1==1){
-            $competences = $this->Competences->newEmptyEntity();
-            $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $profilpostes = $this->Profilpostes->newEmptyEntity();
+            $profilpostes->nom=$data->nom;  
 
-            $this->Competences->save($competences); 
+            $this->Profilpostes->save($profilpostes); 
         }
        
          /*send result */
@@ -53,16 +51,15 @@ class CompetencesController extends AppController
     }
 
      /**
-     * editCompetence
+     * editProfilposte
      *
      * @Input:
      *         data:
-     *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          nom (String) *Required
      *         
      * @Output: data : success message
      */
-    public function editCompetence(){
+    public function editProfilposte(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -75,14 +72,13 @@ class CompetencesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $competences=$this->Competences->get($id);
-         /* create competences entity */
+        $profilpostes=$this->Profilpostes->get($id);
+         /* create profilpostes entity */
         if (1==1){
-            $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $profilpostes->nom=$data->nom;  
 
 
-            $this->Competences->save($competences); 
+            $this->Profilpostes->save($profilpostes); 
         }
         /*send result */
         $this->set([
@@ -95,34 +91,34 @@ class CompetencesController extends AppController
 
 
     /**
-    * getAllCompetence
+    * getAllProfilposte
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllCompetence()
+    public function getAllProfilposte()
     {
 
         /* search */
-        $competences = $this->Competences->find('all');
+        $profilpostes = $this->Profilpostes->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $competences,
+            'data' => $profilpostes,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getCompetence
+      * getProfilposte
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getCompetence(){
+     public function getProfilposte(){
  
          $id = $this->request->getQuery('id');
          
@@ -137,36 +133,36 @@ class CompetencesController extends AppController
              }
          }
  
-         $competences = $this->Competences->find('all', [
+         $Profilpostes = $this->Profilpostes->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
-             ['contain'=>'Categories']
+            
          ])->first();
-         // debug($competences);die;
-       
-         if(empty($competences)){
-            throw new UnauthorizedException('Competences not found');
+         // debug($Profilpostes);die;
+         
+         if(empty($Profilpostes)){
+            throw new UnauthorizedException('Profilpostes not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $competences,
+            'data' => $Profilpostes,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteCompetence
+      * deleteProfilposte
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteCompetence(){
+     public function deleteProfilposte(){
 
         $id = $this->request->getQuery('id');
 
@@ -174,17 +170,17 @@ class CompetencesController extends AppController
 
         /* search */
 
-        $competences = $this->Competences->find('all', [
+        $profilpostes = $this->Profilpostes->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete competences  */
+        /* delete profilpostes  */
 
         if (1==1){
-            $this->Competences->delete($competences);
+            $this->Profilpostes->delete($profilpostes);
         }
 
         /*send result */

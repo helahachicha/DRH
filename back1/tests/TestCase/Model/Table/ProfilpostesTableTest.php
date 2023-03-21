@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\CompetencesTable;
+use App\Model\Table\ProfilpostesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\CompetencesTable Test Case
+ * App\Model\Table\ProfilpostesTable Test Case
  */
-class CompetencesTableTest extends TestCase
+class ProfilpostesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\CompetencesTable
+     * @var \App\Model\Table\ProfilpostesTable
      */
-    protected $Competences;
+    protected $Profilpostes;
 
     /**
      * Fixtures
@@ -24,8 +24,7 @@ class CompetencesTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Competences',
-        'app.Souscompetences',
+        'app.Profilpostes',
     ];
 
     /**
@@ -36,8 +35,8 @@ class CompetencesTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Competences') ? [] : ['className' => CompetencesTable::class];
-        $this->Competences = $this->getTableLocator()->get('Competences', $config);
+        $config = $this->getTableLocator()->exists('Profilpostes') ? [] : ['className' => ProfilpostesTable::class];
+        $this->Profilpostes = $this->getTableLocator()->get('Profilpostes', $config);
     }
 
     /**
@@ -47,7 +46,7 @@ class CompetencesTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Competences);
+        unset($this->Profilpostes);
 
         parent::tearDown();
     }
@@ -56,7 +55,7 @@ class CompetencesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\CompetencesTable::validationDefault()
+     * @uses \App\Model\Table\ProfilpostesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {

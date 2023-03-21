@@ -12,7 +12,6 @@ use Cake\Validation\Validator;
  * Souscompetences Model
  *
  * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
- * @property \App\Model\Table\IndicateurcompsTable&\Cake\ORM\Association\HasMany $Indicateurcomps
  *
  * @method \App\Model\Entity\Souscompetence newEmptyEntity()
  * @method \App\Model\Entity\Souscompetence newEntity(array $data, array $options = [])
@@ -51,9 +50,6 @@ class SouscompetencesTable extends Table
         $this->belongsTo('Competences', [
             'foreignKey' => 'competence_id',
             'joinType' => 'INNER',
-        ]);
-        $this->hasMany('Indicateurcomps', [
-            'foreignKey' => 'souscompetence_id',
         ]);
     }
 

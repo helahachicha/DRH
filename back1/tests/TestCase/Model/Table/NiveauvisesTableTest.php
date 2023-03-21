@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\IndicateurcompsTable;
+use App\Model\Table\NiveauvisesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\IndicateurcompsTable Test Case
+ * App\Model\Table\NiveauvisesTable Test Case
  */
-class IndicateurcompsTableTest extends TestCase
+class NiveauvisesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\IndicateurcompsTable
+     * @var \App\Model\Table\NiveauvisesTable
      */
-    protected $Indicateurcomps;
+    protected $Niveauvises;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class IndicateurcompsTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Indicateurcomps',
+        'app.Niveauvises',
         'app.Souscompetences',
     ];
 
@@ -36,8 +36,8 @@ class IndicateurcompsTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Indicateurcomps') ? [] : ['className' => IndicateurcompsTable::class];
-        $this->Indicateurcomps = $this->getTableLocator()->get('Indicateurcomps', $config);
+        $config = $this->getTableLocator()->exists('Niveauvises') ? [] : ['className' => NiveauvisesTable::class];
+        $this->Niveauvises = $this->getTableLocator()->get('Niveauvises', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class IndicateurcompsTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Indicateurcomps);
+        unset($this->Niveauvises);
 
         parent::tearDown();
     }
@@ -56,7 +56,7 @@ class IndicateurcompsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\IndicateurcompsTable::validationDefault()
+     * @uses \App\Model\Table\NiveauvisesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +67,7 @@ class IndicateurcompsTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\IndicateurcompsTable::buildRules()
+     * @uses \App\Model\Table\NiveauvisesTable::buildRules()
      */
     public function testBuildRules(): void
     {

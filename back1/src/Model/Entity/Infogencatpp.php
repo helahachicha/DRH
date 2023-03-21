@@ -6,17 +6,21 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Competence Entity
+ * Infogencatpp Entity
  *
  * @property int $id
+ * @property string $fonction
  * @property string $label
+ * @property string $suphierar
+ * @property string $supervision
+ * @property string $interim
  * @property int $categorie_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Souscompetence[] $souscompetences
+ * @property \App\Model\Entity\Category $category
  */
-class Competence extends Entity
+class Infogencatpp extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -28,10 +32,14 @@ class Competence extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
+        'fonction' => true,
         'label' => true,
+        'suphierar' => true,
+        'supervision' => true,
+        'interim' => true,
         'categorie_id' => true,
         'created' => true,
         'modified' => true,
-        'souscompetences' => true,
+        'category' => true,
     ];
 }

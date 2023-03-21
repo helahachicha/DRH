@@ -6,23 +6,22 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Competences Controller
+ * Indicateursuivis Controller
  *
- * @property \App\Model\Table\CompetencesTable $Competences
- * @method \App\Model\Entity\Competence[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Indicateursuivi[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class CompetencesController extends AppController
+class IndicateursuivisController extends AppController
 {
-    /**
-     * addCompetence
+   /**
+     * addIndicateursuivi
      *
      * @Input:
      *         data:
      *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          souscompetence_id(Int) *Required
      * @Output: data : success message
      */
-    public function addCompetence(){
+    public function addIndicateursuivi(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -34,13 +33,13 @@ class CompetencesController extends AppController
             //debug($data);die;
 
         }
-         /* create competences entity */
+         /* create indicateursuivis entity */
         if (1==1){
-            $competences = $this->Competences->newEmptyEntity();
-            $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $indicateursuivis = $this->Indicateursuivis->newEmptyEntity();
+            $indicateursuivis->label=$data->label;  
+            $indicateursuivis->souscompetence_id=$data->souscompetence_id;  
 
-            $this->Competences->save($competences); 
+            $this->Indicateursuivis->save($indicateursuivis); 
         }
        
          /*send result */
@@ -53,16 +52,16 @@ class CompetencesController extends AppController
     }
 
      /**
-     * editCompetence
+     * editIndicateursuivi
      *
      * @Input:
      *         data:
      *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          souscompetence_id(Int) *Required
      *         
      * @Output: data : success message
      */
-    public function editCompetence(){
+    public function editIndicateursuivi(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -75,14 +74,14 @@ class CompetencesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $competences=$this->Competences->get($id);
-         /* create competences entity */
+        $indicateursuivis=$this->Indicateursuivis->get($id);
+         /* create indicateursuivis entity */
         if (1==1){
-            $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $indicateursuivis->label=$data->label;  
+            $indicateursuivis->souscompetence_id=$data->souscompetence_id;  
 
 
-            $this->Competences->save($competences); 
+            $this->Indicateursuivis->save($indicateursuivis); 
         }
         /*send result */
         $this->set([
@@ -95,34 +94,34 @@ class CompetencesController extends AppController
 
 
     /**
-    * getAllCompetence
+    * getAllIndicateursuivi
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllCompetence()
+    public function getAllIndicateursuivi()
     {
 
         /* search */
-        $competences = $this->Competences->find('all');
+        $indicateursuivis = $this->Indicateursuivis->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $competences,
+            'data' => $indicateursuivis,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getCompetence
+      * getIndicateursuivi
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getCompetence(){
+     public function getIndicateursuivi(){
  
          $id = $this->request->getQuery('id');
          
@@ -137,36 +136,36 @@ class CompetencesController extends AppController
              }
          }
  
-         $competences = $this->Competences->find('all', [
+         $indicateursuivis = $this->Indicateursuivis->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
-             ['contain'=>'Categories']
+             ['contain'=>'Souscompetences']
          ])->first();
-         // debug($competences);die;
+         // debug($indicateursuivis);die;
        
-         if(empty($competences)){
-            throw new UnauthorizedException('Competences not found');
+         if(empty($indicateursuivis)){
+            throw new UnauthorizedException('Indicateursuivis not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $competences,
+            'data' => $indicateursuivis,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteCompetence
+      * deleteIndicateursuivi
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteCompetence(){
+     public function deleteIndicateursuivi(){
 
         $id = $this->request->getQuery('id');
 
@@ -174,17 +173,17 @@ class CompetencesController extends AppController
 
         /* search */
 
-        $competences = $this->Competences->find('all', [
+        $indicateursuivis = $this->Indicateursuivis->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete competences  */
+        /* delete indicateursuivis  */
 
         if (1==1){
-            $this->Competences->delete($competences);
+            $this->Indicateursuivis->delete($indicateursuivis);
         }
 
         /*send result */
