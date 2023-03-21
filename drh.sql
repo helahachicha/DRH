@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 17 mars 2023 à 13:41
+-- Généré le : mar. 21 mars 2023 à 10:17
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -94,6 +94,50 @@ CREATE TABLE `expproffrs` (
 
 INSERT INTO `expproffrs` (`id`, `societeex`, `duauex`, `fonctionex`, `inidiffex`, `salaireex`, `created`, `modified`) VALUES
 (1, 'test', '2018-2022', 'test', 'test', '500dt', '2023-03-16 14:44:44', '2023-03-16 14:44:44');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `fecomminteras`
+--
+
+CREATE TABLE `fecomminteras` (
+  `id` int(11) NOT NULL,
+  `numeroci` int(11) NOT NULL,
+  `indimesureci` varchar(255) NOT NULL,
+  `pointsci` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `fecomminteras`
+--
+
+INSERT INTO `fecomminteras` (`id`, `numeroci`, `indimesureci`, `pointsci`, `created`, `modified`) VALUES
+(1, 5, 'test', 6, '2023-03-20 13:51:36', '2023-03-20 13:51:36');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `fecomporganisations`
+--
+
+CREATE TABLE `fecomporganisations` (
+  `id` int(11) NOT NULL,
+  `numeroco` int(11) NOT NULL,
+  `indimesureco` varchar(255) NOT NULL,
+  `pointsco` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `fecomporganisations`
+--
+
+INSERT INTO `fecomporganisations` (`id`, `numeroco`, `indimesureco`, `pointsco`, `created`, `modified`) VALUES
+(1, 1, 'test', 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -218,7 +262,7 @@ CREATE TABLE `formaexternes` (
 
 INSERT INTO `formaexternes` (`id`, `typecomp`, `themforma`, `participant`, `nbparticipant`, `raisonforma`, `organismeforma`, `formalite`, `formateur`, `raisonchoix`, `dureeforma`, `nbjour`, `nbhjour`, `date`, `horaireforma`, `pause`, `lieuforma`, `created`, `modified`) VALUES
 (1, '', '', '', 0, '', '', '', '', '', '', 0, 0, '0000-00-00 00:00:00', '', '', '', '2023-03-12 20:17:51', '2023-03-13 15:34:25'),
-(2, 'test', 'test', 'test', 22, 'test', 'test', 'test', 'test', 'test', 'test', 25, 8, '2023-03-13 13:46:20', 'test', 'test', 'test', '2023-03-13 13:46:20', '2023-03-17 12:39:09');
+(2, 'test', 'test', 'test', 22, 'test', 'test', 'test', 'bolbol', 'test', 'test', 25, 8, '2023-03-13 13:46:20', 'test', 'test', 'test', '2023-03-13 13:46:20', '2023-03-17 19:40:51');
 
 -- --------------------------------------------------------
 
@@ -272,6 +316,30 @@ CREATE TABLE `infogenconfimes` (
 
 INSERT INTO `infogenconfimes` (`id`, `majndc`, `dudc`, `Fonctiondc`, `categoriedc`, `Suphierdc`, `Superdc`, `interidc`, `created`, `modified`) VALUES
 (1, 2, '2022-02-07', 'Ingénieur Recherche et Développement', 'Développeur Confirmé', 'Gérant', 'Développeur Senior', 'Développeur Senior', '2023-03-15 14:24:46', '2023-03-15 14:24:46');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `infogenfpsychiques`
+--
+
+CREATE TABLE `infogenfpsychiques` (
+  `id` int(11) NOT NULL,
+  `nomprenom` varchar(255) NOT NULL,
+  `dateevaluation` date NOT NULL,
+  `objetevaluation` varchar(255) NOT NULL,
+  `decisiondirection` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `infogenfpsychiques`
+--
+
+INSERT INTO `infogenfpsychiques` (`id`, `nomprenom`, `dateevaluation`, `objetevaluation`, `decisiondirection`, `created`, `modified`) VALUES
+(1, 'bolbol', '2023-03-01', 'bolbol', 'bolbol', '2023-03-17 16:01:37', '2023-03-17 16:01:37'),
+(2, 'hamza', '2023-03-08', 'hamza', 'hamza', '2023-03-17 16:02:07', '2023-03-17 16:02:07');
 
 -- --------------------------------------------------------
 
@@ -636,6 +704,18 @@ ALTER TABLE `expproffrs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `fecomminteras`
+--
+ALTER TABLE `fecomminteras`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `fecomporganisations`
+--
+ALTER TABLE `fecomporganisations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `ficherenseignements`
 --
 ALTER TABLE `ficherenseignements`
@@ -663,6 +743,12 @@ ALTER TABLE `formainternes`
 -- Index pour la table `infogenconfimes`
 --
 ALTER TABLE `infogenconfimes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `infogenfpsychiques`
+--
+ALTER TABLE `infogenfpsychiques`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -742,6 +828,18 @@ ALTER TABLE `expproffrs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT pour la table `fecomminteras`
+--
+ALTER TABLE `fecomminteras`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `fecomporganisations`
+--
+ALTER TABLE `fecomporganisations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT pour la table `ficherenseignements`
 --
 ALTER TABLE `ficherenseignements`
@@ -770,6 +868,12 @@ ALTER TABLE `formainternes`
 --
 ALTER TABLE `infogenconfimes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `infogenfpsychiques`
+--
+ALTER TABLE `infogenfpsychiques`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `infogenjuniors`
@@ -840,6 +944,12 @@ ALTER TABLE `enfantsfrs`
 --
 ALTER TABLE `expproffrs`
   ADD CONSTRAINT `expproffrs_ibfk_1` FOREIGN KEY (`id`) REFERENCES `ficherenseignements` (`id`);
+
+--
+-- Contraintes pour la table `fecomminteras`
+--
+ALTER TABLE `fecomminteras`
+  ADD CONSTRAINT `fecomminteras_ibfk_1` FOREIGN KEY (`id`) REFERENCES `fecomporganisations` (`id`);
 
 --
 -- Contraintes pour la table `formacomplfrs`
