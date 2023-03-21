@@ -23,9 +23,12 @@ import { ListingdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeck
 import { HomeComponent } from './Home/home/home.component';
 import { FooterComponent } from './Layout/footer/footer.component';
 import { HeaderComponent } from './Layout/header/header.component';
+import { PublicComponent } from './public/public.component';
 
 const routes: Routes = [
-  //{ path: '', component: LoginComponent},
+  //{ path: 'Login', component: LoginComponent},
+  { path: 'footer', component: FooterComponent},
+  { path: 'public', component: PublicComponent},
   { path: 'home', component: HomeComponent},
   { path: 'footer', component: FooterComponent},
   { path: 'header', component: HeaderComponent },

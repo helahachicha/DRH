@@ -41,5 +41,9 @@ export class DataService {
     return this.http.get<any>(this.baseUrl + uri , {headers: this.createHeader()});
   }
 
+  delete(uri: string){
+    return this.http.delete<any>(this.baseUrl + uri , {headers: this.createHeader()});
+  }
+
 
 }

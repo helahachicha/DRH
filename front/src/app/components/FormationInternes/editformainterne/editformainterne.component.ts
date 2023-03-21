@@ -47,8 +47,8 @@ public formainternes
 
   editformainterne(){
       
-    this.dataService.post('formainternes/editformainterne.json?id='+this.id,this.interneForm.value).subscribe(res=> {
-      console.log("hello",this.interneForm.value)
+    this.dataService.post('formainternes/editFormainterne.json?id='+this.id,this.interneForm.value).subscribe(res=> {
+    //  console.log("hello",this.interneForm.value)
     this.router.navigate(['/formainternelisting'])
     })
   }
