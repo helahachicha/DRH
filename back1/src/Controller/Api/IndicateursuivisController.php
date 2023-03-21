@@ -6,27 +6,22 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Coutformaexternes Controller
+ * Indicateursuivis Controller
  *
- * @method \App\Model\Entity\Coutformaexterne[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Indicateursuivi[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class CoutformaexternesController extends AppController
+class IndicateursuivisController extends AppController
 {
    /**
-     * addCoutformaexterne
+     * addIndicateursuivi
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
-     *         
+     *          label (String) *Required
+     *          souscompetence_id(Int) *Required
      * @Output: data : success message
      */
-    public function addCoutformaexterne(){
+    public function addIndicateursuivi(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -38,17 +33,13 @@ class CoutformaexternesController extends AppController
             //debug($data);die;
 
         }
-         /* create coutformaexternes entity */
+         /* create indicateursuivis entity */
         if (1==1){
-            $coutformaexternes = $this->Coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto;   
+            $indicateursuivis = $this->Indicateursuivis->newEmptyEntity();
+            $indicateursuivis->label=$data->label;  
+            $indicateursuivis->souscompetence_id=$data->souscompetence_id;  
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+            $this->Indicateursuivis->save($indicateursuivis); 
         }
        
          /*send result */
@@ -61,20 +52,16 @@ class CoutformaexternesController extends AppController
     }
 
      /**
-     * editCoutformaexterne
+     * editIndicateursuivi
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
+     *          label (String) *Required
+     *          souscompetence_id(Int) *Required
      *         
      * @Output: data : success message
      */
-    public function editCoutformaexterne(){
+    public function editIndicateursuivi(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -87,17 +74,14 @@ class CoutformaexternesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $coutformaexternes=$this->Coutformaexternes->get($id);
-         /* create coutformaexternes entity */
+        $indicateursuivis=$this->Indicateursuivis->get($id);
+         /* create indicateursuivis entity */
         if (1==1){
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto; 
+            $indicateursuivis->label=$data->label;  
+            $indicateursuivis->souscompetence_id=$data->souscompetence_id;  
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+
+            $this->Indicateursuivis->save($indicateursuivis); 
         }
         /*send result */
         $this->set([
@@ -110,34 +94,34 @@ class CoutformaexternesController extends AppController
 
 
     /**
-    * getAllCoutformaexterne
+    * getAllIndicateursuivi
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllCoutformaexterne()
+    public function getAllIndicateursuivi()
     {
 
         /* search */
-        $coutformaexternes = $this->Coutformaexternes->find('all');
+        $indicateursuivis = $this->Indicateursuivis->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $indicateursuivis,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getCoutformaexterne
+      * getIndicateursuivi
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getCoutformaexterne(){
+     public function getIndicateursuivi(){
  
          $id = $this->request->getQuery('id');
          
@@ -152,36 +136,36 @@ class CoutformaexternesController extends AppController
              }
          }
  
-         $coutformaexternes = $this->Coutformaexternes->find('all', [
+         $indicateursuivis = $this->Indicateursuivis->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
-            
+             ['contain'=>'Souscompetences']
          ])->first();
-         // debug($coutformaexternes);die;
-         
-         if(empty($coutformaexternes)){
-            throw new UnauthorizedException('Coutformaexternes not found');
+         // debug($indicateursuivis);die;
+       
+         if(empty($indicateursuivis)){
+            throw new UnauthorizedException('Indicateursuivis not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $indicateursuivis,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteCoutformaexterne
+      * deleteIndicateursuivi
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteCoutformaexterne(){
+     public function deleteIndicateursuivi(){
 
         $id = $this->request->getQuery('id');
 
@@ -189,17 +173,17 @@ class CoutformaexternesController extends AppController
 
         /* search */
 
-        $coutformaexternes = $this->Coutformaexternes->find('all', [
+        $indicateursuivis = $this->Indicateursuivis->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete coutformaexternes  */
+        /* delete indicateursuivis  */
 
         if (1==1){
-            $this->Coutformaexternes->delete($coutformaexternes);
+            $this->Indicateursuivis->delete($indicateursuivis);
         }
 
         /*send result */
@@ -210,5 +194,4 @@ class CoutformaexternesController extends AppController
                 '_serialize' => ['success','data']
             ]);
         }
-     
 }

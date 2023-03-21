@@ -20,12 +20,14 @@ class InfogenfpsychiquesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
+                'indicateurcomp_id' => 1,
+                'points' => 1,
                 'nomprenom' => 'Lorem ipsum dolor sit amet',
                 'dateevaluation' => '2023-03-21',
                 'objetevaluation' => 'Lorem ipsum dolor sit amet',
                 'decisiondirection' => 'Lorem ipsum dolor sit amet',
-                'created' => '2023-03-21 05:29:05',
-                'modified' => '2023-03-21 05:29:05',
+                'created' => '2023-03-21 15:19:18',
+                'modified' => '2023-03-21 15:19:18',
             ],
         ];
         parent::init();

@@ -44,6 +44,15 @@ class ProfilposteconfirmesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Competences', [
+            'foreignKey' => 'competence_id',
+            'joinType' => 'INNER',
+        ]);
+        $this->belongsTo('Indicateurcomps', [
+            'foreignKey' => 'indicateurcomp_id',
+            'joinType' => 'INNER',
+        ]);
     }
 
     /**
@@ -55,28 +64,18 @@ class ProfilposteconfirmesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('comptechdc')
-            ->maxLength('comptechdc', 255)
-            ->requirePresence('comptechdc', 'create')
-            ->notEmptyString('comptechdc');
+            ->integer('competence_id')
+            ->notEmptyString('competence_id');
+
+        $validator
+            ->integer('indicateurcomp_id')
+            ->notEmptyString('indicateurcomp_id');
 
         $validator
             ->scalar('contenucomptechdc')
             ->maxLength('contenucomptechdc', 255)
             ->requirePresence('contenucomptechdc', 'create')
             ->notEmptyString('contenucomptechdc');
-
-        $validator
-            ->scalar('comporgandc')
-            ->maxLength('comporgandc', 255)
-            ->requirePresence('comporgandc', 'create')
-            ->notEmptyString('comporgandc');
-
-        $validator
-            ->scalar('gestempsdc')
-            ->maxLength('gestempsdc', 255)
-            ->requirePresence('gestempsdc', 'create')
-            ->notEmptyString('gestempsdc');
 
         $validator
             ->scalar('nvisegestempdc')
@@ -91,24 +90,6 @@ class ProfilposteconfirmesTable extends Table
             ->notEmptyString('isuivigestempdc');
 
         $validator
-            ->scalar('compcompordc')
-            ->maxLength('compcompordc', 255)
-            ->requirePresence('compcompordc', 'create')
-            ->notEmptyString('compcompordc');
-
-        $validator
-            ->scalar('autonomiedc')
-            ->maxLength('autonomiedc', 255)
-            ->requirePresence('autonomiedc', 'create')
-            ->notEmptyString('autonomiedc');
-
-        $validator
-            ->scalar('comminteradc')
-            ->maxLength('comminteradc', 255)
-            ->requirePresence('comminteradc', 'create')
-            ->notEmptyString('comminteradc');
-
-        $validator
             ->scalar('nvisecomminteradc')
             ->maxLength('nvisecomminteradc', 255)
             ->requirePresence('nvisecomminteradc', 'create')
@@ -119,12 +100,6 @@ class ProfilposteconfirmesTable extends Table
             ->maxLength('isuivicomminteradc', 255)
             ->requirePresence('isuivicomminteradc', 'create')
             ->notEmptyString('isuivicomminteradc');
-
-        $validator
-            ->scalar('tracolldc')
-            ->maxLength('tracolldc', 255)
-            ->requirePresence('tracolldc', 'create')
-            ->notEmptyString('tracolldc');
 
         $validator
             ->scalar('nvisetracolldc')
@@ -139,12 +114,6 @@ class ProfilposteconfirmesTable extends Table
             ->notEmptyString('isuivitracolldc');
 
         $validator
-            ->scalar('resprobdc')
-            ->maxLength('resprobdc', 255)
-            ->requirePresence('resprobdc', 'create')
-            ->notEmptyString('resprobdc');
-
-        $validator
             ->scalar('nviseresprobdc')
             ->maxLength('nviseresprobdc', 255)
             ->requirePresence('nviseresprobdc', 'create')
@@ -157,12 +126,6 @@ class ProfilposteconfirmesTable extends Table
             ->notEmptyString('isuiviresprobdc');
 
         $validator
-            ->scalar('servexcelldc')
-            ->maxLength('servexcelldc', 255)
-            ->requirePresence('servexcelldc', 'create')
-            ->notEmptyString('servexcelldc');
-
-        $validator
             ->scalar('nviseservexcelldc')
             ->maxLength('nviseservexcelldc', 255)
             ->requirePresence('nviseservexcelldc', 'create')
@@ -173,12 +136,6 @@ class ProfilposteconfirmesTable extends Table
             ->maxLength('isuiviservexcelldc', 255)
             ->requirePresence('isuiviservexcelldc', 'create')
             ->notEmptyString('isuiviservexcelldc');
-
-        $validator
-            ->scalar('raisconcepdc')
-            ->maxLength('raisconcepdc', 255)
-            ->requirePresence('raisconcepdc', 'create')
-            ->notEmptyString('raisconcepdc');
 
         $validator
             ->scalar('nviseraisconcepdc')
@@ -265,5 +222,20 @@ class ProfilposteconfirmesTable extends Table
             ->notEmptyString('nompredc2');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->existsIn('competence_id', 'Competences'), ['errorField' => 'competence_id']);
+        $rules->add($rules->existsIn('indicateurcomp_id', 'Indicateurcomps'), ['errorField' => 'indicateurcomp_id']);
+
+        return $rules;
     }
 }

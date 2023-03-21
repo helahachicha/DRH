@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller\Api;
 
-use App\Controller\Api\InfogenfpsychiquesController;
+use App\Controller\Api\SouscompetencesController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\Api\InfogenfpsychiquesController Test Case
+ * App\Controller\Api\SouscompetencesController Test Case
  *
- * @uses \App\Controller\Api\InfogenfpsychiquesController
+ * @uses \App\Controller\Api\SouscompetencesController
  */
-class InfogenfpsychiquesControllerTest extends TestCase
+class SouscompetencesControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,7 +22,8 @@ class InfogenfpsychiquesControllerTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Infogenfpsychiques',
+        'app.Souscompetences',
+        'app.Competences',
         'app.Indicateurcomps',
     ];
 
@@ -30,7 +31,7 @@ class InfogenfpsychiquesControllerTest extends TestCase
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\Api\InfogenfpsychiquesController::index()
+     * @uses \App\Controller\Api\SouscompetencesController::index()
      */
     public function testIndex(): void
     {
@@ -41,7 +42,7 @@ class InfogenfpsychiquesControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\Api\InfogenfpsychiquesController::view()
+     * @uses \App\Controller\Api\SouscompetencesController::view()
      */
     public function testView(): void
     {
@@ -52,7 +53,7 @@ class InfogenfpsychiquesControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\Api\InfogenfpsychiquesController::add()
+     * @uses \App\Controller\Api\SouscompetencesController::add()
      */
     public function testAdd(): void
     {
@@ -63,7 +64,7 @@ class InfogenfpsychiquesControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\Api\InfogenfpsychiquesController::edit()
+     * @uses \App\Controller\Api\SouscompetencesController::edit()
      */
     public function testEdit(): void
     {
@@ -74,7 +75,7 @@ class InfogenfpsychiquesControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\Api\InfogenfpsychiquesController::delete()
+     * @uses \App\Controller\Api\SouscompetencesController::delete()
      */
     public function testDelete(): void
     {

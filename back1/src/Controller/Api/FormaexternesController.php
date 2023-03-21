@@ -214,4 +214,43 @@ class FormaexternesController extends AppController
              '_serialize' => ['success', 'data']
          ]);
      }
+
+
+     /**
+      * deleteFormaexterne
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteFormaexterne(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $formaexternes = $this->Formaexternes->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete formaexternes  */
+
+        if (1==1){
+            $this->Formaexternes->delete($formaexternes);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
 }

@@ -6,27 +6,23 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Coutformaexternes Controller
+ * Categories Controller
  *
- * @method \App\Model\Entity\Coutformaexterne[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Category[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class CoutformaexternesController extends AppController
+class CategoriesController extends AppController
 {
-   /**
-     * addCoutformaexterne
+    /**
+     * addCategorie
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
+     *          label (String) *Required
+     *          profilposte_id(Int) *Required
      *         
      * @Output: data : success message
      */
-    public function addCoutformaexterne(){
+    public function addCategorie(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -38,17 +34,13 @@ class CoutformaexternesController extends AppController
             //debug($data);die;
 
         }
-         /* create coutformaexternes entity */
+         /* create categories entity */
         if (1==1){
-            $coutformaexternes = $this->Coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto;   
+            $categories = $this->Categories->newEmptyEntity();
+            $categories->label=$data->label;  
+            $categories->profilposte_id=$data->profilposte_id;     
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+            $this->Categories->save($categories); 
         }
        
          /*send result */
@@ -61,20 +53,16 @@ class CoutformaexternesController extends AppController
     }
 
      /**
-     * editCoutformaexterne
+     * editCategorie
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
+     *          label (String) *Required
+     *          profilposte_id(Int) *Required
      *         
      * @Output: data : success message
      */
-    public function editCoutformaexterne(){
+    public function editCategorie(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -87,17 +75,13 @@ class CoutformaexternesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $coutformaexternes=$this->Coutformaexternes->get($id);
-         /* create coutformaexternes entity */
+        $categories=$this->Categories->get($id);
+         /* create categories entity */
         if (1==1){
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto; 
+            $categories->label=$data->label;  
+            $categories->profilposte_id=$data->profilposte_id;  
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+            $this->Categories->save($categories); 
         }
         /*send result */
         $this->set([
@@ -110,34 +94,34 @@ class CoutformaexternesController extends AppController
 
 
     /**
-    * getAllCoutformaexterne
+    * getAllCategorie
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllCoutformaexterne()
+    public function getAllCategorie()
     {
 
         /* search */
-        $coutformaexternes = $this->Coutformaexternes->find('all');
+        $categories = $this->Categories->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $categories,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getCoutformaexterne
+      * getCategorie
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getCoutformaexterne(){
+     public function getCategorie(){
  
          $id = $this->request->getQuery('id');
          
@@ -152,36 +136,36 @@ class CoutformaexternesController extends AppController
              }
          }
  
-         $coutformaexternes = $this->Coutformaexternes->find('all', [
+         $categories = $this->Categories->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
-            
+            ['contain'=>'Profilpostes']
          ])->first();
-         // debug($coutformaexternes);die;
+         // debug($categories);die;
          
-         if(empty($coutformaexternes)){
-            throw new UnauthorizedException('Coutformaexternes not found');
+         if(empty($categories)){
+            throw new UnauthorizedException('Categories not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $categories,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteCoutformaexterne
+      * deleteCategorie
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteCoutformaexterne(){
+     public function deleteCategorie(){
 
         $id = $this->request->getQuery('id');
 
@@ -189,17 +173,17 @@ class CoutformaexternesController extends AppController
 
         /* search */
 
-        $coutformaexternes = $this->Coutformaexternes->find('all', [
+        $categories = $this->Categories->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
-           
+
         ])->first();
 
-        /* delete coutformaexternes  */
+        /* delete categories  */
 
         if (1==1){
-            $this->Coutformaexternes->delete($coutformaexternes);
+            $this->Categories->delete($categories);
         }
 
         /*send result */
@@ -210,5 +194,4 @@ class CoutformaexternesController extends AppController
                 '_serialize' => ['success','data']
             ]);
         }
-     
 }

@@ -6,27 +6,23 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Coutformaexternes Controller
+ * Competences Controller
  *
- * @method \App\Model\Entity\Coutformaexterne[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property \App\Model\Table\CompetencesTable $Competences
+ * @method \App\Model\Entity\Competence[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class CoutformaexternesController extends AppController
+class CompetencesController extends AppController
 {
-   /**
-     * addCoutformaexterne
+    /**
+     * addCompetence
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
-     *         
+     *          label (String) *Required
+     *          categorie_id(Int) *Required
      * @Output: data : success message
      */
-    public function addCoutformaexterne(){
+    public function addCompetence(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -38,17 +34,13 @@ class CoutformaexternesController extends AppController
             //debug($data);die;
 
         }
-         /* create coutformaexternes entity */
+         /* create competences entity */
         if (1==1){
-            $coutformaexternes = $this->Coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto;   
+            $competences = $this->Competences->newEmptyEntity();
+            $competences->label=$data->label;  
+            $competences->categorie_id=$data->categorie_id;  
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+            $this->Competences->save($competences); 
         }
        
          /*send result */
@@ -61,20 +53,16 @@ class CoutformaexternesController extends AppController
     }
 
      /**
-     * editCoutformaexterne
+     * editCompetence
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
+     *          label (String) *Required
+     *          categorie_id(Int) *Required
      *         
      * @Output: data : success message
      */
-    public function editCoutformaexterne(){
+    public function editCompetence(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -87,17 +75,14 @@ class CoutformaexternesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $coutformaexternes=$this->Coutformaexternes->get($id);
-         /* create coutformaexternes entity */
+        $competences=$this->Competences->get($id);
+         /* create competences entity */
         if (1==1){
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto; 
+            $competences->label=$data->label;  
+            $competences->categorie_id=$data->categorie_id;  
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+
+            $this->Competences->save($competences); 
         }
         /*send result */
         $this->set([
@@ -110,34 +95,34 @@ class CoutformaexternesController extends AppController
 
 
     /**
-    * getAllCoutformaexterne
+    * getAllCompetence
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllCoutformaexterne()
+    public function getAllCompetence()
     {
 
         /* search */
-        $coutformaexternes = $this->Coutformaexternes->find('all');
+        $competences = $this->Competences->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $competences,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getCoutformaexterne
+      * getCompetence
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getCoutformaexterne(){
+     public function getCompetence(){
  
          $id = $this->request->getQuery('id');
          
@@ -152,36 +137,36 @@ class CoutformaexternesController extends AppController
              }
          }
  
-         $coutformaexternes = $this->Coutformaexternes->find('all', [
+         $competences = $this->Competences->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
-            
+             ['contain'=>'Categories']
          ])->first();
-         // debug($coutformaexternes);die;
-         
-         if(empty($coutformaexternes)){
-            throw new UnauthorizedException('Coutformaexternes not found');
+         // debug($competences);die;
+       
+         if(empty($competences)){
+            throw new UnauthorizedException('Competences not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $competences,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteCoutformaexterne
+      * deleteCompetence
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteCoutformaexterne(){
+     public function deleteCompetence(){
 
         $id = $this->request->getQuery('id');
 
@@ -189,17 +174,17 @@ class CoutformaexternesController extends AppController
 
         /* search */
 
-        $coutformaexternes = $this->Coutformaexternes->find('all', [
+        $competences = $this->Competences->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete coutformaexternes  */
+        /* delete competences  */
 
         if (1==1){
-            $this->Coutformaexternes->delete($coutformaexternes);
+            $this->Competences->delete($competences);
         }
 
         /*send result */
@@ -210,5 +195,4 @@ class CoutformaexternesController extends AppController
                 '_serialize' => ['success','data']
             ]);
         }
-     
 }

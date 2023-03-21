@@ -6,27 +6,22 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Coutformaexternes Controller
+ * Profilpostes Controller
  *
- * @method \App\Model\Entity\Coutformaexterne[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Profilposte[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class CoutformaexternesController extends AppController
+class ProfilpostesController extends AppController
 {
-   /**
-     * addCoutformaexterne
+    /**
+     * addProfilposte
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
+     *          nom (String) *Required
      *         
      * @Output: data : success message
      */
-    public function addCoutformaexterne(){
+    public function addProfilposte(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -38,17 +33,12 @@ class CoutformaexternesController extends AppController
             //debug($data);die;
 
         }
-         /* create coutformaexternes entity */
+         /* create profilpostes entity */
         if (1==1){
-            $coutformaexternes = $this->Coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto;   
+            $profilpostes = $this->Profilpostes->newEmptyEntity();
+            $profilpostes->nom=$data->nom;  
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+            $this->Profilpostes->save($profilpostes); 
         }
        
          /*send result */
@@ -61,20 +51,15 @@ class CoutformaexternesController extends AppController
     }
 
      /**
-     * editCoutformaexterne
+     * editProfilposte
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
+     *          nom (String) *Required
      *         
      * @Output: data : success message
      */
-    public function editCoutformaexterne(){
+    public function editProfilposte(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -87,17 +72,13 @@ class CoutformaexternesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $coutformaexternes=$this->Coutformaexternes->get($id);
-         /* create coutformaexternes entity */
+        $profilpostes=$this->Profilpostes->get($id);
+         /* create profilpostes entity */
         if (1==1){
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto; 
+            $profilpostes->nom=$data->nom;  
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+
+            $this->Profilpostes->save($profilpostes); 
         }
         /*send result */
         $this->set([
@@ -110,34 +91,34 @@ class CoutformaexternesController extends AppController
 
 
     /**
-    * getAllCoutformaexterne
+    * getAllProfilposte
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllCoutformaexterne()
+    public function getAllProfilposte()
     {
 
         /* search */
-        $coutformaexternes = $this->Coutformaexternes->find('all');
+        $profilpostes = $this->Profilpostes->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $profilpostes,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getCoutformaexterne
+      * getProfilposte
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getCoutformaexterne(){
+     public function getProfilposte(){
  
          $id = $this->request->getQuery('id');
          
@@ -152,36 +133,36 @@ class CoutformaexternesController extends AppController
              }
          }
  
-         $coutformaexternes = $this->Coutformaexternes->find('all', [
+         $Profilpostes = $this->Profilpostes->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
             
          ])->first();
-         // debug($coutformaexternes);die;
+         // debug($Profilpostes);die;
          
-         if(empty($coutformaexternes)){
-            throw new UnauthorizedException('Coutformaexternes not found');
+         if(empty($Profilpostes)){
+            throw new UnauthorizedException('Profilpostes not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $Profilpostes,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteCoutformaexterne
+      * deleteProfilposte
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteCoutformaexterne(){
+     public function deleteProfilposte(){
 
         $id = $this->request->getQuery('id');
 
@@ -189,17 +170,17 @@ class CoutformaexternesController extends AppController
 
         /* search */
 
-        $coutformaexternes = $this->Coutformaexternes->find('all', [
+        $profilpostes = $this->Profilpostes->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete coutformaexternes  */
+        /* delete profilpostes  */
 
         if (1==1){
-            $this->Coutformaexternes->delete($coutformaexternes);
+            $this->Profilpostes->delete($profilpostes);
         }
 
         /*send result */
@@ -210,5 +191,4 @@ class CoutformaexternesController extends AppController
                 '_serialize' => ['success','data']
             ]);
         }
-     
 }

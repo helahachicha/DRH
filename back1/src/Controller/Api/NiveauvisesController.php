@@ -6,27 +6,22 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Coutformaexternes Controller
+ * Niveauvises Controller
  *
- * @method \App\Model\Entity\Coutformaexterne[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Niveauvise[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class CoutformaexternesController extends AppController
+class NiveauvisesController extends AppController
 {
    /**
-     * addCoutformaexterne
+     * addNiveauvise
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
-     *         
+     *          label (String) *Required
+     *          souscompetence_id(Int) *Required
      * @Output: data : success message
      */
-    public function addCoutformaexterne(){
+    public function addNiveauvise(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -38,17 +33,13 @@ class CoutformaexternesController extends AppController
             //debug($data);die;
 
         }
-         /* create coutformaexternes entity */
+         /* create niveauvises entity */
         if (1==1){
-            $coutformaexternes = $this->Coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto;   
+            $niveauvises = $this->Niveauvises->newEmptyEntity();
+            $niveauvises->label=$data->label;  
+            $niveauvises->souscompetence_id=$data->souscompetence_id;  
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+            $this->Niveauvises->save($niveauvises); 
         }
        
          /*send result */
@@ -61,20 +52,16 @@ class CoutformaexternesController extends AppController
     }
 
      /**
-     * editCoutformaexterne
+     * editNiveauvise
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
+     *          label (String) *Required
+     *          souscompetence_id(Int) *Required
      *         
      * @Output: data : success message
      */
-    public function editCoutformaexterne(){
+    public function editNiveauvise(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -87,17 +74,14 @@ class CoutformaexternesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $coutformaexternes=$this->Coutformaexternes->get($id);
-         /* create coutformaexternes entity */
+        $niveauvises=$this->Niveauvises->get($id);
+         /* create niveauvises entity */
         if (1==1){
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto; 
+            $niveauvises->label=$data->label;  
+            $niveauvises->souscompetence_id=$data->souscompetence_id;  
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+
+            $this->Niveauvises->save($niveauvises); 
         }
         /*send result */
         $this->set([
@@ -110,34 +94,34 @@ class CoutformaexternesController extends AppController
 
 
     /**
-    * getAllCoutformaexterne
+    * getAllNiveauvise
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllCoutformaexterne()
+    public function getAllNiveauvise()
     {
 
         /* search */
-        $coutformaexternes = $this->Coutformaexternes->find('all');
+        $niveauvises = $this->Niveauvises->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $niveauvises,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getCoutformaexterne
+      * getNiveauvise
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getCoutformaexterne(){
+     public function getNiveauvise(){
  
          $id = $this->request->getQuery('id');
          
@@ -152,36 +136,36 @@ class CoutformaexternesController extends AppController
              }
          }
  
-         $coutformaexternes = $this->Coutformaexternes->find('all', [
+         $niveauvises = $this->Niveauvises->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
-            
+             ['contain'=>'Souscompetences']
          ])->first();
-         // debug($coutformaexternes);die;
-         
-         if(empty($coutformaexternes)){
-            throw new UnauthorizedException('Coutformaexternes not found');
+         // debug($niveauvises);die;
+       
+         if(empty($niveauvises)){
+            throw new UnauthorizedException('Niveauvises not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $niveauvises,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteCoutformaexterne
+      * deleteNiveauvise
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteCoutformaexterne(){
+     public function deleteNiveauvise(){
 
         $id = $this->request->getQuery('id');
 
@@ -189,17 +173,17 @@ class CoutformaexternesController extends AppController
 
         /* search */
 
-        $coutformaexternes = $this->Coutformaexternes->find('all', [
+        $niveauvises = $this->Niveauvises->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete coutformaexternes  */
+        /* delete niveauvises  */
 
         if (1==1){
-            $this->Coutformaexternes->delete($coutformaexternes);
+            $this->Niveauvises->delete($niveauvises);
         }
 
         /*send result */
@@ -210,5 +194,4 @@ class CoutformaexternesController extends AppController
                 '_serialize' => ['success','data']
             ]);
         }
-     
 }

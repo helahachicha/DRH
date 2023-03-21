@@ -6,27 +6,28 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Coutformaexternes Controller
+ * Infogencatpps Controller
  *
- * @method \App\Model\Entity\Coutformaexterne[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property \App\Model\Table\InfogencatppsTable $Infogencatpps
+ * @method \App\Model\Entity\Infogencatpp[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class CoutformaexternesController extends AppController
+class InfogencatppsController extends AppController
 {
-   /**
-     * addCoutformaexterne
+    /**
+     * addInfogencatpp
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
+     *          fonction (String) *Required
+     *          label(String) *Required
+     *          suphierar (String) *Required
+     *          supervision (String) *Required
+     *          interim(String) *Required
+     *          categorie_id (String) *Required
      *         
      * @Output: data : success message
      */
-    public function addCoutformaexterne(){
+    public function addInfogencatpp(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -38,17 +39,17 @@ class CoutformaexternesController extends AppController
             //debug($data);die;
 
         }
-         /* create coutformaexternes entity */
+         /* create infogencatpps entity */
         if (1==1){
-            $coutformaexternes = $this->Coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto;   
+            $infogencatpps = $this->Infogencatpps->newEmptyEntity();
+            $infogencatpps->fonction=$data->fonction;  
+            $infogencatpps->label=$data->label;  
+            $infogencatpps->suphierar=$data->suphierar;  
+            $infogencatpps->supervision=$data->supervision;  
+            $infogencatpps->interim=$data->interim;  
+            $infogencatpps->categorie_id=$data->categorie_id;   
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+            $this->Infogencatpps->save($infogencatpps); 
         }
        
          /*send result */
@@ -61,20 +62,20 @@ class CoutformaexternesController extends AppController
     }
 
      /**
-     * editCoutformaexterne
+     * editInfogencatpp
      *
      * @Input:
      *         data:
-     *          coutformahd (Float) *Required
-     *          tocoformadt(Float) *Required
-     *          locaespace (Float) *Required
-     *          comax (Float) *Required
-     *          tocout(Float) *Required
-     *          chargeto (Float) *Required
+     *          fonction (String) *Required
+     *          label(String) *Required
+     *          suphierar (String) *Required
+     *          supervision (String) *Required
+     *          interim(String) *Required
+     *          categorie_id (String) *Required
      *         
      * @Output: data : success message
      */
-    public function editCoutformaexterne(){
+    public function editInfogencatpp(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -87,17 +88,17 @@ class CoutformaexternesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $coutformaexternes=$this->Coutformaexternes->get($id);
-         /* create coutformaexternes entity */
+        $infogencatpps=$this->Infogencatpps->get($id);
+         /* create infogencatpps entity */
         if (1==1){
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto; 
+            $infogencatpps->fonction=$data->fonction;  
+            $infogencatpps->label=$data->label;  
+            $infogencatpps->suphierar=$data->suphierar;  
+            $infogencatpps->supervision=$data->supervision;  
+            $infogencatpps->interim=$data->interim;  
+            $infogencatpps->categorie_id=$data->categorie_id;  
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+            $this->Infogencatpps->save($infogencatpps); 
         }
         /*send result */
         $this->set([
@@ -110,34 +111,34 @@ class CoutformaexternesController extends AppController
 
 
     /**
-    * getAllCoutformaexterne
+    * getAllInfogencatpp
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllCoutformaexterne()
+    public function getAllInfogencatpp()
     {
 
         /* search */
-        $coutformaexternes = $this->Coutformaexternes->find('all');
+        $infogencatpps = $this->Infogencatpps->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $infogencatpps,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getCoutformaexterne
+      * getInfogencatpp
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getCoutformaexterne(){
+     public function getInfogencatpp(){
  
          $id = $this->request->getQuery('id');
          
@@ -152,36 +153,36 @@ class CoutformaexternesController extends AppController
              }
          }
  
-         $coutformaexternes = $this->Coutformaexternes->find('all', [
+         $infogencatpps = $this->Infogencatpps->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
-            
+             ['contain'=>'Categories']
          ])->first();
-         // debug($coutformaexternes);die;
+         // debug($infogencatpps);die;
          
-         if(empty($coutformaexternes)){
-            throw new UnauthorizedException('Coutformaexternes not found');
+         if(empty($infogencatpps)){
+            throw new UnauthorizedException('Infogencatpps not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $coutformaexternes,
+            'data' => $infogencatpps,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteCoutformaexterne
+      * deleteInfogencatpp
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteCoutformaexterne(){
+     public function deleteInfogencatpp(){
 
         $id = $this->request->getQuery('id');
 
@@ -189,17 +190,17 @@ class CoutformaexternesController extends AppController
 
         /* search */
 
-        $coutformaexternes = $this->Coutformaexternes->find('all', [
+        $infogencatpps = $this->Infogencatpps->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
-           
+            
         ])->first();
 
-        /* delete coutformaexternes  */
+        /* delete infogencatpps  */
 
         if (1==1){
-            $this->Coutformaexternes->delete($coutformaexternes);
+            $this->Infogencatpps->delete($infogencatpps);
         }
 
         /*send result */
@@ -210,5 +211,4 @@ class CoutformaexternesController extends AppController
                 '_serialize' => ['success','data']
             ]);
         }
-     
 }
