@@ -21,7 +21,7 @@ class FormainternesController extends AppController
      *          themeforma (String) *Required
      *          animateur (String) *Required
      *          poste (String) *Required
-     *          datee (Date) *Required
+     *          date (Date) *Required
      *          hentrer (Time) *Required
      *          hsortie (Time) *Required
      * 
@@ -46,7 +46,7 @@ class FormainternesController extends AppController
             $formainternes->themeforma=$data->themeforma;  
             $formainternes->animateur=$data->animateur;  
             $formainternes->poste=$data->poste;  
-            $formainternes->datee=$data->datee;  
+            $formainternes->date=$data->date;  
             $formainternes->hentrer=$data->hentrer; 
             $formainternes->hsortie=$data->hsortie;     
 
@@ -71,7 +71,7 @@ class FormainternesController extends AppController
      *          themeforma (String) *Required
      *          animateur (String) *Required
      *          poste (String) *Required
-     *          datee (Date) *Required
+     *          date (Date) *Required
      *          hentrer (Time) *Required
      *          hsortie (Time) *Required
      * @Output: data : success message
@@ -96,7 +96,7 @@ class FormainternesController extends AppController
             $formainternes->themeforma=$data->themeforma;  
             $formainternes->animateur=$data->animateur;  
             $formainternes->poste=$data->poste;  
-            $formainternes->datee=$data->datee;  
+            $formainternes->date=$data->date;  
             $formainternes->hentrer=$data->hentrer; 
             $formainternes->hsortie=$data->hsortie;  
 
