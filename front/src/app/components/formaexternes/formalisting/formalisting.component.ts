@@ -50,5 +50,9 @@ export class FormalistingComponent implements OnInit {
     })
   }
 
-  
+  deleteformaexterne(id){
+    this.dataService.delete('Formaexternes/deleteFormaexterne.json?id='+id).subscribe(res => {
+      this.getallforma()
+    })
+  }
 }

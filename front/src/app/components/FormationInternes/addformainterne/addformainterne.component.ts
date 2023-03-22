@@ -31,7 +31,7 @@ export class AddformainterneComponent implements OnInit {
 
 
   submit() {
-    //console.log("hello",this.interneForm.value)
+    console.log("hello",this.interneForm.value)
     this.dataService.post('Formainternes/addFormainterne.json',this.interneForm.value).subscribe(res=> {
       this.router.navigate(['/formainternelisting'])
      

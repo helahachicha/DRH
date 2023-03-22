@@ -41,6 +41,10 @@ export class ListingformainterneComponent implements OnInit {
 
     })
   }
-
+  deleteformainterne(id){
+    this.dataService.delete('Formainternes/deleteFormainterne.json?id='+id).subscribe(res => {
+      this.getallformainterne()
+    })
+  }
   
 }
