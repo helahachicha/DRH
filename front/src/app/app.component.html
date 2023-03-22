@@ -1,5 +1,5 @@
 
-<app-login *ngIf="router.url == '/' "></app-login>
+<app-public *ngIf="router.url == '/' "></app-public>
 
 <div class="preloader">
     <div class="lds-ripple">
@@ -9,8 +9,8 @@
 </div>
 <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
     data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-    <app-header *ngIf="router.url != '/' "></app-header>
-    <app-sidebar *ngIf="router.url != '/' "></app-sidebar>
+    <app-header *ngIf="router.url != '/' && router.url !='/login' "></app-header>
+    <app-sidebar *ngIf="router.url != '/'  && router.url !='/login'  "></app-sidebar>
     
     <div class="page-wrapper">
 

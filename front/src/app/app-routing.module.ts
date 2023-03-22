@@ -26,9 +26,9 @@ import { HeaderComponent } from './Layout/header/header.component';
 import { PublicComponent } from './public/public.component';
 
 const routes: Routes = [
-  //{ path: 'Login', component: LoginComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'footer', component: FooterComponent},
-  { path: 'public', component: PublicComponent},
+  //{ path: 'public', component: PublicComponent},
   { path: 'home', component: HomeComponent},
   { path: 'footer', component: FooterComponent},
   { path: 'header', component: HeaderComponent },
