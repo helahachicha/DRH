@@ -73,8 +73,8 @@
                         <td>{{formationex.lieuforma}}</td>
                         <td>  <button type="button" class="btn btn-success" routerLink="/editforma/{{formationex.id}}"><i
                             class="fas fa-edit">Modifier</i></button>
-                            <button type="button" class="btn btn-danger mt-2" routerLink="/editforma/{{formationex.id}}"><i
-                              class="fas fa-trash">Supprimer</i></button>
+                            <button type="button" class="btn btn-danger mt-2" ><i
+                              class="fas fa-trash" (click)="deleteformaexterne(formationex.id)">Supprimer</i></button>
 </td>
                     </tr>
                   </tbody>

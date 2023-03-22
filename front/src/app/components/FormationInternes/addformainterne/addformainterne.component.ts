@@ -16,7 +16,7 @@ export class AddformainterneComponent implements OnInit {
     themeforma: new FormControl('', [Validators.required]),
     animateur: new FormControl('', [Validators.required]),
     poste: new FormControl('', [Validators.required]),
-    datee: new FormControl('', [Validators.required]),
+    date: new FormControl('', [Validators.required]),
     hentrer: new FormControl('', [Validators.required]),
     hsortie: new FormControl('', [Validators.required]),
     
@@ -31,8 +31,8 @@ export class AddformainterneComponent implements OnInit {
 
 
   submit() {
-    //console.log("hello",this.interneForm.value)
-    this.dataService.post('formainternes/addformainterne.json',this.interneForm.value).subscribe(res=> {
+    console.log("hello",this.interneForm.value)
+    this.dataService.post('Formainternes/addFormainterne.json',this.interneForm.value).subscribe(res=> {
       this.router.navigate(['/formainternelisting'])
      
       })

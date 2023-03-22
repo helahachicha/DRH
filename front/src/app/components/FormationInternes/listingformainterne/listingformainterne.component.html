@@ -32,15 +32,15 @@
                         <td>{{formainter.themeforma}}</td>
                         <td>{{formainter.animateur}}</td>
                         <td>{{formainter.poste}}</td>
-                        <td>{{formainter.datee}}</td>
+                        <td>{{formainter.date}}</td>
                         <td>{{formainter.hentrer}}</td>
                         <td>{{formainter.hsortie}}</td>
                         <td>
                             <button type="button" class="btn btn-success"
                                 routerLink="/editformainterne/{{formainter.id}}"><i
-                                    class="fas fa-edit">Modifier</i></button>
+                                    class="fas fa-edit">Modifier</i></button><br>
                                     <button type="button" class="btn btn-danger mt-2" ><i
-                                        class="fas fa-trash">Supprimer</i></button>
+                                        class="fas fa-trash" (click)="deleteformainterne(formainter.id)">Supprimer</i></button>
 
                         </td>
                     </tr>

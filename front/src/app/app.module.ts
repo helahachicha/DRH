@@ -36,6 +36,7 @@ import { SidebarComponent } from './Layout/sidebar/sidebar.component';
 import { EditficherenComponent } from './components/Fiche de rensignement/editficheren/editficheren.component';
 import { ListingficherenComponent } from './components/Fiche de rensignement/listingficheren/listingficheren.component';
 import { AddficherenComponent } from './components/Fiche de rensignement/addficheren/addficheren.component';
+import { PublicComponent } from './public/public.component';
 
 
 
@@ -72,6 +73,7 @@ import { AddficherenComponent } from './components/Fiche de rensignement/addfich
     EditficherenComponent,
     ListingficherenComponent,
     AddficherenComponent,
+    PublicComponent,
     
    
   ],

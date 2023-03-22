@@ -17,7 +17,7 @@ public formainternes
     themeforma: new FormControl('', [Validators.required]),
     animateur: new FormControl('', [Validators.required]),
     poste: new FormControl('', [Validators.required]),
-    datee: new FormControl('', [Validators.required]),
+    date: new FormControl('', [Validators.required]),
     hentrer: new FormControl('', [Validators.required]),
     hsortie: new FormControl('', [Validators.required]),
     
@@ -47,8 +47,8 @@ public formainternes
 
   editformainterne(){
       
-    this.dataService.post('formainternes/editformainterne.json?id='+this.id,this.interneForm.value).subscribe(res=> {
-      console.log("hello",this.interneForm.value)
+    this.dataService.post('formainternes/editFormainterne.json?id='+this.id,this.interneForm.value).subscribe(res=> {
+    //  console.log("hello",this.interneForm.value)
     this.router.navigate(['/formainternelisting'])
     })
   }
