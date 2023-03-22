@@ -40,8 +40,8 @@ export class CoutlistingComponent implements OnInit {
 
 
   deletecout(id){
-    this.dataService.delete('Coutformaexternes/deleteCoutformaexterne.json').subscribe(res => {
-      this.Coutformaexternes = res.data;
+    this.dataService.delete('Coutformaexternes/deleteCoutformaexterne.json?id='+id).subscribe(res => {
+      this.getallcout()
     })
   }
 }
