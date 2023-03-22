@@ -69,16 +69,16 @@ export class ListingdevjuniorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   this.getcategoriById()
+   this.getsupervibicetegoriedevId()
   }
 
   
 
  
 
-  getcategoriById() {
+  getsupervibicetegoriedevId() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Categories/getCategorie.json?id='+this.id).subscribe(
+    this.dataService.get('Categories/getSupervisBycategId.json?id='+this.id).subscribe(
       res => {
       this.Categories=res.data;
       console.log("hello",this.Categories)
@@ -86,4 +86,42 @@ export class ListingdevjuniorComponent implements OnInit {
     })
   }
 
+  getinterimsbycategID() {
+    this.id=this.route.snapshot.params['id'];
+    this.dataService.get('Categories/getSupervisBycategId.json?id='+this.id).subscribe(
+      res => {
+      this.Categories=res.data;
+      console.log("hello",this.Categories)
+
+    })
+  }
+
+
+  getallcategoriedev() {
+    this.dataService.get('Profilposteconfirmes/getAllProfilposteconfirme.json').subscribe(res => {
+      this.Profilposteconfirmes = res.data;
+      console.log("hello", this.Profilposteconfirmes)
+
+
+    })
+  }
+
+  getallsuperieure() {
+    this.dataService.get('Profilposteconfirmes/getAllProfilposteconfirme.json').subscribe(res => {
+      this.Profilposteconfirmes = res.data;
+      console.log("hello", this.Profilposteconfirmes)
+
+
+    })
+  }
+
+    getallfonctions() {
+      this.dataService.get('Profilposteconfirmes/getAllProfilposteconfirme.json').subscribe(res => {
+        this.Profilposteconfirmes = res.data;
+        console.log("hello", this.Profilposteconfirmes)
+  
+  
+      })
+  
+    }
 }
