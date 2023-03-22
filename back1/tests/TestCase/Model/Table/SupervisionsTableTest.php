@@ -25,7 +25,7 @@ class SupervisionsTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Supervisions',
-        'app.Categoriedes',
+        'app.Categoriedevs',
         'app.Infogencatpps',
     ];
 

@@ -10,11 +10,11 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $label
- * @property int $categoriede_id
+ * @property int $categoriedev_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Categoriede $categoriede
+ * @property \App\Model\Entity\Categoriedev $categoriedev
  * @property \App\Model\Entity\Infogencatpp[] $infogencatpps
  */
 class Interim extends Entity
@@ -30,10 +30,10 @@ class Interim extends Entity
      */
     protected $_accessible = [
         'label' => true,
-        'categoriede_id' => true,
+        'categoriedev_id' => true,
         'created' => true,
         'modified' => true,
-        'categoriede' => true,
+        'categoriedev' => true,
         'infogencatpps' => true,
     ];
 }
