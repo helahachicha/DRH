@@ -10,7 +10,10 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class ListingdevjuniorComponent implements OnInit {
 
-  Categories:any={}
+  Categoriedes:any={}
+  Fonctions:any={}
+  Superhieras:any={}
+  Supervisions:any={}
   
   id:any;
 
@@ -69,56 +72,61 @@ export class ListingdevjuniorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   this.getsupervibicetegoriedevId()
+   this.getCategoriede();
+   this.getinterimsbycategID();
+   this.getallcategoriedev();
+   this.getallsuperieure();
+   this.getallfonctions();
+
   }
 
   
 
  
 
-  getsupervibicetegoriedevId() {
+  getCategoriede() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Categories/getSupervisBycategId.json?id='+this.id).subscribe(
+    this.dataService.get('Categoriedes/getCategoriede.json?id='+this.id).subscribe(
       res => {
-      this.Categories=res.data;
-      console.log("hello",this.Categories)
+      this.Categoriedes=res.data;
+      console.log("hello",this.Categoriedes)
 
     })
   }
 
   getinterimsbycategID() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Categories/getSupervisBycategId.json?id='+this.id).subscribe(
+    this.dataService.get('Supervisions/getSupervisionBycategId.json?id='+this.id).subscribe(
       res => {
-      this.Categories=res.data;
-      console.log("hello",this.Categories)
+      this.Supervisions=res.data;
+      console.log("hello",this.Supervisions)
 
     })
   }
 
 
   getallcategoriedev() {
-    this.dataService.get('Profilposteconfirmes/getAllProfilposteconfirme.json').subscribe(res => {
-      this.Profilposteconfirmes = res.data;
-      console.log("hello", this.Profilposteconfirmes)
+    this.dataService.get('Categoriedes/getAllCategoriede.json').subscribe(res => {
+      this.Categoriedes = res.data;
+      console.log("hello", this.Categoriedes)
 
 
     })
   }
 
   getallsuperieure() {
-    this.dataService.get('Profilposteconfirmes/getAllProfilposteconfirme.json').subscribe(res => {
-      this.Profilposteconfirmes = res.data;
-      console.log("hello", this.Profilposteconfirmes)
+    this.dataService.get('Superhieras/getAllSuperhiera.json').subscribe(res => {
+      this.Superhieras = res.data;
+      console.log("hello", this.Superhieras)
 
 
     })
   }
 
     getallfonctions() {
-      this.dataService.get('Profilposteconfirmes/getAllProfilposteconfirme.json').subscribe(res => {
-        this.Profilposteconfirmes = res.data;
-        console.log("hello", this.Profilposteconfirmes)
+      this.dataService.get('Fonctions/getFonction.json').subscribe(res => {
+        this.Fonctions = res.data;
+        console.log("hello", this.Fonctions)
   
   
       })
