@@ -25,6 +25,15 @@
                                                 </div>
                                             </div>
 
+                                            <div class="col-md-6">
+                                                    
+                                                <div class="form-group">
+                                                    <label>Catégorie</label>
+                                                    <input type="text" class="form-control" required="required"
+                                                        formControlName="categorie">
+                                                </div>
+                                            
+                                        </div>
                                         </div>
                                     </div>
                                     <div class="shadow p-3 mb-5 bg-body rounded">
@@ -34,7 +43,7 @@
                                                     <div class="form-group">
                                                         <label>Fonction</label>
                                                         <input type="text" class="form-control" required="required"
-                                                            formControlName="label">
+                                                            formControlName="fonction">
                                                     </div>
 
                                                 </div>
@@ -45,7 +54,7 @@
                                                         <div class="form-group">
                                                             <label>Catégorie</label>
                                                             <input type="text" class="form-control" required="required"
-                                                                formControlName="label">
+                                                                formControlName="categorie">
                                                         </div>
                                                     
                                                 </div>
@@ -53,7 +62,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Supérieur hiérarchique</label>
-                                                        <input type="text" class="form-control" required="required" formControlName="label">
+                                                        <input type="text" class="form-control" required="required" formControlName="superhierar">
                                                     </div>
 
                                                 </div>
@@ -62,7 +71,7 @@
                                                     <div class="form-group">
                                                         <label>Supervision</label>
                                                         <input type="text" class="form-control" required="required"
-                                                            formControlName="label">
+                                                            formControlName="supervision">
                                                     </div>
 
                                                 </div>
@@ -72,7 +81,7 @@
                                                     <div class="form-group">
                                                         <label>Intérim</label>
                                                         <input type="text" class="form-control" required="required"
-                                                            formControlName="label">
+                                                            formControlName="interim">
                                                     </div>
                                                 </div>
                                             </div>
@@ -93,7 +102,8 @@
                                             <form id="contact-form" role="form" [formGroup]="souscompetencesForm">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" required="required" placeholder="SousCompétence">
+                                                        <input type="text" class="form-control" required="required" placeholder="SousCompétence"
+                                                        formControlName="label">
                                                     </div>
 
                                                 </div>
@@ -184,7 +194,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
 
-                                            <button class="btn btn-primary m-2" (click)="addprofilposte()" (click)="adddetailprofiloste()"  (click)="addcompetences()"  (click)="addsouscompetences()"  (click)="addniveau()" (click)="getallindi()"  type="submit">Ajouter</button>
+                                            <button class="btn btn-primary m-2" (click)="addall()"  type="submit">Ajouter</button>
 
                                         </div>
                                     </div>

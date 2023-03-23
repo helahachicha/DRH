@@ -29,10 +29,10 @@ class SouscompetencesController extends AppController
 
         /* format data */
         if (1 == 1) {
-           // $querry=$this->request->getData();
-           // $data=json_decode($querry['data']); 
-            $data=$this->request->getData();
-            debug($data);die;
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+           // $data=$this->request->getData();
+            //debug($data);die;
 
         }
          /* create souscompetences entity */
