@@ -6,9 +6,9 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * InterimsFixture
+ * CategoriedevsFixture
  */
-class InterimsFixture extends TestFixture
+class CategoriedevsFixture extends TestFixture
 {
     /**
      * Init method
@@ -21,9 +21,8 @@ class InterimsFixture extends TestFixture
             [
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
-                'categoriedev_id' => 1,
-                'created' => '2023-03-22 20:24:55',
-                'modified' => '2023-03-22 20:24:55',
+                'created' => '2023-03-22 18:42:37',
+                'modified' => '2023-03-22 18:42:37',
             ],
         ];
         parent::init();

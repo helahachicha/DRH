@@ -12,6 +12,83 @@ use App\Controller\AppController;
  */
 class SuperhierasController extends AppController
 {
+    /**
+     * addSuperhiera
+     *
+     * @Input:
+     *         data:
+     *          label (Float) *Required          
+     *         
+     * @Output: data : success message
+     */
+    public function addSuperhiera(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
+
+        }
+         /* create superhieras entity */
+        if (1==1){
+            $superhieras = $this->Superhieras->newEmptyEntity();
+            $superhieras->label=$data->label;  
+
+            $this->Superhieras->save($superhieras); 
+        }
+       
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
+     /**
+     * editSuperhiera
+     *
+     * @Input:
+     *         data:
+     *          label (Float) *Required  
+     *         
+     * @Output: data : success message
+     */
+    public function editSuperhiera(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug ($data);die;
+        }
+
+        $id=$this->request->getQuery('id');
+        $superhieras=$this->Superhieras->get($id);
+         /* create superhieras entity */
+        if (1==1){
+            $superhieras->label=$data->label;  
+
+            $this->Superhieras->save($superhieras); 
+        }
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Updated with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
+
    /**
       * getSuperhiera
       *
@@ -67,6 +144,44 @@ class SuperhierasController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
+
+    /**
+      * deleteSuperhiera
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteSuperhiera(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $superhieras = $this->Superhieras->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete superhieras  */
+
+        if (1==1){
+            $this->Superhieras->delete($superhieras);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
 
 
 }

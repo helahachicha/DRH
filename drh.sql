@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 22 mars 2023 à 16:18
+-- Généré le : mer. 22 mars 2023 à 21:33
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categoriedes`
+-- Structure de la table `categoriedevs`
 --
 
-CREATE TABLE `categoriedes` (
+CREATE TABLE `categoriedevs` (
   `id` int(11) NOT NULL,
   `label` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
@@ -35,10 +35,10 @@ CREATE TABLE `categoriedes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `categoriedes`
+-- Déchargement des données de la table `categoriedevs`
 --
 
-INSERT INTO `categoriedes` (`id`, `label`, `created`, `modified`) VALUES
+INSERT INTO `categoriedevs` (`id`, `label`, `created`, `modified`) VALUES
 (1, 'Développeur Junior', '2023-03-22 15:34:26', '2023-03-22 15:34:26');
 
 -- --------------------------------------------------------
@@ -245,7 +245,7 @@ INSERT INTO `infogencatpps` (`id`, `fonction_id`, `categoriede_id`, `superhiera_
 CREATE TABLE `interims` (
   `id` int(11) NOT NULL,
   `label` varchar(255) NOT NULL,
-  `categoriede_id` int(11) NOT NULL,
+  `categoriedev_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -254,7 +254,7 @@ CREATE TABLE `interims` (
 -- Déchargement des données de la table `interims`
 --
 
-INSERT INTO `interims` (`id`, `label`, `categoriede_id`, `created`, `modified`) VALUES
+INSERT INTO `interims` (`id`, `label`, `categoriedev_id`, `created`, `modified`) VALUES
 (1, 'Développeur Confirmé', 1, '2023-03-22 15:45:27', '2023-03-22 15:45:27');
 
 -- --------------------------------------------------------
@@ -370,7 +370,7 @@ INSERT INTO `superhieras` (`id`, `label`, `created`, `modified`) VALUES
 CREATE TABLE `supervisions` (
   `id` int(11) NOT NULL,
   `label` varchar(255) NOT NULL,
-  `categoriede_id` int(11) NOT NULL,
+  `categoriedev_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -379,7 +379,7 @@ CREATE TABLE `supervisions` (
 -- Déchargement des données de la table `supervisions`
 --
 
-INSERT INTO `supervisions` (`id`, `label`, `categoriede_id`, `created`, `modified`) VALUES
+INSERT INTO `supervisions` (`id`, `label`, `categoriedev_id`, `created`, `modified`) VALUES
 (1, 'Développeur Confirmé', 1, '2023-03-22 15:41:36', '2023-03-22 15:41:36');
 
 -- --------------------------------------------------------
@@ -410,9 +410,9 @@ INSERT INTO `users` (`id`, `email`, `password`, `token`, `role_id`, `created`, `
 --
 
 --
--- Index pour la table `categoriedes`
+-- Index pour la table `categoriedevs`
 --
-ALTER TABLE `categoriedes`
+ALTER TABLE `categoriedevs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -516,10 +516,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT pour la table `categoriedes`
+-- AUTO_INCREMENT pour la table `categoriedevs`
 --
-ALTER TABLE `categoriedes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `categoriedevs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `categories`
@@ -543,7 +543,7 @@ ALTER TABLE `coutformaexternes`
 -- AUTO_INCREMENT pour la table `fonctions`
 --
 ALTER TABLE `fonctions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `formaexternes`
@@ -573,7 +573,7 @@ ALTER TABLE `infogencatpps`
 -- AUTO_INCREMENT pour la table `interims`
 --
 ALTER TABLE `interims`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `niveauvises`
@@ -603,13 +603,13 @@ ALTER TABLE `souscompetences`
 -- AUTO_INCREMENT pour la table `superhieras`
 --
 ALTER TABLE `superhieras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `supervisions`
 --
 ALTER TABLE `supervisions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `users`

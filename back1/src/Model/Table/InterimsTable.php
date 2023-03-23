@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Interims Model
  *
- * @property \App\Model\Table\CategoriedesTable&\Cake\ORM\Association\BelongsTo $Categoriedes
+ * @property \App\Model\Table\CategoriedevsTable&\Cake\ORM\Association\BelongsTo $Categoriedevs
  * @property \App\Model\Table\InfogencatppsTable&\Cake\ORM\Association\HasMany $Infogencatpps
  *
  * @method \App\Model\Entity\Interim newEmptyEntity()
@@ -48,8 +48,8 @@ class InterimsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Categoriedes', [
-            'foreignKey' => 'categoriede_id',
+        $this->belongsTo('Categoriedevs', [
+            'foreignKey' => 'categoriedev_id',
             'joinType' => 'INNER',
         ]);
         $this->hasMany('Infogencatpps', [
@@ -72,8 +72,8 @@ class InterimsTable extends Table
             ->notEmptyString('label');
 
         $validator
-            ->integer('categoriede_id')
-            ->notEmptyString('categoriede_id');
+            ->integer('categoriedev_id')
+            ->notEmptyString('categoriedev_id');
 
         return $validator;
     }
@@ -87,7 +87,7 @@ class InterimsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('categoriede_id', 'Categoriedes'), ['errorField' => 'categoriede_id']);
+        $rules->add($rules->existsIn('categoriedev_id', 'Categoriedevs'), ['errorField' => 'categoriedev_id']);
 
         return $rules;
     }

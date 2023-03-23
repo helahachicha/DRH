@@ -6,23 +6,22 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Supervisions Controller
+ * Categoriedevs Controller
  *
- * @method \App\Model\Entity\Supervision[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Categoriedev[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class SupervisionsController extends AppController
+class CategoriedevsController extends AppController
 {
-    /**
-     * addSupervision
+/**
+     * addCategoriedev
      *
      * @Input:
      *         data:
      *          label (String) *Required
-     *          categoriedev_id(Int) *Required
      *         
      * @Output: data : success message
      */
-    public function addSupervision(){
+    public function addCategoriedev(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -34,13 +33,13 @@ class SupervisionsController extends AppController
             //debug($data);die;
 
         }
-         /* create supervisions entity */
+         /* create categoriedevs entity */
         if (1==1){
-            $supervisions = $this->Supervisions->newEmptyEntity();
-            $supervisions->label=$data->label;  
-            $supervisions->categoriedev_id=$data->categoriedev_id;  
+            $categoriedevs = $this->Categoriedevs->newEmptyEntity();
+            $categoriedevs->label=$data->label;  
+   
 
-            $this->Supervisions->save($supervisions); 
+            $this->Categoriedevs->save($categoriedevs); 
         }
        
          /*send result */
@@ -53,16 +52,15 @@ class SupervisionsController extends AppController
     }
 
      /**
-     * editSupervision
+     * editCategoriedev
      *
      * @Input:
      *         data:
      *          label (String) *Required
-     *          categoriedev_id(Int) *Required
      *         
      * @Output: data : success message
      */
-    public function editSupervision(){
+    public function editCategoriedev(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -75,13 +73,12 @@ class SupervisionsController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $supervisions=$this->Supervisions->get($id);
-         /* create supervisions entity */
+        $categoriedevs=$this->Categoriedevs->get($id);
+         /* create categoriedevs entity */
         if (1==1){
-            $supervisions->label=$data->label;  
-            $supervisions->categoriedev_id=$data->categoriedev_id;  
+            $categoriedevs->label=$data->label;  
 
-            $this->Supervisions->save($supervisions); 
+            $this->Categoriedevs->save($categoriedevs); 
         }
         /*send result */
         $this->set([
@@ -94,36 +91,35 @@ class SupervisionsController extends AppController
 
 
     /**
-    * getAllSupervision
+    * getAllCategoriedev
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllSupervision()
+    public function getAllCategoriedev()
     {
 
         /* search */
-        $supervisions = $this->Supervisions->find('all');
+        $categoriedevs = $this->Categoriedevs->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $supervisions,
+            'data' => $categoriedevs,
             '_serialize' => ['success', 'data']
         ]);
     }
 
 
-
-    /**
-      * getSupervisionBycategId
+     /**
+      * getCategoriedev
       *
       * @Input: id
       *
       * @Output: data
     */
-    public function getSupervisionBycategId(){
+    public function getCategoriedev(){
 
         $id = $this->request->getQuery('id');
         
@@ -133,35 +129,34 @@ class SupervisionsController extends AppController
             }
            
         }
-        $supervisions = $this->Supervisions->find('all', [
+        $categoriedevs = $this->Categoriedevs->find('all', [
             'conditions'=>[
-                'Supervisions.categoriedev_id'=>$id
+                'id IS'=>$id
             ],
-            'contain' => [
-                'Categoriedevs'
-            ]
+           
             
-        ]);
-        if(empty($supervisions)){
+        ])->first();
+        if(empty($categoriedevs)){
             throw new UnauthorizedException('Place not found');
         }
 
         $this->set([
             'success' => true,
-            'data' => $supervisions,
+            'data' => $categoriedevs,
             '_serialize' => ['success', 'data']
         ]);
     }
+    
 
-    /**
-      * deleteSupervision
+     /**
+      * deleteCategoriedev
       *
       * @Input: id
       *
       * @Output: data
       */
 
-      public function deleteSupervision(){
+      public function deleteCategoriedev(){
 
         $id = $this->request->getQuery('id');
 
@@ -169,17 +164,17 @@ class SupervisionsController extends AppController
 
         /* search */
 
-        $supervisions = $this->Supervisions->find('all', [
+        $categoriedevs = $this->Categoriedevs->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete supervisions  */
+        /* delete categoriedevs  */
 
         if (1==1){
-            $this->Supervisions->delete($supervisions);
+            $this->Categoriedevs->delete($categoriedevs);
         }
 
         /*send result */

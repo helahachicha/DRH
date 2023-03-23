@@ -21,9 +21,9 @@ class SupervisionsFixture extends TestFixture
             [
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
-                'categoriede_id' => 1,
-                'created' => '2023-03-22 15:05:12',
-                'modified' => '2023-03-22 15:05:12',
+                'categoriedev_id' => 1,
+                'created' => '2023-03-22 20:25:14',
+                'modified' => '2023-03-22 20:25:14',
             ],
         ];
         parent::init();

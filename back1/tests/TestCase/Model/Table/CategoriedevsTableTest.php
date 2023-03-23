@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\InterimsTable;
+use App\Model\Table\CategoriedevsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\InterimsTable Test Case
+ * App\Model\Table\CategoriedevsTable Test Case
  */
-class InterimsTableTest extends TestCase
+class CategoriedevsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\InterimsTable
+     * @var \App\Model\Table\CategoriedevsTable
      */
-    protected $Interims;
+    protected $Categoriedevs;
 
     /**
      * Fixtures
@@ -24,9 +24,7 @@ class InterimsTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Interims',
         'app.Categoriedevs',
-        'app.Infogencatpps',
     ];
 
     /**
@@ -37,8 +35,8 @@ class InterimsTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Interims') ? [] : ['className' => InterimsTable::class];
-        $this->Interims = $this->getTableLocator()->get('Interims', $config);
+        $config = $this->getTableLocator()->exists('Categoriedevs') ? [] : ['className' => CategoriedevsTable::class];
+        $this->Categoriedevs = $this->getTableLocator()->get('Categoriedevs', $config);
     }
 
     /**
@@ -48,7 +46,7 @@ class InterimsTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Interims);
+        unset($this->Categoriedevs);
 
         parent::tearDown();
     }
@@ -57,20 +55,9 @@ class InterimsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\InterimsTable::validationDefault()
+     * @uses \App\Model\Table\CategoriedevsTable::validationDefault()
      */
     public function testValidationDefault(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     * @uses \App\Model\Table\InterimsTable::buildRules()
-     */
-    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
