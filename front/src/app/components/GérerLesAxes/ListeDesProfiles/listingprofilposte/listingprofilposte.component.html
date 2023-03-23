@@ -1,1 +1,29 @@
-<p>listingprofilposte works!</p>
+<div class="container ">
+    <div class="row mt-5">
+        <h3 class="text-start mt-5">Les listes des profils de poste</h3>
+        <div class=" table-responsive ">
+            <table class="table table-bordered ">
+                <thead>
+                    <tr class="text-bold">
+                       
+                        <th scope="col">Nom profil de poste </th>
+                       
+                    </tr>
+                </thead>
+                <tbody *ngFor="let profil of Profilpostes">
+                    <tr>
+
+                        
+                        <td >
+                            {{profil.nom}}
+                        </td>
+                       <td><button class="btn btn-danger ">Supprimer</button></td>
+                       
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

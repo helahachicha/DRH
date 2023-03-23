@@ -46,7 +46,7 @@ export class AddProfilDePosteComponent implements OnInit {
     console.log("hello",this.profilposteForm.value)
 
     this.dataService.post('Profilpostes/addProfilposte.json',this.profilposteForm.value).subscribe(res=> {
-      this.router.navigate(['/listingprofildeposte'])
+      this.router.navigate(['/listingprofilposte'])
        })
   }
 
