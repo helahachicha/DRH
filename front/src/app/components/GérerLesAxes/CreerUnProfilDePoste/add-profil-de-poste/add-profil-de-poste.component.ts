@@ -21,22 +21,9 @@ export class AddProfilDePosteComponent implements OnInit {
   
   });
 
-  public categoriForm= new FormGroup({
-    label: new FormControl('', [Validators.required]),
-  
+  public Detailprofilposte= new FormGroup({
+    nom: new FormControl('', [Validators.required]),
   });
-
-  public fonctionForm= new FormGroup({
-    label: new FormControl('', [Validators.required]),
-  })
-
-  public supherForm= new FormGroup({
-    label: new FormControl('', [Validators.required]),
-  })
-
-  public interimForm= new FormGroup({
-    label: new FormControl('', [Validators.required]),
-  })
 
   public competenceForm= new FormGroup({
     label: new FormControl('', [Validators.required]),
@@ -71,7 +58,41 @@ export class AddProfilDePosteComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  submit() {
+
+
+addall()
+
+{
+  this.dataService.post('Profilpostes/addProfilposte.json',this.profilposteForm.value).subscribe(res=> {
+    this.router.navigate(['/listingforma'])
+     })
+
+     this.dataService.post('Categoriedevs/addCategoriedev.json',this.Detailprofilposte.value).subscribe(res=> {
+      this.router.navigate(['/listingforma'])
+       })
+
+       this.dataService.post('Categoriedevs/addCategoriedev.json',this.Detailprofilposte.value).subscribe(res=> {
+        this.router.navigate(['/listingforma'])
+         })
+
+         this.dataService.post('Competences/addCompetence.json',this.competenceForm.value).subscribe(res=> {
+          this.router.navigate(['/listingforma'])
+           })
+
+           this.dataService.post('Niveauvises/addNiveauvise.json',this.niveauvisesForm.value).subscribe(res=> {
+            this.router.navigate(['/listingforma'])
+             })
+             
+             this.dataService.post('Indicateursuivis/addIndicateursuivi.json',this.indicateursuivisForm.value).subscribe(res=> {
+              this.router.navigate(['/listingforma'])
+               })
+
+}
+
+
+
+
+ addprofilposte() {
     //console.log("hello",this.externeForm.value)
 
    this.dataService.post('Profilpostes/addProfilposte.json',this.profilposteForm.value).subscribe(res=> {
@@ -84,41 +105,26 @@ export class AddProfilDePosteComponent implements OnInit {
 
 
 
-  getallcatt() {
+  adddetailprofiloste() {
     //console.log("hello",this.externeForm.value)
 
-   this.dataService.post('Categoriedevs/addCategoriedev.json',this.categoriForm.value).subscribe(res=> {
+   this.dataService.post('Categoriedevs/addCategoriedev.json',this.Detailprofilposte.value).subscribe(res=> {
     this.router.navigate(['/listingforma'])
      })
   }
 
-  getallfonct() {
+  
+
+
+  addcompetences() {
     //console.log("hello",this.externeForm.value)
 
-   this.dataService.post('Fonctions/addFonction.json',this.fonctionForm.value).subscribe(res=> {
+   this.dataService.post('Competences/addCompetence.json',this.competenceForm.value).subscribe(res=> {
     this.router.navigate(['/listingforma'])
      })
   }
 
-  getallsupher() {
-    //console.log("hello",this.externeForm.value)
-
-   this.dataService.post('Superhieras/addSuperhiera.json',this.supherForm.value).subscribe(res=> {
-    this.router.navigate(['/listingforma'])
-     })
-  }
-
-  getallinterim() {
-    //console.log("hello",this.externeForm.value)
-
-   this.dataService.post('Interims/addInterim.json',this.interimForm.value).subscribe(res=> {
-    this.router.navigate(['/listingforma'])
-     })
-  }
-
-
-
-  getallcom() {
+  addsouscompetences() {
     //console.log("hello",this.externeForm.value)
 
    this.dataService.post('Competences/addCompetence.json',this.competenceForm.value).subscribe(res=> {
@@ -129,7 +135,7 @@ export class AddProfilDePosteComponent implements OnInit {
 
 
 
-  getallniveau() {
+  addniveau() {
     //console.log("hello",this.externeForm.value)
 
    this.dataService.post('Niveauvises/addNiveauvise.json',this.niveauvisesForm.value).subscribe(res=> {
