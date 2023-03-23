@@ -23,7 +23,7 @@ class ProfilpostesController extends AppController
      * @Output: data : success message
      */
     public function addProfilposte(){
-        
+        $this->loadModel('Detailprofilpostes');
         $this->request->allowMethod(['post', 'put']);
 
         /* format data */
@@ -39,10 +39,21 @@ class ProfilpostesController extends AppController
             $profilpostes = $this->Profilpostes->newEmptyEntity();
             $profilpostes->nom=$data->nom;
             $profilpostes->categorie=$data->categorie;  
-
-            $this->Profilpostes->save($profilpostes); 
+            $savedProfil=$this->Profilpostes->save($profilpostes);
         }
-       
+           /* create detailprofilpostes entity */
+           if(1==1){
+            $detailprofilpostes = $this->Detailprofilpostes->newEmptyEntity();
+
+            $detailprofilpostes->fonction=$data->fonction;  
+            $detailprofilpostes->categorie=$data->categorie;  
+            $detailprofilpostes->superhierar=$data->superhierar;  
+            $detailprofilpostes->supervision=$data->supervision;  
+            $detailprofilpostes->interim=$data->interim;  
+            $detailprofilpostes->profilposte_id=$savedProfil->id;   
+            $this->Detailprofilpostes->save($detailprofilpostes); 
+      
+        }
          /*send result */
         $this->set([
             'success' => true,

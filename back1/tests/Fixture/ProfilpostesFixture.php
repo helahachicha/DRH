@@ -21,8 +21,9 @@ class ProfilpostesFixture extends TestFixture
             [
                 'id' => 1,
                 'nom' => 'Lorem ipsum dolor sit amet',
-                'created' => '2023-03-21 17:09:55',
-                'modified' => '2023-03-21 17:09:55',
+                'categorie' => 'Lorem ipsum dolor sit amet',
+                'created' => '2023-03-23 11:55:15',
+                'modified' => '2023-03-23 11:55:15',
             ],
         ];
         parent::init();

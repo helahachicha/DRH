@@ -37,7 +37,7 @@
                                         </div>
                                     </div>
                                     <div class="shadow p-3 mb-5 bg-body rounded">
-                                        <form id="contact-form" role="form" [formGroup]="Detailprofilposte">
+                                      
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -54,7 +54,7 @@
                                                         <div class="form-group">
                                                             <label>Catégorie</label>
                                                             <input type="text" class="form-control" required="required"
-                                                                formControlName="categorie">
+                                                                formControlName="categories">
                                                         </div>
                                                     
                                                 </div>
@@ -85,58 +85,55 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                      
                                     </div>
                                     <div class="shadow p-3 mb-5 bg-body rounded">
                                         <div class="row">
-                                            <form id="contact-form" role="form" [formGroup]="competenceForm">
+                                     
                                                 <div class="col-md-6">
                                                     <div class="form-group">
 
                                                         <input type="text" class="form-control" required="required"
-                                                            placeholder="Compétence" formControlName="label">
+                                                            placeholder="Compétence" formControlName="competence">
                                                     </div>
 
                                                 </div>
-                                            </form>
-                                            <form id="contact-form" role="form" [formGroup]="souscompetencesForm">
+                                      
+                                      
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <input type="text" class="form-control" required="required" placeholder="SousCompétence"
-                                                        formControlName="label">
+                                                        formControlName="souscompetence">
                                                     </div>
 
                                                 </div>
 
-                                            </form>
-                                            <form id="contact-form" role="form" [formGroup]="niveauvisesForm">
+                                      
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Niveau Visé</label>
                                                         <input type="text" class="form-control" required="required"
-                                                            formControlName="label">
+                                                            formControlName="niveauvise">
                                                     </div>
 
                                                 </div>
-                                            </form>
-                                            <form id="contact-form" role="form" [formGroup]="indicateursuivisForm">
+                                      
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Indicateur</label>
                                                         <input type="text" class="form-control" required="required"
-                                                            formControlName="label">
+                                                            formControlName="indicateursuivi">
                                                     </div>
 
                                                 </div>
 
-                                            </form>
                                             
                                         </div>
                                     </div>
 
                                    
-
+<!-- 
                                     <div class="shadow p-3 mb-5 bg-body rounded">
                                         <div class="row">
                                             <h5 class="text-center">Validation</h5>
@@ -189,12 +186,12 @@
 
 
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="row">
                                         <div class="col-md-12">
 
-                                            <button class="btn btn-primary m-2" (click)="addall()"  type="submit">Ajouter</button>
+                                            <button class="btn btn-primary m-2" (click)="addprofilposte()"  type="submit">Ajouter</button>
 
                                         </div>
                                     </div>

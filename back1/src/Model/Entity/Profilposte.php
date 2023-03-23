@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $nom
+ * @property string $categorie
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  */
@@ -26,6 +27,7 @@ class Profilposte extends Entity
      */
     protected $_accessible = [
         'nom' => true,
+        'categorie' => true,
         'created' => true,
         'modified' => true,
     ];

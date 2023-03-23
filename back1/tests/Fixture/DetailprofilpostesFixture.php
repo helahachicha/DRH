@@ -26,8 +26,8 @@ class DetailprofilpostesFixture extends TestFixture
                 'supervision' => 'Lorem ipsum dolor sit amet',
                 'interim' => 'Lorem ipsum dolor sit amet',
                 'profilposte_id' => 1,
-                'created' => '2023-03-23 10:35:10',
-                'modified' => '2023-03-23 10:35:10',
+                'created' => '2023-03-23 11:54:53',
+                'modified' => '2023-03-23 11:54:53',
             ],
         ];
         parent::init();

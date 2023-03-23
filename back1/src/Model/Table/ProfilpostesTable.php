@@ -44,6 +44,13 @@ class ProfilpostesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('Categories', [
+            'foreignKey' => 'profilposte_id',
+        ]);
+        $this->hasMany('Detailprofilpostes', [
+            'foreignKey' => 'profilposte_id',
+        ]);
     }
 
     /**
@@ -59,6 +66,12 @@ class ProfilpostesTable extends Table
             ->maxLength('nom', 255)
             ->requirePresence('nom', 'create')
             ->notEmptyString('nom');
+
+        $validator
+            ->scalar('categorie')
+            ->maxLength('categorie', 255)
+            ->requirePresence('categorie', 'create')
+            ->notEmptyString('categorie');
 
         return $validator;
     }
