@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 23 mars 2023 à 12:22
+-- Généré le : jeu. 23 mars 2023 à 13:44
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -122,6 +122,16 @@ CREATE TABLE `detailprofilpostes` (
   `superhierar` varchar(255) NOT NULL,
   `supervision` varchar(255) NOT NULL,
   `interim` varchar(255) NOT NULL,
+  `competence` varchar(255) NOT NULL,
+  `souscompetence` varchar(255) NOT NULL,
+  `niveauvise` varchar(255) NOT NULL,
+  `indicateursuivi` text NOT NULL,
+  `fonctionelaboration` varchar(255) NOT NULL,
+  `fonctionverification` varchar(255) NOT NULL,
+  `fonctionabrobation` varchar(255) NOT NULL,
+  `nomprenomelab` varchar(255) NOT NULL,
+  `nomprenomverif` varchar(255) NOT NULL,
+  `nomprenomabrob` varchar(255) NOT NULL,
   `profilposte_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -131,8 +141,8 @@ CREATE TABLE `detailprofilpostes` (
 -- Déchargement des données de la table `detailprofilpostes`
 --
 
-INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie`, `superhierar`, `supervision`, `interim`, `profilposte_id`, `created`, `modified`) VALUES
-(1, 'Ingénieur Recherche & Développement', 'Développeur Junior', 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 1, '2023-03-23 11:00:07', '2023-03-23 11:00:07');
+INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie`, `superhierar`, `supervision`, `interim`, `competence`, `souscompetence`, `niveauvise`, `indicateursuivi`, `fonctionelaboration`, `fonctionverification`, `fonctionabrobation`, `nomprenomelab`, `nomprenomverif`, `nomprenomabrob`, `profilposte_id`, `created`, `modified`) VALUES
+(1, 'Ingénieur Recherche & Développement', 'Développeur Junior', 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 'competence technique ', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 1, '2023-03-23 11:00:07', '2023-03-23 11:00:07');
 
 -- --------------------------------------------------------
 
