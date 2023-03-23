@@ -37,6 +37,8 @@ import { EditficherenComponent } from './components/Fiche de rensignement/editfi
 import { ListingficherenComponent } from './components/Fiche de rensignement/listingficheren/listingficheren.component';
 import { AddficherenComponent } from './components/Fiche de rensignement/addficheren/addficheren.component';
 import { PublicComponent } from './public/public.component';
+import { ListingprofilposteComponent } from './components/GérerLesAxes/CreerUnProfilDePoste/listingprofilposte/listingprofilposte.component';
+import { AddProfilDePosteComponent } from './components/GérerLesAxes/CreerUnProfilDePoste/add-profil-de-poste/add-profil-de-poste.component';
 
 
 
@@ -74,6 +76,8 @@ import { PublicComponent } from './public/public.component';
     ListingficherenComponent,
     AddficherenComponent,
     PublicComponent,
+    ListingprofilposteComponent,
+    AddProfilDePosteComponent,
     
    
   ],

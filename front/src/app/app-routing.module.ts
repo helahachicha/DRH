@@ -12,6 +12,7 @@ import { FormalistingComponent } from './components/formaexternes/formalisting/f
 import { AddformainterneComponent } from './components/FormationInternes/addformainterne/addformainterne.component';
 import { EditformainterneComponent } from './components/FormationInternes/editformainterne/editformainterne.component';
 import { ListingformainterneComponent } from './components/FormationInternes/listingformainterne/listingformainterne.component';
+import { AddProfilDePosteComponent } from './components/GérerLesAxes/CreerUnProfilDePoste/add-profil-de-poste/add-profil-de-poste.component';
 import { EditdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirme/editdevc/editdevc.component';
 import { ListingdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirme/listingdevc/listingdevc.component';
 import { EditdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/editdevjunior/editdevjunior.component';
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'listingdt', component: ListingdevtComponent},
   { path: 'editprofilpdt/:id', component: EditdevtComponent},
   { path: 'ficherensig', component: ListingficherenComponent},
+  { path: 'addprofil', component: AddProfilDePosteComponent},
 
 
 
