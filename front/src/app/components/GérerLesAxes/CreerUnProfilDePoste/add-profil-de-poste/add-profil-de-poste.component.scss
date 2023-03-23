@@ -1,0 +1,30 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+input{
+    border: 1px solid rgb(118, 99, 99);
+}
+
+select{
+    border: 1px solid rgb(118, 99, 99);
+    width: 100%;
+}
+
+label {
+    color: #333;
+}
+
+.btn-send {
+    font-weight: 30;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    width: 30%;
+    margin-left: 3px;
+    }
+.help-block.with-errors {
+    color: #ff5050;
+    margin-top: 5px;
+
+}
+
+
