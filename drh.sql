@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 23 mars 2023 à 11:24
+-- Généré le : jeu. 23 mars 2023 à 12:22
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -325,7 +325,11 @@ CREATE TABLE `profilpostes` (
 --
 
 INSERT INTO `profilpostes` (`id`, `nom`, `categorie`, `created`, `modified`) VALUES
-(1, 'profil de poste développeur', 'junior', '2023-03-21 18:14:06', '2023-03-21 18:14:06');
+(1, 'profil de poste développeur', 'junior', '2023-03-21 18:14:06', '2023-03-21 18:14:06'),
+(3, 'commercale', '', '2023-03-23 10:58:09', '2023-03-23 10:58:09'),
+(4, 'marketing', 'marketing', '2023-03-23 11:03:56', '2023-03-23 11:03:56'),
+(5, 'fdb', 'sgdbvx', '2023-03-23 11:10:39', '2023-03-23 11:10:39'),
+(6, 'hello', 'hello', '2023-03-23 11:12:41', '2023-03-23 11:12:41');
 
 -- --------------------------------------------------------
 
@@ -625,7 +629,7 @@ ALTER TABLE `niveauvises`
 -- AUTO_INCREMENT pour la table `profilpostes`
 --
 ALTER TABLE `profilpostes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `roles`
