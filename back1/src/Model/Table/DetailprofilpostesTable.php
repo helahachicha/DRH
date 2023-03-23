@@ -96,6 +96,65 @@ class DetailprofilpostesTable extends Table
             ->notEmptyString('interim');
 
         $validator
+            ->scalar('competence')
+            ->maxLength('competence', 255)
+            ->requirePresence('competence', 'create')
+            ->notEmptyString('competence');
+
+        $validator
+            ->scalar('souscompetence')
+            ->maxLength('souscompetence', 255)
+            ->requirePresence('souscompetence', 'create')
+            ->notEmptyString('souscompetence');
+
+        $validator
+            ->scalar('niveauvise')
+            ->maxLength('niveauvise', 255)
+            ->requirePresence('niveauvise', 'create')
+            ->notEmptyString('niveauvise');
+
+        $validator
+            ->scalar('indicateursuivi')
+            ->requirePresence('indicateursuivi', 'create')
+            ->notEmptyString('indicateursuivi');
+
+        $validator
+            ->scalar('fonctionelaboration')
+            ->maxLength('fonctionelaboration', 255)
+            ->requirePresence('fonctionelaboration', 'create')
+            ->notEmptyString('fonctionelaboration');
+
+        $validator
+            ->scalar('fonctionverification')
+            ->maxLength('fonctionverification', 255)
+            ->requirePresence('fonctionverification', 'create')
+            ->notEmptyString('fonctionverification');
+
+        $validator
+            ->scalar('fonctionabrobation')
+            ->maxLength('fonctionabrobation', 255)
+            ->requirePresence('fonctionabrobation', 'create')
+            ->notEmptyString('fonctionabrobation');
+
+        $validator
+            ->scalar('nomprenomelab')
+            ->maxLength('nomprenomelab', 255)
+            ->requirePresence('nomprenomelab', 'create')
+            ->notEmptyString('nomprenomelab');
+
+        $validator
+            ->scalar('nomprenomverif')
+            ->maxLength('nomprenomverif', 255)
+            ->requirePresence('nomprenomverif', 'create')
+            ->notEmptyString('nomprenomverif');
+
+        $validator
+            ->scalar('nomprenomabrob')
+            ->maxLength('nomprenomabrob', 255)
+            ->requirePresence('nomprenomabrob', 'create')
+            ->notEmptyString('nomprenomabrob');
+
+        $validator
             ->integer('profilposte_id')
             ->notEmptyString('profilposte_id');
 
