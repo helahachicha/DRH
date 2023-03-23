@@ -24,6 +24,13 @@ export class AddProfilDePosteComponent implements OnInit {
     souscompetence: new FormControl('', [Validators.required]),
     niveauvise: new FormControl('', [Validators.required]),
     indicateursuivi: new FormControl('', [Validators.required]),
+    fonctionelaboration: new FormControl('', [Validators.required]),
+    fonctionverification: new FormControl('', [Validators.required]),
+    fonctionabrobation: new FormControl('', [Validators.required]),
+    nomprenomelab: new FormControl('', [Validators.required]),
+    nomprenomverif: new FormControl('', [Validators.required]),
+    nomprenomabrob: new FormControl('', [Validators.required]),
+    
   });
   constructor(
     private dataService:DataService,
@@ -39,7 +46,7 @@ export class AddProfilDePosteComponent implements OnInit {
     console.log("hello",this.profilposteForm.value)
 
     this.dataService.post('Profilpostes/addProfilposte.json',this.profilposteForm.value).subscribe(res=> {
-      this.router.navigate(['/lidtingprofildeposte'])
+      this.router.navigate(['/listingprofildeposte'])
        })
   }
 

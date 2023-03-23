@@ -54,7 +54,7 @@ const routes: Routes = [
   { path: 'editprofilpdt/:id', component: EditdevtComponent},
   { path: 'ficherensig', component: ListingficherenComponent},
   { path: 'addprofil', component: AddProfilDePosteComponent},
-  { path: 'lidtingprofildeposte', component: ListingprofilposteComponent},
+  { path: 'listingprofildeposte', component: ListingprofilposteComponent},
 
 
 
