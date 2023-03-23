@@ -14,7 +14,9 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Category $category
+ * @property \App\Model\Entity\Detailprofilposte $detailprofilposte
+ * @property \App\Model\Entity\Indicateursuivi[] $indicateursuivis
+ * @property \App\Model\Entity\Souscompetence[] $souscompetences
  */
 class Competence extends Entity
 {
@@ -32,6 +34,8 @@ class Competence extends Entity
         'detailprofilposte_id' => true,
         'created' => true,
         'modified' => true,
-        'category' => true,
+        'detailprofilposte' => true,
+        'indicateursuivis' => true,
+        'souscompetences' => true,
     ];
 }

@@ -11,6 +11,10 @@ use Cake\Validation\Validator;
 /**
  * Competences Model
  *
+ * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
+ * @property \App\Model\Table\IndicateursuivisTable&\Cake\ORM\Association\HasMany $Indicateursuivis
+ * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\HasMany $Souscompetences
+ *
  * @method \App\Model\Entity\Competence newEmptyEntity()
  * @method \App\Model\Entity\Competence newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Competence[] newEntities(array $data, array $options = [])
