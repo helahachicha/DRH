@@ -49,13 +49,14 @@ class DetailprofilpostesController extends AppController
             $detailprofilpostes->competence=$data->competence;  
             $detailprofilpostes->souscompetence=$data->souscompetence;  
             $detailprofilpostes->niveauvise=$data->niveauvise;  
-            $detailprofilpostes->indicateursuivi=$indicateursuivi->id; 
+            $detailprofilpostes->indicateursuivi=$data->indicateursuivi; 
             $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
             $detailprofilpostes->fonctionverification=$data->fonctionverification;  
             $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
             $detailprofilpostes->nomprenomelab=$data->nomprenomelab;  
             $detailprofilpostes->nomprenomverif=$data->nomprenomverif;  
-            $detailprofilpostes->nomprenomabrob=$nomprenomabrob->id;
+            $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob;
+            $detailprofilpostes->profilposte_id=$data->profilposte_id;
 
             $this->Detailprofilpostes->save($detailprofilpostes); 
         }
@@ -104,6 +105,16 @@ class DetailprofilpostesController extends AppController
             $detailprofilpostes->superhierar=$data->superhierar;  
             $detailprofilpostes->supervision=$data->supervision;  
             $detailprofilpostes->interim=$data->interim;  
+            $detailprofilpostes->competence=$data->competence;  
+            $detailprofilpostes->souscompetence=$data->souscompetence;  
+            $detailprofilpostes->niveauvise=$data->niveauvise;  
+            $detailprofilpostes->indicateursuivi=$data->indicateursuivi; 
+            $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
+            $detailprofilpostes->fonctionverification=$data->fonctionverification;  
+            $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
+            $detailprofilpostes->nomprenomelab=$data->nomprenomelab;  
+            $detailprofilpostes->nomprenomverif=$data->nomprenomverif;  
+            $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob;
             $detailprofilpostes->profilposte_id=$data->profilposte_id;
 
             $this->Detailprofilpostes->save($detailprofilpostes); 
