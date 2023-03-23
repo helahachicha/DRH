@@ -9,26 +9,11 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class ListingprofilposteComponent implements OnInit {
 
-Profilpostes:any;
+  Profilpostes:any;
 
   public profilposteForm= new FormGroup({
     nom: new FormControl('', [Validators.required]),
-    categorie: new FormControl('', [Validators.required]),
-    fonction: new FormControl('', [Validators.required]),
-    categories: new FormControl('', [Validators.required]),
-    superhierar: new FormControl('', [Validators.required]),
-    supervision: new FormControl('', [Validators.required]),
-    interim: new FormControl('', [Validators.required]),
-    competence: new FormControl('', [Validators.required]),
-    souscompetence: new FormControl('', [Validators.required]),
-    niveauvise: new FormControl('', [Validators.required]),
-    indicateursuivi: new FormControl('', [Validators.required]),
-    fonctionelaboration: new FormControl('', [Validators.required]),
-    fonctionverification: new FormControl('', [Validators.required]),
-    fonctionabrobation: new FormControl('', [Validators.required]),
-    nomprenomelab: new FormControl('', [Validators.required]),
-    nomprenomverif: new FormControl('', [Validators.required]),
-    nomprenomabrob: new FormControl('', [Validators.required]),
+    
     
   });
 
@@ -36,12 +21,14 @@ Profilpostes:any;
     ) { }
 
   ngOnInit(): void {
+    this.getallprofile();
   }
 
-  getallforma() {
-    this.dataService.get('Profilpostes/getAllDetailprofilposte.json').subscribe(res => {
+  getallprofile() {
+    this.dataService.get('Profilpostes/getAllProfilposte.json').subscribe(res => {
       this.Profilpostes = res.data;
-      
+      console.log("hello",this.Profilpostes)
+
 
     })
   }

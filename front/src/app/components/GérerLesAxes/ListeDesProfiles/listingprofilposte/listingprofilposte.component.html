@@ -5,20 +5,21 @@
             <table class="table table-bordered ">
                 <thead>
                     <tr class="text-bold">
-                       
+
                         <th scope="col">Nom profil de poste </th>
-                       
+
                     </tr>
                 </thead>
                 <tbody *ngFor="let profil of Profilpostes">
                     <tr>
 
-                        
-                        <td >
+
+                        <td>
                             {{profil.nom}}
                         </td>
-                       <td><button class="btn btn-danger ">Supprimer</button></td>
-                       
+                        <td><button class="btn btn btn-success ">Afficher</button><button
+                                class="btn btn-danger ">Supprimer</button></td>
+
                     </tr>
 
                 </tbody>
