@@ -6,18 +6,22 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Categoriede Entity
+ * Detailprofilposte Entity
  *
  * @property int $id
- * @property string $label
+ * @property string $fonction
+ * @property string $categorie
+ * @property string $superhierar
+ * @property string $supervision
+ * @property string $interim
+ * @property int $profilposte_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Infogencatpp[] $infogencatpps
- * @property \App\Model\Entity\Interim[] $interims
- * @property \App\Model\Entity\Supervision[] $supervisions
+ * @property \App\Model\Entity\Profilposte $profilposte
+ * @property \App\Model\Entity\Competence[] $competences
  */
-class Categoriede extends Entity
+class Detailprofilposte extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -29,11 +33,15 @@ class Categoriede extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'label' => true,
+        'fonction' => true,
+        'categorie' => true,
+        'superhierar' => true,
+        'supervision' => true,
+        'interim' => true,
+        'profilposte_id' => true,
         'created' => true,
         'modified' => true,
-        'infogencatpps' => true,
-        'interims' => true,
-        'supervisions' => true,
+        'profilposte' => true,
+        'competences' => true,
     ];
 }

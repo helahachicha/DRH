@@ -19,7 +19,7 @@ class CompetencesController extends AppController
      * @Input:
      *         data:
      *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          detailprofilposte_id(Int) *Required
      * @Output: data : success message
      */
     public function addCompetence(){
@@ -38,7 +38,7 @@ class CompetencesController extends AppController
         if (1==1){
             $competences = $this->Competences->newEmptyEntity();
             $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $competences->detailprofilposte_id=$data->detailprofilposte_id;  
 
             $this->Competences->save($competences); 
         }
@@ -58,7 +58,7 @@ class CompetencesController extends AppController
      * @Input:
      *         data:
      *          label (String) *Required
-     *          categorie_id(Int) *Required
+     *          detailprofilposte_id(Int) *Required
      *         
      * @Output: data : success message
      */
@@ -79,7 +79,7 @@ class CompetencesController extends AppController
          /* create competences entity */
         if (1==1){
             $competences->label=$data->label;  
-            $competences->categorie_id=$data->categorie_id;  
+            $competences->detailprofilposte_id=$data->detailprofilposte_id;  
 
 
             $this->Competences->save($competences); 

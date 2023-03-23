@@ -6,23 +6,27 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Profilpostes Controller
+ * Detailprofilpostes Controller
  *
- * @method \App\Model\Entity\Profilposte[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Detailprofilposte[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class ProfilpostesController extends AppController
+class DetailprofilpostesController extends AppController
 {
     /**
-     * addProfilposte
+     * addDetailprofilposte
      *
      * @Input:
      *         data:
-     *          nom (String) *Required
-     *          categorie (String) *Required
+     *          fonction (Float) *Required
+     *          categorie(Float) *Required
+     *          superhierar (Float) *Required
+     *          supervision (Float) *Required
+     *          interim(Float) *Required
+     *          profilposte_id (Float) *Required
      *         
      * @Output: data : success message
      */
-    public function addProfilposte(){
+    public function addDetailprofilposte(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -34,13 +38,17 @@ class ProfilpostesController extends AppController
             //debug($data);die;
 
         }
-         /* create profilpostes entity */
+         /* create detailprofilpostes entity */
         if (1==1){
-            $profilpostes = $this->Profilpostes->newEmptyEntity();
-            $profilpostes->nom=$data->nom;
-            $profilpostes->categorie=$data->categorie;  
+            $detailprofilpostes = $this->Detailprofilpostes->newEmptyEntity();
+            $detailprofilpostes->fonction=$data->fonction;  
+            $detailprofilpostes->categorie=$data->categorie;  
+            $detailprofilpostes->superhierar=$data->superhierar;  
+            $detailprofilpostes->supervision=$data->supervision;  
+            $detailprofilpostes->interim=$data->interim;  
+            $detailprofilpostes->profilposte_id=$data->profilposte_id;   
 
-            $this->Profilpostes->save($profilpostes); 
+            $this->Detailprofilpostes->save($detailprofilpostes); 
         }
        
          /*send result */
@@ -53,16 +61,20 @@ class ProfilpostesController extends AppController
     }
 
      /**
-     * editProfilposte
+     * editDetailprofilposte
      *
      * @Input:
      *         data:
-     *          nom (String) *Required
-     *          categorie (String) *Required
-     * 
+     *          fonction (Float) *Required
+     *          categorie(Float) *Required
+     *          superhierar (Float) *Required
+     *          supervision (Float) *Required
+     *          interim(Float) *Required
+     *          profilposte_id (Float) *Required
+     *         
      * @Output: data : success message
      */
-    public function editProfilposte(){
+    public function editDetailprofilposte(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -75,13 +87,17 @@ class ProfilpostesController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $profilpostes=$this->Profilpostes->get($id);
-         /* create profilpostes entity */
+        $detailprofilpostes=$this->Detailprofilpostes->get($id);
+         /* create detailprofilpostes entity */
         if (1==1){
-            $profilpostes->nom=$data->nom;  
-            $profilpostes->categorie=$data->categorie; 
+            $detailprofilpostes->fonction=$data->fonction;  
+            $detailprofilpostes->categorie=$data->categorie;  
+            $detailprofilpostes->superhierar=$data->superhierar;  
+            $detailprofilpostes->supervision=$data->supervision;  
+            $detailprofilpostes->interim=$data->interim;  
+            $detailprofilpostes->profilposte_id=$data->profilposte_id;
 
-            $this->Profilpostes->save($profilpostes); 
+            $this->Detailprofilpostes->save($detailprofilpostes); 
         }
         /*send result */
         $this->set([
@@ -94,34 +110,34 @@ class ProfilpostesController extends AppController
 
 
     /**
-    * getAllProfilposte
+    * getAllDetailprofilposte
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllProfilposte()
+    public function getAllDetailprofilposte()
     {
 
         /* search */
-        $profilpostes = $this->Profilpostes->find('all');
+        $detailprofilpostes = $this->Detailprofilpostes->find('all');
  
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $profilpostes,
+            'data' => $detailprofilpostes,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getProfilposte
+      * getDetailprofilposte
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getProfilposte(){
+     public function getDetailprofilposte(){
  
          $id = $this->request->getQuery('id');
          
@@ -136,36 +152,36 @@ class ProfilpostesController extends AppController
              }
          }
  
-         $Profilpostes = $this->Profilpostes->find('all', [
+         $detailprofilpostes = $this->Detailprofilpostes->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
             
          ])->first();
-         // debug($Profilpostes);die;
+         // debug($detailprofilpostes);die;
          
-         if(empty($Profilpostes)){
-            throw new UnauthorizedException('Profilpostes not found');
+         if(empty($detailprofilpostes)){
+            throw new UnauthorizedException('Detailprofilpostes not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $Profilpostes,
+            'data' => $detailprofilpostes,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteProfilposte
+      * deleteDetailprofilposte
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteProfilposte(){
+     public function deleteDetailprofilposte(){
 
         $id = $this->request->getQuery('id');
 
@@ -173,17 +189,17 @@ class ProfilpostesController extends AppController
 
         /* search */
 
-        $profilpostes = $this->Profilpostes->find('all', [
+        $detailprofilpostes = $this->Detailprofilpostes->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete profilpostes  */
+        /* delete detailprofilpostes  */
 
         if (1==1){
-            $this->Profilpostes->delete($profilpostes);
+            $this->Detailprofilpostes->delete($detailprofilpostes);
         }
 
         /*send result */

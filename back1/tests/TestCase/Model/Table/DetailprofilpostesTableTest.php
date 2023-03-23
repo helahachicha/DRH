@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\IndicateursuivisTable;
+use App\Model\Table\DetailprofilpostesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\IndicateursuivisTable Test Case
+ * App\Model\Table\DetailprofilpostesTable Test Case
  */
-class IndicateursuivisTableTest extends TestCase
+class DetailprofilpostesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\IndicateursuivisTable
+     * @var \App\Model\Table\DetailprofilpostesTable
      */
-    protected $Indicateursuivis;
+    protected $Detailprofilpostes;
 
     /**
      * Fixtures
@@ -24,8 +24,8 @@ class IndicateursuivisTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Indicateursuivis',
-        'app.Souscompetences',
+        'app.Detailprofilpostes',
+        'app.Profilpostes',
         'app.Competences',
     ];
 
@@ -37,8 +37,8 @@ class IndicateursuivisTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Indicateursuivis') ? [] : ['className' => IndicateursuivisTable::class];
-        $this->Indicateursuivis = $this->getTableLocator()->get('Indicateursuivis', $config);
+        $config = $this->getTableLocator()->exists('Detailprofilpostes') ? [] : ['className' => DetailprofilpostesTable::class];
+        $this->Detailprofilpostes = $this->getTableLocator()->get('Detailprofilpostes', $config);
     }
 
     /**
@@ -48,7 +48,7 @@ class IndicateursuivisTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Indicateursuivis);
+        unset($this->Detailprofilpostes);
 
         parent::tearDown();
     }
@@ -57,7 +57,7 @@ class IndicateursuivisTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\IndicateursuivisTable::validationDefault()
+     * @uses \App\Model\Table\DetailprofilpostesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -68,7 +68,7 @@ class IndicateursuivisTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\IndicateursuivisTable::buildRules()
+     * @uses \App\Model\Table\DetailprofilpostesTable::buildRules()
      */
     public function testBuildRules(): void
     {
