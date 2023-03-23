@@ -19,6 +19,7 @@ class IndicateursuivisController extends AppController
      *         data:
      *          label (String) *Required
      *          souscompetence_id(Int) *Required
+     *          competence_id (Int) *Required
      * @Output: data : success message
      */
     public function addIndicateursuivi(){
@@ -38,6 +39,7 @@ class IndicateursuivisController extends AppController
             $indicateursuivis = $this->Indicateursuivis->newEmptyEntity();
             $indicateursuivis->label=$data->label;  
             $indicateursuivis->souscompetence_id=$data->souscompetence_id;  
+            $indicateursuivis->competence_id=$data->competence_id;  
 
             $this->Indicateursuivis->save($indicateursuivis); 
         }
@@ -58,6 +60,7 @@ class IndicateursuivisController extends AppController
      *         data:
      *          label (String) *Required
      *          souscompetence_id(Int) *Required
+     *          competence_id (Int) *Required
      *         
      * @Output: data : success message
      */
@@ -79,6 +82,7 @@ class IndicateursuivisController extends AppController
         if (1==1){
             $indicateursuivis->label=$data->label;  
             $indicateursuivis->souscompetence_id=$data->souscompetence_id;  
+            $indicateursuivis->competence_id=$data->competence_id;  
 
 
             $this->Indicateursuivis->save($indicateursuivis); 

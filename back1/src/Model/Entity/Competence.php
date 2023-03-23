@@ -10,11 +10,11 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $label
- * @property int $categorie_id
+ * @property int $detailprofilposte_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Souscompetence[] $souscompetences
+ * @property \App\Model\Entity\Category $category
  */
 class Competence extends Entity
 {
@@ -29,9 +29,9 @@ class Competence extends Entity
      */
     protected $_accessible = [
         'label' => true,
-        'categorie_id' => true,
+        'detailprofilposte_id' => true,
         'created' => true,
         'modified' => true,
-        'souscompetences' => true,
+        'category' => true,
     ];
 }

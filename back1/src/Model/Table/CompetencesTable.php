@@ -45,9 +45,15 @@ class CompetencesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Categories', [
-            'foreignKey' => 'categorie_id',
+        $this->belongsTo('Detailprofilpostes', [
+            'foreignKey' => 'detailprofilposte_id',
             'joinType' => 'INNER',
+        ]);
+        $this->hasMany('Indicateursuivis', [
+            'foreignKey' => 'competence_id',
+        ]);
+        $this->hasMany('Souscompetences', [
+            'foreignKey' => 'competence_id',
         ]);
     }
 
@@ -66,8 +72,8 @@ class CompetencesTable extends Table
             ->notEmptyString('label');
 
         $validator
-            ->integer('categorie_id')
-            ->notEmptyString('categorie_id');
+            ->integer('detailprofilposte_id')
+            ->notEmptyString('detailprofilposte_id');
 
         return $validator;
     }
@@ -81,7 +87,7 @@ class CompetencesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
+        $rules->add($rules->existsIn('detailprofilposte_id', 'Detailprofilpostes'), ['errorField' => 'detailprofilposte_id']);
 
         return $rules;
     }

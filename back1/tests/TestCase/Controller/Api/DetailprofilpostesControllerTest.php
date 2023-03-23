@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller\Api;
 
-use App\Controller\Api\CompetencesController;
+use App\Controller\Api\DetailprofilpostesController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\Api\CompetencesController Test Case
+ * App\Controller\Api\DetailprofilpostesController Test Case
  *
- * @uses \App\Controller\Api\CompetencesController
+ * @uses \App\Controller\Api\DetailprofilpostesController
  */
-class CompetencesControllerTest extends TestCase
+class DetailprofilpostesControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,15 +22,14 @@ class CompetencesControllerTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Competences',
-        'app.Categories',
+        'app.Detailprofilpostes',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\Api\CompetencesController::index()
+     * @uses \App\Controller\Api\DetailprofilpostesController::index()
      */
     public function testIndex(): void
     {
@@ -41,7 +40,7 @@ class CompetencesControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\Api\CompetencesController::view()
+     * @uses \App\Controller\Api\DetailprofilpostesController::view()
      */
     public function testView(): void
     {
@@ -52,7 +51,7 @@ class CompetencesControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\Api\CompetencesController::add()
+     * @uses \App\Controller\Api\DetailprofilpostesController::add()
      */
     public function testAdd(): void
     {
@@ -63,7 +62,7 @@ class CompetencesControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\Api\CompetencesController::edit()
+     * @uses \App\Controller\Api\DetailprofilpostesController::edit()
      */
     public function testEdit(): void
     {
@@ -74,7 +73,7 @@ class CompetencesControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\Api\CompetencesController::delete()
+     * @uses \App\Controller\Api\DetailprofilpostesController::delete()
      */
     public function testDelete(): void
     {

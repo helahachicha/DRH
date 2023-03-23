@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\CompetencesTable;
+use App\Model\Table\DetailprofilpostesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\CompetencesTable Test Case
+ * App\Model\Table\DetailprofilpostesTable Test Case
  */
-class CompetencesTableTest extends TestCase
+class DetailprofilpostesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\CompetencesTable
+     * @var \App\Model\Table\DetailprofilpostesTable
      */
-    protected $Competences;
+    protected $Detailprofilpostes;
 
     /**
      * Fixtures
@@ -24,8 +24,9 @@ class CompetencesTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
+        'app.Detailprofilpostes',
+        'app.Profilpostes',
         'app.Competences',
-        'app.Categories',
     ];
 
     /**
@@ -36,8 +37,8 @@ class CompetencesTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Competences') ? [] : ['className' => CompetencesTable::class];
-        $this->Competences = $this->getTableLocator()->get('Competences', $config);
+        $config = $this->getTableLocator()->exists('Detailprofilpostes') ? [] : ['className' => DetailprofilpostesTable::class];
+        $this->Detailprofilpostes = $this->getTableLocator()->get('Detailprofilpostes', $config);
     }
 
     /**
@@ -47,7 +48,7 @@ class CompetencesTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Competences);
+        unset($this->Detailprofilpostes);
 
         parent::tearDown();
     }
@@ -56,7 +57,7 @@ class CompetencesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\CompetencesTable::validationDefault()
+     * @uses \App\Model\Table\DetailprofilpostesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +68,7 @@ class CompetencesTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\CompetencesTable::buildRules()
+     * @uses \App\Model\Table\DetailprofilpostesTable::buildRules()
      */
     public function testBuildRules(): void
     {
