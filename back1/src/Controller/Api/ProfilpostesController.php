@@ -50,7 +50,18 @@ class ProfilpostesController extends AppController
             $detailprofilpostes->superhierar=$data->superhierar;  
             $detailprofilpostes->supervision=$data->supervision;  
             $detailprofilpostes->interim=$data->interim;  
-            $detailprofilpostes->profilposte_id=$savedProfil->id;   
+            $detailprofilpostes->competence=$data->competence;  
+            $detailprofilpostes->souscompetence=$data->souscompetence;  
+            $detailprofilpostes->niveauvise=$data->niveauvise;  
+            $detailprofilpostes->indicateursuivi=$indicateursuivi->id; 
+            $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
+            $detailprofilpostes->fonctionverification=$data->fonctionverification;  
+            $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
+            $detailprofilpostes->nomprenomelab=$data->nomprenomelab;  
+            $detailprofilpostes->nomprenomverif=$data->nomprenomverif;  
+            $detailprofilpostes->nomprenomabrob=$nomprenomabrob->id; 
+            $detailprofilpostes->profilposte_id=$savedProfil->id;  
+            
             $this->Detailprofilpostes->save($detailprofilpostes); 
       
         }
