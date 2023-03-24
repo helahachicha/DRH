@@ -5,6 +5,7 @@ import { LoginComponent } from './Authentification/login/login.component';
 import { AddcoutComponent } from './components/CoutFormation/addcout/addcout.component';
 import { CoutlistingComponent } from './components/CoutFormation/coutlisting/coutlisting.component';
 import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.component';
+import { DetailProfileComponent } from './components/detail-profile/detail-profile.component';
 import { ListingficherenComponent } from './components/Fiche de rensignement/listingficheren/listingficheren.component';
 import { AddformaComponent } from './components/formaexternes/addforma/addforma.component';
 import { EditformaComponent } from './components/formaexternes/editforma/editforma.component';
@@ -55,6 +56,7 @@ const routes: Routes = [
   { path: 'ficherensig', component: ListingficherenComponent},
   { path: 'addprofil', component: AddProfilDePosteComponent},
   { path: 'listingprofilposte', component: ListingprofilposteComponent},
+  { path: 'Detail-profile/:id', component: DetailProfileComponent},
 
 
 

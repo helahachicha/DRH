@@ -38,6 +38,7 @@ import { ListingficherenComponent } from './components/Fiche de rensignement/lis
 import { AddficherenComponent } from './components/Fiche de rensignement/addficheren/addficheren.component';
 import { PublicComponent } from './public/public.component';
 import { AddProfilDePosteComponent } from './components/GérerLesAxes/CreerUnProfilDePoste/add-profil-de-poste/add-profil-de-poste.component';
+import { DetailProfileComponent } from './components/detail-profile/detail-profile.component';
 
 
 
@@ -76,6 +77,7 @@ import { AddProfilDePosteComponent } from './components/GérerLesAxes/CreerUnPro
     AddficherenComponent,
     PublicComponent,
     AddProfilDePosteComponent,
+    DetailProfileComponent,
     
    
   ],

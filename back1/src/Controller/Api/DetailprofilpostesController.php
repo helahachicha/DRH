@@ -12,123 +12,7 @@ use App\Controller\AppController;
  */
 class DetailprofilpostesController extends AppController
 {
-    /**
-     * addDetailprofilposte
-     *
-     * @Input:
-     *         data:
-     *          fonction (Float) *Required
-     *          categorie(Float) *Required
-     *          superhierar (Float) *Required
-     *          supervision (Float) *Required
-     *          interim(Float) *Required
-     *          profilposte_id (Float) *Required
-     *         
-     * @Output: data : success message
-     */
-    public function addDetailprofilposte(){
-        
-        $this->request->allowMethod(['post', 'put']);
-
-        /* format data */
-        if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-            //debug($data);die;
-
-        }
-         /* create detailprofilpostes entity */
-        if (1==1){
-            $detailprofilpostes = $this->Detailprofilpostes->newEmptyEntity();
-            $detailprofilpostes->fonction=$data->fonction;  
-            $detailprofilpostes->categorie=$data->categorie;  
-            $detailprofilpostes->superhierar=$data->superhierar;  
-            $detailprofilpostes->supervision=$data->supervision;  
-            $detailprofilpostes->interim=$data->interim;  
-            $detailprofilpostes->competence=$data->competence;  
-            $detailprofilpostes->souscompetence=$data->souscompetence;  
-            $detailprofilpostes->niveauvise=$data->niveauvise;  
-            $detailprofilpostes->indicateursuivi=$data->indicateursuivi; 
-            $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
-            $detailprofilpostes->fonctionverification=$data->fonctionverification;  
-            $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
-            $detailprofilpostes->nomprenomelab=$data->nomprenomelab;  
-            $detailprofilpostes->nomprenomverif=$data->nomprenomverif;  
-            $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob;
-            $detailprofilpostes->profilposte_id=$data->profilposte_id;
-
-            $this->Detailprofilpostes->save($detailprofilpostes); 
-        }
-       
-         /*send result */
-        $this->set([
-            'success' => true,
-            'data' =>  "Added with success",
-            '_serialize' => ['success', 'data']
-        ]);
-    
-    }
-
-     /**
-     * editDetailprofilposte
-     *
-     * @Input:
-     *         data:
-     *          fonction (Float) *Required
-     *          categorie(Float) *Required
-     *          superhierar (Float) *Required
-     *          supervision (Float) *Required
-     *          interim(Float) *Required
-     *          profilposte_id (Float) *Required
-     *         
-     * @Output: data : success message
-     */
-    public function editDetailprofilposte(){
-        
-        $this->request->allowMethod(['post', 'put']);
-
-        /* format data */
-        if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-            //debug ($data);die;
-        }
-
-        $id=$this->request->getQuery('id');
-        $detailprofilpostes=$this->Detailprofilpostes->get($id);
-         /* create detailprofilpostes entity */
-        if (1==1){
-            $detailprofilpostes->fonction=$data->fonction;  
-            $detailprofilpostes->categorie=$data->categorie;  
-            $detailprofilpostes->superhierar=$data->superhierar;  
-            $detailprofilpostes->supervision=$data->supervision;  
-            $detailprofilpostes->interim=$data->interim;  
-            $detailprofilpostes->competence=$data->competence;  
-            $detailprofilpostes->souscompetence=$data->souscompetence;  
-            $detailprofilpostes->niveauvise=$data->niveauvise;  
-            $detailprofilpostes->indicateursuivi=$data->indicateursuivi; 
-            $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
-            $detailprofilpostes->fonctionverification=$data->fonctionverification;  
-            $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
-            $detailprofilpostes->nomprenomelab=$data->nomprenomelab;  
-            $detailprofilpostes->nomprenomverif=$data->nomprenomverif;  
-            $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob;
-            $detailprofilpostes->profilposte_id=$data->profilposte_id;
-
-            $this->Detailprofilpostes->save($detailprofilpostes); 
-        }
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' =>  "Updated with success",
-            '_serialize' => ['success', 'data']
-        ]);
-    
-    }
-
-
+   
     /**
     * getAllDetailprofilposte
     *
@@ -140,7 +24,11 @@ class DetailprofilpostesController extends AppController
     {
 
         /* search */
-        $detailprofilpostes = $this->Detailprofilpostes->find('all');
+        $detailprofilpostes = $this->Detailprofilpostes->find('all',[
+            'fields' => [
+                'id','categorie'
+            ]
+        ]);
  
         /*send result */
         $this->set([
@@ -193,41 +81,5 @@ class DetailprofilpostesController extends AppController
         ]);
      }
 
-     /**
-      * deleteDetailprofilposte
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-
-     public function deleteDetailprofilposte(){
-
-        $id = $this->request->getQuery('id');
-
-        $this->request->allowMethod(['post','delete']);
-
-        /* search */
-
-        $detailprofilpostes = $this->Detailprofilpostes->find('all', [
-            'conditions'=>[
-                'id'=>$id,
-            ],
-           
-        ])->first();
-
-        /* delete detailprofilpostes  */
-
-        if (1==1){
-            $this->Detailprofilpostes->delete($detailprofilpostes);
-        }
-
-        /*send result */
-
-            $this->set([
-                'success' => true,
-                'data' => "Deleted with success",
-                '_serialize' => ['success','data']
-            ]);
-        }
+  
 }

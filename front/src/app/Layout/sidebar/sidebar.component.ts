@@ -11,7 +11,8 @@ export class SidebarComponent implements OnInit {
 
 
   public profilposte 
-
+  public detailProifile
+  public open:boolean=false
 
 
 
@@ -20,18 +21,18 @@ export class SidebarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getallprofile();
+    this.getAllDetailprofilposte()
+    
   }
 
-
-
-  getallprofile() {
-    this.dataService.get('Profilpostes/getAllProfilposte.json').subscribe(res => {
-      this.profilposte = res.data;
-      console.log("hello",this.profilposte)
-
-
+  // http://localhost:8765/api/Detailprofilpostes/getAllDetailprofilposte.json
+  getAllDetailprofilposte(){
+    this.dataService.get('Detailprofilpostes/getAllDetailprofilposte.json').subscribe(res=>{
+       this.detailProifile=res.data
+       this.open=true
+       console.log( this.detailProifile)
     })
   }
+ 
 
 }

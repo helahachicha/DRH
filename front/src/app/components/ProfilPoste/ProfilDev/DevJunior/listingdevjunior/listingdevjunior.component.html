@@ -34,34 +34,31 @@
                         </div>
                     </div>
                     <div class="text-bold">
-                        <form [formGroup]="fonctionForm">
+                        
                             <label class="m-2" type="label" class="form-control" required="required"> Fonction: </label>
-                            <input type="text" class="form-control" required="required" formControlName="fonction">
-
+                            <input [(ngModel)]="profilposte.fonction" type="text" class="form-control" required="required" formControlName="fonction">
+                         
                             <br>
-                        </form>
-                        <form>
+                   
+                   
                             <label class="m-2" type="label" class="form-control" required="required"
                                 formControlName="label"> Catégorie: </label>
                             <input type="text" class="form-control" required="required" formControlName="fonction">
 
                             <br>
-                        </form>
-                        <form>
+                    
+                      
                             <label class="m-2" type="label" class="form-control" required="required"
                                 formControlName="suphierar">Supérieur hiérarchique:</label>
                             <br>
-                        </form>
-                        <form>
+                  
                             <label class="m-2" type="label" class="form-control" required="required"
                                 formControlName="supervision">Supervision: </label>
                             <br>
-                        </form>
-                        <form>
+                   
                             <label class="m-2" type="label" class="form-control" required="required"
                                 formControlName="interim">Intérim: </label>
 
-                        </form>
                     </div>
                 </div>
 

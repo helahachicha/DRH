@@ -27,30 +27,20 @@
                 </li>
 
 
-                <li class="sidebar-item">
+              
+
+
+                <li class="sidebar-item" >
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                        aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Profil de poste Dev
-                        </span></a>
-                    <div class="profilposte" *ngFor=" let profil of profilposte">
-                        <ul aria-expanded="false" class="collapse first-level">
-                            <li class="sidebar-item">
-                                <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
-                                        class="hide-menu"> {{profil.categorie}}</span></a>
-                            </li>
-                            <!--<li class="sidebar-item">
-                            <a routerLink="/listingdc" class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
-                                    class="hide-menu"> Développeur confirmé</span></a>
+                        aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Profil de poste Dev </span></a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item" *ngFor="let obj of detailProifile" >
+                            <a  class="sidebar-link"><i
+                                    class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu" routerLink="Detail-profile/{{obj.id}}" > {{obj.categorie}} </span></a>
                         </li>
-                        <li class="sidebar-item">
-                            <a routerLink="/listingds" class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
-                                    class="hide-menu"> Développeur senior</span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a routerLink="/listingdt" class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
-                                    class="hide-menu"> Développeur teck lead</span></a>
-                        </li>-->
-                        </ul>
-                    </div>
+                 
+                        
+                    </ul>
                 </li>
 
                 <li class="sidebar-item">
