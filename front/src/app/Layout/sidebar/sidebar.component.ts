@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DataService } from 'src/app/shared/service/data.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+
+  public profilposte 
+
+
+
+
+  constructor(
+    private dataService:DataService,
+  ) {}
 
   ngOnInit(): void {
+    this.getallprofile();
+  }
+
+
+
+  getallprofile() {
+    this.dataService.get('Profilpostes/getAllProfilposte.json').subscribe(res => {
+      this.profilposte = res.data;
+      console.log("hello",this.profilposte)
+
+
+    })
   }
 
 }

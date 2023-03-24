@@ -10,10 +10,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class ListingdevjuniorComponent implements OnInit {
 
-  Categoriedes:any=[]
-  public fonctions 
-  Superhieras:any=[]
-  Supervisions:any=[]
+  
+  Profilpostes:any=[]
   
   id:any;
 
@@ -76,7 +74,8 @@ export class ListingdevjuniorComponent implements OnInit {
   //  this.getinterimsbycategID();
   //  this.getallcategoriedev();
   //  this.getallsuperieure();
-   this.getallfonctions();
+   //this.getallfonctions();
+   this.getbyidprofile();
 
   }
 
@@ -123,13 +122,22 @@ export class ListingdevjuniorComponent implements OnInit {
   //   })
   // }
 
-    getallfonctions() {
-      this.dataService.get('Fonctions/getAllFonction.json').subscribe(res => {
-        this.fonctions = res.data;
-        console.log("fonctions", this.fonctions)
+    //getallfonctions() {
+   ////   this.dataService.get('Fonctions/getAllFonction.json').subscribe(res => {
+    //    this.fonctions = res.data;
+    //    console.log("fonctions", this.fonctions)
         
   
-      })
+   //   })
   
+   // }
+
+    getbyidprofile() {
+      this.dataService.get('Profilpostes/getProfilposte.json').subscribe(res => {
+        this.Profilpostes = res.data;
+        console.log("hello",this.Profilpostes)
+  
+  
+      })
     }
 }

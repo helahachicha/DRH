@@ -1,24 +1,25 @@
 <div class="container ">
-    <div class="row mt-5">
+
+    <div class="shadow-lg p-3 mb-5 bg-body rounded mt-5">
         <h3 class="text-start mt-5">Les listes des profils de poste</h3>
         <div class=" table-responsive ">
             <table class="table table-bordered ">
                 <thead>
                     <tr class="text-bold">
 
-                        <th scope="col">Nom profil de poste </th>
+                        <th>Nom profil de poste </th>
+
 
                     </tr>
                 </thead>
-                <tbody *ngFor="let profil of Profilpostes">
+                <tbody *ngFor=" let profil of Profilpostes">
                     <tr>
-
-
                         <td>
                             {{profil.nom}}
                         </td>
-                        <td><button class="btn btn btn-success ">Afficher</button><button
-                                class="btn btn-danger ">Supprimer</button></td>
+                        <td>
+                            <button class="btn btn-danger "  (click)="deleteprofilposte(profil.id)">Supprimer</button>
+                        </td>
 
                     </tr>
 
@@ -26,5 +27,5 @@
 
             </table>
         </div>
+
     </div>
-</div>
