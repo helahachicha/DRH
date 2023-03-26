@@ -10,7 +10,6 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $fonction
- * @property string $categorie
  * @property string $superhierar
  * @property string $supervision
  * @property string $interim
@@ -44,7 +43,6 @@ class Detailprofilposte extends Entity
      */
     protected $_accessible = [
         'fonction' => true,
-        'categorie' => true,
         'superhierar' => true,
         'supervision' => true,
         'interim' => true,

@@ -38,7 +38,6 @@ class ProfilpostesController extends AppController
         if (1==1){
             $profilpostes = $this->Profilpostes->newEmptyEntity();
             $profilpostes->nom=$data->nom;
-            $profilpostes->categorie=$data->categorie;  
             $savedProfil=$this->Profilpostes->save($profilpostes);
         }
            /* create detailprofilpostes entity */
@@ -126,7 +125,11 @@ class ProfilpostesController extends AppController
     {
 
         /* search */
-        $profilpostes = $this->Profilpostes->find('all');
+        $profilpostes = $this->Profilpostes->find('all',[
+            'fields' => [
+                'nom'
+            ]
+        ]);
  
         /*send result */
         $this->set([

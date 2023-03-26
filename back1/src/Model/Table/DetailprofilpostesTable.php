@@ -12,7 +12,6 @@ use Cake\Validation\Validator;
  * Detailprofilpostes Model
  *
  * @property \App\Model\Table\ProfilpostesTable&\Cake\ORM\Association\BelongsTo $Profilpostes
- * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\HasMany $Competences
  *
  * @method \App\Model\Entity\Detailprofilposte newEmptyEntity()
  * @method \App\Model\Entity\Detailprofilposte newEntity(array $data, array $options = [])
@@ -52,9 +51,6 @@ class DetailprofilpostesTable extends Table
             'foreignKey' => 'profilposte_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('Competences', [
-            'foreignKey' => 'detailprofilposte_id',
-        ]);
     }
 
     /**
@@ -70,12 +66,6 @@ class DetailprofilpostesTable extends Table
             ->maxLength('fonction', 255)
             ->requirePresence('fonction', 'create')
             ->notEmptyString('fonction');
-
-        $validator
-            ->scalar('categorie')
-            ->maxLength('categorie', 255)
-            ->requirePresence('categorie', 'create')
-            ->notEmptyString('categorie');
 
         $validator
             ->scalar('superhierar')
