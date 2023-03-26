@@ -5,7 +5,7 @@ import { LoginComponent } from './Authentification/login/login.component';
 import { AddcoutComponent } from './components/CoutFormation/addcout/addcout.component';
 import { CoutlistingComponent } from './components/CoutFormation/coutlisting/coutlisting.component';
 import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.component';
-import { DetailProfileComponent } from './components/detail-profile/detail-profile.component';
+
 import { ListingficherenComponent } from './components/Fiche de rensignement/listingficheren/listingficheren.component';
 import { AddformaComponent } from './components/formaexternes/addforma/addforma.component';
 import { EditformaComponent } from './components/formaexternes/editforma/editforma.component';
@@ -23,6 +23,8 @@ import { EditdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/
 import { ListingdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/listingdevs/listingdevs.component';
 import { EditdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/editdevt/editdevt.component';
 import { ListingdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/listingdevt/listingdevt.component';
+import { DetailProfileComponent } from './components/ProfilPostee/detail-profile/detail-profile.component';
+import { EditProfilComponent } from './components/ProfilPostee/edit-profil/edit-profil.component';
 import { HomeComponent } from './Home/home/home.component';
 import { FooterComponent } from './Layout/footer/footer.component';
 import { HeaderComponent } from './Layout/header/header.component';
@@ -57,9 +59,7 @@ const routes: Routes = [
   { path: 'addprofil', component: AddProfilDePosteComponent},
   { path: 'listingprofilposte', component: ListingprofilposteComponent},
   { path: 'Detail-profile/:id', component: DetailProfileComponent},
-  { path: 'edit-datail-profil/:id', component: DetailProfileComponent},
-
-
+  { path: 'edit-datail-profil/:id', component:EditProfilComponent },
 
 
 
