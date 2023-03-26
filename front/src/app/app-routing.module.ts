@@ -57,6 +57,7 @@ const routes: Routes = [
   { path: 'addprofil', component: AddProfilDePosteComponent},
   { path: 'listingprofilposte', component: ListingprofilposteComponent},
   { path: 'Detail-profile/:id', component: DetailProfileComponent},
+  { path: 'edit-datail-profil/:id', component: DetailProfileComponent},
 
 
 

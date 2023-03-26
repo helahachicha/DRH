@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataService } from 'src/app/shared/service/data.service';
+import { DataService } from '../shared/service/data.service';
 
 @Component({
-  selector: 'app-detail-profile',
-  templateUrl: './detail-profile.component.html',
-  styleUrls: ['./detail-profile.component.scss']
+  selector: 'app-editprofil',
+  templateUrl: './editprofil.component.html',
+  styleUrls: ['./editprofil.component.scss']
 })
-export class DetailProfileComponent implements OnInit {
-id:any;
+export class EditprofilComponent implements OnInit {
+id:any
 Detailprofilpostes:any={};
-
 
 public profilposteForm= new FormGroup({
   nom: new FormControl('', [Validators.required]),
@@ -34,15 +33,20 @@ public profilposteForm= new FormGroup({
   
   
 });
+
+
+
+
   constructor(
     private dataService:DataService,
     private router :Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute 
   ) { }
 
   ngOnInit(): void {
     this.getprofilById();
   }
+
   getprofilById() {
     this.id=this.route.snapshot.params['id'];
     this.dataService.get('Detailprofilpostes/getDetailprofilposte.json?id='+this.id).subscribe(
@@ -52,4 +56,12 @@ public profilposteForm= new FormGroup({
 
     })
   }
+  editprofilposte(){
+      
+    this.dataService.post('Detailprofilpostes/editProfilposte.json?id='+this.id,this.profilposteForm.value).subscribe(res=> {
+      console.log("hello",this.profilposteForm.value)
+    this.router.navigate(['/Detail-profile/:id'])
+    })
+  }
+
 }
