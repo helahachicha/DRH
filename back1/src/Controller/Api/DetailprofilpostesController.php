@@ -12,6 +12,62 @@ use App\Controller\AppController;
  */
 class DetailprofilpostesController extends AppController
 {
+
+
+    /**
+     * editDetailprofilposte
+     *
+     * @Input:
+     *         data:
+     *          
+     * 
+     * @Output: data : success message
+     */
+    public function editDetailprofilposte(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug ($data);die;
+        }
+
+        $id=$this->request->getQuery('id');
+        $detailprofilpostes=$this->Detailprofilpostes->get($id);
+         /* create detailprofilpostes entity */
+        if (1==1){
+            $detailprofilpostes->fonction=$data->fonction;  
+            $detailprofilpostes->categorie=$data->categorie;  
+            $detailprofilpostes->superhierar=$data->superhierar;  
+            $detailprofilpostes->supervision=$data->supervision;  
+            $detailprofilpostes->interim=$data->interim;  
+            $detailprofilpostes->competence=$data->competence;  
+            $detailprofilpostes->souscompetence=$data->souscompetence;  
+            $detailprofilpostes->niveauvise=$data->niveauvise;  
+            $detailprofilpostes->indicateursuivi=$data->indicateursuivi; 
+            $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
+            $detailprofilpostes->fonctionverification=$data->fonctionverification;  
+            $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
+            $detailprofilpostes->nomprenomelab=$data->nomprenomelab;  
+            $detailprofilpostes->nomprenomverif=$data->nomprenomverif;  
+            $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob; 
+            $detailprofilpostes->profilposte_id=$savedProfil->id;  
+
+            $this->Detailprofilpostes->save($detailprofilpostes); 
+        }
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Updated with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
+
    
     /**
     * getAllDetailprofilposte
