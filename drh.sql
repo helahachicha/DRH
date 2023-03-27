@@ -50,6 +50,28 @@ INSERT INTO `coutformaexternes` (`id`, `coutformahd`, `tocoformadt`, `locaespace
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `departements`
+--
+
+CREATE TABLE `departements` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `departements`
+--
+
+INSERT INTO `departements` (`id`, `label`, `created`, `modified`) VALUES
+(1, 'Recherche & Développement', '2023-03-27 12:28:46', '2023-03-27 12:28:46'),
+(2, 'Consultance fonctionnelle', '2023-03-27 12:28:46', '2023-03-27 12:28:46'),
+(3, 'Administration', '2023-03-27 12:29:22', '2023-03-27 12:29:22');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `detailprofilpostes`
 --
 
@@ -156,6 +178,7 @@ INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `
 CREATE TABLE `profilpostes` (
   `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
+  `poste_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -164,11 +187,9 @@ CREATE TABLE `profilpostes` (
 -- Déchargement des données de la table `profilpostes`
 --
 
-INSERT INTO `profilpostes` (`id`, `nom`, `created`, `modified`) VALUES
-(1, 'Profil de poste développeur', '2023-03-26 19:44:30', '2023-03-26 19:44:30'),
-(2, '', '2023-03-26 19:51:01', '2023-03-26 19:51:01'),
-(3, '', '2023-03-26 19:52:24', '2023-03-26 19:52:24'),
-(4, '', '2023-03-26 19:53:39', '2023-03-26 19:53:39');
+INSERT INTO `profilpostes` (`id`, `nom`, `poste_id`, `created`, `modified`) VALUES
+(1, 'Profil de poste développeur ', 0, '2023-03-27 12:32:33', '2023-03-27 12:32:33'),
+(2, 'Profil de poste responsable marketing ', 0, '2023-03-27 12:32:33', '2023-03-27 12:32:33');
 
 -- --------------------------------------------------------
 
@@ -199,7 +220,7 @@ INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
 
 CREATE TABLE `themeformations` (
   `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -208,7 +229,7 @@ CREATE TABLE `themeformations` (
 -- Déchargement des données de la table `themeformations`
 --
 
-INSERT INTO `themeformations` (`id`, `nom`, `created`, `modified`) VALUES
+INSERT INTO `themeformations` (`id`, `label`, `created`, `modified`) VALUES
 (1, 'SQL', '2023-03-27 10:43:26', '2023-03-27 10:43:26'),
 (2, 'PYTHON', '2023-03-27 10:43:26', '2023-03-27 10:43:26'),
 (3, 'JAVA', '2023-03-27 10:44:32', '2023-03-27 10:44:32'),
@@ -248,6 +269,12 @@ ALTER TABLE `coutformaexternes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `departements`
+--
+ALTER TABLE `departements`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `detailprofilpostes`
 --
 ALTER TABLE `detailprofilpostes`
@@ -263,6 +290,12 @@ ALTER TABLE `formaexternes`
 -- Index pour la table `formainternes`
 --
 ALTER TABLE `formainternes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `postes`
+--
+ALTER TABLE `postes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -300,6 +333,12 @@ ALTER TABLE `coutformaexternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT pour la table `departements`
+--
+ALTER TABLE `departements`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT pour la table `detailprofilpostes`
 --
 ALTER TABLE `detailprofilpostes`
@@ -318,10 +357,16 @@ ALTER TABLE `formainternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT pour la table `postes`
+--
+ALTER TABLE `postes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT pour la table `profilpostes`
 --
 ALTER TABLE `profilpostes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `roles`

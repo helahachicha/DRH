@@ -44,6 +44,13 @@ class ThemeformationsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('Formaexternes', [
+            'foreignKey' => 'themeformation_id',
+        ]);
+        $this->hasMany('Formainternes', [
+            'foreignKey' => 'themeformation_id',
+        ]);
     }
 
     /**
@@ -55,10 +62,10 @@ class ThemeformationsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('nom')
-            ->maxLength('nom', 255)
-            ->requirePresence('nom', 'create')
-            ->notEmptyString('nom');
+            ->scalar('label')
+            ->maxLength('label', 255)
+            ->requirePresence('label', 'create')
+            ->notEmptyString('label');
 
         return $validator;
     }

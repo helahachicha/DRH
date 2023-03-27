@@ -17,7 +17,7 @@ class ThemeformationsController extends AppController
      *
      * @Input:
      *         data:
-     *          nom (String) *Required
+     *          label (String) *Required
      *         
      * @Output: data : success message
      */
@@ -36,7 +36,7 @@ class ThemeformationsController extends AppController
          /* create themeformations entity */
         if (1==1){
             $themeformations = $this->Themeformations->newEmptyEntity();
-            $themeformations->nom=$data->nom;  
+            $themeformations->label=$data->label;  
 
             $this->Themeformations->save($themeformations); 
         }
