@@ -12,7 +12,6 @@ use Cake\Validation\Validator;
  * Indicateursuivis Model
  *
  * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\BelongsTo $Souscompetences
- * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
  *
  * @method \App\Model\Entity\Indicateursuivi newEmptyEntity()
  * @method \App\Model\Entity\Indicateursuivi newEntity(array $data, array $options = [])
@@ -52,10 +51,6 @@ class IndicateursuivisTable extends Table
             'foreignKey' => 'souscompetence_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Competences', [
-            'foreignKey' => 'competence_id',
-            'joinType' => 'INNER',
-        ]);
     }
 
     /**
@@ -68,16 +63,13 @@ class IndicateursuivisTable extends Table
     {
         $validator
             ->scalar('label')
+            ->maxLength('label', 255)
             ->requirePresence('label', 'create')
             ->notEmptyString('label');
 
         $validator
             ->integer('souscompetence_id')
             ->notEmptyString('souscompetence_id');
-
-        $validator
-            ->integer('competence_id')
-            ->notEmptyString('competence_id');
 
         return $validator;
     }
@@ -92,7 +84,6 @@ class IndicateursuivisTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('souscompetence_id', 'Souscompetences'), ['errorField' => 'souscompetence_id']);
-        $rules->add($rules->existsIn('competence_id', 'Competences'), ['errorField' => 'competence_id']);
 
         return $rules;
     }

@@ -25,8 +25,9 @@ class ProfilpostesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Profilpostes',
+        'app.Postes',
         'app.Categories',
-        'app.Detailprofilpostes',
+        'app.Comptechniques',
     ];
 
     /**
@@ -60,6 +61,17 @@ class ProfilpostesTableTest extends TestCase
      * @uses \App\Model\Table\ProfilpostesTable::validationDefault()
      */
     public function testValidationDefault(): void
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     * @uses \App\Model\Table\ProfilpostesTable::buildRules()
+     */
+    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

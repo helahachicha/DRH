@@ -11,7 +11,9 @@ use Cake\Validation\Validator;
 /**
  * Profilpostes Model
  *
+ * @property \App\Model\Table\PostesTable&\Cake\ORM\Association\BelongsTo $Postes
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\HasMany $Categories
+ * @property \App\Model\Table\ComptechniquesTable&\Cake\ORM\Association\HasMany $Comptechniques
  *
  * @method \App\Model\Entity\Profilposte newEmptyEntity()
  * @method \App\Model\Entity\Profilposte newEntity(array $data, array $options = [])

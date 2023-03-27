@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Niveauvises Model
  *
- * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\BelongsTo $Souscompetences
+ * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
  *
  * @method \App\Model\Entity\Niveauvise newEmptyEntity()
  * @method \App\Model\Entity\Niveauvise newEntity(array $data, array $options = [])
@@ -47,8 +47,8 @@ class NiveauvisesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Souscompetences', [
-            'foreignKey' => 'souscompetence_id',
+        $this->belongsTo('Categories', [
+            'foreignKey' => 'categorie_id',
             'joinType' => 'INNER',
         ]);
     }
@@ -68,8 +68,8 @@ class NiveauvisesTable extends Table
             ->notEmptyString('label');
 
         $validator
-            ->integer('souscompetence_id')
-            ->notEmptyString('souscompetence_id');
+            ->integer('categorie_id')
+            ->notEmptyString('categorie_id');
 
         return $validator;
     }
@@ -83,7 +83,7 @@ class NiveauvisesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('souscompetence_id', 'Souscompetences'), ['errorField' => 'souscompetence_id']);
+        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
 
         return $rules;
     }

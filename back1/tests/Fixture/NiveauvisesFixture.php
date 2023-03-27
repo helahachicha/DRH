@@ -21,9 +21,9 @@ class NiveauvisesFixture extends TestFixture
             [
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
-                'souscompetence_id' => 1,
-                'created' => '2023-03-21 22:14:17',
-                'modified' => '2023-03-21 22:14:17',
+                'categorie_id' => 1,
+                'created' => '2023-03-27 15:31:14',
+                'modified' => '2023-03-27 15:31:14',
             ],
         ];
         parent::init();

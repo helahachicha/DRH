@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller\Api;
 
-use App\Controller\Api\NiveauvisesController;
+use App\Controller\Api\PostesController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\Api\NiveauvisesController Test Case
+ * App\Controller\Api\PostesController Test Case
  *
- * @uses \App\Controller\Api\NiveauvisesController
+ * @uses \App\Controller\Api\PostesController
  */
-class NiveauvisesControllerTest extends TestCase
+class PostesControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,15 +22,14 @@ class NiveauvisesControllerTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Niveauvises',
-        'app.Souscompetences',
+        'app.Postes',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\Api\NiveauvisesController::index()
+     * @uses \App\Controller\Api\PostesController::index()
      */
     public function testIndex(): void
     {
@@ -41,7 +40,7 @@ class NiveauvisesControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\Api\NiveauvisesController::view()
+     * @uses \App\Controller\Api\PostesController::view()
      */
     public function testView(): void
     {
@@ -52,7 +51,7 @@ class NiveauvisesControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\Api\NiveauvisesController::add()
+     * @uses \App\Controller\Api\PostesController::add()
      */
     public function testAdd(): void
     {
@@ -63,7 +62,7 @@ class NiveauvisesControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\Api\NiveauvisesController::edit()
+     * @uses \App\Controller\Api\PostesController::edit()
      */
     public function testEdit(): void
     {
@@ -74,7 +73,7 @@ class NiveauvisesControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\Api\NiveauvisesController::delete()
+     * @uses \App\Controller\Api\PostesController::delete()
      */
     public function testDelete(): void
     {

@@ -18,7 +18,7 @@ class ProfilpostesController extends AppController
      * @Input:
      *         data:
      *          nom (String) *Required
-     *          categorie (String) *Required
+     *          poste_id (Int) *Required
      *         
      * @Output: data : success message
      */
@@ -38,6 +38,7 @@ class ProfilpostesController extends AppController
         if (1==1){
             $profilpostes = $this->Profilpostes->newEmptyEntity();
             $profilpostes->nom=$data->nom;
+            $profilpostes->poste_id=$data->poste_id;
             $savedProfil=$this->Profilpostes->save($profilpostes);
         }
            /* create detailprofilpostes entity */
@@ -74,7 +75,7 @@ class ProfilpostesController extends AppController
      * @Input:
      *         data:
      *          nom (String) *Required
-     *          categorie (String) *Required
+     *          poste_id (Int) *Required
      * 
      * @Output: data : success message
      */
@@ -94,7 +95,8 @@ class ProfilpostesController extends AppController
         $profilpostes=$this->Profilpostes->get($id);
          /* create profilpostes entity */
         if (1==1){
-            $profilpostes->nom=$data->nom;  
+            $profilpostes->nom=$data->nom;
+            $profilpostes->poste_id=$data->poste_id;    
             $profilpostes->categorie=$data->categorie; 
 
             $this->Profilpostes->save($profilpostes); 
@@ -110,13 +112,13 @@ class ProfilpostesController extends AppController
 
 
     /**
-    * getAllProfilposte
+    * getAllNomProfilposte
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllProfilposte()
+    public function getAllNomProfilposte()
     {
 
         /* search */
@@ -134,6 +136,33 @@ class ProfilpostesController extends AppController
         ]);
     }
     
+
+    /**
+    * getAllProfilposte
+    *
+    * @Input: nothing
+    *
+    * @Output: data
+    */
+    public function getAllProfilposte()
+    {
+
+        /* search */
+        $profilpostes = $this->Profilpostes->find('all',[
+            'contain' => [
+                'Postes'
+                ]
+        ]);
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $profilpostes,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
+
+
     /**
       * getProfilposte
       *

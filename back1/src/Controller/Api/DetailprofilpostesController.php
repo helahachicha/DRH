@@ -65,6 +65,32 @@ class DetailprofilpostesController extends AppController
 
    
     /**
+    * getAllNomDetailprofilposte
+    *
+    * @Input: nothing
+    *
+    * @Output: data
+    */
+    public function getAllNomDetailprofilposte()
+    {
+
+        /* search */
+        $detailprofilpostes = $this->Detailprofilpostes->find('all',[
+            'fields' => [
+                'id','categorie'
+            ]
+        ]);
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $detailprofilpostes,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
+
+
+    /**
     * getAllDetailprofilposte
     *
     * @Input: nothing
@@ -76,8 +102,8 @@ class DetailprofilpostesController extends AppController
 
         /* search */
         $detailprofilpostes = $this->Detailprofilpostes->find('all',[
-            'fields' => [
-                'id','categorie'
+            'contain' => [
+                'Categories'
             ]
         ]);
  

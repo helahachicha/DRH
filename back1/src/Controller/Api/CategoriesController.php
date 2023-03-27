@@ -24,7 +24,11 @@ class CategoriesController extends AppController
     {
 
         /* search */
-        $categories = $this->Categories->find('all');
+        $categories = $this->Categories->find('all',[
+            'contain' => [
+                'Profilpostes'
+            ]
+        ]);
  
         /*send result */
         $this->set([

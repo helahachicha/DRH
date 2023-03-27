@@ -14,8 +14,9 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
+ * @property \App\Model\Entity\Poste $poste
  * @property \App\Model\Entity\Category[] $categories
- * @property \App\Model\Entity\Detailprofilposte[] $detailprofilpostes
+ * @property \App\Model\Entity\Comptechnique[] $comptechniques
  */
 class Profilposte extends Entity
 {
@@ -33,7 +34,8 @@ class Profilposte extends Entity
         'poste_id' => true,
         'created' => true,
         'modified' => true,
+        'poste' => true,
         'categories' => true,
-        'detailprofilpostes' => true,
+        'comptechniques' => true,
     ];
 }

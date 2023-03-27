@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\NiveauvisesTable;
+use App\Model\Table\PostesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\NiveauvisesTable Test Case
+ * App\Model\Table\PostesTable Test Case
  */
-class NiveauvisesTableTest extends TestCase
+class PostesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\NiveauvisesTable
+     * @var \App\Model\Table\PostesTable
      */
-    protected $Niveauvises;
+    protected $Postes;
 
     /**
      * Fixtures
@@ -24,8 +24,10 @@ class NiveauvisesTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Niveauvises',
-        'app.Categories',
+        'app.Postes',
+        'app.Departements',
+        'app.Profilpostes',
+        'app.Testtechniques',
     ];
 
     /**
@@ -36,8 +38,8 @@ class NiveauvisesTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Niveauvises') ? [] : ['className' => NiveauvisesTable::class];
-        $this->Niveauvises = $this->getTableLocator()->get('Niveauvises', $config);
+        $config = $this->getTableLocator()->exists('Postes') ? [] : ['className' => PostesTable::class];
+        $this->Postes = $this->getTableLocator()->get('Postes', $config);
     }
 
     /**
@@ -47,7 +49,7 @@ class NiveauvisesTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Niveauvises);
+        unset($this->Postes);
 
         parent::tearDown();
     }
@@ -56,7 +58,7 @@ class NiveauvisesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\NiveauvisesTable::validationDefault()
+     * @uses \App\Model\Table\PostesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +69,7 @@ class NiveauvisesTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\NiveauvisesTable::buildRules()
+     * @uses \App\Model\Table\PostesTable::buildRules()
      */
     public function testBuildRules(): void
     {

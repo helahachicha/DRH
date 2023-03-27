@@ -24,6 +24,7 @@ class CompetencesControllerTest extends TestCase
     protected $fixtures = [
         'app.Competences',
         'app.Categories',
+        'app.Souscompetences',
     ];
 
     /**

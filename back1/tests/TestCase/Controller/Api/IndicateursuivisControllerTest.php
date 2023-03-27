@@ -23,6 +23,8 @@ class IndicateursuivisControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Indicateursuivis',
+        'app.Souscompetences',
+        'app.Competences',
     ];
 
     /**
