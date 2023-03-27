@@ -40,6 +40,8 @@ import { PublicComponent } from './public/public.component';
 import { AddProfilDePosteComponent } from './components/GérerLesAxes/CreerUnProfilDePoste/add-profil-de-poste/add-profil-de-poste.component';
 import { DetailProfileComponent } from './components/ProfilPostee/detail-profile/detail-profile.component';
 import { EditProfilComponent } from './components/ProfilPostee/edit-profil/edit-profil.component';
+import { ListingthemeformaComponent } from './components/GérerLesAxes/Théme de formation/listingthemeforma/listingthemeforma.component';
+import { AddthemedeformationComponent } from './components/GérerLesAxes/Théme de formation/addthemedeformation/addthemedeformation.component';
 
 
 
@@ -81,6 +83,8 @@ import { EditProfilComponent } from './components/ProfilPostee/edit-profil/edit-
     AddProfilDePosteComponent,
     DetailProfileComponent,
     EditProfilComponent,
+    ListingthemeformaComponent,
+    AddthemedeformationComponent,
    
    
   ],

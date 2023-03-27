@@ -18,7 +18,6 @@ export class DetailProfileComponent implements OnInit {
     nom: new FormControl('', [Validators.required]),
     categorie: new FormControl('', [Validators.required]),
     fonction: new FormControl('', [Validators.required]),
-    categories: new FormControl('', [Validators.required]),
     superhierar: new FormControl('', [Validators.required]),
     supervision: new FormControl('', [Validators.required]),
     interim: new FormControl('', [Validators.required]),
