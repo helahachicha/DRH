@@ -10,14 +10,16 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $tycomp
- * @property string $themforma
+ * @property int $themeformation_id
  * @property string $animateur
  * @property string $poste
- * @property \Cake\I18n\FrozenTime $date
- * @property string $hentrer
- * @property string $hsortie
+ * @property \Cake\I18n\FrozenDate $date
+ * @property \Cake\I18n\Time $hentrer
+ * @property \Cake\I18n\Time $hsortie
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\Themeformation $themeformation
  */
 class Formainterne extends Entity
 {
@@ -32,7 +34,7 @@ class Formainterne extends Entity
      */
     protected $_accessible = [
         'tycomp' => true,
-        'themforma' => true,
+        'themeformation_id' => true,
         'animateur' => true,
         'poste' => true,
         'date' => true,
@@ -40,5 +42,6 @@ class Formainterne extends Entity
         'hsortie' => true,
         'created' => true,
         'modified' => true,
+        'themeformation' => true,
     ];
 }

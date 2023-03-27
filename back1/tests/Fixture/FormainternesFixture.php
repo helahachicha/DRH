@@ -21,14 +21,14 @@ class FormainternesFixture extends TestFixture
             [
                 'id' => 1,
                 'tycomp' => 'Lorem ipsum dolor sit amet',
-                'themforma' => 'Lorem ipsum dolor sit amet',
+                'themeformation_id' => 1,
                 'animateur' => 'Lorem ipsum dolor sit amet',
                 'poste' => 'Lorem ipsum dolor sit amet',
-                'date' => '2023-03-13 21:37:02',
-                'hentrer' => 'Lorem ipsum dolor sit amet',
-                'hsortie' => 'Lorem ipsum dolor sit amet',
-                'created' => '2023-03-13 21:37:02',
-                'modified' => '2023-03-13 21:37:02',
+                'date' => '2023-03-27',
+                'hentrer' => '08:57:12',
+                'hsortie' => '08:57:12',
+                'created' => '2023-03-27 08:57:12',
+                'modified' => '2023-03-27 08:57:12',
             ],
         ];
         parent::init();

@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Formainternes Model
  *
+ * @property \App\Model\Table\ThemeformationsTable&\Cake\ORM\Association\BelongsTo $Themeformations
+ *
  * @method \App\Model\Entity\Formainterne newEmptyEntity()
  * @method \App\Model\Entity\Formainterne newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Formainterne[] newEntities(array $data, array $options = [])
@@ -44,6 +46,11 @@ class FormainternesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Themeformations', [
+            'foreignKey' => 'themeformation_id',
+            'joinType' => 'INNER',
+        ]);
     }
 
     /**
@@ -61,10 +68,8 @@ class FormainternesTable extends Table
             ->notEmptyString('tycomp');
 
         $validator
-            ->scalar('themforma')
-            ->maxLength('themforma', 255)
-            ->requirePresence('themforma', 'create')
-            ->notEmptyString('themforma');
+            ->integer('themeformation_id')
+            ->notEmptyString('themeformation_id');
 
         $validator
             ->scalar('animateur')
@@ -79,22 +84,34 @@ class FormainternesTable extends Table
             ->notEmptyString('poste');
 
         $validator
-            ->dateTime('date')
+            ->date('date')
             ->requirePresence('date', 'create')
-            ->notEmptyDateTime('date');
+            ->notEmptyDate('date');
 
         $validator
-            ->scalar('hentrer')
-            ->maxLength('hentrer', 255)
+            ->time('hentrer')
             ->requirePresence('hentrer', 'create')
-            ->notEmptyString('hentrer');
+            ->notEmptyTime('hentrer');
 
         $validator
-            ->scalar('hsortie')
-            ->maxLength('hsortie', 255)
+            ->time('hsortie')
             ->requirePresence('hsortie', 'create')
-            ->notEmptyString('hsortie');
+            ->notEmptyTime('hsortie');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->existsIn('themeformation_id', 'Themeformations'), ['errorField' => 'themeformation_id']);
+
+        return $rules;
     }
 }

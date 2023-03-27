@@ -18,7 +18,7 @@ class FormaexternesController extends AppController
      * @Input:
      *         data:
      *          typecomp (String) *Required
-     *          themforma (String) *Required
+     *          themeformation_id (Int) *Required
      *          participant (String) *Required
      *          nbparticipant (int) *Required
      *          raisonforma (String) *Required
@@ -52,7 +52,7 @@ class FormaexternesController extends AppController
         if (1==1){
             $formaexternes = $this->Formaexternes->newEmptyEntity();
             $formaexternes->typecomp=$data->typecomp;  
-            $formaexternes->themforma=$data->themforma;  
+            $formaexternes->themeformation_id=$data->themeformation_id;  
             $formaexternes->participant=$data->participant;  
             $formaexternes->nbparticipant=$data->nbparticipant;  
             $formaexternes->raisonforma=$data->raisonforma ;  
@@ -86,7 +86,7 @@ class FormaexternesController extends AppController
      * @Input:
      *         data:
      *          typecomp (String) *Required
-     *          themforma (String) *Required
+     *          themeformation_id (Int) *Required
      *          participant (String) *Required
      *          nbparticipant (int) *Required
      *          raisonforma (String) *Required
@@ -122,7 +122,7 @@ class FormaexternesController extends AppController
         
         if (1==1){
             $formaexternes->typecomp=$data->typecomp;  
-            $formaexternes->themforma=$data->themforma;  
+            $formaexternes->themeformation_id=$data->themeformation_id;  
             $formaexternes->participant=$data->participant;  
             $formaexternes->nbparticipant=$data->nbparticipant;  
             $formaexternes->raisonforma=$data->raisonforma ;  

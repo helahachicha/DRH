@@ -21,7 +21,7 @@ class FormaexternesFixture extends TestFixture
             [
                 'id' => 1,
                 'typecomp' => 'Lorem ipsum dolor sit amet',
-                'themforma' => 'Lorem ipsum dolor sit amet',
+                'themeformation_id' => 1,
                 'participant' => 'Lorem ipsum dolor sit amet',
                 'nbparticipant' => 1,
                 'raisonforma' => 'Lorem ipsum dolor sit amet',
@@ -32,12 +32,12 @@ class FormaexternesFixture extends TestFixture
                 'dureeforma' => 'Lorem ipsum dolor sit amet',
                 'nbjour' => 1,
                 'nbhjour' => 1,
-                'date' => '2023-03-11 22:17:04',
+                'date' => '2023-03-27 08:58:21',
                 'horaireforma' => 'Lorem ipsum dolor sit amet',
                 'pause' => 'Lorem ipsum dolor sit amet',
                 'lieuforma' => 'Lorem ipsum dolor sit amet',
-                'created' => '2023-03-11 22:17:04',
-                'modified' => '2023-03-11 22:17:04',
+                'created' => '2023-03-27 08:58:21',
+                'modified' => '2023-03-27 08:58:21',
             ],
         ];
         parent::init();

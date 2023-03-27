@@ -18,7 +18,7 @@ class FormainternesController extends AppController
      * @Input:
      *         data:
      *          tycomp (String) *Required
-     *          themeforma (String) *Required
+     *          themeformation_id (Int) *Required
      *          animateur (String) *Required
      *          poste (String) *Required
      *          date (Date) *Required
@@ -43,7 +43,7 @@ class FormainternesController extends AppController
         if (1==1){
             $formainternes = $this->Formainternes->newEmptyEntity();
             $formainternes->tycomp=$data->tycomp;  
-            $formainternes->themeforma=$data->themeforma;  
+            $formainternes->themeformation_id=$data->themeformation_id;  
             $formainternes->animateur=$data->animateur;  
             $formainternes->poste=$data->poste;  
             $formainternes->date=$data->date;  
@@ -68,7 +68,7 @@ class FormainternesController extends AppController
      * @Input:
      *         data:
      *          tycomp (String) *Required
-     *          themeforma (String) *Required
+     *          themeformation_id (Int) *Required
      *          animateur (String) *Required
      *          poste (String) *Required
      *          date (Date) *Required
@@ -93,7 +93,7 @@ class FormainternesController extends AppController
          /* create coutformaexternes entity */
         if (1==1){
             $formainternes->tycomp=$data->tycomp;  
-            $formainternes->themeforma=$data->themeforma;  
+            $formainternes->themeformation_id=$data->themeformation_id;  
             $formainternes->animateur=$data->animateur;  
             $formainternes->poste=$data->poste;  
             $formainternes->date=$data->date;  
