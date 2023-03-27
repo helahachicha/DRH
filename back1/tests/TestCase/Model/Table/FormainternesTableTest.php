@@ -25,6 +25,7 @@ class FormainternesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Formainternes',
+        'app.Themeformations',
     ];
 
     /**
@@ -58,6 +59,17 @@ class FormainternesTableTest extends TestCase
      * @uses \App\Model\Table\FormainternesTable::validationDefault()
      */
     public function testValidationDefault(): void
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     * @uses \App\Model\Table\FormainternesTable::buildRules()
+     */
+    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

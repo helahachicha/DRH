@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $typecomp
- * @property string $themforma
+ * @property int $themeformation_id
  * @property string $participant
  * @property int $nbparticipant
  * @property string $raisonforma
@@ -27,6 +27,8 @@ use Cake\ORM\Entity;
  * @property string $lieuforma
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\Themeformation $themeformation
  */
 class Formaexterne extends Entity
 {
@@ -41,7 +43,7 @@ class Formaexterne extends Entity
      */
     protected $_accessible = [
         'typecomp' => true,
-        'themforma' => true,
+        'themeformation_id' => true,
         'participant' => true,
         'nbparticipant' => true,
         'raisonforma' => true,
@@ -58,5 +60,6 @@ class Formaexterne extends Entity
         'lieuforma' => true,
         'created' => true,
         'modified' => true,
+        'themeformation' => true,
     ];
 }

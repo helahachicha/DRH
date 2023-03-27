@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Formaexternes Model
  *
+ * @property \App\Model\Table\ThemeformationsTable&\Cake\ORM\Association\BelongsTo $Themeformations
+ *
  * @method \App\Model\Entity\Formaexterne newEmptyEntity()
  * @method \App\Model\Entity\Formaexterne newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Formaexterne[] newEntities(array $data, array $options = [])
@@ -44,6 +46,11 @@ class FormaexternesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Themeformations', [
+            'foreignKey' => 'themeformation_id',
+            'joinType' => 'INNER',
+        ]);
     }
 
     /**
@@ -61,10 +68,8 @@ class FormaexternesTable extends Table
             ->notEmptyString('typecomp');
 
         $validator
-            ->scalar('themforma')
-            ->maxLength('themforma', 255)
-            ->requirePresence('themforma', 'create')
-            ->notEmptyString('themforma');
+            ->integer('themeformation_id')
+            ->notEmptyString('themeformation_id');
 
         $validator
             ->scalar('participant')
@@ -147,5 +152,19 @@ class FormaexternesTable extends Table
             ->notEmptyString('lieuforma');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->existsIn('themeformation_id', 'Themeformations'), ['errorField' => 'themeformation_id']);
+
+        return $rules;
     }
 }

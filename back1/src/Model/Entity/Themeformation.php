@@ -6,22 +6,14 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Formainterne Entity
+ * Themeformation Entity
  *
  * @property int $id
- * @property string $tycomp
- * @property int $themeformation_id
- * @property string $animateur
- * @property string $poste
- * @property \Cake\I18n\FrozenDate $date
- * @property \Cake\I18n\Time $hentrer
- * @property \Cake\I18n\Time $hsortie
+ * @property string $nom
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
- *
- * @property \App\Model\Entity\Themeformation $themeformation
  */
-class Formainterne extends Entity
+class Themeformation extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -33,15 +25,8 @@ class Formainterne extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'tycomp' => true,
-        'themeformation_id' => true,
-        'animateur' => true,
-        'poste' => true,
-        'date' => true,
-        'hentrer' => true,
-        'hsortie' => true,
+        'nom' => true,
         'created' => true,
         'modified' => true,
-        'themeformation' => true,
     ];
 }
