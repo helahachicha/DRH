@@ -28,20 +28,14 @@
 
                                         </div>
                                     </div>
-                                    <!-- <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="form_label">Thème de formation</label>
-                                            <input type="text" class="form-control" placeholder="Thème"
-                                                required="required" formControlName="themforma">
-                                        </div>
-                                    </div>-->
+                                    
 
 
                                     <div class="col-md-6">
                                         <label for="staticZone">Thème de formation</label>
                                         <select class="form-control" id="exampleFormControlSelect2"
                                             placeholder="Veuillez choisir votre Thème de formation"
-                                            formControlName="themforma_id">
+                                            formControlName="themeformation_id">
                                             <option selected disabled value="">Affecter Thème de formation</option>
 
                                             <option *ngFor="let obj of Themeformations" [ngValue]="obj.id">

@@ -15,7 +15,7 @@ export class EditformaComponent implements OnInit {
 
   public externeForm = new FormGroup({
     typecomp: new FormControl('', [Validators.required]),
-    themforma_id: new FormControl('', [Validators.required]),
+    themeformation_id: new FormControl('', [Validators.required]),
     participant: new FormControl('', [Validators.required]),
     nbparticipant: new FormControl('', [Validators.required]),
     raisonforma: new FormControl('', [Validators.required]),

@@ -13,7 +13,7 @@ export class FormalistingComponent implements OnInit {
   
   public externeForm = new FormGroup({
     typecomp: new FormControl('', [Validators.required]),
-    themforma: new FormControl('', [Validators.required]),
+    themeformation_id: new FormControl('', [Validators.required]),
     participant: new FormControl('', [Validators.required]),
     nbparticipant: new FormControl('', [Validators.required]),
     raisonforma: new FormControl('', [Validators.required]),
@@ -45,8 +45,6 @@ export class FormalistingComponent implements OnInit {
   getallforma() {
     this.dataService.get('formaexternes/getAllFormaexterne.json').subscribe(res => {
       this.formaexternes = res.data;
-      
-
     })
   }
 
