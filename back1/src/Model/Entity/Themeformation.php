@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * Themeformation Entity
  *
  * @property int $id
- * @property string $nom
+ * @property string $label
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  */
@@ -25,7 +25,7 @@ class Themeformation extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'nom' => true,
+        'label' => true,
         'created' => true,
         'modified' => true,
     ];

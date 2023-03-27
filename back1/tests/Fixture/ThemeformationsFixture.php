@@ -20,9 +20,9 @@ class ThemeformationsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'nom' => 'Lorem ipsum dolor sit amet',
-                'created' => '2023-03-27 08:37:14',
-                'modified' => '2023-03-27 08:37:14',
+                'label' => 'Lorem ipsum dolor sit amet',
+                'created' => '2023-03-27 10:18:07',
+                'modified' => '2023-03-27 10:18:07',
             ],
         ];
         parent::init();
