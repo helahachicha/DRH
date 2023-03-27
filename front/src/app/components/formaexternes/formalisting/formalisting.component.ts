@@ -43,7 +43,7 @@ export class FormalistingComponent implements OnInit {
 
 
   getallforma() {
-    this.dataService.get('formaexternes/getAllFormaexterne.json').subscribe(res => {
+    this.dataService.get('Formaexternes/getAllFormaexterne.json').subscribe(res => {
       this.formaexternes = res.data;
     })
   }
