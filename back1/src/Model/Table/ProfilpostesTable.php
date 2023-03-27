@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Profilpostes Model
  *
+ * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\HasMany $Categories
+ *
  * @method \App\Model\Entity\Profilposte newEmptyEntity()
  * @method \App\Model\Entity\Profilposte newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Profilposte[] newEntities(array $data, array $options = [])
@@ -45,10 +47,14 @@ class ProfilpostesTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Postes', [
+            'foreignKey' => 'poste_id',
+            'joinType' => 'INNER',
+        ]);
         $this->hasMany('Categories', [
             'foreignKey' => 'profilposte_id',
         ]);
-        $this->hasMany('Detailprofilpostes', [
+        $this->hasMany('Comptechniques', [
             'foreignKey' => 'profilposte_id',
         ]);
     }
@@ -68,11 +74,23 @@ class ProfilpostesTable extends Table
             ->notEmptyString('nom');
 
         $validator
-            ->scalar('categorie')
-            ->maxLength('categorie', 255)
-            ->requirePresence('categorie', 'create')
-            ->notEmptyString('categorie');
+            ->integer('poste_id')
+            ->notEmptyString('poste_id');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->existsIn('poste_id', 'Postes'), ['errorField' => 'poste_id']);
+
+        return $rules;
     }
 }

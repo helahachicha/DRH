@@ -40,21 +40,16 @@ class DetailprofilpostesController extends AppController
          /* create detailprofilpostes entity */
         if (1==1){
             $detailprofilpostes->fonction=$data->fonction;  
-            $detailprofilpostes->categorie=$data->categorie;  
+            $detailprofilpostes->categorie_id=$data->categorie_id;  
             $detailprofilpostes->superhierar=$data->superhierar;  
             $detailprofilpostes->supervision=$data->supervision;  
-            $detailprofilpostes->interim=$data->interim;  
-            $detailprofilpostes->competence=$data->competence;  
-            $detailprofilpostes->souscompetence=$data->souscompetence;  
-            $detailprofilpostes->niveauvise=$data->niveauvise;  
-            $detailprofilpostes->indicateursuivi=$data->indicateursuivi; 
+            $detailprofilpostes->interim=$data->interim;   
             $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
             $detailprofilpostes->fonctionverification=$data->fonctionverification;  
             $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
             $detailprofilpostes->nomprenomelab=$data->nomprenomelab;  
             $detailprofilpostes->nomprenomverif=$data->nomprenomverif;  
             $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob; 
-            $detailprofilpostes->profilposte_id=$savedProfil->id;  
 
             $this->Detailprofilpostes->save($detailprofilpostes); 
         }

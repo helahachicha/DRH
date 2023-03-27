@@ -10,9 +10,12 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $nom
- * @property string $categorie
+ * @property int $poste_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\Category[] $categories
+ * @property \App\Model\Entity\Detailprofilposte[] $detailprofilpostes
  */
 class Profilposte extends Entity
 {
@@ -27,8 +30,10 @@ class Profilposte extends Entity
      */
     protected $_accessible = [
         'nom' => true,
-        'categorie' => true,
+        'poste_id' => true,
         'created' => true,
         'modified' => true,
+        'categories' => true,
+        'detailprofilpostes' => true,
     ];
 }

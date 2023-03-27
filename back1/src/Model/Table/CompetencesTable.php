@@ -11,8 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Competences Model
  *
- * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
- * @property \App\Model\Table\IndicateursuivisTable&\Cake\ORM\Association\HasMany $Indicateursuivis
+ * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
  * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\HasMany $Souscompetences
  *
  * @method \App\Model\Entity\Competence newEmptyEntity()
@@ -49,12 +48,9 @@ class CompetencesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Detailprofilpostes', [
-            'foreignKey' => 'detailprofilposte_id',
+        $this->belongsTo('Categories', [
+            'foreignKey' => 'categorie_id',
             'joinType' => 'INNER',
-        ]);
-        $this->hasMany('Indicateursuivis', [
-            'foreignKey' => 'competence_id',
         ]);
         $this->hasMany('Souscompetences', [
             'foreignKey' => 'competence_id',
@@ -76,8 +72,8 @@ class CompetencesTable extends Table
             ->notEmptyString('label');
 
         $validator
-            ->integer('detailprofilposte_id')
-            ->notEmptyString('detailprofilposte_id');
+            ->integer('categorie_id')
+            ->notEmptyString('categorie_id');
 
         return $validator;
     }
@@ -91,7 +87,7 @@ class CompetencesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('detailprofilposte_id', 'Detailprofilpostes'), ['errorField' => 'detailprofilposte_id']);
+        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
 
         return $rules;
     }

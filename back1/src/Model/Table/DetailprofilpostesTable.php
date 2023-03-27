@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Detailprofilpostes Model
  *
- * @property \App\Model\Table\ProfilpostesTable&\Cake\ORM\Association\BelongsTo $Profilpostes
+ * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
  *
  * @method \App\Model\Entity\Detailprofilposte newEmptyEntity()
  * @method \App\Model\Entity\Detailprofilposte newEntity(array $data, array $options = [])
@@ -47,8 +47,8 @@ class DetailprofilpostesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Profilpostes', [
-            'foreignKey' => 'profilposte_id',
+        $this->belongsTo('Categories', [
+            'foreignKey' => 'categorie_id',
             'joinType' => 'INNER',
         ]);
     }
@@ -68,6 +68,10 @@ class DetailprofilpostesTable extends Table
             ->notEmptyString('fonction');
 
         $validator
+            ->integer('categorie_id')
+            ->notEmptyString('categorie_id');
+
+        $validator
             ->scalar('superhierar')
             ->maxLength('superhierar', 255)
             ->requirePresence('superhierar', 'create')
@@ -84,29 +88,6 @@ class DetailprofilpostesTable extends Table
             ->maxLength('interim', 255)
             ->requirePresence('interim', 'create')
             ->notEmptyString('interim');
-
-        $validator
-            ->scalar('competence')
-            ->maxLength('competence', 255)
-            ->requirePresence('competence', 'create')
-            ->notEmptyString('competence');
-
-        $validator
-            ->scalar('souscompetence')
-            ->maxLength('souscompetence', 255)
-            ->requirePresence('souscompetence', 'create')
-            ->notEmptyString('souscompetence');
-
-        $validator
-            ->scalar('niveauvise')
-            ->maxLength('niveauvise', 255)
-            ->requirePresence('niveauvise', 'create')
-            ->notEmptyString('niveauvise');
-
-        $validator
-            ->scalar('indicateursuivi')
-            ->requirePresence('indicateursuivi', 'create')
-            ->notEmptyString('indicateursuivi');
 
         $validator
             ->scalar('fonctionelaboration')
@@ -144,10 +125,6 @@ class DetailprofilpostesTable extends Table
             ->requirePresence('nomprenomabrob', 'create')
             ->notEmptyString('nomprenomabrob');
 
-        $validator
-            ->integer('profilposte_id')
-            ->notEmptyString('profilposte_id');
-
         return $validator;
     }
 
@@ -160,7 +137,7 @@ class DetailprofilpostesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('profilposte_id', 'Profilpostes'), ['errorField' => 'profilposte_id']);
+        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
 
         return $rules;
     }
