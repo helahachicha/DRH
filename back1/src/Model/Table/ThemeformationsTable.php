@@ -11,6 +11,9 @@ use Cake\Validation\Validator;
 /**
  * Themeformations Model
  *
+ * @property \App\Model\Table\FormaexternesTable&\Cake\ORM\Association\HasMany $Formaexternes
+ * @property \App\Model\Table\FormainternesTable&\Cake\ORM\Association\HasMany $Formainternes
+ *
  * @method \App\Model\Entity\Themeformation newEmptyEntity()
  * @method \App\Model\Entity\Themeformation newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Themeformation[] newEntities(array $data, array $options = [])

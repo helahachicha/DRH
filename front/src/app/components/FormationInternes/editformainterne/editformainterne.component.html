@@ -23,19 +23,25 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="form-label">Type de compétence</label>
-                                            <input type="text" class="form-control" placeholder="Type"
+                                            <input  [(ngModel)]="formainternes.tycomp" type="text" class="form-control" placeholder="Type"
                                                 required="required" formControlName="tycomp"
-                                                [(ngModel)]="formainternes.tycomp">
+                                               >
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="form_label">Thème de formation</label>
-                                            <input type="text" class="form-control" placeholder="Thème"
-                                                required="required" formControlName="themeforma"
-                                                [(ngModel)]="formainternes.themeforma">
-                                        </div>
+                                          
+                                        <label for="form_label">Thème de formation</label>
+                                        <select  [(ngModel)]="formainternes.themeformation_id" class="form-control" id="exampleFormControlSelect2" placeholder="Veuillez choisir votre Thème de formation" formControlName="themeformation_id">
+                                            
+                                            <option selected disabled value="">Thème de formation</option>
+                                 
+                                             <option *ngFor="let obj of Themeformations" [ngValue]="obj.id">
+                                 
+                                               {{obj.label}} 
+                                             </option>
+                                           </select>
+
                                     </div>
                                 </div>
                                 <div class="row">

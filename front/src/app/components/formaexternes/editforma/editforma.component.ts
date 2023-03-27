@@ -11,10 +11,11 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class EditformaComponent implements OnInit {
   public formaexternes;
   id: any;
+  public  Themeformations;
 
   public externeForm = new FormGroup({
     typecomp: new FormControl('', [Validators.required]),
-    themforma: new FormControl('', [Validators.required]),
+    themeformation_id: new FormControl('', [Validators.required]),
     participant: new FormControl('', [Validators.required]),
     nbparticipant: new FormControl('', [Validators.required]),
     raisonforma: new FormControl('', [Validators.required]),
@@ -30,15 +31,6 @@ export class EditformaComponent implements OnInit {
     pause: new FormControl('', [Validators.required]),
     lieuforma: new FormControl('', [Validators.required]),
   });
-
-
-
-
-
-
-
-
-
   constructor(
     private dataService: DataService,
     private router: Router,
@@ -48,26 +40,32 @@ export class EditformaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getformaById();
-
+    this.getallthemeforma();
   }
-
   getformaById() {
     this.id = this.route.snapshot.params['id'];
     this.dataService.get('formaexternes/getFormaexterne.json?id=' + this.id).subscribe(
       res => {
         this.formaexternes = res.data;
-        console.log("hello", this.formaexternes.date)
-
-
+        //console.log("hello", this.formaexternes.date)
       })
   }
 
   editforma() {
-
     this.dataService.post('formaexternes/editFormaexterne.json?id=' + this.id, this.externeForm.value).subscribe(res => {
-      console.log("hello", this.externeForm.value)
+    //  console.log("hello", this.externeForm.value)
       this.router.navigate(['/listingforma'])
     })
   }
+  getallthemeforma() {
+    this.dataService.get('Themeformations/getAllThemeformation.json').subscribe(res => {
+      this.Themeformations = res.data;
+
+            console.log("hello", this.Themeformations)
+
+
+    })
+  }
+
 
 }

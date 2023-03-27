@@ -25,6 +25,8 @@ class ThemeformationsTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Themeformations',
+        'app.Formaexternes',
+        'app.Formainternes',
     ];
 
     /**

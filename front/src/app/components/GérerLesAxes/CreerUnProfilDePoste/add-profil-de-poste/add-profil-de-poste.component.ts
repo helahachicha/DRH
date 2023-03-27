@@ -10,7 +10,7 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class AddProfilDePosteComponent implements OnInit {
 
-  
+  public  Categories
 
   public profilposteForm= new FormGroup({
     nom: new FormControl('', [Validators.required]),
@@ -37,6 +37,7 @@ export class AddProfilDePosteComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+   this.getAllCategorie();
   }
 
 
@@ -48,6 +49,15 @@ export class AddProfilDePosteComponent implements OnInit {
       this.router.navigate(['/listingprofilposte'])
        })
   }
+  getAllCategorie() {
+    this.dataService.get('Categories/getAllCategorie.json').subscribe(res => {
+      this.Categories = res.data;
 
+      console.log("hello", this.Categories)
+
+
+    }
+    )
+  }
 
 }

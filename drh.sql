@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 27 mars 2023 à 12:53
+-- Généré le : lun. 27 mars 2023 à 14:13
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -20,6 +20,44 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `drh`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `profilposte_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`) VALUES
+(1, 'Développeur junior', 1, '2023-03-27 12:59:46', '2023-03-27 12:59:46'),
+(2, 'Développeur confirmé', 1, '2023-03-27 12:59:46', '2023-03-27 12:59:46'),
+(3, 'Développeur senior', 1, '2023-03-27 13:01:08', '2023-03-27 13:01:08'),
+(4, 'Développeur tecklead', 1, '2023-03-27 13:01:08', '2023-03-27 13:01:08');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `comptechniques`
+--
+
+CREATE TABLE `comptechniques` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `profilposte_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -172,12 +210,51 @@ INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `indicateursuivis`
+--
+
+CREATE TABLE `indicateursuivis` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `souscompetence_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `niveauvises`
+--
+
+CREATE TABLE `niveauvises` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `categorie_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `niveauvises`
+--
+
+INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
+(1, 'Pré-actif ', 1, '2023-03-27 13:36:38', '2023-03-27 13:36:38'),
+(2, 'Actif', 2, '2023-03-27 13:37:01', '2023-03-27 13:37:01'),
+(3, 'Pro-actif', 3, '2023-03-27 13:37:01', '2023-03-27 13:37:01'),
+(4, 'Expert', 4, '2023-03-27 13:37:16', '2023-03-27 13:37:16');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `postes`
 --
 
 CREATE TABLE `postes` (
   `id` int(11) NOT NULL,
   `label` varchar(255) NOT NULL,
+  `departement_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -186,10 +263,10 @@ CREATE TABLE `postes` (
 -- Déchargement des données de la table `postes`
 --
 
-INSERT INTO `postes` (`id`, `label`, `created`, `modified`) VALUES
-(1, 'Développement', '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
-(2, 'Responsable marketing ', '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
-(3, 'Responsable ressource humaine ', '2023-03-27 12:31:16', '2023-03-27 12:31:16');
+INSERT INTO `postes` (`id`, `label`, `departement_id`, `created`, `modified`) VALUES
+(1, 'Développement', 1, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
+(2, 'Responsable marketing ', 0, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
+(3, 'Responsable ressource humaine ', 0, '2023-03-27 12:31:16', '2023-03-27 12:31:16');
 
 -- --------------------------------------------------------
 
@@ -210,7 +287,7 @@ CREATE TABLE `profilpostes` (
 --
 
 INSERT INTO `profilpostes` (`id`, `nom`, `poste_id`, `created`, `modified`) VALUES
-(1, 'Profil de poste développeur ', 0, '2023-03-27 12:32:33', '2023-03-27 12:32:33'),
+(1, 'Profil de poste développeur ', 1, '2023-03-27 12:32:33', '2023-03-27 12:32:33'),
 (2, 'Profil de poste responsable marketing ', 0, '2023-03-27 12:32:33', '2023-03-27 12:32:33');
 
 -- --------------------------------------------------------
@@ -233,6 +310,36 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
 (1, 'Drh', '2023-03-10 14:01:56', '2023-03-10 14:01:56'),
 (2, 'Admin', '2023-03-10 14:01:56', '2023-03-10 14:01:56');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `souscompetences`
+--
+
+CREATE TABLE `souscompetences` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `competence_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `testtechniques`
+--
+
+CREATE TABLE `testtechniques` (
+  `id` int(11) NOT NULL,
+  `duree` varchar(255) NOT NULL,
+  `departement_id` int(11) NOT NULL,
+  `poste_id` int(11) NOT NULL,
+  `comptechnique_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -285,6 +392,18 @@ INSERT INTO `users` (`id`, `email`, `password`, `token`, `role_id`, `created`, `
 --
 
 --
+-- Index pour la table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `comptechniques`
+--
+ALTER TABLE `comptechniques`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `coutformaexternes`
 --
 ALTER TABLE `coutformaexternes`
@@ -315,6 +434,18 @@ ALTER TABLE `formainternes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `indicateursuivis`
+--
+ALTER TABLE `indicateursuivis`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `niveauvises`
+--
+ALTER TABLE `niveauvises`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `postes`
 --
 ALTER TABLE `postes`
@@ -333,6 +464,18 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `souscompetences`
+--
+ALTER TABLE `souscompetences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `testtechniques`
+--
+ALTER TABLE `testtechniques`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `themeformations`
 --
 ALTER TABLE `themeformations`
@@ -347,6 +490,18 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `comptechniques`
+--
+ALTER TABLE `comptechniques`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `coutformaexternes`
@@ -379,6 +534,18 @@ ALTER TABLE `formainternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT pour la table `indicateursuivis`
+--
+ALTER TABLE `indicateursuivis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `niveauvises`
+--
+ALTER TABLE `niveauvises`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT pour la table `postes`
 --
 ALTER TABLE `postes`
@@ -395,6 +562,18 @@ ALTER TABLE `profilpostes`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `souscompetences`
+--
+ALTER TABLE `souscompetences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `testtechniques`
+--
+ALTER TABLE `testtechniques`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `themeformations`

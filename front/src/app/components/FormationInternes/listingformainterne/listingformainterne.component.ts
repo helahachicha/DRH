@@ -13,7 +13,7 @@ export class ListingformainterneComponent implements OnInit {
 
   public interneForm= new FormGroup({
     tycomp: new FormControl('', [Validators.required]),
-    themeforma: new FormControl('', [Validators.required]),
+    themeformation_id: new FormControl('', [Validators.required]),
     animateur: new FormControl('', [Validators.required]),
     poste: new FormControl('', [Validators.required]),
     date: new FormControl('', [Validators.required]),

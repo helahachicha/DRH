@@ -7,29 +7,31 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./listingthemeforma.component.scss']
 })
 export class ListingthemeformaComponent implements OnInit {
+  Themeformations:any;
+
 
   constructor(
     private dataService:DataService,
   ) { }
 
   ngOnInit(): void {
+    this.getallthemeforma()
   }
 
-  //getallthemeforma() {
-   // this.dataService.get('Profilpostes/getAllProfilposte.json').subscribe(res => {
-   //   this.Profilpostes = res.data;
-  //    this.open=true
-    //  console.log("hello",this.Profilpostes)
+  getallthemeforma() {
+   this.dataService.get('Themeformations/getAllThemeformation.json').subscribe(res => {
+      this.Themeformations = res.data;
+      console.log("hello",this.Themeformations)
 
 
-   // })
- // }
+    })
+  }
 
-  //deletethemeforma(id){
-   // this.dataService.delete('Profilpostes/deleteProfilposte.json?id='+id).subscribe(res => {
-   //   this.getallprofile()
-   // })
- // }
+  deletethemeforma(id){
+   this.dataService.delete('Themeformations/deleteThemeformation.json?id='+id).subscribe(res => {
+      this.getallthemeforma()
+   })
+ }
 
 
 

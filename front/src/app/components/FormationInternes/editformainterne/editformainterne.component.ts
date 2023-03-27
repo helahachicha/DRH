@@ -11,10 +11,11 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class EditformainterneComponent implements OnInit {
 public formainternes
   id: any;
+public Themeformations
 
   public interneForm= new FormGroup({
     tycomp: new FormControl('', [Validators.required]),
-    themeforma: new FormControl('', [Validators.required]),
+    themeformation_id: new FormControl('', [Validators.required]),
     animateur: new FormControl('', [Validators.required]),
     poste: new FormControl('', [Validators.required]),
     date: new FormControl('', [Validators.required]),
@@ -31,6 +32,7 @@ public formainternes
 
   ngOnInit(): void {
     this.getformainterneById();
+    this.getallthemeforma()
   }
 
 
@@ -39,17 +41,22 @@ public formainternes
     this.dataService.get('formainternes/getFormainterne.json?id='+this.id).subscribe(
       res => {
       this.formainternes=res.data;
-      console.log("hello",this.formainternes)
-
-      
     })
   }
 
   editformainterne(){
-      
     this.dataService.post('formainternes/editFormainterne.json?id='+this.id,this.interneForm.value).subscribe(res=> {
-    //  console.log("hello",this.interneForm.value)
     this.router.navigate(['/formainternelisting'])
     })
+  
   }
+  getallthemeforma() {
+    this.dataService.get('Themeformations/getAllThemeformation.json').subscribe(res => {
+      this.Themeformations = res.data
+
+    })
+  }
+
+
+  
 }

@@ -1,7 +1,10 @@
-<!--<div class="container ">
+<div class="container ">
 
     <div class="shadow-lg p-3 mb-5 bg-body rounded mt-5">
-        <h3 class="text-start mt-5">Les listes des profils de poste</h3>
+        
+        <h3 class="text-center mt-5">Les listes des profils de poste</h3>
+
+        <button class="btn btn-primary "  routerLink="/addtheme" >Ajouter</button>
         <div class=" table-responsive ">
             <table class="table table-bordered " >
                 <thead>
@@ -12,13 +15,13 @@
 
                     </tr>
                 </thead>
-                <tbody  >
+                <tbody  *ngFor=" let theme of Themeformations" >
                     <tr>
                         <td>
-                           
+                            {{theme.label}}
                         </td>
                         <td>
-                            <button class="btn btn-danger "  (click)="deletethemeforma(p.id)">Supprimer</button>
+                            <button class="btn btn-danger "  (click)="deletethemeforma(theme .id)">Supprimer</button>
                         </td>
 
                     </tr>
@@ -28,4 +31,4 @@
             </table>
         </div>
 
-    </div>-->
+    </div>

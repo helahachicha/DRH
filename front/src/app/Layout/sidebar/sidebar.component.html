@@ -34,9 +34,9 @@
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                         aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Profil de poste Dev </span></a>
                     <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item" *ngFor="let obj of detailProifile" >
+                        <li class="sidebar-item" *ngFor="let obj of Categories" >
                             <a  class="sidebar-link"><i
-                                    class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu" routerLink="Detail-profile/{{obj.id}}" > {{obj.categorie}} </span></a>
+                                    class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu" routerLink="Detail-profile/{{obj.id}}" > {{obj.label}} </span></a>
                         </li>
                  
                         
@@ -100,7 +100,7 @@
                                     <a routerLink="/listingprofilposte" class="sidebar-link"><i
                                             class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Liste
                                             des profils
-                                            des poste</span></a>
+                                            de poste</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -111,7 +111,7 @@
 
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
-                                    <a href="error-405.html" class="sidebar-link"><i
+                                    <a routerLink="/listingtheme" class="sidebar-link"><i
                                             class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Thémes
                                             des
                                             formations </span></a>

@@ -1,4 +1,4 @@
-<!--<div class="container">
+<div class="container">
 
 
 
@@ -8,7 +8,7 @@
                 <div class="card-body bg-light">
 
                     <div class="container">
-                        <form id="contact-form" role="form" [formGroup]="profilposteForm">
+                        <form id="contact-form" role="form" [formGroup]="themeForm">
                             <div class="controls">
                                 <h3 class="text-center mb-5">Créer un profil de poste</h3>
                                 <div class="row">
@@ -17,11 +17,14 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label for="form_name">Nom théme formation</label>
-                                                    <input type="text" formControlName="nom" class="form-control"
-                                                        placeholder="SQL" required="required">
+                                                    <input type="text" formControlName="label" class="form-control"
+                                                        placeholder="Theme formation" required="required">
                                                 </div>
                                             </div>
+                                           
                                         </div>
+                                        <button class="btn btn-primary m-5" type="submit" (click)="addthemeforma()">Ajouter</button>
+
                                     </div>
                                 </div>
                             </div>
@@ -31,4 +34,4 @@
             </div>
         </div>
     </div>
-</div>-->
+</div>

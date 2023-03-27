@@ -1,22 +1,21 @@
 <div class="container ">
 
     <div class="shadow-lg p-3 mb-5 bg-body rounded mt-5">
+
+       
         <h3 class="text-start mt-5">Les listes des profils de poste</h3>
+       
         <div class=" table-responsive ">
+           
             <table class="table table-bordered " >
                 <thead>
                     <tr class="text-bold">
-
                         <th>Nom profil de poste </th>
-
-
                     </tr>
                 </thead>
-                <tbody *ngFor=" let p of Profilpostes" >
-                    <tr>
-                        <td>
-                            {{p.nom}}
-                        </td>
+                <tbody *ngFor="let p of Profilpostes">
+                    <tr >
+                        <td>{{p.nom}}</td>
                         <td>
                             <button class="btn btn-danger "  (click)="deleteprofilposte(p.id)">Supprimer</button>
                         </td>

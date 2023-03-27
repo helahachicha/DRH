@@ -122,7 +122,11 @@ class FormainternesController extends AppController
     {
 
         /* search */
-        $formainternes = $this->Formainternes->find('all');
+        $formainternes = $this->Formainternes->find('all',[
+            'contain' => [
+                'Themeformations'
+            ]
+        ]);
  
         /*send result */
         $this->set([

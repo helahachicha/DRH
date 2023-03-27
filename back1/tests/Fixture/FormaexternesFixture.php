@@ -32,12 +32,12 @@ class FormaexternesFixture extends TestFixture
                 'dureeforma' => 'Lorem ipsum dolor sit amet',
                 'nbjour' => 1,
                 'nbhjour' => 1,
-                'date' => '2023-03-27 08:58:21',
+                'date' => '2023-03-27 12:17:09',
                 'horaireforma' => 'Lorem ipsum dolor sit amet',
                 'pause' => 'Lorem ipsum dolor sit amet',
                 'lieuforma' => 'Lorem ipsum dolor sit amet',
-                'created' => '2023-03-27 08:58:21',
-                'modified' => '2023-03-27 08:58:21',
+                'created' => '2023-03-27 12:17:09',
+                'modified' => '2023-03-27 12:17:09',
             ],
         ];
         parent::init();

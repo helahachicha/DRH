@@ -8,29 +8,20 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-
-
-  public profilposte 
-  public detailProifile
+ 
+  public Categories
   public open:boolean=false
-
-
-
   constructor(
     private dataService:DataService,
   ) {}
-
   ngOnInit(): void {
-    this.getAllDetailprofilposte()
+    this.getAllcategorie()
     
   }
-
-  // http://localhost:8765/api/Detailprofilpostes/getAllDetailprofilposte.json
-  getAllDetailprofilposte(){
-    this.dataService.get('Detailprofilpostes/getAllDetailprofilposte.json').subscribe(res=>{
-       this.detailProifile=res.data
+  getAllcategorie(){
+    this.dataService.get('Categories/getAllCategorie.json').subscribe(res=>{
+       this.Categories=res.data
        this.open=true
-       console.log( this.detailProifile)
     })
   }
  
