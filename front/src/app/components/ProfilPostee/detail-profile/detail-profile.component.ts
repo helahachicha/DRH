@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/service/data.service';
 
 @Component({
-  selector: 'app-listingprofilposte',
-  templateUrl: './listingprofilposte.component.html',
-  styleUrls: ['./listingprofilposte.component.scss']
+  selector: 'app-detail-profile',
+  templateUrl: './detail-profile.component.html',
+  styleUrls: ['./detail-profile.component.scss']
 })
-export class ListingprofilposteComponent implements OnInit {
+export class DetailProfileComponent implements OnInit {
 
-  Profilpostes:any;
-  public open:boolean=false
-
-
+  id:any;
+  Detailprofilpostes:any={};
+  
+  
   public profilposteForm= new FormGroup({
     nom: new FormControl('', [Validators.required]),
     categorie: new FormControl('', [Validators.required]),
@@ -35,29 +36,26 @@ export class ListingprofilposteComponent implements OnInit {
     
   });
 
-  constructor(   
-     private dataService:DataService,
-    ) { }
+
+  constructor(
+    private dataService:DataService,
+    private router :Router,
+    private route:ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.getallprofile();
+    this.getprofilById();
   }
 
-  getallprofile() {
-    this.dataService.get('Profilpostes/getAllProfilposte.json').subscribe(res => {
-      this.Profilpostes = res.data;
-      this.open=true
-      console.log("hello",this.Profilpostes)
 
+  getprofilById() {
+    this.id=this.route.snapshot.params['id'];
+    this.dataService.get('Detailprofilpostes/getDetailprofilposte.json?id='+this.id).subscribe(
+      res => {
+      this.Detailprofilpostes=res.data;
+      console.log("hello",this.Detailprofilpostes)
 
     })
   }
-
-  deleteprofilposte(id){
-    this.dataService.delete('Profilpostes/deleteProfilposte.json?id='+id).subscribe(res => {
-      this.getallprofile()
-    })
-  }
-
 
 }

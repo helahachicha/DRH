@@ -1,0 +1,298 @@
+<div class="border border-primary row mt-1 ">
+
+    <div class="col-7 text-end mt-2">
+        <h1> Profil de Poste</h1>
+    </div>
+    <div class="col text-end mt-2 ">
+        <p>
+            Code:PR07F01<br>
+            Version:00
+        </p>
+    </div>
+</div>
+
+
+
+
+
+<body>
+
+    <div class="container">
+        <form id="contact-form" role="form" [formGroup]="profilposteForm">
+            <div class="row">
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+                    <label type="label">MAJ N°: </label>
+                    <input type="text" class="form-control" required="required" formControlName="majndc"
+                        [(ngModel)]="Detailprofilpostes.majndc">
+                </div>
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+                    <label type="label">Du:</label>
+                    <input type="text" class="form-control" required="required" formControlName="dudc"
+                        [(ngModel)]="Detailprofilpostes.dudc">
+                </div>
+            </div>
+            <div class="form-group mx-sm-2 mb-2 mt-2">
+                <label class="m-2" type="label"> Fonction: </label>
+                <input type="text" class="form-control" required="required" formControlName="fonction"
+                    [(ngModel)]="Detailprofilpostes.fonction">
+            </div>
+            <div class="form-group mx-sm-2 mb-2 mt-2"> 
+                <label class="m-2" type="label"> Catégorie: </label>
+                <input type="text" class="form-control" required="required" formControlName="categorie"
+                    [(ngModel)]="Detailprofilpostes.categorie">
+            </div>
+
+            <div class="form-group mx-sm-2 mb-2 mt-2">
+                <label class="m-2" type="label">Supérieur hiérarchique:</label>
+                <input type="text" class="form-control" required="required" formControlName="superhierar"
+                    [(ngModel)]="Detailprofilpostes.superhierar">
+            </div>
+            <div class="form-group mx-sm-2 mb-2 mt-2">
+                <label class="m-2" type="label">Supervision: </label>
+                <input type="text" class="form-control" required="required" formControlName="supervision"
+                    [(ngModel)]="Detailprofilpostes.supervision">
+            </div>
+
+            <div class="form-group mx-sm-2 mb-2 mt-2">
+                <label class="m-2" type="label">Intérim:</label>
+
+                <input type="text" class="form-control" required="required" formControlName="interim"
+                    [(ngModel)]="Detailprofilpostes.interim">
+            </div>
+
+        </form>
+       
+
+            <div class="shadow p-3 mb-5 bg-body rounded">
+                <div class="text-center">
+                    <h4>Profil du poste</h4>
+
+
+
+                </div>
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+                    <input type="text" class="form-control" required="required" formControlName="competence"
+                        [(ngModel)]="Detailprofilpostes.competence">
+
+                    <input type="text" class="form-control mt-3" required="required" formControlName="niveauvise"
+                        [(ngModel)]="Detailprofilpostes.niveauvise">
+
+                </div>
+                <div class="form-group mx-sm-2 mb-2 mt-3">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="competence"
+                        [(ngModel)]="Detailprofilpostes.competence">
+
+
+
+                    <input type="text" class="form-control mt-3" required="required" formControlName="souscompetence"
+                        [(ngModel)]="Detailprofilpostes.souscompetence">
+
+                </div>
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+                    <label class="m-2" type="label"> Niveau visé : </label>
+
+                    <input type="text" class="form-control" required="required" formControlName="niveauvise"
+                        [(ngModel)]="Detailprofilpostes.niveauvise">
+                </div>
+                <div class="form-group mx-sm-1 mb-2 mt-2">
+                    <label class="m-2" type="label"> Indicateurs de suivi : <br>
+
+                        <input type="text" class="form-control mt-2" required="required"
+                            formControlName="indicateursuivi" [(ngModel)]="Detailprofilpostes.indicateursuivi">
+
+                    </label>
+                </div>
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+
+
+                    <input type="text" class="form-control" required="required" formControlName="competence"
+                        [(ngModel)]="Detailprofilpostes.competence">
+
+
+
+
+                    <input type="text" class="form-control mt-3" required="required" formControlName="souscompetence"
+                        [(ngModel)]="Detailprofilpostes.souscompetence">
+
+                    <input type="text" class="form-control mt-3" required="required" formControlName="souscompetence"
+                        [(ngModel)]="Detailprofilpostes.souscompetence">
+
+
+                </div>
+
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+
+                    <label class="m-2" type="label"> Niveau visé : </label>
+
+                    <input type="text" class="form-control mt3" required="required" formControlName="niveauvise"
+                        [(ngModel)]="Detailprofilpostes.niveauvise">
+
+                </div>
+
+                <div class="form-group mx-sm-2 ">
+                    <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                    </label>
+
+                    <input type="text" class="form-control mt-2" required="required"
+                        formControlName="indicateursuivi" [(ngModel)]="Detailprofilpostes.indicateursuivi">
+
+                </div>
+                <div class="form-group mx-sm-2 mb-2 mt-2">
+
+                    <input type="text" class="form-control" required="required" formControlName="souscompetence"
+                        [(ngModel)]="Detailprofilpostes.souscompetence">
+
+
+                    <label class="m-2" type="label"> Niveau visé : </label>
+
+                    <input type="text" class="form-control" required="required" formControlName="niveauvise"
+                        [(ngModel)]="Detailprofilpostes.niveauvise">
+
+                    <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                    </label>
+
+                    <input type="text" class="form-control mt-2" required="required" formControlName="indicateursuivi"
+                        [(ngModel)]="Detailprofilpostes.indicateursuivi">
+
+                    <input type="text" class="form-control mt-3" required="required" formControlName="souscompetence"
+                        [(ngModel)]="Detailprofilpostes.souscompetence">
+
+
+                    <label class="m-2" type="label"> Niveau visé :</label>
+
+                    <input type="text" class="form-control" required="required" formControlName="niveauvise"
+                        [(ngModel)]="Detailprofilpostes.niveauvise">
+
+                    <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                    </label>
+
+                    <input type="text" class="form-control" required="required" formControlName="indicateursuivi"
+                        [(ngModel)]="Detailprofilpostes.indicateursuivi">
+
+                    <input type="text" class="form-control mt-3" required="required" formControlName="souscompetence"
+                        [(ngModel)]="Detailprofilpostes.souscompetence">
+
+
+
+                    <label class="m-2" type="label"> Niveau visé :</label>
+
+                    <input type="text" class="form-control" required="required" formControlName="niveauvise"
+                        [(ngModel)]="Detailprofilpostes.niveauvise">
+
+                    <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                    </label>
+
+                    <input type="text" class="form-control" required="required" formControlName="indicateursuivi"
+                        [(ngModel)]="Detailprofilpostes.indicateursuivi">
+
+
+
+                    <label class="m-2" type="label"> Niveau visé :</label>
+
+                    <input type="text" class="form-control" required="required" formControlName="niveauvise"
+                        [(ngModel)]="Detailprofilpostes.niveauvise">
+
+                    <label class="m-2" type="label"> Indicateurs de suivi : <br>
+                    </label>
+
+                    <input type="text" class="form-control mt2" required="required" formControlName="indicateursuivi"
+                        [(ngModel)]="Detailprofilpostes.indicateursuivi">
+                </div>
+            </div>
+
+            <div class="shadow p-3 mb-5 bg-body rounded">
+                <div class="form-group mx-sm-2  ">
+
+
+                    <input type="text" class="form-control mt-3" required="required" formControlName="competence"
+                        [(ngModel)]="Detailprofilpostes.competence">
+
+
+
+
+                    <input type="text" class="form-control mt-3 mb-3" required="required" formControlName="niveauvise"
+                        [(ngModel)]="Detailprofilpostes.niveauvise">
+
+
+
+
+                    <input type="text" class="form-control mt3" required="required" formControlName="competence"
+                        [(ngModel)]="Detailprofilpostes.competence">
+
+
+
+
+                    <input type="text" class="form-control mt-3" required="required" formControlName="niveauvise"
+                        [(ngModel)]="Detailprofilpostes.niveauvise">
+
+
+
+
+                    <input type="text" class="form-control mt-3" required="required" formControlName="competence"
+                        [(ngModel)]="Detailprofilpostes.competence">
+
+
+
+
+                    <input type="text" class="form-control mt-3" required="required" formControlName="niveauvise"
+                        [(ngModel)]="Detailprofilpostes.niveauvise">
+
+                </div>
+                <div class=" table-responsive ">
+                    <table class="  table table-bordered ">
+                        <thead>
+                            <tr class="text-bold">
+                                <th scope="col"></th>
+                                <th scope="col">Élaboration</th>
+                                <th scope="col">Vérification</th>
+                                <th scope="col">Approbation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="text-bold">Fonction</td>
+
+                                <td class="text-bold"> <input type="text" class="form-control" required="required"
+                                        formControlName="fonctiondc" [(ngModel)]="Detailprofilpostes.fonctionelaboration"></td>
+
+                                <td class="text-bold"><input type="text" class="form-control" required="required"
+                                        formControlName="fonctiondc1" [(ngModel)]="Detailprofilpostes.fonctionverification"></td>
+
+                                <td class="text-bold"> <input type="text" class="form-control" required="required"
+                                        formControlName="fonctiondc2" [(ngModel)]="Detailprofilpostes.fonctionabrobation"></td>
+                            </tr>
+                            <tr>
+
+                                <td class="text-bold">Nom et Prénom</td>
+
+                                <td class="text-bold"><input type="text" class="form-control" required="required"
+                                        formControlName="nompredc" [(ngModel)]="Detailprofilpostes.nomprenomelab"></td>
+
+                                <td class="text-bold"><input type="text" class="form-control" required="required"
+                                        formControlName="nompredc1" [(ngModel)]="Detailprofilpostes.nomprenomverif"></td>
+
+                                <td class="text-bold"><input type="text" class="form-control" required="required"
+                                        formControlName="nompredc2" [(ngModel)]="Detailprofilpostes.nomprenomabrob"></td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+        
+        <div class="col-md-12">
+
+            <button class="btn btn-primary m-5" type="submit" (click)="editprofilposte()"
+               >Terminer</button>
+
+        </div>
+    </div>
+
+
+</body>
