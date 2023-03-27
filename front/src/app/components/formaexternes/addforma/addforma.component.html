@@ -28,13 +28,34 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <!-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_label">Thème de formation</label>
                                             <input type="text" class="form-control" placeholder="Thème"
                                                 required="required" formControlName="themforma">
                                         </div>
+                                    </div>-->
+
+
+                                    <div class="col-md-6">
+                                        <label for="staticZone">Thème de formation</label>
+                                        <select class="form-control" id="exampleFormControlSelect2"
+                                            placeholder="Veuillez choisir votre Thème de formation"
+                                            formControlName="themforma_id">
+                                            <option selected disabled value="">Affecter Thème de formation</option>
+
+                                            <option *ngFor="let obj of Themeformations" [ngValue]="obj.id">
+
+                                                {{obj.nom}}
+                                            </option>
+                                        </select>
                                     </div>
+
+
+
+
+
+
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -66,7 +87,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Organisme de formation</label>
                                             <input type="text" class="form-control" placeholder="Organisme"
-                                                required="required" formControlName="organismeforma" >
+                                                required="required" formControlName="organismeforma">
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +122,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Durée de formation </label>
                                             <input type="number" class="form-control" placeholder="0"
-                                                required="required" formControlName="dureeforma"> 
+                                                required="required" formControlName="dureeforma">
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +141,7 @@
                                         <div class="form-group">
                                             <label for="form_label">NB/H de jour </label>
                                             <input type="number" class="form-control" placeholder="0"
-                                                required="required" formControlName="nbhjour"> 
+                                                required="required" formControlName="nbhjour">
                                         </div>
                                     </div>
                                 </div>
@@ -129,15 +150,16 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_label">Date</label>
-                                            <input type="date" class="form-control"  required="required" formControlName="date">
+                                            <input type="date" class="form-control" required="required"
+                                                formControlName="date">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_label">Horaire formation </label>
-                                            <input type="time" class="form-control" 
-                                                required="required" formControlName="horaireforma" > 
+                                            <input type="time" class="form-control" required="required"
+                                                formControlName="horaireforma">
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +169,7 @@
                                         <div class="form-group">
                                             <label for="form_label">Pause café</label>
                                             <input type="text" class="form-control" placeholder="Pause café"
-                                                required="required" formControlName="pause" >
+                                                required="required" formControlName="pause">
 
                                         </div>
                                     </div>
@@ -155,16 +177,17 @@
                                         <div class="form-group">
                                             <label for="form_label">Lieu de formation</label>
                                             <input type="text" class="form-control" placeholder="Lieu"
-                                                required="required" formControlName="lieuforma" > 
+                                                required="required" formControlName="lieuforma">
                                         </div>
                                     </div>
                                 </div>
 
-                                
+
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <button class="btn btn-primary m-5" type="submit" (click)="submit()">Ajouter</button>
+                                        <button class="btn btn-primary m-5" type="submit"
+                                            (click)="submit()">Ajouter</button>
 
                                     </div>
                                 </div>
@@ -183,7 +206,3 @@
 
     </div>
 </div>
-
-
-
-

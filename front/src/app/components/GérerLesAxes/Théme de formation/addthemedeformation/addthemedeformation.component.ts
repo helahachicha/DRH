@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/shared/service/data.service';
 
 @Component({
   selector: 'app-addthemedeformation',
@@ -7,20 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddthemedeformationComponent implements OnInit {
 
-  constructor() { }
+
+
+  public themeForm= new FormGroup({
+    nom: new FormControl('', [Validators.required]),
+    
+  });
+  constructor(
+    private dataService:DataService,
+    private router :Router
+  ) { }
 
   ngOnInit(): void {
   }
 
 
 
-  //addprofilposte() {
-    //console.log("hello",this.profilposteForm.value)
+  addthemeforma() {
+    console.log("hello",this.themeForm.value)
 
-   // this.dataService.post('Profilpostes/addProfilposte.json',this.profilposteForm.value).subscribe(res=> {
-   //   this.router.navigate(['/listingprofilposte'])
-   //    })
- // }
+    this.dataService.post('Themeformations/addThemeformation.json',this.themeForm.value).subscribe(res=> {
+    this.router.navigate(['/listingtheme'])
+      })
+ }
 
 
 

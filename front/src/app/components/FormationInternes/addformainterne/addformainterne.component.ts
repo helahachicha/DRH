@@ -10,6 +10,7 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class AddformainterneComponent implements OnInit {
 
+  public  Themeformations
 
   public interneForm= new FormGroup({
     tycomp: new FormControl('', [Validators.required]),
@@ -27,6 +28,7 @@ export class AddformainterneComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getallthemeforma()
   }
 
 
@@ -37,4 +39,16 @@ export class AddformainterneComponent implements OnInit {
      
       })
    }
+
+
+   getallthemeforma() {
+    this.dataService.get('Themeformations/getAllThemeformation.json').subscribe(res => {
+      this.Themeformations = res.data;
+      
+
+    })
+  }
+
+
+
 }

@@ -11,6 +11,7 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class EditformaComponent implements OnInit {
   public formaexternes;
   id: any;
+  public  Themeformations;
 
   public externeForm = new FormGroup({
     typecomp: new FormControl('', [Validators.required]),
@@ -48,6 +49,7 @@ export class EditformaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getformaById();
+    this.getallthemeforma();
 
   }
 
@@ -69,5 +71,17 @@ export class EditformaComponent implements OnInit {
       this.router.navigate(['/listingforma'])
     })
   }
+
+
+
+
+  getallthemeforma() {
+    this.dataService.get('Themeformations/getAllThemeformation.json').subscribe(res => {
+      this.Themeformations = res.data;
+      
+
+    })
+  }
+
 
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 27 mars 2023 à 10:45
+-- Généré le : lun. 27 mars 2023 à 12:03
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -94,7 +94,7 @@ INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie`, `superhierar`, 
 CREATE TABLE `formaexternes` (
   `id` int(11) NOT NULL,
   `typecomp` varchar(255) NOT NULL,
-  `themforma` varchar(255) NOT NULL,
+  `themeformation_id` int(11) NOT NULL,
   `participant` varchar(255) NOT NULL,
   `nbparticipant` int(11) NOT NULL,
   `raisonforma` varchar(255) NOT NULL,
@@ -117,9 +117,9 @@ CREATE TABLE `formaexternes` (
 -- Déchargement des données de la table `formaexternes`
 --
 
-INSERT INTO `formaexternes` (`id`, `typecomp`, `themforma`, `participant`, `nbparticipant`, `raisonforma`, `organismeforma`, `formalite`, `formateur`, `raisonchoix`, `dureeforma`, `nbjour`, `nbhjour`, `date`, `horaireforma`, `pause`, `lieuforma`, `created`, `modified`) VALUES
-(6, 'zdqscwx', 'QVCSD', 'dqSW', 7, 'Dq', 'dQCW', 'dQX<', 'Qdx', 'dqx<', '6', 5, 5, '2023-03-23 00:00:00', '14:55', 'dq', 'dQ<', '2023-03-22 09:55:39', '2023-03-22 09:55:39'),
-(7, 'competence technique ', 'test', 'test', 44, 'test', 'test', 'test', 'test', 'test', '3', 4, 3, '2023-03-24 00:00:00', '10:15', 'test', 'test', '2023-03-23 09:14:57', '2023-03-23 09:14:57');
+INSERT INTO `formaexternes` (`id`, `typecomp`, `themeformation_id`, `participant`, `nbparticipant`, `raisonforma`, `organismeforma`, `formalite`, `formateur`, `raisonchoix`, `dureeforma`, `nbjour`, `nbhjour`, `date`, `horaireforma`, `pause`, `lieuforma`, `created`, `modified`) VALUES
+(6, 'zdqscwx', 0, 'dqSW', 7, 'Dq', 'dQCW', 'dQX<', 'Qdx', 'dqx<', '6', 5, 5, '2023-03-23 00:00:00', '14:55', 'dq', 'dQ<', '2023-03-22 09:55:39', '2023-03-22 09:55:39'),
+(7, 'competence technique ', 0, 'test', 44, 'test', 'test', 'test', 'test', 'test', '3', 4, 3, '2023-03-24 00:00:00', '10:15', 'test', 'test', '2023-03-23 09:14:57', '2023-03-23 09:14:57');
 
 -- --------------------------------------------------------
 
@@ -130,7 +130,7 @@ INSERT INTO `formaexternes` (`id`, `typecomp`, `themforma`, `participant`, `nbpa
 CREATE TABLE `formainternes` (
   `id` int(11) NOT NULL,
   `tycomp` varchar(255) NOT NULL,
-  `themeforma` varchar(255) NOT NULL,
+  `themeformation_id` int(11) NOT NULL,
   `animateur` varchar(255) NOT NULL,
   `poste` varchar(255) NOT NULL,
   `date` date NOT NULL,
@@ -144,8 +144,8 @@ CREATE TABLE `formainternes` (
 -- Déchargement des données de la table `formainternes`
 --
 
-INSERT INTO `formainternes` (`id`, `tycomp`, `themeforma`, `animateur`, `poste`, `date`, `hentrer`, `hsortie`, `created`, `modified`) VALUES
-(6, 'tyghbj', 'tyghbj', 'tyghbj', 'tyghbj', '2023-03-16', '11:23:00', '16:21:00', '2023-03-22 10:21:28', '2023-03-22 10:27:18');
+INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `poste`, `date`, `hentrer`, `hsortie`, `created`, `modified`) VALUES
+(6, 'tyghbj', 0, 'tyghbj', 'tyghbj', '2023-03-16', '11:23:00', '16:21:00', '2023-03-22 10:21:28', '2023-03-22 10:27:18');
 
 -- --------------------------------------------------------
 
@@ -212,8 +212,7 @@ INSERT INTO `themeformations` (`id`, `nom`, `created`, `modified`) VALUES
 (1, 'SQL', '2023-03-27 10:43:26', '2023-03-27 10:43:26'),
 (2, 'PYTHON', '2023-03-27 10:43:26', '2023-03-27 10:43:26'),
 (3, 'JAVA', '2023-03-27 10:44:32', '2023-03-27 10:44:32'),
-(4, 'ANGULAR', '2023-03-27 10:44:32', '2023-03-27 10:44:32'),
-(5, 'NODE JS', '2023-03-27 10:45:07', '2023-03-27 10:45:07');
+(4, 'ANGULAR', '2023-03-27 10:44:32', '2023-03-27 10:44:32');
 
 -- --------------------------------------------------------
 
