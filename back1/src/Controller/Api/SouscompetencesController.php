@@ -37,4 +37,90 @@ class SouscompetencesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
+
+    /**
+      * getSouscompetence
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+      public function getSouscompetence(){
+ 
+        $id = $this->request->getQuery('id');
+        
+        /* search */
+        if(1==1){
+            if (!isset($id) or empty($id) or $id == null ){
+               throw new UnauthorizedException('Id is Required');
+            }
+
+            if(!is_numeric($id)){
+               throw new UnauthorizedException('Id is not Valid');
+            }
+        }
+
+        $souscompetences = $this->Souscompetences->find('all', [
+            'conditions'=>[
+                'id IS'=>$id,
+            ],
+           
+        ])->first();
+        // debug($souscompetences);die;
+        
+        if(empty($souscompetences)){
+           throw new UnauthorizedException('Souscompetences not found');
+       }
+
+       /*send result */
+
+       $this->set([
+           'success' => true,
+           'data' => $souscompetences,
+           '_serialize' => ['success', 'data']
+       ]);
+    }
+
+
+    /**
+     * editSouscompetence
+     *
+     * @Input:
+     *         data:
+     *          label (String) *Required
+     *          competence_id (Int) *Required
+     * 
+     * @Output: data : success message
+     */
+    public function editSouscompetence(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug ($data);die;
+        }
+
+        $id=$this->request->getQuery('id');
+        $souscompetences=$this->Souscompetences->get($id);
+         /* create souscompetences entity */
+        if (1==1){
+            $souscompetences->label=$data->label;
+            $souscompetences->competence_id=$data->competence_id;    
+
+            $this->Souscompetences->save($souscompetences); 
+        }
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Updated with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
+
 }

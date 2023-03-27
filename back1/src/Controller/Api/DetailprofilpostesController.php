@@ -158,5 +158,8 @@ class DetailprofilpostesController extends AppController
         ]);
      }
 
+
+
+    
   
 }

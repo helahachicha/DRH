@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 27 mars 2023 à 14:13
+-- Généré le : lun. 27 mars 2023 à 22:37
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -44,6 +44,29 @@ INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`
 (2, 'Développeur confirmé', 1, '2023-03-27 12:59:46', '2023-03-27 12:59:46'),
 (3, 'Développeur senior', 1, '2023-03-27 13:01:08', '2023-03-27 13:01:08'),
 (4, 'Développeur tecklead', 1, '2023-03-27 13:01:08', '2023-03-27 13:01:08');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `competences`
+--
+
+CREATE TABLE `competences` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `categorie_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `competences`
+--
+
+INSERT INTO `competences` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
+(1, 'COMPÉTENCES TECHNIQUES', 1, '2023-03-27 14:58:13', '2023-03-27 14:58:13'),
+(2, 'COMPÉTENCES ORGANISATIONNELLES', 1, '2023-03-27 14:58:13', '2023-03-27 14:58:13'),
+(3, 'COMPÉTENCES COMPORTEMENTALES ', 1, '2023-03-27 14:59:00', '2023-03-27 14:59:00');
 
 -- --------------------------------------------------------
 
@@ -116,21 +139,16 @@ INSERT INTO `departements` (`id`, `label`, `created`, `modified`) VALUES
 CREATE TABLE `detailprofilpostes` (
   `id` int(11) NOT NULL,
   `fonction` varchar(255) NOT NULL,
-  `categorie` varchar(255) NOT NULL,
+  `categorie_id` int(11) NOT NULL,
   `superhierar` varchar(255) NOT NULL,
   `supervision` varchar(255) NOT NULL,
   `interim` varchar(255) NOT NULL,
-  `competence` varchar(255) NOT NULL,
-  `souscompetence` varchar(255) NOT NULL,
-  `niveauvise` varchar(255) NOT NULL,
-  `indicateursuivi` text NOT NULL,
   `fonctionelaboration` varchar(255) NOT NULL,
   `fonctionverification` varchar(255) NOT NULL,
   `fonctionabrobation` varchar(255) NOT NULL,
   `nomprenomelab` varchar(255) NOT NULL,
   `nomprenomverif` varchar(255) NOT NULL,
   `nomprenomabrob` varchar(255) NOT NULL,
-  `profilposte_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -139,11 +157,11 @@ CREATE TABLE `detailprofilpostes` (
 -- Déchargement des données de la table `detailprofilpostes`
 --
 
-INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie`, `superhierar`, `supervision`, `interim`, `competence`, `souscompetence`, `niveauvise`, `indicateursuivi`, `fonctionelaboration`, `fonctionverification`, `fonctionabrobation`, `nomprenomelab`, `nomprenomverif`, `nomprenomabrob`, `profilposte_id`, `created`, `modified`) VALUES
-(1, 'Ingénieur Recherche & Développement', 'Développeur Junior', 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 'COMPÉTENCES TECHNIQUES', '', '', 'Compétence algorithmique niveau élevé   	 Connaissance de l’architecture de développement Orientée Objet  	  Une bonne maîtrise du SQL   ', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jaweher KHMIRI', 'Hayet  BEN SALEM', 'Rochdi ABID', 1, '2023-03-26 19:44:30', '2023-03-26 19:44:30'),
-(2, 'Ingénieur Recherche & Développement', 'Développeur Confirmé', 'Gérant', 'Développeur Senior', 'Développeur Senior', 'COMPÉTENCES TECHNIQUES', '', '', '	      Maîtrise fonctionnel (Certification dans l’une des trois dernières versions) 	      Compétence technique (produit odoo) ', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', 2, '2023-03-26 19:51:01', '2023-03-26 19:51:01'),
-(3, 'Ingénieur Recherche & Développement', 'Développeur Sénior', 'Gérant', 'Référant technique', 'Référant technique', 'COMPÉTENCES TECHNIQUES', '', '', '	Maîtrise fonctionnel (2 Certifications parmi les 3 derniers versions) 	Maîtrise technique  	Maîtrise une autre technologie (Plus qu’Odoo) ', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', 3, '2023-03-26 19:52:24', '2023-03-26 19:52:24'),
-(4, 'Ingénieur Recherche & Développement', 'Référant Technique', 'Gérant', 'Référant technique', 'Référant technique', 'COMPÉTENCES TECHNIQUES', '', '', '	Maîtrise fonctionnel (3 Certifications) 	Maîtrise technique  	Maîtrise une autre technologie (Plus Odoo)  	Gestion de projet', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', 4, '2023-03-26 19:53:39', '2023-03-26 19:53:39');
+INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie_id`, `superhierar`, `supervision`, `interim`, `fonctionelaboration`, `fonctionverification`, `fonctionabrobation`, `nomprenomelab`, `nomprenomverif`, `nomprenomabrob`, `created`, `modified`) VALUES
+(1, 'Ingénieur Recherche & Développement', 1, 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jaweher KHMIRI', 'Hayet  BEN SALEM', 'Rochdi ABID', '2023-03-26 19:44:30', '2023-03-26 19:44:30'),
+(2, 'Ingénieur Recherche & Développement', 2, 'Gérant', 'Développeur Senior', 'Développeur Senior', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-03-26 19:51:01', '2023-03-26 19:51:01'),
+(3, 'Ingénieur Recherche & Développement', 3, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-03-26 19:52:24', '2023-03-26 19:52:24'),
+(4, 'Ingénieur Recherche & Développement', 4, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-03-26 19:53:39', '2023-03-26 19:53:39');
 
 -- --------------------------------------------------------
 
@@ -205,7 +223,8 @@ CREATE TABLE `formainternes` (
 --
 
 INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `poste`, `date`, `hentrer`, `hsortie`, `created`, `modified`) VALUES
-(6, 'tyghbj', 0, 'tyghbj', 'tyghbj', '2023-03-16', '11:23:00', '16:21:00', '2023-03-22 10:21:28', '2023-03-22 10:27:18');
+(1, 'hhhhhhh', 1, 'hhh', 'hhhhhh', '2023-03-22', '00:00:15', '00:00:17', '2023-03-27 16:57:51', '2023-03-27 16:57:51'),
+(2, 'bolbol', 2, 'hhh', 'hhh', '2023-03-22', '00:00:15', '00:00:17', '2023-03-27 17:00:13', '2023-03-27 17:00:13');
 
 -- --------------------------------------------------------
 
@@ -220,6 +239,30 @@ CREATE TABLE `indicateursuivis` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `indicateursuivis`
+--
+
+INSERT INTO `indicateursuivis` (`id`, `label`, `souscompetence_id`, `created`, `modified`) VALUES
+(1, '- Compétence algorithmique niveau élevé  ', 0, '2023-03-27 15:06:29', '2023-03-27 15:06:29'),
+(2, '- Connaissance de l’architecture de développement Orientée Objet ', 0, '2023-03-27 15:15:17', '2023-03-27 15:15:17'),
+(3, '- Une bonne maîtrise du SQL   ', 0, '2023-03-27 15:17:53', '2023-03-27 15:17:53'),
+(4, '- Planifier & compléter les tâches/projets à temps efficacement', 1, '2023-03-27 15:18:27', '2023-03-27 15:18:27'),
+(5, '- Informer de la progression des tâches ou du projet ', 1, '2023-03-27 15:19:04', '2023-03-27 15:19:04'),
+(6, '- Déclarer en cas de difficulté technique : c’est à dire après dépasser 50 % du temps prévu de réalisation d’une tâche au maximum à l’essai de résolution d’une difficulté technique ', 1, '2023-03-27 15:19:22', '2023-03-27 15:19:22'),
+(7, '- Écouter activement afin de bien comprendre le message', 5, '2023-03-27 15:20:14', '2023-03-27 15:20:14'),
+(8, '- Essayer de partager l’information liée à l’exécution de travail et la communiquer clairement (quelque soit de la part développeur junior et de son vis-à-vis)', 5, '2023-03-27 15:20:14', '2023-03-27 15:20:14'),
+(9, '- Répondre de manière appropriée en donnant l’information et les faits de façon logique, claire et cohérente', 5, '2023-03-27 15:20:57', '2023-03-27 15:20:57'),
+(10, '- Transmet et reçoit le besoin facile à comprendre : c’est à dire transmet, reçoit et vérifie la bonne compréhension de la part de l’émetteur et récepteur', 5, '2023-03-27 15:20:57', '2023-03-27 15:20:57'),
+(11, '- Tenir compte de l’objectif de toute l’équipe  ', 6, '2023-03-27 15:21:46', '2023-03-27 15:21:46'),
+(12, '- Réussite collective ou échec collective ! : c’est toute l’équipe est responsable soit en cas de la réussite ou en cas d’échec', 6, '2023-03-27 15:21:46', '2023-03-27 15:21:46'),
+(13, '- Répartition des tâches d’une manière équitable', 6, '2023-03-27 15:22:10', '2023-03-27 15:22:10'),
+(14, '- Appuyer les décisions ou les activités de l’équipe et aider à réaliser l’objectif principal', 6, '2023-03-27 15:22:10', '2023-03-27 15:22:10'),
+(15, '- Poser les questions adéquates et distinguer entre les renseignements pertinents et ceux qui ne le sont pas', 7, '2023-03-27 15:22:49', '2023-03-27 15:22:49'),
+(16, '- Identifier la cause principale du problème affronté', 7, '2023-03-27 15:22:49', '2023-03-27 15:22:49'),
+(17, '- Fournir une réponse claire & logique aux questions ou préoccupations', 8, '2023-03-27 15:23:11', '2023-03-27 15:23:11'),
+(18, '- Fournir un service, y compris des renseignements utiles ou une aide, conforme aux normes de service et aux lignes directrices pertinentes', 8, '2023-03-27 15:23:11', '2023-03-27 15:23:11');
 
 -- --------------------------------------------------------
 
@@ -325,6 +368,20 @@ CREATE TABLE `souscompetences` (
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `souscompetences`
+--
+
+INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `created`, `modified`) VALUES
+(1, 'GESTION DE TEMPS & PRIORITÉS', 2, '2023-03-27 15:01:44', '2023-03-27 15:01:44'),
+(2, '1. GEEK', 3, '2023-03-27 15:01:44', '2023-03-27 15:01:44'),
+(3, '2. AUTODÉTERMINATION ', 3, '2023-03-27 15:02:37', '2023-03-27 15:02:37'),
+(4, '3. POSITIVITÉ', 3, '2023-03-27 15:02:37', '2023-03-27 15:02:37'),
+(5, '4. COMMUNICATION INTERACTIVE EFFICACE', 3, '2023-03-27 15:02:55', '2023-03-27 15:02:55'),
+(6, '5. TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, '2023-03-27 15:02:55', '2023-03-27 15:02:55'),
+(7, '6. RÉSOLUTION DE PROBLÈMES', 3, '2023-03-27 15:03:21', '2023-03-27 15:03:21'),
+(8, '7. SERVICES D’EXCELLENCE  ', 3, '2023-03-27 15:03:21', '2023-03-27 15:03:21');
+
 -- --------------------------------------------------------
 
 --
@@ -395,6 +452,12 @@ INSERT INTO `users` (`id`, `email`, `password`, `token`, `role_id`, `created`, `
 -- Index pour la table `categories`
 --
 ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `competences`
+--
+ALTER TABLE `competences`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -498,6 +561,12 @@ ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT pour la table `competences`
+--
+ALTER TABLE `competences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT pour la table `comptechniques`
 --
 ALTER TABLE `comptechniques`
@@ -531,13 +600,13 @@ ALTER TABLE `formaexternes`
 -- AUTO_INCREMENT pour la table `formainternes`
 --
 ALTER TABLE `formainternes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `indicateursuivis`
 --
 ALTER TABLE `indicateursuivis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT pour la table `niveauvises`
@@ -567,7 +636,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT pour la table `souscompetences`
 --
 ALTER TABLE `souscompetences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `testtechniques`
