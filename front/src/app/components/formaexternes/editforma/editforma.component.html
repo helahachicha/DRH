@@ -37,13 +37,13 @@
                                                     [(ngModel)]="formaexternes.themforma">
                                             </div>-->
 
-                                            <select  [(ngModel)]="formaexternes[0].themforma_id" class="form-control" id="exampleFormControlSelect2" placeholder="Veuillez choisir votre Thème de formation" formControlName="themforma_id">
+                                            <select  [(ngModel)]="formaexternes.themforma_id" class="form-control" id="exampleFormControlSelect2" placeholder="Veuillez choisir votre Thème de formation" formControlName="themforma_id">
                                                 
                                                 <option selected disabled value="">Thème de formation</option>
                                      
                                                  <option *ngFor="let obj of Themeformations" [ngValue]="obj.id">
                                      
-                                                   {{obj.nom}} 
+                                                   {{obj.label}} 
                                                  </option>
                                                </select>
 

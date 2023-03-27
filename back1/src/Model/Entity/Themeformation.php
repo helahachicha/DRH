@@ -12,6 +12,9 @@ use Cake\ORM\Entity;
  * @property string $label
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\Formaexterne[] $formaexternes
+ * @property \App\Model\Entity\Formainterne[] $formainternes
  */
 class Themeformation extends Entity
 {
@@ -28,5 +31,7 @@ class Themeformation extends Entity
         'label' => true,
         'created' => true,
         'modified' => true,
+        'formaexternes' => true,
+        'formainternes' => true,
     ];
 }

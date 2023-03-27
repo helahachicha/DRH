@@ -15,24 +15,24 @@ export class AddformaComponent implements OnInit {
 public Themeformations
 
 
-  public externeForm = new FormGroup({
-    typecomp: new FormControl('', [Validators.required]),
-    themforma: new FormControl('', [Validators.required]),
-    participant: new FormControl('', [Validators.required]),
-    nbparticipant: new FormControl('', [Validators.required]),
-    raisonforma: new FormControl('', [Validators.required]),
-    organismeforma: new FormControl('', [Validators.required]),
-    formalite: new FormControl('', [Validators.required]),
-    formateur: new FormControl('', [Validators.required]),
-    raisonchoix: new FormControl('', [Validators.required]),
-    dureeforma: new FormControl('', [Validators.required]),
-    nbjour: new FormControl('', [Validators.required]),
-    nbhjour: new FormControl('', [Validators.required]),
-    date: new FormControl('', [Validators.required]),
-    horaireforma: new FormControl('', [Validators.required]),
-    pause: new FormControl('', [Validators.required]),
-    lieuforma: new FormControl('', [Validators.required]),
-  });
+public externeForm = new FormGroup({
+  typecomp: new FormControl('', [Validators.required]),
+  themforma_id: new FormControl('', [Validators.required]),
+  participant: new FormControl('', [Validators.required]),
+  nbparticipant: new FormControl('', [Validators.required]),
+  raisonforma: new FormControl('', [Validators.required]),
+  organismeforma: new FormControl('', [Validators.required]),
+  formalite: new FormControl('', [Validators.required]),
+  formateur: new FormControl('', [Validators.required]),
+  raisonchoix: new FormControl('', [Validators.required]),
+  dureeforma: new FormControl('', [Validators.required]),
+  nbjour: new FormControl('', [Validators.required]),
+  nbhjour: new FormControl('', [Validators.required]),
+  date: new FormControl('', [Validators.required]),
+  horaireforma: new FormControl('', [Validators.required]),
+  pause: new FormControl('', [Validators.required]),
+  lieuforma: new FormControl('', [Validators.required]),
+});
   
   constructor(
     
