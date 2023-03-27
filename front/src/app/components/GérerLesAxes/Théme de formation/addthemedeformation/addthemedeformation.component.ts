@@ -13,7 +13,7 @@ export class AddthemedeformationComponent implements OnInit {
 
 
   public themeForm= new FormGroup({
-    nom: new FormControl('', [Validators.required]),
+    label: new FormControl('', [Validators.required]),
     
   });
   constructor(

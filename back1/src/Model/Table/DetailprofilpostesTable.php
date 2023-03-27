@@ -47,6 +47,10 @@ class DetailprofilpostesTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Categories', [
+            'foreignKey' => 'categorie_id',
+            'joinType' => 'INNER',
+        ]);
         $this->belongsTo('Profilpostes', [
             'foreignKey' => 'profilposte_id',
             'joinType' => 'INNER',
@@ -66,6 +70,10 @@ class DetailprofilpostesTable extends Table
             ->maxLength('fonction', 255)
             ->requirePresence('fonction', 'create')
             ->notEmptyString('fonction');
+
+        $validator
+            ->integer('categorie_id')
+            ->notEmptyString('categorie_id');
 
         $validator
             ->scalar('superhierar')
@@ -160,6 +168,7 @@ class DetailprofilpostesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
+        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
         $rules->add($rules->existsIn('profilposte_id', 'Profilpostes'), ['errorField' => 'profilposte_id']);
 
         return $rules;

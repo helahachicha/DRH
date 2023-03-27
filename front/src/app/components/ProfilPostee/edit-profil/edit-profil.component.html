@@ -22,13 +22,11 @@
             <div class="row">
                 <div class="form-group mx-sm-2 mb-2 mt-2">
                     <label type="label">MAJ N°: </label>
-                    <input type="text"
-                      >
+                    <input type="text">
                 </div>
                 <div class="form-group mx-sm-2 mb-2 mt-2">
                     <label type="label">Du:</label>
-                    <input type="text" class="form-control"
-                        >
+                    <input type="text" class="form-control">
                 </div>
             </div>
             <div class="form-group mx-sm-2 mb-2 mt-2">
@@ -36,11 +34,25 @@
                 <input type="text" class="form-control" required="required" formControlName="fonction"
                     [(ngModel)]="Detailprofilpostes.fonction">
             </div>
-            <div class="form-group mx-sm-2 mb-2 mt-2"> 
+            <!-- <div class="form-group mx-sm-2 mb-2 mt-2"> 
                 <label class="m-2" type="label"> Catégorie: </label>
                 <input type="text" class="form-control" required="required" formControlName="categorie"
                     [(ngModel)]="Detailprofilpostes.categorie">
+            </div>-->
+            <div class="form-group mx-sm-2 mb-2 mt-2">
+                <select [(ngModel)]="Detailprofilpostes.categorie_id" class="form-control"
+                    id="exampleFormControlSelect2" placeholder="Veuillez choisir votre Thème de formation"
+                    formControlName="categorie_id">
+
+                    <option selected disabled value="">Thème de formation</option>
+
+                    <option *ngFor="let obj of Categories" [ngValue]="obj.id">
+
+                        {{obj.label}}
+                    </option>
+                </select>
             </div>
+
 
             <div class="form-group mx-sm-2 mb-2 mt-2">
                 <label class="m-2" type="label">Supérieur hiérarchique:</label>
@@ -60,8 +72,8 @@
                     [(ngModel)]="Detailprofilpostes.interim">
             </div>
 
-        
-       
+
+
 
             <div class="shadow p-3 mb-5 bg-body rounded">
                 <div class="text-center">
@@ -135,8 +147,8 @@
                     <label class="m-2" type="label"> Indicateurs de suivi : <br>
                     </label>
 
-                    <input type="text" class="form-control mt-2" required="required"
-                        formControlName="indicateursuivi" [(ngModel)]="Detailprofilpostes.indicateursuivi">
+                    <input type="text" class="form-control mt-2" required="required" formControlName="indicateursuivi"
+                        [(ngModel)]="Detailprofilpostes.indicateursuivi">
 
                 </div>
                 <div class="form-group mx-sm-2 mb-2 mt-2">
@@ -256,26 +268,32 @@
                                 <td class="text-bold">Fonction</td>
 
                                 <td class="text-bold"> <input type="text" class="form-control" required="required"
-                                        formControlName="fonctionelaboration" [(ngModel)]="Detailprofilpostes.fonctionelaboration"></td>
+                                        formControlName="fonctionelaboration"
+                                        [(ngModel)]="Detailprofilpostes.fonctionelaboration"></td>
 
                                 <td class="text-bold"><input type="text" class="form-control" required="required"
-                                        formControlName="fonctionverification" [(ngModel)]="Detailprofilpostes.fonctionverification"></td>
+                                        formControlName="fonctionverification"
+                                        [(ngModel)]="Detailprofilpostes.fonctionverification"></td>
 
                                 <td class="text-bold"> <input type="text" class="form-control" required="required"
-                                        formControlName="fonctionabrobation" [(ngModel)]="Detailprofilpostes.fonctionabrobation"></td>
+                                        formControlName="fonctionabrobation"
+                                        [(ngModel)]="Detailprofilpostes.fonctionabrobation"></td>
                             </tr>
                             <tr>
 
                                 <td class="text-bold">Nom et Prénom</td>
 
                                 <td class="text-bold"><input type="text" class="form-control" required="required"
-                                        formControlName="nomprenomelab" [(ngModel)]="Detailprofilpostes.nomprenomelab"></td>
+                                        formControlName="nomprenomelab" [(ngModel)]="Detailprofilpostes.nomprenomelab">
+                                </td>
 
                                 <td class="text-bold"><input type="text" class="form-control" required="required"
-                                        formControlName="nomprenomverif" [(ngModel)]="Detailprofilpostes.nomprenomverif"></td>
+                                        formControlName="nomprenomverif"
+                                        [(ngModel)]="Detailprofilpostes.nomprenomverif"></td>
 
                                 <td class="text-bold"><input type="text" class="form-control" required="required"
-                                        formControlName="nomprenomabrob" [(ngModel)]="Detailprofilpostes.nomprenomabrob"></td>
+                                        formControlName="nomprenomabrob"
+                                        [(ngModel)]="Detailprofilpostes.nomprenomabrob"></td>
 
                             </tr>
 
@@ -285,14 +303,13 @@
                 </div>
             </div>
 
-        
-        <div class="col-md-12">
 
-            <button class="btn btn-primary m-5" type="submit" (click)="editprofilposte()"
-               >Terminer</button>
+            <div class="col-md-12">
 
-        </div>
-    </form>
+                <button class="btn btn-primary m-5" type="submit" (click)="editprofilposte()">Terminer</button>
+
+            </div>
+        </form>
     </div>
 
 

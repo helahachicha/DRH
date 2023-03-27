@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $fonction
+ * @property int $categorie_id
  * @property string $superhierar
  * @property string $supervision
  * @property string $interim
@@ -28,7 +29,6 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Profilposte $profilposte
- * @property \App\Model\Entity\Competence[] $competences
  */
 class Detailprofilposte extends Entity
 {
@@ -43,6 +43,7 @@ class Detailprofilposte extends Entity
      */
     protected $_accessible = [
         'fonction' => true,
+        'categorie_id' => true,
         'superhierar' => true,
         'supervision' => true,
         'interim' => true,
@@ -60,6 +61,5 @@ class Detailprofilposte extends Entity
         'created' => true,
         'modified' => true,
         'profilposte' => true,
-        'competences' => true,
     ];
 }

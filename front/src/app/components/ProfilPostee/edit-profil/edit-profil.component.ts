@@ -11,14 +11,14 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class EditProfilComponent implements OnInit {
 
 
-  id:any
-  Detailprofilpostes:any={};
-  
-  public profilposteForm= new FormGroup({
+  id: any
+  Detailprofilpostes: any = {};
+  public Categories;
+
+  public profilposteForm = new FormGroup({
     nom: new FormControl('', [Validators.required]),
-    categorie: new FormControl('', [Validators.required]),
+    categorie_id: new FormControl('', [Validators.required]),
     fonction: new FormControl('', [Validators.required]),
-    categories: new FormControl('', [Validators.required]),
     superhierar: new FormControl('', [Validators.required]),
     supervision: new FormControl('', [Validators.required]),
     interim: new FormControl('', [Validators.required]),
@@ -32,14 +32,14 @@ export class EditProfilComponent implements OnInit {
     nomprenomelab: new FormControl('', [Validators.required]),
     nomprenomverif: new FormControl('', [Validators.required]),
     nomprenomabrob: new FormControl('', [Validators.required]),
-    
-    
+
+
   });
 
   constructor(
-    private dataService:DataService,
-    private router :Router,
-    private route:ActivatedRoute 
+    private dataService: DataService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -49,20 +49,31 @@ export class EditProfilComponent implements OnInit {
 
 
   getprofilById() {
-    this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Detailprofilpostes/getDetailprofilposte.json?id='+this.id).subscribe(
+    this.id = this.route.snapshot.params['id'];
+    this.dataService.get('Detailprofilpostes/getDetailprofilposte.json?id=' + this.id).subscribe(
       res => {
-      this.Detailprofilpostes=res.data;
-      console.log("hello",this.Detailprofilpostes)
+        this.Detailprofilpostes = res.data;
+        console.log("hello", this.Detailprofilpostes)
 
+      })
+  }
+  editprofilposte() {
+
+    this.dataService.post('Detailprofilpostes/editProfilposte.json?id=' + this.id, this.profilposteForm.value).subscribe(res => {
+      console.log("hello", this.profilposteForm.value)
+      this.router.navigate(['/Detail-profile/:id'])
     })
   }
-  editprofilposte(){
-      
-    this.dataService.post('Detailprofilpostes/editProfilposte.json?id='+this.id,this.profilposteForm.value).subscribe(res=> {
-      console.log("hello",this.profilposteForm.value)
-    this.router.navigate(['/Detail-profile/:id'])
-    })
-  }
 
+
+  getAllCategorie() {
+    this.dataService.get('Categories/getAllCategorie.json').subscribe(res => {
+      this.Categories = res.data;
+
+      console.log("hello", this.Categories)
+
+
+    }
+    )
+  }
 }
