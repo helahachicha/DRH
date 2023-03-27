@@ -163,7 +163,9 @@ class FormaexternesController extends AppController
     {
 
         /* search */
-        $formaexternes = $this->Formaexternes->find('all');
+        $formaexternes = $this->Formaexternes->find('all',[
+            'contain' => 'themeformations'
+        ]);
  
         /*send result */
         $this->set([
