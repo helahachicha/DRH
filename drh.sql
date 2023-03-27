@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 26 mars 2023 à 21:54
+-- Généré le : lun. 27 mars 2023 à 10:45
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -194,6 +194,30 @@ INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `themeformations`
+--
+
+CREATE TABLE `themeformations` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `themeformations`
+--
+
+INSERT INTO `themeformations` (`id`, `nom`, `created`, `modified`) VALUES
+(1, 'SQL', '2023-03-27 10:43:26', '2023-03-27 10:43:26'),
+(2, 'PYTHON', '2023-03-27 10:43:26', '2023-03-27 10:43:26'),
+(3, 'JAVA', '2023-03-27 10:44:32', '2023-03-27 10:44:32'),
+(4, 'ANGULAR', '2023-03-27 10:44:32', '2023-03-27 10:44:32'),
+(5, 'NODE JS', '2023-03-27 10:45:07', '2023-03-27 10:45:07');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -255,6 +279,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `themeformations`
+--
+ALTER TABLE `themeformations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -299,6 +329,12 @@ ALTER TABLE `profilpostes`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `themeformations`
+--
+ALTER TABLE `themeformations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `users`
