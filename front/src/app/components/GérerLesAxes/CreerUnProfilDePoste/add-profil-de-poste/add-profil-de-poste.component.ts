@@ -40,11 +40,7 @@ export class AddProfilDePosteComponent implements OnInit {
    this.getAllCategorie();
   }
 
-
-
  addprofilposte() {
-    console.log("hello",this.profilposteForm.value)
-
     this.dataService.post('Profilpostes/addProfilposte.json',this.profilposteForm.value).subscribe(res=> {
       this.router.navigate(['/listingprofilposte'])
        })
@@ -52,10 +48,6 @@ export class AddProfilDePosteComponent implements OnInit {
   getAllCategorie() {
     this.dataService.get('Categories/getAllCategorie.json').subscribe(res => {
       this.Categories = res.data;
-
-      console.log("hello", this.Categories)
-
-
     }
     )
   }
