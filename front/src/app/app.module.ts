@@ -42,6 +42,8 @@ import { DetailProfileComponent } from './components/ProfilPostee/detail-profile
 import { EditProfilComponent } from './components/ProfilPostee/edit-profil/edit-profil.component';
 import { ListingthemeformaComponent } from './components/GérerLesAxes/Théme de formation/listingthemeforma/listingthemeforma.component';
 import { AddthemedeformationComponent } from './components/GérerLesAxes/Théme de formation/addthemedeformation/addthemedeformation.component';
+import { EditTestComponent } from './components/FicheDevaluation/TestTechnique/edit-test/edit-test.component';
+import { ListingTestComponent } from './components/FicheDevaluation/TestTechnique/listing-test/listing-test.component';
 
 
 
@@ -85,6 +87,9 @@ import { AddthemedeformationComponent } from './components/GérerLesAxes/Théme 
     EditProfilComponent,
     ListingthemeformaComponent,
     AddthemedeformationComponent,
+    EditTestComponent,
+    ListingTestComponent,
+    
    
    
   ],
