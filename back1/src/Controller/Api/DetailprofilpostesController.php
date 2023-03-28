@@ -31,8 +31,7 @@ class DetailprofilpostesController extends AppController
         if (1 == 1) {
             $querry=$this->request->getData();
             $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-            //debug ($data);die;
+        
         }
 
         $id=$this->request->getQuery('id');
@@ -75,11 +74,7 @@ class DetailprofilpostesController extends AppController
     {
 
         /* search */
-        $detailprofilpostes = $this->Detailprofilpostes->find('all',[
-            'fields' => [
-                'id','categorie'
-            ]
-        ]);
+        $detailprofilpostes = $this->Detailprofilpostes->find('all');
  
         /*send result */
         $this->set([
@@ -158,7 +153,50 @@ class DetailprofilpostesController extends AppController
         ]);
      }
 
+    /**
+      * getDetailppByCategorieId
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+      public function getDetailppByCategorieId(){
+ 
+        $id = $this->request->getQuery('id');
+        
+        /* search */
+        if(1==1){
+            if (!isset($id) or empty($id) or $id == null ){
+               throw new UnauthorizedException('Id is Required');
+            }
 
+            if(!is_numeric($id)){
+               throw new UnauthorizedException('Id is not Valid');
+            }
+        }
+
+        $detailprofilpostes = $this->Detailprofilpostes->find('all', [
+            'conditions'=>[
+                'categorie_id IS'=>$id,
+            ],
+            'contain' => [
+                'Categories'
+            ]
+           
+        ])->first();
+        
+        if(empty($detailprofilpostes)){
+           throw new UnauthorizedException('Detailprofilpostes not found');
+       }
+
+       /*send result */
+
+       $this->set([
+           'success' => true,
+           'data' => $detailprofilpostes,
+           '_serialize' => ['success', 'data']
+       ]);
+    }
 
     
   
