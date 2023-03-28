@@ -11,7 +11,6 @@ export class SidebarComponent implements OnInit {
  
   public Categories
   public poste
-
   public open:boolean=false
   constructor(
     private dataService:DataService,

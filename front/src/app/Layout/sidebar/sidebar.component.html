@@ -55,11 +55,9 @@
                                 aria-expanded="false">
                             <div *ngFor="let obj of poste" >
                                 <i class="fas fa-list"></i>
-                              
                                     <span (click)="getid(obj.id)"  class="hide-menu">
                                         {{obj.label}}</span>
-                            </div>
-                              
+                            </div> 
                                 </a>
 
                             <ul aria-expanded="false" class="collapse first-level">
@@ -97,7 +95,7 @@
                                             d'évaluation psychique </span></a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="icon-fontawesome.html" class="sidebar-link"><i
+                                    <a routerLink="/listingtest" class="sidebar-link"><i
                                             class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Test
                                             technique
                                         </span></a>
