@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 27 mars 2023 à 22:37
+-- Généré le : mar. 28 mars 2023 à 09:29
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -77,10 +77,18 @@ INSERT INTO `competences` (`id`, `label`, `categorie_id`, `created`, `modified`)
 CREATE TABLE `comptechniques` (
   `id` int(11) NOT NULL,
   `label` varchar(255) NOT NULL,
-  `profilposte_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `comptechniques`
+--
+
+INSERT INTO `comptechniques` (`id`, `label`, `created`, `modified`) VALUES
+(1, 'A. Orientée Objet', '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
+(2, 'B. Algorithme', '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
+(3, 'C. SQL', '2023-03-28 00:29:04', '2023-03-28 00:29:04');
 
 -- --------------------------------------------------------
 
@@ -336,6 +344,41 @@ INSERT INTO `profilpostes` (`id`, `nom`, `poste_id`, `created`, `modified`) VALU
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `questions`
+--
+
+CREATE TABLE `questions` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `comptechnique_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `questions`
+--
+
+INSERT INTO `questions` (`id`, `label`, `comptechnique_id`, `created`, `modified`) VALUES
+(1, 'A.1. Quelle est l’assertion qui correspond le mieux à la définition d’une méthode?', 1, '2023-03-28 00:35:56', '2023-03-28 00:35:56'),
+(2, 'A.2. Quelle assertion se rapproche le plus du concept d’héritage?', 1, '2023-03-28 00:35:56', '2023-03-28 00:35:56'),
+(3, 'A.3. En Python, si une classe est dérivée de deux classes différentes, on appelle ça ?', 1, '2023-03-28 00:36:33', '2023-03-28 00:36:33'),
+(4, 'A.4. Laquelle des affirmations suivantes est vraie?', 1, '2023-03-28 00:36:33', '2023-03-28 00:36:33'),
+(5, 'A.5. En Python, lorsqu’une fonction est définie dans une classe, on l’appelle ?', 1, '2023-03-28 00:36:56', '2023-03-28 00:36:56'),
+(6, 'B.1. Nous souhaitons inverser un entier (positif ou négatif).', 2, '2023-03-28 00:37:26', '2023-03-28 00:37:26'),
+(7, 'B.2.  Nous souhaitons retrouver dans une liste d’entiers, tous les triplets pythagoriciens possibles qui y sont. ', 2, '2023-03-28 00:37:26', '2023-03-28 00:37:26'),
+(8, 'B.3. Nous avons un mot et nous voulons savoir quel est le premier caractère unique de ce mot, c’est-à-dire la lettre qui ne se répète pas dans le mot et la première. Prenons un exemple simple, le mot \'coronavirus\' ; le premier caractère unique est la lett', 2, '2023-03-28 00:37:43', '2023-03-28 00:37:43'),
+(9, 'B.4. Nous souhaitons retourner la liste des nombres premiers strictement inférieurs à un nombre donné.\r\nUn nombre premier est un entier naturel qui admet exactement deux diviseurs distincts entiers et positifs.\r\n', 2, '2023-03-28 00:37:43', '2023-03-28 00:37:43'),
+(10, 'B.5. Nous souhaitons inverser une chaîne de caractères sans modifier la position des caractères spéciaux : !@#$%^&*()-_=+~ etc. \r\nPrenons un exemple, c’est plus simple.\r\nNous avons notre string suivant \"Alo*etui@l)ios82?\" et notre algorithme doit permettr', 2, '2023-03-28 00:38:56', '2023-03-28 00:38:56'),
+(11, 'C.1. Nom et adresse des employés qui travaillent au département ‘R&D’.', 3, '2023-03-28 00:39:21', '2023-03-28 00:39:21'),
+(12, 'C.2. Nom des employés qui travaillent plus de 10 heures sur un projet à ‘Sfax’.', 3, '2023-03-28 00:39:21', '2023-03-28 00:39:21'),
+(13, 'C.3. Nom et Prénom des employés dont le supérieur est un ‘Tech Leader’.', 3, '2023-03-28 00:39:45', '2023-03-28 00:39:45'),
+(14, 'C.4. Nom des employés qui ne travaillent pas sur un projet à ‘Sfax’.', 3, '2023-03-28 00:39:45', '2023-03-28 00:39:45'),
+(15, 'C.5. Numéro des projets qui ont au moins un participant de chaque département.', 3, '2023-03-28 00:40:06', '2023-03-28 00:40:06');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `roles`
 --
 
@@ -385,6 +428,45 @@ INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `created`, `modif
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `sousquestions`
+--
+
+CREATE TABLE `sousquestions` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `sousquestions`
+--
+
+INSERT INTO `sousquestions` (`id`, `label`, `question_id`, `created`, `modified`) VALUES
+(1, '(a) Une méthode est une classe ne contenant aucune variable.', 1, '2023-03-28 00:42:07', '2023-03-28 00:42:07'),
+(2, '(b) Une méthode est une suite d’invocations d’opérations sur un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
+(3, '(c) Une méthode est un traitement réalisé par un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
+(4, '(d) Une méthode est l’ensemble des données d’un objet.', 1, '2023-03-28 00:42:56', '2023-03-28 00:42:56'),
+(5, '(a) Un synonyme du concept « instanciation ».', 2, '2023-03-28 00:42:56', '2023-03-28 00:42:56'),
+(6, '(b) Une relation de spécialisation entre une classe et ses classes filles.', 2, '2023-03-28 00:43:24', '2023-03-28 00:43:24'),
+(7, '(c) Un mécanisme qui permet de changer le type des objets.', 2, '2023-03-28 00:43:24', '2023-03-28 00:43:24'),
+(8, '(d) Cela permet à un objet de connaître la valeur d’un attribut d’un autre objet.', 2, '2023-03-28 00:43:53', '2023-03-28 00:43:53'),
+(9, '(a) Héritage multilevel', 3, '2023-03-28 00:43:53', '2023-03-28 00:43:53'),
+(10, '(b) Héritage multiple', 3, '2023-03-28 00:44:24', '2023-03-28 00:44:24'),
+(11, '(c) Héritage hiérarchique', 3, '2023-03-28 00:44:24', '2023-03-28 00:44:24'),
+(12, '(d) Héritage Python', 3, '2023-03-28 00:44:49', '2023-03-28 00:44:49'),
+(13, '(a) Un objet est construit à partir d’une classe.', 4, '2023-03-28 00:44:49', '2023-03-28 00:44:49'),
+(14, '(b) Vous ne pouvez créer qu’un seul objet à partir d’une classe donnée.', 4, '2023-03-28 00:45:18', '2023-03-28 00:45:18'),
+(15, '(c) Les deux (a) et (b) sont vrais.', 4, '2023-03-28 00:45:18', '2023-03-28 00:45:18'),
+(16, '(a) Module', 5, '2023-03-28 00:45:44', '2023-03-28 00:45:44'),
+(17, '(b) Classe', 5, '2023-03-28 00:45:44', '2023-03-28 00:45:44'),
+(18, '(c) Méthode', 5, '2023-03-28 00:46:10', '2023-03-28 00:46:10'),
+(19, '(d) Une autre fonction', 5, '2023-03-28 00:46:10', '2023-03-28 00:46:10');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `testtechniques`
 --
 
@@ -397,6 +479,13 @@ CREATE TABLE `testtechniques` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `testtechniques`
+--
+
+INSERT INTO `testtechniques` (`id`, `duree`, `departement_id`, `poste_id`, `comptechnique_id`, `created`, `modified`) VALUES
+(1, '2h', 1, 1, 0, '2023-03-28 00:32:24', '2023-03-28 00:32:24');
 
 -- --------------------------------------------------------
 
@@ -521,6 +610,12 @@ ALTER TABLE `profilpostes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `roles`
 --
 ALTER TABLE `roles`
@@ -530,6 +625,12 @@ ALTER TABLE `roles`
 -- Index pour la table `souscompetences`
 --
 ALTER TABLE `souscompetences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `sousquestions`
+--
+ALTER TABLE `sousquestions`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -570,7 +671,7 @@ ALTER TABLE `competences`
 -- AUTO_INCREMENT pour la table `comptechniques`
 --
 ALTER TABLE `comptechniques`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `coutformaexternes`
@@ -627,6 +728,12 @@ ALTER TABLE `profilpostes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT pour la table `questions`
+--
+ALTER TABLE `questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
@@ -639,10 +746,16 @@ ALTER TABLE `souscompetences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT pour la table `sousquestions`
+--
+ALTER TABLE `sousquestions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
 -- AUTO_INCREMENT pour la table `testtechniques`
 --
 ALTER TABLE `testtechniques`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `themeformations`
