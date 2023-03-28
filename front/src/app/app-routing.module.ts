@@ -7,6 +7,7 @@ import { CoutlistingComponent } from './components/CoutFormation/coutlisting/cou
 import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.component';
 
 import { ListingficherenComponent } from './components/Fiche de rensignement/listingficheren/listingficheren.component';
+import { ListingTestComponent } from './components/FicheDevaluation/TestTechnique/listing-test/listing-test.component';
 import { AddformaComponent } from './components/formaexternes/addforma/addforma.component';
 import { EditformaComponent } from './components/formaexternes/editforma/editforma.component';
 import { FormalistingComponent } from './components/formaexternes/formalisting/formalisting.component';
@@ -64,6 +65,8 @@ const routes: Routes = [
   { path: 'edit-datail-profil/:id', component:EditProfilComponent },
   { path: 'listingtheme', component:ListingthemeformaComponent },
   { path: 'addtheme', component:AddthemedeformationComponent },
+  { path: 'listingtest', component:ListingTestComponent },
+
 
 
 
