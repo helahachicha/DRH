@@ -14,26 +14,26 @@ export class DetailProfileComponent implements OnInit {
   Detailprofilpostes:any={};
   
   
-  //public profilposteForm= new FormGroup({
-    //nom: new FormControl('', [Validators.required]),
-    //categorie: new FormControl('', [Validators.required]),
-    //fonction: new FormControl('', [Validators.required]),
-   // superhierar: new FormControl('', [Validators.required]),
-    //supervision: new FormControl('', [Validators.required]),
-    //interim: new FormControl('', [Validators.required]),
-    //competence: new FormControl('', [Validators.required]),
-    //souscompetence: new FormControl('', [Validators.required]),
-    //niveauvise: new FormControl('', [Validators.required]),
-    //indicateursuivi: new FormControl('', [Validators.required]),
-    //fonctionelaboration: new FormControl('', [Validators.required]),
-    //fonctionverification: new FormControl('', [Validators.required]),
-    //fonctionabrobation: new FormControl('', [Validators.required]),
-    //nomprenomelab: new FormControl('', [Validators.required]),
-    //nomprenomverif: new FormControl('', [Validators.required]),
-   // nomprenomabrob: new FormControl('', [Validators.required]),
+  public profilposteForm= new FormGroup({
     
     
- // });
+    fonction: new FormControl('', [Validators.required]),
+    superhierar: new FormControl('', [Validators.required]),
+    supervision: new FormControl('', [Validators.required]),
+    interim: new FormControl('', [Validators.required]),
+    competence: new FormControl('', [Validators.required]),
+    souscompetence: new FormControl('', [Validators.required]),
+    niveauvise: new FormControl('', [Validators.required]),
+    indicateursuivi: new FormControl('', [Validators.required]),
+    fonctionelaboration: new FormControl('', [Validators.required]),
+    fonctionverification: new FormControl('', [Validators.required]),
+    fonctionabrobation: new FormControl('', [Validators.required]),
+    nomprenomelab: new FormControl('', [Validators.required]),
+    nomprenomverif: new FormControl('', [Validators.required]),
+    nomprenomabrob: new FormControl('', [Validators.required]),
+    
+    
+  });
 
 
   constructor(
