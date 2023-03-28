@@ -11,8 +11,9 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class DetailProfileComponent implements OnInit {
 
   id:any;
-  Detailprofilpostes:any={};
-  
+  public Detailprofilpostes 
+  public detailpp
+
   
   public profilposteForm= new FormGroup({
     
@@ -21,7 +22,7 @@ export class DetailProfileComponent implements OnInit {
     superhierar: new FormControl('', [Validators.required]),
     supervision: new FormControl('', [Validators.required]),
     interim: new FormControl('', [Validators.required]),
-    competence: new FormControl('', [Validators.required]),
+    categorie_id: new FormControl('', [Validators.required]),
     souscompetence: new FormControl('', [Validators.required]),
     niveauvise: new FormControl('', [Validators.required]),
     indicateursuivi: new FormControl('', [Validators.required]),
@@ -43,18 +44,28 @@ export class DetailProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getprofilById();
+   // this.getprofilById();
+    this.getDetailppByCategorieId();
+
   }
 
 
-  getprofilById() {
+  // getprofilById() {
+  //   this.id=this.route.snapshot.params['id'];
+  //   this.dataService.get('Detailprofilpostes/getDetailprofilposte.json?id='+this.id).subscribe(
+  //     res => {
+  //     this.Detailprofilpostes=res.data;
+  //    // console.log("hello",this.Detailprofilpostes)
+
+  //   })
+  // }
+  getDetailppByCategorieId() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Detailprofilpostes/getDetailprofilposte.json?id='+this.id).subscribe(
+    this.dataService.get('Detailprofilpostes/getDetailppByCategorieId.json?id='+this.id).subscribe(
       res => {
-      this.Detailprofilpostes=res.data;
-      console.log("hello",this.Detailprofilpostes)
+      this.detailpp=res.data;
+      console.log("hello",this.detailpp)
 
     })
   }
-
 }
