@@ -23,7 +23,9 @@ class TesttechniquesController extends AppController
      * @Output: data : success message
      */
     public function addTesttechnique(){
-        
+        $this->loadModel('Comptechniques');
+        $this->loadModel('Questions');
+        $this->loadModel('Sousquestions');
         $this->request->allowMethod(['post', 'put']);
 
         /* format data */
