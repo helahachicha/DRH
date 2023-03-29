@@ -36,7 +36,7 @@ export class SidebarComponent implements OnInit {
     })
   }
   getAlltest(){
-    this.dataService.get('Testtechniques/getAllLabelTesttechnique.json').subscribe(res=>{
+    this.dataService.get('Testtechniques/getAllTesttechnique.json').subscribe(res=>{
        this.Testtechniques=res.data
        this.open=true
        console.log("this.Testtechniques", this.Testtechniques)

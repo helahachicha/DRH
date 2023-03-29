@@ -1,112 +1,35 @@
-<div class="border border-primary mt-1 ">
-    <div class="col  ">
-        <h1 class="text-center">Test Technique</h1>
-    </div>
-</div>
+<div class="container ">
 
-<div class="container">
+    <div class="shadow-lg p-3 mb-5 bg-body rounded mt-5">
+        
+        <h3 class="text-center mt-5">Les listes des test technique</h3>
+
+      
+        <div class=" table-responsive ">
+            <table class="table table-bordered " >
+                <thead>
+                    <tr class="text-bold">
+
+                        <th>Liste des test technique</th>
 
 
-    <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded">
-<div class="d-flex flex-row justify-content-between">
-        <div class=" mt-2 mb-2 end-50">
-            <!---->
-            <button type="button" class="btn btn-success"><i class="far fa-edit"></i>
-                Modifier</button>
-        </div>
-        <div class=" mt-2 mb-2 end-50">
-            <!---->
-            <button type="button" class="btn btn-success"><span class="material-symbols-outlined">
-                print
-                </span>
-                Imprimer</button>
-        </div>
-    </div>
-        <div class="dj1">
-            
-            <div class="text-bold">
-                <div class="row">
-                    <div class="text-start col-2 ">
-                        <label class="m-2" type="label"> Département : </label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control text-start" required="required"
-                            formControlName="fonction" disabled>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-start col-2 ">
-                        <label class="m-2" type="label"> Poste : </label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" required="required" formControlName="categorie"
-                            disabled>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-start col-2 ">
-                        <label class="m-2" type="label">Nom & Prénom : </label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" required="required" formControlName="categorie"
-                            disabled>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-start col-2 ">
-                    <label class="m-2" type="label">Durée :</label>
-                    </div>
-                    <div class="col-3">
-                    <input type="text" class="form-control" required="required" formControlName="supervision" disabled>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-start col-2 ">
-                    <label class="m-2" type="label">Date : </label>
-                    </div>
-                    <div class="col-3">
-                    <input type="date" class="form-control" required="required">
-                </div>
-                </div>
-                <div class="row">
-                    <div class="text-start col-2 ">
-                    <label class="m-2" type="label">Note : </label>
-                </div>
-                <div class="col-3">
-                    <input type="text" class="form-control" required="required" formControlName="categorie"
-                        disabled>
-                </div>
-                </div>
-            </div>
+                    </tr>
+                </thead>
+                <tbody  *ngFor=" let test of Testtechniques" >
+                    <tr>
+                        <td>
+                            {{test.label}}
+                        </td>
+                        <td>
+                            <button class="btn btn-danger "  (click)="deletetest(test.id)">Supprimer</button>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
         </div>
 
-       <hr>
-<h4>Veuillez noter :</h4>
-<ul>
-<li>
-    Lisez attentivement les questions. Chaque mot est important.
-</li><br>
-<li>
-    Pour la section A, une seule réponse est correcte.
-</li><br>
-<li>
-    Testez votre code pour les questions de la section B!
-</li><br>
-<li>
-    N'hésitez pas à ajouter des commentaires dans vos réponses.
-</li>
-
-</ul>
-<hr>
-
-<div>
-
-    <h4></h4>
-    
-
-</div>
-
-
     </div>
-    
 </div>

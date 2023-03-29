@@ -15,9 +15,12 @@
                             <div class="controls">
                                 <h3 class="text-center mb-5">Créer un profil de poste</h3>
                                 <div class="row">
+                                    
                                     <div class="shadow p-3 mb-5 bg-body rounded">
+
                                         <div class="row">
-                                            <div class="col-md-5">
+
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="form_name">Nom du profil de poste</label>
                                                     <input type="text" formControlName="nom" class="form-control"
@@ -25,20 +28,6 @@
                                                 </div>
                                             </div>
 
-                                         <!--  <div class="col-md-6">
-
-                                                <div class="form-group">
-                                                    <label>Catégorie</label>
-                                                    <input type="text" class="form-control" required="required"
-                                                        formControlName="categorie">
-                                                </div>
-
-                                            </div>--> 
-                                        </div>
-                                    </div>
-                                    <div class="shadow p-3 mb-5 bg-body rounded">
-
-                                        <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Fonction</label>
@@ -49,15 +38,7 @@
                                             </div>
 
 
-<!--                                       <div class="col-md-6">
 
-                                                <div class="form-group">
-                                                    <label>Catégorie</label>
-                                                    <input type="text" class="form-control" required="required"
-                                                        formControlName="categorie">
-                                                </div>
-
-                                            </div>-->
 
 
                                             <div class="col-md-6">
@@ -204,13 +185,20 @@
                                         </div>
                                     </div> 
 
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <div class="mt-2 mb-2 end-50">
 
                                             <button class="btn btn-primary m-2" (click)="addprofilposte()"
                                                 type="submit">Ajouter</button>
 
                                         </div>
+                                        <div class="mt-2 mb-2 end-50 ">
+
+                                            <button class="btn btn-primary m-2" routerLink="/add-test"
+                                                type="submit">Ajouter test</button>
+
+                                        </div>
+                                        
                                     </div>
                                 </div>
 

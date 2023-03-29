@@ -9,34 +9,30 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./listing-test.component.scss']
 })
 export class ListingTestComponent implements OnInit {
-
-  id: any;
-  public Testtechniques
-
-  public testForm = new FormGroup({
-    duree: new FormControl('', [Validators.required]),
-
-    
-  });
+public Testtechniques
+ 
   constructor(
     private dataService:DataService,
-    private router :Router,
-    private route:ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.gettestById();
+    this.getAllTesttechnique()
+  }
+
+  getAllTesttechnique() {
+    this.dataService.get('Testtechniques/getAllTesttechnique.json').subscribe(res => {
+       this.Testtechniques = res.data;
+       console.log("hello",this.Testtechniques)
+ 
+ 
+     })
+   }
+ 
+   deletetest(id){
+    this.dataService.delete('Testtechniques/deleteTesttechnique.json?id='+id).subscribe(res => {
+       this.getAllTesttechnique()
+    })
   }
 
   
-
-  gettestById() {
-    this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Testtechniques/getTesttechnique.json?id='+this.id).subscribe(
-      res => {
-      this.Testtechniques=res.data;
-      console.log("hello",this.Testtechniques)
-
-    })
-  }
 }

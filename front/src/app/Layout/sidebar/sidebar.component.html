@@ -193,7 +193,7 @@
                                             <ul aria-expanded="false" class="collapse first-level">
                                                 <li class="sidebar-item" *ngFor="let obj of Testtechniques">
                                                     <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
-                                                            class="hide-menu" routerLink="listingtest/{{obj.id}}">
+                                                            class="hide-menu" routerLink="detail-test/{{obj.id}}">
                                                             {{obj.label}}</span></a>
                                                 </li>
                                             </ul>
@@ -235,6 +235,11 @@
                                             class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Liste
                                             des profils
                                             de poste</span></a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a routerLink="/listingtest" class="sidebar-link"><i
+                                            class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Liste
+                                            des tests techniques</span></a>
                                 </li>
                             </ul>
                         </li>

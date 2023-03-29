@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -44,6 +43,9 @@ import { ListingthemeformaComponent } from './components/GérerLesAxes/Théme de
 import { AddthemedeformationComponent } from './components/GérerLesAxes/Théme de formation/addthemedeformation/addthemedeformation.component';
 import { EditTestComponent } from './components/FicheDevaluation/TestTechnique/edit-test/edit-test.component';
 import { ListingTestComponent } from './components/FicheDevaluation/TestTechnique/listing-test/listing-test.component';
+import { DetailTestComponent } from './components/FicheDevaluation/TestTechnique/detail-test/detail-test.component';
+import { CommonModule } from '@angular/common';
+import { AddTestComponent } from './components/FicheDevaluation/TestTechnique/add-test/add-test.component';
 
 
 
@@ -89,6 +91,8 @@ import { ListingTestComponent } from './components/FicheDevaluation/TestTechniqu
     AddthemedeformationComponent,
     EditTestComponent,
     ListingTestComponent,
+    DetailTestComponent,
+    AddTestComponent,
     
    
    
@@ -100,10 +104,13 @@ import { ListingTestComponent } from './components/FicheDevaluation/TestTechniqu
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    CommonModule
     
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA   ]
 })
 export class AppModule { }
