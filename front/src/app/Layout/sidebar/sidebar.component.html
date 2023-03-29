@@ -143,9 +143,11 @@
                     <ul aria-expanded="false" class="collapse first-level">
 
                         <li class="sidebar-item">
+                            
                             <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false">
-                                <i class="fas fa-list"></i><span *ngFor="let obj of poste"
-                                    class="hide-menu">{{obj.label}} </span></a>
+                                <i class="fas fa-list"></i><span 
+                                    class="hide-menu"  *ngFor="let obj of poste" >{{obj.label}} </span></a>
+                              
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item" *ngFor="let obj of Categories">
                                     <a href="icon-fontawesome.html" class="sidebar-link"><i
