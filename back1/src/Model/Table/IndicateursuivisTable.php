@@ -62,10 +62,10 @@ class IndicateursuivisTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('label')
-            ->maxLength('label', 255)
-            ->requirePresence('label', 'create')
-            ->notEmptyString('label');
+            ->scalar('label6')
+            ->maxLength('label6', 255)
+            ->requirePresence('label6', 'create')
+            ->notEmptyString('label6');
 
         $validator
             ->integer('souscompetence_id')

@@ -62,10 +62,10 @@ class NiveauvisesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('label')
-            ->maxLength('label', 255)
-            ->requirePresence('label', 'create')
-            ->notEmptyString('label');
+            ->scalar('label5')
+            ->maxLength('label5', 255)
+            ->requirePresence('label5', 'create')
+            ->notEmptyString('label5');
 
         $validator
             ->integer('categorie_id')

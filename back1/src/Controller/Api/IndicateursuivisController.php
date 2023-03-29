@@ -87,7 +87,7 @@ class IndicateursuivisController extends AppController
      *
      * @Input:
      *         data:
-     *          label (String) *Required
+     *          label6 (String) *Required
      *          souscompetence_id (Int) *Required
      * 
      * @Output: data : success message
@@ -108,7 +108,7 @@ class IndicateursuivisController extends AppController
         $indicateursuivis=$this->Indicateursuivis->get($id);
          /* create indicateursuivis entity */
         if (1==1){
-            $indicateursuivis->label=$data->label;
+            $indicateursuivis->label6=$data->label6;
             $indicateursuivis->souscompetence_id=$data->souscompetence_id;    
 
             $this->Indicateursuivis->save($indicateursuivis); 

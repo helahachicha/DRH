@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * Poste Entity
  *
  * @property int $id
- * @property string $label
+ * @property string $label1
  * @property int $departement_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -30,7 +30,7 @@ class Poste extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'label' => true,
+        'label1' => true,
         'departement_id' => true,
         'created' => true,
         'modified' => true,

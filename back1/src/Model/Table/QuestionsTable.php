@@ -66,10 +66,10 @@ class QuestionsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('label')
-            ->maxLength('label', 255)
-            ->requirePresence('label', 'create')
-            ->notEmptyString('label');
+            ->scalar('label2')
+            ->maxLength('label2', 255)
+            ->requirePresence('label2', 'create')
+            ->notEmptyString('label2');
 
         $validator
             ->integer('comptechnique_id')

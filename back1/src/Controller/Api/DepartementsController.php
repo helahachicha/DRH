@@ -18,22 +18,41 @@ class DepartementsController extends AppController
      *
      * @Input:
      *         data:
-     *          nom (String) *Required
-     *          poste_id (Int) *Required
+     *          label (String) *Required
      *         
      * @Output: data : success message
      */
     public function addDepartement(){
+        $this->loadModel('Postes');
+        $this->loadModel('Profilpostes');
+        $this->loadModel('Categories');
         $this->loadModel('Detailprofilpostes');
+        $this->loadModel('Competences');
+        $this->loadModel('Souscompetences');
+        $this->loadModel('Niveauvises');
+        $this->loadModel('Indicateursuivis');
         $this->request->allowMethod(['post', 'put']);
 
         /* format data */
         if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-            //debug($data);die;
+            //$querry=$this->request->getData();
+            //$data=json_decode($querry['data']); 
+            $data=$this->request->getData();
+            debug($data);die;
 
+        }
+         /* create departements entity */
+         if (1==1){
+            $departements = $this->Departements->newEmptyEntity();
+            $departements->label=$data->label;
+            $savedProfil=$this->Departements->save($departements);
+        }
+         /* create postes entity */
+         if (1==1){
+            $postes = $this->Postes->newEmptyEntity();
+            $postes->label1=$data->label1;
+            $postes->departement_id=$data->departement_id;
+            $savedProfil=$this->Postes->save($postes);
         }
          /* create profilpostes entity */
         if (1==1){
@@ -41,6 +60,13 @@ class DepartementsController extends AppController
             $profilpostes->nom=$data->nom;
             $profilpostes->poste_id=$data->poste_id;
             $savedProfil=$this->Profilpostes->save($profilpostes);
+        }
+        /* create categories entity */
+        if (1==1){
+            $categories = $this->Categories->newEmptyEntity();
+            $categories->label2=$data->label2;
+            $categories->profilposte_id=$data->profilposte_id;
+            $savedProfil=$this->Categories->save($categories);
         }
            /* create detailprofilpostes entity */
            if(1==1){
@@ -60,6 +86,34 @@ class DepartementsController extends AppController
             
             $this->Detailprofilpostes->save($detailprofilpostes); 
       
+        }
+        /* create competences entity */
+        if (1==1){
+            $competences = $this->Competences->newEmptyEntity();
+            $competences->label3=$data->label3;
+            $competences->categorie_id=$data->categorie_id;
+            $savedProfil=$this->Competences->save($competences);
+        }
+        /* create souscompetences entity */
+        if (1==1){
+            $souscompetences = $this->Souscompetences->newEmptyEntity();
+            $souscompetences->label4=$data->label4;
+            $souscompetences->competence_id=$data->competence_id;
+            $savedProfil=$this->Souscompetences->save($souscompetences);
+        }
+        /* create niveauvises entity */
+        if (1==1){
+            $niveauvises = $this->Niveauvises->newEmptyEntity();
+            $niveauvises->label5=$data->label5;
+            $niveauvises->categorie_id=$data->categorie_id;
+            $savedProfil=$this->Niveauvises->save($niveauvises);
+        }
+        /* create indicateursuivis entity */
+        if (1==1){
+            $indicateursuivis = $this->Indicateursuivis->newEmptyEntity();
+            $indicateursuivis->label6=$data->label6;
+            $indicateursuivis->souscompetence_id=$data->souscompetence_id;
+            $savedProfil=$this->Indicateursuivis->save($indicateursuivis);
         }
          /*send result */
         $this->set([

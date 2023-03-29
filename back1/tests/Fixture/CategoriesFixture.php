@@ -20,10 +20,10 @@ class CategoriesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'label' => 'Lorem ipsum dolor sit amet',
+                'label2' => 'Lorem ipsum dolor sit amet',
                 'profilposte_id' => 1,
-                'created' => '2023-03-27 12:08:09',
-                'modified' => '2023-03-27 12:08:09',
+                'created' => '2023-03-29 13:38:54',
+                'modified' => '2023-03-29 13:38:54',
             ],
         ];
         parent::init();

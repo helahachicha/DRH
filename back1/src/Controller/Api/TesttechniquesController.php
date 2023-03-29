@@ -47,7 +47,7 @@ class TesttechniquesController extends AppController
         /* create comptechniques entity */
         if (1==1){
             $comptechniques = $this->Comptechniques->newEmptyEntity();
-            $comptechniques->label=$data->label;  
+            $comptechniques->label1=$data->label1;  
             $comptechniques->testtechnique_id=$data->testtechnique_id;   
 
             $this->Comptechniques->save($comptechniques); 
@@ -55,14 +55,14 @@ class TesttechniquesController extends AppController
          /* create questions entity */
          if (1==1){
             $questions = $this->Questions->newEmptyEntity();
-            $questions->label=$data->label;  
+            $questions->label2=$data->label2;  
             $questions->comptechnique_id=$data->comptechnique_id;  
             $this->Questions->save($questions); 
         }
          /* create sousquestions entity */
          if (1==1){
             $sousquestions = $this->Sousquestions->newEmptyEntity();
-            $sousquestions->label=$data->label;  
+            $sousquestions->label3=$data->label3;  
             $sousquestions->question_id=$data->question_id;    
 
             $this->Sousquestions->save($sousquestions); 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 29 mars 2023 à 12:11
+-- Généré le : mer. 29 mars 2023 à 15:50
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -24,12 +24,75 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `activiteloisirs`
+--
+
+CREATE TABLE `activiteloisirs` (
+  `id` int(11) NOT NULL,
+  `activitesportive` varchar(255) NOT NULL,
+  `lequelsport` varchar(255) NOT NULL,
+  `activitecreative` varchar(255) NOT NULL,
+  `lequelcreative` varchar(255) NOT NULL,
+  `activiteinventivite` varchar(255) NOT NULL,
+  `jeureflexion` varchar(255) NOT NULL,
+  `exerceractivite` varchar(255) NOT NULL,
+  `pourquoi` varchar(255) NOT NULL,
+  `salle de sport` varchar(255) NOT NULL,
+  `joursdispo` varchar(255) NOT NULL,
+  `critereenfance` varchar(255) NOT NULL,
+  `beaumoment` text NOT NULL,
+  `mauvaismoment` text NOT NULL,
+  `activitebenevolat` varchar(255) NOT NULL,
+  `joursdisp` varchar(255) NOT NULL,
+  `lieuact` varchar(255) NOT NULL,
+  `exercezactivite` varchar(255) NOT NULL,
+  `infoprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `activiteloisirs`
+--
+
+INSERT INTO `activiteloisirs` (`id`, `activitesportive`, `lequelsport`, `activitecreative`, `lequelcreative`, `activiteinventivite`, `jeureflexion`, `exerceractivite`, `pourquoi`, `salle de sport`, `joursdispo`, `critereenfance`, `beaumoment`, `mauvaismoment`, `activitebenevolat`, `joursdisp`, `lieuact`, `exercezactivite`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
+(1, 'test', 'test', 'test', 'test', 'test', 'testtest', 'test', 'test', 'test', 'test', 'test', 'test', 'testtest', 'test', 'test', 'test', 'test', 1, '2023-03-29 14:16:00', '2023-03-29 14:16:00');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `casmariages`
+--
+
+CREATE TABLE `casmariages` (
+  `id` int(11) NOT NULL,
+  `nomprenomep` varchar(255) NOT NULL,
+  `datenep` date NOT NULL,
+  `niveauetudeep` varchar(255) NOT NULL,
+  `fonctionep` varchar(255) NOT NULL,
+  `salaireep` int(11) NOT NULL,
+  `etatep` varchar(255) NOT NULL,
+  `infoprofessionnelle_id` int(11) NOT NULL,
+  `created` int(11) NOT NULL,
+  `modified` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `casmariages`
+--
+
+INSERT INTO `casmariages` (`id`, `nomprenomep`, `datenep`, `niveauetudeep`, `fonctionep`, `salaireep`, `etatep`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
+(1, 'test', '2023-03-15', 'test', 'test', 500, 'test', 1, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `categories`
 --
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
-  `label` varchar(255) NOT NULL,
+  `label2` varchar(255) NOT NULL,
   `profilposte_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -39,7 +102,7 @@ CREATE TABLE `categories` (
 -- Déchargement des données de la table `categories`
 --
 
-INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`) VALUES
+INSERT INTO `categories` (`id`, `label2`, `profilposte_id`, `created`, `modified`) VALUES
 (1, 'Développeur junior', 1, '2023-03-27 12:59:46', '2023-03-27 12:59:46'),
 (2, 'Développeur confirmé', 1, '2023-03-27 12:59:46', '2023-03-27 12:59:46'),
 (3, 'Développeur senior', 1, '2023-03-27 13:01:08', '2023-03-27 13:01:08'),
@@ -53,7 +116,7 @@ INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`
 
 CREATE TABLE `competences` (
   `id` int(11) NOT NULL,
-  `label` varchar(255) NOT NULL,
+  `label3` varchar(255) NOT NULL,
   `categorie_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -63,7 +126,7 @@ CREATE TABLE `competences` (
 -- Déchargement des données de la table `competences`
 --
 
-INSERT INTO `competences` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
+INSERT INTO `competences` (`id`, `label3`, `categorie_id`, `created`, `modified`) VALUES
 (1, 'COMPÉTENCES TECHNIQUES', 1, '2023-03-27 14:58:13', '2023-03-27 14:58:13'),
 (2, 'COMPÉTENCES ORGANISATIONNELLES', 1, '2023-03-27 14:58:13', '2023-03-27 14:58:13'),
 (3, 'COMPÉTENCES COMPORTEMENTALES ', 1, '2023-03-27 14:59:00', '2023-03-27 14:59:00');
@@ -76,7 +139,7 @@ INSERT INTO `competences` (`id`, `label`, `categorie_id`, `created`, `modified`)
 
 CREATE TABLE `comptechniques` (
   `id` int(11) NOT NULL,
-  `label` varchar(255) NOT NULL,
+  `label1` varchar(255) NOT NULL,
   `testtechnique_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -86,7 +149,7 @@ CREATE TABLE `comptechniques` (
 -- Déchargement des données de la table `comptechniques`
 --
 
-INSERT INTO `comptechniques` (`id`, `label`, `testtechnique_id`, `created`, `modified`) VALUES
+INSERT INTO `comptechniques` (`id`, `label1`, `testtechnique_id`, `created`, `modified`) VALUES
 (1, 'A. Orientée Objet', 1, '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
 (2, 'B. Algorithme', 1, '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
 (3, 'C. SQL', 1, '2023-03-28 00:29:04', '2023-03-28 00:29:04');
@@ -243,7 +306,7 @@ INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `
 
 CREATE TABLE `indicateursuivis` (
   `id` int(11) NOT NULL,
-  `label` varchar(255) NOT NULL,
+  `label6` varchar(255) NOT NULL,
   `souscompetence_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -253,7 +316,7 @@ CREATE TABLE `indicateursuivis` (
 -- Déchargement des données de la table `indicateursuivis`
 --
 
-INSERT INTO `indicateursuivis` (`id`, `label`, `souscompetence_id`, `created`, `modified`) VALUES
+INSERT INTO `indicateursuivis` (`id`, `label6`, `souscompetence_id`, `created`, `modified`) VALUES
 (1, '- Compétence algorithmique niveau élevé  ', 0, '2023-03-27 15:06:29', '2023-03-27 15:06:29'),
 (2, '- Connaissance de l’architecture de développement Orientée Objet ', 0, '2023-03-27 15:15:17', '2023-03-27 15:15:17'),
 (3, '- Une bonne maîtrise du SQL   ', 0, '2023-03-27 15:17:53', '2023-03-27 15:17:53'),
@@ -276,12 +339,73 @@ INSERT INTO `indicateursuivis` (`id`, `label`, `souscompetence_id`, `created`, `
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `infopersonnelles`
+--
+
+CREATE TABLE `infopersonnelles` (
+  `id` int(11) NOT NULL,
+  `daten` date NOT NULL,
+  `lieu` varchar(255) NOT NULL,
+  `nationalite` varchar(255) NOT NULL,
+  `ncin` int(11) NOT NULL,
+  `delivree` varchar(255) NOT NULL,
+  `le` date NOT NULL,
+  `permis` varchar(255) NOT NULL,
+  `quandp` date NOT NULL,
+  `logement` varchar(255) NOT NULL,
+  `moyentransport` varchar(255) NOT NULL,
+  `tempsdt` int(11) NOT NULL,
+  `situationfamiliale` varchar(255) NOT NULL,
+  `quandmd` date NOT NULL,
+  `infoprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `infopersonnelles`
+--
+
+INSERT INTO `infopersonnelles` (`id`, `daten`, `lieu`, `nationalite`, `ncin`, `delivree`, `le`, `permis`, `quandp`, `logement`, `moyentransport`, `tempsdt`, `situationfamiliale`, `quandmd`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
+(1, '2023-03-01', 'test', 'test', 14029111, 'test', '2023-03-08', 'test', '2023-03-08', 'test', 'test', 23, 'test', '2023-03-01', 1, '2023-03-29 14:02:16', '2023-03-29 14:02:16');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `infoprofessionnelles`
+--
+
+CREATE TABLE `infoprofessionnelles` (
+  `id` int(11) NOT NULL,
+  `nomprenom` varchar(255) NOT NULL,
+  `adresse` varchar(255) NOT NULL,
+  `telprofessionnel` int(11) NOT NULL,
+  `telpersonnel` int(11) NOT NULL,
+  `contact` int(11) NOT NULL,
+  `mailprofessionnel` varchar(255) NOT NULL,
+  `mailpersonnel` varchar(255) NOT NULL,
+  `service` varchar(255) NOT NULL,
+  `poste` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `infoprofessionnelles`
+--
+
+INSERT INTO `infoprofessionnelles` (`id`, `nomprenom`, `adresse`, `telprofessionnel`, `telpersonnel`, `contact`, `mailprofessionnel`, `mailpersonnel`, `service`, `poste`, `created`, `modified`) VALUES
+(1, 'bilel ghaddhab', 'test', 23145651, 23586485, 29635524, 'testtest', 'test', 'test', 'test', '2023-03-29 14:01:26', '2023-03-29 14:01:26');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `niveauvises`
 --
 
 CREATE TABLE `niveauvises` (
   `id` int(11) NOT NULL,
-  `label` varchar(255) NOT NULL,
+  `label5` varchar(255) NOT NULL,
   `categorie_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -291,11 +415,33 @@ CREATE TABLE `niveauvises` (
 -- Déchargement des données de la table `niveauvises`
 --
 
-INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
+INSERT INTO `niveauvises` (`id`, `label5`, `categorie_id`, `created`, `modified`) VALUES
 (1, 'Pré-actif ', 1, '2023-03-27 13:36:38', '2023-03-27 13:36:38'),
 (2, 'Actif', 2, '2023-03-27 13:37:01', '2023-03-27 13:37:01'),
 (3, 'Pro-actif', 3, '2023-03-27 13:37:01', '2023-03-27 13:37:01'),
 (4, 'Expert', 4, '2023-03-27 13:37:16', '2023-03-27 13:37:16');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `points`
+--
+
+CREATE TABLE `points` (
+  `id` int(11) NOT NULL,
+  `pointforce` text NOT NULL,
+  `pointameliore` text NOT NULL,
+  `infoprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `points`
+--
+
+INSERT INTO `points` (`id`, `pointforce`, `pointameliore`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
+(1, 'test', 'test', 1, '2023-03-29 14:18:53', '2023-03-29 14:18:53');
 
 -- --------------------------------------------------------
 
@@ -305,7 +451,7 @@ INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`)
 
 CREATE TABLE `postes` (
   `id` int(11) NOT NULL,
-  `label` varchar(255) NOT NULL,
+  `label1` varchar(255) NOT NULL,
   `departement_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -315,7 +461,7 @@ CREATE TABLE `postes` (
 -- Déchargement des données de la table `postes`
 --
 
-INSERT INTO `postes` (`id`, `label`, `departement_id`, `created`, `modified`) VALUES
+INSERT INTO `postes` (`id`, `label1`, `departement_id`, `created`, `modified`) VALUES
 (1, 'Développement', 1, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
 (2, 'Responsable marketing ', 0, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
 (3, 'Responsable ressource humaine ', 0, '2023-03-27 12:31:16', '2023-03-27 12:31:16');
@@ -350,7 +496,7 @@ INSERT INTO `profilpostes` (`id`, `nom`, `poste_id`, `created`, `modified`) VALU
 
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL,
-  `label` varchar(255) NOT NULL,
+  `label2` varchar(255) NOT NULL,
   `comptechnique_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -360,7 +506,7 @@ CREATE TABLE `questions` (
 -- Déchargement des données de la table `questions`
 --
 
-INSERT INTO `questions` (`id`, `label`, `comptechnique_id`, `created`, `modified`) VALUES
+INSERT INTO `questions` (`id`, `label2`, `comptechnique_id`, `created`, `modified`) VALUES
 (1, 'A.1. Quelle est l’assertion qui correspond le mieux à la définition d’une méthode?', 1, '2023-03-28 00:35:56', '2023-03-28 00:35:56'),
 (2, 'A.2. Quelle assertion se rapproche le plus du concept d’héritage?', 1, '2023-03-28 00:35:56', '2023-03-28 00:35:56'),
 (3, 'A.3. En Python, si une classe est dérivée de deux classes différentes, on appelle ça ?', 1, '2023-03-28 00:36:33', '2023-03-28 00:36:33'),
@@ -406,7 +552,7 @@ INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
 
 CREATE TABLE `souscompetences` (
   `id` int(11) NOT NULL,
-  `label` varchar(255) NOT NULL,
+  `label4` varchar(255) NOT NULL,
   `competence_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -416,7 +562,7 @@ CREATE TABLE `souscompetences` (
 -- Déchargement des données de la table `souscompetences`
 --
 
-INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `created`, `modified`) VALUES
+INSERT INTO `souscompetences` (`id`, `label4`, `competence_id`, `created`, `modified`) VALUES
 (1, 'GESTION DE TEMPS & PRIORITÉS', 2, '2023-03-27 15:01:44', '2023-03-27 15:01:44'),
 (2, '1. GEEK', 3, '2023-03-27 15:01:44', '2023-03-27 15:01:44'),
 (3, '2. AUTODÉTERMINATION ', 3, '2023-03-27 15:02:37', '2023-03-27 15:02:37'),
@@ -434,7 +580,7 @@ INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `created`, `modif
 
 CREATE TABLE `sousquestions` (
   `id` int(11) NOT NULL,
-  `label` varchar(255) NOT NULL,
+  `label3` varchar(255) NOT NULL,
   `question_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -444,7 +590,7 @@ CREATE TABLE `sousquestions` (
 -- Déchargement des données de la table `sousquestions`
 --
 
-INSERT INTO `sousquestions` (`id`, `label`, `question_id`, `created`, `modified`) VALUES
+INSERT INTO `sousquestions` (`id`, `label3`, `question_id`, `created`, `modified`) VALUES
 (1, '(a) Une méthode est une classe ne contenant aucune variable.', 1, '2023-03-28 00:42:07', '2023-03-28 00:42:07'),
 (2, '(b) Une méthode est une suite d’invocations d’opérations sur un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
 (3, '(c) Une méthode est un traitement réalisé par un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
@@ -540,6 +686,18 @@ INSERT INTO `users` (`id`, `email`, `password`, `token`, `role_id`, `created`, `
 --
 
 --
+-- Index pour la table `activiteloisirs`
+--
+ALTER TABLE `activiteloisirs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `casmariages`
+--
+ALTER TABLE `casmariages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `categories`
 --
 ALTER TABLE `categories`
@@ -594,9 +752,27 @@ ALTER TABLE `indicateursuivis`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `infopersonnelles`
+--
+ALTER TABLE `infopersonnelles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `infoprofessionnelles`
+--
+ALTER TABLE `infoprofessionnelles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `niveauvises`
 --
 ALTER TABLE `niveauvises`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `points`
+--
+ALTER TABLE `points`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -658,6 +834,18 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT pour la table `activiteloisirs`
+--
+ALTER TABLE `activiteloisirs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `casmariages`
+--
+ALTER TABLE `casmariages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
@@ -712,10 +900,28 @@ ALTER TABLE `indicateursuivis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT pour la table `infopersonnelles`
+--
+ALTER TABLE `infopersonnelles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `infoprofessionnelles`
+--
+ALTER TABLE `infoprofessionnelles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT pour la table `niveauvises`
 --
 ALTER TABLE `niveauvises`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `points`
+--
+ALTER TABLE `points`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `postes`

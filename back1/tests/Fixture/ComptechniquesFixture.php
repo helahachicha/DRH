@@ -20,10 +20,10 @@ class ComptechniquesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'label' => 'Lorem ipsum dolor sit amet',
+                'label1' => 'Lorem ipsum dolor sit amet',
                 'testtechnique_id' => 1,
-                'created' => '2023-03-28 08:44:28',
-                'modified' => '2023-03-28 08:44:28',
+                'created' => '2023-03-29 13:30:54',
+                'modified' => '2023-03-29 13:30:54',
             ],
         ];
         parent::init();

@@ -9,12 +9,13 @@ use Cake\ORM\Entity;
  * Souscompetence Entity
  *
  * @property int $id
- * @property string $label
+ * @property string $label4
  * @property int $competence_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Competence $competence
+ * @property \App\Model\Entity\Indicateursuivi[] $indicateursuivis
  */
 class Souscompetence extends Entity
 {
@@ -28,10 +29,11 @@ class Souscompetence extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'label' => true,
+        'label4' => true,
         'competence_id' => true,
         'created' => true,
         'modified' => true,
         'competence' => true,
+        'indicateursuivis' => true,
     ];
 }
