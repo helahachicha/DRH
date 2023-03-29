@@ -135,29 +135,30 @@
                         
                             </ul>-->
 
-                
 
-                            <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                                        class="fas fa-list"></i><span class="hide-menu">Profil de poste </span></a>
-                                <ul aria-expanded="false" class="collapse first-level">
-                                   
-                                    <li class="sidebar-item" >
-                                        <a  class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"  >
-                                            <i
-                                                class="fas fa-list" ></i><span *ngFor="let obj of poste" class="hide-menu">{{obj.label}} </span></a>
-                                        <ul aria-expanded="false" class="collapse first-level">
-                                            <li class="sidebar-item" *ngFor="let obj of Categories">
-                                                <a href="icon-fontawesome.html" class="sidebar-link"><i
-                                                        class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu" routerLink="Detail-profile/{{obj.id}}">  {{obj.label}}</span></a>
-                                            </li>
 
-                                           
-                                            
-                                        </ul>
-                                    </li>           
-                                </ul>
-                            </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                            class="fas fa-list"></i><span class="hide-menu">Profil de poste </span></a>
+                    <ul aria-expanded="false" class="collapse first-level">
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false">
+                                <i class="fas fa-list"></i><span *ngFor="let obj of poste"
+                                    class="hide-menu">{{obj.label}} </span></a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item" *ngFor="let obj of Categories">
+                                    <a href="icon-fontawesome.html" class="sidebar-link"><i
+                                            class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"
+                                            routerLink="Detail-profile/{{obj.id}}"> {{obj.label}}</span></a>
+                                </li>
+
+
+
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
@@ -179,10 +180,31 @@
                                             d'évaluation psychique </span></a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a routerLink="/listingtest" class="sidebar-link"><i
-                                            class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Test
-                                            technique
-                                        </span></a>
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                                            class=" fas fa-list"></i><span class="hide-menu"> Tests
+                                            Techniques</span></a>
+
+                                    <ul aria-expanded="false" class="collapse first-level">
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                                aria-expanded="false">
+                                                <i class="fas fa-list"></i><span *ngFor="let obj of poste"
+                                                    class="hide-menu">{{obj.label}} </span>
+                                            </a>
+                                            <ul aria-expanded="false" class="collapse first-level">
+                                                <li class="sidebar-item" *ngFor="let obj of Categories">
+                                                    <a href="icon-fontawesome.html" class="sidebar-link"><i
+                                                            class=" fas fa-arrow-alt-circle-right"></i><span
+                                                            class="hide-menu" routerLink="Detail-profile/{{obj.id}}">
+                                                            {{obj.label}}</span></a>
+                                                </li>
+
+
+                                            </ul>
+
+                                        </li>
+
+                                    </ul>
                                 </li>
                             </ul>
                         </li>
