@@ -36,4 +36,29 @@ class PostesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
+
+    /**
+    * getAllLabelPoste
+    *
+    * @Input: nothing
+    *
+    * @Output: data
+    */
+    public function getAllLabelPoste()
+    {
+
+        /* search */
+        $postes = $this->Postes->find('all',[
+            'fields' => [
+                'label'
+            ]
+        ]);
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $postes,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
 }
