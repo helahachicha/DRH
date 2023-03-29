@@ -17,7 +17,6 @@ class TesttechniquesController extends AppController
      *
      * @Input:
      *         data:
-     *          duree (String) *Required
      *          label(String) *Required
      *          categorie_id (Int) *Required
      *         
@@ -38,7 +37,6 @@ class TesttechniquesController extends AppController
          /* create testtechniques entity */
         if (1==1){
             $testtechniques = $this->Testtechniques->newEmptyEntity();
-            $testtechniques->duree=$data->duree;  
             $testtechniques->label=$data->label;  
             $testtechniques->categorie_id=$data->categorie_id;     
 
@@ -59,7 +57,6 @@ class TesttechniquesController extends AppController
      *
      * @Input:
      *         data:
-     *          duree (String) *Required
      *          label(String) *Required
      *          categorie_id (Int) *Required
      *         
@@ -81,7 +78,6 @@ class TesttechniquesController extends AppController
         $testtechniques=$this->Testtechniques->get($id);
          /* create testtechniques entity */
         if (1==1){
-            $testtechniques->duree=$data->duree;  
             $testtechniques->label=$data->label;  
             $testtechniques->categorie_id=$data->categorie_id;
 

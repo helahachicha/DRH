@@ -21,10 +21,9 @@ class TesttechniquesFixture extends TestFixture
             [
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
-                'duree' => 'Lorem ipsum dolor sit amet',
                 'categorie_id' => 1,
-                'created' => '2023-03-29 09:21:27',
-                'modified' => '2023-03-29 09:21:27',
+                'created' => '2023-03-29 10:09:43',
+                'modified' => '2023-03-29 10:09:43',
             ],
         ];
         parent::init();
