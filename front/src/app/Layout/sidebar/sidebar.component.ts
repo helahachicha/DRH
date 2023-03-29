@@ -11,6 +11,7 @@ export class SidebarComponent implements OnInit {
  
   public Categories
   public poste
+  public Testtechniques
   public open:boolean=false
   constructor(
     private dataService:DataService,
@@ -18,6 +19,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.getAllcategorie()
     this.getAllposte()
+    this.getAlltest()
 
   }
   getAllcategorie(){
@@ -31,6 +33,13 @@ export class SidebarComponent implements OnInit {
        this.poste=res.data
        this.open=true
        console.log("this.poste", this.poste)
+    })
+  }
+  getAlltest(){
+    this.dataService.get('Testtechniques/getAllLabelTesttechnique.json').subscribe(res=>{
+       this.Testtechniques=res.data
+       this.open=true
+       console.log("this.Testtechniques", this.Testtechniques)
     })
   }
   getid(id:any){
