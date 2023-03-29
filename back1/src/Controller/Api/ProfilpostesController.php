@@ -110,31 +110,6 @@ class ProfilpostesController extends AppController
     
     }
 
-
-    /**
-    * getAllNomProfilposte
-    *
-    * @Input: nothing
-    *
-    * @Output: data
-    */
-    public function getAllNomProfilposte()
-    {
-
-        /* search */
-        $profilpostes = $this->Profilpostes->find('all',[
-            'fields' => [
-                'nom'
-            ]
-        ]);
- 
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' => $profilpostes,
-            '_serialize' => ['success', 'data']
-        ]);
-    }
     
 
     /**
