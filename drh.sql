@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 28 mars 2023 à 09:29
+-- Généré le : mer. 29 mars 2023 à 10:06
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -77,6 +77,7 @@ INSERT INTO `competences` (`id`, `label`, `categorie_id`, `created`, `modified`)
 CREATE TABLE `comptechniques` (
   `id` int(11) NOT NULL,
   `label` varchar(255) NOT NULL,
+  `testtechnique_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -85,10 +86,10 @@ CREATE TABLE `comptechniques` (
 -- Déchargement des données de la table `comptechniques`
 --
 
-INSERT INTO `comptechniques` (`id`, `label`, `created`, `modified`) VALUES
-(1, 'A. Orientée Objet', '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
-(2, 'B. Algorithme', '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
-(3, 'C. SQL', '2023-03-28 00:29:04', '2023-03-28 00:29:04');
+INSERT INTO `comptechniques` (`id`, `label`, `testtechnique_id`, `created`, `modified`) VALUES
+(1, 'A. Orientée Objet', 1, '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
+(2, 'B. Algorithme', 1, '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
+(3, 'C. SQL', 1, '2023-03-28 00:29:04', '2023-03-28 00:29:04');
 
 -- --------------------------------------------------------
 
@@ -475,7 +476,6 @@ CREATE TABLE `testtechniques` (
   `duree` varchar(255) NOT NULL,
   `departement_id` int(11) NOT NULL,
   `poste_id` int(11) NOT NULL,
-  `comptechnique_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -484,8 +484,8 @@ CREATE TABLE `testtechniques` (
 -- Déchargement des données de la table `testtechniques`
 --
 
-INSERT INTO `testtechniques` (`id`, `duree`, `departement_id`, `poste_id`, `comptechnique_id`, `created`, `modified`) VALUES
-(1, '2h', 1, 1, 0, '2023-03-28 00:32:24', '2023-03-28 00:32:24');
+INSERT INTO `testtechniques` (`id`, `duree`, `departement_id`, `poste_id`, `created`, `modified`) VALUES
+(1, '2h', 1, 1, '2023-03-28 00:32:24', '2023-03-28 00:32:24');
 
 -- --------------------------------------------------------
 
