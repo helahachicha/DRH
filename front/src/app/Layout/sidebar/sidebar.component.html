@@ -143,18 +143,17 @@
                     <ul aria-expanded="false" class="collapse first-level">
 
                         <li class="sidebar-item">
+
                             <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false">
-                                <i class="fas fa-list"></i><span *ngFor="let obj of poste"
-                                    class="hide-menu">{{obj.label}} </span></a>
+                                <i class="fas fa-list"></i><span class="hide-menu"
+                                    *ngFor="let obj of poste">{{obj.label}} </span></a>
+
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item" *ngFor="let obj of Categories">
-                                    <a href="icon-fontawesome.html" class="sidebar-link"><i
-                                            class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"
-                                            routerLink="Detail-profile/{{obj.id}}"> {{obj.label}}</span></a>
+                                    <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
+                                            class="hide-menu" routerLink="Detail-profile/{{obj.id}}">
+                                            {{obj.label}}</span></a>
                                 </li>
-
-
-
                             </ul>
                         </li>
                     </ul>
@@ -192,14 +191,11 @@
                                                     class="hide-menu">{{obj.label}} </span>
                                             </a>
                                             <ul aria-expanded="false" class="collapse first-level">
-                                                <li class="sidebar-item" *ngFor="let obj of Categories">
-                                                    <a href="icon-fontawesome.html" class="sidebar-link"><i
-                                                            class=" fas fa-arrow-alt-circle-right"></i><span
-                                                            class="hide-menu" routerLink="Detail-profile/{{obj.id}}">
+                                                <li class="sidebar-item" *ngFor="let obj of Testtechniques">
+                                                    <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
+                                                            class="hide-menu" routerLink="listingtest/{{obj.id}}">
                                                             {{obj.label}}</span></a>
                                                 </li>
-
-
                                             </ul>
 
                                         </li>

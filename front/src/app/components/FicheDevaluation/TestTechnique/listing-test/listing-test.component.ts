@@ -11,7 +11,7 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class ListingTestComponent implements OnInit {
 
   id: any;
-  public testtechniques
+  public Testtechniques
 
   public testForm = new FormGroup({
     duree: new FormControl('', [Validators.required]),
@@ -28,22 +28,15 @@ export class ListingTestComponent implements OnInit {
     this.gettestById();
   }
 
+  
+
   gettestById() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('testtechniques/getTesttechnique.json?id='+this.id).subscribe(
+    this.dataService.get('Testtechniques/getTesttechnique.json?id='+this.id).subscribe(
       res => {
-      this.testtechniques=res.data;
-      console.log("hello",this.testtechniques)
+      this.Testtechniques=res.data;
+      console.log("hello",this.Testtechniques)
 
-      
-    })
-  }
-
-  edittest(){
-      
-    this.dataService.post('testtechniques/editTesttechnique.json?id='+this.id,this.testForm.value).subscribe(res=> {
-      console.log("hello",this.testForm.value)
-    this.router.navigate(['/listingtest'])
     })
   }
 }

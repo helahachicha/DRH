@@ -65,7 +65,7 @@ const routes: Routes = [
   { path: 'edit-datail-profil/:id', component:EditProfilComponent },
   { path: 'listingtheme', component:ListingthemeformaComponent },
   { path: 'addtheme', component:AddthemedeformationComponent },
-  { path: 'listingtest', component:ListingTestComponent },
+  { path: 'listingtest/:id', component:ListingTestComponent },
 
 
 
