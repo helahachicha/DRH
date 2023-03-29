@@ -20,11 +20,11 @@ class TesttechniquesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
+                'label' => 'Lorem ipsum dolor sit amet',
                 'duree' => 'Lorem ipsum dolor sit amet',
-                'departement_id' => 1,
-                'poste_id' => 1,
-                'created' => '2023-03-28 08:53:43',
-                'modified' => '2023-03-28 08:53:43',
+                'categorie_id' => 1,
+                'created' => '2023-03-29 09:21:27',
+                'modified' => '2023-03-29 09:21:27',
             ],
         ];
         parent::init();

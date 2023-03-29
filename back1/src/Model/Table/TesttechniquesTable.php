@@ -11,8 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Testtechniques Model
  *
- * @property \App\Model\Table\DepartementsTable&\Cake\ORM\Association\BelongsTo $Departements
- * @property \App\Model\Table\PostesTable&\Cake\ORM\Association\BelongsTo $Postes
+ * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
  * @property \App\Model\Table\ComptechniquesTable&\Cake\ORM\Association\HasMany $Comptechniques
  *
  * @method \App\Model\Entity\Testtechnique newEmptyEntity()
@@ -49,12 +48,8 @@ class TesttechniquesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Departements', [
-            'foreignKey' => 'departement_id',
-            'joinType' => 'INNER',
-        ]);
-        $this->belongsTo('Postes', [
-            'foreignKey' => 'poste_id',
+        $this->belongsTo('Categories', [
+            'foreignKey' => 'categorie_id',
             'joinType' => 'INNER',
         ]);
         $this->hasMany('Comptechniques', [
@@ -71,18 +66,20 @@ class TesttechniquesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
+            ->scalar('label')
+            ->maxLength('label', 255)
+            ->requirePresence('label', 'create')
+            ->notEmptyString('label');
+
+        $validator
             ->scalar('duree')
             ->maxLength('duree', 255)
             ->requirePresence('duree', 'create')
             ->notEmptyString('duree');
 
         $validator
-            ->integer('departement_id')
-            ->notEmptyString('departement_id');
-
-        $validator
-            ->integer('poste_id')
-            ->notEmptyString('poste_id');
+            ->integer('categorie_id')
+            ->notEmptyString('categorie_id');
 
         return $validator;
     }
@@ -96,8 +93,7 @@ class TesttechniquesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('departement_id', 'Departements'), ['errorField' => 'departement_id']);
-        $rules->add($rules->existsIn('poste_id', 'Postes'), ['errorField' => 'poste_id']);
+        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
 
         return $rules;
     }

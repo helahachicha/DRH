@@ -18,8 +18,8 @@ class TesttechniquesController extends AppController
      * @Input:
      *         data:
      *          duree (String) *Required
-     *          departement_id(Int) *Required
-     *          poste_id (Int) *Required
+     *          label(String) *Required
+     *          categorie_id (Int) *Required
      *         
      * @Output: data : success message
      */
@@ -39,8 +39,8 @@ class TesttechniquesController extends AppController
         if (1==1){
             $testtechniques = $this->Testtechniques->newEmptyEntity();
             $testtechniques->duree=$data->duree;  
-            $testtechniques->departement_id=$data->departement_id;  
-            $testtechniques->poste_id=$data->poste_id;     
+            $testtechniques->label=$data->label;  
+            $testtechniques->categorie_id=$data->categorie_id;     
 
             $this->Testtechniques->save($testtechniques); 
         }
@@ -60,8 +60,8 @@ class TesttechniquesController extends AppController
      * @Input:
      *         data:
      *          duree (String) *Required
-     *          departement_id(Int) *Required
-     *          poste_id (Int) *Required
+     *          label(String) *Required
+     *          categorie_id (Int) *Required
      *         
      * @Output: data : success message
      */
@@ -82,8 +82,8 @@ class TesttechniquesController extends AppController
          /* create testtechniques entity */
         if (1==1){
             $testtechniques->duree=$data->duree;  
-            $testtechniques->departement_id=$data->departement_id;  
-            $testtechniques->poste_id=$data->poste_id;
+            $testtechniques->label=$data->label;  
+            $testtechniques->categorie_id=$data->categorie_id;
 
             $this->Testtechniques->save($testtechniques); 
         }
@@ -110,7 +110,7 @@ class TesttechniquesController extends AppController
         /* search */
         $testtechniques = $this->Testtechniques->find('all',[
             'contain' => [
-                'Postes','Departements'
+                'Categories'
             ]
         ]);
  
@@ -121,6 +121,34 @@ class TesttechniquesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
+
+
+    
+    /**
+    * getAllLabelTesttechnique
+    *
+    * @Input: nothing
+    *
+    * @Output: data
+    */
+    public function getAllLabelTesttechnique()
+    {
+
+        /* search */
+        $testtechniques = $this->Testtechniques->find('all',[
+            'fields' => [
+                'label'
+            ]
+        ]);
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $testtechniques,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
+
     
     /**
       * getTesttechnique

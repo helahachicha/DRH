@@ -25,8 +25,7 @@ class TesttechniquesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Testtechniques',
-        'app.Departements',
-        'app.Postes',
+        'app.Categories',
         'app.Comptechniques',
     ];
 
