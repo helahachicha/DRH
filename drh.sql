@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 29 mars 2023 à 10:06
+-- Généré le : mer. 29 mars 2023 à 12:11
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -473,9 +473,8 @@ INSERT INTO `sousquestions` (`id`, `label`, `question_id`, `created`, `modified`
 
 CREATE TABLE `testtechniques` (
   `id` int(11) NOT NULL,
-  `duree` varchar(255) NOT NULL,
-  `departement_id` int(11) NOT NULL,
-  `poste_id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `categorie_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -484,8 +483,11 @@ CREATE TABLE `testtechniques` (
 -- Déchargement des données de la table `testtechniques`
 --
 
-INSERT INTO `testtechniques` (`id`, `duree`, `departement_id`, `poste_id`, `created`, `modified`) VALUES
-(1, '2h', 1, 1, '2023-03-28 00:32:24', '2023-03-28 00:32:24');
+INSERT INTO `testtechniques` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
+(1, 'Test technique développeur junior', 1, '2023-03-28 00:32:24', '2023-03-28 00:32:24'),
+(2, 'Test technique développeur confirmé', 2, '2023-03-29 11:24:42', '2023-03-29 11:24:42'),
+(3, 'Test technique développeur senior', 3, '2023-03-29 11:24:42', '2023-03-29 11:24:42'),
+(4, 'Test technique développeur tecklead', 4, '2023-03-29 11:28:34', '2023-03-29 11:28:34');
 
 -- --------------------------------------------------------
 
@@ -755,7 +757,7 @@ ALTER TABLE `sousquestions`
 -- AUTO_INCREMENT pour la table `testtechniques`
 --
 ALTER TABLE `testtechniques`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `themeformations`

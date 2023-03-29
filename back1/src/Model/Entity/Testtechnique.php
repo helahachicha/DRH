@@ -10,7 +10,6 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $label
- * @property string $duree
  * @property int $categorie_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -31,7 +30,6 @@ class Testtechnique extends Entity
      */
     protected $_accessible = [
         'label' => true,
-        'duree' => true,
         'categorie_id' => true,
         'created' => true,
         'modified' => true,

@@ -72,12 +72,6 @@ class TesttechniquesTable extends Table
             ->notEmptyString('label');
 
         $validator
-            ->scalar('duree')
-            ->maxLength('duree', 255)
-            ->requirePresence('duree', 'create')
-            ->notEmptyString('duree');
-
-        $validator
             ->integer('categorie_id')
             ->notEmptyString('categorie_id');
 
