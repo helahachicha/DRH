@@ -9,6 +9,7 @@ import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.
 import { ListingficherenComponent } from './components/Fiche de rensignement/listingficheren/listingficheren.component';
 import { AddTestComponent } from './components/FicheDevaluation/TestTechnique/add-test/add-test.component';
 import { DetailTestComponent } from './components/FicheDevaluation/TestTechnique/detail-test/detail-test.component';
+import { EditTestComponent } from './components/FicheDevaluation/TestTechnique/edit-test/edit-test.component';
 import { ListingTestComponent } from './components/FicheDevaluation/TestTechnique/listing-test/listing-test.component';
 import { AddformaComponent } from './components/formaexternes/addforma/addforma.component';
 import { EditformaComponent } from './components/formaexternes/editforma/editforma.component';
@@ -70,6 +71,8 @@ const routes: Routes = [
   { path: 'listingtest', component:ListingTestComponent },
   { path: 'detail-test/:id', component:DetailTestComponent },
   { path: 'add-test', component:AddTestComponent },
+  { path: 'edit-test/:id', component:EditTestComponent },
+
 
 
 

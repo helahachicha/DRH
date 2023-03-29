@@ -12,15 +12,9 @@ export class AddTestComponent implements OnInit {
   public Testtechniques
   public testForm = new FormGroup({
     label_id: new FormControl('', [Validators.required]),
-    categorie_id: new FormControl('', [Validators.required]),
-    labelcomp: new FormControl('', [Validators.required]),
-    testtechnique_id: new FormControl('', [Validators.required]),
-    labelques: new FormControl('', [Validators.required]),
-    comptechnique_id: new FormControl('', [Validators.required]),
-    labelsouq: new FormControl('', [Validators.required]),
-    question_id: new FormControl('', [Validators.required]),
-    
-    
+    label1: new FormControl('', [Validators.required]),
+    label2: new FormControl('', [Validators.required]),
+    label3: new FormControl('', [Validators.required]),  
   });
 
   constructor(
@@ -34,7 +28,7 @@ export class AddTestComponent implements OnInit {
   submit() {
     //console.log("hello",this.coutForm.value)
     this.dataService.post('Testtechniques/addTesttechnique.json',this.testForm.value).subscribe(res=> {
-      this.router.navigate(['/listingtest'])
+      this.router.navigate(['/addprofil'])
      
       })
    }

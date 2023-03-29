@@ -146,13 +146,13 @@
 
                             <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false">
                                 <i class="fas fa-list"></i><span class="hide-menu"
-                                    *ngFor="let obj of poste">{{obj.label}} </span></a>
+                                    *ngFor="let obj of poste">{{obj.label1}} </span></a>
 
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item" *ngFor="let obj of Categories">
                                     <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
                                             class="hide-menu" routerLink="Detail-profile/{{obj.id}}">
-                                            {{obj.label}}</span></a>
+                                            {{obj.label2}}</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -188,7 +188,7 @@
                                             <a class="sidebar-link has-arrow waves-effect waves-dark"
                                                 aria-expanded="false">
                                                 <i class="fas fa-list"></i><span *ngFor="let obj of poste"
-                                                    class="hide-menu">{{obj.label}} </span>
+                                                    class="hide-menu">{{obj.label1}} </span>
                                             </a>
                                             <ul aria-expanded="false" class="collapse first-level">
                                                 <li class="sidebar-item" *ngFor="let obj of Testtechniques">

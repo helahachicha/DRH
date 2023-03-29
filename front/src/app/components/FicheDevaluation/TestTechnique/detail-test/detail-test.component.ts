@@ -12,12 +12,14 @@ export class DetailTestComponent implements OnInit {
 
   id: any;
   public Testtechniques
+  public Comptechniques
+  public Questions
+  public Sousquestions
 
   public testForm = new FormGroup({
-    duree: new FormControl('', [Validators.required]),
-
-    
+   label1: new FormControl('', [Validators.required]),   
   });
+
 
   constructor(
     private dataService:DataService,
@@ -26,15 +28,46 @@ export class DetailTestComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.gettestById();
+   this.gettestById();
+   // this.getquesById()
+   // this.getsouquestyId()
   }
+ // gettestById() {
+   // this.id=this.route.snapshot.params['id'];
+   // this.dataService.get('Comptechniques/getComptechnique.json?id='+this.id).subscribe(
+     // res => {
+     // this.Comptechniques=res.data;
+     // console.log("hello",this.Comptechniques)
+
+    //})
+ // }
+
+ // getquesById() {
+  //  this.id=this.route.snapshot.params['id'];
+   // this.dataService.get('Questions/getQuestion.json?id='+this.id).subscribe(
+  //    res => {
+   //   this.Questions=res.data;
+   //   console.log("hello",this.Questions)
+
+   // })
+ // }
+
+  //getsouquestyId() {
+  //  this.id=this.route.snapshot.params['id'];
+  //  this.dataService.get('Sousquestions/getSousquestion.json?id='+this.id).subscribe(
+   //   res => {
+   //   this.Sousquestions=res.data;
+    //  console.log("hello",this.Sousquestions)
+//  })
+  //}
+
   gettestById() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Testtechniques/getTesttechnique.json?id='+this.id).subscribe(
-      res => {
-      this.Testtechniques=res.data;
-      console.log("hello",this.Testtechniques)
-
-    })
-  }
+     this.dataService.get('Testtechniques/getTesttechnique.json?id='+this.id).subscribe(
+       res => {
+       this.Testtechniques=res.data;
+       console.log("hello",this.Testtechniques)
+ 
+     })
+   }
 }
