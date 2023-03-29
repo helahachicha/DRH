@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * Competence Entity
  *
  * @property int $id
- * @property string $label
+ * @property string $label3
  * @property int $categorie_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -29,7 +29,7 @@ class Competence extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'label' => true,
+        'label3' => true,
         'categorie_id' => true,
         'created' => true,
         'modified' => true,

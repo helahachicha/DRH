@@ -13,7 +13,6 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\DepartementsTable&\Cake\ORM\Association\BelongsTo $Departements
  * @property \App\Model\Table\ProfilpostesTable&\Cake\ORM\Association\HasMany $Profilpostes
- * @property \App\Model\Table\TesttechniquesTable&\Cake\ORM\Association\HasMany $Testtechniques
  *
  * @method \App\Model\Entity\Poste newEmptyEntity()
  * @method \App\Model\Entity\Poste newEntity(array $data, array $options = [])
@@ -56,9 +55,6 @@ class PostesTable extends Table
         $this->hasMany('Profilpostes', [
             'foreignKey' => 'poste_id',
         ]);
-        $this->hasMany('Testtechniques', [
-            'foreignKey' => 'poste_id',
-        ]);
     }
 
     /**
@@ -70,10 +66,10 @@ class PostesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('label')
-            ->maxLength('label', 255)
-            ->requirePresence('label', 'create')
-            ->notEmptyString('label');
+            ->scalar('label1')
+            ->maxLength('label1', 255)
+            ->requirePresence('label1', 'create')
+            ->notEmptyString('label1');
 
         $validator
             ->integer('departement_id')

@@ -25,8 +25,8 @@ class ComptechniquesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Comptechniques',
-        'app.Questions',
         'app.Testtechniques',
+        'app.Questions',
     ];
 
     /**
@@ -60,6 +60,17 @@ class ComptechniquesTableTest extends TestCase
      * @uses \App\Model\Table\ComptechniquesTable::validationDefault()
      */
     public function testValidationDefault(): void
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     * @uses \App\Model\Table\ComptechniquesTable::buildRules()
+     */
+    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

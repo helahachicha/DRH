@@ -87,7 +87,7 @@ class SouscompetencesController extends AppController
      *
      * @Input:
      *         data:
-     *          label (String) *Required
+     *          label4 (String) *Required
      *          competence_id (Int) *Required
      * 
      * @Output: data : success message
@@ -108,7 +108,7 @@ class SouscompetencesController extends AppController
         $souscompetences=$this->Souscompetences->get($id);
          /* create souscompetences entity */
         if (1==1){
-            $souscompetences->label=$data->label;
+            $souscompetences->label4=$data->label4;
             $souscompetences->competence_id=$data->competence_id;    
 
             $this->Souscompetences->save($souscompetences); 

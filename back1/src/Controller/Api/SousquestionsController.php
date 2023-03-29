@@ -17,7 +17,7 @@ class SousquestionsController extends AppController
      *
      * @Input:
      *         data:
-     *          label (String) *Required
+     *          label3 (String) *Required
      *          question_id(Int) *Required
      *         
      * @Output: data : success message
@@ -37,7 +37,7 @@ class SousquestionsController extends AppController
          /* create sousquestions entity */
         if (1==1){
             $sousquestions = $this->Sousquestions->newEmptyEntity();
-            $sousquestions->label=$data->label;  
+            $sousquestions->label3=$data->label3;  
             $sousquestions->question_id=$data->question_id;    
 
             $this->Sousquestions->save($sousquestions); 
@@ -57,7 +57,7 @@ class SousquestionsController extends AppController
      *
      * @Input:
      *         data:
-     *          label (String) *Required
+     *          label3 (String) *Required
      *          question_id(Int) *Required
      *         
      * @Output: data : success message
@@ -78,7 +78,7 @@ class SousquestionsController extends AppController
         $sousquestions=$this->Sousquestions->get($id);
          /* create sousquestions entity */
         if (1==1){
-            $sousquestions->label=$data->label;  
+            $sousquestions->label3=$data->label3;  
             $sousquestions->question_id=$data->question_id;
 
             $this->Sousquestions->save($sousquestions); 

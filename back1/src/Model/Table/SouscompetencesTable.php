@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * Souscompetences Model
  *
  * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
+ * @property \App\Model\Table\IndicateursuivisTable&\Cake\ORM\Association\HasMany $Indicateursuivis
  *
  * @method \App\Model\Entity\Souscompetence newEmptyEntity()
  * @method \App\Model\Entity\Souscompetence newEntity(array $data, array $options = [])
@@ -65,10 +66,10 @@ class SouscompetencesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('label')
-            ->maxLength('label', 255)
-            ->requirePresence('label', 'create')
-            ->notEmptyString('label');
+            ->scalar('label4')
+            ->maxLength('label4', 255)
+            ->requirePresence('label4', 'create')
+            ->notEmptyString('label4');
 
         $validator
             ->integer('competence_id')

@@ -20,10 +20,10 @@ class IndicateursuivisFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'label' => 'Lorem ipsum dolor sit amet',
+                'label6' => 'Lorem ipsum dolor sit amet',
                 'souscompetence_id' => 1,
-                'created' => '2023-03-27 15:54:04',
-                'modified' => '2023-03-27 15:54:04',
+                'created' => '2023-03-29 13:40:10',
+                'modified' => '2023-03-29 13:40:10',
             ],
         ];
         parent::init();

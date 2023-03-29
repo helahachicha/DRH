@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * Indicateursuivi Entity
  *
  * @property int $id
- * @property string $label
+ * @property string $label6
  * @property int $souscompetence_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -28,7 +28,7 @@ class Indicateursuivi extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'label' => true,
+        'label6' => true,
         'souscompetence_id' => true,
         'created' => true,
         'modified' => true,
