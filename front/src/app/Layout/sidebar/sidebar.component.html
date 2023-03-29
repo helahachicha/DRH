@@ -3,14 +3,19 @@
     <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
+
+
+
+
+
             <ul id="sidebarnav" class="pt-4">
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="/home"
                         aria-expanded="false"><i class="fas fa-home"></i><span class="hide-menu">Home</span></a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                        aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Formation et
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                            class="fas fa-list"></i><span class="hide-menu">Formation et
                             développement </span></a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
@@ -27,42 +32,100 @@
                 </li>
 
 
-              
 
 
-                <!-- <li class="sidebar-item" >
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                        aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Profil de poste </span></a>
+
+                <!-- <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                            class="fas fa-list"></i><span class="hide-menu">Profil de poste </span></a>
                     <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item" *ngFor="let obj of poste" >
-                            <a  class="sidebar-link"><i
-                                    class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu" routerLink="Detail-profile/{{obj.id}}" > {{obj.label}} </span></a>
+                        <li class="sidebar-item" *ngFor="let obj of poste">
+                            <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
+                                    class="hide-menu" routerLink="Detail-profile/{{obj.id}}"> {{obj.label}} </span></a>
                         </li>
-                 
-                        
                     </ul>
-                </li> -->
+                </li>-->
 
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                        aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Profil de poste </span>
+                <!-- <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                            class="fas fa-list"></i><span class="hide-menu">Profil de poste </span>
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
-                     
-                        <li class="sidebar-item"   >
-                            <a    class="sidebar-link has-arrow waves-effect waves-dark"  style="display: grid;"
-                                aria-expanded="false">
-                            <div *ngFor="let obj of poste" >
-                                <i class="fas fa-list"></i>
-                              
-                                    <span (click)="getid(obj.id)"  class="hide-menu">
-                                        {{obj.label}}</span>
-                            </div>
-                              
-                                </a>
 
-                            <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" style="display: grid;"
+                                aria-expanded="false">
+
+                        <li aria-expanded="false" class="" *ngFor="let obj of poste">
+                            <i class="fas fa-list"></i>
+                            <span (click)="getid(obj.id)" class="hide-menu">
+                                {{obj.label}}</span></a>
+                        </li>
+
+                        <li class="sidebar-item" *ngFor="let obj of Categories">
+                            <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
+                                    class="hide-menu" routerLink="Detail-profile/{{obj.id}}"> {{obj.label}}
+                                </span></a>
+                        </li>
+                    </ul>
+                </li>-->
+
+
+
+
+
+                <!-- <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false" ><i
+                            class="fas fa-list"></i><span class="hide-menu">Profil de poste </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+
+                        <div  *ngFor="let obj of poste">
+                            <li class="sidebar-item"  >
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" 
+                                aria-expanded="false">
+
+                               
+                                    <i class="fas fa-list"></i>
+                                   
+                                    <span    class="hide-menu" (click)="getid(obj.id)">{{obj.label}}</span>
+                                
+                            </a>
+                            </li>
+                        </div>
+                            
+
+
+                                <li class="sidebar-item" *ngFor="let obj of Categories">
+                                    <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
+                                            class="hide-menu" routerLink="Detail-profile/{{obj.id}}"> {{obj.label}}
+                                        </span>
+                                    </a>
+                                </li>-->
+
+
+                <!-- <li class="sidebar-item">
+                                    <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
+                                        class="hide-menu">aaa</span></a>
+
+                                </li>
+                          
+                          
+                            
+                    </ul>
+                </li>-->
+
+
+
+
+
+
+
+
+
+                <!-- <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
                                     <a href="icon-fontawesome.html" class="sidebar-link">
                                         <i class=" fas fa-arrow-alt-circle-right"></i>
@@ -70,16 +133,35 @@
                                         aaa </span></a>
                                 </li>
                         
-                            </ul>
-                        </li>
-                  
-                    </ul>
-                </li>
+                            </ul>-->
 
+                
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                                        class="fas fa-list"></i><span class="hide-menu">Profil de poste </span></a>
+                                <ul aria-expanded="false" class="collapse first-level">
+                                   
+                                    <li class="sidebar-item" >
+                                        <a  class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"  >
+                                            <i
+                                                class="fas fa-list" ></i><span *ngFor="let obj of poste" class="hide-menu">{{obj.label}} </span></a>
+                                        <ul aria-expanded="false" class="collapse first-level">
+                                            <li class="sidebar-item" *ngFor="let obj of Categories">
+                                                <a href="icon-fontawesome.html" class="sidebar-link"><i
+                                                        class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu" routerLink="Detail-profile/{{obj.id}}">  {{obj.label}}</span></a>
+                                            </li>
+
+                                           
+                                            
+                                        </ul>
+                                    </li>           
+                                </ul>
+                            </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                        aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Personnel </span></a>
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                            class="fas fa-list"></i><span class="hide-menu">Personnel </span></a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
                             <a routerLink="/ficherensig" class="sidebar-link"><i
@@ -87,8 +169,8 @@
                                     rensignement</span></a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Fiche
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                                    class="fas fa-list"></i><span class="hide-menu">Fiche
                                     d'évaluation </span></a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
@@ -97,7 +179,7 @@
                                             d'évaluation psychique </span></a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="icon-fontawesome.html" class="sidebar-link"><i
+                                    <a routerLink="/listingtest" class="sidebar-link"><i
                                             class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Test
                                             technique
                                         </span></a>
@@ -114,13 +196,13 @@
 
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                        aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Gérer les
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                            class="fas fa-list"></i><span class="hide-menu">Gérer les
                             axes</span></a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Profil de
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                                    class="fas fa-list"></i><span class="hide-menu">Profil de
                                     poste</span></a>
 
                             <ul aria-expanded="false" class="collapse first-level">
@@ -139,9 +221,8 @@
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                aria-expanded="false"><i class="fas fa-list"></i><span
-                                    class="hide-menu">Formation</span></a>
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                                    class="fas fa-list"></i><span class="hide-menu">Formation</span></a>
 
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
