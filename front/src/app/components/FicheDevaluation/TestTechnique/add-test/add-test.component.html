@@ -1,6 +1,6 @@
 <div class="border border-primary mt-1 ">
     <div class="col  ">
-        <h1 class="text-center">Test Technique</h1>
+        <h1 class="text-center"> Ajouter Test Technique</h1>
     </div>
 </div>
 
@@ -8,96 +8,7 @@
 
 
     <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded">
-        <div class="d-flex flex-row justify-content-between">
-            <div class=" mt-2 mb-2 end-50">
-                <!---->
-                <button type="button" class="btn btn-success"><i class="far fa-edit"></i>
-                    Modifier</button>
-            </div>
-            <div class=" mt-2 mb-2 end-50">
-                <!---->
-                <button type="button" class="btn btn-success"><span class="material-symbols-outlined">
-                        print
-                    </span>
-                    Imprimer</button>
-            </div>
-        </div>
-        <div class="dj1">
 
-            <div class="text-bold">
-                <div class="row">
-                    <div class="text-start col-2 ">
-                        <label class="m-2" type="label"> Département : </label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control text-start" required="required"
-                            formControlName="fonction" disabled>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-start col-2 ">
-                        <label class="m-2" type="label"> Poste : </label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" required="required" formControlName="categorie"
-                            disabled>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-start col-2 ">
-                        <label class="m-2" type="label">Nom & Prénom : </label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" required="required" formControlName="categorie"
-                            disabled>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-start col-2 ">
-                        <label class="m-2" type="label">Durée :</label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" required="required" formControlName="supervision"
-                            disabled>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-start col-2 ">
-                        <label class="m-2" type="label">Date : </label>
-                    </div>
-                    <div class="col-3">
-                        <input type="date" class="form-control" required="required">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-start col-2 ">
-                        <label class="m-2" type="label">Note : </label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control" required="required" formControlName="categorie"
-                            disabled>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <hr>
-        <h4>Veuillez noter :</h4>
-        <ul>
-            <li>
-                Lisez attentivement les questions. Chaque mot est important.
-            </li><br>
-            <li>
-                Pour la section A, une seule réponse est correcte.
-            </li><br>
-            <li>
-                Testez votre code pour les questions de la section B!
-            </li><br>
-            <li>
-                N'hésitez pas à ajouter des commentaires dans vos réponses.
-            </li>
-
-        </ul>
         <hr>
 
 
@@ -118,11 +29,11 @@
                                             <label for="staticZone">Test technique</label>
                                             <select class="form-control" id="exampleFormControlSelect2"
                                                 placeholder="Veuillez choisir votre Thème de formation"
-                                                formControlName="categorie_id">
+                                                formControlName="label_id">
                                                 <option selected disabled value="">Affecter test</option>
-    
+
                                                 <option *ngFor="let obj of Testtechniques" [ngValue]="obj.id">
-    
+
                                                     {{obj.label}}
                                                 </option>
                                             </select>
@@ -131,7 +42,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="form_name">Nom competence technique</label>
-                                                <input type="text" formControlName="label" class="form-control"
+                                                <input type="text" formControlName="labelcomp" class="form-control"
                                                     placeholder="Nom competence technique" required="required">
                                             </div>
                                         </div>
@@ -140,46 +51,28 @@
                                             <div class="form-group">
                                                 <label>Question</label>
                                                 <input type="text" class="form-control" required="required"
-                                                    formControlName="label">
+                                                    formControlName="labelques">
                                             </div>
 
                                         </div>
-
-
-
-
-
-                                        
-
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Sous Question</label>
                                                 <input type="text" class="form-control" required="required"
-                                                    formControlName="label">
+                                                    formControlName="labelsouq">
                                             </div>
 
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Supervision</label>
-                                                <input type="text" class="form-control" required="required"
-                                                    formControlName="supervision">
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Intérim</label>
-                                                <input type="text" class="form-control" required="required"
-                                                    formControlName="interim">
-                                            </div>
                                         </div>
                                     </div>
-                                    </div>
+                                </div>
                             </form>
+
+                            <div class="mt-2 mb-2 end-50">
+
+                                <button class="btn btn-primary m-2" (click)="submit()"
+                                    type="submit">Ajouter</button>
+
+                            </div>
                         </div>
                     </div>
 
@@ -191,7 +84,7 @@
             <!-- /.row-->
 
         </div>
-
+        <hr>
 
     </div>
 

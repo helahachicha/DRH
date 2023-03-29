@@ -11,6 +11,14 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class AddTestComponent implements OnInit {
   public Testtechniques
   public testForm = new FormGroup({
+    label_id: new FormControl('', [Validators.required]),
+    categorie_id: new FormControl('', [Validators.required]),
+    labelcomp: new FormControl('', [Validators.required]),
+    testtechnique_id: new FormControl('', [Validators.required]),
+    labelques: new FormControl('', [Validators.required]),
+    comptechnique_id: new FormControl('', [Validators.required]),
+    labelsouq: new FormControl('', [Validators.required]),
+    question_id: new FormControl('', [Validators.required]),
     
     
   });
@@ -21,6 +29,7 @@ export class AddTestComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getAlltest()
   }
   submit() {
     //console.log("hello",this.coutForm.value)
@@ -30,7 +39,7 @@ export class AddTestComponent implements OnInit {
       })
    }
 
-   getAllCategorie() {
+   getAlltest() {
     this.dataService.get('Testtechniques/getAllTesttechnique.json').subscribe(res => {
       this.Testtechniques = res.data;
     }
