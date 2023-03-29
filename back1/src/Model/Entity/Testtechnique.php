@@ -9,14 +9,13 @@ use Cake\ORM\Entity;
  * Testtechnique Entity
  *
  * @property int $id
+ * @property string $label
  * @property string $duree
- * @property int $departement_id
- * @property int $poste_id
+ * @property int $categorie_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Departement $departement
- * @property \App\Model\Entity\Poste $poste
+ * @property \App\Model\Entity\Category $category
  * @property \App\Model\Entity\Comptechnique[] $comptechniques
  */
 class Testtechnique extends Entity
@@ -31,13 +30,12 @@ class Testtechnique extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
+        'label' => true,
         'duree' => true,
-        'departement_id' => true,
-        'poste_id' => true,
+        'categorie_id' => true,
         'created' => true,
         'modified' => true,
-        'departement' => true,
-        'poste' => true,
+        'category' => true,
         'comptechniques' => true,
     ];
 }
