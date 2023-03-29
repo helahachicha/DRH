@@ -42,6 +42,30 @@ class TesttechniquesController extends AppController
 
             $this->Testtechniques->save($testtechniques); 
         }
+        /* create comptechniques entity */
+        if (1==1){
+            $comptechniques = $this->Comptechniques->newEmptyEntity();
+            $comptechniques->label=$data->label;  
+            $comptechniques->testtechnique_id=$data->testtechnique_id;   
+
+            $this->Comptechniques->save($comptechniques); 
+        }
+         /* create questions entity */
+         if (1==1){
+            $questions = $this->Questions->newEmptyEntity();
+            $questions->label=$data->label;  
+            $questions->comptechnique_id=$data->comptechnique_id;  
+            $this->Questions->save($questions); 
+        }
+         /* create sousquestions entity */
+         if (1==1){
+            $sousquestions = $this->Sousquestions->newEmptyEntity();
+            $sousquestions->label=$data->label;  
+            $sousquestions->question_id=$data->question_id;    
+
+            $this->Sousquestions->save($sousquestions); 
+        }
+       
        
          /*send result */
         $this->set([
@@ -119,31 +143,6 @@ class TesttechniquesController extends AppController
     }
 
 
-    
-    /**
-    * getAllLabelTesttechnique
-    *
-    * @Input: nothing
-    *
-    * @Output: data
-    */
-    public function getAllLabelTesttechnique()
-    {
-
-        /* search */
-        $testtechniques = $this->Testtechniques->find('all',[
-            'fields' => [
-                'label'
-            ]
-        ]);
- 
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' => $testtechniques,
-            '_serialize' => ['success', 'data']
-        ]);
-    }
 
     
     /**
