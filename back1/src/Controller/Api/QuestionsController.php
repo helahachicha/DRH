@@ -12,51 +12,13 @@ use App\Controller\AppController;
  */
 class QuestionsController extends AppController
 {
-    /**
-     * addQuestion
-     *
-     * @Input:
-     *         data:
-     *          label2 (String) *Required
-     *          comptechnique_id(Int) *Required
-     *         
-     * @Output: data : success message
-     */
-    public function addQuestion(){
-        
-        $this->request->allowMethod(['post', 'put']);
-
-        /* format data */
-        if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-            //debug($data);die;
-
-        }
-         /* create questions entity */
-        if (1==1){
-            $questions = $this->Questions->newEmptyEntity();
-            $questions->label2=$data->label2;  
-            $questions->comptechnique_id=$data->comptechnique_id;  
-            $this->Questions->save($questions); 
-        }
-       
-         /*send result */
-        $this->set([
-            'success' => true,
-            'data' =>  "Added with success",
-            '_serialize' => ['success', 'data']
-        ]);
-    
-    }
 
      /**
      * editQuestion
      *
      * @Input:
      *         data:
-     *          label2 (String) *Required
+     *          label (String) *Required
      *          comptechnique_id(Int) *Required
      *         
      * @Output: data : success message
@@ -77,7 +39,7 @@ class QuestionsController extends AppController
         $questions=$this->Questions->get($id);
          /* create questions entity */
         if (1==1){
-            $questions->label2=$data->label2;  
+            $questions->label=$data->label;  
             $questions->comptechnique_id=$data->comptechnique_id;
 
             $this->Questions->save($questions); 
@@ -159,6 +121,71 @@ class QuestionsController extends AppController
             '_serialize' => ['success', 'data']
         ]);
      }
+
+
+     /**
+      * getQuestionByComptech
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+      public function getQuestionByComptech(){
+ 
+        $id = $this->request->getQuery('id');
+
+        /* search */
+         if(1==1){
+             if (!isset($id) or empty($id) or $id == null ){
+             throw new UnauthorizedException('Id is Required');
+             }
+
+            if(!is_numeric($id)){
+           throw new UnauthorizedException('Id is not Valid');
+            }
+         }
+        $this->loadModel('Comptechniques');
+        $test = $this->Comptechniques->find('all', [
+            'contain' => [
+               'Testtechniques'        
+            ],
+            
+            'conditions'=>[
+                'testtechnique_id IS'=>$id,
+
+            ],
+        ])->toArray();
+        foreach($test as $t){
+           $tesId=$t->id;
+        }
+        $questions = $this->Questions->find('all', [
+            'contain' => [
+                'Comptechniques','Comptechniques.Testtechniques'        
+            ],
+            
+            'conditions'=>[
+                'comptechnique_id IS'=>$tesId
+
+            ],
+           
+           
+        ])->toArray();
+
+        if(empty($questions)){
+           throw new UnauthorizedException('Questions not found');
+       }
+
+       /*send result */
+
+       $this->set([
+           'success' => true,
+           'data' => $questions,
+           '_serialize' => ['success', 'data']
+       ]);
+    }
+
+
+
 
      /**
       * deleteQuestion
