@@ -10,8 +10,11 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class DetailFicheDevaluComponent implements OnInit {
 id:any
+public Indicateursuivis
 public testForm = new FormGroup({
-  label1: new FormControl('', [Validators.required]), 
+
+ label3 : new FormControl('', [Validators.required]), 
+ label6 : new FormControl('', [Validators.required]), 
 
  });
   constructor(
@@ -21,13 +24,14 @@ public testForm = new FormGroup({
   ) { }
 
   ngOnInit(): void {
+    this.gettestById()
   }
   gettestById() {
     this.id=this.route.snapshot.params['id'];
-     this.dataService.get('Comptechniques/getComptechByTesttech.json?id='+this.id).subscribe(
+     this.dataService.get('Indicateursuivis/getIndicateursuiviBySouscomp.json?id='+this.id).subscribe(
        res => {
-      // this.Testtechniques=res.data;
-      // console.log("testtt",this.Testtechniques)
+       this.Indicateursuivis=res.data;
+       console.log("testtttttt",this.Indicateursuivis)
  
      })
    }
