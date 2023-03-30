@@ -77,7 +77,7 @@ const routes: Routes = [
   { path: 'add-test', component:AddTestComponent },
   { path: 'edit-test/:id', component:EditTestComponent },
   { path: 'add-fiche-devalu', component:AddFicheDevaluComponent },
-  { path: 'detail-fiche-devalu', component:DetailFicheDevaluComponent },
+  { path: 'detail-fiche-devalu/:id', component:DetailFicheDevaluComponent },
   { path: 'edit-fiche-devalu', component:EditFicheDevaluComponent },
   { path: 'liste-fiche-devalu', component:ListingFicheDevaluComponent },
 

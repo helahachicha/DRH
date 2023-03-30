@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from 'src/app/shared/service/data.service';
 
 @Component({
   selector: 'app-detail-fiche-devalu',
@@ -6,10 +9,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-fiche-devalu.component.scss']
 })
 export class DetailFicheDevaluComponent implements OnInit {
+id:any
+public Indicateursuivis
+public testForm = new FormGroup({
 
-  constructor() { }
+ label3 : new FormControl('', [Validators.required]), 
+ label6 : new FormControl('', [Validators.required]), 
+
+ });
+  constructor(
+    private dataService:DataService,
+    private router :Router,
+    private route:ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.gettestById()
   }
-
+  gettestById() {
+    this.id=this.route.snapshot.params['id'];
+     this.dataService.get('Indicateursuivis/getIndicateursuiviBySouscomp.json?id='+this.id).subscribe(
+       res => {
+       this.Indicateursuivis=res.data;
+       console.log("testtttttt",this.Indicateursuivis)
+ 
+     })
+   }
 }
