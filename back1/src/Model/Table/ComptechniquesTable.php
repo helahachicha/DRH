@@ -66,10 +66,10 @@ class ComptechniquesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('label1')
-            ->maxLength('label1', 255)
-            ->requirePresence('label1', 'create')
-            ->notEmptyString('label1');
+            ->scalar('labelcomptech')
+            ->maxLength('labelcomptech', 255)
+            ->requirePresence('labelcomptech', 'create')
+            ->notEmptyString('labelcomptech');
 
         $validator
             ->integer('testtechnique_id')

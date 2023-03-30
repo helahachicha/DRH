@@ -62,10 +62,10 @@ class SousquestionsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('label3')
-            ->maxLength('label3', 255)
-            ->requirePresence('label3', 'create')
-            ->notEmptyString('label3');
+            ->scalar('labelsousquestions')
+            ->maxLength('labelsousquestions', 255)
+            ->requirePresence('labelsousquestions', 'create')
+            ->notEmptyString('labelsousquestions');
 
         $validator
             ->integer('question_id')

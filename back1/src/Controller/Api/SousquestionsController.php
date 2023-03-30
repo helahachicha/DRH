@@ -12,52 +12,13 @@ use App\Controller\AppController;
  */
 class SousquestionsController extends AppController
 {
-    /**
-     * addSousquestion
-     *
-     * @Input:
-     *         data:
-     *          label3 (String) *Required
-     *          question_id(Int) *Required
-     *         
-     * @Output: data : success message
-     */
-    public function addSousquestion(){
-        
-        $this->request->allowMethod(['post', 'put']);
-
-        /* format data */
-        if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-            //debug($data);die;
-
-        }
-         /* create sousquestions entity */
-        if (1==1){
-            $sousquestions = $this->Sousquestions->newEmptyEntity();
-            $sousquestions->label3=$data->label3;  
-            $sousquestions->question_id=$data->question_id;    
-
-            $this->Sousquestions->save($sousquestions); 
-        }
-       
-         /*send result */
-        $this->set([
-            'success' => true,
-            'data' =>  "Added with success",
-            '_serialize' => ['success', 'data']
-        ]);
-    
-    }
 
      /**
      * editSousquestion
      *
      * @Input:
      *         data:
-     *          label3 (String) *Required
+     *          labelsousquestions (String) *Required
      *          question_id(Int) *Required
      *         
      * @Output: data : success message
@@ -78,7 +39,7 @@ class SousquestionsController extends AppController
         $sousquestions=$this->Sousquestions->get($id);
          /* create sousquestions entity */
         if (1==1){
-            $sousquestions->label3=$data->label3;  
+            $sousquestions->labelsousquestions=$data->labelsousquestions;  
             $sousquestions->question_id=$data->question_id;
 
             $this->Sousquestions->save($sousquestions); 

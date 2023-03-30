@@ -20,10 +20,10 @@ class SousquestionsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'label3' => 'Lorem ipsum dolor sit amet',
+                'labelsousquestions' => 'Lorem ipsum dolor sit amet',
                 'question_id' => 1,
-                'created' => '2023-03-29 13:29:17',
-                'modified' => '2023-03-29 13:29:17',
+                'created' => '2023-03-30 07:46:05',
+                'modified' => '2023-03-30 07:46:05',
             ],
         ];
         parent::init();
