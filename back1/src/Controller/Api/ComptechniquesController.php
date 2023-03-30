@@ -197,7 +197,7 @@ class ComptechniquesController extends AppController
         }
         $comptechniques = $this->Comptechniques->find('all', [
             'contain' => [
-                'Testtechniques','Testtechniques.Categories'        
+                'Questions.Sousquestions'
             ],
             
             'conditions'=>[

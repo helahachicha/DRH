@@ -13,8 +13,8 @@
                         <th>Nom profil de poste </th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let p of Profilpostes">
-                    <tr >
+                <tbody >
+                    <tr *ngFor="let p of Profilpostes" >
                         <td>{{p.nom}}</td>
                         <td>
                             <button class="btn btn-danger "  (click)="deleteprofilposte(p.id)">Supprimer</button>
