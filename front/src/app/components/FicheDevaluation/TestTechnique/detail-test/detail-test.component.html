@@ -10,9 +10,9 @@
     <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded">
 <div class="d-flex flex-row justify-content-between">
         <div class=" mt-2 mb-2 end-50">
-            <!---->
+            <!--
             <button type="button" class="btn btn-success" routerLink="/edit-test/{{Testtechniques.id}}"><i class="far fa-edit"></i>
-                Modifier</button>
+                Modifier</button>-->
         </div>
         <div class=" mt-2 mb-2 end-50">
             <!---->
@@ -86,17 +86,17 @@
 <hr>
 
 <div>
-    
-    <h3 class="mt-3 mb-2">
-        <input type="text" class="form-control" required="required" formControlName="label1"
-            [(ngModel)]="Testtechniques.label1" disabled>
-    </h3>
-    <h5 class="mt-3 mb-2">
-        <input type="text" class="form-control" required="required" formControlName="label2"
-            [(ngModel)]="Testtechniques.label2" disabled>
-    </h5>
-    <input type="text" class="form-control" required="required" formControlName="label3"
-    [(ngModel)]="Testtechniques.label3" disabled>
+    <form id="contact-form" role="form" [formGroup]="testForm">
+        <h3 class="mt-3 mb-2">
+            <tr *ngFor="let obj of Testtechniques "> 
+               
+            
+                {{obj.label1}}
+            </tr>
+        </h3>
+        
+    </form>
+   
 
 
 </div>

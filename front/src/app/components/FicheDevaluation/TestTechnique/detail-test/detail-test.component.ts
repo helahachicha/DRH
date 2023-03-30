@@ -17,7 +17,8 @@ export class DetailTestComponent implements OnInit {
   public Sousquestions
 
   public testForm = new FormGroup({
-   label1: new FormControl('', [Validators.required]),   
+   label1: new FormControl('', [Validators.required]), 
+
   });
 
 
@@ -63,10 +64,10 @@ export class DetailTestComponent implements OnInit {
 
   gettestById() {
     this.id=this.route.snapshot.params['id'];
-     this.dataService.get('Testtechniques/getTesttechnique.json?id='+this.id).subscribe(
+     this.dataService.get('Comptechniques/getComptechByTesttech.json?id='+this.id).subscribe(
        res => {
        this.Testtechniques=res.data;
-       console.log("hello",this.Testtechniques)
+       console.log("testtt",this.Testtechniques)
  
      })
    }

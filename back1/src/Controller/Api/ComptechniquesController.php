@@ -160,6 +160,66 @@ class ComptechniquesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
      }
+    /**
+      * getComptechnique
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+      public function getComptechByTesttech(){
+ 
+        $id = $this->request->getQuery('id');
+
+        /* search */
+         if(1==1){
+             if (!isset($id) or empty($id) or $id == null ){
+             throw new UnauthorizedException('Id is Required');
+             }
+
+            if(!is_numeric($id)){
+           throw new UnauthorizedException('Id is not Valid');
+            }
+         }
+        $this->loadModel('Testtechniques');
+        $test = $this->Testtechniques->find('all', [
+            'contain' => [
+               'Categories'        
+            ],
+            
+            'conditions'=>[
+                'categorie_id IS'=>$id,
+
+            ],
+        ])->toArray();
+        foreach($test as $t){
+           $tesId=$t->id;
+        }
+        $comptechniques = $this->Comptechniques->find('all', [
+            'contain' => [
+                'Testtechniques','Testtechniques.Categories'        
+            ],
+            
+            'conditions'=>[
+                'testtechnique_id IS'=>$tesId
+
+            ],
+           
+           
+        ])->toArray();
+
+        if(empty($comptechniques)){
+           throw new UnauthorizedException('Comptechniques not found');
+       }
+
+       /*send result */
+
+       $this->set([
+           'success' => true,
+           'data' => $comptechniques,
+           '_serialize' => ['success', 'data']
+       ]);
+    }
 
      /**
       * deleteComptechnique

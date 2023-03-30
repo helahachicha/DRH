@@ -12,7 +12,7 @@ export class EditTestComponent implements OnInit {
 public Testtechniques
 id:any
 public testForm = new FormGroup({
-  label_id: new FormControl('', [Validators.required]),
+
   label1: new FormControl('', [Validators.required]),
   label2: new FormControl('', [Validators.required]),
   label3: new FormControl('', [Validators.required]),  
@@ -39,7 +39,7 @@ public testForm = new FormGroup({
   edittest(){
       
     this.dataService.post('Testtechniques/editTesttechnique.json?id='+this.id,this.testForm.value).subscribe(res=> {
-      console.log("hello",this.testForm.value)
+     // console.log("hello",this.testForm.value)
     this.router.navigate(['/listingtest'])
     })
   }
@@ -47,7 +47,7 @@ public testForm = new FormGroup({
     this.dataService.get('Testtechniques/getAllTesttechnique.json').subscribe(res => {
       this.Testtechniques = res.data;
 
-            console.log("hello", this.Testtechniques)
+         //   console.log("hello", this.Testtechniques)
 
 
     })
