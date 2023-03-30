@@ -22,7 +22,7 @@ class PointsController extends AppController
       public function getPointBySouscompetence(){
  
         $id = $this->request->getQuery('id');
-        $S=0;
+        
 
         /* search */
          if(1==1){
@@ -40,6 +40,9 @@ class PointsController extends AppController
             'conditions'=>[
                 'souscompetence_id IS'=>$id
             ],
+            'fields'=>[
+                'point'
+            ],
            
            
         ])->toArray();
@@ -47,20 +50,18 @@ class PointsController extends AppController
         if(empty($points)){
            throw new UnauthorizedException('Points not found');
        }
-       
-       foreach($points as $p){
-
-        $S=$S+$p;
-
-
-       }
+       $S=0;
+       foreach ($points as $point) {
+        $S += $point->point;
+    }
+    $this->set('Somme', $S);
        /*send result */
 
        $this->set([
-           'somme' => $S,
+           'Somme' => $S,
            'success' => true,
            'data' => $points,
-           '_serialize' => ['success', 'data']
+           '_serialize' => ['success', 'data' , 'Somme'], 
        ]);
     }
 }
