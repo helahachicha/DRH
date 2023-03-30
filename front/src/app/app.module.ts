@@ -46,6 +46,7 @@ import { ListingTestComponent } from './components/FicheDevaluation/TestTechniqu
 import { DetailTestComponent } from './components/FicheDevaluation/TestTechnique/detail-test/detail-test.component';
 import { CommonModule } from '@angular/common';
 import { AddTestComponent } from './components/FicheDevaluation/TestTechnique/add-test/add-test.component';
+import { ListingprofilposteComponent } from './components/GérerLesAxes/ListeDesProfiles/listingprofilposte/listingprofilposte.component';
 
 
 
@@ -93,6 +94,7 @@ import { AddTestComponent } from './components/FicheDevaluation/TestTechnique/ad
     ListingTestComponent,
     DetailTestComponent,
     AddTestComponent,
+    ListingprofilposteComponent
     
    
    
