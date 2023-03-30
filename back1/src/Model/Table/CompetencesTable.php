@@ -66,10 +66,10 @@ class CompetencesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('label3')
-            ->maxLength('label3', 255)
-            ->requirePresence('label3', 'create')
-            ->notEmptyString('label3');
+            ->scalar('label')
+            ->maxLength('label', 255)
+            ->requirePresence('label', 'create')
+            ->notEmptyString('label');
 
         $validator
             ->integer('categorie_id')

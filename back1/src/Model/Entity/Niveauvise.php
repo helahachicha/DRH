@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * Niveauvise Entity
  *
  * @property int $id
- * @property string $label5
+ * @property string $label
  * @property int $categorie_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -28,7 +28,7 @@ class Niveauvise extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'label5' => true,
+        'label' => true,
         'categorie_id' => true,
         'created' => true,
         'modified' => true,

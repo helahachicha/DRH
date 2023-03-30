@@ -20,10 +20,10 @@ class SouscompetencesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'label4' => 'Lorem ipsum dolor sit amet',
+                'label' => 'Lorem ipsum dolor sit amet',
                 'competence_id' => 1,
-                'created' => '2023-03-29 13:39:55',
-                'modified' => '2023-03-29 13:39:55',
+                'created' => '2023-03-30 14:07:10',
+                'modified' => '2023-03-30 14:07:10',
             ],
         ];
         parent::init();

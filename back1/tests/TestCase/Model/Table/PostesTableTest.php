@@ -27,7 +27,6 @@ class PostesTableTest extends TestCase
         'app.Postes',
         'app.Departements',
         'app.Profilpostes',
-        'app.Testtechniques',
     ];
 
     /**

@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * Souscompetence Entity
  *
  * @property int $id
- * @property string $label4
+ * @property string $label
  * @property int $competence_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -29,7 +29,7 @@ class Souscompetence extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'label4' => true,
+        'label' => true,
         'competence_id' => true,
         'created' => true,
         'modified' => true,

@@ -89,7 +89,7 @@ class CompetencesController extends AppController
      *
      * @Input:
      *         data:
-     *          label3 (String) *Required
+     *          label (String) *Required
      *          categorie_id (Int) *Required
      * 
      * @Output: data : success message
@@ -110,7 +110,7 @@ class CompetencesController extends AppController
         $competences=$this->Competences->get($id);
          /* create competences entity */
         if (1==1){
-            $competences->label3=$data->label3;
+            $competences->label=$data->label;
             $competences->categorie_id=$data->categorie_id;    
 
             $this->Competences->save($competences); 

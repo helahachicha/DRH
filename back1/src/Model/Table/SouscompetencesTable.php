@@ -55,6 +55,9 @@ class SouscompetencesTable extends Table
         $this->hasMany('Indicateursuivis', [
             'foreignKey' => 'souscompetence_id',
         ]);
+        $this->hasMany('Points', [
+            'foreignKey' => 'souscompetence_id',
+        ]);
     }
 
     /**
@@ -66,10 +69,10 @@ class SouscompetencesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('label4')
-            ->maxLength('label4', 255)
-            ->requirePresence('label4', 'create')
-            ->notEmptyString('label4');
+            ->scalar('label')
+            ->maxLength('label', 255)
+            ->requirePresence('label', 'create')
+            ->notEmptyString('label');
 
         $validator
             ->integer('competence_id')

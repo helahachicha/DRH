@@ -20,10 +20,10 @@ class CompetencesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'label3' => 'Lorem ipsum dolor sit amet',
+                'label' => 'Lorem ipsum dolor sit amet',
                 'categorie_id' => 1,
-                'created' => '2023-03-29 13:39:41',
-                'modified' => '2023-03-29 13:39:41',
+                'created' => '2023-03-30 14:07:52',
+                'modified' => '2023-03-30 14:07:52',
             ],
         ];
         parent::init();

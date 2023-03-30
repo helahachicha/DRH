@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 29 mars 2023 à 15:50
+-- Généré le : jeu. 30 mars 2023 à 16:10
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -92,7 +92,7 @@ INSERT INTO `casmariages` (`id`, `nomprenomep`, `datenep`, `niveauetudeep`, `fon
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
-  `label2` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
   `profilposte_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -102,7 +102,7 @@ CREATE TABLE `categories` (
 -- Déchargement des données de la table `categories`
 --
 
-INSERT INTO `categories` (`id`, `label2`, `profilposte_id`, `created`, `modified`) VALUES
+INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`) VALUES
 (1, 'Développeur junior', 1, '2023-03-27 12:59:46', '2023-03-27 12:59:46'),
 (2, 'Développeur confirmé', 1, '2023-03-27 12:59:46', '2023-03-27 12:59:46'),
 (3, 'Développeur senior', 1, '2023-03-27 13:01:08', '2023-03-27 13:01:08'),
@@ -116,7 +116,7 @@ INSERT INTO `categories` (`id`, `label2`, `profilposte_id`, `created`, `modified
 
 CREATE TABLE `competences` (
   `id` int(11) NOT NULL,
-  `label3` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
   `categorie_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -126,7 +126,7 @@ CREATE TABLE `competences` (
 -- Déchargement des données de la table `competences`
 --
 
-INSERT INTO `competences` (`id`, `label3`, `categorie_id`, `created`, `modified`) VALUES
+INSERT INTO `competences` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
 (1, 'COMPÉTENCES TECHNIQUES', 1, '2023-03-27 14:58:13', '2023-03-27 14:58:13'),
 (2, 'COMPÉTENCES ORGANISATIONNELLES', 1, '2023-03-27 14:58:13', '2023-03-27 14:58:13'),
 (3, 'COMPÉTENCES COMPORTEMENTALES ', 1, '2023-03-27 14:59:00', '2023-03-27 14:59:00');
@@ -139,7 +139,7 @@ INSERT INTO `competences` (`id`, `label3`, `categorie_id`, `created`, `modified`
 
 CREATE TABLE `comptechniques` (
   `id` int(11) NOT NULL,
-  `label1` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
   `testtechnique_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -149,7 +149,7 @@ CREATE TABLE `comptechniques` (
 -- Déchargement des données de la table `comptechniques`
 --
 
-INSERT INTO `comptechniques` (`id`, `label1`, `testtechnique_id`, `created`, `modified`) VALUES
+INSERT INTO `comptechniques` (`id`, `label`, `testtechnique_id`, `created`, `modified`) VALUES
 (1, 'A. Orientée Objet', 1, '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
 (2, 'B. Algorithme', 1, '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
 (3, 'C. SQL', 1, '2023-03-28 00:29:04', '2023-03-28 00:29:04');
@@ -306,7 +306,7 @@ INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `
 
 CREATE TABLE `indicateursuivis` (
   `id` int(11) NOT NULL,
-  `label6` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
   `souscompetence_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -316,10 +316,10 @@ CREATE TABLE `indicateursuivis` (
 -- Déchargement des données de la table `indicateursuivis`
 --
 
-INSERT INTO `indicateursuivis` (`id`, `label6`, `souscompetence_id`, `created`, `modified`) VALUES
-(1, '- Compétence algorithmique niveau élevé  ', 0, '2023-03-27 15:06:29', '2023-03-27 15:06:29'),
-(2, '- Connaissance de l’architecture de développement Orientée Objet ', 0, '2023-03-27 15:15:17', '2023-03-27 15:15:17'),
-(3, '- Une bonne maîtrise du SQL   ', 0, '2023-03-27 15:17:53', '2023-03-27 15:17:53'),
+INSERT INTO `indicateursuivis` (`id`, `label`, `souscompetence_id`, `created`, `modified`) VALUES
+(1, '- Compétence algorithmique niveau élevé  ', 9, '2023-03-27 15:06:29', '2023-03-27 15:06:29'),
+(2, '- Connaissance de l’architecture de développement Orientée Objet ', 9, '2023-03-27 15:15:17', '2023-03-27 15:15:17'),
+(3, '- Une bonne maîtrise du SQL   ', 9, '2023-03-27 15:17:53', '2023-03-27 15:17:53'),
 (4, '- Planifier & compléter les tâches/projets à temps efficacement', 1, '2023-03-27 15:18:27', '2023-03-27 15:18:27'),
 (5, '- Informer de la progression des tâches ou du projet ', 1, '2023-03-27 15:19:04', '2023-03-27 15:19:04'),
 (6, '- Déclarer en cas de difficulté technique : c’est à dire après dépasser 50 % du temps prévu de réalisation d’une tâche au maximum à l’essai de résolution d’une difficulté technique ', 1, '2023-03-27 15:19:22', '2023-03-27 15:19:22'),
@@ -405,7 +405,7 @@ INSERT INTO `infoprofessionnelles` (`id`, `nomprenom`, `adresse`, `telprofession
 
 CREATE TABLE `niveauvises` (
   `id` int(11) NOT NULL,
-  `label5` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
   `categorie_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -415,7 +415,7 @@ CREATE TABLE `niveauvises` (
 -- Déchargement des données de la table `niveauvises`
 --
 
-INSERT INTO `niveauvises` (`id`, `label5`, `categorie_id`, `created`, `modified`) VALUES
+INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
 (1, 'Pré-actif ', 1, '2023-03-27 13:36:38', '2023-03-27 13:36:38'),
 (2, 'Actif', 2, '2023-03-27 13:37:01', '2023-03-27 13:37:01'),
 (3, 'Pro-actif', 3, '2023-03-27 13:37:01', '2023-03-27 13:37:01'),
@@ -429,9 +429,8 @@ INSERT INTO `niveauvises` (`id`, `label5`, `categorie_id`, `created`, `modified`
 
 CREATE TABLE `points` (
   `id` int(11) NOT NULL,
-  `pointforce` text NOT NULL,
-  `pointameliore` text NOT NULL,
-  `infoprofessionnelle_id` int(11) NOT NULL,
+  `point` int(11) NOT NULL,
+  `souscompetence_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -440,8 +439,10 @@ CREATE TABLE `points` (
 -- Déchargement des données de la table `points`
 --
 
-INSERT INTO `points` (`id`, `pointforce`, `pointameliore`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
-(1, 'test', 'test', 1, '2023-03-29 14:18:53', '2023-03-29 14:18:53');
+INSERT INTO `points` (`id`, `point`, `souscompetence_id`, `created`, `modified`) VALUES
+(1, 0, 1, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
+(2, 1, 1, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
+(3, 0, 1, '2023-03-30 13:07:56', '2023-03-30 13:07:56');
 
 -- --------------------------------------------------------
 
@@ -451,7 +452,7 @@ INSERT INTO `points` (`id`, `pointforce`, `pointameliore`, `infoprofessionnelle_
 
 CREATE TABLE `postes` (
   `id` int(11) NOT NULL,
-  `label1` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
   `departement_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -461,7 +462,7 @@ CREATE TABLE `postes` (
 -- Déchargement des données de la table `postes`
 --
 
-INSERT INTO `postes` (`id`, `label1`, `departement_id`, `created`, `modified`) VALUES
+INSERT INTO `postes` (`id`, `label`, `departement_id`, `created`, `modified`) VALUES
 (1, 'Développement', 1, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
 (2, 'Responsable marketing ', 0, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
 (3, 'Responsable ressource humaine ', 0, '2023-03-27 12:31:16', '2023-03-27 12:31:16');
@@ -496,7 +497,7 @@ INSERT INTO `profilpostes` (`id`, `nom`, `poste_id`, `created`, `modified`) VALU
 
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL,
-  `label2` varchar(255) NOT NULL,
+  `label` text NOT NULL,
   `comptechnique_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -506,17 +507,17 @@ CREATE TABLE `questions` (
 -- Déchargement des données de la table `questions`
 --
 
-INSERT INTO `questions` (`id`, `label2`, `comptechnique_id`, `created`, `modified`) VALUES
+INSERT INTO `questions` (`id`, `label`, `comptechnique_id`, `created`, `modified`) VALUES
 (1, 'A.1. Quelle est l’assertion qui correspond le mieux à la définition d’une méthode?', 1, '2023-03-28 00:35:56', '2023-03-28 00:35:56'),
 (2, 'A.2. Quelle assertion se rapproche le plus du concept d’héritage?', 1, '2023-03-28 00:35:56', '2023-03-28 00:35:56'),
 (3, 'A.3. En Python, si une classe est dérivée de deux classes différentes, on appelle ça ?', 1, '2023-03-28 00:36:33', '2023-03-28 00:36:33'),
 (4, 'A.4. Laquelle des affirmations suivantes est vraie?', 1, '2023-03-28 00:36:33', '2023-03-28 00:36:33'),
 (5, 'A.5. En Python, lorsqu’une fonction est définie dans une classe, on l’appelle ?', 1, '2023-03-28 00:36:56', '2023-03-28 00:36:56'),
-(6, 'B.1. Nous souhaitons inverser un entier (positif ou négatif).', 2, '2023-03-28 00:37:26', '2023-03-28 00:37:26'),
-(7, 'B.2.  Nous souhaitons retrouver dans une liste d’entiers, tous les triplets pythagoriciens possibles qui y sont. ', 2, '2023-03-28 00:37:26', '2023-03-28 00:37:26'),
-(8, 'B.3. Nous avons un mot et nous voulons savoir quel est le premier caractère unique de ce mot, c’est-à-dire la lettre qui ne se répète pas dans le mot et la première. Prenons un exemple simple, le mot \'coronavirus\' ; le premier caractère unique est la lett', 2, '2023-03-28 00:37:43', '2023-03-28 00:37:43'),
+(6, 'B.1. Nous souhaitons inverser un entier (positif ou négatif).\nC’est-à-dire notre fonction prend en entrée un entier 6523 par exemple et retourne en sortie l’entier inversé 3256.\n', 2, '2023-03-28 00:37:26', '2023-03-28 00:37:26'),
+(7, 'B.2.  Nous souhaitons retrouver dans une liste d’entiers, tous les triplets pythagoriciens possibles qui y sont. \nPour rappel, un triplet pythagoricien respecte le théorème suivant : a2 + b2 = c2.\nPrenons l’exemple suivant : nous avons la liste [0, 3, 6, ', 2, '2023-03-28 00:37:26', '2023-03-28 00:37:26'),
+(8, 'B.3. Nous avons un mot et nous voulons savoir quel est le premier caractère unique de ce mot, c’est-à-dire la lettre qui ne se répète pas dans le mot et la première. Prenons un exemple simple, le mot \'coronavirus\' ; le premier caractère unique est la lettre \'c\' et se trouve à l’index 0.', 2, '2023-03-28 00:37:43', '2023-03-28 00:37:43'),
 (9, 'B.4. Nous souhaitons retourner la liste des nombres premiers strictement inférieurs à un nombre donné.\r\nUn nombre premier est un entier naturel qui admet exactement deux diviseurs distincts entiers et positifs.\r\n', 2, '2023-03-28 00:37:43', '2023-03-28 00:37:43'),
-(10, 'B.5. Nous souhaitons inverser une chaîne de caractères sans modifier la position des caractères spéciaux : !@#$%^&*()-_=+~ etc. \r\nPrenons un exemple, c’est plus simple.\r\nNous avons notre string suivant \"Alo*etui@l)ios82?\" et notre algorithme doit permettr', 2, '2023-03-28 00:38:56', '2023-03-28 00:38:56'),
+(10, 'B.5. Nous souhaitons inverser une chaîne de caractères sans modifier la position des caractères spéciaux : !@#$%^&*()-_=+~ etc. \nPrenons un exemple, c’est plus simple.\nNous avons notre string suivant \"Alo*etui@l)ios82?\" et notre algorithme doit permettre d’inverser tous les caractères sans faire bouger les caractères spéciaux comme ceci : \"28s*oili@u)teolA?\".\nPrenons un exemple, c’est plus simple.\nNous avons notre string suivant \"Alo*etui@l)ios82?\" et notre algorithme doit permettre d’inverser tous les caractères sans faire bouger les caractères spéciaux comme ceci : \"28s*oili@u)teolA?\".\n', 2, '2023-03-28 00:38:56', '2023-03-28 00:38:56'),
 (11, 'C.1. Nom et adresse des employés qui travaillent au département ‘R&D’.', 3, '2023-03-28 00:39:21', '2023-03-28 00:39:21'),
 (12, 'C.2. Nom des employés qui travaillent plus de 10 heures sur un projet à ‘Sfax’.', 3, '2023-03-28 00:39:21', '2023-03-28 00:39:21'),
 (13, 'C.3. Nom et Prénom des employés dont le supérieur est un ‘Tech Leader’.', 3, '2023-03-28 00:39:45', '2023-03-28 00:39:45'),
@@ -552,7 +553,7 @@ INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
 
 CREATE TABLE `souscompetences` (
   `id` int(11) NOT NULL,
-  `label4` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
   `competence_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -562,7 +563,7 @@ CREATE TABLE `souscompetences` (
 -- Déchargement des données de la table `souscompetences`
 --
 
-INSERT INTO `souscompetences` (`id`, `label4`, `competence_id`, `created`, `modified`) VALUES
+INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `created`, `modified`) VALUES
 (1, 'GESTION DE TEMPS & PRIORITÉS', 2, '2023-03-27 15:01:44', '2023-03-27 15:01:44'),
 (2, '1. GEEK', 3, '2023-03-27 15:01:44', '2023-03-27 15:01:44'),
 (3, '2. AUTODÉTERMINATION ', 3, '2023-03-27 15:02:37', '2023-03-27 15:02:37'),
@@ -570,7 +571,8 @@ INSERT INTO `souscompetences` (`id`, `label4`, `competence_id`, `created`, `modi
 (5, '4. COMMUNICATION INTERACTIVE EFFICACE', 3, '2023-03-27 15:02:55', '2023-03-27 15:02:55'),
 (6, '5. TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, '2023-03-27 15:02:55', '2023-03-27 15:02:55'),
 (7, '6. RÉSOLUTION DE PROBLÈMES', 3, '2023-03-27 15:03:21', '2023-03-27 15:03:21'),
-(8, '7. SERVICES D’EXCELLENCE  ', 3, '2023-03-27 15:03:21', '2023-03-27 15:03:21');
+(8, '7. SERVICES D’EXCELLENCE  ', 3, '2023-03-27 15:03:21', '2023-03-27 15:03:21'),
+(9, 'CT', 1, '2023-03-30 12:46:08', '2023-03-30 12:46:08');
 
 -- --------------------------------------------------------
 
@@ -580,7 +582,7 @@ INSERT INTO `souscompetences` (`id`, `label4`, `competence_id`, `created`, `modi
 
 CREATE TABLE `sousquestions` (
   `id` int(11) NOT NULL,
-  `label3` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
   `question_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -590,26 +592,26 @@ CREATE TABLE `sousquestions` (
 -- Déchargement des données de la table `sousquestions`
 --
 
-INSERT INTO `sousquestions` (`id`, `label3`, `question_id`, `created`, `modified`) VALUES
-(1, '(a) Une méthode est une classe ne contenant aucune variable.', 1, '2023-03-28 00:42:07', '2023-03-28 00:42:07'),
-(2, '(b) Une méthode est une suite d’invocations d’opérations sur un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
-(3, '(c) Une méthode est un traitement réalisé par un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
-(4, '(d) Une méthode est l’ensemble des données d’un objet.', 1, '2023-03-28 00:42:56', '2023-03-28 00:42:56'),
-(5, '(a) Un synonyme du concept « instanciation ».', 2, '2023-03-28 00:42:56', '2023-03-28 00:42:56'),
-(6, '(b) Une relation de spécialisation entre une classe et ses classes filles.', 2, '2023-03-28 00:43:24', '2023-03-28 00:43:24'),
-(7, '(c) Un mécanisme qui permet de changer le type des objets.', 2, '2023-03-28 00:43:24', '2023-03-28 00:43:24'),
-(8, '(d) Cela permet à un objet de connaître la valeur d’un attribut d’un autre objet.', 2, '2023-03-28 00:43:53', '2023-03-28 00:43:53'),
-(9, '(a) Héritage multilevel', 3, '2023-03-28 00:43:53', '2023-03-28 00:43:53'),
-(10, '(b) Héritage multiple', 3, '2023-03-28 00:44:24', '2023-03-28 00:44:24'),
-(11, '(c) Héritage hiérarchique', 3, '2023-03-28 00:44:24', '2023-03-28 00:44:24'),
-(12, '(d) Héritage Python', 3, '2023-03-28 00:44:49', '2023-03-28 00:44:49'),
-(13, '(a) Un objet est construit à partir d’une classe.', 4, '2023-03-28 00:44:49', '2023-03-28 00:44:49'),
-(14, '(b) Vous ne pouvez créer qu’un seul objet à partir d’une classe donnée.', 4, '2023-03-28 00:45:18', '2023-03-28 00:45:18'),
-(15, '(c) Les deux (a) et (b) sont vrais.', 4, '2023-03-28 00:45:18', '2023-03-28 00:45:18'),
-(16, '(a) Module', 5, '2023-03-28 00:45:44', '2023-03-28 00:45:44'),
-(17, '(b) Classe', 5, '2023-03-28 00:45:44', '2023-03-28 00:45:44'),
-(18, '(c) Méthode', 5, '2023-03-28 00:46:10', '2023-03-28 00:46:10'),
-(19, '(d) Une autre fonction', 5, '2023-03-28 00:46:10', '2023-03-28 00:46:10');
+INSERT INTO `sousquestions` (`id`, `label`, `question_id`, `created`, `modified`) VALUES
+(1, ' Une méthode est une classe ne contenant aucune variable.', 1, '2023-03-28 00:42:07', '2023-03-28 00:42:07'),
+(2, ' Une méthode est une suite d’invocations d’opérations sur un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
+(3, ' Une méthode est un traitement réalisé par un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
+(4, ' Une méthode est l’ensemble des données d’un objet.', 1, '2023-03-28 00:42:56', '2023-03-28 00:42:56'),
+(5, ' Un synonyme du concept « instanciation ».', 2, '2023-03-28 00:42:56', '2023-03-28 00:42:56'),
+(6, ' Une relation de spécialisation entre une classe et ses classes filles.', 2, '2023-03-28 00:43:24', '2023-03-28 00:43:24'),
+(7, ' Un mécanisme qui permet de changer le type des objets.', 2, '2023-03-28 00:43:24', '2023-03-28 00:43:24'),
+(8, ' Cela permet à un objet de connaître la valeur d’un attribut d’un autre objet.', 2, '2023-03-28 00:43:53', '2023-03-28 00:43:53'),
+(9, ' Héritage multilevel', 3, '2023-03-28 00:43:53', '2023-03-28 00:43:53'),
+(10, ' Héritage multiple', 3, '2023-03-28 00:44:24', '2023-03-28 00:44:24'),
+(11, ' Héritage hiérarchique', 3, '2023-03-28 00:44:24', '2023-03-28 00:44:24'),
+(12, ' Héritage Python', 3, '2023-03-28 00:44:49', '2023-03-28 00:44:49'),
+(13, ' Un objet est construit à partir d’une classe.', 4, '2023-03-28 00:44:49', '2023-03-28 00:44:49'),
+(14, ' Vous ne pouvez créer qu’un seul objet à partir d’une classe donnée.', 4, '2023-03-28 00:45:18', '2023-03-28 00:45:18'),
+(15, ' Les deux (a) et (b) sont vrais.', 4, '2023-03-28 00:45:18', '2023-03-28 00:45:18'),
+(16, ' Module', 5, '2023-03-28 00:45:44', '2023-03-28 00:45:44'),
+(17, ' Classe', 5, '2023-03-28 00:45:44', '2023-03-28 00:45:44'),
+(18, ' Méthode', 5, '2023-03-28 00:46:10', '2023-03-28 00:46:10'),
+(19, ' Une autre fonction', 5, '2023-03-28 00:46:10', '2023-03-28 00:46:10');
 
 -- --------------------------------------------------------
 
@@ -921,7 +923,7 @@ ALTER TABLE `niveauvises`
 -- AUTO_INCREMENT pour la table `points`
 --
 ALTER TABLE `points`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `postes`
@@ -951,7 +953,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT pour la table `souscompetences`
 --
 ALTER TABLE `souscompetences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `sousquestions`

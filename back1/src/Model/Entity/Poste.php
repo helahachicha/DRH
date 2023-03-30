@@ -9,14 +9,13 @@ use Cake\ORM\Entity;
  * Poste Entity
  *
  * @property int $id
- * @property string $label1
+ * @property string $label
  * @property int $departement_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Departement $departement
  * @property \App\Model\Entity\Profilposte[] $profilpostes
- * @property \App\Model\Entity\Testtechnique[] $testtechniques
  */
 class Poste extends Entity
 {
@@ -30,12 +29,11 @@ class Poste extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'label1' => true,
+        'label' => true,
         'departement_id' => true,
         'created' => true,
         'modified' => true,
         'departement' => true,
         'profilpostes' => true,
-        'testtechniques' => true,
     ];
 }

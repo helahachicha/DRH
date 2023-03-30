@@ -50,7 +50,7 @@ class DepartementsController extends AppController
          /* create postes entity */
          if (1==1){
             $postes = $this->Postes->newEmptyEntity();
-            $postes->label1=$data->label1;
+            $postes->label=$data->label;
             $postes->departement_id=$data->departement_id;
             $savedProfil=$this->Postes->save($postes);
         }
@@ -64,7 +64,7 @@ class DepartementsController extends AppController
         /* create categories entity */
         if (1==1){
             $categories = $this->Categories->newEmptyEntity();
-            $categories->label2=$data->label2;
+            $categories->label=$data->label;
             $categories->profilposte_id=$data->profilposte_id;
             $savedProfil=$this->Categories->save($categories);
         }
@@ -90,28 +90,28 @@ class DepartementsController extends AppController
         /* create competences entity */
         if (1==1){
             $competences = $this->Competences->newEmptyEntity();
-            $competences->label3=$data->label3;
+            $competences->label=$data->label;
             $competences->categorie_id=$data->categorie_id;
             $savedProfil=$this->Competences->save($competences);
         }
         /* create souscompetences entity */
         if (1==1){
             $souscompetences = $this->Souscompetences->newEmptyEntity();
-            $souscompetences->label4=$data->label4;
+            $souscompetences->label=$data->label;
             $souscompetences->competence_id=$data->competence_id;
             $savedProfil=$this->Souscompetences->save($souscompetences);
         }
         /* create niveauvises entity */
         if (1==1){
             $niveauvises = $this->Niveauvises->newEmptyEntity();
-            $niveauvises->label5=$data->label5;
+            $niveauvises->label=$data->label;
             $niveauvises->categorie_id=$data->categorie_id;
             $savedProfil=$this->Niveauvises->save($niveauvises);
         }
         /* create indicateursuivis entity */
         if (1==1){
             $indicateursuivis = $this->Indicateursuivis->newEmptyEntity();
-            $indicateursuivis->label6=$data->label6;
+            $indicateursuivis->label=$data->label;
             $indicateursuivis->souscompetence_id=$data->souscompetence_id;
             $savedProfil=$this->Indicateursuivis->save($indicateursuivis);
         }

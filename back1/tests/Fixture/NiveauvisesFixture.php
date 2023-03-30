@@ -20,10 +20,10 @@ class NiveauvisesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'label5' => 'Lorem ipsum dolor sit amet',
+                'label' => 'Lorem ipsum dolor sit amet',
                 'categorie_id' => 1,
-                'created' => '2023-03-29 13:40:32',
-                'modified' => '2023-03-29 13:40:32',
+                'created' => '2023-03-30 14:06:34',
+                'modified' => '2023-03-30 14:06:34',
             ],
         ];
         parent::init();

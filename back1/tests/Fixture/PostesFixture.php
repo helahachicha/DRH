@@ -20,10 +20,10 @@ class PostesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'label1' => 'Lorem ipsum dolor sit amet',
+                'label' => 'Lorem ipsum dolor sit amet',
                 'departement_id' => 1,
-                'created' => '2023-03-29 13:38:14',
-                'modified' => '2023-03-29 13:38:14',
+                'created' => '2023-03-30 14:09:45',
+                'modified' => '2023-03-30 14:09:45',
             ],
         ];
         parent::init();

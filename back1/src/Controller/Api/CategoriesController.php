@@ -87,7 +87,7 @@ class CategoriesController extends AppController
      *
      * @Input:
      *         data:
-     *          label2 (String) *Required
+     *          label (String) *Required
      *          profilposte_id (Int) *Required
      * 
      * @Output: data : success message
@@ -108,7 +108,7 @@ class CategoriesController extends AppController
         $categories=$this->Categories->get($id);
          /* create categories entity */
         if (1==1){
-            $categories->label2=$data->label2;
+            $categories->label=$data->label;
             $categories->profilposte_id=$data->profilposte_id;    
 
             $this->Categories->save($categories); 

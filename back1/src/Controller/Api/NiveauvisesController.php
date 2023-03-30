@@ -87,7 +87,7 @@ class NiveauvisesController extends AppController
      *
      * @Input:
      *         data:
-     *          label5 (String) *Required
+     *          label (String) *Required
      *          categorie_id (Int) *Required
      * 
      * @Output: data : success message
@@ -108,7 +108,7 @@ class NiveauvisesController extends AppController
         $niveauvises=$this->Niveauvises->get($id);
          /* create niveauvises entity */
         if (1==1){
-            $niveauvises->label5=$data->label5;
+            $niveauvises->label=$data->label;
             $niveauvises->categorie_id=$data->categorie_id;    
 
             $this->Niveauvises->save($niveauvises); 
