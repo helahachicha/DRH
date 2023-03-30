@@ -7,6 +7,10 @@ import { CoutlistingComponent } from './components/CoutFormation/coutlisting/cou
 import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.component';
 
 import { ListingficherenComponent } from './components/Fiche de rensignement/listingficheren/listingficheren.component';
+import { AddFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/add-fiche-devalu/add-fiche-devalu.component';
+import { DetailFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/detail-fiche-devalu/detail-fiche-devalu.component';
+import { EditFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/edit-fiche-devalu/edit-fiche-devalu.component';
+import { ListingFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/listing-fiche-devalu/listing-fiche-devalu.component';
 import { AddTestComponent } from './components/FicheDevaluation/TestTechnique/add-test/add-test.component';
 import { DetailTestComponent } from './components/FicheDevaluation/TestTechnique/detail-test/detail-test.component';
 import { EditTestComponent } from './components/FicheDevaluation/TestTechnique/edit-test/edit-test.component';
@@ -72,6 +76,10 @@ const routes: Routes = [
   { path: 'detail-test/:id', component:DetailTestComponent },
   { path: 'add-test', component:AddTestComponent },
   { path: 'edit-test/:id', component:EditTestComponent },
+  { path: 'add-fiche-devalu', component:AddFicheDevaluComponent },
+  { path: 'detail-fiche-devalu', component:DetailFicheDevaluComponent },
+  { path: 'edit-fiche-devalu', component:EditFicheDevaluComponent },
+  { path: 'liste-fiche-devalu', component:ListingFicheDevaluComponent },
 
 
 

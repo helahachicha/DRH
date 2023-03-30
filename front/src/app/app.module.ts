@@ -47,6 +47,10 @@ import { DetailTestComponent } from './components/FicheDevaluation/TestTechnique
 import { CommonModule } from '@angular/common';
 import { AddTestComponent } from './components/FicheDevaluation/TestTechnique/add-test/add-test.component';
 import { ListingprofilposteComponent } from './components/GérerLesAxes/ListeDesProfiles/listingprofilposte/listingprofilposte.component';
+import { ListingFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/listing-fiche-devalu/listing-fiche-devalu.component';
+import { DetailFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/detail-fiche-devalu/detail-fiche-devalu.component';
+import { EditFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/edit-fiche-devalu/edit-fiche-devalu.component';
+import { AddFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/add-fiche-devalu/add-fiche-devalu.component';
 
 
 
@@ -94,7 +98,11 @@ import { ListingprofilposteComponent } from './components/GérerLesAxes/ListeDes
     ListingTestComponent,
     DetailTestComponent,
     AddTestComponent,
-    ListingprofilposteComponent
+    ListingprofilposteComponent,
+    ListingFicheDevaluComponent,
+    DetailFicheDevaluComponent,
+    EditFicheDevaluComponent,
+    AddFicheDevaluComponent
     
    
    

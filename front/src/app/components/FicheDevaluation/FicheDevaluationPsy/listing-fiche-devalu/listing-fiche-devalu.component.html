@@ -1,0 +1,33 @@
+<div class="container ">
+
+    <div class="shadow-lg p-3 mb-5 bg-body rounded mt-5">
+
+       
+        <h3 class="text-center mt-5"> Liste des fiche d'evaluation psychique:</h3>
+        <button class="btn btn-danger " routerLink="/add-fiche-devalu" >Ajouter</button>
+       
+        <div class=" table-responsive ">
+           
+            <table class="table table-bordered " >
+                <thead>
+                    <tr class="text-bold">
+                        <th>Nom & Prenom </th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <!--*ngFor="let p of Profilpostes"{{p.nom}}-->
+                    <tr  >
+                        <td><button class="btn btn-primary" routerLink="/detail-fiche-devalu" >Afficher</button></td>
+                        <td>
+                            <!-- (click)="deletefichedevalu(id)"-->
+                            <button class="btn btn-danger " >Supprimer</button>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
