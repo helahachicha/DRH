@@ -8,10 +8,8 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./listing-fiche-devalu.component.scss']
 })
 export class ListingFicheDevaluComponent implements OnInit {
-
-  public fichedevaluForm= new FormGroup({
-    nom: new FormControl('', [Validators.required]),
-  });
+public Testtechniques
+  
   constructor(
     private dataService:DataService,
   ) { }

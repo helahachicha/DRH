@@ -17,7 +17,7 @@ export class DetailTestComponent implements OnInit {
   public Sousquestions
 
   public testForm = new FormGroup({
-   label1: new FormControl('', [Validators.required]), 
+   label: new FormControl('', [Validators.required]), 
 
   });
 

@@ -14,10 +14,10 @@
                         <th>Nom & Prenom </th>
                     </tr>
                 </thead>
-                <tbody >
-                    <!--*ngFor="let p of Profilpostes"{{p.nom}}-->
+                <tbody *ngFor="let p of Testtechniques" >
+                    <!--"{{p.nom}}-->
                     <tr  >
-                        <td><button class="btn btn-primary" routerLink="/detail-fiche-devalu" >Afficher</button></td>
+                        <td><button class="btn btn-primary" routerLink="/detail-fiche-devalu/{{Testtechniques.id}}">Afficher</button></td>
                         <td>
                             <!-- (click)="deletefichedevalu(id)"-->
                             <button class="btn btn-danger " >Supprimer</button>
