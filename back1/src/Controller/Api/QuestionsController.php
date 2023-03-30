@@ -18,7 +18,7 @@ class QuestionsController extends AppController
      *
      * @Input:
      *         data:
-     *          labelquestions (String) *Required
+     *          label (String) *Required
      *          comptechnique_id(Int) *Required
      *         
      * @Output: data : success message
@@ -39,7 +39,7 @@ class QuestionsController extends AppController
         $questions=$this->Questions->get($id);
          /* create questions entity */
         if (1==1){
-            $questions->labelquestions=$data->labelquestions;  
+            $questions->label=$data->label;  
             $questions->comptechnique_id=$data->comptechnique_id;
 
             $this->Questions->save($questions); 

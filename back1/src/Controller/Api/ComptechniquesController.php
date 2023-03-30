@@ -18,7 +18,7 @@ class ComptechniquesController extends AppController
      *
      * @Input:
      *         data:
-     *          labelcomptech (String) *Required
+     *          label (String) *Required
      *          testtechnique_id(Int) *Required
      *         
      * @Output: data : success message
@@ -39,7 +39,7 @@ class ComptechniquesController extends AppController
         $comptechniques=$this->Comptechniques->get($id);
          /* create comptechniques entity */
         if (1==1){
-            $comptechniques->labelcomptech=$data->labelcomptech;  
+            $comptechniques->label=$data->label;  
             $comptechniques->testtechnique_id=$data->testtechnique_id;   
 
             $this->Comptechniques->save($comptechniques); 

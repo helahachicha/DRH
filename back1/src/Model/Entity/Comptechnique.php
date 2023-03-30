@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * Comptechnique Entity
  *
  * @property int $id
- * @property string $labelcomptech
+ * @property string $label
  * @property int $testtechnique_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -29,7 +29,7 @@ class Comptechnique extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'labelcomptech' => true,
+        'label' => true,
         'testtechnique_id' => true,
         'created' => true,
         'modified' => true,

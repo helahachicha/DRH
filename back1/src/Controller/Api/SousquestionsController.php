@@ -18,7 +18,7 @@ class SousquestionsController extends AppController
      *
      * @Input:
      *         data:
-     *          labelsousquestions (String) *Required
+     *          label (String) *Required
      *          question_id(Int) *Required
      *         
      * @Output: data : success message
@@ -39,7 +39,7 @@ class SousquestionsController extends AppController
         $sousquestions=$this->Sousquestions->get($id);
          /* create sousquestions entity */
         if (1==1){
-            $sousquestions->labelsousquestions=$data->labelsousquestions;  
+            $sousquestions->label=$data->label;  
             $sousquestions->question_id=$data->question_id;
 
             $this->Sousquestions->save($sousquestions); 

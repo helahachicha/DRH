@@ -6,17 +6,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Sousquestion Entity
+ * Point Entity
  *
  * @property int $id
- * @property string $label
- * @property int $question_id
+ * @property int $point
+ * @property int $souscompetence_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Question $question
+ * @property \App\Model\Entity\Souscompetence $souscompetence
  */
-class Sousquestion extends Entity
+class Point extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -28,10 +28,10 @@ class Sousquestion extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'label' => true,
-        'question_id' => true,
+        'point' => true,
+        'souscompetence_id' => true,
         'created' => true,
         'modified' => true,
-        'question' => true,
+        'souscompetence' => true,
     ];
 }

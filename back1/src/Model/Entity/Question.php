@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * Question Entity
  *
  * @property int $id
- * @property string $labelquestions
+ * @property string $label
  * @property int $comptechnique_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -29,7 +29,7 @@ class Question extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'labelquestions' => true,
+        'label' => true,
         'comptechnique_id' => true,
         'created' => true,
         'modified' => true,
