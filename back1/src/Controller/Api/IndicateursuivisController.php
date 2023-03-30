@@ -160,9 +160,13 @@ class IndicateursuivisController extends AppController
          }
 
         $indicateursuivis = $this->Indicateursuivis->find('all', [
-           
+            'contain' => [
+                'Souscompetences','Souscompetences.Competences' 
+            ],
+            
             'conditions'=>[
                 'souscompetence_id IS'=>$id
+
             ],
            
            
