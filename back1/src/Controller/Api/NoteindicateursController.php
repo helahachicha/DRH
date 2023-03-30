@@ -6,20 +6,20 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Points Controller
+ * Noteindicateurs Controller
  *
- * @method \App\Model\Entity\Point[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Noteindicateur[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class PointsController extends AppController
+class NoteindicateursController extends AppController
 {
-     /**
-      * getPointBySouscompetence
+    /**
+      * getNoteindicateurBySouscompetence
       *
       * @Input: id
       *
       * @Output: data
       */
-      public function getPointBySouscompetence(){
+      public function getNoteindicateurBySouscompetence(){
  
         $id = $this->request->getQuery('id');
         
@@ -35,7 +35,7 @@ class PointsController extends AppController
             }
          }
 
-        $points = $this->Points->find('all', [
+        $noteindicateurs = $this->Noteindicateurs->find('all', [
 
             'conditions'=>[
                 'souscompetence_id IS'=>$id
@@ -47,8 +47,8 @@ class PointsController extends AppController
            
         ])->toArray();
 
-        if(empty($points)){
-           throw new UnauthorizedException('Points not found');
+        if(empty($noteindicateurs)){
+           throw new UnauthorizedException('Noteindicateurs not found');
        }
        
        /*send result */
@@ -56,7 +56,7 @@ class PointsController extends AppController
        $this->set([
            'Somme' => $S,
            'success' => true,
-           'data' => $points,
+           'data' => $noteindicateurs,
            '_serialize' => ['success' , 'data' , 'Somme'], 
        ]);
     }
@@ -109,20 +109,22 @@ class PointsController extends AppController
        ]);
     }
 
+    /* function Calcul */
+
     public function Calcul(){
 
            /*Calcul Score  */
 
            $points = $this->getPointBySouscompetence();
-           $indicateursuivis = $this->getIndicateursuiviBySouscomp();
+           $noteindicateurs = $this->getNoteindicateurBySouscompetence();
            $S=0;
            foreach ($points as $point) {
             $S += $point->point;
         }
-            $indicateursuivis = $this->Indicateursuivis->count();
+            $noteindicateurs = $this->Noteindicateurs->count();
     
             $moyenne=0;
-            $moyenne=$S/$indicateursuivis;
+            $moyenne=$S/$noteindicateurs;
 
         /*send result */
 
@@ -132,6 +134,4 @@ class PointsController extends AppController
             '_serialize' => ['success', 'Moyenne']
         ]);
     }
-        
 }
-
