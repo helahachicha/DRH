@@ -16,11 +16,11 @@
                 </thead>
                 <tbody *ngFor="let p of Testtechniques" >
                     <!--"{{p.nom}}-->
-                    <tr  >
-                        <td><button class="btn btn-primary" routerLink="/detail-fiche-devalu/{{Testtechniques.id}}">Afficher</button></td>
+                    <tr>
+                        <td></td>
                         <td>
                             <!-- (click)="deletefichedevalu(id)"-->
-                            <button class="btn btn-danger " >Supprimer</button>
+                            <button class="btn btn-primary" routerLink="/detail-fiche-devalu/{{p.id}}">Afficher</button><button class="btn btn-danger " >Supprimer</button>
                         </td>
 
                     </tr>
