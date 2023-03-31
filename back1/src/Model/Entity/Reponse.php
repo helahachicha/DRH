@@ -6,7 +6,7 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Sousquestion Entity
+ * Reponse Entity
  *
  * @property int $id
  * @property string $label
@@ -16,7 +16,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Question $question
  */
-class Sousquestion extends Entity
+class Reponse extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().

@@ -12,6 +12,55 @@ use App\Controller\AppController;
  */
 class DetailprofilpostesController extends AppController
 {
+    /**
+     * addDetailprofilpostes
+     *
+     * @Input:
+     *         data:
+     *          
+     *         
+     * @Output: data : success message
+     */
+    public function addDetailprofilpostes(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
+
+        }
+         /* create detailprofilpostes entity */
+        if (1==1){
+            $detailprofilpostes = $this->Detailprofilpostes->newEmptyEntity();
+            $detailprofilpostes->fonction=$data->fonction;  
+            $detailprofilpostes->categorie_id=$data->categorie_id;  
+            $detailprofilpostes->superhierar=$data->superhierar;  
+            $detailprofilpostes->supervision=$data->supervision;  
+            $detailprofilpostes->interim=$data->interim;   
+            $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
+            $detailprofilpostes->fonctionverification=$data->fonctionverification;  
+            $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
+            $detailprofilpostes->nomprenomelab=$data->nomprenomelab;  
+            $detailprofilpostes->nomprenomverif=$data->nomprenomverif;  
+            $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob; 
+     
+
+            $this->Detailprofilpostes->save($detailprofilpostes); 
+        }
+       
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
 
 
     /**

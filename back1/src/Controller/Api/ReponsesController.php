@@ -6,15 +6,14 @@ namespace App\Controller\Api;
 use App\Controller\AppController;
 
 /**
- * Sousquestions Controller
+ * Reponses Controller
  *
- * @method \App\Model\Entity\Sousquestion[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Reponse[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class SousquestionsController extends AppController
+class ReponsesController extends AppController
 {
-
      /**
-     * editSousquestion
+     * addReponse
      *
      * @Input:
      *         data:
@@ -23,7 +22,48 @@ class SousquestionsController extends AppController
      *         
      * @Output: data : success message
      */
-    public function editSousquestion(){
+    public function addReponse(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
+
+        }
+         /* create reponses entity */
+        if (1==1){
+            $reponses = $this->Reponses->newEmptyEntity();
+            $reponses->label=$data->label;  
+            $reponses->question_id=$data->question_id;   
+
+            $this->Reponses->save($reponses); 
+        }
+       
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
+
+    /**
+     * editReponse
+     *
+     * @Input:
+     *         data:
+     *          label (String) *Required
+     *          question_id(Int) *Required
+     *         
+     * @Output: data : success message
+     */
+    public function editReponse(){
         
         $this->request->allowMethod(['post', 'put']);
 
@@ -36,13 +76,13 @@ class SousquestionsController extends AppController
         }
 
         $id=$this->request->getQuery('id');
-        $sousquestions=$this->Sousquestions->get($id);
-         /* create sousquestions entity */
+        $reponses=$this->Reponses->get($id);
+         /* create reponses entity */
         if (1==1){
-            $sousquestions->label=$data->label;  
-            $sousquestions->question_id=$data->question_id;
+            $reponses->label=$data->label;  
+            $reponses->question_id=$data->question_id;
 
-            $this->Sousquestions->save($sousquestions); 
+            $this->Reponses->save($reponses); 
         }
         /*send result */
         $this->set([
@@ -55,17 +95,17 @@ class SousquestionsController extends AppController
 
 
     /**
-    * getAllSousquestion
+    * getAllReponse
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllSousquestion()
+    public function getAllReponse()
     {
 
         /* search */
-        $sousquestions = $this->Sousquestions->find('all',[
+        $reponses = $this->Reponses->find('all',[
             'contain' => [
                 'Questions'
             ]
@@ -74,19 +114,19 @@ class SousquestionsController extends AppController
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $sousquestions,
+            'data' => $reponses,
             '_serialize' => ['success', 'data']
         ]);
     }
     
     /**
-      * getSousquestion
+      * getReponse
       *
       * @Input: id
       *
       * @Output: data
       */
-     public function getSousquestion(){
+     public function getReponse(){
  
          $id = $this->request->getQuery('id');
          
@@ -101,36 +141,36 @@ class SousquestionsController extends AppController
              }
          }
  
-         $sousquestions = $this->Sousquestions->find('all', [
+         $reponses = $this->Reponses->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
             
          ])->first();
-         // debug($sousquestions);die;
+         // debug($reponses);die;
          
-         if(empty($sousquestions)){
-            throw new UnauthorizedException('Sousquestions not found');
+         if(empty($reponses)){
+            throw new UnauthorizedException('Reponses not found');
         }
 
         /*send result */
 
         $this->set([
             'success' => true,
-            'data' => $sousquestions,
+            'data' => $reponses,
             '_serialize' => ['success', 'data']
         ]);
      }
 
      /**
-      * deleteSousquestion
+      * deleteReponse
       *
       * @Input: id
       *
       * @Output: data
       */
 
-     public function deleteSousquestion(){
+     public function deleteReponse(){
 
         $id = $this->request->getQuery('id');
 
@@ -138,17 +178,17 @@ class SousquestionsController extends AppController
 
         /* search */
 
-        $sousquestions = $this->Sousquestions->find('all', [
+        $reponses = $this->Reponses->find('all', [
             'conditions'=>[
                 'id'=>$id,
             ],
            
         ])->first();
 
-        /* delete sousquestions  */
+        /* delete reponses  */
 
         if (1==1){
-            $this->Sousquestions->delete($sousquestions);
+            $this->Reponses->delete($reponses);
         }
 
         /*send result */

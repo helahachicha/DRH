@@ -13,6 +13,47 @@ use App\Controller\AppController;
 class ComptechniquesController extends AppController
 {
 
+    /**
+     * addComptechnique
+     *
+     * @Input:
+     *         data:
+     *          label (String) *Required
+     *          testtechnique_id(Int) *Required
+     *         
+     * @Output: data : success message
+     */
+    public function addComptechnique(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
+
+        }
+         /* create comptechniques entity */
+        if (1==1){
+            $comptechniques = $this->Comptechniques->newEmptyEntity();
+            $comptechniques->label=$data->label;  
+            $comptechniques->testtechnique_id=$data->testtechnique_id;  
+
+            $this->Comptechniques->save($comptechniques); 
+        }
+       
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
+
      /**
      * editComptechnique
      *
@@ -160,7 +201,7 @@ class ComptechniquesController extends AppController
         }
         $comptechniques = $this->Comptechniques->find('all', [
             'contain' => [
-                'Questions.Sousquestions'
+                'Questions.Reponses'
             ],
             
             'conditions'=>[
