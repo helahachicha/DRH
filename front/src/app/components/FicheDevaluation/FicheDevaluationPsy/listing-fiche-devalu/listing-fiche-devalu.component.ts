@@ -9,8 +9,8 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./listing-fiche-devalu.component.scss']
 })
 export class ListingFicheDevaluComponent implements OnInit {
-public Testtechniques
   id:any
+  public Infoficheevaluations
   constructor(
     private dataService:DataService,
     private router :Router,
@@ -18,21 +18,19 @@ public Testtechniques
   ) { }
 
   ngOnInit(): void {
+    this.getallnom()
   }
 
-  getcoutById() {
-    this.id=this.route.snapshot.params['id'];
-    this.dataService.get('coutformaexternes/getCoutformaexterne.json?id='+this.id).subscribe(
-      res => {
-      this.coutformaexternes=res.data;
-      console.log("hello",this.coutformaexternes)
-
-      
+  getallnom() {
+    this.dataService.get('Infoficheevaluations/getAllNom.json').subscribe(res => {
+      this.Infoficheevaluations = res.data;
+      console.log("heloo",this.Infoficheevaluations)
     })
   }
-  deletefichedevalu(id){
-    this.dataService.delete('Profilpostes/deleteProfilposte.json?id='+id).subscribe(res => {
-      //this.getallprofile()
+
+  deletenom(id){
+    this.dataService.delete('Infoficheevaluations/deleteInfoficheevaluation.json?id='+id).subscribe(res => {
+      this.getallnom()
     })
   }
 }

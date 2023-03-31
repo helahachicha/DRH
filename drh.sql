@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 30 mars 2023 à 22:13
+-- Généré le : ven. 31 mars 2023 à 09:46
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -339,6 +339,30 @@ INSERT INTO `indicateursuivis` (`id`, `label`, `souscompetence_id`, `created`, `
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `infoficheevaluations`
+--
+
+CREATE TABLE `infoficheevaluations` (
+  `id` int(11) NOT NULL,
+  `nomprenom` varchar(255) NOT NULL,
+  `objetevaluation` varchar(255) NOT NULL,
+  `dateevaluation` varchar(255) NOT NULL,
+  `decisiondirection` varchar(255) NOT NULL,
+  `categorie_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `infoficheevaluations`
+--
+
+INSERT INTO `infoficheevaluations` (`id`, `nomprenom`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `categorie_id`, `created`, `modified`) VALUES
+(1, 'Ghaddhab Bilel', 'test', 'test', 'test', 1, '2023-03-30 22:20:26', '2023-03-30 22:20:26');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `infopersonnelles`
 --
 
@@ -527,6 +551,45 @@ INSERT INTO `questions` (`id`, `label`, `comptechnique_id`, `created`, `modified
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `reponses`
+--
+
+CREATE TABLE `reponses` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `reponses`
+--
+
+INSERT INTO `reponses` (`id`, `label`, `question_id`, `created`, `modified`) VALUES
+(1, ' Une méthode est une classe ne contenant aucune variable.', 1, '2023-03-28 00:42:07', '2023-03-28 00:42:07'),
+(2, ' Une méthode est une suite d’invocations d’opérations sur un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
+(3, ' Une méthode est un traitement réalisé par un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
+(4, ' Une méthode est l’ensemble des données d’un objet.', 1, '2023-03-28 00:42:56', '2023-03-28 00:42:56'),
+(5, ' Un synonyme du concept « instanciation ».', 2, '2023-03-28 00:42:56', '2023-03-28 00:42:56'),
+(6, ' Une relation de spécialisation entre une classe et ses classes filles.', 2, '2023-03-28 00:43:24', '2023-03-28 00:43:24'),
+(7, ' Un mécanisme qui permet de changer le type des objets.', 2, '2023-03-28 00:43:24', '2023-03-28 00:43:24'),
+(8, ' Cela permet à un objet de connaître la valeur d’un attribut d’un autre objet.', 2, '2023-03-28 00:43:53', '2023-03-28 00:43:53'),
+(9, ' Héritage multilevel', 3, '2023-03-28 00:43:53', '2023-03-28 00:43:53'),
+(10, ' Héritage multiple', 3, '2023-03-28 00:44:24', '2023-03-28 00:44:24'),
+(11, ' Héritage hiérarchique', 3, '2023-03-28 00:44:24', '2023-03-28 00:44:24'),
+(12, ' Héritage Python', 3, '2023-03-28 00:44:49', '2023-03-28 00:44:49'),
+(13, ' Un objet est construit à partir d’une classe.', 4, '2023-03-28 00:44:49', '2023-03-28 00:44:49'),
+(14, ' Vous ne pouvez créer qu’un seul objet à partir d’une classe donnée.', 4, '2023-03-28 00:45:18', '2023-03-28 00:45:18'),
+(15, ' Les deux (a) et (b) sont vrais.', 4, '2023-03-28 00:45:18', '2023-03-28 00:45:18'),
+(16, ' Module', 5, '2023-03-28 00:45:44', '2023-03-28 00:45:44'),
+(17, ' Classe', 5, '2023-03-28 00:45:44', '2023-03-28 00:45:44'),
+(18, ' Méthode', 5, '2023-03-28 00:46:10', '2023-03-28 00:46:10'),
+(19, ' Une autre fonction', 5, '2023-03-28 00:46:10', '2023-03-28 00:46:10');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `roles`
 --
 
@@ -573,45 +636,6 @@ INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `created`, `modif
 (7, '6. RÉSOLUTION DE PROBLÈMES', 3, '2023-03-27 15:03:21', '2023-03-27 15:03:21'),
 (8, '7. SERVICES D’EXCELLENCE  ', 3, '2023-03-27 15:03:21', '2023-03-27 15:03:21'),
 (9, 'CT', 1, '2023-03-30 12:46:08', '2023-03-30 12:46:08');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `sousquestions`
---
-
-CREATE TABLE `sousquestions` (
-  `id` int(11) NOT NULL,
-  `label` varchar(255) NOT NULL,
-  `question_id` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `sousquestions`
---
-
-INSERT INTO `sousquestions` (`id`, `label`, `question_id`, `created`, `modified`) VALUES
-(1, ' Une méthode est une classe ne contenant aucune variable.', 1, '2023-03-28 00:42:07', '2023-03-28 00:42:07'),
-(2, ' Une méthode est une suite d’invocations d’opérations sur un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
-(3, ' Une méthode est un traitement réalisé par un objet.', 1, '2023-03-28 00:42:35', '2023-03-28 00:42:35'),
-(4, ' Une méthode est l’ensemble des données d’un objet.', 1, '2023-03-28 00:42:56', '2023-03-28 00:42:56'),
-(5, ' Un synonyme du concept « instanciation ».', 2, '2023-03-28 00:42:56', '2023-03-28 00:42:56'),
-(6, ' Une relation de spécialisation entre une classe et ses classes filles.', 2, '2023-03-28 00:43:24', '2023-03-28 00:43:24'),
-(7, ' Un mécanisme qui permet de changer le type des objets.', 2, '2023-03-28 00:43:24', '2023-03-28 00:43:24'),
-(8, ' Cela permet à un objet de connaître la valeur d’un attribut d’un autre objet.', 2, '2023-03-28 00:43:53', '2023-03-28 00:43:53'),
-(9, ' Héritage multilevel', 3, '2023-03-28 00:43:53', '2023-03-28 00:43:53'),
-(10, ' Héritage multiple', 3, '2023-03-28 00:44:24', '2023-03-28 00:44:24'),
-(11, ' Héritage hiérarchique', 3, '2023-03-28 00:44:24', '2023-03-28 00:44:24'),
-(12, ' Héritage Python', 3, '2023-03-28 00:44:49', '2023-03-28 00:44:49'),
-(13, ' Un objet est construit à partir d’une classe.', 4, '2023-03-28 00:44:49', '2023-03-28 00:44:49'),
-(14, ' Vous ne pouvez créer qu’un seul objet à partir d’une classe donnée.', 4, '2023-03-28 00:45:18', '2023-03-28 00:45:18'),
-(15, ' Les deux (a) et (b) sont vrais.', 4, '2023-03-28 00:45:18', '2023-03-28 00:45:18'),
-(16, ' Module', 5, '2023-03-28 00:45:44', '2023-03-28 00:45:44'),
-(17, ' Classe', 5, '2023-03-28 00:45:44', '2023-03-28 00:45:44'),
-(18, ' Méthode', 5, '2023-03-28 00:46:10', '2023-03-28 00:46:10'),
-(19, ' Une autre fonction', 5, '2023-03-28 00:46:10', '2023-03-28 00:46:10');
 
 -- --------------------------------------------------------
 
@@ -754,6 +778,12 @@ ALTER TABLE `indicateursuivis`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `infoficheevaluations`
+--
+ALTER TABLE `infoficheevaluations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `infopersonnelles`
 --
 ALTER TABLE `infopersonnelles`
@@ -796,6 +826,12 @@ ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `reponses`
+--
+ALTER TABLE `reponses`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `roles`
 --
 ALTER TABLE `roles`
@@ -805,12 +841,6 @@ ALTER TABLE `roles`
 -- Index pour la table `souscompetences`
 --
 ALTER TABLE `souscompetences`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `sousquestions`
---
-ALTER TABLE `sousquestions`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -902,6 +932,12 @@ ALTER TABLE `indicateursuivis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT pour la table `infoficheevaluations`
+--
+ALTER TABLE `infoficheevaluations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT pour la table `infopersonnelles`
 --
 ALTER TABLE `infopersonnelles`
@@ -944,6 +980,12 @@ ALTER TABLE `questions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT pour la table `reponses`
+--
+ALTER TABLE `reponses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
 -- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
@@ -954,12 +996,6 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `souscompetences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT pour la table `sousquestions`
---
-ALTER TABLE `sousquestions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT pour la table `testtechniques`

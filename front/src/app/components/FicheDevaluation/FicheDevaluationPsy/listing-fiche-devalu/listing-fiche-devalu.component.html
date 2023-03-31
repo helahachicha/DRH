@@ -14,13 +14,14 @@
                         <th>Nom & Prenom </th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let p of Testtechniques" >
-                    <!--"{{p.nom}}-->
+                <tbody *ngFor="let p of Infoficheevaluations" >
+                    
                     <tr>
-                        <td></td>
+                        <td>{{p.nomprenom}}</td>
                         <td>
                             <!-- (click)="deletefichedevalu(id)"-->
-                            <button class="btn btn-primary" routerLink="/detail-fiche-devalu/{{p.id}}">Afficher</button><button class="btn btn-danger " >Supprimer</button>
+                            <button class="btn btn-primary" routerLink="/detail-fiche-devalu/{{p.id}}">Afficher</button>
+                            <button class="btn btn-danger " (click)="deletenom(p.id)">Supprimer</button>
                         </td>
 
                     </tr>
