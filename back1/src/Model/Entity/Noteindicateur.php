@@ -6,7 +6,7 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Point Entity
+ * Noteindicateur Entity
  *
  * @property int $id
  * @property int $point
@@ -16,7 +16,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Souscompetence $souscompetence
  */
-class Point extends Entity
+class Noteindicateur extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().

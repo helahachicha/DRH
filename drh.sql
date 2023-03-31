@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 30 mars 2023 à 16:10
+-- Généré le : jeu. 30 mars 2023 à 22:13
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -424,10 +424,10 @@ INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`)
 -- --------------------------------------------------------
 
 --
--- Structure de la table `points`
+-- Structure de la table `noteindicateurs`
 --
 
-CREATE TABLE `points` (
+CREATE TABLE `noteindicateurs` (
   `id` int(11) NOT NULL,
   `point` int(11) NOT NULL,
   `souscompetence_id` int(11) NOT NULL,
@@ -436,10 +436,10 @@ CREATE TABLE `points` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `points`
+-- Déchargement des données de la table `noteindicateurs`
 --
 
-INSERT INTO `points` (`id`, `point`, `souscompetence_id`, `created`, `modified`) VALUES
+INSERT INTO `noteindicateurs` (`id`, `point`, `souscompetence_id`, `created`, `modified`) VALUES
 (1, 0, 1, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
 (2, 1, 1, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
 (3, 0, 1, '2023-03-30 13:07:56', '2023-03-30 13:07:56');
@@ -772,9 +772,9 @@ ALTER TABLE `niveauvises`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `points`
+-- Index pour la table `noteindicateurs`
 --
-ALTER TABLE `points`
+ALTER TABLE `noteindicateurs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -920,9 +920,9 @@ ALTER TABLE `niveauvises`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `points`
+-- AUTO_INCREMENT pour la table `noteindicateurs`
 --
-ALTER TABLE `points`
+ALTER TABLE `noteindicateurs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
