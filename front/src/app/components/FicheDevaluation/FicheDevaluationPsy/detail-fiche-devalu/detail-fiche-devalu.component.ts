@@ -12,11 +12,9 @@ export class DetailFicheDevaluComponent implements OnInit {
 id:any
 public Indicateursuivis
 public Infoficheevaluations
+
 public testForm = new FormGroup({
-
- label3 : new FormControl('', [Validators.required]), 
- label6 : new FormControl('', [Validators.required]), 
-
+ label : new FormControl('', [Validators.required]), 
  });
   constructor(
     private dataService:DataService,

@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $nomprenom
  * @property string $objetevaluation
- * @property string $dateevaluation
+ * @property \Cake\I18n\FrozenDate $dateevaluation
  * @property string $decisiondirection
  * @property int $categorie_id
  * @property \Cake\I18n\FrozenTime $created

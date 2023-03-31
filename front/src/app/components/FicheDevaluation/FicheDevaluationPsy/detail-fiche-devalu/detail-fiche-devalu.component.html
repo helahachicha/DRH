@@ -15,28 +15,28 @@
             <div class="col-md-5">
                 <div class="form-group">
                     <label for="form_name">Nom et Prenom </label>
-                    <input type="text" formControlName="nom" class="form-control" placeholder="chourouk derbel"
+                    <input type="text" formControlName="nomprenom" class="form-control" placeholder="chourouk derbel"
                         required="required" disabled>
                 </div>
             </div>
             <div class="col-md-5">
                 <div class="form-group">
                     <label for="form_name">Objet D'évaluation</label>
-                    <input type="text" formControlName="" class="form-control" placeholder="objet" required="required"
+                    <input type="text" formControlName="objetevaluation" class="form-control" placeholder="objet" required="required"
                         disabled>
                 </div>
             </div>
             <div class="col-md-5">
                 <div class="form-group">
                     <label for="form_name">Date d'evaluation </label>
-                    <input type="text" formControlName="nom" class="form-control" placeholder="chourouk derbel"
+                    <input type="text" formControlName="dateevaluation" class="form-control" placeholder="chourouk derbel"
                         required="required" disabled>
                 </div>
             </div>
             <div class="col-md-5">
                 <div class="form-group">
                     <label for="form_name">Décision de la direction</label>
-                    <input type="text" formControlName="" class="form-control" placeholder="objet" required="required"
+                    <input type="text" formControlName="decisiondirection" class="form-control" placeholder="objet" required="required"
                         disabled>
                 </div>
             </div>
@@ -50,7 +50,7 @@
 
             <thead>
                 <tr class="text-bold text-center" *ngFor="let comp of Indicateursuivis">
-                    <th colspan="3">{{comp.label3 }} </th>
+                    <th colspan="3">{{comp.label }} </th>
                 </tr>
                 <tr class="text-bold text-center " >
                     <th colspan="3"> </th>
@@ -65,7 +65,7 @@
                 </tr>
                 <tr class="text-bold " *ngFor="let obj of Indicateursuivis">
                     <td></td>
-                    <td>{{obj.label6 }}</td>
+                    <td>{{obj.label }}</td>
                     <td><select class="form-select" aria-label="Default select example">
                             <option selected>Choisir un point</option>
                             <option value="1">0</option>

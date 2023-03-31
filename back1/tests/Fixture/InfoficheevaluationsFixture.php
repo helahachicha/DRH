@@ -22,11 +22,11 @@ class InfoficheevaluationsFixture extends TestFixture
                 'id' => 1,
                 'nomprenom' => 'Lorem ipsum dolor sit amet',
                 'objetevaluation' => 'Lorem ipsum dolor sit amet',
-                'dateevaluation' => 'Lorem ipsum dolor sit amet',
+                'dateevaluation' => '2023-03-31',
                 'decisiondirection' => 'Lorem ipsum dolor sit amet',
                 'categorie_id' => 1,
-                'created' => '2023-03-30 20:21:30',
-                'modified' => '2023-03-30 20:21:30',
+                'created' => '2023-03-31 09:24:47',
+                'modified' => '2023-03-31 09:24:47',
             ],
         ];
         parent::init();
