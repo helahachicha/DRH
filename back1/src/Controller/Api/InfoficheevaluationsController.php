@@ -50,6 +50,28 @@ class InfoficheevaluationsController extends AppController
 
             $this->Infoficheevaluations->save($infoficheevaluations); 
         }
+         /* create competences entity */
+         if (1==1){
+            $competences = $this->Competences->newEmptyEntity();
+            $competences->label=$data->label;
+            $competences->categorie_id=$data->categorie_id;   
+
+            $this->Competences->save($competences); 
+        }
+        /* create souscompetences entity */
+        if (1==1){
+            $souscompetences = $this->Souscompetences->newEmptyEntity();
+            $souscompetences->label=$data->label;
+            $souscompetences->competence_id=$data->competence_id;
+            $savedProfil=$this->Souscompetences->save($souscompetences);
+        }
+        /* create indicateursuivis entity */
+        if (1==1){
+            $indicateursuivis = $this->Indicateursuivis->newEmptyEntity();
+            $indicateursuivis->label=$data->label;
+            $indicateursuivis->souscompetence_id=$data->souscompetence_id;
+            $savedProfil=$this->Indicateursuivis->save($indicateursuivis);
+        }
        
          /*send result */
         $this->set([

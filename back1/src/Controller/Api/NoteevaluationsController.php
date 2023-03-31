@@ -98,13 +98,13 @@ class NoteevaluationsController extends AppController
 
 
     /**
-      * getNoteindicateurByindisuivi
+      * getNoteevaluationByindisuivi
       *
       * @Input: id
       *
       * @Output: data
       */
-      public function getNoteindicateurByindisuivi(){
+      public function getNoteevaluationByindisuivi(){
  
         $id = $this->request->getQuery('id');
         
@@ -125,9 +125,7 @@ class NoteevaluationsController extends AppController
             'conditions'=>[
                 'indicateursuivi_id IS'=>$id
             ],
-            'fields'=>[
-                'point'
-            ],
+            
            
            
         ])->toArray();
