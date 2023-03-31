@@ -45,5 +45,5 @@ export class SidebarComponent implements OnInit {
   getid(id:any){
     console.log(id)
   }
-
+  
 }
