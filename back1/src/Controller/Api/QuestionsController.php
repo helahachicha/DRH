@@ -123,69 +123,7 @@ class QuestionsController extends AppController
      }
 
 
-     /**
-      * getQuestionByComptech
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-      public function getQuestionByComptech(){
- 
-        $id = $this->request->getQuery('id');
-
-        /* search */
-         if(1==1){
-             if (!isset($id) or empty($id) or $id == null ){
-             throw new UnauthorizedException('Id is Required');
-             }
-
-            if(!is_numeric($id)){
-           throw new UnauthorizedException('Id is not Valid');
-            }
-         }
-        $this->loadModel('Comptechniques');
-        $test = $this->Comptechniques->find('all', [
-            'contain' => [
-               'Testtechniques'        
-            ],
-            
-            'conditions'=>[
-                'testtechnique_id IS'=>$id,
-
-            ],
-        ])->toArray();
-        foreach($test as $t){
-           $tesId=$t->id;
-        }
-        $questions = $this->Questions->find('all', [
-            'contain' => [
-                'Comptechniques','Comptechniques.Testtechniques'        
-            ],
-            
-            'conditions'=>[
-                'comptechnique_id IS'=>$tesId
-
-            ],
-           
-           
-        ])->toArray();
-
-        if(empty($questions)){
-           throw new UnauthorizedException('Questions not found');
-       }
-
-       /*send result */
-
-       $this->set([
-           'success' => true,
-           'data' => $questions,
-           '_serialize' => ['success', 'data']
-       ]);
-    }
-
-
-
+     
 
      /**
       * deleteQuestion
