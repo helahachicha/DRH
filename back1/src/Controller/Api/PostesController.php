@@ -12,6 +12,8 @@ use App\Controller\AppController;
  */
 class PostesController extends AppController
 {
+
+    
     /**
     * getAllPoste
     *

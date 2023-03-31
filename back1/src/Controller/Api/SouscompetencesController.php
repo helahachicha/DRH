@@ -13,6 +13,49 @@ use App\Controller\AppController;
  */
 class SouscompetencesController extends AppController
 {
+
+
+    /**
+     * addSouscompetence
+     *
+     * @Input:
+     *         data:
+     *          label (String) *Required
+     *          competence_id (Int) *Required
+     *         
+     * @Output: data : success message
+     */
+    public function addSouscompetence(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
+
+        }
+         /* create souscompetences entity */
+        if (1==1){
+            $souscompetences = $this->Souscompetences->newEmptyEntity();
+            $souscompetences->label=$data->label;
+            $souscompetences->competence_id=$data->competence_id; 
+
+            $this->Souscompetences->save($souscompetences); 
+        }
+       
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
+
     /**
     * getAllSouscompetence
     *

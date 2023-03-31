@@ -14,6 +14,47 @@ class QuestionsController extends AppController
 {
 
      /**
+     * addQuestion
+     *
+     * @Input:
+     *         data:
+     *          label (String) *Required
+     *          comptechnique_id(Int) *Required
+     *         
+     * @Output: data : success message
+     */
+    public function addQuestion(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
+
+        }
+         /* create questions entity */
+        if (1==1){
+            $questions = $this->Questions->newEmptyEntity();
+            $questions->label=$data->label;  
+            $questions->comptechnique_id=$data->comptechnique_id;  
+
+            $this->Questions->save($questions); 
+        }
+       
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
+
+     /**
      * editQuestion
      *
      * @Input:

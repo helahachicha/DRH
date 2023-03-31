@@ -13,6 +13,49 @@ use App\Controller\AppController;
  */
 class NiveauvisesController extends AppController
 {
+
+    /**
+     * addNiveauvise
+     *
+     * @Input:
+     *         data:
+     *          label (String) *Required
+     *          categorie_id (Int) *Required
+     *         
+     * @Output: data : success message
+     */
+    public function addNiveauvise(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
+
+        }
+         /* create niveauvises entity */
+        if (1==1){
+            $niveauvises = $this->Niveauvises->newEmptyEntity();
+            $niveauvises->label=$data->label;
+            $niveauvises->categorie_id=$data->categorie_id;       
+
+            $this->Niveauvises->save($niveauvises); 
+        }
+       
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
+
+
     /**
     * getAllNiveauvise
     *

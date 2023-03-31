@@ -6,17 +6,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Noteindicateur Entity
+ * Noteevaluation Entity
  *
  * @property int $id
  * @property int $point
- * @property int $souscompetence_id
+ * @property int $indicateursuivi_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Souscompetence $souscompetence
+ * @property \App\Model\Entity\Indicateursuivi $indicateursuivi
  */
-class Noteindicateur extends Entity
+class Noteevaluation extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -29,9 +29,9 @@ class Noteindicateur extends Entity
      */
     protected $_accessible = [
         'point' => true,
-        'souscompetence_id' => true,
+        'indicateursuivi_id' => true,
         'created' => true,
         'modified' => true,
-        'souscompetence' => true,
+        'indicateursuivi' => true,
     ];
 }

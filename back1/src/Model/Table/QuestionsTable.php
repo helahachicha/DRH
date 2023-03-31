@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
  * Questions Model
  *
  * @property \App\Model\Table\ComptechniquesTable&\Cake\ORM\Association\BelongsTo $Comptechniques
- * @property \App\Model\Table\SousquestionsTable&\Cake\ORM\Association\HasMany $Sousquestions
+ * @property \App\Model\Table\ReponsesTable&\Cake\ORM\Association\HasMany $Reponses
  *
  * @method \App\Model\Entity\Question newEmptyEntity()
  * @method \App\Model\Entity\Question newEntity(array $data, array $options = [])
@@ -52,7 +52,7 @@ class QuestionsTable extends Table
             'foreignKey' => 'comptechnique_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('Sousquestions', [
+        $this->hasMany('Reponses', [
             'foreignKey' => 'question_id',
         ]);
     }
