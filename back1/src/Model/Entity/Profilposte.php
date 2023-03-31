@@ -16,7 +16,6 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Poste $poste
  * @property \App\Model\Entity\Category[] $categories
- * @property \App\Model\Entity\Comptechnique[] $comptechniques
  */
 class Profilposte extends Entity
 {
@@ -36,6 +35,5 @@ class Profilposte extends Entity
         'modified' => true,
         'poste' => true,
         'categories' => true,
-        'comptechniques' => true,
     ];
 }
