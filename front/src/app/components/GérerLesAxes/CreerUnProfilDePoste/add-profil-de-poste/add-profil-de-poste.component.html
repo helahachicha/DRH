@@ -15,7 +15,7 @@
                             <div class="controls">
                                 <h3 class="text-center mb-5">Créer un profil de poste</h3>
                                 <div class="row">
-                                    
+
                                     <div class="shadow p-3 mb-5 bg-body rounded">
 
                                         <div class="row">
@@ -44,12 +44,12 @@
                                             <div class="col-md-6">
                                                 <label for="staticZone">Catégorie</label>
                                                 <select class="form-control" id="exampleFormControlSelect2"
-                                                    placeholder="Veuillez choisir votre Thème de formation"
+                                                    placeholder="Veuillez choisir votre competence"
                                                     formControlName="categorie_id">
                                                     <option selected disabled value="">Affecter Catégorie</option>
-        
+
                                                     <option *ngFor="let obj of Categories" [ngValue]="obj.id">
-        
+
                                                         {{obj.label}}
                                                     </option>
                                                 </select>
@@ -89,9 +89,18 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
+                                                    <label for="staticZone">Competence</label>
+                                                    <select class="form-control" id="exampleFormControlSelect2"
+                                                        placeholder="Veuillez choisir votre competence"
+                                                        formControlName="competence_id">
+                                                        <option selected disabled value="">Affecter Competence</option>
 
-                                                    <input type="text" class="form-control" required="required"
-                                                        placeholder="Compétence" formControlName="competence">
+                                                        <option *ngFor="let obj of Competences" [ngValue]="obj.id">
+
+                                                            {{obj.label}}
+                                                        </option>
+                                                    </select>
+
                                                 </div>
 
                                             </div>
@@ -99,6 +108,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
+                                                    <label for="staticZone">Sous Compétence</label>
                                                     <input type="text" class="form-control" required="required"
                                                         placeholder="SousCompétence" formControlName="souscompetence">
                                                 </div>
@@ -108,9 +118,18 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Niveau Visé</label>
-                                                    <input type="text" class="form-control" required="required"
-                                                        formControlName="niveauvise">
+                                                    <label for="staticZone">Niveau Visé</label>
+                                                    <select class="form-control" id="exampleFormControlSelect2"
+                                                        placeholder="Veuillez choisir votre Niveau Visé"
+                                                        formControlName="niveauvise_id">
+                                                        <option selected disabled value="">Affecter Niveau Visé</option>
+
+                                                        <option *ngFor="let obj of Niveauvises" [ngValue]="obj.id">
+
+                                                            {{obj.label}}
+                                                        </option>
+                                                    </select>
+                                                    
                                                 </div>
 
                                             </div>
@@ -130,14 +149,15 @@
                                     </div>
 
 
-                                    
+
                                     <div class="shadow p-3 mb-5 bg-body rounded">
                                         <div class="row">
                                             <h5 class="text-center">Validation</h5>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Fonction éloboration</label>
-                                                    <input type="text" class="form-control" required="required"formControlName="fonctionelaboration">
+                                                    <input type="text" class="form-control" required="required"
+                                                        formControlName="fonctionelaboration">
                                                 </div>
 
                                             </div>
@@ -145,7 +165,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Nom & Prenom</label>
-                                                    <input type="text" class="form-control" required="required" formControlName="nomprenomelab">
+                                                    <input type="text" class="form-control" required="required"
+                                                        formControlName="nomprenomelab">
                                                 </div>
 
                                             </div>
@@ -153,28 +174,32 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Fonction Vérification</label>
-                                                    <input type="text" class="form-control" required="required" formControlName="fonctionverification">
+                                                    <input type="text" class="form-control" required="required"
+                                                        formControlName="fonctionverification">
                                                 </div>
 
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Nom & Prenom</label>
-                                                    <input type="text" class="form-control" required="required" formControlName="nomprenomverif">
+                                                    <input type="text" class="form-control" required="required"
+                                                        formControlName="nomprenomverif">
                                                 </div>
 
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Fonction abrobation</label>
-                                                    <input type="text" class="form-control" required="required" formControlName="fonctionabrobation">
+                                                    <input type="text" class="form-control" required="required"
+                                                        formControlName="fonctionabrobation">
                                                 </div>
 
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Nom & Prenom</label>
-                                                    <input type="text" class="form-control" required="required" formControlName="nomprenomabrob">
+                                                    <input type="text" class="form-control" required="required"
+                                                        formControlName="nomprenomabrob">
                                                 </div>
 
                                             </div>
@@ -183,7 +208,7 @@
 
 
                                         </div>
-                                    </div> 
+                                    </div>
 
                                     <div class="d-flex flex-row justify-content-between">
                                         <div class="mt-2 mb-2 end-50">
@@ -192,7 +217,7 @@
                                                 type="submit">Ajouter</button>
 
                                         </div>
-                                        
+
                                     </div>
                                 </div>
 
