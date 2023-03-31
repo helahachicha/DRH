@@ -11,7 +11,7 @@
 
         <hr>
         <div class="row justify-content-center">
-
+            <form id="contact-form" role="form" [formGroup]="infoficheForm">
             <div class="col-md-5">
                 <div class="form-group">
                     <label for="form_name">Nom et Prenom </label>
@@ -40,12 +40,13 @@
                 </div>
             </div>
 
-
+</form>
 
         </div>
 
         <hr>
         <div class="table-responsive">
+            <form id="contact-form" role="form" [formGroup]="detailficheForm">
             <table class="table table-bordered justify-content-center">
 
                 <thead>
@@ -299,6 +300,8 @@
                     </tr>
                 </tbody>
             </table>
+            </form>
+            <button class="btn btn-primary" (click)="adddetailfichedevalu()">Terminer</button>
         </div>
         <hr>
 
