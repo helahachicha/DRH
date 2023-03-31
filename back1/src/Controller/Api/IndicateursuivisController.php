@@ -15,47 +15,6 @@ class IndicateursuivisController extends AppController
 {
 
 
-    /**
-     * addIndicateursuivi
-     *
-     * @Input:
-     *         data:
-     *          label (String) *Required
-     *          souscompetence_id (Int) *Required
-     *         
-     * @Output: data : success message
-     */
-    public function addIndicateursuivi(){
-        
-        $this->request->allowMethod(['post', 'put']);
-
-        /* format data */
-        if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-            //debug($data);die;
-
-        }
-         /* create indicateursuivis entity */
-        if (1==1){
-            $indicateursuivis = $this->Indicateursuivis->newEmptyEntity();
-            $indicateursuivis->label=$data->label;
-            $indicateursuivis->souscompetence_id=$data->souscompetence_id;     
-
-            $this->Indicateursuivis->save($indicateursuivis); 
-        }
-       
-         /*send result */
-        $this->set([
-            'success' => true,
-            'data' =>  "Added with success",
-            '_serialize' => ['success', 'data']
-        ]);
-    
-    }
-
-
 
     /**
     * getAllIndicateursuivi

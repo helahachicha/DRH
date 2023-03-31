@@ -13,7 +13,6 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\PostesTable&\Cake\ORM\Association\BelongsTo $Postes
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\HasMany $Categories
- * @property \App\Model\Table\ComptechniquesTable&\Cake\ORM\Association\HasMany $Comptechniques
  *
  * @method \App\Model\Entity\Profilposte newEmptyEntity()
  * @method \App\Model\Entity\Profilposte newEntity(array $data, array $options = [])
@@ -54,9 +53,6 @@ class ProfilpostesTable extends Table
             'joinType' => 'INNER',
         ]);
         $this->hasMany('Categories', [
-            'foreignKey' => 'profilposte_id',
-        ]);
-        $this->hasMany('Comptechniques', [
             'foreignKey' => 'profilposte_id',
         ]);
     }

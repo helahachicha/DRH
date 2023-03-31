@@ -27,7 +27,6 @@ class ProfilpostesTableTest extends TestCase
         'app.Profilpostes',
         'app.Postes',
         'app.Categories',
-        'app.Comptechniques',
     ];
 
     /**

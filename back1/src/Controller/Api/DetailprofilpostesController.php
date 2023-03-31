@@ -203,13 +203,13 @@ class DetailprofilpostesController extends AppController
      }
 
     /**
-      * getDetailppByCategorieId
+      * getDetailppByCat
       *
       * @Input: id
       *
       * @Output: data
       */
-      public function getDetailppByCategorieId(){
+      public function getDetailppByCat(){
  
         $id = $this->request->getQuery('id');
         
@@ -224,13 +224,28 @@ class DetailprofilpostesController extends AppController
             }
         }
 
+       /* $this->loadModel('Categories');
+        $test = $this->Categories->find('all', [
+            'contain' => [
+               'Profilpostes'        
+            ],
+            
+            'conditions'=>[
+                'profilposte_id IS'=>$id,
+
+            ],
+        ])->toArray();
+        foreach($test as $t){
+           $tesId=$t->id;
+        }*/
+
         $detailprofilpostes = $this->Detailprofilpostes->find('all', [
+            'contain' => [
+                'Categories.Competences.Souscompetences.Indicateursuivis'
+            ],
             'conditions'=>[
                 'categorie_id IS'=>$id,
             ],
-            'contain' => [
-                'Categories'
-            ]
            
         ])->first();
         
