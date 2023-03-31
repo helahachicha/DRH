@@ -121,7 +121,9 @@ class NoteevaluationsController extends AppController
          }
 
         $noteevaluations = $this->Noteevaluations->find('all', [
-
+            'contain' => [
+                'Indicateursuivis'
+            ],
             'conditions'=>[
                 'indicateursuivi_id IS'=>$id
             ],
@@ -137,7 +139,7 @@ class NoteevaluationsController extends AppController
        /*send result */
 
        $this->set([
-           'Somme' => $S,
+           
            'success' => true,
            'data' => $noteevaluations,
            '_serialize' => ['success' , 'data' , 'Somme'], 
@@ -198,16 +200,16 @@ class NoteevaluationsController extends AppController
 
            /*Calcul Score  */
 
-           $points = $this->getPointBySouscompetence();
-           $noteindicateurs = $this->getNoteindicateurBySouscompetence();
+           $noteevaluations = $this->getNoteevaluationByindisuivi();
+           $indicateursuivis = $this->getIndicateursuiviBySouscomp();
            $S=0;
-           foreach ($points as $point) {
+           foreach ($noteevaluations as $noteevaluation) {
             $S += $point->point;
         }
-            $noteindicateurs = $this->Noteindicateurs->count();
+            $noteevaluations = $this->Noteevaluations->count();
     
             $moyenne=0;
-            $moyenne=$S/$noteindicateurs;
+            $moyenne=$S/$noteevaluations;
 
         /*send result */
 
