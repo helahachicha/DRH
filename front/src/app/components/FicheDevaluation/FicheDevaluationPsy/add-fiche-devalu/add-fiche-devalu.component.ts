@@ -10,24 +10,16 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class AddFicheDevaluComponent implements OnInit {
 
-  public infoficheForm = new FormGroup({
-    coutformahd: new FormControl('', [Validators.required]),
-    tocoformadt: new FormControl('', [Validators.required]),
-    locaespace: new FormControl('', [Validators.required]),
-    comax: new FormControl('', [Validators.required]),
-    tocout: new FormControl('', [Validators.required]),
-    chargeto: new FormControl('', [Validators.required]),
-    
-  });
   public detailficheForm = new FormGroup({
-    coutformahd: new FormControl('', [Validators.required]),
-    tocoformadt: new FormControl('', [Validators.required]),
-    locaespace: new FormControl('', [Validators.required]),
-    comax: new FormControl('', [Validators.required]),
-    tocout: new FormControl('', [Validators.required]),
+    nomprenom: new FormControl('', [Validators.required]),
+    objetevaluation: new FormControl('', [Validators.required]),
+    dateevaluation: new FormControl('', [Validators.required]),
+    decisiondirection: new FormControl('', [Validators.required]),
+    label: new FormControl('', [Validators.required]),
     chargeto: new FormControl('', [Validators.required]),
     
   });
+  
   constructor(
     private dataService:DataService,
     private router :Router
@@ -38,7 +30,7 @@ export class AddFicheDevaluComponent implements OnInit {
   
    adddetailfichedevalu() {
     //console.log("hello",this.coutForm.value)
-    this.dataService.post('Coutformaexternes/addCoutformaexterne.json',this.coutForm.value).subscribe(res=> {
+    this.dataService.post('Coutformaexternes/addCoutformaexterne.json',this.detailficheForm.value).subscribe(res=> {
       this.router.navigate(['/coutlisting'])
      
       })
