@@ -11,6 +11,7 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class DetailFicheDevaluComponent implements OnInit {
 id:any
 public Indicateursuivis
+public Infoficheevaluations
 public testForm = new FormGroup({
 
  label3 : new FormControl('', [Validators.required]), 
@@ -24,14 +25,25 @@ public testForm = new FormGroup({
   ) { }
 
   ngOnInit(): void {
-    this.gettestById()
+    this.getficheById()
+    this.getnomById()
   }
-  gettestById() {
+  getficheById() {
     this.id=this.route.snapshot.params['id'];
      this.dataService.get('Indicateursuivis/getIndicateursuiviBySouscomp.json?id='+this.id).subscribe(
        res => {
        this.Indicateursuivis=res.data;
        console.log("testtttttt",this.Indicateursuivis)
+ 
+     })
+   }
+
+   getnomById() {
+    this.id=this.route.snapshot.params['id'];
+     this.dataService.get('Infoficheevaluations/getInfoficheevaluation.json?id='+this.id).subscribe(
+       res => {
+       this.Infoficheevaluations=res.data;
+       console.log("testtttttt",this.Infoficheevaluations)
  
      })
    }
