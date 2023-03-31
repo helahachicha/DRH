@@ -12,6 +12,125 @@ use App\Controller\AppController;
  */
 class InfoficheevaluationsController extends AppController
 {
+
+
+    /**
+     * addInfoficheevaluation
+     *
+     * @Input:
+     *         data:
+     *          nomprenom (String) *Required
+     *          objetevaluation(String) *Required
+     *          dateevaluation (Date) *Required
+     *          decisiondirection (String) *Required
+     *          categorie_id(Int) *Required
+     *         
+     * @Output: data : success message
+     */
+    public function addInfoficheevaluation(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
+
+        }
+         /* create infoficheevaluations entity */
+        if (1==1){
+            $infoficheevaluations = $this->Infoficheevaluations->newEmptyEntity();
+            $infoficheevaluations->nomprenom=$data->nomprenom;  
+            $infoficheevaluations->objetevaluation=$data->objetevaluation;  
+            $infoficheevaluations->dateevaluation=$data->dateevaluation;  
+            $infoficheevaluations->decisiondirection=$data->decisiondirection;  
+            $infoficheevaluations->categorie_id=$data->categorie_id;  
+
+            $this->Infoficheevaluations->save($infoficheevaluations); 
+        }
+         /* create competences entity */
+         if (1==1){
+            $competences = $this->Competences->newEmptyEntity();
+            $competences->label=$data->label;
+            $competences->categorie_id=$data->categorie_id;   
+
+            $this->Competences->save($competences); 
+        }
+        /* create souscompetences entity */
+        if (1==1){
+            $souscompetences = $this->Souscompetences->newEmptyEntity();
+            $souscompetences->label=$data->label;
+            $souscompetences->competence_id=$data->competence_id;
+            $savedProfil=$this->Souscompetences->save($souscompetences);
+        }
+        /* create indicateursuivis entity */
+        if (1==1){
+            $indicateursuivis = $this->Indicateursuivis->newEmptyEntity();
+            $indicateursuivis->label=$data->label;
+            $indicateursuivis->souscompetence_id=$data->souscompetence_id;
+            $savedProfil=$this->Indicateursuivis->save($indicateursuivis);
+        }
+       
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
+     /**
+     * editInfoficheevaluation
+     *
+     * @Input:
+     *         data:
+     *          nomprenom (String) *Required
+     *          objetevaluation(String) *Required
+     *          dateevaluation (Date) *Required
+     *          decisiondirection (String) *Required
+     *          categorie_id(Int) *Required
+     *         
+     * @Output: data : success message
+     */
+    public function editInfoficheevaluation(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug ($data);die;
+        }
+
+        $id=$this->request->getQuery('id');
+        $infoficheevaluations=$this->Infoficheevaluations->get($id);
+         /* create infoficheevaluations entity */
+        if (1==1){
+            $infoficheevaluations->nomprenom=$data->nomprenom;  
+            $infoficheevaluations->objetevaluation=$data->objetevaluation;  
+            $infoficheevaluations->dateevaluation=$data->dateevaluation;  
+            $infoficheevaluations->decisiondirection=$data->decisiondirection;  
+            $infoficheevaluations->categorie_id=$data->categorie_id; 
+
+            $this->Infoficheevaluations->save($infoficheevaluations); 
+        }
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Updated with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
+
+
+
    /**
       * getInfoficheevaluationByCat
       *

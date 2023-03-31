@@ -13,6 +13,48 @@ use App\Controller\AppController;
  */
 class CompetencesController extends AppController
 {
+
+
+    /**
+     * addCompetence
+     *
+     * @Input:
+     *         data:
+     *          label (String) *Required
+     *          categorie_id (Int) *Required
+     *         
+     * @Output: data : success message
+     */
+    public function addCompetence(){
+        
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
+
+        }
+         /* create competences entity */
+        if (1==1){
+            $competences = $this->Competences->newEmptyEntity();
+            $competences->label=$data->label;
+            $competences->categorie_id=$data->categorie_id;   
+
+            $this->Competences->save($competences); 
+        }
+       
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    
+    }
+
     /**
     * getAllCompetence
     *

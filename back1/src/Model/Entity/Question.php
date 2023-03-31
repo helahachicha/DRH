@@ -15,7 +15,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Comptechnique $comptechnique
- * @property \App\Model\Entity\Sousquestion[] $sousquestions
+ * @property \App\Model\Entity\Reponse[] $reponses
  */
 class Question extends Entity
 {
@@ -34,6 +34,6 @@ class Question extends Entity
         'created' => true,
         'modified' => true,
         'comptechnique' => true,
-        'sousquestions' => true,
+        'reponses' => true,
     ];
 }
