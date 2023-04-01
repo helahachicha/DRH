@@ -23,9 +23,6 @@ export class DetailProfileComponent implements OnInit {
     supervision: new FormControl('', [Validators.required]),
     interim: new FormControl('', [Validators.required]),
     categorie_id: new FormControl('', [Validators.required]),
-    souscompetence: new FormControl('', [Validators.required]),
-    niveauvise: new FormControl('', [Validators.required]),
-    indicateursuivi: new FormControl('', [Validators.required]),
     fonctionelaboration: new FormControl('', [Validators.required]),
     fonctionverification: new FormControl('', [Validators.required]),
     fonctionabrobation: new FormControl('', [Validators.required]),
@@ -36,6 +33,26 @@ export class DetailProfileComponent implements OnInit {
     
   });
 
+  public compForm = new FormGroup({
+    label: new FormControl('', [Validators.required]), 
+ 
+   });
+
+   public souscompForm = new FormGroup({
+    label: new FormControl('', [Validators.required]), 
+ 
+   });
+
+
+   public indicatForm = new FormGroup({
+    label: new FormControl('', [Validators.required]), 
+ 
+   });
+   public niveauForm = new FormGroup({
+    label: new FormControl('', [Validators.required]), 
+ 
+   });
+
 
   constructor(
     private dataService:DataService,
@@ -45,7 +62,13 @@ export class DetailProfileComponent implements OnInit {
 
   ngOnInit(): void {
    // this.getprofilById();
-    this.getDetailppByCategorieId();
+   this.route.params.subscribe(params => {
+    const id = params['id'];
+    this.dataService.get('Detailprofilpostes/getDetailppByCat.json?id='+id).subscribe(
+      res => {
+      this.detailpp=res.data;  
+    })
+});
 
   }
 
@@ -59,13 +82,5 @@ export class DetailProfileComponent implements OnInit {
 
   //   })
   // }
-  getDetailppByCategorieId() {
-    this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Detailprofilpostes/getDetailppByCategorieId.json?id='+this.id).subscribe(
-      res => {
-      this.detailpp=res.data;
-      console.log("hello",this.detailpp)
-
-    })
-  }
+  
 }
