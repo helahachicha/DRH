@@ -11,6 +11,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class AddProfilDePosteComponent implements OnInit {
 
   public  Categories
+  public Competences
+  public Niveauvises
 
   public profilposteForm= new FormGroup({
     nom: new FormControl('', [Validators.required]),
@@ -38,6 +40,8 @@ export class AddProfilDePosteComponent implements OnInit {
 
   ngOnInit(): void {
    this.getAllCategorie();
+   this.getAllcompetence();
+   this.getAllniveau();
   }
 
  addprofilposte() {
@@ -48,6 +52,20 @@ export class AddProfilDePosteComponent implements OnInit {
   getAllCategorie() {
     this.dataService.get('Categories/getAllCategorie.json').subscribe(res => {
       this.Categories = res.data;
+    }
+    )
+  }
+  getAllniveau() {
+    this.dataService.get('Niveauvises/getAllNiveauvise.json').subscribe(res => {
+      this.Niveauvises = res.data;
+      
+    }
+    )
+  }
+  getAllcompetence() {
+    this.dataService.get('Competences/getAllCompetence.json').subscribe(res => {
+      this.Competences = res.data;
+      console.log("test",this.Competences)
     }
     )
   }
