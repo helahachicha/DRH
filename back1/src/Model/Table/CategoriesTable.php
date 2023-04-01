@@ -54,6 +54,12 @@ class CategoriesTable extends Table
         $this->hasMany('Competences', [
             'foreignKey' => 'categorie_id',
         ]);
+        $this->hasMany('Detailprofilpostes', [
+            'foreignKey' => 'categorie_id',
+        ]);
+        $this->hasMany('Niveauvises', [
+            'foreignKey' => 'categorie_id',
+        ]);
     }
 
     /**

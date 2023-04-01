@@ -224,20 +224,6 @@ class DetailprofilpostesController extends AppController
             }
         }
 
-       /* $this->loadModel('Categories');
-        $test = $this->Categories->find('all', [
-            'contain' => [
-               'Profilpostes'        
-            ],
-            
-            'conditions'=>[
-                'profilposte_id IS'=>$id,
-
-            ],
-        ])->toArray();
-        foreach($test as $t){
-           $tesId=$t->id;
-        }*/
 
         $detailprofilpostes = $this->Detailprofilpostes->find('all', [
             'contain' => [
