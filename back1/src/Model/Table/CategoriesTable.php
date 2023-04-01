@@ -51,6 +51,9 @@ class CategoriesTable extends Table
             'foreignKey' => 'profilposte_id',
             'joinType' => 'INNER',
         ]);
+        $this->hasMany('Competences', [
+            'foreignKey' => 'categorie_id',
+        ]);
     }
 
     /**
