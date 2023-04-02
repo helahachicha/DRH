@@ -33,12 +33,8 @@ export class CoutlistingComponent implements OnInit {
   getallcout() {
     this.dataService.get('Coutformaexternes/getAllCoutformaexterne.json').subscribe(res => {
       this.Coutformaexternes = res.data;
-      
-
     })
   }
-
-
   deletecout(id){
     this.dataService.delete('Coutformaexternes/deleteCoutformaexterne.json?id='+id).subscribe(res => {
       this.getallcout()

@@ -30,15 +30,9 @@ export class ListingformainterneComponent implements OnInit {
     this.getallformainterne();
   }
 
-
-  //formainternes/addformainterne
-
   getallformainterne() {
     this.dataService.get('formainternes/getAllFormainterne.json').subscribe(res => {
       this.formainternes = res.data;
-      console.log("hello",this.formainternes)
-      
-
     })
   }
   deleteformainterne(id){

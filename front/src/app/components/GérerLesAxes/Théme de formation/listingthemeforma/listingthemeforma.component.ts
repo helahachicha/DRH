@@ -21,12 +21,8 @@ export class ListingthemeformaComponent implements OnInit {
   getallthemeforma() {
    this.dataService.get('Themeformations/getAllThemeformation.json').subscribe(res => {
       this.Themeformations = res.data;
-      console.log("hello",this.Themeformations)
-
-
     })
   }
-
   deletethemeforma(id){
    this.dataService.delete('Themeformations/deleteThemeformation.json?id='+id).subscribe(res => {
       this.getallthemeforma()

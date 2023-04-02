@@ -10,14 +10,14 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class DetailProfileComponent implements OnInit {
 
-  id:any;
-  public Detailprofilpostes 
+  id: any;
+  public Detailprofilpostes
   public detailpp
 
-  
-  public profilposteForm= new FormGroup({
-    
-    
+
+  public profilposteForm = new FormGroup({
+
+
     fonction: new FormControl('', [Validators.required]),
     superhierar: new FormControl('', [Validators.required]),
     supervision: new FormControl('', [Validators.required]),
@@ -29,58 +29,45 @@ export class DetailProfileComponent implements OnInit {
     nomprenomelab: new FormControl('', [Validators.required]),
     nomprenomverif: new FormControl('', [Validators.required]),
     nomprenomabrob: new FormControl('', [Validators.required]),
-    
-    
+
+
   });
 
   public compForm = new FormGroup({
-    label: new FormControl('', [Validators.required]), 
- 
-   });
+    label: new FormControl('', [Validators.required]),
 
-   public souscompForm = new FormGroup({
-    label: new FormControl('', [Validators.required]), 
- 
-   });
+  });
+
+  public souscompForm = new FormGroup({
+    label: new FormControl('', [Validators.required]),
+
+  });
 
 
-   public indicatForm = new FormGroup({
-    label: new FormControl('', [Validators.required]), 
- 
-   });
-   public niveauForm = new FormGroup({
-    label: new FormControl('', [Validators.required]), 
- 
-   });
+  public indicatForm = new FormGroup({
+    label: new FormControl('', [Validators.required]),
+
+  });
+  public niveauForm = new FormGroup({
+    label: new FormControl('', [Validators.required]),
+
+  });
 
 
   constructor(
-    private dataService:DataService,
-    private router :Router,
-    private route:ActivatedRoute
+    private dataService: DataService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-   // this.getprofilById();
-   this.route.params.subscribe(params => {
-    const id = params['id'];
-    this.dataService.get('Detailprofilpostes/getDetailppByCat.json?id='+id).subscribe(
-      res => {
-      this.detailpp=res.data;  
-    })
-});
-
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      this.dataService.get('Detailprofilpostes/getDetailppByCat.json?id=' + id).subscribe(
+        res => {
+          this.detailpp = res.data;
+        })
+    });
   }
 
-
-  // getprofilById() {
-  //   this.id=this.route.snapshot.params['id'];
-  //   this.dataService.get('Detailprofilpostes/getDetailprofilposte.json?id='+this.id).subscribe(
-  //     res => {
-  //     this.Detailprofilpostes=res.data;
-  //    // console.log("hello",this.Detailprofilpostes)
-
-  //   })
-  // }
-  
 }

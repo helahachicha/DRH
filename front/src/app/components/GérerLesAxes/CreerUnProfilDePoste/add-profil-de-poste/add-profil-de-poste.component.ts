@@ -65,7 +65,6 @@ export class AddProfilDePosteComponent implements OnInit {
   getAllcompetence() {
     this.dataService.get('Competences/getAllCompetence.json').subscribe(res => {
       this.Competences = res.data;
-      console.log("test",this.Competences)
     }
     )
   }

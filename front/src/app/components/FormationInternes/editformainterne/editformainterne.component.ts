@@ -20,8 +20,7 @@ public Themeformations
     poste: new FormControl('', [Validators.required]),
     date: new FormControl('', [Validators.required]),
     hentrer: new FormControl('', [Validators.required]),
-    hsortie: new FormControl('', [Validators.required]),
-    
+    hsortie: new FormControl('', [Validators.required]),   
   });
   
   constructor(

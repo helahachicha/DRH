@@ -21,18 +21,12 @@ public Testtechniques
 
   getAllTesttechnique() {
     this.dataService.get('Testtechniques/getAllTesttechnique.json').subscribe(res => {
-       this.Testtechniques = res.data;
-       console.log("hello",this.Testtechniques)
- 
- 
+       this.Testtechniques = res.data; 
      })
    }
- 
    deletetest(id){
     this.dataService.delete('Testtechniques/deleteTesttechnique.json?id='+id).subscribe(res => {
        this.getAllTesttechnique()
     })
-  }
-
-  
+   } 
 }

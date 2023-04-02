@@ -5,7 +5,6 @@ import { LoginComponent } from './Authentification/login/login.component';
 import { AddcoutComponent } from './components/CoutFormation/addcout/addcout.component';
 import { CoutlistingComponent } from './components/CoutFormation/coutlisting/coutlisting.component';
 import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.component';
-
 import { ListingficherenComponent } from './components/Fiche de rensignement/listingficheren/listingficheren.component';
 import { AddFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/add-fiche-devalu/add-fiche-devalu.component';
 import { DetailFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/detail-fiche-devalu/detail-fiche-devalu.component';
@@ -25,20 +24,15 @@ import { AddProfilDePosteComponent } from './components/GérerLesAxes/CreerUnPro
 import { ListingprofilposteComponent } from './components/GérerLesAxes/ListeDesProfiles/listingprofilposte/listingprofilposte.component';
 import { AddthemedeformationComponent } from './components/GérerLesAxes/Théme de formation/addthemedeformation/addthemedeformation.component';
 import { ListingthemeformaComponent } from './components/GérerLesAxes/Théme de formation/listingthemeforma/listingthemeforma.component';
-import { EditdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirme/editdevc/editdevc.component';
-import { ListingdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirme/listingdevc/listingdevc.component';
-import { EditdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/editdevjunior/editdevjunior.component';
-import { ListingdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/listingdevjunior/listingdevjunior.component';
-import { EditdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/editdevs/editdevs.component';
-import { ListingdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/listingdevs/listingdevs.component';
-import { EditdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/editdevt/editdevt.component';
-import { ListingdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/listingdevt/listingdevt.component';
 import { DetailProfileComponent } from './components/ProfilPostee/detail-profile/detail-profile.component';
 import { EditProfilComponent } from './components/ProfilPostee/edit-profil/edit-profil.component';
 import { HomeComponent } from './Home/home/home.component';
 import { FooterComponent } from './Layout/footer/footer.component';
 import { HeaderComponent } from './Layout/header/header.component';
 import { PublicComponent } from './public/public.component';
+import { DetailFichRensigComponent } from './components/Fiche de rensignement/detail-fich-rensig/detail-fich-rensig.component';
+import { AddficherenComponent } from './components/Fiche de rensignement/addficheren/addficheren.component';
+import { EditficherenComponent } from './components/Fiche de rensignement/editficheren/editficheren.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -57,15 +51,10 @@ const routes: Routes = [
   { path: 'addformainterne', component: AddformainterneComponent},
   { path: 'formainternelisting', component: ListingformainterneComponent},
   { path: 'editformainterne/:id', component: EditformainterneComponent},
-  { path: 'listingdj', component: ListingdevjuniorComponent},
-  { path: 'editprofilpdj/:id', component: EditdevjuniorComponent},
-  { path: 'listingdc', component: ListingdevcComponent},
-  { path: 'editprofilpdc/:id', component: EditdevcComponent},
-  { path: 'listingds', component: ListingdevsComponent},
-  { path: 'editprofilpds/:id', component: EditdevsComponent},
-  { path: 'listingdt', component: ListingdevtComponent},
-  { path: 'editprofilpdt/:id', component: EditdevtComponent},
-  { path: 'ficherensig', component: ListingficherenComponent},
+  { path: 'detail-fiche-rensignement', component: DetailFichRensigComponent},
+  { path: 'liste-fiche-rensignement', component: ListingficherenComponent},
+  { path: 'add-fiche-rensignement', component: AddficherenComponent},
+  { path: 'edit-fiche-rensignement', component: EditficherenComponent},
   { path: 'addprofil', component: AddProfilDePosteComponent},
   { path: 'listingprofilposte', component: ListingprofilposteComponent},
   { path: 'Detail-profile/:id', component: DetailProfileComponent},
@@ -79,14 +68,7 @@ const routes: Routes = [
   { path: 'add-fiche-devalu', component:AddFicheDevaluComponent },
   { path: 'detail-fiche-devalu/:id', component:DetailFicheDevaluComponent },
   { path: 'edit-fiche-devalu', component:EditFicheDevaluComponent },
-  { path: 'liste-fiche-devalu', component:ListingFicheDevaluComponent },
-
-
-
-
-
-
-  
+  { path: 'liste-fiche-devalu', component:ListingFicheDevaluComponent }, 
 
 ];
 

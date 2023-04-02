@@ -22,14 +22,6 @@ import { EditformaComponent } from './components/formaexternes/editforma/editfor
 import { AddformainterneComponent } from './components/FormationInternes/addformainterne/addformainterne.component';
 import { EditformainterneComponent } from './components/FormationInternes/editformainterne/editformainterne.component';
 import { ListingformainterneComponent } from './components/FormationInternes/listingformainterne/listingformainterne.component';
-import { EditdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/editdevjunior/editdevjunior.component';
-import { ListingdevjuniorComponent } from './components/ProfilPoste/ProfilDev/DevJunior/listingdevjunior/listingdevjunior.component';
-import { ListingdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirme/listingdevc/listingdevc.component';
-import { EditdevcComponent } from './components/ProfilPoste/ProfilDev/DevConfirme/editdevc/editdevc.component';
-import { EditdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/editdevs/editdevs.component';
-import { ListingdevsComponent } from './components/ProfilPoste/ProfilDev/DevSenior/listingdevs/listingdevs.component';
-import { EditdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/editdevt/editdevt.component';
-import { ListingdevtComponent } from './components/ProfilPoste/ProfilDev/DevTeckLead/listingdevt/listingdevt.component';
 import { HomeComponent } from './Home/home/home.component';
 import { SidebarComponent } from './Layout/sidebar/sidebar.component';
 import { EditficherenComponent } from './components/Fiche de rensignement/editficheren/editficheren.component';
@@ -51,6 +43,7 @@ import { ListingFicheDevaluComponent } from './components/FicheDevaluation/Fiche
 import { DetailFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/detail-fiche-devalu/detail-fiche-devalu.component';
 import { EditFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/edit-fiche-devalu/edit-fiche-devalu.component';
 import { AddFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/add-fiche-devalu/add-fiche-devalu.component';
+import { DetailFichRensigComponent } from './components/Fiche de rensignement/detail-fich-rensig/detail-fich-rensig.component';
 
 
 
@@ -75,14 +68,6 @@ import { AddFicheDevaluComponent } from './components/FicheDevaluation/FicheDeva
     AddformainterneComponent,
     EditformainterneComponent,
     ListingformainterneComponent,
-    EditdevjuniorComponent,
-    ListingdevjuniorComponent,
-    ListingdevcComponent,
-    EditdevcComponent,
-    EditdevsComponent,
-    ListingdevsComponent,
-    EditdevtComponent,
-    ListingdevtComponent,
     HomeComponent,
     SidebarComponent,
     EditficherenComponent,
@@ -102,7 +87,8 @@ import { AddFicheDevaluComponent } from './components/FicheDevaluation/FicheDeva
     ListingFicheDevaluComponent,
     DetailFicheDevaluComponent,
     EditFicheDevaluComponent,
-    AddFicheDevaluComponent
+    AddFicheDevaluComponent,
+    DetailFichRensigComponent
     
    
    

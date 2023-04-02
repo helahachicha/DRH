@@ -46,33 +46,22 @@ export class EditProfilComponent implements OnInit {
     this.getprofilById();
   }
 
-
-
   getprofilById() {
     this.id = this.route.snapshot.params['id'];
     this.dataService.get('Detailprofilpostes/getDetailprofilposte.json?id=' + this.id).subscribe(
       res => {
         this.Detailprofilpostes = res.data;
-        console.log("hello", this.Detailprofilpostes)
-
       })
   }
   editprofilposte() {
 
     this.dataService.post('Detailprofilpostes/editProfilposte.json?id=' + this.id, this.profilposteForm.value).subscribe(res => {
-      console.log("hello", this.profilposteForm.value)
       this.router.navigate(['/Detail-profile/:id'])
     })
   }
-
-
   getAllCategorie() {
     this.dataService.get('Categories/getAllCategorie.json').subscribe(res => {
       this.Categories = res.data;
-
-      console.log("hello", this.Categories)
-
-
     }
     )
   }

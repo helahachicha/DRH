@@ -21,8 +21,7 @@ export class AddcoutComponent implements OnInit {
     
   });
 
-  constructor(
-    
+  constructor( 
     private dataService:DataService,
     private router :Router
   ) { }
@@ -30,12 +29,9 @@ export class AddcoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   submit() {
-    //console.log("hello",this.coutForm.value)
     this.dataService.post('Coutformaexternes/addCoutformaexterne.json',this.coutForm.value).subscribe(res=> {
-      this.router.navigate(['/coutlisting'])
-     
+      this.router.navigate(['/coutlisting']) 
       })
    }
 }

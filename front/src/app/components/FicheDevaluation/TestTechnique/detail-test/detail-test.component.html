@@ -5,109 +5,94 @@
 </div>
 
 <div class="container">
-
-
     <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded">
-<div class="d-flex flex-row justify-content-between">
-        <div class=" mt-2 mb-2 end-50">
-            <!--
+        <div class="d-flex flex-row justify-content-between">
+            <div class=" mt-2 mb-2 end-50">
+                <!--
             <button type="button" class="btn btn-success" routerLink="/edit-test/{{Testtechniques.id}}"><i class="far fa-edit"></i>
                 Modifier</button>-->
+            </div>
+            <div class=" mt-2 mb-2 end-50">
+                <!---->
+                <button type="button" class="btn btn-success"><span class="material-symbols-outlined">
+                        print
+                    </span>
+                    Imprimer</button>
+            </div>
         </div>
-        <div class=" mt-2 mb-2 end-50">
-            <!---->
-            <button type="button" class="btn btn-success"><span class="material-symbols-outlined">
-                print
-                </span>
-                Imprimer</button>
-        </div>
-    </div>
         <div class="dj1">
-            
+
             <div class="text-bold">
                 <div class="row">
                     <div class="text-start col-2 ">
                         <label class="m-2" type="label"> Département : </label>
                     </div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="text-start col-2 ">
                         <label class="m-2" type="label"> Poste : </label>
                     </div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="text-start col-2 ">
                         <label class="m-2" type="label">Nom & Prénom : </label>
                     </div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="text-start col-2 ">
-                    <label class="m-2" type="label">Durée :</label>
+                        <label class="m-2" type="label">Durée :</label>
                     </div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="text-start col-2 ">
-                    <label class="m-2" type="label">Date : </label>
+                        <label class="m-2" type="label">Date : </label>
                     </div>
                     <div class="col-3">
-                    <input type="date" class="form-control" required="required">
-                </div>
+                        <input type="date" class="form-control" required="required">
+                    </div>
                 </div>
                 <div class="row">
                     <div class="text-start col-2 ">
-                    <label class="m-2" type="label">Note : </label>
-                </div>
-               
-                </div>
-            </div>
-        </div>
-
-       <hr>
-<h4>Veuillez noter :</h4>
-<ul>
-<li>
-    Lisez attentivement les questions. Chaque mot est important.
-</li><br>
-<li>
-    Pour la section A, une seule réponse est correcte.
-</li><br>
-<li>
-    Testez votre code pour les questions de la section B!
-</li><br>
-<li>
-    N'hésitez pas à ajouter des commentaires dans vos réponses.
-</li>
-
-</ul>
-<hr>
-
-<div>
-    
-
-        <div class="mt-3 mb-2">
-            <div *ngFor="let obj of Testtechniques;let i =index"> 
-              <h1>{{obj.label}}</h1>  
-            <div *ngFor="let question of Testtechniques[i].questions;let j =index"> 
-              <p style="font-weight: 800;" >{{question.label}}</p>  
-                <div *ngFor="let reponse of Testtechniques[i].questions[j].sousquestions">
-                    <p>{{reponse.label}}</p>  
+                        <label class="m-2" type="label">Note : </label>
+                    </div>
 
                 </div>
             </div>
         </div>
+        <hr>
+        <h4>Veuillez noter :</h4>
+        <ul>
+            <li>
+                Lisez attentivement les questions. Chaque mot est important.
+            </li><br>
+            <li>
+                Pour la section A, une seule réponse est correcte.
+            </li><br>
+            <li>
+                Testez votre code pour les questions de la section B!
+            </li><br>
+            <li>
+                N'hésitez pas à ajouter des commentaires dans vos réponses.
+            </li>
+        </ul>
+        <hr>
+        <div>
+            <div class="mt-3 mb-2">
+                <div *ngFor="let obj of Testtechniques;let i =index">
+                    <h1>{{obj.label}}</h1>
+                    <div *ngFor="let question of Testtechniques[i].questions;let j =index">
+                        <p style="font-weight: 800;">{{question.label}}</p>
+                        <div *ngFor="let reponse of Testtechniques[i].questions[j].sousquestions">
+                            <p>{{reponse.label}}</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-
-   
-
-
-</div>
-
-
     </div>
-    
 </div>

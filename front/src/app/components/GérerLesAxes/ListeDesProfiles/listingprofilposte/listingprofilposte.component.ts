@@ -47,9 +47,6 @@ export class ListingprofilposteComponent implements OnInit {
     this.dataService.get('Profilpostes/getAllProfilposte.json').subscribe(res => {
       this.Profilpostes = res.data;
       this.open=true
-      console.log("hello",this.Profilpostes)
-
-
     })
   }
 
@@ -58,6 +55,4 @@ export class ListingprofilposteComponent implements OnInit {
       this.getallprofile()
     })
   }
-
-
 }
