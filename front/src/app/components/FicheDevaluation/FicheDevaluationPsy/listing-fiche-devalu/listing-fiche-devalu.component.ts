@@ -24,6 +24,7 @@ export class ListingFicheDevaluComponent implements OnInit {
   getallnom() {
     this.dataService.get('Infoficheevaluations/getAllNom.json').subscribe(res => {
       this.Infoficheevaluations = res.data;
+      console.log(this.Infoficheevaluations)
     })
   }
   deletenom(id){
