@@ -157,10 +157,10 @@ class InfoficheevaluationsController extends AppController
 
         $infoficheevaluations = $this->Infoficheevaluations->find('all', [
             'contain' => [
-                'Categories.Competences.Souscompetences.Indicateursuivis','Categories.Niveauvises'
+                'Categories.Competences.Souscompetences.Indicateursuivis'
             ],
             'conditions'=>[
-                'id IS'=>$id
+                'categorie_id IS'=>$id
 
             ],
            
