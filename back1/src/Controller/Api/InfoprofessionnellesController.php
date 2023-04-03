@@ -54,7 +54,7 @@ class InfoprofessionnellesController extends AppController
             if ($this->Infoprofessionnelles->save($user)) {
                 $this->Flash->success(__('Information professionnelle ajoutée avec succès.'));
             } else {
-                $this->Flash->error(__('Erreur: l\'information professionnelle n\'a pas été ajoutée. Veuillez réessayer.'));
+                $this->Flash->error(__('Erreur: l\'informationn professionnelle n\'a pas été ajoutée. Veuillez réessayer.'));
             }
 
             return $this->redirect(['action' => 'index']);
