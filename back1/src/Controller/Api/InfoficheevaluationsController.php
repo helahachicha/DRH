@@ -193,6 +193,7 @@ class InfoficheevaluationsController extends AppController
  
         $infoficheevaluations = $this->Infoficheevaluations->find('all', [
             'fields'=>[
+                'id',
                 'nomprenom'
 
             ],
