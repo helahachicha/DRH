@@ -66,7 +66,7 @@ class SouscompetencesController extends AppController
     public function getAllSouscompetence()
     {
 
-        /* searchaaa */
+        /* search */
         $souscompetences = $this->Souscompetences->find('all',[
             'contain' => [
                 'Competences'
