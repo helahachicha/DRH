@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\PointsTable;
+use App\Model\Table\CasmariagesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PointsTable Test Case
+ * App\Model\Table\CasmariagesTable Test Case
  */
-class PointsTableTest extends TestCase
+class CasmariagesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\PointsTable
+     * @var \App\Model\Table\CasmariagesTable
      */
-    protected $Points;
+    protected $Casmariages;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class PointsTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Points',
+        'app.Casmariages',
         'app.Infoprofessionnelles',
     ];
 
@@ -36,8 +36,8 @@ class PointsTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Points') ? [] : ['className' => PointsTable::class];
-        $this->Points = $this->getTableLocator()->get('Points', $config);
+        $config = $this->getTableLocator()->exists('Casmariages') ? [] : ['className' => CasmariagesTable::class];
+        $this->Casmariages = $this->getTableLocator()->get('Casmariages', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class PointsTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Points);
+        unset($this->Casmariages);
 
         parent::tearDown();
     }
@@ -56,7 +56,7 @@ class PointsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\PointsTable::validationDefault()
+     * @uses \App\Model\Table\CasmariagesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +67,7 @@ class PointsTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\PointsTable::buildRules()
+     * @uses \App\Model\Table\CasmariagesTable::buildRules()
      */
     public function testBuildRules(): void
     {

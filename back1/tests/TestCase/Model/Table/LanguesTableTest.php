@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\PointsTable;
+use App\Model\Table\LanguesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PointsTable Test Case
+ * App\Model\Table\LanguesTable Test Case
  */
-class PointsTableTest extends TestCase
+class LanguesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\PointsTable
+     * @var \App\Model\Table\LanguesTable
      */
-    protected $Points;
+    protected $Langues;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class PointsTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Points',
+        'app.Langues',
         'app.Infoprofessionnelles',
     ];
 
@@ -36,8 +36,8 @@ class PointsTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Points') ? [] : ['className' => PointsTable::class];
-        $this->Points = $this->getTableLocator()->get('Points', $config);
+        $config = $this->getTableLocator()->exists('Langues') ? [] : ['className' => LanguesTable::class];
+        $this->Langues = $this->getTableLocator()->get('Langues', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class PointsTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Points);
+        unset($this->Langues);
 
         parent::tearDown();
     }
@@ -56,7 +56,7 @@ class PointsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\PointsTable::validationDefault()
+     * @uses \App\Model\Table\LanguesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +67,7 @@ class PointsTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\PointsTable::buildRules()
+     * @uses \App\Model\Table\LanguesTable::buildRules()
      */
     public function testBuildRules(): void
     {
