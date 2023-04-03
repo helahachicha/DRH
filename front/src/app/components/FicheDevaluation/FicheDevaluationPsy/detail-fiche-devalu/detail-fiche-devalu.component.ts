@@ -10,11 +10,24 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class DetailFicheDevaluComponent implements OnInit {
 id:any
-public Indicateursuivis
+
 public Infoficheevaluations
+public open:boolean=false
 
 public testForm = new FormGroup({
- label : new FormControl('', [Validators.required]), 
+  nomprenom : new FormControl('', [Validators.required]),
+  objetevaluation : new FormControl('', [Validators.required]),
+  dateevaluation : new FormControl('', [Validators.required]),
+  decisiondirection : new FormControl('', [Validators.required]),
+  categorie_id : new FormControl('', [Validators.required]),
+  competence_id : new FormControl('', [Validators.required]),
+  souscompetence_id : new FormControl('', [Validators.required]),
+  indicateursuivis_id : new FormControl('', [Validators.required]),
+  niveauvises_id : new FormControl('', [Validators.required]),
+  label: new FormControl('', [Validators.required]),
+
+
+
  });
   constructor(
     private dataService:DataService,
@@ -23,22 +36,14 @@ public testForm = new FormGroup({
   ) { }
 
   ngOnInit(): void {
-    this.getficheById()
-    this.getnomById()
+    //this.getficheById()
+    //this.getnomById()
+     this.route.params.subscribe(params => {
+      const id = params['id'];
+      this.dataService.get('Infoficheevaluations/getInfoficheevaluationByCat.json?id='+id).subscribe(
+        res => {
+        this.Infoficheevaluations=res.data;  
+      })
+    });  
+   }
   }
-
-  getficheById() {
-    this.id=this.route.snapshot.params['id'];
-     this.dataService.get('Indicateursuivis/getIndicateursuiviBySouscomp.json?id='+this.id).subscribe(
-       res => {
-       this.Indicateursuivis=res.data;
-     })
-   }
-   getnomById() {
-    this.id=this.route.snapshot.params['id'];
-     this.dataService.get('Infoficheevaluations/getInfoficheevaluation.json?id='+this.id).subscribe(
-       res => {
-       this.Infoficheevaluations=res.data;
-     })
-   }
-}
