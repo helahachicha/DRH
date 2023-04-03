@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 01 avr. 2023 à 17:12
+-- Généré le : lun. 03 avr. 2023 à 11:10
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -277,8 +277,8 @@ CREATE TABLE `formaexternes` (
 --
 
 INSERT INTO `formaexternes` (`id`, `typecomp`, `themeformation_id`, `participant`, `nbparticipant`, `raisonforma`, `organismeforma`, `formalite`, `formateur`, `raisonchoix`, `dureeforma`, `nbjour`, `nbhjour`, `date`, `horaireforma`, `pause`, `lieuforma`, `created`, `modified`) VALUES
-(6, 'zdqscwx', 0, 'dqSW', 7, 'Dq', 'dQCW', 'dQX<', 'Qdx', 'dqx<', '6', 5, 5, '2023-03-23 00:00:00', '14:55', 'dq', 'dQ<', '2023-03-22 09:55:39', '2023-03-22 09:55:39'),
-(7, 'competence technique ', 0, 'test', 44, 'test', 'test', 'test', 'test', 'test', '3', 4, 3, '2023-03-24 00:00:00', '10:15', 'test', 'test', '2023-03-23 09:14:57', '2023-03-23 09:14:57');
+(6, 'zdqscwx', 1, 'dqSW', 7, 'Dq', 'dQCW', 'dQX<', 'Qdx', 'dqx<', '6', 5, 5, '2023-03-23 00:00:00', '14:55', 'dq', 'dQ<', '2023-03-22 09:55:39', '2023-03-22 09:55:39'),
+(7, 'competence technique ', 2, 'test', 44, 'test', 'test', 'test', 'test', 'test', '3', 4, 3, '2023-03-24 00:00:00', '10:15', 'test', 'test', '2023-03-23 09:14:57', '2023-03-23 09:14:57');
 
 -- --------------------------------------------------------
 
@@ -427,7 +427,8 @@ CREATE TABLE `infoficheevaluations` (
 --
 
 INSERT INTO `infoficheevaluations` (`id`, `nomprenom`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `categorie_id`, `created`, `modified`) VALUES
-(1, 'Ghaddhab Bilel', 'test', 'test', 'test', 1, '2023-03-30 22:20:26', '2023-03-30 22:20:26');
+(1, 'Ghaddhab Bilel', 'test', 'test', 'test', 1, '2023-03-30 22:20:26', '2023-03-30 22:20:26'),
+(2, 'chourouk', 'test', 'test', 'test', 1, '2023-04-03 10:59:45', '2023-04-03 10:59:45');
 
 -- --------------------------------------------------------
 
@@ -1028,7 +1029,7 @@ ALTER TABLE `indicateursuivis`
 -- AUTO_INCREMENT pour la table `infoficheevaluations`
 --
 ALTER TABLE `infoficheevaluations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `infopersonnelles`
