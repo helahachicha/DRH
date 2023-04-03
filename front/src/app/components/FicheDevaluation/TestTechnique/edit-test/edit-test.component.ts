@@ -32,24 +32,16 @@ public testForm = new FormGroup({
     this.dataService.get('Testtechniques/getTesttechnique.json?id='+this.id).subscribe(
       res => {
       this.Testtechniques=res.data;
-      console.log("hello",this.Testtechniques)
-
     })
   }
-  edittest(){
-      
+  edittest(){    
     this.dataService.post('Testtechniques/editTesttechnique.json?id='+this.id,this.testForm.value).subscribe(res=> {
-     // console.log("hello",this.testForm.value)
     this.router.navigate(['/listingtest'])
     })
   }
   getallthemeforma() {
     this.dataService.get('Testtechniques/getAllTesttechnique.json').subscribe(res => {
       this.Testtechniques = res.data;
-
-         //   console.log("hello", this.Testtechniques)
-
-
     })
   }
 }

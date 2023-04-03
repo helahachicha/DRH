@@ -40,14 +40,12 @@ export class FormalistingComponent implements OnInit {
   ngOnInit(): void {
     this.getallforma();
   }
-
-
+  
   getallforma() {
     this.dataService.get('Formaexternes/getAllFormaexterne.json').subscribe(res => {
       this.formaexternes = res.data;
     })
   }
-
   deleteformaexterne(id){
     this.dataService.delete('Formaexternes/deleteFormaexterne.json?id='+id).subscribe(res => {
       this.getallforma()

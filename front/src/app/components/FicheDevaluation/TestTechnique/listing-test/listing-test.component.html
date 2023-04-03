@@ -1,42 +1,28 @@
 <div class="container ">
 
     <div class="shadow-lg p-3 mb-5 bg-body rounded mt-5">
-        
         <h3 class="text-center mt-5">Les listes des test technique</h3>
-
-      
         <div class=" table-responsive ">
-            <table class="table table-bordered " >
+            <table class="table table-bordered ">
                 <thead>
                     <tr class="text-bold">
-
                         <th>Liste des test technique</th>
-
-
                     </tr>
                 </thead>
-                <tbody  *ngFor=" let test of Testtechniques" >
+                <tbody *ngFor=" let test of Testtechniques">
                     <tr>
                         <td>
                             {{test.label}}
                         </td>
                         <td>
-                            <button class="btn btn-danger "  (click)="deletetest(test.id)">Supprimer</button>
+                            <button class="btn btn-danger " (click)="deletetest(test.id)">Supprimer</button>
                         </td>
-
                     </tr>
-
                 </tbody>
-
             </table>
             <div class="mt-2 mb-2 end-50 ">
-
-                <button class="btn btn-primary m-2" routerLink="/add-test"
-                    type="submit">Ajouter test</button>
-
+                <button class="btn btn-primary m-2" routerLink="/add-test" type="submit">Ajouter test</button>
             </div>
-            
         </div>
-
     </div>
 </div>

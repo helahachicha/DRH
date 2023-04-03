@@ -10,8 +10,6 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class AddthemedeformationComponent implements OnInit {
 
-
-
   public themeForm= new FormGroup({
     label: new FormControl('', [Validators.required]),
     
@@ -24,16 +22,9 @@ export class AddthemedeformationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-
   addthemeforma() {
-    console.log("hello",this.themeForm.value)
-
-    this.dataService.post('Themeformations/addThemeformation.json',this.themeForm.value).subscribe(res=> {
+   this.dataService.post('Themeformations/addThemeformation.json',this.themeForm.value).subscribe(res=> {
     this.router.navigate(['/listingtheme'])
       })
  }
-
-
-
 }

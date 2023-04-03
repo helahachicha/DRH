@@ -32,18 +32,16 @@ export class SidebarComponent implements OnInit {
     this.dataService.get('Postes/getAllPoste.json').subscribe(res=>{
        this.poste=res.data
        this.open=true
-      // console.log("this.poste", this.poste)
     })
   }
   getAlltest(){
     this.dataService.get('Testtechniques/getAllTesttechnique.json').subscribe(res=>{
        this.Testtechniques=res.data
        this.open=true
-       //console.log("this.Testtechniques", this.Testtechniques)
     })
   }
   getid(id:any){
-    console.log(id)
+    //console.log(id)
   }
   
 }

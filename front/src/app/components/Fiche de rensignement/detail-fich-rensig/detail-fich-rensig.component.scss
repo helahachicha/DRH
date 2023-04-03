@@ -1,0 +1,33 @@
+
+table, th, td {
+  border: 1px solid;
+  
+}
+
+table{
+  width: 100%;
+}
+
+.infopro{   
+  width: 50% ; 
+  box-sizing: border-box;
+}
+
+input[type=date]{
+  width: 25%;
+  box-sizing: border-box;
+}
+
+.lieu{
+  width: 25%;
+  box-sizing: border-box;
+}
+.number{
+  width: 5%;
+  box-sizing: border-box;
+}
+.point{
+  width: 100%;
+  box-sizing: border-box;
+}
+

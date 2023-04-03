@@ -35,20 +35,12 @@ export class AddformainterneComponent implements OnInit {
   submit() {
     console.log("hello",this.interneForm.value)
     this.dataService.post('Formainternes/addFormainterne.json',this.interneForm.value).subscribe(res=> {
-      this.router.navigate(['/formainternelisting'])
-     
+      this.router.navigate(['/formainternelisting'])    
       })
    }
-
-
    getallthemeforma() {
     this.dataService.get('Themeformations/getAllThemeformation.json').subscribe(res => {
       this.Themeformations = res.data;
-      
-
     })
   }
-
-
-
 }

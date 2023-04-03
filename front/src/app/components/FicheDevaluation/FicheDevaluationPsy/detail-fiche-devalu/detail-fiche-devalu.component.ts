@@ -26,23 +26,19 @@ public testForm = new FormGroup({
     this.getficheById()
     this.getnomById()
   }
+
   getficheById() {
     this.id=this.route.snapshot.params['id'];
      this.dataService.get('Indicateursuivis/getIndicateursuiviBySouscomp.json?id='+this.id).subscribe(
        res => {
        this.Indicateursuivis=res.data;
-       console.log("testtttttt",this.Indicateursuivis)
- 
      })
    }
-
    getnomById() {
     this.id=this.route.snapshot.params['id'];
      this.dataService.get('Infoficheevaluations/getInfoficheevaluation.json?id='+this.id).subscribe(
        res => {
        this.Infoficheevaluations=res.data;
-       console.log("testtttttt",this.Infoficheevaluations)
- 
      })
    }
 }

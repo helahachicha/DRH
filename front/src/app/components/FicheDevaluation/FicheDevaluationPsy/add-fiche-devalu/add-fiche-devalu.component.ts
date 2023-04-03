@@ -29,10 +29,8 @@ export class AddFicheDevaluComponent implements OnInit {
   }
   
    adddetailfichedevalu() {
-    //console.log("hello",this.coutForm.value)
     this.dataService.post('Coutformaexternes/addCoutformaexterne.json',this.detailficheForm.value).subscribe(res=> {
-      this.router.navigate(['/coutlisting'])
-     
+      this.router.navigate(['/coutlisting']) 
       })
    }
 }

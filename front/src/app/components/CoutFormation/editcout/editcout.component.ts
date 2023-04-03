@@ -35,18 +35,12 @@ export class EditcoutComponent implements OnInit {
     this.id=this.route.snapshot.params['id'];
     this.dataService.get('coutformaexternes/getCoutformaexterne.json?id='+this.id).subscribe(
       res => {
-      this.coutformaexternes=res.data;
-      console.log("hello",this.coutformaexternes)
-
-      
+      this.coutformaexternes=res.data;     
     })
   }
-
-  editcout(){
-      
-    this.dataService.post('coutformaexternes/editCoutformaexterne.json?id='+this.id,this.coutForm.value).subscribe(res=> {
-      console.log("hello",this.coutForm.value)
-    this.router.navigate(['/coutlisting'])
+  editcout(){   
+    this.dataService.post('coutformaexternes/editCoutformaexterne.json?id='+this.id,this.coutForm.value).subscribe(
+    res=> { this.router.navigate(['/coutlisting'])
     })
   }
 

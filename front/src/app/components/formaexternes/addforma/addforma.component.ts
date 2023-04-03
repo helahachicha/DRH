@@ -34,25 +34,17 @@ public externeForm = new FormGroup({
   lieuforma: new FormControl('', [Validators.required]),
 });
   
-  constructor(
-    
+  constructor( 
     private dataService:DataService,
     private router :Router
-
-    
-  
-  )
-  {}
+  ) {}
 
   ngOnInit(): void {
     this.getallthemeforma()
-  
   }
 
   submit() {
-    //console.log("hello",this.externeForm.value)
-
-    this.dataService.post('formaexternes/addFormaexterne.json',this.externeForm.value).subscribe(res=> {
+      this.dataService.post('formaexternes/addFormaexterne.json',this.externeForm.value).subscribe(res=> {
       this.router.navigate(['/listingforma'])
       })
    }
@@ -60,10 +52,6 @@ public externeForm = new FormGroup({
    getallthemeforma() {
     this.dataService.get('Themeformations/getAllThemeformation.json').subscribe(res => {
       this.Themeformations = res.data;
-      
-
     })
   }
-
-
 }

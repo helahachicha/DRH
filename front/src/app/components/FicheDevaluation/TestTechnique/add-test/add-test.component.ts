@@ -26,18 +26,14 @@ export class AddTestComponent implements OnInit {
     this.getAlltest()
   }
   submit() {
-    //console.log("hello",this.coutForm.value)
     this.dataService.post('Testtechniques/addTesttechnique.json',this.testForm.value).subscribe(res=> {
       this.router.navigate(['/addprofil'])
-     
       })
    }
-
    getAlltest() {
     this.dataService.get('Testtechniques/getAllTesttechnique.json').subscribe(res => {
       this.Testtechniques = res.data;
-    }
-    )
+    })
   }
 
 

@@ -32,10 +32,6 @@ export class DetailTestComponent implements OnInit {
         res => {
         this.Testtechniques=res.data;  
       })
-  });
- 
-   
+  });  
   }
-
-
 }
