@@ -52,9 +52,8 @@ class NiveauvisesTable extends Table
             'foreignKey' => 'categorie_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('Detailprofilpostes', [
-            'foreignKey' => 'niveauvise_id',
-        ]);
+     
+        
     }
 
     /**
