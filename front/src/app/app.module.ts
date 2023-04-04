@@ -44,6 +44,7 @@ import { DetailFicheDevaluComponent } from './components/FicheDevaluation/FicheD
 import { EditFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/edit-fiche-devalu/edit-fiche-devalu.component';
 import { AddFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/add-fiche-devalu/add-fiche-devalu.component';
 import { DetailFichRensigComponent } from './components/Fiche de rensignement/detail-fich-rensig/detail-fich-rensig.component';
+import { ListingMatriceComponent } from './components/Matrice De Competence/listing-matrice/listing-matrice.component';
 
 
 
@@ -88,7 +89,8 @@ import { DetailFichRensigComponent } from './components/Fiche de rensignement/de
     DetailFicheDevaluComponent,
     EditFicheDevaluComponent,
     AddFicheDevaluComponent,
-    DetailFichRensigComponent
+    DetailFichRensigComponent,
+    ListingMatriceComponent
     
    
    
