@@ -33,7 +33,7 @@ class ProfilpostesController extends AppController
             $querry=$this->request->getData();
             $data=json_decode($querry['data']); 
             //$data=$this->request->getData();
-       
+        //   debug($data);die;
 
         }
          /* create profilpostes entity */
@@ -51,10 +51,11 @@ class ProfilpostesController extends AppController
             $detailprofilpostes->categorie_id=$data->categorie_id;  
             $detailprofilpostes->superhierar=$data->superhierar;  
             $detailprofilpostes->supervision=$data->supervision;  
-            $detailprofilpostes->interim=$data->interim;   
-            $detailprofilpostes->competence_id=$data->competence_id;  
-            $detailprofilpostes->soucompetence=$data->soucompetence;  
-            $detailprofilpostes->niveauvise_id=$data->niveauvise_id;  
+            $detailprofilpostes->interim=$data->interim; 
+            foreach ($data->IndicateurArray as $indicateurArray) {
+            $detailprofilpostes->competence_id=$indicateurArray->competence_id;  
+            $detailprofilpostes->niveauvise_id=$indicateurArray->niveauvise_id;  
+            }
             $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
             $detailprofilpostes->fonctionverification=$data->fonctionverification;  
             $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
@@ -68,11 +69,13 @@ class ProfilpostesController extends AppController
 
         /* create Indicateursuivis entity */
             if (1==1){
-                foreach ($data->IndicateurArray as $indicateur) {
+                foreach ($indicateurArray->indicateur as $indic) {
       
                     $indicateurs = $this->Indicateursuivis->newEmptyEntity();
-                    $indicateurs->label=$indicateur->label;
-                    $indicateurs->competence_id=$data->competence_id;
+                    $indicateurs->label=$indic->label;
+                    $indicateurs->soucompetence=$indicateurArray->soucompetence;  
+
+                    $indicateurs->competence_id=$indicateurArray->competence_id;
                     $savedProfil=$this->Indicateursuivis->save($indicateurs);
                 }
                

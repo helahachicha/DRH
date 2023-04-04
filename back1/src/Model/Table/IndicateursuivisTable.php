@@ -75,6 +75,12 @@ class IndicateursuivisTable extends Table
             ->integer('competence_id')
             ->notEmptyString('competence_id');
 
+        $validator
+            ->scalar('soucompetence')
+            ->maxLength('soucompetence', 255)
+            ->requirePresence('soucompetence', 'create')
+            ->notEmptyString('soucompetence');
+
         return $validator;
     }
 

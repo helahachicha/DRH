@@ -10,7 +10,6 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $label
- * @property string $soucompetence
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
@@ -31,7 +30,6 @@ class Competence extends Entity
      */
     protected $_accessible = [
         'label' => true,
-        'soucompetence' => true,
         'created' => true,
         'modified' => true,
         'detailprofilpostes' => true,

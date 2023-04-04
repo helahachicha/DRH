@@ -53,10 +53,11 @@ export class AddProfilDePosteComponent implements OnInit {
 
  addprofilposte() {
   const data = this.FormGenerator.value
+  console.log("res.data",data)
 
-     this.dataService.post('Profilpostes/addProfilposte.json',data).subscribe(res=> {
-       this.router.navigate(['/listingprofilposte'])
-        })
+      this.dataService.post('Profilpostes/addProfilposte.json',data).subscribe(res=> {
+        this.router.navigate(['/listingprofilposte'])
+         })
 
 
   }
@@ -97,9 +98,6 @@ export class AddProfilDePosteComponent implements OnInit {
       superhierar: new FormControl('', [Validators.required]),
       supervision: new FormControl('', [Validators.required]),
       interim: new FormControl('', [Validators.required]),
-      competence_id: new FormControl('', [Validators.required]),
-      soucompetence: new FormControl('', [Validators.required]),
-      niveauvise_id: new FormControl('', [Validators.required]),
       fonctionelaboration: new FormControl('', [Validators.required]),
       fonctionverification: new FormControl('', [Validators.required]),
       fonctionabrobation: new FormControl('', [Validators.required]),
@@ -112,9 +110,28 @@ export class AddProfilDePosteComponent implements OnInit {
   }
   createIndicateurGroup(): FormGroup {
     return this.fb.group({
-      label: ['', [Validators.required]],  
+      competence_id: ['', [Validators.required]],
+      soucompetence: ['', [Validators.required]],
+      niveauvise_id: ['', [Validators.required]],
+      indicateur:  this.fb.array([this.createOption()]),
     })
   }
+  createOption(): FormGroup {
+    return this.fb.group({
+      label: ['', [Validators.required]],
 
+    });
+  }
+  addOptions(i) {
+    const optionsArray = <FormArray>this.indicateurData.at(i).get('indicateur');
+    optionsArray.push(this.createOption());
+  }
+
+  removeOptions(i, j) {
+   
+      (<FormArray>this.indicateurData.at(i).get('indicateur')).removeAt(j);
+    
+    
+  }
 
 }

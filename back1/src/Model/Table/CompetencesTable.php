@@ -74,12 +74,6 @@ class CompetencesTable extends Table
             ->requirePresence('label', 'create')
             ->notEmptyString('label');
 
-        $validator
-            ->scalar('soucompetence')
-            ->maxLength('soucompetence', 255)
-            ->requirePresence('soucompetence', 'create')
-            ->notEmptyString('soucompetence');
-
         return $validator;
     }
 }
