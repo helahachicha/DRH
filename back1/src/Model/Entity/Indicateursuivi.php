@@ -10,11 +10,12 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $label
- * @property int $souscompetence_id
+ * @property int $competence_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Souscompetence $souscompetence
+ * @property \App\Model\Entity\Competence $competence
+ * @property \App\Model\Entity\Noteevaluation[] $noteevaluations
  */
 class Indicateursuivi extends Entity
 {
@@ -29,9 +30,10 @@ class Indicateursuivi extends Entity
      */
     protected $_accessible = [
         'label' => true,
-        'souscompetence_id' => true,
+        'competence_id' => true,
         'created' => true,
         'modified' => true,
-        'souscompetence' => true,
+        'competence' => true,
+        'noteevaluations' => true,
     ];
 }

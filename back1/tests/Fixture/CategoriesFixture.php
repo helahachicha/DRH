@@ -22,8 +22,8 @@ class CategoriesFixture extends TestFixture
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
                 'profilposte_id' => 1,
-                'created' => '2023-03-31 12:11:05',
-                'modified' => '2023-03-31 12:11:05',
+                'created' => '2023-04-03 11:26:27',
+                'modified' => '2023-04-03 11:26:27',
             ],
         ];
         parent::init();

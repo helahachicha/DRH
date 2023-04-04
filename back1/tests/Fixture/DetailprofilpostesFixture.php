@@ -22,6 +22,8 @@ class DetailprofilpostesFixture extends TestFixture
                 'id' => 1,
                 'fonction' => 'Lorem ipsum dolor sit amet',
                 'categorie_id' => 1,
+                'competence_id' => 1,
+                'niveauvise_id' => 1,
                 'superhierar' => 'Lorem ipsum dolor sit amet',
                 'supervision' => 'Lorem ipsum dolor sit amet',
                 'interim' => 'Lorem ipsum dolor sit amet',
@@ -31,8 +33,8 @@ class DetailprofilpostesFixture extends TestFixture
                 'nomprenomelab' => 'Lorem ipsum dolor sit amet',
                 'nomprenomverif' => 'Lorem ipsum dolor sit amet',
                 'nomprenomabrob' => 'Lorem ipsum dolor sit amet',
-                'created' => '2023-03-27 13:26:55',
-                'modified' => '2023-03-27 13:26:55',
+                'created' => '2023-04-03 13:49:33',
+                'modified' => '2023-04-03 13:49:33',
             ],
         ];
         parent::init();

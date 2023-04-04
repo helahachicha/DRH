@@ -15,6 +15,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Category $category
+ * @property \App\Model\Entity\Detailprofilposte[] $detailprofilpostes
  */
 class Niveauvise extends Entity
 {
@@ -33,5 +34,6 @@ class Niveauvise extends Entity
         'created' => true,
         'modified' => true,
         'category' => true,
+        'detailprofilpostes' => true,
     ];
 }

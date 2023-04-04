@@ -24,6 +24,8 @@ class ProfilpostesController extends AppController
      */
     public function addProfilposte(){
         $this->loadModel('Detailprofilpostes');
+        $this->loadModel('Indicateursuivis');
+
         $this->request->allowMethod(['post', 'put']);
 
         /* format data */
@@ -31,14 +33,14 @@ class ProfilpostesController extends AppController
             $querry=$this->request->getData();
             $data=json_decode($querry['data']); 
             //$data=$this->request->getData();
-            //debug($data);die;
+       
 
         }
          /* create profilpostes entity */
         if (1==1){
             $profilpostes = $this->Profilpostes->newEmptyEntity();
             $profilpostes->nom=$data->nom;
-            $profilpostes->poste_id=$data->poste_id;
+           // $profilpostes->poste_id=$data->poste_id;
             $savedProfil=$this->Profilpostes->save($profilpostes);
         }
            /* create detailprofilpostes entity */
@@ -50,6 +52,9 @@ class ProfilpostesController extends AppController
             $detailprofilpostes->superhierar=$data->superhierar;  
             $detailprofilpostes->supervision=$data->supervision;  
             $detailprofilpostes->interim=$data->interim;   
+            $detailprofilpostes->competence_id=$data->competence_id;  
+            $detailprofilpostes->soucompetence=$data->soucompetence;  
+            $detailprofilpostes->niveauvise_id=$data->niveauvise_id;  
             $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
             $detailprofilpostes->fonctionverification=$data->fonctionverification;  
             $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
@@ -57,8 +62,20 @@ class ProfilpostesController extends AppController
             $detailprofilpostes->nomprenomverif=$data->nomprenomverif;  
             $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob; 
             
-            $this->Detailprofilpostes->save($detailprofilpostes); 
+           $this->Detailprofilpostes->save($detailprofilpostes); 
       
+        }
+
+        /* create Indicateursuivis entity */
+            if (1==1){
+                foreach ($data->IndicateurArray as $indicateur) {
+      
+                    $indicateurs = $this->Indicateursuivis->newEmptyEntity();
+                    $indicateurs->label=$indicateur->label;
+                    $indicateurs->competence_id=$data->competence_id;
+                    $savedProfil=$this->Indicateursuivis->save($indicateurs);
+                }
+               
         }
          /*send result */
         $this->set([

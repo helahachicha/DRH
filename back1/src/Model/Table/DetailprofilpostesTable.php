@@ -12,6 +12,8 @@ use Cake\Validation\Validator;
  * Detailprofilpostes Model
  *
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
+ * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
+ * @property \App\Model\Table\NiveauvisesTable&\Cake\ORM\Association\BelongsTo $Niveauvises
  *
  * @method \App\Model\Entity\Detailprofilposte newEmptyEntity()
  * @method \App\Model\Entity\Detailprofilposte newEntity(array $data, array $options = [])
@@ -51,6 +53,14 @@ class DetailprofilpostesTable extends Table
             'foreignKey' => 'categorie_id',
             'joinType' => 'INNER',
         ]);
+        $this->belongsTo('Competences', [
+            'foreignKey' => 'competence_id',
+            'joinType' => 'INNER',
+        ]);
+        $this->belongsTo('Niveauvises', [
+            'foreignKey' => 'niveauvise_id',
+            'joinType' => 'INNER',
+        ]);
     }
 
     /**
@@ -70,6 +80,14 @@ class DetailprofilpostesTable extends Table
         $validator
             ->integer('categorie_id')
             ->notEmptyString('categorie_id');
+
+        $validator
+            ->integer('competence_id')
+            ->notEmptyString('competence_id');
+
+        $validator
+            ->integer('niveauvise_id')
+            ->notEmptyString('niveauvise_id');
 
         $validator
             ->scalar('superhierar')
@@ -138,6 +156,8 @@ class DetailprofilpostesTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
+        $rules->add($rules->existsIn('competence_id', 'Competences'), ['errorField' => 'competence_id']);
+        $rules->add($rules->existsIn('niveauvise_id', 'Niveauvises'), ['errorField' => 'niveauvise_id']);
 
         return $rules;
     }

@@ -11,7 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Competences Model
  *
- * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
+ * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\HasMany $Detailprofilpostes
+ * @property \App\Model\Table\IndicateursuivisTable&\Cake\ORM\Association\HasMany $Indicateursuivis
  * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\HasMany $Souscompetences
  *
  * @method \App\Model\Entity\Competence newEmptyEntity()
@@ -48,9 +49,11 @@ class CompetencesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Categories', [
-            'foreignKey' => 'categorie_id',
-            'joinType' => 'INNER',
+        $this->hasMany('Detailprofilpostes', [
+            'foreignKey' => 'competence_id',
+        ]);
+        $this->hasMany('Indicateursuivis', [
+            'foreignKey' => 'competence_id',
         ]);
         $this->hasMany('Souscompetences', [
             'foreignKey' => 'competence_id',
@@ -72,23 +75,11 @@ class CompetencesTable extends Table
             ->notEmptyString('label');
 
         $validator
-            ->integer('categorie_id')
-            ->notEmptyString('categorie_id');
+            ->scalar('soucompetence')
+            ->maxLength('soucompetence', 255)
+            ->requirePresence('soucompetence', 'create')
+            ->notEmptyString('soucompetence');
 
         return $validator;
-    }
-
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules): RulesChecker
-    {
-        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
-
-        return $rules;
     }
 }

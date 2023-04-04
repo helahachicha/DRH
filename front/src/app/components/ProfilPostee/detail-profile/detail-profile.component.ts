@@ -13,16 +13,18 @@ export class DetailProfileComponent implements OnInit {
   id: any;
   public Detailprofilpostes
   public detailpp
+  public open:boolean=false
 
 
   public profilposteForm = new FormGroup({
-
-
     fonction: new FormControl('', [Validators.required]),
     superhierar: new FormControl('', [Validators.required]),
     supervision: new FormControl('', [Validators.required]),
     interim: new FormControl('', [Validators.required]),
     categorie_id: new FormControl('', [Validators.required]),
+    competence_id: new FormControl('', [Validators.required]),
+    niveauvise_id: new FormControl('', [Validators.required]),
+    soucompetence: new FormControl('', [Validators.required]),
     fonctionelaboration: new FormControl('', [Validators.required]),
     fonctionverification: new FormControl('', [Validators.required]),
     fonctionabrobation: new FormControl('', [Validators.required]),
@@ -33,25 +35,6 @@ export class DetailProfileComponent implements OnInit {
 
   });
 
-  public compForm = new FormGroup({
-    label: new FormControl('', [Validators.required]),
-
-  });
-
-  public souscompForm = new FormGroup({
-    label: new FormControl('', [Validators.required]),
-
-  });
-
-
-  public indicatForm = new FormGroup({
-    label: new FormControl('', [Validators.required]),
-
-  });
-  public niveauForm = new FormGroup({
-    label: new FormControl('', [Validators.required]),
-
-  });
 
 
   constructor(
@@ -66,6 +49,8 @@ export class DetailProfileComponent implements OnInit {
       this.dataService.get('Detailprofilpostes/getDetailppByCat.json?id=' + id).subscribe(
         res => {
           this.detailpp = res.data;
+          this.open=true
+          console.log("this.detailpp", this.detailpp)
         })
     });
   }

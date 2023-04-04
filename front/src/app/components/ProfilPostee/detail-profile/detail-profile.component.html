@@ -1,4 +1,4 @@
-<div class="border border-primary  ">
+<div class="border border-primary ">
 
     <div class="col  ">
         <h1 class="text-center"> Profil de Poste</h1>
@@ -15,13 +15,12 @@
 
 
 
-<div class="container">
+<div class="container" *ngIf="open">
     <form id="contact-form" role="form" [formGroup]="profilposteForm">
-        <div *ngFor="let obj of detailpp;let i =index">
+        <div>
             <div class="shadow-lg p-3 mb-5 bg-body rounded">
                 <div class=" mt-2 mb-2 end-50">
-                    <!---->
-                    <button type="button" class="btn btn-success" routerLink="/edit-datail-profil/{{detailpp.id}}"><i
+                    <button type="button" class="btn btn-success"><i
                             class="far fa-edit"></i>
                         Modifier</button>
                 </div>
@@ -38,82 +37,77 @@
                     </div>
                     <div class="text-bold">
                         <label class="m-2" type="label"> Fonction: </label>
-                        <!--<input type="text" class="form-control" required="required" formControlName="fonction"
-                        [(ngModel)]="detailpp.fonction" disabled>-->
-                        <p>{{obj.fonction}}</p>
+                       <input type="text" class="form-control" required="required" formControlName="fonction"
+                        [(ngModel)]="detailpp.fonction" >
+                       
                         <br>
                         <label class="m-2" type="label"> Catégorie: </label>
-                        <!-- <input type="text" class="form-control" required="required" formControlName="categorie_id"
-                        [(ngModel)]="detailpp.category.label" disabled>--->
-                        <p>{{obj.category.label}}</p>
-                        <br>
+                     <input type="text" class="form-control" required="required" formControlName="categorie_id"
+                        [(ngModel)]="detailpp.category.label" >
+                       
                         <label class="m-2" type="label">Supérieur hiérarchique: </label>
-                        <!-- <input type="text" class="form-control" required="required" formControlName="superhierar"
-                        [(ngModel)]="detailpp.superhierar" disabled>-->
-                        <p>{{obj.superhierar}}</p>
+                        <input type="text" class="form-control" required="required" formControlName="superhierar"
+                        [(ngModel)]="detailpp.superhierar" >
+                     
                         <br>
                         <label class="m-2" type="label">Supervision:</label>
-                        <!--<input type="text" class="form-control" required="required" formControlName="supervision"
-                        [(ngModel)]="detailpp.supervision" disabled>-->
-                        <p>{{obj.supervision}}</p>
+                        <input type="text" class="form-control" required="required" formControlName="supervision"
+                        [(ngModel)]="detailpp.supervision" >
+                   
 
                         <br>
                         <label class="m-2" type="label">Intérim: </label>
-                        <!--<input type="text" class="form-control" required="required" formControlName="interim"
-                        [(ngModel)]="detailpp.interim" disabled>-->
-                        <p>{{obj.interim}}</p>
+                        <input type="text" class="form-control" required="required" formControlName="interim"
+                        [(ngModel)]="detailpp.interim" >
+                       
                     </div>
                 </div>
 
             </div>
         </div>
-       <!--<div class="dj2">
-            <form id="contact-form" role="form" [formGroup]="compForm">
-                <form id="contact-form" role="form" [formGroup]="souscompForm">
-                    <form id="contact-form" role="form" [formGroup]="indicatForm">
-                        <form id="contact-form" role="form" [formGroup]="niveauForm">
-
-                            <div class="shadow-lg p-3 mb-5 bg-body rounded">
+       <div class="dj2">
+        
+                            <!-- <div class="shadow-lg p-3 mb-5 bg-body rounded">
                                 <div class="text-center">
                                     <h4>Profil du poste</h4>
                                     <h5 class="mt-3 mb-2">
                                         <input type="text" class="form-control" required="required"
                                             formControlName="competence_id" [(ngModel)]="detailpp.competence.label"
-                                            disabled>
+                                            >
                                     </h5>
                                 </div>
 
-                                <input type="text" class="form-control" required="required"
-                                    formControlName="niveauvise_id" [(ngModel)]="detailpp.niveauvise.label" disabled>
+                                 <input type="text" class="form-control" required="required"
+                                    formControlName="niveauvise_id" [(ngModel)]="detailpp.niveauvise.label" > 
 
                                 <div class="text-center">
                                     <h5 class="mt-3 mb-2">
                                         <input type="text" class="form-control mt-3" required="required"
-                                            formControlName="label" [(ngModel)]="detailpp.competence.label" disabled>
+                                            formControlName="label" [(ngModel)]="detailpp.competence.label" >
                                     </h5>
                                     <h6 class="mt-2">
                                         <input type="text" class="form-control mt-3" required="required"
-                                            formControlName="souscompetence_id"
-                                            [(ngModel)]="detailpp.souscompetence.label" disabled>
+                                            formControlName="soucompetence"
+                                            [(ngModel)]="detailpp.competence.soucompetence" >
                                     </h6>
                                 </div>
                                 <label class="m-2" type="label"> NIVEAU VISE : </label>
-                                <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="niveauvise-id" [(ngModel)]="detailpp.niveauvise.label" disabled>
+                                 <input type="text" class="form-control mt-3" required="required"
+                                    formControlName="niveauvise-id" [(ngModel)]="detailpp.niveauvise.label" > 
 
                                 <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br>
                                 </label>
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" disabled>
+                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" >
                                 <div class="text-center">
                                     <h5 class="m-2">
                                         <input type="text" class="form-control mt-3" required="required"
-                                            formControlName="competence" [(ngModel)]="detailpp.competence" disabled>
+                                            formControlName="competence" [(ngModel)]="detailpp.competence" >
                                     </h5>
                                 </div>
                                 <h6 class="m-2">
                                     <input type="text" class="form-control mt-3" required="required"
-                                        formControlName="souscompetence" [(ngModel)]="detailpp.souscompetence" disabled>
+                                        formControlName="souscompetence" [(ngModel)]="detailpp.souscompetence" >
 
                                 </h6>
 
@@ -122,53 +116,53 @@
                                     <h6 class="m-2">
                                         <input type="text" class="form-control mt-3" required="required"
                                             formControlName="souscompetence" [(ngModel)]="detailpp.souscompetence"
-                                            disabled>
+                                            >
                                     </h6>
                                 </div>
 
                                 <label class="m-2" type="label"> NIVEAU VISE : </label>
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" disabled>
+                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" >
 
                                 <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br> </label>
 
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" disabled>
+                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" >
 
                                 <div class="text-center">
                                     <h6 class="m-2">
                                         <input type="text" class="form-control mt-3" required="required"
-                                            formControlName="competence" [(ngModel)]="detailpp.competence" disabled>
+                                            formControlName="competence" [(ngModel)]="detailpp.competence" >
                                     </h6>
                                 </div>
                                 <label class="m-2" type="label"> NIVEAU VISE : </label>
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" disabled>
+                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" >
 
                                 <label class="m-2" type="label">INDICATEURS DE SUIVI : <br> </label>
 
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" disabled>
+                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" >
 
                                 <div class="text-center">
                                     <h6 class="m-2">
                                         <input type="text" class="form-control mt-3" required="required"
-                                            formControlName="competence" [(ngModel)]="detailpp.competence" disabled>
+                                            formControlName="competence" [(ngModel)]="detailpp.competence" >
                                     </h6>
                                 </div>
                                 <label class="m-2" type="label"> NIVEAU VISE : </label>
 
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" disabled>
+                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" >
 
                                 <label class="m-2" type="label"> INDICATEURS DE SUIVI :<br> </label>
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" disabled>
+                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" >
                                 <div class="text-center">
                                     <h6 class="m-2">
 
                                         <input type="text" class="form-control mt-3" required="required"
-                                            formControlName="competence" [(ngModel)]="detailpp.competence" disabled>
+                                            formControlName="competence" [(ngModel)]="detailpp.competence" >
 
                                     </h6>
                                 </div>
@@ -176,29 +170,29 @@
                                 <label class="m-2" type="label"> NIVEAU VISE : </label>
 
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" disabled>
+                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" >
 
                                 <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br></label>
 
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" disabled>
+                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" >
 
                                 <div class="text-center">
                                     <h6 class="m-2">
                                         <input type="text" class="form-control mt-3" required="required"
-                                            formControlName="competence" [(ngModel)]="detailpp.competence" disabled>
+                                            formControlName="competence" [(ngModel)]="detailpp.competence" >
 
                                     </h6>
                                 </div>
 
                                 <label class="m-2" type="label"> NIVEAU VISE : </label>
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" disabled>
+                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" >
 
                                 <label class="m-2" type="label"> INDICATEURS DE SUIVI : <br></label>
 
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" disabled>
+                                    formControlName="indicateursuivi" [(ngModel)]="detailpp.indicateursuivi" >
                             </div>
 
                             <div class="shadow-lg p-3 mb-5 bg-body rounded">
@@ -206,39 +200,39 @@
                                     <h5 class="m-2">
                                         <input type="text" class="form-control mt-3" required="required"
                                             formControlName="souscompetence" [(ngModel)]="detailpp.souscompetence"
-                                            disabled>
+                                            >
 
                                     </h5>
                                 </div>
 
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" disabled>
+                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" >
 
                                 <div class="text-center">
                                     <h5 class="m-2">
 
                                         <input type="text" class="form-control mt-3" required="required"
                                             formControlName="souscompetence" [(ngModel)]="detailpp.souscompetence"
-                                            disabled>
+                                            >
                                     </h5>
                                 </div>
 
 
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" disabled>
+                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" >
 
                                 <div class="text-center">
                                     <h5 class="m-2">
 
                                         <input type="text" class="form-control mt-3" required="required"
                                             formControlName="souscompetence" [(ngModel)]="detailpp.souscompetence"
-                                            disabled>
+                                            >
                                     </h5>
-                                </div>
+                                </div> -->
 
-
+<!-- 
                                 <input type="text" class="form-control mt-3" required="required"
-                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" disabled>
+                                    formControlName="niveauvise" [(ngModel)]="detailpp.niveauvise" > -->
 
                                 <div class=" table-responsive ">
                                     <table class="  table table-bordered ">
@@ -257,17 +251,17 @@
                                                 <td>
                                                     <input type="text" class="form-control" required="required"
                                                         formControlName="fonctionelaboration"
-                                                        [(ngModel)]="detailpp.fonctionelaboration" disabled>
+                                                        [(ngModel)]="detailpp.nomprenomabrob" >
                                                 </td>
                                                 <td>
                                                     <input type="text" class="form-control mt-3" required="required"
                                                         formControlName="fonctionverification"
-                                                        [(ngModel)]="detailpp.fonctionverification" disabled>
+                                                        [(ngModel)]="detailpp.fonctionverification" >
                                                 </td>
                                                 <td>
                                                     <input type="text" class="form-control mt-3" required="required"
                                                         formControlName="fonctionabrobation"
-                                                        [(ngModel)]="detailpp.fonctionabrobation" disabled>
+                                                        [(ngModel)]="detailpp.fonctionabrobation" >
                                                 </td>
                                             </tr>
                                             <tr>
@@ -275,17 +269,17 @@
                                                 <td>
                                                     <input type="text" class="form-control mt-3" required="required"
                                                         formControlName="nomprenomelab"
-                                                        [(ngModel)]="detailpp.nomprenomelab" disabled>
+                                                        [(ngModel)]="detailpp.nomprenomelab" >
                                                 </td>
                                                 <td>
                                                     <input type="text" class="form-control mt-3" required="required"
                                                         formControlName="nomprenomverif"
-                                                        [(ngModel)]="detailpp.nomprenomverif" disabled>
+                                                        [(ngModel)]="detailpp.nomprenomverif" >
                                                 </td>
                                                 <td>
                                                     <input type="text" class="form-control mt-3" required="required"
                                                         formControlName="nomprenomabrob"
-                                                        [(ngModel)]="detailpp.nomprenomabrob" disabled>
+                                                        [(ngModel)]="detailpp.nomprenomabrob" >
                                                 </td>
 
                                             </tr>
@@ -295,11 +289,8 @@
                                     </table>
                                 </div>
                             </div>
-                        </form>
-                    </form>
-                </form>
-            </form>
-        </div>--> 
+      
+        <!-- </div> -->
 
     </form>
 </div>

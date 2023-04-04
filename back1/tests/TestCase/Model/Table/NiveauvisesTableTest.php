@@ -26,6 +26,7 @@ class NiveauvisesTableTest extends TestCase
     protected $fixtures = [
         'app.Niveauvises',
         'app.Categories',
+        'app.Detailprofilpostes',
     ];
 
     /**

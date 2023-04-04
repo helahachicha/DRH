@@ -80,11 +80,7 @@ class CompetencesController extends AppController
     {
 
         /* search */
-        $competences = $this->Competences->find('all',[
-            'contain' => [
-                'Categories'
-            ]
-        ]);
+        $competences = $this->Competences->find('all');
  
         /*send result */
         $this->set([

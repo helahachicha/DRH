@@ -80,7 +80,8 @@ class DetailprofilpostesController extends AppController
         if (1 == 1) {
             $querry=$this->request->getData();
             $data=json_decode($querry['data']); 
-        
+         //$data=$this->request->getData();
+            //debug($data);die;
         }
 
         $id=$this->request->getQuery('id');
@@ -226,9 +227,9 @@ class DetailprofilpostesController extends AppController
 
 
         $detailprofilpostes = $this->Detailprofilpostes->find('all', [
-            'contain' => [
-                'Categories.Competences.Souscompetences.Indicateursuivis','Categories.Niveauvises'
-            ],
+             'contain' => [
+               'Categories','Competences.Indicateursuivis'
+             ],
             'conditions'=>[
                 'categorie_id IS'=>$id,
             ],
