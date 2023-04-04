@@ -89,6 +89,7 @@ public Infoprofessionnelles
     francais: new FormControl('', [Validators.required]),
     anglais: new FormControl('', [Validators.required]),
     autre: new FormControl('', [Validators.required]),
+
   });
 
   constructor(
@@ -97,16 +98,19 @@ public Infoprofessionnelles
   ) { }
 
   ngOnInit(): void {
+    
   }
- array:any=['Voiture','Moto','Chez Taxi','Bus','Autre']
+  array:any=['Voiture','Moto','Chez Taxi','Bus','Autre']
  arraysport:any=['Basketball','Football','Handball','Cyclisme','Volleyball','Gymnastique','Natation','Tennis','Autre']
  arraycreative:any=['Lecture/Écrire','Peinture','Musique','Autre']
  arraydinventivite:any=['Photographie','Architecture','Web design','Autre']
  arraycorporelle:any=['Dance','Théâtre','Autre']
+ 
 
   submit() {
-    console.log('test',this.Infoprofessionnelles)
+    console.log('test',this.moyenForm.value)
     this.dataService.post('Infoprofessionnelles/insertInfoprofessionnelle.json',this.moyenForm.value).subscribe(res=> {
+      
       this.router.navigate(['/coutlisting']) 
       
       })
@@ -135,6 +139,7 @@ public Infoprofessionnelles
         i++;
       });
     }
+    console.log(formArray)
 }
 
 onCheckChangeSport(event) {
