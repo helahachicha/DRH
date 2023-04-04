@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 03 avr. 2023 à 11:10
+-- Généré le : lun. 03 avr. 2023 à 14:45
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -24,26 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `activiteloisirs`
+-- Structure de la table `activiteloisirfrs`
 --
 
-CREATE TABLE `activiteloisirs` (
+CREATE TABLE `activiteloisirfrs` (
   `id` int(11) NOT NULL,
   `activitesportive` varchar(255) NOT NULL,
   `lequelsport` varchar(255) NOT NULL,
   `activitecreative` varchar(255) NOT NULL,
   `lequelcreative` varchar(255) NOT NULL,
   `activiteinventivite` varchar(255) NOT NULL,
+  `activitecorporelle` varchar(255) NOT NULL,
   `jeureflexion` varchar(255) NOT NULL,
   `exerceractivite` varchar(255) NOT NULL,
-  `pourquoi` varchar(255) NOT NULL,
-  `salle de sport` varchar(255) NOT NULL,
+  `pourquoiexercer` varchar(255) NOT NULL,
+  `salledesport` varchar(255) NOT NULL,
   `joursdispo` varchar(255) NOT NULL,
   `critereenfance` varchar(255) NOT NULL,
   `beaumoment` text NOT NULL,
   `mauvaismoment` text NOT NULL,
   `activitebenevolat` varchar(255) NOT NULL,
-  `joursdisp` varchar(255) NOT NULL,
+  `lequelbenevolat` varchar(255) NOT NULL,
   `lieuact` varchar(255) NOT NULL,
   `exercezactivite` varchar(255) NOT NULL,
   `infoprofessionnelle_id` int(11) NOT NULL,
@@ -52,11 +53,11 @@ CREATE TABLE `activiteloisirs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `activiteloisirs`
+-- Déchargement des données de la table `activiteloisirfrs`
 --
 
-INSERT INTO `activiteloisirs` (`id`, `activitesportive`, `lequelsport`, `activitecreative`, `lequelcreative`, `activiteinventivite`, `jeureflexion`, `exerceractivite`, `pourquoi`, `salle de sport`, `joursdispo`, `critereenfance`, `beaumoment`, `mauvaismoment`, `activitebenevolat`, `joursdisp`, `lieuact`, `exercezactivite`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
-(1, 'test', 'test', 'test', 'test', 'test', 'testtest', 'test', 'test', 'test', 'test', 'test', 'test', 'testtest', 'test', 'test', 'test', 'test', 1, '2023-03-29 14:16:00', '2023-03-29 14:16:00');
+INSERT INTO `activiteloisirfrs` (`id`, `activitesportive`, `lequelsport`, `activitecreative`, `lequelcreative`, `activiteinventivite`, `activitecorporelle`, `jeureflexion`, `exerceractivite`, `pourquoiexercer`, `salledesport`, `joursdispo`, `critereenfance`, `beaumoment`, `mauvaismoment`, `activitebenevolat`, `lequelbenevolat`, `lieuact`, `exercezactivite`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
+(1, 'test', 'test', 'test', 'test', 'test', '', 'testtest', 'test', 'test', 'test', 'test', 'test', 'test', 'testtest', 'test', 'test', 'test', 'test', 1, '2023-03-29 14:16:00', '2023-03-29 14:16:00');
 
 -- --------------------------------------------------------
 
@@ -243,6 +244,77 @@ INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie_id`, `superhierar
 (2, 'Ingénieur Recherche & Développement', 2, 'Gérant', 'Développeur Senior', 'Développeur Senior', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-03-26 19:51:01', '2023-03-26 19:51:01'),
 (3, 'Ingénieur Recherche & Développement', 3, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-03-26 19:52:24', '2023-03-26 19:52:24'),
 (4, 'Ingénieur Recherche & Développement', 4, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-03-26 19:53:39', '2023-03-26 19:53:39');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `enfants`
+--
+
+CREATE TABLE `enfants` (
+  `id` int(11) NOT NULL,
+  `ordre` int(11) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `daten` date NOT NULL,
+  `niveauetude` varchar(255) NOT NULL,
+  `centreinteret` varchar(255) NOT NULL,
+  `etatsante` varchar(255) NOT NULL,
+  `infoprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `expprofessionnelles`
+--
+
+CREATE TABLE `expprofessionnelles` (
+  `id` int(11) NOT NULL,
+  `societe` varchar(255) NOT NULL,
+  `periode` date NOT NULL,
+  `fonction` varchar(255) NOT NULL,
+  `initiative` varchar(255) NOT NULL,
+  `salaire` float NOT NULL,
+  `infoprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `formacademiques`
+--
+
+CREATE TABLE `formacademiques` (
+  `id` int(11) NOT NULL,
+  `niveau` varchar(255) NOT NULL,
+  `specialite` varchar(255) NOT NULL,
+  `annee` year(4) NOT NULL,
+  `etablissement` varchar(255) NOT NULL,
+  `infoprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `formacomplementaires`
+--
+
+CREATE TABLE `formacomplementaires` (
+  `id` int(11) NOT NULL,
+  `formation` varchar(255) NOT NULL,
+  `attestation` varchar(255) NOT NULL,
+  `annee` year(4) NOT NULL,
+  `etablissement` varchar(255) NOT NULL,
+  `infoprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -442,15 +514,16 @@ CREATE TABLE `infopersonnelles` (
   `lieu` varchar(255) NOT NULL,
   `nationalite` varchar(255) NOT NULL,
   `ncin` int(11) NOT NULL,
-  `delivree` varchar(255) NOT NULL,
-  `le` date NOT NULL,
+  `delivreecin` varchar(255) NOT NULL,
+  `datecin` date NOT NULL,
   `permis` varchar(255) NOT NULL,
-  `quandp` date NOT NULL,
+  `datepermis` date NOT NULL,
   `logement` varchar(255) NOT NULL,
   `moyentransport` varchar(255) NOT NULL,
-  `tempsdt` int(11) NOT NULL,
+  `heure` int(11) NOT NULL,
+  `minute` int(11) NOT NULL,
   `situationfamiliale` varchar(255) NOT NULL,
-  `quandmd` date NOT NULL,
+  `datemariedivorce` date NOT NULL,
   `infoprofessionnelle_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -460,8 +533,8 @@ CREATE TABLE `infopersonnelles` (
 -- Déchargement des données de la table `infopersonnelles`
 --
 
-INSERT INTO `infopersonnelles` (`id`, `daten`, `lieu`, `nationalite`, `ncin`, `delivree`, `le`, `permis`, `quandp`, `logement`, `moyentransport`, `tempsdt`, `situationfamiliale`, `quandmd`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
-(1, '2023-03-01', 'test', 'test', 14029111, 'test', '2023-03-08', 'test', '2023-03-08', 'test', 'test', 23, 'test', '2023-03-01', 1, '2023-03-29 14:02:16', '2023-03-29 14:02:16');
+INSERT INTO `infopersonnelles` (`id`, `daten`, `lieu`, `nationalite`, `ncin`, `delivreecin`, `datecin`, `permis`, `datepermis`, `logement`, `moyentransport`, `heure`, `minute`, `situationfamiliale`, `datemariedivorce`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
+(1, '2023-03-01', 'test', 'test', 14029111, 'test', '2023-03-08', 'test', '2023-03-08', 'test', 'test', 0, 0, 'test', '2023-03-01', 1, '2023-03-29 14:02:16', '2023-03-29 14:02:16');
 
 -- --------------------------------------------------------
 
@@ -490,6 +563,23 @@ CREATE TABLE `infoprofessionnelles` (
 
 INSERT INTO `infoprofessionnelles` (`id`, `nomprenom`, `adresse`, `telprofessionnel`, `telpersonnel`, `contact`, `mailprofessionnel`, `mailpersonnel`, `service`, `poste`, `created`, `modified`) VALUES
 (1, 'bilel ghaddhab', 'test', 23145651, 23586485, 29635524, 'testtest', 'test', 'test', 'test', '2023-03-29 14:01:26', '2023-03-29 14:01:26');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `langues`
+--
+
+CREATE TABLE `langues` (
+  `id` int(11) NOT NULL,
+  `arabe` varchar(255) NOT NULL,
+  `francais` varchar(255) NOT NULL,
+  `anglais` varchar(255) NOT NULL,
+  `autre` varchar(255) NOT NULL,
+  `infoprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -537,6 +627,21 @@ INSERT INTO `noteevaluations` (`id`, `point`, `indicateursuivi_id`, `created`, `
 (1, 0, 1, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
 (2, 1, 2, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
 (3, 0, 3, '2023-03-30 13:07:56', '2023-03-30 13:07:56');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `points`
+--
+
+CREATE TABLE `points` (
+  `id` int(11) NOT NULL,
+  `pointforce` varchar(255) NOT NULL,
+  `pointameliore` varchar(255) NOT NULL,
+  `infoprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -806,9 +911,9 @@ INSERT INTO `users` (`id`, `email`, `password`, `token`, `role_id`, `created`, `
 --
 
 --
--- Index pour la table `activiteloisirs`
+-- Index pour la table `activiteloisirfrs`
 --
-ALTER TABLE `activiteloisirs`
+ALTER TABLE `activiteloisirfrs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -854,6 +959,30 @@ ALTER TABLE `detailprofilpostes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `enfants`
+--
+ALTER TABLE `enfants`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `expprofessionnelles`
+--
+ALTER TABLE `expprofessionnelles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `formacademiques`
+--
+ALTER TABLE `formacademiques`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `formacomplementaires`
+--
+ALTER TABLE `formacomplementaires`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `formaexternes`
 --
 ALTER TABLE `formaexternes`
@@ -890,6 +1019,12 @@ ALTER TABLE `infoprofessionnelles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `langues`
+--
+ALTER TABLE `langues`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `niveauvises`
 --
 ALTER TABLE `niveauvises`
@@ -899,6 +1034,12 @@ ALTER TABLE `niveauvises`
 -- Index pour la table `noteevaluations`
 --
 ALTER TABLE `noteevaluations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `points`
+--
+ALTER TABLE `points`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -960,9 +1101,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT pour la table `activiteloisirs`
+-- AUTO_INCREMENT pour la table `activiteloisirfrs`
 --
-ALTER TABLE `activiteloisirs`
+ALTER TABLE `activiteloisirfrs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -1008,6 +1149,30 @@ ALTER TABLE `detailprofilpostes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT pour la table `enfants`
+--
+ALTER TABLE `enfants`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `expprofessionnelles`
+--
+ALTER TABLE `expprofessionnelles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `formacademiques`
+--
+ALTER TABLE `formacademiques`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `formacomplementaires`
+--
+ALTER TABLE `formacomplementaires`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `formaexternes`
 --
 ALTER TABLE `formaexternes`
@@ -1044,6 +1209,12 @@ ALTER TABLE `infoprofessionnelles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT pour la table `langues`
+--
+ALTER TABLE `langues`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `niveauvises`
 --
 ALTER TABLE `niveauvises`
@@ -1054,6 +1225,12 @@ ALTER TABLE `niveauvises`
 --
 ALTER TABLE `noteevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `points`
+--
+ALTER TABLE `points`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `postes`

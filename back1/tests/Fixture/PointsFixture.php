@@ -20,10 +20,11 @@ class PointsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'point' => 1,
-                'souscompetence_id' => 1,
-                'created' => '2023-03-30 11:23:34',
-                'modified' => '2023-03-30 11:23:34',
+                'pointforce' => 'Lorem ipsum dolor sit amet',
+                'pointameliore' => 'Lorem ipsum dolor sit amet',
+                'infoprofessionnelle_id' => 1,
+                'created' => '2023-04-03 11:39:08',
+                'modified' => '2023-04-03 11:39:08',
             ],
         ];
         parent::init();
