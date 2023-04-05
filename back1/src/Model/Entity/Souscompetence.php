@@ -6,20 +6,19 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Infoficheevaluation Entity
+ * Souscompetence Entity
  *
  * @property int $id
- * @property string $nomprenom
- * @property string $objetevaluation
- * @property string $dateevaluation
- * @property string $decisiondirection
- * @property int $categorie_id
+ * @property string $label
+ * @property int $competence_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Category $category
+ * @property \App\Model\Entity\Competence $competence
+ * @property \App\Model\Entity\Indicateursuivi[] $indicateursuivis
+ * @property \App\Model\Entity\Point[] $points
  */
-class Infoficheevaluation extends Entity
+class Souscompetence extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -31,13 +30,12 @@ class Infoficheevaluation extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'nomprenom' => true,
-        'objetevaluation' => true,
-        'dateevaluation' => true,
-        'decisiondirection' => true,
-        'categorie_id' => true,
+        'label' => true,
+        'competence_id' => true,
         'created' => true,
         'modified' => true,
-        'category' => true,
+        'competence' => true,
+        'indicateursuivis' => true,
+        'points' => true,
     ];
 }

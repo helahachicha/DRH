@@ -55,9 +55,6 @@ class SouscompetencesTable extends Table
         $this->hasMany('Indicateursuivis', [
             'foreignKey' => 'souscompetence_id',
         ]);
-        $this->hasMany('Points', [
-            'foreignKey' => 'souscompetence_id',
-        ]);
     }
 
     /**

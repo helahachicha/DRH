@@ -74,9 +74,10 @@ class InfoficheevaluationsTable extends Table
             ->notEmptyString('objetevaluation');
 
         $validator
-            ->date('dateevaluation')
+            ->scalar('dateevaluation')
+            ->maxLength('dateevaluation', 255)
             ->requirePresence('dateevaluation', 'create')
-            ->notEmptyDate('dateevaluation');
+            ->notEmptyString('dateevaluation');
 
         $validator
             ->scalar('decisiondirection')

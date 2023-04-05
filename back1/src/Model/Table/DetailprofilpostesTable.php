@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
  * Detailprofilpostes Model
  *
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
- * @property \App\Model\Table\FormcompetencesTable&\Cake\ORM\Association\HasMany $Formcompetences
+ * @property \App\Model\Table\NiveauvisesTable&\Cake\ORM\Association\BelongsTo $Niveauvises
  *
  * @method \App\Model\Entity\Detailprofilposte newEmptyEntity()
  * @method \App\Model\Entity\Detailprofilposte newEntity(array $data, array $options = [])

@@ -33,5 +33,7 @@ class Category extends Entity
         'created' => true,
         'modified' => true,
         'profilposte' => true,
+        'competences' => true,
+        'niveauvises' => true,
     ];
 }
