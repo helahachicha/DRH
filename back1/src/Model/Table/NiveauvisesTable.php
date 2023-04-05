@@ -12,7 +12,6 @@ use Cake\Validation\Validator;
  * Niveauvises Model
  *
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
- * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\HasMany $Detailprofilpostes
  *
  * @method \App\Model\Entity\Niveauvise newEmptyEntity()
  * @method \App\Model\Entity\Niveauvise newEntity(array $data, array $options = [])
@@ -52,8 +51,6 @@ class NiveauvisesTable extends Table
             'foreignKey' => 'categorie_id',
             'joinType' => 'INNER',
         ]);
-     
-        
     }
 
     /**

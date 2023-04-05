@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `drh`
+-- Database: `drh`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `activiteloisirs`
+-- Table structure for table `activiteloisirs`
 --
 
 CREATE TABLE `activiteloisirs` (
@@ -52,7 +52,7 @@ CREATE TABLE `activiteloisirs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `activiteloisirs`
+-- Dumping data for table `activiteloisirs`
 --
 
 INSERT INTO `activiteloisirs` (`id`, `activitesportive`, `lequelsport`, `activitecreative`, `lequelcreative`, `activiteinventivite`, `jeureflexion`, `exerceractivite`, `pourquoi`, `salle de sport`, `joursdispo`, `critereenfance`, `beaumoment`, `mauvaismoment`, `activitebenevolat`, `joursdisp`, `lieuact`, `exercezactivite`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
@@ -61,7 +61,7 @@ INSERT INTO `activiteloisirs` (`id`, `activitesportive`, `lequelsport`, `activit
 -- --------------------------------------------------------
 
 --
--- Structure de la table `casmariages`
+-- Table structure for table `casmariages`
 --
 
 CREATE TABLE `casmariages` (
@@ -78,7 +78,7 @@ CREATE TABLE `casmariages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `casmariages`
+-- Dumping data for table `casmariages`
 --
 
 INSERT INTO `casmariages` (`id`, `nomprenomep`, `datenep`, `niveauetudeep`, `fonctionep`, `salaireep`, `etatep`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
@@ -87,7 +87,7 @@ INSERT INTO `casmariages` (`id`, `nomprenomep`, `datenep`, `niveauetudeep`, `fon
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -99,7 +99,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`) VALUES
@@ -111,7 +111,7 @@ INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `competences`
+-- Table structure for table `competences`
 --
 
 CREATE TABLE `competences` (
@@ -123,7 +123,7 @@ CREATE TABLE `competences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `competences`
+-- Dumping data for table `competences`
 --
 
 INSERT INTO `competences` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
@@ -143,7 +143,7 @@ INSERT INTO `competences` (`id`, `label`, `categorie_id`, `created`, `modified`)
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comptechniques`
+-- Table structure for table `comptechniques`
 --
 
 CREATE TABLE `comptechniques` (
@@ -155,7 +155,7 @@ CREATE TABLE `comptechniques` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `comptechniques`
+-- Dumping data for table `comptechniques`
 --
 
 INSERT INTO `comptechniques` (`id`, `label`, `testtechnique_id`, `created`, `modified`) VALUES
@@ -166,7 +166,7 @@ INSERT INTO `comptechniques` (`id`, `label`, `testtechnique_id`, `created`, `mod
 -- --------------------------------------------------------
 
 --
--- Structure de la table `coutformaexternes`
+-- Table structure for table `coutformaexternes`
 --
 
 CREATE TABLE `coutformaexternes` (
@@ -182,7 +182,7 @@ CREATE TABLE `coutformaexternes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `coutformaexternes`
+-- Dumping data for table `coutformaexternes`
 --
 
 INSERT INTO `coutformaexternes` (`id`, `coutformahd`, `tocoformadt`, `locaespace`, `comax`, `tocout`, `chargeto`, `created`, `modified`) VALUES
@@ -192,7 +192,7 @@ INSERT INTO `coutformaexternes` (`id`, `coutformahd`, `tocoformadt`, `locaespace
 -- --------------------------------------------------------
 
 --
--- Structure de la table `departements`
+-- Table structure for table `departements`
 --
 
 CREATE TABLE `departements` (
@@ -203,7 +203,7 @@ CREATE TABLE `departements` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `departements`
+-- Dumping data for table `departements`
 --
 
 INSERT INTO `departements` (`id`, `label`, `created`, `modified`) VALUES
@@ -214,15 +214,14 @@ INSERT INTO `departements` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `detailprofilpostes`
+-- Table structure for table `detailprofilpostes`
 --
 
 CREATE TABLE `detailprofilpostes` (
   `id` int(11) NOT NULL,
   `fonction` varchar(255) NOT NULL,
   `categorie_id` int(11) NOT NULL,
-  `competence_id` int(11) NOT NULL,
-  `niveauvise_id` int(11) NOT NULL,
+  `profilposte_id` int(11) NOT NULL,
   `superhierar` varchar(255) NOT NULL,
   `supervision` varchar(255) NOT NULL,
   `interim` varchar(255) NOT NULL,
@@ -237,19 +236,17 @@ CREATE TABLE `detailprofilpostes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `detailprofilpostes`
+-- Dumping data for table `detailprofilpostes`
 --
 
-INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie_id`, `competence_id`, `niveauvise_id`, `superhierar`, `supervision`, `interim`, `fonctionelaboration`, `fonctionverification`, `fonctionabrobation`, `nomprenomelab`, `nomprenomverif`, `nomprenomabrob`, `created`, `modified`) VALUES
-(1, 'Ingénieur Recherche & Développement', 1, 1, 1, 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jaweher KHMIRI', 'Hayet  BEN SALEM', 'Rochdi ABID', '2023-03-26 19:44:30', '2023-03-26 19:44:30'),
-(2, 'Ingénieur Recherche & Développement', 2, 1, 2, 'Gérant', 'Développeur Senior', 'Développeur Senior', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-03-26 19:51:01', '2023-03-26 19:51:01'),
-(3, 'Ingénieur Recherche & Développement', 3, 2, 3, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-03-26 19:52:24', '2023-03-26 19:52:24'),
-(4, 'Ingénieur Recherche & Développement', 4, 3, 4, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-03-26 19:53:39', '2023-03-26 19:53:39');
+INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie_id`, `profilposte_id`, `superhierar`, `supervision`, `interim`, `fonctionelaboration`, `fonctionverification`, `fonctionabrobation`, `nomprenomelab`, `nomprenomverif`, `nomprenomabrob`, `created`, `modified`) VALUES
+(2, 'Développeur web', 1, 1, 'senior', 'gerant', 'gerant', 'Gerant', 'Gerant', 'Gerant', 'Hela hachicha', 'Hela hachicha', 'Hela hachicha', '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(3, 'Ingénieur dev', 2, 27, 'Ingénieur dev', 'Ingénieur dev', 'Ingénieur dev', 'Ingénieur dev', 'Ingénieur dev', 'Ingénieur dev', 'test', 'test', 'test', '2023-04-05 12:55:05', '2023-04-05 12:55:05');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `formaexternes`
+-- Table structure for table `formaexternes`
 --
 
 CREATE TABLE `formaexternes` (
@@ -275,7 +272,7 @@ CREATE TABLE `formaexternes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `formaexternes`
+-- Dumping data for table `formaexternes`
 --
 
 INSERT INTO `formaexternes` (`id`, `typecomp`, `themeformation_id`, `participant`, `nbparticipant`, `raisonforma`, `organismeforma`, `formalite`, `formateur`, `raisonchoix`, `dureeforma`, `nbjour`, `nbhjour`, `date`, `horaireforma`, `pause`, `lieuforma`, `created`, `modified`) VALUES
@@ -285,7 +282,7 @@ INSERT INTO `formaexternes` (`id`, `typecomp`, `themeformation_id`, `participant
 -- --------------------------------------------------------
 
 --
--- Structure de la table `formainternes`
+-- Table structure for table `formainternes`
 --
 
 CREATE TABLE `formainternes` (
@@ -302,7 +299,7 @@ CREATE TABLE `formainternes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `formainternes`
+-- Dumping data for table `formainternes`
 --
 
 INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `poste`, `date`, `hentrer`, `hsortie`, `created`, `modified`) VALUES
@@ -312,7 +309,37 @@ INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `indicateursuivis`
+-- Table structure for table `formcompetences`
+--
+
+CREATE TABLE `formcompetences` (
+  `id` int(11) NOT NULL,
+  `competence_id` int(11) NOT NULL,
+  `soucompetence` varchar(255) NOT NULL,
+  `niveauvise_id` int(11) NOT NULL,
+  `detailprofilposte_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `formcompetences`
+--
+
+INSERT INTO `formcompetences` (`id`, `competence_id`, `soucompetence`, `niveauvise_id`, `detailprofilposte_id`, `created`, `modified`) VALUES
+(1, 1, '', 1, 2, '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(2, 2, 'sou1', 2, 2, '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(3, 2, 'sou2', 2, 2, '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(4, 2, '', 3, 2, '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(5, 1, '', 2, 3, '2023-04-05 12:55:05', '2023-04-05 12:55:05'),
+(6, 2, 'Ingénieur dev', 2, 3, '2023-04-05 12:55:05', '2023-04-05 12:55:05'),
+(7, 1, 'Ingénieur dev', 2, 3, '2023-04-05 12:55:05', '2023-04-05 12:55:05'),
+(8, 3, '', 2, 3, '2023-04-05 12:55:05', '2023-04-05 12:55:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `indicateursuivis`
 --
 
 CREATE TABLE `indicateursuivis` (
@@ -324,7 +351,7 @@ CREATE TABLE `indicateursuivis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `indicateursuivis`
+-- Dumping data for table `indicateursuivis`
 --
 
 INSERT INTO `indicateursuivis` (`id`, `label`, `souscompetence_id`, `created`, `modified`) VALUES
@@ -410,7 +437,7 @@ INSERT INTO `indicateursuivis` (`id`, `label`, `souscompetence_id`, `created`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `infoficheevaluations`
+-- Table structure for table `infoficheevaluations`
 --
 
 CREATE TABLE `infoficheevaluations` (
@@ -425,7 +452,7 @@ CREATE TABLE `infoficheevaluations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `infoficheevaluations`
+-- Dumping data for table `infoficheevaluations`
 --
 
 INSERT INTO `infoficheevaluations` (`id`, `nomprenom`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `categorie_id`, `created`, `modified`) VALUES
@@ -435,7 +462,7 @@ INSERT INTO `infoficheevaluations` (`id`, `nomprenom`, `objetevaluation`, `datee
 -- --------------------------------------------------------
 
 --
--- Structure de la table `infopersonnelles`
+-- Table structure for table `infopersonnelles`
 --
 
 CREATE TABLE `infopersonnelles` (
@@ -459,7 +486,7 @@ CREATE TABLE `infopersonnelles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `infopersonnelles`
+-- Dumping data for table `infopersonnelles`
 --
 
 INSERT INTO `infopersonnelles` (`id`, `daten`, `lieu`, `nationalite`, `ncin`, `delivree`, `le`, `permis`, `quandp`, `logement`, `moyentransport`, `tempsdt`, `situationfamiliale`, `quandmd`, `infoprofessionnelle_id`, `created`, `modified`) VALUES
@@ -468,7 +495,7 @@ INSERT INTO `infopersonnelles` (`id`, `daten`, `lieu`, `nationalite`, `ncin`, `d
 -- --------------------------------------------------------
 
 --
--- Structure de la table `infoprofessionnelles`
+-- Table structure for table `infoprofessionnelles`
 --
 
 CREATE TABLE `infoprofessionnelles` (
@@ -487,7 +514,7 @@ CREATE TABLE `infoprofessionnelles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `infoprofessionnelles`
+-- Dumping data for table `infoprofessionnelles`
 --
 
 INSERT INTO `infoprofessionnelles` (`id`, `nomprenom`, `adresse`, `telprofessionnel`, `telpersonnel`, `contact`, `mailprofessionnel`, `mailpersonnel`, `service`, `poste`, `created`, `modified`) VALUES
@@ -496,7 +523,7 @@ INSERT INTO `infoprofessionnelles` (`id`, `nomprenom`, `adresse`, `telprofession
 -- --------------------------------------------------------
 
 --
--- Structure de la table `niveauvises`
+-- Table structure for table `niveauvises`
 --
 
 CREATE TABLE `niveauvises` (
@@ -508,7 +535,7 @@ CREATE TABLE `niveauvises` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `niveauvises`
+-- Dumping data for table `niveauvises`
 --
 
 INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
@@ -520,7 +547,7 @@ INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`)
 -- --------------------------------------------------------
 
 --
--- Structure de la table `noteevaluations`
+-- Table structure for table `noteevaluations`
 --
 
 CREATE TABLE `noteevaluations` (
@@ -532,7 +559,7 @@ CREATE TABLE `noteevaluations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `noteevaluations`
+-- Dumping data for table `noteevaluations`
 --
 
 INSERT INTO `noteevaluations` (`id`, `point`, `indicateursuivi_id`, `created`, `modified`) VALUES
@@ -543,7 +570,7 @@ INSERT INTO `noteevaluations` (`id`, `point`, `indicateursuivi_id`, `created`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `postes`
+-- Table structure for table `postes`
 --
 
 CREATE TABLE `postes` (
@@ -555,18 +582,18 @@ CREATE TABLE `postes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `postes`
+-- Dumping data for table `postes`
 --
 
 INSERT INTO `postes` (`id`, `label`, `departement_id`, `created`, `modified`) VALUES
 (1, 'Développement', 1, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
-(2, 'Responsable marketing ', 0, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
-(3, 'Responsable ressource humaine ', 0, '2023-03-27 12:31:16', '2023-03-27 12:31:16');
+(2, 'Responsable marketing ', 2, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
+(3, 'Responsable ressource humaine ', 2, '2023-03-27 12:31:16', '2023-03-27 12:31:16');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `profilpostes`
+-- Table structure for table `profilpostes`
 --
 
 CREATE TABLE `profilpostes` (
@@ -578,17 +605,42 @@ CREATE TABLE `profilpostes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `profilpostes`
+-- Dumping data for table `profilpostes`
 --
 
 INSERT INTO `profilpostes` (`id`, `nom`, `poste_id`, `created`, `modified`) VALUES
 (1, 'Profil de poste développeur ', 1, '2023-03-27 12:32:33', '2023-03-27 12:32:33'),
-(2, 'Profil de poste responsable marketing ', 0, '2023-03-27 12:32:33', '2023-03-27 12:32:33');
+(2, 'Profil de poste responsable marketing ', 0, '2023-03-27 12:32:33', '2023-03-27 12:32:33'),
+(3, 't', 0, '2023-04-04 09:59:12', '2023-04-04 09:59:12'),
+(4, 'developpeuse web', 0, '2023-04-04 10:41:29', '2023-04-04 10:41:29'),
+(5, 'developpeur web', 0, '2023-04-04 11:05:02', '2023-04-04 11:05:02'),
+(6, 'developpeur web', 0, '2023-04-04 11:07:15', '2023-04-04 11:07:15'),
+(7, 'developpeur web', 0, '2023-04-04 11:10:15', '2023-04-04 11:10:15'),
+(8, 'developpeur web', 0, '2023-04-04 11:11:42', '2023-04-04 11:11:42'),
+(9, 'developpeur web', 0, '2023-04-04 11:11:59', '2023-04-04 11:11:59'),
+(10, 'ingénieur dev', 0, '2023-04-04 11:19:53', '2023-04-04 11:19:53'),
+(11, 'deved', 0, '2023-04-04 11:22:56', '2023-04-04 11:22:56'),
+(12, 'developpeur web', 0, '2023-04-05 10:04:22', '2023-04-05 10:04:22'),
+(13, 'test', 0, '2023-04-05 10:40:56', '2023-04-05 10:40:56'),
+(14, 'test', 0, '2023-04-05 10:42:05', '2023-04-05 10:42:05'),
+(15, 'test', 0, '2023-04-05 10:42:46', '2023-04-05 10:42:46'),
+(16, 'test', 0, '2023-04-05 10:43:07', '2023-04-05 10:43:07'),
+(17, 'a', 0, '2023-04-05 10:50:50', '2023-04-05 10:50:50'),
+(18, 'a', 0, '2023-04-05 10:52:21', '2023-04-05 10:52:21'),
+(19, 'a', 0, '2023-04-05 10:53:04', '2023-04-05 10:53:04'),
+(20, 'a', 0, '2023-04-05 10:54:18', '2023-04-05 10:54:18'),
+(21, 'Profil de poste Développeur web', 0, '2023-04-05 11:00:02', '2023-04-05 11:00:02'),
+(22, 'Profil de poste Développeur web', 0, '2023-04-05 11:00:57', '2023-04-05 11:00:57'),
+(23, 'Profil de poste Développeur web', 0, '2023-04-05 11:02:50', '2023-04-05 11:02:50'),
+(24, 'Profil de poste Développeur web', 0, '2023-04-05 11:03:02', '2023-04-05 11:03:02'),
+(25, 'Profil développeur', 0, '2023-04-05 11:08:07', '2023-04-05 11:08:07'),
+(26, 'Profil développeur', 0, '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(27, 'Ingénieur dev', 0, '2023-04-05 12:55:05', '2023-04-05 12:55:05');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `questions`
+-- Table structure for table `questions`
 --
 
 CREATE TABLE `questions` (
@@ -600,7 +652,7 @@ CREATE TABLE `questions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `questions`
+-- Dumping data for table `questions`
 --
 
 INSERT INTO `questions` (`id`, `label`, `comptechnique_id`, `created`, `modified`) VALUES
@@ -623,7 +675,7 @@ INSERT INTO `questions` (`id`, `label`, `comptechnique_id`, `created`, `modified
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reponses`
+-- Table structure for table `reponses`
 --
 
 CREATE TABLE `reponses` (
@@ -635,7 +687,7 @@ CREATE TABLE `reponses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `reponses`
+-- Dumping data for table `reponses`
 --
 
 INSERT INTO `reponses` (`id`, `label`, `question_id`, `created`, `modified`) VALUES
@@ -662,7 +714,7 @@ INSERT INTO `reponses` (`id`, `label`, `question_id`, `created`, `modified`) VAL
 -- --------------------------------------------------------
 
 --
--- Structure de la table `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -673,7 +725,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
@@ -748,7 +800,7 @@ CREATE TABLE `testtechniques` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `testtechniques`
+-- Dumping data for table `testtechniques`
 --
 
 INSERT INTO `testtechniques` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
@@ -760,7 +812,7 @@ INSERT INTO `testtechniques` (`id`, `label`, `categorie_id`, `created`, `modifie
 -- --------------------------------------------------------
 
 --
--- Structure de la table `themeformations`
+-- Table structure for table `themeformations`
 --
 
 CREATE TABLE `themeformations` (
@@ -771,7 +823,7 @@ CREATE TABLE `themeformations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `themeformations`
+-- Dumping data for table `themeformations`
 --
 
 INSERT INTO `themeformations` (`id`, `label`, `created`, `modified`) VALUES
@@ -783,7 +835,7 @@ INSERT INTO `themeformations` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -797,138 +849,144 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `token`, `role_id`, `created`, `modified`) VALUES
 (1, 'helatest@gmail.com', '$2y$10$X2xZ9SDDJUvw4KQjE/3/heD.F4vykCn.j9ZEZuWrVH8UObiI6qJk2', '', 1, '2023-03-10 14:37:00', '2023-03-10 14:37:00');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `activiteloisirs`
+-- Indexes for table `activiteloisirs`
 --
 ALTER TABLE `activiteloisirs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `casmariages`
+-- Indexes for table `casmariages`
 --
 ALTER TABLE `casmariages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `competences`
+-- Indexes for table `competences`
 --
 ALTER TABLE `competences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `comptechniques`
+-- Indexes for table `comptechniques`
 --
 ALTER TABLE `comptechniques`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `coutformaexternes`
+-- Indexes for table `coutformaexternes`
 --
 ALTER TABLE `coutformaexternes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `departements`
+-- Indexes for table `departements`
 --
 ALTER TABLE `departements`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `detailprofilpostes`
+-- Indexes for table `detailprofilpostes`
 --
 ALTER TABLE `detailprofilpostes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `formaexternes`
+-- Indexes for table `formaexternes`
 --
 ALTER TABLE `formaexternes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `formainternes`
+-- Indexes for table `formainternes`
 --
 ALTER TABLE `formainternes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `indicateursuivis`
+-- Indexes for table `formcompetences`
+--
+ALTER TABLE `formcompetences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `indicateursuivis`
 --
 ALTER TABLE `indicateursuivis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `infoficheevaluations`
+-- Indexes for table `infoficheevaluations`
 --
 ALTER TABLE `infoficheevaluations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `infopersonnelles`
+-- Indexes for table `infopersonnelles`
 --
 ALTER TABLE `infopersonnelles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `infoprofessionnelles`
+-- Indexes for table `infoprofessionnelles`
 --
 ALTER TABLE `infoprofessionnelles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `niveauvises`
+-- Indexes for table `niveauvises`
 --
 ALTER TABLE `niveauvises`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `noteevaluations`
+-- Indexes for table `noteevaluations`
 --
 ALTER TABLE `noteevaluations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `postes`
+-- Indexes for table `postes`
 --
 ALTER TABLE `postes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `profilpostes`
+-- Indexes for table `profilpostes`
 --
 ALTER TABLE `profilpostes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `questions`
+-- Indexes for table `questions`
 --
 ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `reponses`
+-- Indexes for table `reponses`
 --
 ALTER TABLE `reponses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
@@ -946,143 +1004,149 @@ ALTER TABLE `testtechniques`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `themeformations`
+-- Indexes for table `themeformations`
 --
 ALTER TABLE `themeformations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `activiteloisirs`
+-- AUTO_INCREMENT for table `activiteloisirs`
 --
 ALTER TABLE `activiteloisirs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `casmariages`
+-- AUTO_INCREMENT for table `casmariages`
 --
 ALTER TABLE `casmariages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `competences`
+-- AUTO_INCREMENT for table `competences`
 --
 ALTER TABLE `competences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT pour la table `comptechniques`
+-- AUTO_INCREMENT for table `comptechniques`
 --
 ALTER TABLE `comptechniques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `coutformaexternes`
+-- AUTO_INCREMENT for table `coutformaexternes`
 --
 ALTER TABLE `coutformaexternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT pour la table `departements`
+-- AUTO_INCREMENT for table `departements`
 --
 ALTER TABLE `departements`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `detailprofilpostes`
+-- AUTO_INCREMENT for table `detailprofilpostes`
 --
 ALTER TABLE `detailprofilpostes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT pour la table `formaexternes`
+-- AUTO_INCREMENT for table `formaexternes`
 --
 ALTER TABLE `formaexternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT pour la table `formainternes`
+-- AUTO_INCREMENT for table `formainternes`
 --
 ALTER TABLE `formainternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `indicateursuivis`
+-- AUTO_INCREMENT for table `formcompetences`
 --
-ALTER TABLE `indicateursuivis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+ALTER TABLE `formcompetences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT pour la table `infoficheevaluations`
+-- AUTO_INCREMENT for table `indicateursuivis`
+--
+ALTER TABLE `indicateursuivis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `infoficheevaluations`
 --
 ALTER TABLE `infoficheevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `infopersonnelles`
+-- AUTO_INCREMENT for table `infopersonnelles`
 --
 ALTER TABLE `infopersonnelles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `infoprofessionnelles`
+-- AUTO_INCREMENT for table `infoprofessionnelles`
 --
 ALTER TABLE `infoprofessionnelles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `niveauvises`
+-- AUTO_INCREMENT for table `niveauvises`
 --
 ALTER TABLE `niveauvises`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `noteevaluations`
+-- AUTO_INCREMENT for table `noteevaluations`
 --
 ALTER TABLE `noteevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `postes`
+-- AUTO_INCREMENT for table `postes`
 --
 ALTER TABLE `postes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `profilpostes`
+-- AUTO_INCREMENT for table `profilpostes`
 --
 ALTER TABLE `profilpostes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT pour la table `questions`
+-- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT pour la table `reponses`
+-- AUTO_INCREMENT for table `reponses`
 --
 ALTER TABLE `reponses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT pour la table `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
@@ -1100,13 +1164,13 @@ ALTER TABLE `testtechniques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `themeformations`
+-- AUTO_INCREMENT for table `themeformations`
 --
 ALTER TABLE `themeformations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

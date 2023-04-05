@@ -11,8 +11,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $fonction
  * @property int $categorie_id
- * @property int $competence_id
- * @property int $niveauvise_id
+ * @property int $profilposte_id
  * @property string $superhierar
  * @property string $supervision
  * @property string $interim
@@ -26,7 +25,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Category $category
- * @property \App\Model\Entity\Niveauvise $niveauvise
+ * @property \App\Model\Entity\Formcompetence[] $formcompetences
  */
 class Detailprofilposte extends Entity
 {
@@ -42,8 +41,7 @@ class Detailprofilposte extends Entity
     protected $_accessible = [
         'fonction' => true,
         'categorie_id' => true,
-        'competence_id' => true,
-        'niveauvise_id' => true,
+        'profilposte_id' => true,
         'superhierar' => true,
         'supervision' => true,
         'interim' => true,
@@ -56,6 +54,6 @@ class Detailprofilposte extends Entity
         'created' => true,
         'modified' => true,
         'category' => true,
-        'niveauvise' => true,
+        'formcompetences' => true,
     ];
 }
