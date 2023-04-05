@@ -326,7 +326,19 @@
                                                 </tr>
                                                 <tr class="text-bold text-center">
                                                         <!---pour competence 1-->
-                                                        <td colspan="2">Niveau visé: Niveau 1 / Pré-actif</td>
+                                                        <td colspan="2">Niveau visé: Niveau 1 / <select class="form-control"
+                                                                id="exampleFormControlSelect2"
+                                                                placeholder="Veuillez choisir votre Niveau Visé"
+                                                                formControlName="niveauvise_id">
+                                                                <option selected disabled value="">Affecter Niveau
+                                                                    Visé</option>
+                                    
+                                                                <option *ngFor="let obj of Niveauvises"
+                                                                    [ngValue]="obj.id">
+                                    
+                                                                    {{obj.label}}
+                                                                </option>
+                                                            </select></td>
                                                         <td>accepter</td>
 
                                                         <!---pour competence 2-->
