@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : mer. 05 avr. 2023 à 11:38
--- Version du serveur : 10.4.27-MariaDB
--- Version de PHP : 8.1.12
+-- Host: 127.0.0.1
+-- Generation Time: Apr 05, 2023 at 03:03 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -117,7 +117,6 @@ INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`
 CREATE TABLE `competences` (
   `id` int(11) NOT NULL,
   `label` varchar(255) NOT NULL,
-  `categorie_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -126,19 +125,10 @@ CREATE TABLE `competences` (
 -- Dumping data for table `competences`
 --
 
-INSERT INTO `competences` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
-(1, 'COMPÉTENCES TECHNIQUES', 1, '2023-04-05 10:38:12', '2023-04-05 10:38:12'),
-(2, 'COMPÉTENCES ORGANISATIONNELLES', 1, '2023-04-05 10:38:12', '2023-04-05 10:38:12'),
-(3, 'COMPÉTENCES COMPORTEMENTALES ', 1, '2023-04-05 10:38:12', '2023-04-05 10:38:12'),
-(4, 'COMPÉTENCES TECHNIQUES', 2, '2023-04-05 10:38:12', '2023-04-05 10:38:12'),
-(5, 'COMPÉTENCES ORGANISATIONNELLES', 2, '2023-04-05 10:38:12', '2023-04-05 10:38:12'),
-(6, 'COMPÉTENCES COMPORTEMENTALES ', 2, '2023-04-05 10:38:12', '2023-04-05 10:38:12'),
-(7, 'COMPÉTENCES TECHNIQUES', 3, '2023-04-05 10:38:12', '2023-04-05 10:38:12'),
-(8, 'COMPÉTENCES ORGANISATIONNELLES', 3, '2023-04-05 10:38:12', '2023-04-05 10:38:12'),
-(9, 'COMPÉTENCES COMPORTEMENTALES ', 3, '2023-04-05 10:38:12', '2023-04-05 10:38:12'),
-(10, 'COMPÉTENCES TECHNIQUES', 4, '2023-04-05 10:38:12', '2023-04-05 10:38:12'),
-(11, 'COMPÉTENCES ORGANISATIONNELLES', 4, '2023-04-05 10:38:12', '2023-04-05 10:38:12'),
-(12, 'COMPÉTENCES COMPORTEMENTALES ', 4, '2023-04-05 10:38:12', '2023-04-05 10:38:12');
+INSERT INTO `competences` (`id`, `label`, `created`, `modified`) VALUES
+(1, 'COMPÉTENCES TECHNIQUES', '2023-03-27 14:58:13', '2023-03-27 14:58:13'),
+(2, 'COMPÉTENCES ORGANISATIONNELLES', '2023-03-27 14:58:13', '2023-03-27 14:58:13'),
+(3, 'COMPÉTENCES COMPORTEMENTALES ', '2023-03-27 14:59:00', '2023-03-27 14:59:00');
 
 -- --------------------------------------------------------
 
@@ -345,7 +335,7 @@ INSERT INTO `formcompetences` (`id`, `competence_id`, `soucompetence`, `niveauvi
 CREATE TABLE `indicateursuivis` (
   `id` int(11) NOT NULL,
   `label` varchar(255) NOT NULL,
-  `souscompetence_id` int(11) NOT NULL,
+  `formcompetence_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -354,85 +344,18 @@ CREATE TABLE `indicateursuivis` (
 -- Dumping data for table `indicateursuivis`
 --
 
-INSERT INTO `indicateursuivis` (`id`, `label`, `souscompetence_id`, `created`, `modified`) VALUES
-(1, '- Compétence algorithmique niveau élevé  ', 1, '2023-03-27 15:06:29', '2023-03-27 15:06:29'),
-(2, '- Connaissance de l’architecture de développement Orientée Objet ', 1, '2023-03-27 15:15:17', '2023-03-27 15:15:17'),
-(3, '- Une bonne maîtrise du SQL   ', 1, '2023-03-27 15:17:53', '2023-03-27 15:17:53'),
-(4, '- Planifier & compléter les tâches/projets à temps efficacement', 2, '2023-03-27 15:18:27', '2023-03-27 15:18:27'),
-(5, '- Informer de la progression des tâches ou du projet ', 2, '2023-03-27 15:19:04', '2023-03-27 15:19:04'),
-(6, '- Déclarer en cas de difficulté technique : c’est à dire après dépasser 50 % du temps prévu de réalisation d’une tâche au maximum à l’essai de résolution d’une difficulté technique ', 2, '2023-03-27 15:19:22', '2023-03-27 15:19:22'),
-(7, '- Écouter activement afin de bien comprendre le message', 6, '2023-03-27 15:20:14', '2023-03-27 15:20:14'),
-(8, '- Essayer de partager l’information liée à l’exécution de travail et la communiquer clairement (quelque soit de la part développeur junior et de son vis-à-vis)', 6, '2023-03-27 15:20:14', '2023-03-27 15:20:14'),
-(9, '- Répondre de manière appropriée en donnant l’information et les faits de façon logique, claire et cohérente', 6, '2023-03-27 15:20:57', '2023-03-27 15:20:57'),
-(10, '- Transmet et reçoit le besoin facile à comprendre : c’est à dire transmet, reçoit et vérifie la bonne compréhension de la part de l’émetteur et récepteur', 6, '2023-03-27 15:20:57', '2023-03-27 15:20:57'),
-(11, '- Tenir compte de l’objectif de toute l’équipe  ', 7, '2023-03-27 15:21:46', '2023-03-27 15:21:46'),
-(12, '- Réussite collective ou échec collective ! : c’est toute l’équipe est responsable soit en cas de la réussite ou en cas d’échec', 7, '2023-03-27 15:21:46', '2023-03-27 15:21:46'),
-(13, '- Répartition des tâches d’une manière équitable', 7, '2023-03-27 15:22:10', '2023-03-27 15:22:10'),
-(14, '- Appuyer les décisions ou les activités de l’équipe et aider à réaliser l’objectif principal', 7, '2023-03-27 15:22:10', '2023-03-27 15:22:10'),
-(15, '- Poser les questions adéquates et distinguer entre les renseignements pertinents et ceux qui ne le sont pas', 8, '2023-03-27 15:22:49', '2023-03-27 15:22:49'),
-(16, '- Identifier la cause principale du problème affronté', 8, '2023-03-27 15:22:49', '2023-03-27 15:22:49'),
-(17, '- Fournir une réponse claire & logique aux questions ou préoccupations', 9, '2023-03-27 15:23:11', '2023-03-27 15:23:11'),
-(18, '- Fournir un service, y compris des renseignements utiles ou une aide, conforme aux normes de service et aux lignes directrices pertinentes', 9, '2023-03-27 15:23:11', '2023-03-27 15:23:11'),
-(19, 'Maîtrise fonctionnel (Certification dans l’une des trois dernières versions)', 10, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(20, 'Compétence technique (produit odoo) ', 10, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(21, 'Déterminer l’importance des tâches/activités, et passer rapidement et efficacement d’une tâche à l’autre', 11, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(22, 'Veiller à accomplir le travail en utilisant des solutions efficaces', 11, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(23, 'Valider la compréhension du message par l’autre partie ', 13, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(24, 'Reconnaître les signes non verbaux et les utilise pour identifier les pensées ou les préoccupations non exprimées afin de répondre de façon appropriée', 13, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(25, 'Utiliser des techniques de communication appropriées (poser des questions clairement, l’écoute, la ré formulation du message...) afin de clarifier son message et d’en faciliter la compréhension.', 13, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(26, 'Prendre l’initiative ', 14, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(27, 'Faire part des connaissances,  expérience ou expertise pertinente et utile en vue d’aider les membres du groupe à réaliser leurs objectifs de façon plus efficace ou efficiente', 14, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(28, 'S’efforcer de faire quelque chose de plus pour aider les membres du groupe (Exp : Assister les membres du groupe à acquérir les habiletés nécessaires afin d’atteindre les objectifs de travail)', 14, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(29, 'Recueillir des faits et des renseignements additionnels pour acquérir une meilleure compréhension de la situation', 15, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(30, 'Reconnaître les situations où les procédures habituelles peuvent ne pas s’appliquer et où une solution différente est requise', 15, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(31, 'S’assurer que le besoin est traité; cela peut nécessiter l’intervention d’un tiers', 16, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(32, 'Assurer un suivi auprès du client lorsque nécessaire ou prend d’autres mesures', 16, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(33, 'Prendre l’initiative et gérer les difficultés ', 17, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(34, 'Appliquer des règles simples, jugement et expériences passées pour cerner les problèmes', 17, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(35, 'Remarquer qu\'une situation présente est similaire à une situation passée ou est différente d\'une situation passée et déterminer les similitudes et (ou) les différences', 17, '2023-03-31 12:41:43', '2023-03-31 12:41:43'),
-(36, 'Identifier l’information pertinente ainsi que les tendances, les constantes ou les éléments manquants', 17, '2023-03-31 12:41:43', '2023-03-31 12:41:43'),
-(37, 'Maîtrise fonctionnel (2 Certifications parmi les 3 derniers versions)', 18, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(38, 'Maîtrise technique ', 18, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(39, 'Maîtrise une autre technologie (Plus qu’Odoo) ', 18, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(40, 'Avoir une visibilité sur le planning de l’équipe de développement', 19, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(41, 'Organiser les horaires, le travail et le milieu pour maximiser l’efficacité', 19, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(42, 'Anticiper et se préparer à gérer les problèmes  efficacement', 19, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(43, 'Avoir un équilibre psychique et une bonne gestion de stress', 20, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(44, 'Personnaliser son langage et son style de communication en fonction de la situation et de l’interlocuteur ou de l’auditoire, tout en livrant le même message', 20, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(45, 'Adapter la façon de transmettre le message lorsque des difficultés de compréhension surviennent', 20, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(46, 'Tirer profit des forces, des habiletés et des capacités des membres de l’équipe en vue d’atteindre l’objectif commun', 21, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(47, 'Encourager les membres de l’équipe à exprimer leurs points de vue ainsi que leurs opinions tout en tentant d’obtenir le consensus', 21, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(48, 'Traiter un problème ou une situation qui laisse place à l’interprétation.', 22, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(49, 'Évaluer les risques et les avantages d’autres solutions', 22, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(50, 'Déterminer le besoin sous-jacent du client et fournit une aide ou des renseignements supplémentaires au-delà de l’attente du client ou de la norme de service applicable', 23, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(51, 'Fait appel à son expérience et à ses connaissances pour fournir un service additionnel à valeur ajoutée pour le client, ou pour améliorer d’une certaine manière sa situation', 23, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(52, 'Utiliser ses connaissances ou situations passées pour examiner les situations présentes', 24, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(53, 'Appliquer et modifier des méthodes de manière appropriée à la situation  ', 24, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(54, 'Veiller aux besoins de l’équipe pour lui permettre de donner son plein potentiel et d’atteindre les objectifs (Remarque : la satisfaction des besoins est une source de motivation)', 25, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(55, 'Favoriser la collaboration, le travail en équipe et la confiance entre les membres de l’équipe', 25, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(56, 'Reconnaître et optimiser les forces et la diversité des membres de l’équipe', 25, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(57, 'Développer une équipe talentueux en reconnaissant le potentiel d’accomplissement des membres de l’équipe et en fournissant des occasions d’apprentissage continu', 25, '2023-03-31 12:56:33', '2023-03-31 12:56:33'),
-(58, 'Maîtrise fonctionnel (3 Certifications)', 26, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(59, 'Maîtrise technique ', 26, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(60, 'Maîtrise une autre technologie (Plus Odoo) ', 26, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(61, 'Gestion de projet', 26, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(62, 'Développer et mettre en œuvre des plans de travail efficace pour des projets complexes impliquant plusieurs personnes', 27, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(63, 'Démontrer une compréhension des relations entre les personnes intéressés à l’interne à afin de coordonner leur implication dans les projets de grande envergue', 27, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(64, 'Gérer habilement les questions spontanées difficiles (p. ex posées par des responsables)', 28, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(65, 'Encadrer les autres ', 28, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(66, 'Inciter à prendre part au processus d’échange des connaissances', 28, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(67, 'Supervise, oriente, conseille et encadrer les autres dans l’accomplissement efficace des activités & tâches ', 29, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(68, '- Apprécier, reconnaître et récompenser les succès d’équipe par des initiatives entreprises (Boite de proposition)', 29, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(69, 'Gérer les conflits d’équipe de manière efficace', 29, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(70, 'Tirer les conclusions ou élaborer des explications possibles aux autres', 30, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(71, 'Élaborer une solution fiable à un problème ou une situation qui compte plusieurs éléments inter-reliés', 30, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(72, 'Prévoir et cerner les nouveaux enjeux et élaborer des stratégies pour permettre à l’entreprise de gérer les nouvelles tendances', 31, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(73, 'Établir un accord avant la prise de décisions, si possible et au besoin', 31, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(74, 'Encourager les autres à promouvoir la vision et les objectifs de l’entreprise', 32, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(75, 'Entretient un environnement propice au changement, à l’innovation, à l’amélioration et à la prise de risques responsables', 32, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(76, 'Cerner les besoins et élaborer des initiatives et des plans d’action en apprentissage ', 33, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(77, 'Mettre en œuvre des stratégies pour renforcer, appuyer et maintenir une culture d’apprentissage ', 33, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(78, 'Encourager la recherche et l’examen des données probantes pour évaluer l’incidence et l’efficacité des efforts d’apprentissage', 33, '2023-03-31 13:06:15', '2023-03-31 13:06:15');
+INSERT INTO `indicateursuivis` (`id`, `label`, `formcompetence_id`, `created`, `modified`) VALUES
+(1, 'indi1', 1, '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(2, 'indi2', 1, '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(3, 'indi3', 2, '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(4, 'indi4', 3, '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(5, 'indi5', 4, '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(6, 'indi6', 4, '2023-04-05 11:08:42', '2023-04-05 11:08:42'),
+(7, 'Ingénieur dev', 5, '2023-04-05 12:55:05', '2023-04-05 12:55:05'),
+(8, 'Ingénieur dev', 5, '2023-04-05 12:55:05', '2023-04-05 12:55:05'),
+(9, 'Ingénieur dev', 6, '2023-04-05 12:55:05', '2023-04-05 12:55:05'),
+(10, 'Ingénieur dev', 7, '2023-04-05 12:55:05', '2023-04-05 12:55:05'),
+(11, 'Ingénieur dev', 8, '2023-04-05 12:55:05', '2023-04-05 12:55:05');
 
 -- --------------------------------------------------------
 
@@ -456,7 +379,7 @@ CREATE TABLE `infoficheevaluations` (
 --
 
 INSERT INTO `infoficheevaluations` (`id`, `nomprenom`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `categorie_id`, `created`, `modified`) VALUES
-(1, 'Ghaddhab Bilel', 'test', 'test', 'test', 4, '2023-03-30 22:20:26', '2023-03-30 22:20:26'),
+(1, 'Ghaddhab Bilel', 'test', 'test', 'test', 1, '2023-03-30 22:20:26', '2023-03-30 22:20:26'),
 (2, 'chourouk', 'test', 'test', 'test', 1, '2023-04-03 10:59:45', '2023-04-03 10:59:45');
 
 -- --------------------------------------------------------
@@ -735,7 +658,7 @@ INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `souscompetences`
+-- Table structure for table `souscompetences`
 --
 
 CREATE TABLE `souscompetences` (
@@ -747,48 +670,48 @@ CREATE TABLE `souscompetences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `souscompetences`
+-- Dumping data for table `souscompetences`
 --
 
 INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `created`, `modified`) VALUES
-(1, 'CT', 1, '2023-04-05 10:43:26', '2023-04-05 10:43:26'),
-(2, 'GESTION DE TEMPS & PRIORITÉS', 2, '2023-04-05 10:43:26', '2023-04-05 10:43:26'),
-(3, 'GEEK', 3, '2023-04-05 10:43:26', '2023-04-05 10:43:26'),
-(4, 'AUTODÉTERMINATION ', 3, '2023-04-05 10:43:26', '2023-04-05 10:43:26'),
-(5, 'POSITIVITÉ', 3, '2023-04-05 10:43:26', '2023-04-05 10:43:26'),
-(6, 'COMMUNICATION INTERACTIVE EFFICACE', 3, '2023-04-05 10:43:26', '2023-04-05 10:43:26'),
-(7, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, '2023-04-05 10:43:26', '2023-04-05 10:43:26'),
-(8, 'RÉSOLUTION DE PROBLÈMES', 3, '2023-04-05 10:43:26', '2023-04-05 10:43:26'),
-(9, 'SERVICES D’EXCELLENCE  ', 3, '2023-04-05 10:43:26', '2023-04-05 10:43:26'),
-(10, 'CT', 4, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(11, 'GESTION DE TEMPS & PRIORITÉS', 5, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(12, 'Autonomie', 6, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(13, 'COMMUNICATION INTERACTIVE EFFICACE', 6, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(14, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 6, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(15, 'RÉSOLUTION DES PROBLÈMES', 6, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(16, 'SERVICE D’EXCELLENCE ', 6, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(17, 'RAISONNEMENT CONCEPTUEL ', 6, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(18, 'CT', 7, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(19, 'GESTION DE TEMPS & PRIORITÉS', 8, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(20, 'COMMUNICATION INTERACTIVE EFFICACE', 9, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(21, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 9, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(22, 'RÉSOLUTION DES PROBLÈMES', 9, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(23, 'SERVICE D’EXCELLENCE ', 9, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(24, 'RAISONNEMENT CONCEPTUEL ', 9, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(25, 'LEADERSHIP', 9, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(26, 'CT', 10, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(27, 'GESTION DE TEMPS & PRIORITÉS', 11, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(28, 'COMMUNICATION INTERACTIVE EFFICACE', 12, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(29, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 12, '2023-04-05 10:48:07', '2023-04-05 10:48:07'),
-(30, 'RÉSOLUTION DES PROBLÈMES', 12, '2023-04-05 10:54:54', '2023-04-05 10:54:54'),
-(31, 'RAISONNEMENT ANALYTIQUE ', 12, '2023-04-05 10:54:54', '2023-04-05 10:54:54'),
-(32, 'LEADERSHIP', 12, '2023-04-05 10:54:54', '2023-04-05 10:54:54'),
-(33, 'SOUTIEN AU DÉVELOPPEMENT DES AUTRES', 12, '2023-04-05 10:54:54', '2023-04-05 10:54:54');
+(1, 'GESTION DE TEMPS & PRIORITÉS', 2, '2023-03-31 12:28:51', '2023-03-31 12:28:51'),
+(2, 'GEEK', 3, '2023-03-31 12:28:51', '2023-03-31 12:28:51'),
+(3, 'AUTODÉTERMINATION ', 3, '2023-03-31 12:28:51', '2023-03-31 12:28:51'),
+(4, 'POSITIVITÉ', 3, '2023-03-31 12:28:51', '2023-03-31 12:28:51'),
+(5, 'COMMUNICATION INTERACTIVE EFFICACE', 3, '2023-03-31 12:28:51', '2023-03-31 12:28:51'),
+(6, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, '2023-03-31 12:28:51', '2023-03-31 12:28:51'),
+(7, 'RÉSOLUTION DE PROBLÈMES', 3, '2023-03-31 12:28:51', '2023-03-31 12:28:51'),
+(8, 'SERVICES D’EXCELLENCE  ', 3, '2023-03-31 12:28:51', '2023-03-31 12:28:51'),
+(9, 'CT', 1, '2023-03-31 12:28:51', '2023-03-31 12:28:51'),
+(10, 'CT', 4, '2023-03-31 12:32:28', '2023-03-31 12:32:28'),
+(11, 'GESTION DE TEMPS & PRIORITÉS', 5, '2023-03-31 12:32:28', '2023-03-31 12:32:28'),
+(12, 'Autonomie', 6, '2023-03-31 12:32:28', '2023-03-31 12:32:28'),
+(13, 'COMMUNICATION INTERACTIVE EFFICACE', 6, '2023-03-31 12:32:28', '2023-03-31 12:32:28'),
+(14, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 6, '2023-03-31 12:32:28', '2023-03-31 12:32:28'),
+(15, 'RÉSOLUTION DES PROBLÈMES', 6, '2023-03-31 12:32:28', '2023-03-31 12:32:28'),
+(16, 'SERVICE D’EXCELLENCE ', 6, '2023-03-31 12:32:28', '2023-03-31 12:32:28'),
+(17, 'RAISONNEMENT CONCEPTUEL ', 6, '2023-03-31 12:32:28', '2023-03-31 12:32:28'),
+(18, 'CT', 7, '2023-03-31 12:47:08', '2023-03-31 12:47:08'),
+(19, 'GESTION DE TEMPS & PRIORITÉS', 8, '2023-03-31 12:47:08', '2023-03-31 12:47:08'),
+(20, 'COMMUNICATION INTERACTIVE EFFICACE', 9, '2023-03-31 12:47:08', '2023-03-31 12:47:08'),
+(21, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 9, '2023-03-31 12:47:08', '2023-03-31 12:47:08'),
+(22, 'RÉSOLUTION DES PROBLÈMES', 9, '2023-03-31 12:47:08', '2023-03-31 12:47:08'),
+(23, 'SERVICE D’EXCELLENCE ', 9, '2023-03-31 12:47:08', '2023-03-31 12:47:08'),
+(24, 'RAISONNEMENT CONCEPTUEL ', 9, '2023-03-31 12:47:08', '2023-03-31 12:47:08'),
+(25, 'LEADERSHIP', 9, '2023-03-31 12:47:08', '2023-03-31 12:47:08'),
+(26, 'CT', 10, '2023-03-31 12:58:30', '2023-03-31 12:58:30'),
+(27, 'GESTION DE TEMPS & PRIORITÉS', 11, '2023-03-31 12:58:30', '2023-03-31 12:58:30'),
+(28, 'COMMUNICATION INTERACTIVE EFFICACE', 12, '2023-03-31 12:58:30', '2023-03-31 12:58:30'),
+(29, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 12, '2023-03-31 12:58:30', '2023-03-31 12:58:30'),
+(30, 'RÉSOLUTION DES PROBLÈMES', 12, '2023-03-31 12:58:30', '2023-03-31 12:58:30'),
+(31, 'RAISONNEMENT ANALYTIQUE ', 12, '2023-03-31 12:58:30', '2023-03-31 12:58:30'),
+(32, 'LEADERSHIP', 12, '2023-03-31 12:58:30', '2023-03-31 12:58:30'),
+(33, 'SOUTIEN AU DÉVELOPPEMENT DES AUTRES', 12, '2023-03-31 12:58:30', '2023-03-31 12:58:30');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `testtechniques`
+-- Table structure for table `testtechniques`
 --
 
 CREATE TABLE `testtechniques` (
@@ -992,13 +915,13 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `souscompetences`
+-- Indexes for table `souscompetences`
 --
 ALTER TABLE `souscompetences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `testtechniques`
+-- Indexes for table `testtechniques`
 --
 ALTER TABLE `testtechniques`
   ADD PRIMARY KEY (`id`);
@@ -1065,7 +988,7 @@ ALTER TABLE `departements`
 -- AUTO_INCREMENT for table `detailprofilpostes`
 --
 ALTER TABLE `detailprofilpostes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `formaexternes`
@@ -1152,13 +1075,13 @@ ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `souscompetences`
+-- AUTO_INCREMENT for table `souscompetences`
 --
 ALTER TABLE `souscompetences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT pour la table `testtechniques`
+-- AUTO_INCREMENT for table `testtechniques`
 --
 ALTER TABLE `testtechniques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
