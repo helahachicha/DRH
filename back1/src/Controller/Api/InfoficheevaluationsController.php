@@ -161,7 +161,7 @@ class InfoficheevaluationsController extends AppController
                
             ],
             'conditions'=>[
-                'Infoficheevaluations.id'=>$id
+                'infoficheevaluations.id IS'=>$id
 
             ],
            

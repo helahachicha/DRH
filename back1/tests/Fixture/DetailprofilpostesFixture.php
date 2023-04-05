@@ -33,8 +33,8 @@ class DetailprofilpostesFixture extends TestFixture
                 'nomprenomelab' => 'Lorem ipsum dolor sit amet',
                 'nomprenomverif' => 'Lorem ipsum dolor sit amet',
                 'nomprenomabrob' => 'Lorem ipsum dolor sit amet',
-                'created' => '2023-04-03 13:49:33',
-                'modified' => '2023-04-03 13:49:33',
+                'created' => '2023-04-04 12:48:47',
+                'modified' => '2023-04-04 12:48:47',
             ],
         ];
         parent::init();

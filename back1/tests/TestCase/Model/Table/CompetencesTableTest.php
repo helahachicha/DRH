@@ -25,8 +25,8 @@ class CompetencesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Competences',
+        'app.Categories',
         'app.Detailprofilpostes',
-        'app.Indicateursuivis',
         'app.Souscompetences',
     ];
 
@@ -61,6 +61,17 @@ class CompetencesTableTest extends TestCase
      * @uses \App\Model\Table\CompetencesTable::validationDefault()
      */
     public function testValidationDefault(): void
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     * @uses \App\Model\Table\CompetencesTable::buildRules()
+     */
+    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

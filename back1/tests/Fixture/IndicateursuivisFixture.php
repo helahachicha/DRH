@@ -21,10 +21,9 @@ class IndicateursuivisFixture extends TestFixture
             [
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
-                'competence_id' => 1,
-                'soucompetence' => 'Lorem ipsum dolor sit amet',
-                'created' => '2023-04-04 11:18:04',
-                'modified' => '2023-04-04 11:18:04',
+                'souscompetence_id' => 1,
+                'created' => '2023-04-05 09:26:49',
+                'modified' => '2023-04-05 09:26:49',
             ],
         ];
         parent::init();

@@ -22,8 +22,8 @@ class SouscompetencesFixture extends TestFixture
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
                 'competence_id' => 1,
-                'created' => '2023-03-30 14:07:10',
-                'modified' => '2023-03-30 14:07:10',
+                'created' => '2023-04-05 09:22:41',
+                'modified' => '2023-04-05 09:22:41',
             ],
         ];
         parent::init();

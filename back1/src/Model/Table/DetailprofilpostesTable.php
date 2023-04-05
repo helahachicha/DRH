@@ -12,7 +12,6 @@ use Cake\Validation\Validator;
  * Detailprofilpostes Model
  *
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
- * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
  * @property \App\Model\Table\NiveauvisesTable&\Cake\ORM\Association\BelongsTo $Niveauvises
  *
  * @method \App\Model\Entity\Detailprofilposte newEmptyEntity()

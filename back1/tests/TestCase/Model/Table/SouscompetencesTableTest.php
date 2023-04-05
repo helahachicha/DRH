@@ -27,6 +27,7 @@ class SouscompetencesTableTest extends TestCase
         'app.Souscompetences',
         'app.Competences',
         'app.Indicateursuivis',
+        'app.Points',
     ];
 
     /**

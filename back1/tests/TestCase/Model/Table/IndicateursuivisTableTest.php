@@ -25,7 +25,7 @@ class IndicateursuivisTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Indicateursuivis',
-        'app.Competences',
+        'app.Souscompetences',
         'app.Noteevaluations',
     ];
 

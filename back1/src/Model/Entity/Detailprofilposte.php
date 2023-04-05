@@ -26,7 +26,6 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Category $category
- * @property \App\Model\Entity\Competence $competence
  * @property \App\Model\Entity\Niveauvise $niveauvise
  */
 class Detailprofilposte extends Entity
@@ -57,7 +56,6 @@ class Detailprofilposte extends Entity
         'created' => true,
         'modified' => true,
         'category' => true,
-        'competence' => true,
         'niveauvise' => true,
     ];
 }
