@@ -234,9 +234,9 @@ class DetailprofilpostesController extends AppController
                 'detailprofilpostes.categorie_id IS'=>$id,
             ],
             'contain' => [
-                'Niveauvises', 'Categories','Competences.Indicateursuivis'
+                'Profilpostes','Categories' ,'Formcompetences.Indicateursuivis'
               ],
-           
+            
         ])->first();
         
         if(empty($detailprofilpostes)){

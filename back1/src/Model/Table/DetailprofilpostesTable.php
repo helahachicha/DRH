@@ -52,13 +52,12 @@ class DetailprofilpostesTable extends Table
             'foreignKey' => 'categorie_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Competences', [
-            'foreignKey' => 'competence_id',
+        $this->belongsTo('Profilpostes', [
+            'foreignKey' => 'profilposte_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Niveauvises', [
-            'foreignKey' => 'niveauvise_id',
-            'joinType' => 'INNER',
+        $this->hasMany('Formcompetences', [
+            'foreignKey' => 'detailprofilposte_id',
         ]);
     }
 
@@ -81,12 +80,8 @@ class DetailprofilpostesTable extends Table
             ->notEmptyString('categorie_id');
 
         $validator
-            ->integer('competence_id')
-            ->notEmptyString('competence_id');
-
-        $validator
-            ->integer('niveauvise_id')
-            ->notEmptyString('niveauvise_id');
+            ->integer('profilposte_id')
+            ->notEmptyString('profilposte_id');
 
         $validator
             ->scalar('superhierar')
@@ -155,8 +150,7 @@ class DetailprofilpostesTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
-        $rules->add($rules->existsIn('competence_id', 'Competences'), ['errorField' => 'competence_id']);
-        $rules->add($rules->existsIn('niveauvise_id', 'Niveauvises'), ['errorField' => 'niveauvise_id']);
+        $rules->add($rules->existsIn('profilposte_id', 'Profilpostes'), ['errorField' => 'profilposte_id']);
 
         return $rules;
     }

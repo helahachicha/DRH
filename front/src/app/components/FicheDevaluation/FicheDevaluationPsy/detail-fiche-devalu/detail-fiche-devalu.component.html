@@ -9,82 +9,97 @@
 
     <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded">
         <form id="contact-form" role="form" [formGroup]="testForm">
-            <hr>
-            <div class="row justify-content-center" *ngFor="let obj of Infoficheevaluations;let i =index">
-                
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label for="form_name">Nom et Prenom </label>
-                       <!--- <input type="text" formControlName="nomprenom" class="form-control"
-                            placeholder="chourouk derbel" required="required" [(ngModel)]="Infoficheevaluations.nomprenom"disabled>-->
+            <div *ngFor="let obj of Infoficheevaluations;let i =index">
+                <hr>
+                <div class="row justify-content-center">
+
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="form_name">Nom et Prenom </label>
+
                             <p>{{obj.nomprenom}}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label for="form_name">Objet D'évaluation</label>
-                       <!-- <input type="text" formControlName="objetevaluation" class="form-control" placeholder="objet"
-                            required="required" disabled>--->
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="form_name">Objet D'évaluation</label>
+
                             <p>{{obj.objetevaluation}}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label for="form_name">Date d'evaluation </label>
-                       <!---<input type="text" formControlName="dateevaluation" class="form-control"
-                            placeholder="chourouk derbel" required="required" disabled>--> 
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="form_name">Date d'evaluation </label>
+
                             <p>{{obj.dateevaluation}}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label for="form_name">Décision de la direction</label>
-                       <!--- <input type="text" formControlName="decisiondirection" class="form-control" placeholder="objet"
-                            required="required" disabled>-->
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="form_name">Décision de la direction</label>
+
                             <p>{{obj.decisiondirection}}</p>
+                        </div>
                     </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="form_name">Categorie</label>
+
+                            <p>{{obj.category.label}}</p>
+                        </div>
+                    </div>
+
+
+
                 </div>
 
+                <hr>
+                <div *ngFor="let obj1 of Infoficheevaluations[0].category.competences ">
+                    <h2 class="text-center">{{obj1.label}}</h2>
+                    <table  style="border: 1px solid black; width: 100%; text-align: center; margin-bottom: 50px;"
+                        *ngFor="let obj2 of obj1.souscompetences">
 
+                        <thead class="thead-bordered">
 
+                            <tr class="h5 text-center">
+                                <th colspan="4">{{obj2.label}} </th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr class="text-bold ">
+
+                                <td>num</td>
+                                <td>INDICATEUR DE MESURE</td>
+                                <td>POINTS</td>
+                            </tr>
+                            <!--<tr class="text-bold " *ngFor="let obj6 of Infoficheevaluations[0].category">
+                                <td rowspan="7" class="text-center p-5">{{obj6.label}}</td>
+                            </tr>-->
+                            <tr *ngFor="let obj3 of obj2.indicateursuivis;let a =index">
+                                <th>{{a}}</th>
+                                <td>{{obj3.label}}</td>
+                                <td><select class="form-select" aria-label="Default select example">
+                                        <option selected>Choisir un point</option>
+                                        <option value="1">0</option>
+                                        <option value="2">1</option>
+                                    </select></td>
+                            </tr>
+
+                            <tr class="text-bold text-center">
+                                <td colspan="2">SCORE</td>
+                                <td colspan="2">note</td>
+                            </tr>
+                            <tr class="text-bold text-center"
+                                *ngFor="let obj5 of Infoficheevaluations[0].category.niveauvises">
+                                <td colspan="2">Niveau visé: Niveau 1 /{{obj5.label}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr>
             </div>
-
-            <hr>
-            <table class="table table-bordered justify-content-center" >
-
-                <thead>
-                    <tr class="text-bold text-center" *ngFor="let comp of Infoficheevaluations.Competences;let j =index" >
-                        <th colspan="3"> {{comp.label}}</th>
-                    </tr>
-                    <tr class="text-bold text-center " *ngFor="let souscomp of Infoficheevaluations">
-                        <th colspan="3">{{souscomp.Souscompetences.label}} </th>
-                    </tr>
-
-                </thead>
-                <tbody>
-                    <tr class="text-bold ">
-                        <td>num</td>
-                        <td>INDICATEUR DE MESURE</td>
-                        <td>POINTS</td>
-                    </tr>
-                    <tr class="text-bold " >
-                        <td></td>
-                        <td></td>
-                        <td><select class="form-select" aria-label="Default select example">
-                                <option selected>Choisir un point</option>
-                                <option value="1">0</option>
-                                <option value="2">1</option>
-                            </select></td>
-                    </tr>
-                    <tr class="text-bold text-center">
-                        <td colspan="2">SCORE</td>
-                    </tr>
-                    <tr class="text-bold text-center">
-                        <td colspan="2">Niveau visé: Niveau 1 / Pré-actif</td>
-                    </tr>
-                </tbody>
-            </table>
-            <hr>
         </form>
     </div>
 </div>

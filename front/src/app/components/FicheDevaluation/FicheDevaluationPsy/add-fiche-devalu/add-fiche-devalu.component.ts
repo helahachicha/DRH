@@ -9,6 +9,7 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./add-fiche-devalu.component.scss']
 })
 export class AddFicheDevaluComponent implements OnInit {
+  public Niveauvises
 
   public detailficheForm = new FormGroup({
     nomprenom: new FormControl('', [Validators.required]),
@@ -17,6 +18,7 @@ export class AddFicheDevaluComponent implements OnInit {
     decisiondirection: new FormControl('', [Validators.required]),
     label: new FormControl('', [Validators.required]),
     chargeto: new FormControl('', [Validators.required]),
+    niveauvise_id: new FormControl('', [Validators.required]),
     
   });
   
@@ -26,6 +28,7 @@ export class AddFicheDevaluComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getAllniveau();
   }
   
    adddetailfichedevalu() {
@@ -33,4 +36,12 @@ export class AddFicheDevaluComponent implements OnInit {
       this.router.navigate(['/coutlisting']) 
       })
    }
+
+   getAllniveau() {
+    this.dataService.get('Niveauvises/getAllNiveauvise.json').subscribe(res => {
+      this.Niveauvises = res.data;
+      
+    }
+    )
+  }
 }

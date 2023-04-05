@@ -23,8 +23,8 @@ class ProfilpostesController extends AppController
      * @Output: data : success message
      */
     public function addProfilposte(){
-        $this->loadModel('Detailprofilpostes');
-        $this->loadModel('Indicateursuivis');
+       
+      
 
         $this->request->allowMethod(['post', 'put']);
 
@@ -33,7 +33,7 @@ class ProfilpostesController extends AppController
             $querry=$this->request->getData();
             $data=json_decode($querry['data']); 
             //$data=$this->request->getData();
-        //   debug($data);die;
+     
 
         }
          /* create profilpostes entity */
@@ -42,20 +42,19 @@ class ProfilpostesController extends AppController
             $profilpostes->nom=$data->nom;
            // $profilpostes->poste_id=$data->poste_id;
             $savedProfil=$this->Profilpostes->save($profilpostes);
+
         }
+        $this->loadModel('Detailprofilpostes');
+
            /* create detailprofilpostes entity */
            if(1==1){
             $detailprofilpostes = $this->Detailprofilpostes->newEmptyEntity();
-
+            $detailprofilpostes->profilposte_id=$savedProfil->id;  
             $detailprofilpostes->fonction=$data->fonction;  
             $detailprofilpostes->categorie_id=$data->categorie_id;  
             $detailprofilpostes->superhierar=$data->superhierar;  
             $detailprofilpostes->supervision=$data->supervision;  
             $detailprofilpostes->interim=$data->interim; 
-            foreach ($data->IndicateurArray as $indicateurArray) {
-            $detailprofilpostes->competence_id=$indicateurArray->competence_id;  
-            $detailprofilpostes->niveauvise_id=$indicateurArray->niveauvise_id;  
-            }
             $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
             $detailprofilpostes->fonctionverification=$data->fonctionverification;  
             $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
@@ -63,23 +62,39 @@ class ProfilpostesController extends AppController
             $detailprofilpostes->nomprenomverif=$data->nomprenomverif;  
             $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob; 
             
-           $this->Detailprofilpostes->save($detailprofilpostes); 
-      
+           $savedProfilPoste=$this->Detailprofilpostes->save($detailprofilpostes); 
+       
         }
+     
+        $this->loadModel('Formcompetences');
 
-        /* create Indicateursuivis entity */
-            if (1==1){
-                foreach ($indicateurArray->indicateur as $indic) {
-      
-                    $indicateurs = $this->Indicateursuivis->newEmptyEntity();
-                    $indicateurs->label=$indic->label;
-                    $indicateurs->soucompetence=$indicateurArray->soucompetence;  
+        /* create formcompetences entity */
+           if(1==1){
+            foreach ($data->Formcompetence as $formcomp) {
+             //    debug($data->Formcompetence);die;
+            $formcompetences = $this->Formcompetences->newEmptyEntity();
 
-                    $indicateurs->competence_id=$indicateurArray->competence_id;
-                    $savedProfil=$this->Indicateursuivis->save($indicateurs);
-                }
-               
+            $formcompetences->competence_id=$formcomp->competence_id;  
+            $formcompetences->soucompetence=$formcomp->soucompetence;  
+            $formcompetences->niveauvise_id=$formcomp->niveauvise_id;  
+            $formcompetences->detailprofilposte_id=$savedProfilPoste->id; 
+            $savedFormComp=$this->Formcompetences->save($formcompetences); 
+            $this->loadModel('Indicateursuivis');
+            /* create Indicateursuivis entity */
+                 if (1==1){
+                     foreach ($formcomp->indicateur as $indic) {
+          
+                        $indicateurs = $this->Indicateursuivis->newEmptyEntity();
+                        $indicateurs->label=$indic->label;
+                        $indicateurs->formcompetence_id= $savedFormComp->id;
+                        $savedProfil=$this->Indicateursuivis->save($indicateurs);
+                    }
+                   
+             }
+            }
+        // debug($savedFormComp->id);die;
         }
+      
          /*send result */
         $this->set([
             'success' => true,

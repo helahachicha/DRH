@@ -11,8 +11,9 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class DetailFicheDevaluComponent implements OnInit {
 id:any
 
-public Infoficheevaluations
+ Infoficheevaluations:any=[]
 public open:boolean=false
+
 
 public testForm = new FormGroup({
   nomprenom : new FormControl('', [Validators.required]),
@@ -25,10 +26,8 @@ public testForm = new FormGroup({
   indicateursuivis_id : new FormControl('', [Validators.required]),
   niveauvises_id : new FormControl('', [Validators.required]),
   label: new FormControl('', [Validators.required]),
-
-
-
  });
+
   constructor(
     private dataService:DataService,
     private router :Router,
@@ -43,7 +42,12 @@ public testForm = new FormGroup({
       this.dataService.get('Infoficheevaluations/getInfoficheevaluationByCat.json?id='+id).subscribe(
         res => {
         this.Infoficheevaluations=res.data;  
+        console.log('test',this.Infoficheevaluations[0].category)
       })
-    });  
+    }); 
+    
    }
+
+
+   
   }
