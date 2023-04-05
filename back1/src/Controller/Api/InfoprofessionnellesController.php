@@ -14,51 +14,35 @@ class InfoprofessionnellesController extends AppController
 {
     public function insertInfoprofessionnelle()
     {
-        if ($this->request->is('post')) {
-            $this->request->allowMethod(['post']);
+        $this->request->allowMethod(['post', 'put']);
 
-            $this->request->validate([
-                'daten' => 'required',
-                'lieu' => 'required',
-                'nationalite' => 'required',
-                'ncin' => 'required',
-                'delivreecin' => 'required',
-                'datecin' => 'required',
-                'permis' => 'required',
-                'datepermis' => 'required',
-                'logement' => 'required',
-                'moyentransport' => 'required',
-                'heure' => 'required',
-                'minute' => 'required',
-                'situationfamiliale' => 'required',
-                'datemariedivorce' => 'required',
-            ]);
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            //debug($data);die;
 
-            $user = $this->Infoprofessionnelles->newEmptyEntity();
-
-            $user->daten = $this->request->getData('daten');
-            $user->lieu = $this->request->getData('lieu');
-            $user->nationalite = $this->request->getData('nationalite');
-            $user->ncin = $this->request->getData('ncin');
-            $user->delivreecin = $this->request->getData('delivreecin');
-            $user->datecin = $this->request->getData('datecin');
-            $user->permis = json_encode($this->request->getData('permis'));
-            $user->datepermis = $this->request->getData('datepermis');
-            $user->logement= json_encode($this->request->getData('logement'));
-            $user->moyentransport = json_encode($this->request->getData('moyentransport'));
-            $user->heure = $this->request->getData('heure');
-            $user->minute = $this->request->getData('minute');
-            $user->situationfamiliale= json_encode($this->request->getData('situationfamiliale'));
-            $user->datemariedivorce = $this->request->getData('datemariedivorce');
-
-            if ($this->Infoprofessionnelles->save($user)) {
-                $this->Flash->success(__('Information professionnelle ajoutée avec succès.'));
-            } else {
-                $this->Flash->error(__('Erreur: l\'informationn professionnelle n\'a pas été ajoutée. Veuillez réessayer.'));
-            }
-
-            return $this->redirect(['action' => 'index']);
         }
+         /* create coutformaexternes entity */
+        if (1==1){
+        $coutformaexternes = $this->Coutformaexternes->newEmptyEntity();
+        $coutformaexternes->daten = isset($data['daten_radio']) ? $data['daten_radio'] : $data['daten_text'];
+        $coutformaexternes->tocoformadt = isset($data['tocoformadt_radio']) ? $data['tocoformadt_radio'] : $data['tocoformadt_text'];
+        $coutformaexternes->locaespace = isset($data['locaespace_radio']) ? $data['locaespace_radio'] : $data['locaespace_text'];
+        $coutformaexternes->comax = isset($data['comax_radio']) ? $data['comax_radio'] : $data['comax_text'];
+        $coutformaexternes->tocout = isset($data['tocout_radio']) ? $data['tocout_radio'] : $data['tocout_text'];
+        $coutformaexternes->chargeto = isset($data['chargeto_radio']) ? $data['chargeto_radio'] : $data['chargeto_text'];
+
+            $this->Coutformaexternes->save($coutformaexternes); 
+        }
+       
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
     }
 
 }
