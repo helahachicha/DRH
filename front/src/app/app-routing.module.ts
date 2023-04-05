@@ -33,6 +33,8 @@ import { PublicComponent } from './public/public.component';
 import { DetailFichRensigComponent } from './components/Fiche de rensignement/detail-fich-rensig/detail-fich-rensig.component';
 import { AddficherenComponent } from './components/Fiche de rensignement/addficheren/addficheren.component';
 import { EditficherenComponent } from './components/Fiche de rensignement/editficheren/editficheren.component';
+import { ListingMatriceCompetenceComponent } from './components/Matrice De Competence/listing-matrice-competence/listing-matrice-competence.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -71,7 +73,9 @@ const routes: Routes = [
  // { path: 'detail-fiche-devalu/:id', component:DetailFicheDevaluComponent}
  //]},
   { path: 'edit-fiche-devalu', component:EditFicheDevaluComponent },
-  { path: 'liste-fiche-devalu', component:ListingFicheDevaluComponent }, 
+  { path: 'liste-fiche-devalu', component:ListingFicheDevaluComponent },
+  { path: 'liste-matrice', component:ListingMatriceCompetenceComponent },
+ 
 
 ];
 
