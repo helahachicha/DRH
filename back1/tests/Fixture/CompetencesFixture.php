@@ -21,8 +21,8 @@ class CompetencesFixture extends TestFixture
             [
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
-                'created' => '2023-04-04 11:17:34',
-                'modified' => '2023-04-04 11:17:34',
+                'created' => '2023-04-05 10:20:25',
+                'modified' => '2023-04-05 10:20:25',
             ],
         ];
         parent::init();

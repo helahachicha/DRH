@@ -11,8 +11,6 @@ use Cake\Validation\Validator;
 /**
  * Competences Model
  *
- * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\HasMany $Detailprofilpostes
- * @property \App\Model\Table\IndicateursuivisTable&\Cake\ORM\Association\HasMany $Indicateursuivis
  * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\HasMany $Souscompetences
  *
  * @method \App\Model\Entity\Competence newEmptyEntity()
@@ -49,10 +47,7 @@ class CompetencesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->hasMany('Detailprofilpostes', [
-            'foreignKey' => 'competence_id',
-        ]);
-        $this->hasMany('Indicateursuivis', [
+        $this->hasMany('Formcompetences', [
             'foreignKey' => 'competence_id',
         ]);
         $this->hasMany('Souscompetences', [

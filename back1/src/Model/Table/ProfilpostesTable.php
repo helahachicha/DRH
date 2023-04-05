@@ -55,6 +55,9 @@ class ProfilpostesTable extends Table
         $this->hasMany('Categories', [
             'foreignKey' => 'profilposte_id',
         ]);
+        $this->hasMany('Detailprofilpostes', [
+            'foreignKey' => 'profilposte_id',
+        ]);
     }
 
     /**

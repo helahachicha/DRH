@@ -88,8 +88,8 @@
                                             class="bi bi-plus-square"></i> Ajouter un autre formulaire</button>
                                            
                                     <div class="shadow p-3 mb-5 bg-body rounded">
-                                        <div class="item-box" formArrayName="IndicateurArray"
-                                            *ngFor="let indicateur of indicateurData.controls; let i = index">
+                                        <div class="item-box" formArrayName="Formcompetence"
+                                            *ngFor="let indicateur of FormcompetenceData.controls; let i = index">
                                             <div [formGroupName]="i">
                                                 <button class="btn btn-danger" (click)="removedIndica(i)"><i
                                                     class="bi bi-trash"></i></button>

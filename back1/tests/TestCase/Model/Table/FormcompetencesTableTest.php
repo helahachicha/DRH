@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\DetailprofilpostesTable;
+use App\Model\Table\FormcompetencesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\DetailprofilpostesTable Test Case
+ * App\Model\Table\FormcompetencesTable Test Case
  */
-class DetailprofilpostesTableTest extends TestCase
+class FormcompetencesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\DetailprofilpostesTable
+     * @var \App\Model\Table\FormcompetencesTable
      */
-    protected $Detailprofilpostes;
+    protected $Formcompetences;
 
     /**
      * Fixtures
@@ -24,9 +24,10 @@ class DetailprofilpostesTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Detailprofilpostes',
-        'app.Categories',
         'app.Formcompetences',
+        'app.Competences',
+        'app.Niveauvises',
+        'app.Detailprofilpostes',
     ];
 
     /**
@@ -37,8 +38,8 @@ class DetailprofilpostesTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Detailprofilpostes') ? [] : ['className' => DetailprofilpostesTable::class];
-        $this->Detailprofilpostes = $this->getTableLocator()->get('Detailprofilpostes', $config);
+        $config = $this->getTableLocator()->exists('Formcompetences') ? [] : ['className' => FormcompetencesTable::class];
+        $this->Formcompetences = $this->getTableLocator()->get('Formcompetences', $config);
     }
 
     /**
@@ -48,7 +49,7 @@ class DetailprofilpostesTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Detailprofilpostes);
+        unset($this->Formcompetences);
 
         parent::tearDown();
     }
@@ -57,7 +58,7 @@ class DetailprofilpostesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\DetailprofilpostesTable::validationDefault()
+     * @uses \App\Model\Table\FormcompetencesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -68,7 +69,7 @@ class DetailprofilpostesTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\DetailprofilpostesTable::buildRules()
+     * @uses \App\Model\Table\FormcompetencesTable::buildRules()
      */
     public function testBuildRules(): void
     {

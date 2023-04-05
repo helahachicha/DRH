@@ -16,34 +16,16 @@ export class AddProfilDePosteComponent implements OnInit {
   public Competences
   public Niveauvises
 
-  public profilposteForm= new FormGroup({
-    nom: new FormControl('', [Validators.required]),
-    fonction: new FormControl('', [Validators.required]),
-    categorie_id: new FormControl('', [Validators.required]),
-    superhierar: new FormControl('', [Validators.required]),
-    supervision: new FormControl('', [Validators.required]),
-    interim: new FormControl('', [Validators.required]),
-    competence_id: new FormControl('', [Validators.required]),
-    soucompetence: new FormControl('', [Validators.required]),
-    niveauvise_id: new FormControl('', [Validators.required]),
-    indicateursuivi: new FormControl('', [Validators.required]),
-    fonctionelaboration: new FormControl('', [Validators.required]),
-    fonctionverification: new FormControl('', [Validators.required]),
-    fonctionabrobation: new FormControl('', [Validators.required]),
-    nomprenomelab: new FormControl('', [Validators.required]),
-    nomprenomverif: new FormControl('', [Validators.required]),
-    nomprenomabrob: new FormControl('', [Validators.required]),
-    
-  });
   constructor(
     private dataService:DataService,
     private router :Router,
     public fb: FormBuilder,
 
   ) { }
-  get indicateurData(): FormArray {
-    return <FormArray>this.FormGenerator.get('IndicateurArray');
+  get FormcompetenceData(): FormArray {
+    return <FormArray>this.FormGenerator.get('Formcompetence');
   }
+
   ngOnInit(): void {
    this.getAllCategorie();
    this.getAllcompetence();
@@ -81,11 +63,11 @@ export class AddProfilDePosteComponent implements OnInit {
     )
   }
   addInput() {
-    this.indicateurData.push(this.createIndicateurGroup());
+    this.FormcompetenceData.push(this.createIndicateurGroup());
   }
     
   removedIndica(index) {
-    const Indicateur = this.FormGenerator.get('IndicateurArray') as FormArray
+    const Indicateur = this.FormGenerator.get('Formcompetence') as FormArray
 
     Indicateur.removeAt(index);
 
@@ -104,7 +86,7 @@ export class AddProfilDePosteComponent implements OnInit {
       nomprenomelab: new FormControl('', [Validators.required]),
       nomprenomverif: new FormControl('', [Validators.required]),
       nomprenomabrob: new FormControl('', [Validators.required]),
-      IndicateurArray: this.fb.array([this.createIndicateurGroup()]),
+      Formcompetence: this.fb.array([this.createIndicateurGroup()]),
 
     });
   }
@@ -123,13 +105,13 @@ export class AddProfilDePosteComponent implements OnInit {
     });
   }
   addOptions(i) {
-    const optionsArray = <FormArray>this.indicateurData.at(i).get('indicateur');
+    const optionsArray = <FormArray>this.FormcompetenceData.at(i).get('indicateur');
     optionsArray.push(this.createOption());
   }
 
   removeOptions(i, j) {
    
-      (<FormArray>this.indicateurData.at(i).get('indicateur')).removeAt(j);
+      (<FormArray>this.FormcompetenceData.at(i).get('indicateur')).removeAt(j);
     
     
   }
