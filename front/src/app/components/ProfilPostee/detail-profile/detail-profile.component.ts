@@ -11,7 +11,6 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class DetailProfileComponent implements OnInit {
 
   id: any;
-  public Detailprofilpostes
   public detailpp
   public open:boolean=false
 
@@ -24,6 +23,7 @@ export class DetailProfileComponent implements OnInit {
     categorie_id: new FormControl('', [Validators.required]),
     competence_id: new FormControl('', [Validators.required]),
     niveauvise_id: new FormControl('', [Validators.required]),
+    indicateursuivi_id: new FormControl('', [Validators.required]),
     soucompetence: new FormControl('', [Validators.required]),
     fonctionelaboration: new FormControl('', [Validators.required]),
     fonctionverification: new FormControl('', [Validators.required]),
@@ -39,7 +39,6 @@ export class DetailProfileComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private router: Router,
     private route: ActivatedRoute
   ) { }
 

@@ -233,6 +233,9 @@ class DetailprofilpostesController extends AppController
             'conditions'=>[
                 'detailprofilpostes.categorie_id IS'=>$id,
             ],
+            'contain' => [
+                'Niveauvises', 'Categories','Competences.Indicateursuivis'
+              ],
            
         ])->first();
         
