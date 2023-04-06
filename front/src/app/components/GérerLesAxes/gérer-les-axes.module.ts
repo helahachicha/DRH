@@ -6,10 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddProfilDePosteComponent } from './CreerUnProfilDePoste/add-profil-de-poste/add-profil-de-poste.component';
 import { ListingprofilposteComponent } from './ListeDesProfiles/listingprofilposte/listingprofilposte.component';
+import { ListingTestComponent } from './listing-test/listing-test.component';
 
 
 @NgModule({
-  declarations: [AddProfilDePosteComponent,ListingprofilposteComponent],
+  declarations: [AddProfilDePosteComponent,ListingprofilposteComponent,ListingTestComponent],
   imports: [
     HttpClientModule,
     FormsModule,

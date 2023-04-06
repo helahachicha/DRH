@@ -6,18 +6,11 @@ import { HeaderComponent } from './Layout/header/header.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'header', component: HeaderComponent },
-
-
-
-
-
   //path module profil
   {
     path: 'Detail-profile/:id',
     loadChildren: () => import('./components/ProfilPostee/profil-postee.module').then(m => m.ProfilPosteeModule)
   },
-
-
 
   //Authentification
   {
