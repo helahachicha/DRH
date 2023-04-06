@@ -34,17 +34,20 @@ class ThemeformationsController extends AppController
 
         }
          /* create themeformations entity */
-        if (1==1){
+        if (1==1 and !empty($data->label)){
             $themeformations = $this->Themeformations->newEmptyEntity();
             $themeformations->label=$data->label;  
 
             $this->Themeformations->save($themeformations); 
-        }
+            $message = "Added with success";
+        } else {
+                $message = "Data was empty or did not contain a label property";
+            }
        
          /*send result */
         $this->set([
             'success' => true,
-            'data' =>  "Added with success",
+            'data' =>  $message,
             '_serialize' => ['success', 'data']
         ]);
     

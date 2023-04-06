@@ -144,30 +144,42 @@ class NoteevaluationsController extends AppController
        ]);
     }
 
+    /**
+      * Calcul
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
 
+    public function Calcul() {
 
-    /* function Calcul */
+        $id = $this->request->getQuery('id');
 
-    public function Calcul(){
-
-           /*Calcul Score  */
-
-           $noteevaluations = $this->getNoteevaluationByindisuivi();
-           $indicateursuivis = $this->getIndicateursuiviBySouscomp();
-           $S=0;
-           foreach ($noteevaluations as $noteevaluation) {
-            $S += $point->point;
-        }
-            $noteevaluations = $this->Noteevaluations->count();
+        // Create an instance of indicateursuivis
+        $indicateursuivis = $this->loadComponent('indicateursuivis');
     
-            $moyenne=0;
-            $moyenne=$S/$noteevaluations;
+        // Call the getIndicateursuiviByFormcomp of indicateursuivis
+        $resultIndi = $indicateursuivis->getIndicateursuiviByFormcomp($id);
+
+         // Count the number of elements in $resultIndi
+         $resultIndiCount = count($resultIndi);
+
+
+        // Call the getNoteevaluationByFormcomp 
+        $resultNote = $noteevaluations->getNoteevaluationByFormcomp($id);
+    
+        //Sum of elements in resultNote
+        $resultNoteSum = array_sum($resultNote);
+
+        //Division
+        $score = $resultNoteSum / $resultIndiCount;
+
 
         /*send result */
-
         $this->set([
             'success' => true,
-            'Moyenne' => $moyenne,
+            'Moyenne' => $score,
             '_serialize' => ['success', 'Moyenne']
         ]);
     }
