@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/service/data.service';
 
@@ -11,9 +11,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class DetailFicheDevaluComponent implements OnInit {
 id:any
 
- Infoficheevaluations:any=[]
+ Infoficheevaluations:any[]
 public open:boolean=false
-
 
 public testForm = new FormGroup({
   nomprenom : new FormControl('', [Validators.required]),
@@ -37,17 +36,32 @@ public testForm = new FormGroup({
   ngOnInit(): void {
     //this.getficheById()
     //this.getnomById()
-     this.route.params.subscribe(params => {
+    /* this.route.params.subscribe(params => {
       const id = params['id'];
       this.dataService.get('Infoficheevaluations/getInfoficheevaluationByCat.json?id='+id).subscribe(
         res => {
         this.Infoficheevaluations=res.data;  
-        console.log('test',this.Infoficheevaluations[0].category)
+        console.log('test',this.Infoficheevaluations)
       })
-    }); 
-    
+    });*/
+
+   this.getDetailByCatID()
    }
 
+getDetailByCatID(){
+  this.route.params.subscribe(params => {
+    const id = params['id'];
+    this.dataService.get('Infoficheevaluations/getInfoficheevaluationByCat.json?id=' + id).subscribe(
+      res => {
+        this.Infoficheevaluations = res.data;
+       
+        this.open=true
+        
+        console.log('test',this.Infoficheevaluations[0].category.formcompetences[0].competence)
 
-   
+         
+      })
+  });
+ }
+ 
   }

@@ -54,15 +54,15 @@
                 </div>
 
                 <hr>
-                <div *ngFor="let obj1 of Infoficheevaluations[0].category.competences ">
+                <div *ngFor="let obj1 of Infoficheevaluations[0].category.formcompetences[0].competence">
                     <h2 class="text-center">{{obj1.label}}</h2>
                     <table  style="border: 1px solid black; width: 100%; text-align: center; margin-bottom: 50px;"
-                        *ngFor="let obj2 of obj1.souscompetences">
+                        >
 
                         <thead class="thead-bordered">
 
                             <tr class="h5 text-center">
-                                <th colspan="4">{{obj2.label}} </th>
+                                <th colspan="4"> </th>
                             </tr>
 
                         </thead>
@@ -76,9 +76,9 @@
                             <!--<tr class="text-bold " *ngFor="let obj6 of Infoficheevaluations[0].category">
                                 <td rowspan="7" class="text-center p-5">{{obj6.label}}</td>
                             </tr>-->
-                            <tr *ngFor="let obj3 of obj2.indicateursuivis;let a =index">
-                                <th>{{a}}</th>
-                                <td>{{obj3.label}}</td>
+                            <tr >
+                                <th></th>
+                                <td></td>
                                 <td><select class="form-select" aria-label="Default select example">
                                         <option selected>Choisir un point</option>
                                         <option value="1">0</option>
@@ -91,8 +91,8 @@
                                 <td colspan="2">note</td>
                             </tr>
                             <tr class="text-bold text-center"
-                                *ngFor="let obj5 of Infoficheevaluations[0].category.niveauvises">
-                                <td colspan="2">Niveau visé: Niveau 1 /{{obj5.label}} </td>
+                                >
+                                <td colspan="2">Niveau visé: Niveau 1 /</td>
                             </tr>
                         </tbody>
                     </table>

@@ -15,9 +15,11 @@
                             <div class="controls">
                                 <h3 class="text-center mb-5">Detail profil de poste</h3>
                                 <div class="row">
-                                 
-                                    <button   *ngIf="enabled==false"  type="submit" class="btn btn-primary"  (click)="disableInput()">Edit</button> 
-                                    <button *ngIf="enabled==true" type="submit" class="btn btn-primary"  (click)="disableInput()">Save</button> 
+
+                                    <button *ngIf="enabled==false" type="submit" class="btn btn-primary"
+                                        (click)="disableInput()">Modifier</button>
+                                    <button *ngIf="enabled==true" type="submit" class="btn btn-primary"
+                                        (click)="disableInput()">Enregistrer</button>
                                     <div class="shadow p-3 mb-5 bg-body rounded">
 
                                         <div class="row">
@@ -27,7 +29,8 @@
                                                     <label for="form_name">Nom du profil de poste</label>
                                                     <input type="text" formControlName="nom" class="form-control"
                                                         placeholder="Nom du profil de poste" required="required"
-                                                        [(ngModel)]="detailpp.profilposte.nom" [attr.disabled]="enabled?null:''"/>
+                                                        [(ngModel)]="detailpp.profilposte.nom"
+                                                        [attr.disabled]="enabled?null:''" />
                                                 </div>
                                             </div>
 
@@ -35,7 +38,8 @@
                                                 <div class="form-group">
                                                     <label>Fonction</label>
                                                     <input type="text" class="form-control" required="required"
-                                                        formControlName="fonction" [(ngModel)]="detailpp.fonction" [attr.disabled]="enabled?null:''"/>
+                                                        formControlName="fonction" [(ngModel)]="detailpp.fonction"
+                                                        [attr.disabled]="enabled?null:''" />
                                                 </div>
 
                                             </div>
@@ -46,7 +50,9 @@
 
                                             <div class="col-md-6">
                                                 <label for="staticZone">Catégorie</label>
-                                                <select  [(ngModel)]="detailpp.categorie_id" [attr.disabled]="enabled?null:''" class="form-control" id="exampleFormControlSelect2"
+                                                <select [(ngModel)]="detailpp.categorie_id"
+                                                    [attr.disabled]="enabled?null:''" class="form-control"
+                                                    id="exampleFormControlSelect2"
                                                     placeholder="Veuillez choisir votre competence"
                                                     formControlName="categorie_id">
                                                     <option selected disabled value="">Affecter Catégorie</option>
@@ -57,14 +63,15 @@
                                                     </option>
                                                 </select>
 
-                                               
+
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Supérieur hiérarchique</label>
                                                     <input type="text" class="form-control" required="required"
-                                                        formControlName="superhierar"  [(ngModel)]="detailpp.superhierar" [attr.disabled]="enabled?null:''"/>
+                                                        formControlName="superhierar" [(ngModel)]="detailpp.superhierar"
+                                                        [attr.disabled]="enabled?null:''" />
                                                 </div>
 
                                             </div>
@@ -73,7 +80,8 @@
                                                 <div class="form-group">
                                                     <label>Supervision</label>
                                                     <input type="text" class="form-control" required="required"
-                                                        formControlName="supervision" [(ngModel)]="detailpp.supervision" [attr.disabled]="enabled?null:''"/>
+                                                        formControlName="supervision" [(ngModel)]="detailpp.supervision"
+                                                        [attr.disabled]="enabled?null:''" />
                                                 </div>
 
                                             </div>
@@ -83,27 +91,29 @@
                                                 <div class="form-group">
                                                     <label>Intérim</label>
                                                     <input type="text" class="form-control" required="required"
-                                                        formControlName="interim" [(ngModel)]="detailpp.interim" [attr.disabled]="enabled?null:''"/>
+                                                        formControlName="interim" [(ngModel)]="detailpp.interim"
+                                                        [attr.disabled]="enabled?null:''" />
                                                 </div>
                                             </div>
                                         </div>
 
                                     </div>
-                                   
-                                           
+
+
                                     <div class="shadow p-3 mb-5 bg-body rounded">
                                         <div class="item-box" formArrayName="Formcompetence"
                                             *ngFor="let indicateur of FormcompetenceData.controls; let i = index">
                                             <div [formGroupName]="i">
-                                              
+                                                <h4 class="col-md-3 text-center"> Competence: {{i+1}}</h4>
                                                 <div class="d-flex">
-                                                    <h1>Indicateur: {{i+1}}</h1>
+                                                    
                                                     <div class="row">
 
                                                         <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="staticZone">Competence</label>
-                                                                <select class="form-control" [attr.disabled]="enabled?null:''"
+                                                            <div class="form-group ">
+                                                                <!---<label class="h4" for="staticZone">Competence</label>-->
+                                                                <select class="form-control text-center"
+                                                                    [attr.disabled]="enabled?null:''"
                                                                     id="exampleFormControlSelect2"
                                                                     placeholder="Veuillez choisir votre competence"
                                                                     formControlName="competence_id">
@@ -121,22 +131,24 @@
 
                                                         </div>
 
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="staticZone">Sous Compétence</label>
+                                                                    <input type="text" class="form-control"
+                                                                        required="required" placeholder="SousCompétence"
+                                                                        formControlName="soucompetence"
+                                                                        [attr.disabled]="enabled?null:''">
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="staticZone">Sous Compétence</label>
-                                                                <input type="text" class="form-control"
-                                                                    required="required" placeholder="SousCompétence"
-                                                                    formControlName="soucompetence" [attr.disabled]="enabled?null:''">
-                                                            </div>
-
-                                                        </div>
-
-
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
                                                                 <label for="staticZone">Niveau Visé</label>
-                                                                <select class="form-control" [attr.disabled]="enabled?null:''"
+                                                                <select class="form-control"
+                                                                    [attr.disabled]="enabled?null:''"
                                                                     id="exampleFormControlSelect2"
                                                                     placeholder="Veuillez choisir votre Niveau Visé"
                                                                     formControlName="niveauvise_id">
@@ -153,31 +165,33 @@
                                                             </div>
 
                                                         </div>
-                                                       
+
                                                         <div class="item-box" formArrayName="indicateur"
                                                             *ngFor="let item of indicateur.get('indicateur').controls; let j = index">
                                                             <div [formGroupName]="j">
+                                                                <h5 class="col-md-2">Indicateur: {{j+1}}</h5>
                                                                 <div class="d-flex">
-                                                                    <h1>Indicateur: {{j+1}}</h1>
+                                                                   
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
-                                                                            <label>Indicateur</label>
+                                                                           
                                                                             <input type="text" class="form-control"
                                                                                 required="required"
-                                                                                formControlName="label" [attr.disabled]="enabled?null:''"/>
+                                                                                formControlName="label"
+                                                                                [attr.disabled]="enabled?null:''" />
                                                                         </div>
 
                                                                     </div>
                                                                 </div>
-                                                             
+
                                                             </div>
-                                                  
+
                                                         </div>
-                                                   
+
 
                                                     </div>
                                                 </div>
-                                              
+
                                             </div>
 
                                         </div>
@@ -192,7 +206,9 @@
                                                 <div class="form-group">
                                                     <label>Fonction éloboration</label>
                                                     <input type="text" class="form-control" required="required"
-                                                        formControlName="fonctionelaboration" [(ngModel)]="detailpp.fonctionelaboration" [attr.disabled]="enabled?null:''"/>
+                                                        formControlName="fonctionelaboration"
+                                                        [(ngModel)]="detailpp.fonctionelaboration"
+                                                        [attr.disabled]="enabled?null:''" />
                                                 </div>
 
                                             </div>
@@ -201,7 +217,9 @@
                                                 <div class="form-group">
                                                     <label>Nom & Prenom</label>
                                                     <input type="text" class="form-control" required="required"
-                                                        formControlName="nomprenomelab" [(ngModel)]="detailpp.nomprenomelab" [attr.disabled]="enabled?null:''" />
+                                                        formControlName="nomprenomelab"
+                                                        [(ngModel)]="detailpp.nomprenomelab"
+                                                        [attr.disabled]="enabled?null:''" />
                                                 </div>
 
                                             </div>
@@ -210,7 +228,9 @@
                                                 <div class="form-group">
                                                     <label>Fonction Vérification</label>
                                                     <input type="text" class="form-control" required="required"
-                                                        formControlName="fonctionverification" [(ngModel)]="detailpp.fonctionverification" [attr.disabled]="enabled?null:''"/>
+                                                        formControlName="fonctionverification"
+                                                        [(ngModel)]="detailpp.fonctionverification"
+                                                        [attr.disabled]="enabled?null:''" />
                                                 </div>
 
                                             </div>
@@ -218,7 +238,9 @@
                                                 <div class="form-group">
                                                     <label>Nom & Prenom</label>
                                                     <input type="text" class="form-control" required="required"
-                                                        formControlName="nomprenomverif" [(ngModel)]="detailpp.nomprenomverif" [attr.disabled]="enabled?null:''"/>
+                                                        formControlName="nomprenomverif"
+                                                        [(ngModel)]="detailpp.nomprenomverif"
+                                                        [attr.disabled]="enabled?null:''" />
                                                 </div>
 
                                             </div>
@@ -226,7 +248,9 @@
                                                 <div class="form-group">
                                                     <label>Fonction abrobation</label>
                                                     <input type="text" class="form-control" required="required"
-                                                        formControlName="fonctionabrobation"  [(ngModel)]="detailpp.fonctionabrobation" [attr.disabled]="enabled?null:''" />
+                                                        formControlName="fonctionabrobation"
+                                                        [(ngModel)]="detailpp.fonctionabrobation"
+                                                        [attr.disabled]="enabled?null:''" />
                                                 </div>
 
                                             </div>
@@ -234,7 +258,9 @@
                                                 <div class="form-group">
                                                     <label>Nom & Prenom</label>
                                                     <input type="text" class="form-control" required="required"
-                                                        formControlName="nomprenomabrob"  [(ngModel)]="detailpp.nomprenomabrob"  [attr.disabled]="enabled?null:''"/>
+                                                        formControlName="nomprenomabrob"
+                                                        [(ngModel)]="detailpp.nomprenomabrob"
+                                                        [attr.disabled]="enabled?null:''" />
                                                 </div>
 
                                             </div>
@@ -248,7 +274,7 @@
                                     <div class="d-flex flex-row justify-content-between">
                                         <div class="mt-2 mb-2 end-50">
 
-                                           
+
 
                                         </div>
 
