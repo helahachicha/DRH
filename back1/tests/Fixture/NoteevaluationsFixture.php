@@ -21,9 +21,9 @@ class NoteevaluationsFixture extends TestFixture
             [
                 'id' => 1,
                 'point' => 1,
-                'indicateursuivi_id' => 1,
-                'created' => '2023-03-31 08:10:37',
-                'modified' => '2023-03-31 08:10:37',
+                'formcompetence_id' => 1,
+                'created' => '2023-04-06 09:24:28',
+                'modified' => '2023-04-06 09:24:28',
             ],
         ];
         parent::init();

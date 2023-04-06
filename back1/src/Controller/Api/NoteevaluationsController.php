@@ -98,13 +98,13 @@ class NoteevaluationsController extends AppController
 
 
     /**
-      * getNoteevaluationByindisuivi
+      * getNoteevaluationByFormcomp
       *
       * @Input: id
       *
       * @Output: data
       */
-      public function getNoteevaluationByindisuivi(){
+      public function getNoteevaluationByFormcomp(){
  
         $id = $this->request->getQuery('id');
         
@@ -121,11 +121,9 @@ class NoteevaluationsController extends AppController
          }
 
         $noteevaluations = $this->Noteevaluations->find('all', [
-            'contain' => [
-                'Indicateursuivis'
-            ],
+
             'conditions'=>[
-                'indicateursuivi_id IS'=>$id
+                'formcompetence_id IS'=>$id
             ],
             
            
@@ -147,52 +145,6 @@ class NoteevaluationsController extends AppController
     }
 
 
-    
-    /**
-      * getIndicateursuiviBySouscomp
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-      public function getIndicateursuiviBySouscomp(){
- 
-        $id = $this->request->getQuery('id');
-
-        /* search */
-         if(1==1){
-             if (!isset($id) or empty($id) or $id == null ){
-             throw new UnauthorizedException('Id is Required');
-             }
-
-            if(!is_numeric($id)){
-           throw new UnauthorizedException('Id is not Valid');
-            }
-         }
-
-        $indicateursuivis = $this->Indicateursuivis->find('all', [
-
-            'conditions'=>[
-                'souscompetence_id IS'=>$id
-
-            ],
-           
-           
-        ])->toArray();
-
-        if(empty($indicateursuivis)){
-           throw new UnauthorizedException('Indicateursuivis not found');
-       }
-
-
-       /*send result */
-
-       $this->set([
-           'success' => true,
-           'data' => $indicateursuivis,
-           '_serialize' => ['success', 'data']
-       ]);
-    }
 
     /* function Calcul */
 

@@ -134,7 +134,7 @@ class IndicateursuivisController extends AppController
       *
       * @Output: data
       */
-      public function getIndicateursuiviBySouscomp(){
+      public function getIndicateursuiviByFormcomp(){
  
         $id = $this->request->getQuery('id');
 
@@ -150,12 +150,9 @@ class IndicateursuivisController extends AppController
          }
 
         $indicateursuivis = $this->Indicateursuivis->find('all', [
-            'contain' => [
-                'Souscompetences','Souscompetences.Competences.Categories.Niveauvises'
-            ],
-            
+
             'conditions'=>[
-                'souscompetence_id IS'=>$id
+                'formcompetence_id IS'=>$id
 
             ],
            
