@@ -1,8 +1,7 @@
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { RegisterComponent } from './Authentification/register/register.component';
 import { LoginComponent } from './Authentification/login/login.component';
 import { HeaderComponent } from './Layout/header/header.component';
@@ -10,42 +9,25 @@ import { FooterComponent } from './Layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
-import { AddformaComponent } from './components/formaexternes/addforma/addforma.component';
 import { ForgetpasswordComponent } from './Authentification/forgetpassword/forgetpassword.component';
-
-import { AddcoutComponent } from './components/CoutFormation/addcout/addcout.component';
-
-import { FormalistingComponent } from './components/formaexternes/formalisting/formalisting.component';
-import { EditcoutComponent } from './components/CoutFormation/editcout/editcout.component';
-import { CoutlistingComponent } from './components/CoutFormation/coutlisting/coutlisting.component';
-import { EditformaComponent } from './components/formaexternes/editforma/editforma.component';
-import { AddformainterneComponent } from './components/FormationInternes/addformainterne/addformainterne.component';
-import { EditformainterneComponent } from './components/FormationInternes/editformainterne/editformainterne.component';
-import { ListingformainterneComponent } from './components/FormationInternes/listingformainterne/listingformainterne.component';
 import { HomeComponent } from './Home/home/home.component';
 import { SidebarComponent } from './Layout/sidebar/sidebar.component';
-import { EditficherenComponent } from './components/Fiche de rensignement/editficheren/editficheren.component';
-import { ListingficherenComponent } from './components/Fiche de rensignement/listingficheren/listingficheren.component';
-import { AddficherenComponent } from './components/Fiche de rensignement/addficheren/addficheren.component';
 import { PublicComponent } from './public/public.component';
-import { AddProfilDePosteComponent } from './components/GérerLesAxes/CreerUnProfilDePoste/add-profil-de-poste/add-profil-de-poste.component';
-import { DetailProfileComponent } from './components/ProfilPostee/detail-profile/detail-profile.component';
-import { EditProfilComponent } from './components/ProfilPostee/edit-profil/edit-profil.component';
-import { ListingthemeformaComponent } from './components/GérerLesAxes/Théme de formation/listingthemeforma/listingthemeforma.component';
-import { AddthemedeformationComponent } from './components/GérerLesAxes/Théme de formation/addthemedeformation/addthemedeformation.component';
-import { EditTestComponent } from './components/FicheDevaluation/TestTechnique/edit-test/edit-test.component';
-import { ListingTestComponent } from './components/FicheDevaluation/TestTechnique/listing-test/listing-test.component';
-import { DetailTestComponent } from './components/FicheDevaluation/TestTechnique/detail-test/detail-test.component';
 import { CommonModule } from '@angular/common';
-import { AddTestComponent } from './components/FicheDevaluation/TestTechnique/add-test/add-test.component';
-import { ListingprofilposteComponent } from './components/GérerLesAxes/ListeDesProfiles/listingprofilposte/listingprofilposte.component';
-import { ListingFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/listing-fiche-devalu/listing-fiche-devalu.component';
-import { DetailFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/detail-fiche-devalu/detail-fiche-devalu.component';
-import { EditFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/edit-fiche-devalu/edit-fiche-devalu.component';
-import { AddFicheDevaluComponent } from './components/FicheDevaluation/FicheDevaluationPsy/add-fiche-devalu/add-fiche-devalu.component';
-import { DetailFichRensigComponent } from './components/Fiche de rensignement/detail-fich-rensig/detail-fich-rensig.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ListingMatriceCompetenceComponent } from './components/Matrice De Competence/listing-matrice-competence/listing-matrice-competence.component';
+import { FormationsModule } from './components/formations/formations.module';
+import { GérerLesAxesModule } from './components/GérerLesAxes/gérer-les-axes.module';
+import { PersonnelsModule } from './components/personnels/personnels.module';
+import { ProfilPosteeModule } from './components/ProfilPostee/profil-postee.module';
+import { FicheDevaluationModule } from './components/personnels/FicheDevaluation/fiche-devaluation.module';
+import { TestTechniqueModule } from './components/personnels/FicheDevaluation/TestTechnique/test-technique.module';
+import { FicheDevaluationPsyModule } from './components/personnels/FicheDevaluation/FicheDevaluationPsy/fiche-devaluation-psy.module';
+import { FicheDeRensignementModule } from './components/personnels/Fiche de rensignement/fiche-de-rensignement.module';
+import { ThémeDeFormationModule } from './components/GérerLesAxes/Théme de formation/théme-de-formation.module';
+import { FormationInternesModule } from './components/formations/FormationInternes/formation-internes.module';
+import { FormaexternesModule } from './components/formations/formaexternes/formaexternes.module';
+import { CoutFormationModule } from './components/formations/CoutFormation/cout-formation.module';
+import { AuthentificationModule } from './Authentification/authentification.module';
 
 
 
@@ -53,51 +35,18 @@ import { ListingMatriceCompetenceComponent } from './components/Matrice De Compe
 
 @NgModule({
   declarations: [
-    AppComponent,
-    RegisterComponent,
-    LoginComponent,
+    AppComponent,   
     HeaderComponent,
     FooterComponent,
-    AddformaComponent,
-    ForgetpasswordComponent,
-   
-    AddcoutComponent,
-    
-    FormalistingComponent,
-    EditcoutComponent,
-    CoutlistingComponent,
-    EditformaComponent,
-    AddformainterneComponent,
-    EditformainterneComponent,
-    ListingformainterneComponent,
     HomeComponent,
     SidebarComponent,
-    EditficherenComponent,
-    ListingficherenComponent,
-    AddficherenComponent,
     PublicComponent,
-    AddProfilDePosteComponent,
-    DetailProfileComponent,
-    EditProfilComponent,
-    ListingthemeformaComponent,
-    AddthemedeformationComponent,
-    EditTestComponent,
-    ListingTestComponent,
-    DetailTestComponent,
-    AddTestComponent,
-    ListingprofilposteComponent,
-    ListingFicheDevaluComponent,
-    DetailFicheDevaluComponent,
-    EditFicheDevaluComponent,
-    AddFicheDevaluComponent,
-    DetailFichRensigComponent,
-
     DashboardComponent,
-      ListingMatriceCompetenceComponent,
-    
-    
-   
-   
+
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -106,13 +55,26 @@ import { ListingMatriceCompetenceComponent } from './components/Matrice De Compe
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    CommonModule
-    
+    CommonModule,
+    FormationsModule,
+    GérerLesAxesModule,
+    PersonnelsModule,
+    ProfilPosteeModule,
+    FicheDevaluationModule,
+    TestTechniqueModule,
+    FicheDevaluationPsyModule,
+    FicheDeRensignementModule,
+    ThémeDeFormationModule,
+    FormationInternesModule,
+    FormaexternesModule,
+    CoutFormationModule,
+    AuthentificationModule
+
 
   ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [
-    CUSTOM_ELEMENTS_SCHEMA   ]
+    CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

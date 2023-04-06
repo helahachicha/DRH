@@ -54,15 +54,15 @@
                 </div>
 
                 <hr>
-                <div *ngFor="let obj1 of Infoficheevaluations[0].category.formcompetences[0].competence">
-                    <h2 class="text-center">{{obj1.label}}</h2>
+                <div >
+                    <h2 class="text-center"></h2>
                     <table  style="border: 1px solid black; width: 100%; text-align: center; margin-bottom: 50px;"
                         >
 
-                        <thead class="thead-bordered">
+                        <thead class="thead-bordered" >
 
-                            <tr class="h5 text-center">
-                                <th colspan="4"> </th>
+                            <tr class="h5 text-center" *ngFor="let obj1 of Infoficheevaluations[0].category.formcompetences[0].competence">
+                                <th colspan="4"> {{obj1.label}}</th>
                             </tr>
 
                         </thead>
@@ -90,9 +90,8 @@
                                 <td colspan="2">SCORE</td>
                                 <td colspan="2">note</td>
                             </tr>
-                            <tr class="text-bold text-center"
-                                >
-                                <td colspan="2">Niveau visé: Niveau 1 /</td>
+                            <tr class="text-bold text-center" *ngFor="let obj1 of Infoficheevaluations[0].category.niveauvises" >
+                                <td colspan="2">Niveau visé: Niveau 1 /{{obj1.label}}</td>
                             </tr>
                         </tbody>
                     </table>
