@@ -57,6 +57,9 @@ class CategoriesTable extends Table
         $this->hasMany('Niveauvises', [
             'foreignKey' => 'categorie_id',
         ]);
+        $this->hasMany('Formcompetences', [
+            'foreignKey' => 'categorie_id',
+        ]);
     }
 
     /**
