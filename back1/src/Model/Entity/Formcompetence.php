@@ -12,7 +12,6 @@ use Cake\ORM\Entity;
  * @property int $competence_id
  * @property string $soucompetence
  * @property int $niveauvise_id
- * @property int $categorie_id
  * @property int $detailprofilposte_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -38,7 +37,6 @@ class Formcompetence extends Entity
         'competence_id' => true,
         'soucompetence' => true,
         'niveauvise_id' => true,
-        'categorie_id' => true,
         'detailprofilposte_id' => true,
         'created' => true,
         'modified' => true,
