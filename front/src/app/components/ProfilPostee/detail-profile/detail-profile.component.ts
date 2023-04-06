@@ -36,23 +36,43 @@ export class DetailProfileComponent implements OnInit {
     this.getDetailByCatID();
   }
 
- getDetailByCatID(){
-  this.route.params.subscribe(params => {
-    const id = params['id'];
-    this.dataService.get('Detailprofilpostes/getDetailppByCat.json?id=' + id).subscribe(
-      res => {
-        this.detailpp = res.data;
-        let formcompetences=  res.data.formcompetences
-        this.open=true
-        
-        console.log(this.detailpp)
-
-         formcompetences.forEach(element => {
-           this.addInput(element);
-         });
-      })
-  });
- }
+  getDetailByCatID(){
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      this.dataService.get('Detailprofilpostes/getDetailppByCat.json?id=' + id).subscribe(
+        res => {
+          this.detailpp = res.data;
+          let formcompetences = res.data.formcompetences;
+          this.open=true;
+          console.log(this.detailpp)
+          // affecter les valeurs aux champs de saisie
+          this.FormGenerator.patchValue({
+            nom: this.detailpp.nom,
+            fonction: this.detailpp.fonction,
+            categorie_id: this.detailpp.categorie_id,
+            superhierar: this.detailpp.superhierar,
+            supervision: this.detailpp.supervision,
+            interim: this.detailpp.interim,
+            fonctionelaboration: this.detailpp.fonctionelaboration,
+            fonctionverification: this.detailpp.fonctionverification,
+            fonctionabrobation: this.detailpp.fonctionabrobation,
+            nomprenomelab: this.detailpp.nomprenomelab,
+            nomprenomverif: this.detailpp.nomprenomverif,
+            nomprenomabrob: this.detailpp.nomprenomabrob
+          });
+          
+          // supprimer les anciens champs de saisie
+          while (this.FormcompetenceData.length !== 0) {
+            this.FormcompetenceData.removeAt(0);
+          }
+          
+          // ajouter les champs de saisie avec les valeurs récupérées
+          formcompetences.forEach(element => {
+            this.FormcompetenceData.push(this.createIndicateurGroup(element));
+          });
+        });
+    });
+  }
   getAllCategorie() {
     this.dataService.get('Categories/getAllCategorie.json').subscribe(res => {
       this.Categories = res.data;

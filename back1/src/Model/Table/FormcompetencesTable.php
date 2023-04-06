@@ -13,7 +13,6 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
  * @property \App\Model\Table\NiveauvisesTable&\Cake\ORM\Association\BelongsTo $Niveauvises
- * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
  * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
  * @property \App\Model\Table\IndicateursuivisTable&\Cake\ORM\Association\HasMany $Indicateursuivis
  *
@@ -59,10 +58,6 @@ class FormcompetencesTable extends Table
             'foreignKey' => 'niveauvise_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Categories', [
-            'foreignKey' => 'categorie_id',
-            'joinType' => 'INNER',
-        ]);
         $this->belongsTo('Detailprofilpostes', [
             'foreignKey' => 'detailprofilposte_id',
             'joinType' => 'INNER',
@@ -95,10 +90,6 @@ class FormcompetencesTable extends Table
             ->notEmptyString('niveauvise_id');
 
         $validator
-            ->integer('categorie_id')
-            ->notEmptyString('categorie_id');
-
-        $validator
             ->integer('detailprofilposte_id')
             ->notEmptyString('detailprofilposte_id');
 
@@ -116,7 +107,6 @@ class FormcompetencesTable extends Table
     {
         $rules->add($rules->existsIn('competence_id', 'Competences'), ['errorField' => 'competence_id']);
         $rules->add($rules->existsIn('niveauvise_id', 'Niveauvises'), ['errorField' => 'niveauvise_id']);
-        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
         $rules->add($rules->existsIn('detailprofilposte_id', 'Detailprofilpostes'), ['errorField' => 'detailprofilposte_id']);
 
         return $rules;

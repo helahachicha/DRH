@@ -15,6 +15,9 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Profilposte $profilposte
+ * @property \App\Model\Entity\Competence[] $competences
+ * @property \App\Model\Entity\Niveauvise[] $niveauvises
+ * @property \App\Model\Entity\Formcompetence[] $formcompetences
  */
 class Category extends Entity
 {

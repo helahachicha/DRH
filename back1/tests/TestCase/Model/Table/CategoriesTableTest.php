@@ -26,6 +26,9 @@ class CategoriesTableTest extends TestCase
     protected $fixtures = [
         'app.Categories',
         'app.Profilpostes',
+        'app.Competences',
+        'app.Niveauvises',
+        'app.Formcompetences',
     ];
 
     /**
