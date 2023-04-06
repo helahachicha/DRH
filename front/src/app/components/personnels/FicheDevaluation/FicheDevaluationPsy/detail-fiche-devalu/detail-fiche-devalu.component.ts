@@ -57,7 +57,7 @@ getDetailByCatID(){
        
         this.open=true
         
-        console.log('test',this.Infoficheevaluations[0].category.formcompetences[0].competence)
+        console.log('test',this.Infoficheevaluations[0].category.niveauvises)
 
          
       })
