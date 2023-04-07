@@ -11,7 +11,7 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class DetailFicheDevaluComponent implements OnInit {
 id:any
 
- Infoficheevaluations:any[]
+ public Infoficheevaluations
 public open:boolean=false
 
 public testForm = new FormGroup({
@@ -45,19 +45,19 @@ public testForm = new FormGroup({
       })
     });*/
 
-   this.getDetailByCatID()
+   this.getDetailByEmpID()
    }
 
-getDetailByCatID(){
+getDetailByEmpID(){
   this.route.params.subscribe(params => {
     const id = params['id'];
-    this.dataService.get('Infoficheevaluations/getInfoficheevaluationByCat.json?id=' + id).subscribe(
+    this.dataService.get('Infoficheevaluations/getInfoficheevaluationByEmployeId.json?id=' + id).subscribe(
       res => {
         this.Infoficheevaluations = res.data;
        
         this.open=true
         
-        console.log('test',this.Infoficheevaluations[0].category.niveauvises)
+        console.log('test',this.Infoficheevaluations)
 
          
       })
