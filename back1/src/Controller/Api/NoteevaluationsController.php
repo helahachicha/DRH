@@ -18,7 +18,7 @@ class NoteevaluationsController extends AppController
      *
      * @Input:
      *         data:
-     *          point (String) *Required
+     *          point_id (Int) *Required
      *          indicateursuivi_id (Int) *Required
      *         
      * @Output: data : success message
@@ -38,7 +38,7 @@ class NoteevaluationsController extends AppController
          /* create noteevaluations entity */
         if (1==1){
             $noteevaluations = $this->Noteevaluations->newEmptyEntity();
-            $noteevaluations->point=$data->point;
+            $noteevaluations->point_id=$data->point;
             $noteevaluations->indicateursuivi_id=$data->indicateursuivi_id;   
 
             $this->Noteevaluations->save($noteevaluations); 
@@ -48,47 +48,6 @@ class NoteevaluationsController extends AppController
         $this->set([
             'success' => true,
             'data' =>  "Added with success",
-            '_serialize' => ['success', 'data']
-        ]);
-    
-    }
-
-
-    /**
-     * editNoteevaluation
-     *
-     * @Input:
-     *         data:
-     *          point (String) *Required
-     *          indicateursuivi_id (Int) *Required
-     * 
-     * @Output: data : success message
-     */
-    public function editNoteevaluation(){
-        
-        $this->request->allowMethod(['post', 'put']);
-
-        /* format data */
-        if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-            //debug ($data);die;
-        }
-
-        $id=$this->request->getQuery('id');
-        $noteevaluations=$this->Noteevaluations->get($id);
-         /* create noteevaluations entity */
-        if (1==1){
-            $noteevaluations->point=$data->point;
-            $noteevaluations->indicateursuivi_id=$data->indicateursuivi_id;     
-
-            $this->Noteevaluations->save($noteevaluations); 
-        }
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' =>  "Updated with success",
             '_serialize' => ['success', 'data']
         ]);
     
@@ -125,7 +84,9 @@ class NoteevaluationsController extends AppController
             'conditions'=>[
                 'formcompetence_id IS'=>$id
             ],
-            
+            'contain'=>[
+                'Points'
+            ],
            
            
         ])->toArray();
@@ -175,6 +136,7 @@ class NoteevaluationsController extends AppController
         //Division
         $score = $resultNoteSum / $resultIndiCount;
 
+        debug($score);die;
 
         /*send result */
         $this->set([

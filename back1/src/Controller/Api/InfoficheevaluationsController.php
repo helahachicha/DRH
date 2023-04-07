@@ -19,11 +19,11 @@ class InfoficheevaluationsController extends AppController
      *
      * @Input:
      *         data:
-     *          nomprenom (String) *Required
+     *   
      *          objetevaluation(String) *Required
      *          dateevaluation (Date) *Required
      *          decisiondirection (String) *Required
-     *          categorie_id(Int) *Required
+     *          employe_id(Int) *Required
      *         
      * @Output: data : success message
      */

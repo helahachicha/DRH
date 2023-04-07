@@ -25,7 +25,7 @@ class PointsTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Points',
-        'app.Infoprofessionnelles',
+        'app.Noteevaluations',
     ];
 
     /**
@@ -59,17 +59,6 @@ class PointsTableTest extends TestCase
      * @uses \App\Model\Table\PointsTable::validationDefault()
      */
     public function testValidationDefault(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     * @uses \App\Model\Table\PointsTable::buildRules()
-     */
-    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

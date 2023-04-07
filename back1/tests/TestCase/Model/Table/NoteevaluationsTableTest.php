@@ -25,6 +25,7 @@ class NoteevaluationsTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Noteevaluations',
+        'app.Points',
         'app.Formcompetences',
     ];
 

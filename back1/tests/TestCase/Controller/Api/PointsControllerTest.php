@@ -23,6 +23,7 @@ class PointsControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Points',
+        'app.Noteevaluations',
     ];
 
     /**

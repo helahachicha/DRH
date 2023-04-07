@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 07 avr. 2023 à 10:52
+-- Généré le : ven. 07 avr. 2023 à 12:23
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -181,7 +181,7 @@ INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie_id`, `profilposte
 CREATE TABLE `employes` (
   `id` int(11) NOT NULL,
   `nomprenom` varchar(255) NOT NULL,
-  `formcompetence_id` int(11) NOT NULL,
+  `detailprofilposte_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -190,7 +190,7 @@ CREATE TABLE `employes` (
 -- Déchargement des données de la table `employes`
 --
 
-INSERT INTO `employes` (`id`, `nomprenom`, `formcompetence_id`, `created`, `modified`) VALUES
+INSERT INTO `employes` (`id`, `nomprenom`, `detailprofilposte_id`, `created`, `modified`) VALUES
 (1, 'bilel', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
 (2, 'chourouk', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
 (3, 'hela', 2, '2023-04-07 09:59:32', '2023-04-07 09:59:32');
@@ -467,7 +467,7 @@ INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`)
 
 CREATE TABLE `noteevaluations` (
   `id` int(11) NOT NULL,
-  `point` int(11) NOT NULL,
+  `point_id` int(11) NOT NULL,
   `formcompetence_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -477,13 +477,34 @@ CREATE TABLE `noteevaluations` (
 -- Déchargement des données de la table `noteevaluations`
 --
 
-INSERT INTO `noteevaluations` (`id`, `point`, `formcompetence_id`, `created`, `modified`) VALUES
-(1, 0, 1, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
+INSERT INTO `noteevaluations` (`id`, `point_id`, `formcompetence_id`, `created`, `modified`) VALUES
+(1, 2, 1, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
 (2, 1, 1, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
-(3, 0, 1, '2023-03-30 13:07:56', '2023-03-30 13:07:56'),
+(3, 2, 1, '2023-03-30 13:07:56', '2023-03-30 13:07:56'),
 (4, 1, 2, '2023-04-06 11:34:50', '2023-04-06 11:34:50'),
 (5, 1, 2, '2023-04-06 11:34:50', '2023-04-06 11:34:50'),
-(6, 0, 2, '2023-04-06 11:34:50', '2023-04-06 11:34:50');
+(6, 2, 2, '2023-04-06 11:34:50', '2023-04-06 11:34:50');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `points`
+--
+
+CREATE TABLE `points` (
+  `id` int(11) NOT NULL,
+  `label` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `points`
+--
+
+INSERT INTO `points` (`id`, `label`, `created`, `modified`) VALUES
+(1, 0, '2023-04-07 12:14:02', '2023-04-07 12:14:02'),
+(2, 1, '2023-04-07 12:14:02', '2023-04-07 12:14:02');
 
 -- --------------------------------------------------------
 
@@ -784,6 +805,12 @@ ALTER TABLE `noteevaluations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `points`
+--
+ALTER TABLE `points`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `postes`
 --
 ALTER TABLE `postes`
@@ -918,6 +945,12 @@ ALTER TABLE `niveauvises`
 --
 ALTER TABLE `noteevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `points`
+--
+ALTER TABLE `points`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `postes`
