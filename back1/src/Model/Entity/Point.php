@@ -6,18 +6,16 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Noteevaluation Entity
+ * Point Entity
  *
  * @property int $id
- * @property int $point_id
- * @property int $formcompetence_id
+ * @property int $label
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Point $point
- * @property \App\Model\Entity\Formcompetence $formcompetence
+ * @property \App\Model\Entity\Noteevaluation[] $noteevaluations
  */
-class Noteevaluation extends Entity
+class Point extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -29,11 +27,9 @@ class Noteevaluation extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'point_id' => true,
-        'formcompetence_id' => true,
+        'label' => true,
         'created' => true,
         'modified' => true,
-        'point' => true,
-        'formcompetence' => true,
+        'noteevaluations' => true,
     ];
 }

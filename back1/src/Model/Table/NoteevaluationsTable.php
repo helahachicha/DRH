@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Noteevaluations Model
  *
+ * @property \App\Model\Table\PointsTable&\Cake\ORM\Association\BelongsTo $Points
  * @property \App\Model\Table\FormcompetencesTable&\Cake\ORM\Association\BelongsTo $Formcompetences
  *
  * @method \App\Model\Entity\Noteevaluation newEmptyEntity()
@@ -47,6 +48,10 @@ class NoteevaluationsTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Points', [
+            'foreignKey' => 'point_id',
+            'joinType' => 'INNER',
+        ]);
         $this->belongsTo('Formcompetences', [
             'foreignKey' => 'formcompetence_id',
             'joinType' => 'INNER',
@@ -62,9 +67,8 @@ class NoteevaluationsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('point')
-            ->requirePresence('point', 'create')
-            ->notEmptyString('point');
+            ->integer('point_id')
+            ->notEmptyString('point_id');
 
         $validator
             ->integer('formcompetence_id')
@@ -82,6 +86,7 @@ class NoteevaluationsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
+        $rules->add($rules->existsIn('point_id', 'Points'), ['errorField' => 'point_id']);
         $rules->add($rules->existsIn('formcompetence_id', 'Formcompetences'), ['errorField' => 'formcompetence_id']);
 
         return $rules;
