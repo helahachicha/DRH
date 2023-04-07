@@ -36,20 +36,31 @@ class InfoficheevaluationsController extends AppController
             $querry=$this->request->getData();
             $data=json_decode($querry['data']); 
             //$data=$this->request->getData();
-            //debug($data);die;
+          //  debug($data);
 
-        }
+        }     
+        $this->loadModel('Employes');
+
+        /* create infoficheevaluations entity */
+        if (1==1){
+         $employes = $this->Employes->newEmptyEntity(); 
+         $employes->nomprenom=$data->nomprenom;  
+        
+
+         $savedEmployes=$this->Employes->save($employes); 
+     }
          /* create infoficheevaluations entity */
         if (1==1){
             $infoficheevaluations = $this->Infoficheevaluations->newEmptyEntity(); 
             $infoficheevaluations->objetevaluation=$data->objetevaluation;  
             $infoficheevaluations->dateevaluation=$data->dateevaluation;  
             $infoficheevaluations->decisiondirection=$data->decisiondirection;  
-            $infoficheevaluations->employe_id=$data->employe_id;  
+            $infoficheevaluations->employe_id=$savedEmployes->id;  
 
             $this->Infoficheevaluations->save($infoficheevaluations); 
         }
        
+  
          /*send result */
         $this->set([
             'success' => true,
