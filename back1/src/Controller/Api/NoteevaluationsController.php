@@ -145,4 +145,33 @@ class NoteevaluationsController extends AppController
             '_serialize' => ['success', 'Moyenne']
         ]);
     }
+
+    public function caluculPoint()
+    {
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']); 
+            //$data=$this->request->getData();
+            debug($data);die;
+
+        }
+         /* create noteevaluations entity */
+        if (1==1){
+            $noteevaluations = $this->Noteevaluations->newEmptyEntity();
+            $noteevaluations->point_id=$data->point_id;
+            $noteevaluations->indicateursuivi_id=$data->indicateursuivi_id;    
+
+            $this->Noteevaluations->save($noteevaluations); 
+        }
+       
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    }
 }

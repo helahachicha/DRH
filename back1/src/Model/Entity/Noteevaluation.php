@@ -10,12 +10,12 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $point_id
- * @property int $formcompetence_id
+ * @property int $indicateursuivi_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Point $point
- * @property \App\Model\Entity\Formcompetence $formcompetence
+ * @property \App\Model\Entity\Indicateursuivi $indicateursuivi
  */
 class Noteevaluation extends Entity
 {
@@ -30,10 +30,10 @@ class Noteevaluation extends Entity
      */
     protected $_accessible = [
         'point_id' => true,
-        'formcompetence_id' => true,
+        'indicateursuivi_id' => true,
         'created' => true,
         'modified' => true,
         'point' => true,
-        'formcompetence' => true,
+        'indicateursuivi' => true,
     ];
 }

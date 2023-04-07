@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 07 avr. 2023 à 12:23
+-- Généré le : ven. 07 avr. 2023 à 12:56
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -468,7 +468,7 @@ INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`)
 CREATE TABLE `noteevaluations` (
   `id` int(11) NOT NULL,
   `point_id` int(11) NOT NULL,
-  `formcompetence_id` int(11) NOT NULL,
+  `indicateursuivi_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -477,13 +477,13 @@ CREATE TABLE `noteevaluations` (
 -- Déchargement des données de la table `noteevaluations`
 --
 
-INSERT INTO `noteevaluations` (`id`, `point_id`, `formcompetence_id`, `created`, `modified`) VALUES
+INSERT INTO `noteevaluations` (`id`, `point_id`, `indicateursuivi_id`, `created`, `modified`) VALUES
 (1, 2, 1, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
-(2, 1, 1, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
-(3, 2, 1, '2023-03-30 13:07:56', '2023-03-30 13:07:56'),
-(4, 1, 2, '2023-04-06 11:34:50', '2023-04-06 11:34:50'),
-(5, 1, 2, '2023-04-06 11:34:50', '2023-04-06 11:34:50'),
-(6, 2, 2, '2023-04-06 11:34:50', '2023-04-06 11:34:50');
+(2, 1, 2, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
+(3, 2, 3, '2023-03-30 13:07:56', '2023-03-30 13:07:56'),
+(4, 1, 4, '2023-04-06 11:34:50', '2023-04-06 11:34:50'),
+(5, 1, 5, '2023-04-06 11:34:50', '2023-04-06 11:34:50'),
+(6, 2, 6, '2023-04-06 11:34:50', '2023-04-06 11:34:50');
 
 -- --------------------------------------------------------
 

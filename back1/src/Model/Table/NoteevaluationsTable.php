@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
  * Noteevaluations Model
  *
  * @property \App\Model\Table\PointsTable&\Cake\ORM\Association\BelongsTo $Points
- * @property \App\Model\Table\FormcompetencesTable&\Cake\ORM\Association\BelongsTo $Formcompetences
+ * @property \App\Model\Table\IndicateursuivisTable&\Cake\ORM\Association\BelongsTo $Indicateursuivis
  *
  * @method \App\Model\Entity\Noteevaluation newEmptyEntity()
  * @method \App\Model\Entity\Noteevaluation newEntity(array $data, array $options = [])
@@ -52,8 +52,8 @@ class NoteevaluationsTable extends Table
             'foreignKey' => 'point_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Formcompetences', [
-            'foreignKey' => 'formcompetence_id',
+        $this->belongsTo('Indicateursuivis', [
+            'foreignKey' => 'indicateursuivi_id',
             'joinType' => 'INNER',
         ]);
     }
@@ -71,8 +71,8 @@ class NoteevaluationsTable extends Table
             ->notEmptyString('point_id');
 
         $validator
-            ->integer('formcompetence_id')
-            ->notEmptyString('formcompetence_id');
+            ->integer('indicateursuivi_id')
+            ->notEmptyString('indicateursuivi_id');
 
         return $validator;
     }
@@ -87,7 +87,7 @@ class NoteevaluationsTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('point_id', 'Points'), ['errorField' => 'point_id']);
-        $rules->add($rules->existsIn('formcompetence_id', 'Formcompetences'), ['errorField' => 'formcompetence_id']);
+        $rules->add($rules->existsIn('indicateursuivi_id', 'Indicateursuivis'), ['errorField' => 'indicateursuivi_id']);
 
         return $rules;
     }
