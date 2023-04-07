@@ -13,7 +13,7 @@ use App\Controller\AppController;
  */
 class FormcompetencesController extends AppController
 {
-    /**
+    /****
       * getFormcompetencebyDetailppId
       *
       * @Input: id
@@ -43,8 +43,7 @@ class FormcompetencesController extends AppController
 
             ],
             'contain' => [
-                'Competences','Niveauvises',
-                'Indicateursuivis'
+                'Competences','Niveauvises','Indicateursuivis'
               ],
     
         ])->toArray();
