@@ -65,6 +65,9 @@ class FormcompetencesTable extends Table
         $this->hasMany('Indicateursuivis', [
             'foreignKey' => 'formcompetence_id',
         ]);
+        $this->hasMany('Noteevaluations', [
+            'foreignKey' => 'formcompetence_id',
+        ]);
     }
 
     /**

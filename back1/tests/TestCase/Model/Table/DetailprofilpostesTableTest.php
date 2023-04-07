@@ -26,7 +26,8 @@ class DetailprofilpostesTableTest extends TestCase
     protected $fixtures = [
         'app.Detailprofilpostes',
         'app.Categories',
-        'app.Niveauvises',
+        'app.Profilpostes',
+        'app.Formcompetences',
     ];
 
     /**

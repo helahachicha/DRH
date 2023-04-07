@@ -12,7 +12,8 @@ use Cake\Validation\Validator;
  * Detailprofilpostes Model
  *
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
- * @property \App\Model\Table\NiveauvisesTable&\Cake\ORM\Association\BelongsTo $Niveauvises
+ * @property \App\Model\Table\ProfilpostesTable&\Cake\ORM\Association\BelongsTo $Profilpostes
+ * @property \App\Model\Table\FormcompetencesTable&\Cake\ORM\Association\HasMany $Formcompetences
  *
  * @method \App\Model\Entity\Detailprofilposte newEmptyEntity()
  * @method \App\Model\Entity\Detailprofilposte newEntity(array $data, array $options = [])
@@ -55,6 +56,9 @@ class DetailprofilpostesTable extends Table
         $this->belongsTo('Profilpostes', [
             'foreignKey' => 'profilposte_id',
             'joinType' => 'INNER',
+        ]);
+        $this->hasMany('Employes', [
+            'foreignKey' => 'detailprofilposte_id',
         ]);
         $this->hasMany('Formcompetences', [
             'foreignKey' => 'detailprofilposte_id',

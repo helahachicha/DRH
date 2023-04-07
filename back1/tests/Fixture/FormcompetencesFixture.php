@@ -24,8 +24,8 @@ class FormcompetencesFixture extends TestFixture
                 'soucompetence' => 'Lorem ipsum dolor sit amet',
                 'niveauvise_id' => 1,
                 'detailprofilposte_id' => 1,
-                'created' => '2023-04-06 08:52:19',
-                'modified' => '2023-04-06 08:52:19',
+                'created' => '2023-04-07 09:45:29',
+                'modified' => '2023-04-07 09:45:29',
             ],
         ];
         parent::init();

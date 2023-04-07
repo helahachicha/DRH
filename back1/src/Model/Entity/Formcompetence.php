@@ -18,7 +18,6 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Competence $competence
  * @property \App\Model\Entity\Niveauvise $niveauvise
- * @property \App\Model\Entity\Category $category
  * @property \App\Model\Entity\Detailprofilposte $detailprofilposte
  * @property \App\Model\Entity\Indicateursuivi[] $indicateursuivis
  */
@@ -42,7 +41,6 @@ class Formcompetence extends Entity
         'modified' => true,
         'competence' => true,
         'niveauvise' => true,
-        'category' => true,
         'detailprofilposte' => true,
         'indicateursuivis' => true,
     ];

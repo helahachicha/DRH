@@ -25,6 +25,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Category $category
+ * @property \App\Model\Entity\Profilposte $profilposte
  * @property \App\Model\Entity\Formcompetence[] $formcompetences
  */
 class Detailprofilposte extends Entity
@@ -54,6 +55,7 @@ class Detailprofilposte extends Entity
         'created' => true,
         'modified' => true,
         'category' => true,
+        'profilposte' => true,
         'formcompetences' => true,
     ];
 }
