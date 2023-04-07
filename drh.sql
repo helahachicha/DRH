@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 07 avr. 2023 à 12:56
+-- Généré le : ven. 07 avr. 2023 à 13:50
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -181,7 +181,7 @@ INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie_id`, `profilposte
 CREATE TABLE `employes` (
   `id` int(11) NOT NULL,
   `nomprenom` varchar(255) NOT NULL,
-  `detailprofilposte_id` int(11) NOT NULL,
+  `categorie_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -190,7 +190,7 @@ CREATE TABLE `employes` (
 -- Déchargement des données de la table `employes`
 --
 
-INSERT INTO `employes` (`id`, `nomprenom`, `detailprofilposte_id`, `created`, `modified`) VALUES
+INSERT INTO `employes` (`id`, `nomprenom`, `categorie_id`, `created`, `modified`) VALUES
 (1, 'bilel', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
 (2, 'chourouk', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
 (3, 'hela', 2, '2023-04-07 09:59:32', '2023-04-07 09:59:32');

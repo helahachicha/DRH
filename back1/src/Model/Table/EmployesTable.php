@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Employes Model
  *
- * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
+ * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
  * @property \App\Model\Table\InfoficheevaluationsTable&\Cake\ORM\Association\HasMany $Infoficheevaluations
  *
  * @method \App\Model\Entity\Employe newEmptyEntity()
@@ -48,8 +48,8 @@ class EmployesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Detailprofilpostes', [
-            'foreignKey' => 'detailprofilposte_id',
+        $this->belongsTo('Categories', [
+            'foreignKey' => 'categorie_id',
             'joinType' => 'INNER',
         ]);
         $this->hasMany('Infoficheevaluations', [
@@ -72,8 +72,8 @@ class EmployesTable extends Table
             ->notEmptyString('nomprenom');
 
         $validator
-            ->integer('detailprofilposte_id')
-            ->notEmptyString('detailprofilposte_id');
+            ->integer('categorie_id')
+            ->notEmptyString('categorie_id');
 
         return $validator;
     }
@@ -87,7 +87,7 @@ class EmployesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('detailprofilposte_id', 'Detailprofilpostes'), ['errorField' => 'detailprofilposte_id']);
+        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
 
         return $rules;
     }

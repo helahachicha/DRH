@@ -21,9 +21,9 @@ class EmployesFixture extends TestFixture
             [
                 'id' => 1,
                 'nomprenom' => 'Lorem ipsum dolor sit amet',
-                'detailprofilposte_id' => 1,
-                'created' => '2023-04-07 09:45:40',
-                'modified' => '2023-04-07 09:45:40',
+                'categorie_id' => 1,
+                'created' => '2023-04-07 11:50:01',
+                'modified' => '2023-04-07 11:50:01',
             ],
         ];
         parent::init();
