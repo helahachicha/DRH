@@ -41,11 +41,11 @@ class InfoficheevaluationsController extends AppController
         }     
         $this->loadModel('Employes');
 
-        /* create infoficheevaluations entity */
+        /* create employes entity */
         if (1==1){
          $employes = $this->Employes->newEmptyEntity(); 
          $employes->nomprenom=$data->nomprenom;  
-        
+         $employes->categorie_id=$data->categorie_id;  
 
          $savedEmployes=$this->Employes->save($employes); 
      }
