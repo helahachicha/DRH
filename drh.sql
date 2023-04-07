@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 06 avr. 2023 à 14:49
+-- Généré le : ven. 07 avr. 2023 à 10:03
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -175,6 +175,29 @@ INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie_id`, `profilposte
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `employes`
+--
+
+CREATE TABLE `employes` (
+  `id` int(11) NOT NULL,
+  `nomprenom` varchar(255) NOT NULL,
+  `detailprofilposte_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `employes`
+--
+
+INSERT INTO `employes` (`id`, `nomprenom`, `detailprofilposte_id`, `created`, `modified`) VALUES
+(1, 'bilel', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
+(2, 'chourouk', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
+(3, 'hela', 2, '2023-04-07 09:59:32', '2023-04-07 09:59:32');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `formaexternes`
 --
 
@@ -246,7 +269,6 @@ CREATE TABLE `formcompetences` (
   `competence_id` int(11) NOT NULL,
   `soucompetence` varchar(255) NOT NULL,
   `niveauvise_id` int(11) NOT NULL,
-  `categorie_id` int(11) NOT NULL,
   `detailprofilposte_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -256,40 +278,40 @@ CREATE TABLE `formcompetences` (
 -- Déchargement des données de la table `formcompetences`
 --
 
-INSERT INTO `formcompetences` (`id`, `competence_id`, `soucompetence`, `niveauvise_id`, `categorie_id`, `detailprofilposte_id`, `created`, `modified`) VALUES
-(1, 1, '', 1, 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(2, 2, 'GESTION DE TEMPS & PRIORITÉS', 1, 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(3, 3, 'GEEK', 1, 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(4, 3, 'AUTODÉTERMINATION ', 1, 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(5, 3, 'POSITIVITÉ', 1, 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(6, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 1, 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(7, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 1, 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(8, 3, 'RÉSOLUTION DE PROBLÈMES', 1, 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(9, 3, 'SERVICES D’EXCELLENCE  ', 1, 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(10, 1, '', 2, 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(11, 2, 'GESTION DE TEMPS & PRIORITÉS', 2, 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(12, 3, 'Autonomie', 2, 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(13, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 2, 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(14, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 2, 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(15, 3, 'RÉSOLUTION DES PROBLÈMES', 2, 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(16, 3, 'SERVICE D’EXCELLENCE ', 2, 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(17, 3, 'RAISONNEMENT CONCEPTUEL ', 2, 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(18, 1, '', 3, 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(19, 2, 'GESTION DE TEMPS & PRIORITÉS', 3, 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(20, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 3, 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(21, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(22, 3, 'RÉSOLUTION DES PROBLÈMES', 3, 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(23, 3, 'SERVICE D’EXCELLENCE ', 3, 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(24, 3, 'RAISONNEMENT CONCEPTUEL ', 3, 3, 3, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(25, 3, 'LEADERSHIP', 3, 3, 3, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(26, 1, '', 4, 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(27, 2, 'GESTION DE TEMPS & PRIORITÉS', 4, 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(28, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 4, 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(29, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 4, 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(30, 3, 'RÉSOLUTION DES PROBLÈMES', 4, 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(31, 3, 'RAISONNEMENT ANALYTIQUE ', 4, 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(32, 3, 'LEADERSHIP', 4, 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(33, 3, 'SOUTIEN AU DÉVELOPPEMENT DES AUTRES', 4, 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04');
+INSERT INTO `formcompetences` (`id`, `competence_id`, `soucompetence`, `niveauvise_id`, `detailprofilposte_id`, `created`, `modified`) VALUES
+(1, 1, '', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
+(2, 2, 'GESTION DE TEMPS & PRIORITÉS', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
+(3, 3, 'GEEK', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
+(4, 3, 'AUTODÉTERMINATION ', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
+(5, 3, 'POSITIVITÉ', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
+(6, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
+(7, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
+(8, 3, 'RÉSOLUTION DE PROBLÈMES', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
+(9, 3, 'SERVICES D’EXCELLENCE  ', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
+(10, 1, '', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(11, 2, 'GESTION DE TEMPS & PRIORITÉS', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(12, 3, 'Autonomie', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(13, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(14, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(15, 3, 'RÉSOLUTION DES PROBLÈMES', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(16, 3, 'SERVICE D’EXCELLENCE ', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(17, 3, 'RAISONNEMENT CONCEPTUEL ', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(18, 1, '', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(19, 2, 'GESTION DE TEMPS & PRIORITÉS', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(20, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(21, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(22, 3, 'RÉSOLUTION DES PROBLÈMES', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(23, 3, 'SERVICE D’EXCELLENCE ', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
+(24, 3, 'RAISONNEMENT CONCEPTUEL ', 3, 3, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
+(25, 3, 'LEADERSHIP', 3, 3, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
+(26, 1, '', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
+(27, 2, 'GESTION DE TEMPS & PRIORITÉS', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
+(28, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
+(29, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
+(30, 3, 'RÉSOLUTION DES PROBLÈMES', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
+(31, 3, 'RAISONNEMENT ANALYTIQUE ', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
+(32, 3, 'LEADERSHIP', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
+(33, 3, 'SOUTIEN AU DÉVELOPPEMENT DES AUTRES', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04');
 
 -- --------------------------------------------------------
 
@@ -397,11 +419,10 @@ INSERT INTO `indicateursuivis` (`id`, `label`, `formcompetence_id`, `created`, `
 
 CREATE TABLE `infoficheevaluations` (
   `id` int(11) NOT NULL,
-  `nomprenom` varchar(255) NOT NULL,
   `objetevaluation` varchar(255) NOT NULL,
   `dateevaluation` varchar(255) NOT NULL,
   `decisiondirection` varchar(255) NOT NULL,
-  `categorie_id` int(11) NOT NULL,
+  `employe_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -410,9 +431,9 @@ CREATE TABLE `infoficheevaluations` (
 -- Déchargement des données de la table `infoficheevaluations`
 --
 
-INSERT INTO `infoficheevaluations` (`id`, `nomprenom`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `categorie_id`, `created`, `modified`) VALUES
-(1, 'Ghaddhab Bilel', 'test', 'test', 'test', 1, '2023-03-30 22:20:26', '2023-03-30 22:20:26'),
-(2, 'chourouk', 'test', 'test', 'test', 1, '2023-04-03 10:59:45', '2023-04-03 10:59:45');
+INSERT INTO `infoficheevaluations` (`id`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `employe_id`, `created`, `modified`) VALUES
+(1, 'test', 'test', 'test', 1, '2023-03-30 22:20:26', '2023-03-30 22:20:26'),
+(2, 'test', 'test', 'test', 1, '2023-04-03 10:59:45', '2023-04-03 10:59:45');
 
 -- --------------------------------------------------------
 
@@ -715,6 +736,12 @@ ALTER TABLE `detailprofilpostes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `employes`
+--
+ALTER TABLE `employes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `formaexternes`
 --
 ALTER TABLE `formaexternes`
@@ -843,6 +870,12 @@ ALTER TABLE `departements`
 --
 ALTER TABLE `detailprofilpostes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `employes`
+--
+ALTER TABLE `employes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `formaexternes`

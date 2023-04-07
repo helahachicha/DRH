@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Infoficheevaluations Model
  *
- * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
+ * @property \App\Model\Table\EmployesTable&\Cake\ORM\Association\BelongsTo $Employes
  *
  * @method \App\Model\Entity\Infoficheevaluation newEmptyEntity()
  * @method \App\Model\Entity\Infoficheevaluation newEntity(array $data, array $options = [])
@@ -47,8 +47,8 @@ class InfoficheevaluationsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Categories', [
-            'foreignKey' => 'categorie_id',
+        $this->belongsTo('Employes', [
+            'foreignKey' => 'employe_id',
             'joinType' => 'INNER',
         ]);
     }
@@ -61,12 +61,6 @@ class InfoficheevaluationsTable extends Table
      */
     public function validationDefault(Validator $validator): Validator
     {
-        $validator
-            ->scalar('nomprenom')
-            ->maxLength('nomprenom', 255)
-            ->requirePresence('nomprenom', 'create')
-            ->notEmptyString('nomprenom');
-
         $validator
             ->scalar('objetevaluation')
             ->maxLength('objetevaluation', 255)
@@ -86,8 +80,8 @@ class InfoficheevaluationsTable extends Table
             ->notEmptyString('decisiondirection');
 
         $validator
-            ->integer('categorie_id')
-            ->notEmptyString('categorie_id');
+            ->integer('employe_id')
+            ->notEmptyString('employe_id');
 
         return $validator;
     }
@@ -101,7 +95,7 @@ class InfoficheevaluationsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
+        $rules->add($rules->existsIn('employe_id', 'Employes'), ['errorField' => 'employe_id']);
 
         return $rules;
     }

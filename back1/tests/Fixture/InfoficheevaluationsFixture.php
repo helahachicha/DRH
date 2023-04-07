@@ -20,13 +20,12 @@ class InfoficheevaluationsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'nomprenom' => 'Lorem ipsum dolor sit amet',
                 'objetevaluation' => 'Lorem ipsum dolor sit amet',
                 'dateevaluation' => 'Lorem ipsum dolor sit amet',
                 'decisiondirection' => 'Lorem ipsum dolor sit amet',
-                'categorie_id' => 1,
-                'created' => '2023-04-05 09:33:00',
-                'modified' => '2023-04-05 09:33:00',
+                'employe_id' => 1,
+                'created' => '2023-04-07 08:02:31',
+                'modified' => '2023-04-07 08:02:31',
             ],
         ];
         parent::init();

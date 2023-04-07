@@ -157,7 +157,7 @@ class NoteevaluationsController extends AppController
         $id = $this->request->getQuery('id');
 
         // Create an instance of indicateursuivis
-        $indicateursuivis = $this->loadComponent('indicateursuivis');
+        $indicateursuivis = $this->loadComponent('Indicateursuivis');
     
         // Call the getIndicateursuiviByFormcomp of indicateursuivis
         $resultIndi = $indicateursuivis->getIndicateursuiviByFormcomp($id);

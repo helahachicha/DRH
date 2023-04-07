@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\InfoficheevaluationsTable;
+use App\Model\Table\EmployesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\InfoficheevaluationsTable Test Case
+ * App\Model\Table\EmployesTable Test Case
  */
-class InfoficheevaluationsTableTest extends TestCase
+class EmployesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\InfoficheevaluationsTable
+     * @var \App\Model\Table\EmployesTable
      */
-    protected $Infoficheevaluations;
+    protected $Employes;
 
     /**
      * Fixtures
@@ -24,8 +24,9 @@ class InfoficheevaluationsTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Infoficheevaluations',
         'app.Employes',
+        'app.Detailprofilpostes',
+        'app.Infoficheevaluations',
     ];
 
     /**
@@ -36,8 +37,8 @@ class InfoficheevaluationsTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Infoficheevaluations') ? [] : ['className' => InfoficheevaluationsTable::class];
-        $this->Infoficheevaluations = $this->getTableLocator()->get('Infoficheevaluations', $config);
+        $config = $this->getTableLocator()->exists('Employes') ? [] : ['className' => EmployesTable::class];
+        $this->Employes = $this->getTableLocator()->get('Employes', $config);
     }
 
     /**
@@ -47,7 +48,7 @@ class InfoficheevaluationsTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Infoficheevaluations);
+        unset($this->Employes);
 
         parent::tearDown();
     }
@@ -56,7 +57,7 @@ class InfoficheevaluationsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\InfoficheevaluationsTable::validationDefault()
+     * @uses \App\Model\Table\EmployesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +68,7 @@ class InfoficheevaluationsTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\InfoficheevaluationsTable::buildRules()
+     * @uses \App\Model\Table\EmployesTable::buildRules()
      */
     public function testBuildRules(): void
     {
