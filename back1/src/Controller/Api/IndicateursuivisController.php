@@ -29,7 +29,7 @@ class IndicateursuivisController extends AppController
         /* search */
         $indicateursuivis = $this->Indicateursuivis->find('all',[
             'contain' => [
-                'Souscompetences'
+                'Formcompetences', 'Formcompetences.Competences','Formcompetences.Niveauvises'
             ]
         ]);
  
