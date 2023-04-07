@@ -13,7 +13,6 @@ import { ListingFicheDevaluComponent } from './listing-fiche-devalu/listing-fich
 @NgModule({
   declarations: [AddFicheDevaluComponent,DetailFicheDevaluComponent,EditFicheDevaluComponent,ListingFicheDevaluComponent],
   imports: [
-    CommonModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

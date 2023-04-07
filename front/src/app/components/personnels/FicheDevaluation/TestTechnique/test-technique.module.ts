@@ -13,7 +13,6 @@ import { EditTestComponent } from './edit-test/edit-test.component';
 @NgModule({
   declarations: [AddTestComponent,DetailTestComponent,EditTestComponent],
   imports: [
-    CommonModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
