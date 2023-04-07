@@ -44,7 +44,7 @@ export class DetailProfileComponent implements OnInit {
           this.detailpp = res.data;
           let formcompetences = res.data.formcompetences;
           this.open=true;
-          console.log(this.detailpp)
+         // console.log(this.detailpp)
           // affecter les valeurs aux champs de saisie
           this.FormGenerator.patchValue({
             nom: this.detailpp.nom,
@@ -161,11 +161,9 @@ export class DetailProfileComponent implements OnInit {
   }
 
   enabled: boolean = false;
-
   disableInput(): void {
     this.enabled =! this.enabled ;
   }
-
   // enable input box
   enableInput(): void {
     this.enabled = true;

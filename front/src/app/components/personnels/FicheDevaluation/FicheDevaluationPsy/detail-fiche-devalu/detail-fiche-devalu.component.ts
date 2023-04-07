@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/service/data.service';
 
@@ -13,39 +13,24 @@ id:any
 
  public Infoficheevaluations
 public open:boolean=false
+public Formcompetences
+public FormGenerator: FormGroup;
 
-public testForm = new FormGroup({
-  nomprenom : new FormControl('', [Validators.required]),
-  objetevaluation : new FormControl('', [Validators.required]),
-  dateevaluation : new FormControl('', [Validators.required]),
-  decisiondirection : new FormControl('', [Validators.required]),
-  categorie_id : new FormControl('', [Validators.required]),
-  competence_id : new FormControl('', [Validators.required]),
-  souscompetence_id : new FormControl('', [Validators.required]),
-  indicateursuivis_id : new FormControl('', [Validators.required]),
-  niveauvises_id : new FormControl('', [Validators.required]),
-  label: new FormControl('', [Validators.required]),
- });
+
+get FormcompetenceData(): FormArray {
+  return <FormArray>this.FormGenerator.get('Formcompetence');
+}
 
   constructor(
     private dataService:DataService,
-    private router :Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    public fb: FormBuilder,
   ) { }
 
-  ngOnInit(): void {
-    //this.getficheById()
-    //this.getnomById()
-    /* this.route.params.subscribe(params => {
-      const id = params['id'];
-      this.dataService.get('Infoficheevaluations/getInfoficheevaluationByCat.json?id='+id).subscribe(
-        res => {
-        this.Infoficheevaluations=res.data;  
-        console.log('test',this.Infoficheevaluations)
-      })
-    });*/
-
+  ngOnInit(): void {  
    this.getDetailByEmpID()
+   this.getFormcompetencebyDetailppId(),
+   this.createForm();
    }
 
 getDetailByEmpID(){
@@ -57,11 +42,79 @@ getDetailByEmpID(){
        
         this.open=true
         
-        console.log('test',this.Infoficheevaluations)
+       // console.log('test',this.Infoficheevaluations)
+
+         
+      })
+  });
+ }
+
+ 
+ getFormcompetencebyDetailppId(){
+  this.route.params.subscribe(params => {
+    const id = params['id'];
+    this.dataService.get('Formcompetences/getFormcompetencebyDetailppId.json?id=' + id).subscribe(
+      res => {
+        this.Formcompetences = res.data;
+       
+        this.open=true
+        
+        console.log('comp',this.Formcompetences)
 
          
       })
   });
  }
  
+
+
+ addInput(element) {
+  this.FormcompetenceData.push(this.createIndicateurGroup(element));
+}
+  
+removedIndica(index) {
+  const Indicateur = this.FormGenerator.get('Formcompetence') as FormArray
+
+  Indicateur.removeAt(index);
+
+}
+createForm() {
+  this.FormGenerator = this.fb.group({
+    nomprenom: new FormControl('', [Validators.required]),
+    objetevaluation: new FormControl('', [Validators.required]),
+    dateevaluation: new FormControl('', [Validators.required]),
+    decisiondirection: new FormControl('', [Validators.required]),
+    competence_id: new FormControl('', [Validators.required]),
+    soucompetence: new FormControl('', [Validators.required]),
+    niveauvise_id: new FormControl('', [Validators.required]),
+    Formcompetence: this.fb.array([]),
+
+  });
+
+}
+createIndicateurGroup(element): FormGroup {
+  return this.fb.group({
+    indicateur: this.fb.array(element.indicateursuivis && Array.isArray(element.indicateursuivis) ?
+    element.indicateursuivis.map(data => this.createOption(data.id, data.label)) : [])
+  })
+}
+createOption(id:string,label:string): FormGroup {
+  return this.fb.group({
+    id: [id, [Validators.required]],
+    label: [label, [Validators.required]],
+
+  });
+}
+addOptions(i) {
+  const optionsArray = <FormArray>this.FormcompetenceData.at(i).get('indicateur');
+  optionsArray.push(this.createOption('',null));
+}
+
+removeOptions(i, j) {
+ 
+    (<FormArray>this.FormcompetenceData.at(i).get('indicateur')).removeAt(j);
+  
+  
+}
+
   }
