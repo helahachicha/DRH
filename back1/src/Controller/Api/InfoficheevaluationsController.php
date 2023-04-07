@@ -115,7 +115,7 @@ class InfoficheevaluationsController extends AppController
       *
       * @Output: data
       */
-      public function getInfoficheevaluationByCat(){
+      public function getInfoficheevaluationByEmployeId(){
  
         $id = $this->request->getQuery('id');
 
@@ -134,13 +134,11 @@ class InfoficheevaluationsController extends AppController
 
         $infoficheevaluations = $this->Infoficheevaluations->find('all', [
             'conditions'=>[
-                'infoficheevaluations.id IS'=>$id
+                'infoficheevaluations.employe_id IS'=>$id
 
             ],
             'contain' => [
-                'Categories.Formcompetences.Competences', 
-                'Categories.Formcompetences.Indicateursuivis' , 'Categories.Niveauvises'
-               
+                'Employee'
             ],
             
            
