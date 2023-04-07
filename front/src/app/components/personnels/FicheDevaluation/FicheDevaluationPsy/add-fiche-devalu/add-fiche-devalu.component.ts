@@ -10,6 +10,7 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class AddFicheDevaluComponent implements OnInit {
   public Niveauvises
+  public Categories
 
   public ficheForm = new FormGroup({
     nomprenom: new FormControl('', [Validators.required]),
@@ -24,6 +25,7 @@ export class AddFicheDevaluComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getAllCategorie()
     
   }
   
@@ -34,5 +36,10 @@ export class AddFicheDevaluComponent implements OnInit {
       })
    }
 
-   
+   getAllCategorie() {
+    this.dataService.get('Categories/getAllCategorie.json').subscribe(res => {
+      this.Categories = res.data;
+    }
+    )
+  }
 }
