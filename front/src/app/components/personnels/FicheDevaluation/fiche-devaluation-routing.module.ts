@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
-    path: 'detail-test',
+    path: 'detail-test/:id',
     loadChildren: () => import('./TestTechnique/test-technique.module').then(m => m.TestTechniqueModule)
   },
   {
