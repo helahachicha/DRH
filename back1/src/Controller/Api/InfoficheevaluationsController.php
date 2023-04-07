@@ -133,13 +133,15 @@ class InfoficheevaluationsController extends AppController
          
 
         $infoficheevaluations = $this->Infoficheevaluations->find('all', [
+           
+            'contain' => [
+                'Employes'
+            ], 
             'conditions'=>[
                 'infoficheevaluations.employe_id IS'=>$id
 
             ],
-            'contain' => [
-                'Employee'
-            ],
+           
             
            
            

@@ -10,11 +10,11 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $nomprenom
- * @property int $formcompetence_id
+ * @property int $detailprofilposte_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Formcompetence $formcompetence
+ * @property \App\Model\Entity\Detailprofilposte $detailprofilposte
  * @property \App\Model\Entity\Infoficheevaluation[] $infoficheevaluations
  */
 class Employe extends Entity
@@ -30,10 +30,10 @@ class Employe extends Entity
      */
     protected $_accessible = [
         'nomprenom' => true,
-        'formcompetence_id' => true,
+        'detailprofilposte_id' => true,
         'created' => true,
         'modified' => true,
-        'formcompetence' => true,
+        'detailprofilposte' => true,
         'infoficheevaluations' => true,
     ];
 }

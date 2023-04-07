@@ -8,8 +8,8 @@
 
 
     <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded">
-        <form id="contact-form" role="form" [formGroup]="testForm">
-            <div >
+        
+            <div *ngFor="let obj of Infoficheevaluations;let i =index">
                 <hr>
                 <div class="row justify-content-center">
 
@@ -17,37 +17,31 @@
                         <div class="form-group">
                             <label for="form_name">Nom et Prenom </label>
 
-                            <p></p>
+                            <p>{{obj.employe.nomprenom}}</p>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="form-group">
                             <label for="form_name">Objet D'évaluation</label>
 
-                            <p></p>
+                            <p>{{obj.objetevaluation}}</p>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="form-group">
                             <label for="form_name">Date d'evaluation </label>
 
-                            <p></p>
+                            <p>{{obj.dateevaluation}}</p>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="form-group">
                             <label for="form_name">Décision de la direction</label>
 
-                            <p></p>
+                            <p>{{obj.decisiondirection}}</p>
                         </div>
                     </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label for="form_name">Categorie</label>
-
-                            <p></p>
-                        </div>
-                    </div>
+                    
 
 
 
@@ -62,9 +56,11 @@
                         <thead class="thead-bordered" >
 
                             <tr class="h5 text-center" >
-                                <th colspan="4"> </th>
+                                <th colspan="4"> compatence</th>
                             </tr>
-
+                            <tr class="h5 text-center" >
+                                <th colspan="3"> sous competence    </th>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr class="text-bold ">
@@ -73,9 +69,7 @@
                                 <td>INDICATEUR DE MESURE</td>
                                 <td>POINTS</td>
                             </tr>
-                            <!--<tr class="text-bold " *ngFor="let obj6 of Infoficheevaluations[0].category">
-                                <td rowspan="7" class="text-center p-5">{{obj6.label}}</td>
-                            </tr>-->
+                            
                             <tr >
                                 <th></th>
                                 <td></td>
@@ -99,6 +93,6 @@
 
                 <hr>
             </div>
-        </form>
+     
     </div>
 </div>
