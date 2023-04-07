@@ -17,6 +17,7 @@ export class AddFicheDevaluComponent implements OnInit {
     objetevaluation: new FormControl('', [Validators.required]),
     dateevaluation: new FormControl('', [Validators.required]),
     decisiondirection: new FormControl('', [Validators.required]),
+    categorie_id: new FormControl('', [Validators.required]),
   });
   
   constructor(
