@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 07 avr. 2023 à 13:50
+-- Généré le : sam. 08 avr. 2023 à 23:04
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -171,6 +171,33 @@ INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie_id`, `profilposte
 (2, 'Ingénieur Recherche & Développement', 2, 1, 'Gérant', 'Développeur Senior', 'Développeur Senior', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-05 23:27:20', '2023-04-05 23:27:20'),
 (3, 'Ingénieur Recherche & Développement', 3, 1, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-05 23:27:20', '2023-04-05 23:27:20'),
 (4, 'Ingénieur Recherche & Développement', 4, 1, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-05 23:30:22', '2023-04-05 23:30:22');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `echelleevaluations`
+--
+
+CREATE TABLE `echelleevaluations` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `abreviation` varchar(255) NOT NULL,
+  `valeur` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `echelleevaluations`
+--
+
+INSERT INTO `echelleevaluations` (`id`, `label`, `abreviation`, `valeur`, `created`, `modified`) VALUES
+(1, 'Non évalué', 'Ne', 0, '2023-04-08 17:32:46', '2023-04-08 17:32:46'),
+(2, 'Non acquis', 'D', 10, '2023-04-08 17:32:46', '2023-04-08 17:32:46'),
+(3, 'En cours d’acquisition', 'C', 25, '2023-04-08 17:32:46', '2023-04-08 17:32:46'),
+(4, 'Presque acquis', 'B', 50, '2023-04-08 17:32:46', '2023-04-08 17:32:46'),
+(5, 'Acquis ', 'A', 75, '2023-04-08 17:32:46', '2023-04-08 17:32:46'),
+(6, 'Bien acquis', 'A+', 100, '2023-04-08 17:32:46', '2023-04-08 17:32:46');
 
 -- --------------------------------------------------------
 
@@ -434,6 +461,91 @@ CREATE TABLE `infoficheevaluations` (
 INSERT INTO `infoficheevaluations` (`id`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `employe_id`, `created`, `modified`) VALUES
 (1, 'test', 'test', 'test', 1, '2023-03-30 22:20:26', '2023-03-30 22:20:26'),
 (2, 'test', 'test', 'test', 1, '2023-04-03 10:59:45', '2023-04-03 10:59:45');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `matricecompetences`
+--
+
+CREATE TABLE `matricecompetences` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `abreviation` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `matricecompetences`
+--
+
+INSERT INTO `matricecompetences` (`id`, `label`, `abreviation`, `created`, `modified`) VALUES
+(1, 'Gestion de temps & priorités', 'GTP', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(2, 'Communication interactive efficace', 'CIE', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(3, 'Travail en équipe & collaboration', 'TEC\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(4, 'Résolution de problème', 'RP\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(5, 'Service d’excellence', 'SE\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(6, 'Raisonnement conceptuel\r\n', 'RC\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(7, 'Leadership\r\n', 'LP\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(8, 'Capacité en coaching \r\n', 'CC', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(9, 'Esprit analytique\r\n', 'EA', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(10, 'Évaluer & gérer les risques \r\n', 'GER\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(11, 'Etat d’esprit axé sur la croissance\r\n', 'EEAC\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(12, 'souci de la qualité & de détail\r\n', 'SQ\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(13, 'Impact & influence\r\n', 'IM\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(14, 'Esprit de décision \r\n', 'ED', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(15, 'Adaptabilité & flexibilité\r\n', 'AF', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(16, 'Créativité & innovation\r\n', 'CI', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(17, 'Orientation stratégique\r\n', 'OS', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(18, 'Compétence algorithmique\r\n', 'CA', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(19, 'Connaissance de l’architecture de développement orienté objet \r\n', 'OO\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(20, 'Une bonne maîtrise du SQL\r\n', 'SQL\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(21, 'Maîtrise fonctionnel', 'MF', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(22, 'Maîtrise technique odoo\r\n', 'MT\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(23, 'Maîtrise une autre technologie\r\n', 'MTC\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(24, 'Esprit d’analyse\r\n', 'EA', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(25, 'Esprit de synthèse\r\n', 'ES', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(26, 'Esprit logique \r\n', 'EL', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(27, 'Connaissance métier consultance fonctionnelle\r\n', '', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(28, 'Compétence rédactionnelle (guide utilisateur)\r\n', '', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(29, 'Etabli cahier de charge client \r\n', '', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(30, 'Rédaction des scénarios test \r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(31, 'Estimation mise en place standard\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(32, 'Architecture fonctionnelle\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(33, 'Analyse de la rentabilité projet \r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(34, 'Compréhension système management qualité \r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(35, 'Élaboration des documents qualité\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(36, 'Audit interne ISO 19001 Vs 2018\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(37, 'Pilotage système management qualité\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(38, 'Certification système de management qualité ISO 20000 Technologies de l’information dernière version\r\n ', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(39, 'Gérer les réseaux sociaux\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(40, 'Compréhension des outils de design \r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(41, 'Gestion de sponsoring\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(42, 'Rédaction des articles ', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(43, 'Compréhension des outils d’élaboration stratégie marketing\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(44, 'Analyse des données statistiques\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(45, 'Connaissance des outils de performance marketing\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(46, 'Création des sites web \r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(47, 'Une bonne maîtirse de la comptabilité générale \r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(48, 'Maitrise du bilan comptable jusqu’à la clôture\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(49, 'Gérer les complexités des comptes comptables\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(50, 'Conseiller à propos l’évolution des normes et des pratiques comptables\r\n', '', '2023-04-08 17:58:19', '2023-04-08 17:58:19');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `matrices`
+--
+
+CREATE TABLE `matrices` (
+  `id` int(11) NOT NULL,
+  `note` varchar(255) NOT NULL,
+  `employe_id` int(11) NOT NULL,
+  `matricecompetence_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -757,6 +869,12 @@ ALTER TABLE `detailprofilpostes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `echelleevaluations`
+--
+ALTER TABLE `echelleevaluations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `employes`
 --
 ALTER TABLE `employes`
@@ -790,6 +908,18 @@ ALTER TABLE `indicateursuivis`
 -- Index pour la table `infoficheevaluations`
 --
 ALTER TABLE `infoficheevaluations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `matricecompetences`
+--
+ALTER TABLE `matricecompetences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `matrices`
+--
+ALTER TABLE `matrices`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -899,6 +1029,12 @@ ALTER TABLE `detailprofilpostes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT pour la table `echelleevaluations`
+--
+ALTER TABLE `echelleevaluations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT pour la table `employes`
 --
 ALTER TABLE `employes`
@@ -933,6 +1069,18 @@ ALTER TABLE `indicateursuivis`
 --
 ALTER TABLE `infoficheevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `matricecompetences`
+--
+ALTER TABLE `matricecompetences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT pour la table `matrices`
+--
+ALTER TABLE `matrices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `niveauvises`
