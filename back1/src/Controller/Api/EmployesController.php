@@ -65,13 +65,13 @@ class EmployesController extends AppController
 
 
      /**
-    * getAllnomEmploye****
+    * getAllEmployeByCat****
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllnomEmploye()
+    public function getAllEmployeByCat()
     {
 
         /* search */
