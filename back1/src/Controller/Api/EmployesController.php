@@ -63,6 +63,36 @@ class EmployesController extends AppController
     }
 
 
+
+     /**
+    * getAllnomEmploye****
+    *
+    * @Input: nothing
+    *
+    * @Output: data
+    */
+    public function getAllnomEmploye()
+    {
+
+        /* search */
+        $employes = $this->Employes->find('all', [
+            'contain'=>[
+                'Categories'
+
+            ]
+        ]);
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $employes,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
+
+
+
+
      /**
     * getAllEmploye****
     *
