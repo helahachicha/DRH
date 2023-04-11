@@ -13,6 +13,29 @@ use Cake\ORM\TableRegistry;
  */
 class PolyvalencesController extends AppController
 {
+
+    /**
+    * getAllPolyvalence
+    *
+    * @Input: nothing
+    *
+    * @Output: data
+    */
+    public function getAllPolyvalence()
+    {
+
+        /* search */
+        $polyvalences = $this->Polyvalences->find('all');
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $polyvalences,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
+
+
     /**
     * calculTotalpolyvalence
     *
