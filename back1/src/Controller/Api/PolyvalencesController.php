@@ -15,24 +15,46 @@ class PolyvalencesController extends AppController
 {
 
     /**
-    * getAllPolyvalence
-    *
-    * @Input: nothing
-    *
-    * @Output: data
-    */
-    public function getAllPolyvalence()
-    {
-
-        /* search */
-        $polyvalences = $this->Polyvalences->find('all');
+      * getPolyvalenceByMatCompId
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+      public function getPolyvalenceByMatCompId(){
  
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' => $polyvalences,
-            '_serialize' => ['success', 'data']
-        ]);
+        $id = $this->request->getQuery('id');
+        
+        /* search */
+        if(1==1){
+            if (!isset($id) or empty($id) or $id == null ){
+               throw new UnauthorizedException('Id is Required');
+            }
+
+            if(!is_numeric($id)){
+               throw new UnauthorizedException('Id is not Valid');
+            }
+        }
+
+        $polyvalences = $this->Polyvalences->find('all', [
+            'conditions'=>[
+                'matricecompetence_id IS'=>$id,
+            ],
+           
+        ])->toArray();
+        // debug($polyvalences);die;
+        
+        if(empty($polyvalences)){
+           throw new UnauthorizedException('Polyvalences not found');
+       }
+
+       /*send result */
+
+       $this->set([
+           'success' => true,
+           'data' => $polyvalences,
+           '_serialize' => ['success', 'data']
+       ]);
     }
 
 
