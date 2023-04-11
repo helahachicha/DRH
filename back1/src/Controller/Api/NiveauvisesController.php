@@ -81,48 +81,6 @@ class NiveauvisesController extends AppController
         ]);
     }
 
-    /**
-      * getNiveauvise
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-      public function getNiveauvise(){
- 
-        $id = $this->request->getQuery('id');
-        
-        /* search */
-        if(1==1){
-            if (!isset($id) or empty($id) or $id == null ){
-               throw new UnauthorizedException('Id is Required');
-            }
-
-            if(!is_numeric($id)){
-               throw new UnauthorizedException('Id is not Valid');
-            }
-        }
-
-        $niveauvises = $this->Niveauvises->find('all', [
-            'conditions'=>[
-                'id IS'=>$id,
-            ],
-           
-        ])->first();
-        // debug($niveauvises);die;
-        
-        if(empty($niveauvises)){
-           throw new UnauthorizedException('Niveauvises not found');
-       }
-
-       /*send result */
-
-       $this->set([
-           'success' => true,
-           'data' => $niveauvises,
-           '_serialize' => ['success', 'data']
-       ]);
-    }
 
 
     /**

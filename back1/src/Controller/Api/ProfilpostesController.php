@@ -183,49 +183,6 @@ class ProfilpostesController extends AppController
     }
 
 
-    /**
-      * getProfilposte
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-     public function getProfilposte(){
- 
-         $id = $this->request->getQuery('id');
-         
-         /* search */
-         if(1==1){
-             if (!isset($id) or empty($id) or $id == null ){
-                throw new UnauthorizedException('Id is Required');
-             }
-
-             if(!is_numeric($id)){
-                throw new UnauthorizedException('Id is not Valid');
-             }
-         }
- 
-         $Profilpostes = $this->Profilpostes->find('all', [
-             'conditions'=>[
-                 'id IS'=>$id,
-             ],
-            
-         ])->first();
-         // debug($Profilpostes);die;
-         
-         if(empty($Profilpostes)){
-            throw new UnauthorizedException('Profilpostes not found');
-        }
-
-        /*send result */
-
-        $this->set([
-            'success' => true,
-            'data' => $Profilpostes,
-            '_serialize' => ['success', 'data']
-        ]);
-     }
-
      /**
       * deleteProfilposte
       *

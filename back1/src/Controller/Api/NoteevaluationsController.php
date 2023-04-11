@@ -146,6 +146,11 @@ class NoteevaluationsController extends AppController
         ]);
     }
 
+
+
+
+    
+
     public function caluculPoint()
     {
         $this->request->allowMethod(['post', 'put']);

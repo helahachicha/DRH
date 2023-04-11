@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 08 avr. 2023 à 23:04
+-- Généré le : mar. 11 avr. 2023 à 09:35
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -547,6 +547,40 @@ CREATE TABLE `matrices` (
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `matrices`
+--
+
+INSERT INTO `matrices` (`id`, `note`, `employe_id`, `matricecompetence_id`, `created`, `modified`) VALUES
+(1, 'A+', 1, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(2, 'A+', 2, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(3, 'B', 3, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(4, 'A+', 4, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(5, 'B', 5, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(6, 'B', 6, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(7, 'B', 7, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(8, 'D', 8, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(9, 'A+', 9, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(10, 'B', 10, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(11, 'B', 11, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(12, 'B', 12, 1, '2023-04-10 10:16:24', '2023-04-10 10:16:24'),
+(13, 'A+', 1, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(14, 'A+', 2, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(15, 'A+', 3, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(16, 'A+', 4, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(17, 'A+', 5, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(18, 'A', 6, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(19, 'B', 7, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(20, 'B', 8, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(21, 'B', 9, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(22, 'B', 10, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(23, 'D', 11, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(24, 'C', 12, 2, '2023-04-10 12:22:30', '2023-04-10 12:22:30'),
+(25, 'A+', 1, 3, '2023-04-10 15:42:47', '2023-04-10 15:42:47'),
+(26, 'A+', 1, 4, '2023-04-10 15:42:47', '2023-04-10 15:42:47'),
+(27, 'B', 1, 5, '2023-04-10 15:42:47', '2023-04-10 15:42:47'),
+(28, 'A+', 1, 6, '2023-04-10 15:42:47', '2023-04-10 15:42:47');
+
 -- --------------------------------------------------------
 
 --
@@ -617,6 +651,49 @@ CREATE TABLE `points` (
 INSERT INTO `points` (`id`, `label`, `created`, `modified`) VALUES
 (1, 0, '2023-04-07 12:14:02', '2023-04-07 12:14:02'),
 (2, 1, '2023-04-07 12:14:02', '2023-04-07 12:14:02');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `polycompetences`
+--
+
+CREATE TABLE `polycompetences` (
+  `id` int(11) NOT NULL,
+  `valeur` float NOT NULL,
+  `employe_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `polycompetences`
+--
+
+INSERT INTO `polycompetences` (`id`, `valeur`, `employe_id`, `created`, `modified`) VALUES
+(1, 91.6667, 1, '2023-04-11 07:29:14', '2023-04-11 07:29:14');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `polyvalences`
+--
+
+CREATE TABLE `polyvalences` (
+  `id` int(11) NOT NULL,
+  `valeur` float NOT NULL,
+  `matricecompetence_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `polyvalences`
+--
+
+INSERT INTO `polyvalences` (`id`, `valeur`, `matricecompetence_id`, `created`, `modified`) VALUES
+(1, 63.3333, 1, '2023-04-10 13:26:19', '2023-04-11 00:15:51'),
+(2, 67.5, 2, '2023-04-10 13:30:17', '2023-04-10 13:30:17');
 
 -- --------------------------------------------------------
 
@@ -808,6 +885,46 @@ INSERT INTO `themeformations` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `totalpolycompetences`
+--
+
+CREATE TABLE `totalpolycompetences` (
+  `id` int(11) NOT NULL,
+  `valeur` float NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `totalpolycompetences`
+--
+
+INSERT INTO `totalpolycompetences` (`id`, `valeur`, `created`, `modified`) VALUES
+(1, 91.6667, '2023-04-11 07:27:47', '2023-04-11 07:29:35');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `totalpolyvalences`
+--
+
+CREATE TABLE `totalpolyvalences` (
+  `id` int(11) NOT NULL,
+  `valeur` float NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `totalpolyvalences`
+--
+
+INSERT INTO `totalpolyvalences` (`id`, `valeur`, `created`, `modified`) VALUES
+(1, 65.4167, '2023-04-11 00:11:23', '2023-04-11 00:11:23');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -941,6 +1058,18 @@ ALTER TABLE `points`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `polycompetences`
+--
+ALTER TABLE `polycompetences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `polyvalences`
+--
+ALTER TABLE `polyvalences`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `postes`
 --
 ALTER TABLE `postes`
@@ -980,6 +1109,18 @@ ALTER TABLE `testtechniques`
 -- Index pour la table `themeformations`
 --
 ALTER TABLE `themeformations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `totalpolycompetences`
+--
+ALTER TABLE `totalpolycompetences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `totalpolyvalences`
+--
+ALTER TABLE `totalpolyvalences`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1080,7 +1221,7 @@ ALTER TABLE `matricecompetences`
 -- AUTO_INCREMENT pour la table `matrices`
 --
 ALTER TABLE `matrices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT pour la table `niveauvises`
@@ -1099,6 +1240,18 @@ ALTER TABLE `noteevaluations`
 --
 ALTER TABLE `points`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `polycompetences`
+--
+ALTER TABLE `polycompetences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `polyvalences`
+--
+ALTER TABLE `polyvalences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `postes`
@@ -1141,6 +1294,18 @@ ALTER TABLE `testtechniques`
 --
 ALTER TABLE `themeformations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `totalpolycompetences`
+--
+ALTER TABLE `totalpolycompetences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `totalpolyvalences`
+--
+ALTER TABLE `totalpolyvalences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `users`

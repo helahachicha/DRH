@@ -42,49 +42,6 @@ class IndicateursuivisController extends AppController
         ]);
     }
 
-    /**
-      * getIndicateursuivi
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-      public function getIndicateursuivi(){
- 
-        $id = $this->request->getQuery('id');
-        
-        /* search */
-        if(1==1){
-            if (!isset($id) or empty($id) or $id == null ){
-               throw new UnauthorizedException('Id is Required');
-            }
-
-            if(!is_numeric($id)){
-               throw new UnauthorizedException('Id is not Valid');
-            }
-        }
-
-        $indicateursuivis = $this->Indicateursuivis->find('all', [
-            'conditions'=>[
-                'id IS'=>$id,
-            ],
-           
-        ])->first();
-        // debug($indicateursuivis);die;
-        
-        if(empty($indicateursuivis)){
-           throw new UnauthorizedException('Indicateursuivis not found');
-       }
-
-       /*send result */
-
-       $this->set([
-           'success' => true,
-           'data' => $indicateursuivis,
-           '_serialize' => ['success', 'data']
-       ]);
-    }
-
 
     /**
      * editIndicateursuivi
@@ -129,7 +86,7 @@ class IndicateursuivisController extends AppController
 
 
     /**
-      * getIndicateursuiviBySouscomp
+      * getIndicateursuiviByFormcomp
       *
       * @Input: id
       *

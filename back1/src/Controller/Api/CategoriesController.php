@@ -78,49 +78,6 @@ class CategoriesController extends AppController
         ]);
     }
 
-    /**
-      * getCategorie
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-      public function getCategorie(){
- 
-        $id = $this->request->getQuery('id');
-        
-        /* search */
-        if(1==1){
-            if (!isset($id) or empty($id) or $id == null ){
-               throw new UnauthorizedException('Id is Required');
-            }
-
-            if(!is_numeric($id)){
-               throw new UnauthorizedException('Id is not Valid');
-            }
-        }
-
-        $categories = $this->Categories->find('all', [
-            'conditions'=>[
-                'id IS'=>$id,
-            ],
-           
-        ])->first();
-        // debug($categories);die;
-        
-        if(empty($categories)){
-           throw new UnauthorizedException('Categories not found');
-       }
-
-       /*send result */
-
-       $this->set([
-           'success' => true,
-           'data' => $categories,
-           '_serialize' => ['success', 'data']
-       ]);
-    }
-
 
     /**
      * editCategorie

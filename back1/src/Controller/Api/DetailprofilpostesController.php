@@ -18,18 +18,18 @@ class DetailprofilpostesController extends AppController
      *
      * @Input:
      *         data:
-     *          
-     * 
+     *
+     *
      * @Output: data : success message
      */
     public function editDetailprofilposte(){
-        
+
         $this->request->allowMethod(['post', 'put']);
 
         /* format data */
         if (1 == 1) {
             $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
+            $data=json_decode($querry['data']);
          //$data=$this->request->getData();
             //debug($data);die;
         }
@@ -38,19 +38,19 @@ class DetailprofilpostesController extends AppController
         $detailprofilpostes=$this->Detailprofilpostes->get($id);
          /* create detailprofilpostes entity */
         if (1==1){
-            $detailprofilpostes->fonction=$data->fonction;  
-            $detailprofilpostes->categorie_id=$data->categorie_id;  
-            $detailprofilpostes->superhierar=$data->superhierar;  
-            $detailprofilpostes->supervision=$data->supervision;  
-            $detailprofilpostes->interim=$data->interim;   
-            $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;  
-            $detailprofilpostes->fonctionverification=$data->fonctionverification;  
-            $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;  
-            $detailprofilpostes->nomprenomelab=$data->nomprenomelab;  
-            $detailprofilpostes->nomprenomverif=$data->nomprenomverif;  
-            $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob; 
+            $detailprofilpostes->fonction=$data->fonction;
+            $detailprofilpostes->categorie_id=$data->categorie_id;
+            $detailprofilpostes->superhierar=$data->superhierar;
+            $detailprofilpostes->supervision=$data->supervision;
+            $detailprofilpostes->interim=$data->interim;
+            $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;
+            $detailprofilpostes->fonctionverification=$data->fonctionverification;
+            $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;
+            $detailprofilpostes->nomprenomelab=$data->nomprenomelab;
+            $detailprofilpostes->nomprenomverif=$data->nomprenomverif;
+            $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob;
 
-            $this->Detailprofilpostes->save($detailprofilpostes); 
+            $this->Detailprofilpostes->save($detailprofilpostes);
         }
         /*send result */
         $this->set([
@@ -58,11 +58,11 @@ class DetailprofilpostesController extends AppController
             'data' =>  "Updated with success",
             '_serialize' => ['success', 'data']
         ]);
-    
+
     }
 
 
-   
+
     /**
     * getAllNomDetailprofilposte
     *
@@ -75,7 +75,7 @@ class DetailprofilpostesController extends AppController
 
         /* search */
         $detailprofilpostes = $this->Detailprofilpostes->find('all');
- 
+
         /*send result */
         $this->set([
             'success' => true,
@@ -101,7 +101,7 @@ class DetailprofilpostesController extends AppController
                 'Formcompetences.Competences.Souscompetences', 'Formcompetences.Competences.Indicateursuivis'
             ]
         ]);
- 
+
         /*send result */
         $this->set([
             'success' => true,
@@ -109,7 +109,7 @@ class DetailprofilpostesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
-    
+
     /**
       * getDetailprofilposte
       *
@@ -118,9 +118,9 @@ class DetailprofilpostesController extends AppController
       * @Output: data
       */
      public function getDetailprofilposte(){
- 
+
          $id = $this->request->getQuery('id');
-         
+
          /* search */
          if(1==1){
              if (!isset($id) or empty($id) or $id == null ){
@@ -131,15 +131,15 @@ class DetailprofilpostesController extends AppController
                 throw new UnauthorizedException('Id is not Valid');
              }
          }
- 
+
          $detailprofilpostes = $this->Detailprofilpostes->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
-            
+
          ])->first();
          // debug($detailprofilpostes);die;
-         
+
          if(empty($detailprofilpostes)){
             throw new UnauthorizedException('Detailprofilpostes not found');
         }
@@ -161,9 +161,9 @@ class DetailprofilpostesController extends AppController
       * @Output: data
       */
       public function getDetailppByCat(){
- 
+
         $id = $this->request->getQuery('id');
-        
+
         /* search */
         if(1==1){
             if (!isset($id) or empty($id) or $id == null ){
@@ -187,9 +187,9 @@ class DetailprofilpostesController extends AppController
                 'Profilpostes','Categories' , 'Formcompetences.Competences','Formcompetences.Indicateursuivis' ,
                 'Formcompetences.Niveauvises'
               ],
-            
+
         ])->first();
-        
+
         if(empty($detailprofilpostes)){
            throw new UnauthorizedException('Detailprofilpostes not found');
        }
@@ -211,9 +211,9 @@ class DetailprofilpostesController extends AppController
       * @Output: data
       */
       public function getCompByCat(){
- 
+
         $id = $this->request->getQuery('id');
-        
+
         /* search */
         if(1==1){
             if (!isset($id) or empty($id) or $id == null ){
@@ -237,9 +237,9 @@ class DetailprofilpostesController extends AppController
                 'Profilpostes','Categories' , 'Formcompetences.Competences','Formcompetences.Indicateursuivis' ,
                 'Formcompetences.Niveauvises',
               ],
-            
+
         ])->first();
-        
+
         if(empty($detailprofilpostes)){
            throw new UnauthorizedException('Detailprofilpostes not found');
        }
@@ -252,5 +252,5 @@ class DetailprofilpostesController extends AppController
            '_serialize' => ['success', 'data']
        ]);
     }
-  
+
 }
