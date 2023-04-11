@@ -13,6 +13,29 @@ use Cake\ORM\TableRegistry;
  */
 class PolycompetencesController extends AppController
 {
+
+    /**
+    * getAllPolycompetence
+    *
+    * @Input: nothing
+    *
+    * @Output: data
+    */
+    public function getAllPolycompetence()
+    {
+
+        /* search */
+        $polycompetences = $this->Polycompetences->find('all');
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $polycompetences,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
+
+
     /**
     * calculTotalPolycompetence
     *

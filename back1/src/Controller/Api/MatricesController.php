@@ -13,6 +13,30 @@ use Cake\ORM\TableRegistry;
  */
 class MatricesController extends AppController
 {
+
+
+    /**
+    * getAllMatrice
+    *
+    * @Input: nothing
+    *
+    * @Output: data
+    */
+    public function getAllMatrice()
+    {
+
+        /* search */
+        $matrices = $this->Matrices->find('all');
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $matrices,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
+
+
     /**
      * addNoteMatrice
      *
