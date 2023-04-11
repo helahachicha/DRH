@@ -50,7 +50,8 @@
             </tr>
             <tr scope="col-6" class="thead-light" *ngFor="let obj1 of Matricecompetences">
               <th scope="row">{{obj1.label}} ( {{obj1.abreviation}} )</th>
-              <td>
+
+              <td *ngFor="let obj3 of Employes">
                 <select class="form-control" id="exampleFormControlSelect2" placeholder="Veuillez choisir le niveau">
                   <option selected disabled value="">Affecter Niveau</option>
 
@@ -60,6 +61,7 @@
                   </option>
                 </select>
               </td>
+
             </tr>
             <tr class="thead-light">
               <th>Total polycompétence /collaborateur </th>
