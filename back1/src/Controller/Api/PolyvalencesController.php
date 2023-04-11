@@ -20,7 +20,7 @@ class PolyvalencesController extends AppController
     *
     * @Input: nothing
     *
-    * @Output: data
+    * @Output: datamojt,fhndbv 
     */
     public function getAllPolyvalence()
     {
