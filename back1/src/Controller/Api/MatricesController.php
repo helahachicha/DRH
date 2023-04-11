@@ -16,24 +16,46 @@ class MatricesController extends AppController
 
 
     /**
-    * getAllMatrice
-    *
-    * @Input: nothing
-    *
-    * @Output: data
-    */
-    public function getAllMatrice()
-    {
-
-        /* search */
-        $matrices = $this->Matrices->find('all');
+      * getMatriceByEmpId
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+      public function getMatriceByEmpId(){
  
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' => $matrices,
-            '_serialize' => ['success', 'data']
-        ]);
+        $id = $this->request->getQuery('id');
+        
+        /* search */
+        if(1==1){
+            if (!isset($id) or empty($id) or $id == null ){
+               throw new UnauthorizedException('Id is Required');
+            }
+
+            if(!is_numeric($id)){
+               throw new UnauthorizedException('Id is not Valid');
+            }
+        }
+
+        $matrices = $this->Matrices->find('all', [
+            'conditions'=>[
+                'employe_id IS'=>$id,
+            ],
+           
+        ])->toArray();
+        // debug($matrices);die;
+        
+        if(empty($matrices)){
+           throw new UnauthorizedException('Matrices not found');
+       }
+
+       /*send result */
+
+       $this->set([
+           'success' => true,
+           'data' => $matrices,
+           '_serialize' => ['success', 'data']
+       ]);
     }
 
 
