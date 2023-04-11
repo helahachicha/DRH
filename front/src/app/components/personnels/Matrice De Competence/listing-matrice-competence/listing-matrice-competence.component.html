@@ -66,9 +66,10 @@
                 </select>
               </td>
 
-              <td >
+              <td *ngFor="let obj6 of Polyvalences">
                 <!---<input type="text" class="form-control" 
                 required="required" formControlName="valeur">-->
+                {{obj6.valeur}}
                 
               </td>
              
