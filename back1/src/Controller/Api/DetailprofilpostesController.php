@@ -98,7 +98,7 @@ class DetailprofilpostesController extends AppController
         /* search */
         $detailprofilpostes = $this->Detailprofilpostes->find('all',[
             'contain' => [
-                'Formcompetences.Competences.Souscompetences', 'Formcompetences.Competences.Indicateursuivis'
+                'Formcompetences.Competences', 'Formcompetences.Competences.Indicateursuivis'
             ]
         ]);
 

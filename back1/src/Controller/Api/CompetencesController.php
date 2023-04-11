@@ -40,8 +40,6 @@ class CompetencesController extends AppController
         if (1==1){
             $competences = $this->Competences->newEmptyEntity();
             $competences->label=$data->label;
-            $competences->categorie_id=$data->categorie_id;   
-
             $this->Competences->save($competences); 
         }
        
@@ -65,11 +63,7 @@ class CompetencesController extends AppController
     {
 
         /* search */
-        $competences = $this->Competences->find('all',[
-            'contain' => [
-                'Souscompetences','Indicateursuivis'
-            ]
-        ]);
+        $competences = $this->Competences->find('all');
  
         /*send result */
         $this->set([
@@ -152,8 +146,6 @@ class CompetencesController extends AppController
          /* create competences entity */
         if (1==1){
             $competences->label=$data->label;
-            $competences->categorie_id=$data->categorie_id;    
-
             $this->Competences->save($competences); 
         }
         /*send result */

@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $competence_id
+ * @property string $soucompetence
  * @property int $niveauvise_id
  * @property int $detailprofilposte_id
  * @property \Cake\I18n\FrozenTime $created
@@ -19,7 +20,6 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Niveauvise $niveauvise
  * @property \App\Model\Entity\Detailprofilposte $detailprofilposte
  * @property \App\Model\Entity\Indicateursuivi[] $indicateursuivis
- * @property \App\Model\Entity\Souscompetence[] $souscompetences
  */
 class Formcompetence extends Entity
 {
@@ -34,6 +34,7 @@ class Formcompetence extends Entity
      */
     protected $_accessible = [
         'competence_id' => true,
+        'soucompetence' => true,
         'niveauvise_id' => true,
         'detailprofilposte_id' => true,
         'created' => true,
@@ -42,6 +43,5 @@ class Formcompetence extends Entity
         'niveauvise' => true,
         'detailprofilposte' => true,
         'indicateursuivis' => true,
-        'souscompetences' => true,
     ];
 }
