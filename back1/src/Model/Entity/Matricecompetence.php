@@ -13,6 +13,9 @@ use Cake\ORM\Entity;
  * @property string $abreviation
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\Matrix[] $matrices
+ * @property \App\Model\Entity\Polyvalence[] $polyvalences
  */
 class Matricecompetence extends Entity
 {
@@ -30,5 +33,7 @@ class Matricecompetence extends Entity
         'abreviation' => true,
         'created' => true,
         'modified' => true,
+        'matrices' => true,
+        'polyvalences' => true,
     ];
 }

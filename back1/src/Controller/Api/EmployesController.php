@@ -65,19 +65,19 @@ class EmployesController extends AppController
 
 
      /**
-    * getAllEmployeByCat****
+    * getAllEmployeByCatAndPc
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllEmployeByCat()
+    public function getAllEmployeByCatAndPc()
     {
 
         /* search */
         $employes = $this->Employes->find('all', [
             'contain'=>[
-                'Categories'
+                'Categories','Polycompetences'
 
             ]
         ]);

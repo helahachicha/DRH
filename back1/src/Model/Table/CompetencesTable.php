@@ -11,9 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Competences Model
  *
- * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
- * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\HasMany $Detailprofilpostes
- * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\HasMany $Souscompetences
+ * @property \App\Model\Table\FormcompetencesTable&\Cake\ORM\Association\HasMany $Formcompetences
  *
  * @method \App\Model\Entity\Competence newEmptyEntity()
  * @method \App\Model\Entity\Competence newEntity(array $data, array $options = [])
@@ -49,14 +47,7 @@ class CompetencesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Categories', [
-            'foreignKey' => 'categorie_id',
-            'joinType' => 'INNER',
-        ]);
-        $this->hasMany('Detailprofilpostes', [
-            'foreignKey' => 'competence_id',
-        ]);
-        $this->hasMany('Souscompetences', [
+        $this->hasMany('Formcompetences', [
             'foreignKey' => 'competence_id',
         ]);
     }
@@ -75,24 +66,6 @@ class CompetencesTable extends Table
             ->requirePresence('label', 'create')
             ->notEmptyString('label');
 
-        $validator
-            ->integer('categorie_id')
-            ->notEmptyString('categorie_id');
-
         return $validator;
-    }
-
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules): RulesChecker
-    {
-        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
-
-        return $rules;
     }
 }

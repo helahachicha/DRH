@@ -11,6 +11,9 @@ use Cake\Validation\Validator;
 /**
  * Matricecompetences Model
  *
+ * @property \App\Model\Table\MatricesTable&\Cake\ORM\Association\HasMany $Matrices
+ * @property \App\Model\Table\PolyvalencesTable&\Cake\ORM\Association\HasMany $Polyvalences
+ *
  * @method \App\Model\Entity\Matricecompetence newEmptyEntity()
  * @method \App\Model\Entity\Matricecompetence newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Matricecompetence[] newEntities(array $data, array $options = [])
@@ -44,6 +47,13 @@ class MatricecompetencesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('Matrices', [
+            'foreignKey' => 'matricecompetence_id',
+        ]);
+        $this->hasMany('Polyvalences', [
+            'foreignKey' => 'matricecompetence_id',
+        ]);
     }
 
     /**

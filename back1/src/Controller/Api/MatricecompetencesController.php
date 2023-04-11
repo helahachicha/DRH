@@ -24,7 +24,11 @@ class MatricecompetencesController extends AppController
     {
 
         /* search */
-        $matricecompetences = $this->Matricecompetences->find('all');
+        $matricecompetences = $this->Matricecompetences->find('all',[
+            'contain' => [
+                'Matrices','Polyvalences'
+              ],
+        ]);
  
         /*send result */
         $this->set([

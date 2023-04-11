@@ -25,6 +25,8 @@ class MatricecompetencesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Matricecompetences',
+        'app.Matrices',
+        'app.Polyvalences',
     ];
 
     /**

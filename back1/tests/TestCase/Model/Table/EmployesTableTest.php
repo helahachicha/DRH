@@ -27,6 +27,8 @@ class EmployesTableTest extends TestCase
         'app.Employes',
         'app.Categories',
         'app.Infoficheevaluations',
+        'app.Matrices',
+        'app.Polycompetences',
     ];
 
     /**

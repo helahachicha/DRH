@@ -13,73 +13,7 @@ use Cake\ORM\TableRegistry;
  */
 class PolyvalencesController extends AppController
 {
-
-
-    /**
-    * getAllPolyvalence
-    *
-    * @Input: nothing
-    *
-    * @Output: datamojt,fhndbv 
-    */
-    public function getAllPolyvalence()
-    {
-
-        /* search */
-        $polyvalences = $this->Polyvalences->find('all');
- 
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' => $polyvalences,
-            '_serialize' => ['success', 'data']
-        ]);
-    }
-
-
-    /**
-      * getPolyvalenceByMatCompId
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-      public function getPolyvalenceByMatCompId(){
- 
-        $id = $this->request->getQuery('id');
-        
-        /* search */
-        if(1==1){
-            if (!isset($id) or empty($id) or $id == null ){
-               throw new UnauthorizedException('Id is Required');
-            }
-
-            if(!is_numeric($id)){
-               throw new UnauthorizedException('Id is not Valid');
-            }
-        }
-
-        $polyvalences = $this->Polyvalences->find('all', [
-            'conditions'=>[
-                'matricecompetence_id IS'=>$id,
-            ],
-           
-        ])->toArray();
-        // debug($polyvalences);die;
-        
-        if(empty($polyvalences)){
-           throw new UnauthorizedException('Polyvalences not found');
-       }
-
-       /*send result */
-
-       $this->set([
-           'success' => true,
-           'data' => $polyvalences,
-           '_serialize' => ['success', 'data']
-       ]);
-    }
-
+   
 
     /**
     * calculTotalpolyvalence

@@ -15,50 +15,6 @@ class PolycompetencesController extends AppController
 {
 
     /**
-      * getPolycompetenceByEmpId
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-      public function getPolycompetenceByEmpId(){
- 
-        $id = $this->request->getQuery('id');
-        
-        /* search */
-        if(1==1){
-            if (!isset($id) or empty($id) or $id == null ){
-               throw new UnauthorizedException('Id is Required');
-            }
-
-            if(!is_numeric($id)){
-               throw new UnauthorizedException('Id is not Valid');
-            }
-        }
-
-        $polycompetences = $this->Polycompetences->find('all', [
-            'conditions'=>[
-                'employe_id IS'=>$id,
-            ],
-           
-        ])->toArray();
-        // debug($polycompetences);die;
-        
-        if(empty($polycompetences)){
-           throw new UnauthorizedException('Polycompetences not found');
-       }
-
-       /*send result */
-
-       $this->set([
-           'success' => true,
-           'data' => $polycompetences,
-           '_serialize' => ['success', 'data']
-       ]);
-    }
-
-
-    /**
     * calculTotalPolycompetence
     *
     * @Input: nothing

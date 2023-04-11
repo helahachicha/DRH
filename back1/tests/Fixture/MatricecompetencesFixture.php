@@ -22,8 +22,8 @@ class MatricecompetencesFixture extends TestFixture
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
                 'abreviation' => 'Lorem ipsum dolor sit amet',
-                'created' => '2023-04-08 16:00:09',
-                'modified' => '2023-04-08 16:00:09',
+                'created' => '2023-04-11 21:03:28',
+                'modified' => '2023-04-11 21:03:28',
             ],
         ];
         parent::init();
