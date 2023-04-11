@@ -9,9 +9,10 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./add-fiche-devalu.component.scss']
 })
 export class AddFicheDevaluComponent implements OnInit {
+ 
   public Niveauvises
   public Categories
-
+  public competences
   public ficheForm = new FormGroup({
     nomprenom: new FormControl('', [Validators.required]),
     objetevaluation: new FormControl('', [Validators.required]),
@@ -42,5 +43,17 @@ export class AddFicheDevaluComponent implements OnInit {
       this.Categories = res.data;
     }
     )
+  }
+  onChangeData(e){
+     let id = e.target.value
+  
+
+    
+      this.dataService.get('detailprofilpostes/getCompByCat.json?id='+id).subscribe(res=>{
+        console.log(res.data)
+        this.competences = res.data;
+
+      })
+     
   }
 }

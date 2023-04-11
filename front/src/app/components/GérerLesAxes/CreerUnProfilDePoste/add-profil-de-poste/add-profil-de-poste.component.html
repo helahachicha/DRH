@@ -84,6 +84,7 @@
                                         </div>
 
                                     </div>
+                                     <!-- Form dynamique for Competence-->
                                     <button (click)="addInput()" type="button" class="btn btn-success mb-3"><i
                                             class="bi bi-plus-square"></i> Ajouter un autre formulaire</button>
                                            
@@ -94,7 +95,7 @@
                                                 <button class="btn btn-danger" (click)="removedIndica(i)"><i
                                                     class="bi bi-trash"></i></button>
                                                 <div class="d-flex">
-                                                    <h1>Indicateur: {{i+1}}</h1>
+                                                    <h1>Competence: {{i+1}}</h1>
                                                     <div class="row">
 
                                                         <div class="col-md-6">
@@ -117,39 +118,7 @@
                                                             </div>
 
                                                         </div>
-
-
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="staticZone">Sous Compétence</label>
-                                                                <input type="text" class="form-control"
-                                                                    required="required" placeholder="SousCompétence"
-                                                                    formControlName="soucompetence">
-                                                            </div>
-
-                                                        </div>
-
-
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
-                                                                <label for="staticZone">Niveau Visé</label>
-                                                                <select class="form-control"
-                                                                    id="exampleFormControlSelect2"
-                                                                    placeholder="Veuillez choisir votre Niveau Visé"
-                                                                    formControlName="niveauvise_id">
-                                                                    <option selected disabled value="">Affecter Niveau
-                                                                        Visé</option>
-
-                                                                    <option *ngFor="let obj of Niveauvises"
-                                                                        [ngValue]="obj.id">
-
-                                                                        {{obj.label}}
-                                                                    </option>
-                                                                </select>
-
-                                                            </div>
-
-                                                        </div>
+                                                        <!-- Form dynamique for indicateur-->
                                                         <button (click)="addOptions(i)" type="button" class="btn btn-success mb-3"><i
                                                             class="bi bi-plus-square"></i> Ajouter un indicateur</button>
                                                         <div class="item-box" formArrayName="indicateur"
@@ -172,6 +141,74 @@
                                                             </div>
                                                   
                                                         </div>
+
+                                                        <button (click)="addInputSoucomp(i)" type="button" class="btn btn-success mb-3"><i
+                                                            class="bi bi-plus-square"></i> Ajouter un sou competence</button>
+                                                        <div class="item-box" formArrayName="souscompetence"
+                                                            *ngFor="let item of indicateur.get('souscompetence').controls; let j = index">
+                                                            <div [formGroupName]="j">
+                                                                <div class="d-flex">
+                                                                    <h1>Sous competence: {{j+1}}</h1>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label>Sous Competences</label>
+                                                                            <input type="text" class="form-control"
+                                                                                required="required"
+                                                                                formControlName="label">
+                                                                        </div>
+
+                                                                    </div>
+                                                                         <!-- Form dynamique for indicateur souscompetence-->
+                                                        <button (click)="addIndicaSouscomp(i)" type="button" class="btn btn-success mb-3"><i
+                                                            class="bi bi-plus-square"></i> Ajouter un indicateur de souscompetence</button>
+                                                        <div class="item-box" formArrayName="indicateurSoucomp"
+                                                            *ngFor="let item of indicateur.get('indicateurSoucomp').controls; let j = index">
+                                                            <div [formGroupName]="j">
+                                                                <div class="d-flex">
+                                                                    <h1>Indicateur: {{j+1}}</h1>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label>Indicateur</label>
+                                                                            <input type="text" class="form-control"
+                                                                                required="required"
+                                                                                formControlName="indicatsoucomp">
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <button class="btn btn-danger" (click)="removeIndicaSouscomp(i,j)"><i
+                                                                    class="bi bi-trash"></i></button>
+                                                            </div>
+                                                  
+                                                        </div>
+                                                                </div>
+                                                                <button class="btn btn-danger" (click)="removeSoucomp(i,j)"><i
+                                                                    class="bi bi-trash"></i></button>
+                                                            </div>
+                                                  
+                                                        </div>
+
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="staticZone">Niveau Visé</label>
+                                                                <select class="form-control"
+                                                                    id="exampleFormControlSelect2"
+                                                                    placeholder="Veuillez choisir votre Niveau Visé"
+                                                                    formControlName="niveauvise_id">
+                                                                    <option selected disabled value="">Affecter Niveau
+                                                                        Visé</option>
+
+                                                                    <option *ngFor="let obj of Niveauvises"
+                                                                        [ngValue]="obj.id">
+
+                                                                        {{obj.label}}
+                                                                    </option>
+                                                                </select>
+
+                                                            </div>
+
+                                                        </div>
+                                               
                                                    
 
                                                     </div>

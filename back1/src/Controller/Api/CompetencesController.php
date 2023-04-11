@@ -14,7 +14,6 @@ use App\Controller\AppController;
 class CompetencesController extends AppController
 {
 
-
     /**
      * addCompetence
      *
@@ -80,7 +79,11 @@ class CompetencesController extends AppController
     {
 
         /* search */
-        $competences = $this->Competences->find('all')->distinct(['label']);
+        $competences = $this->Competences->find('all',[
+            'contain' => [
+                'Souscompetences','Indicateursuivis'
+            ]
+        ]);
  
         /*send result */
         $this->set([

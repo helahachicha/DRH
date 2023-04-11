@@ -130,20 +130,26 @@
                                                             </div>
 
                                                         </div>
+                                                        <div class="item-box" formArrayName="souscompetence"
+                                                        *ngFor="let item of indicateur.get('souscompetence').controls; let j = index">
+                                                        <div [formGroupName]="j">
+                                                            <div class="d-flex">
+                                                                <h1>Sous competence: {{j+1}}</h1>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Sous Competences</label>
+                                                                        <input type="text" class="form-control"
+                                                                            required="required"
+                                                                            formControlName="label"  [attr.disabled]="enabled?null:''" >
+                                                                    </div>
 
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="staticZone">Sous Compétence</label>
-                                                                    <input type="text" class="form-control"
-                                                                        required="required" placeholder="SousCompétence"
-                                                                        formControlName="soucompetence"
-                                                                        [attr.disabled]="enabled?null:''">
                                                                 </div>
-
                                                             </div>
+                                                       
                                                         </div>
-
+                                              
+                                                    </div>
+                                      
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label for="staticZone">Niveau Visé</label>

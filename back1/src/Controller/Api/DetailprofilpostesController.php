@@ -98,7 +98,7 @@ class DetailprofilpostesController extends AppController
         /* search */
         $detailprofilpostes = $this->Detailprofilpostes->find('all',[
             'contain' => [
-                'Categories'
+                'Formcompetences.Competences.Souscompetences', 'Formcompetences.Competences.Indicateursuivis'
             ]
         ]);
  
@@ -203,6 +203,54 @@ class DetailprofilpostesController extends AppController
        ]);
     }
 
-    
+     /**
+      * getDetailppByCat
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+      public function getCompByCat(){
+ 
+        $id = $this->request->getQuery('id');
+        
+        /* search */
+        if(1==1){
+            if (!isset($id) or empty($id) or $id == null ){
+               throw new UnauthorizedException('Id is Required');
+            }
+
+            if(!is_numeric($id)){
+               throw new UnauthorizedException('Id is not Valid');
+            }
+        }
+
+
+        $detailprofilpostes = $this->Detailprofilpostes->find('all', [
+             /*'contain' => [
+               'Categories','Niveauvises','Competences.Indicateursuivis'
+             ],*/
+            'conditions'=>[
+                'detailprofilpostes.categorie_id IS'=>$id,
+            ],
+            'contain' => [
+                'Profilpostes','Categories' , 'Formcompetences.Competences','Formcompetences.Indicateursuivis' ,
+                'Formcompetences.Niveauvises',
+              ],
+            
+        ])->first();
+        
+        if(empty($detailprofilpostes)){
+           throw new UnauthorizedException('Detailprofilpostes not found');
+       }
+
+       /*send result */
+
+       $this->set([
+           'success' => true,
+           'data' => $detailprofilpostes->formcompetences,
+           '_serialize' => ['success', 'data']
+       ]);
+    }
   
 }

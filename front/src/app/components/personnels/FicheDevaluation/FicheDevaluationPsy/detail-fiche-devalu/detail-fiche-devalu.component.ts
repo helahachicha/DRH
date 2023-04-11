@@ -14,24 +14,20 @@ id:any
  public Infoficheevaluations
 public open:boolean=false
 public Formcompetences
-public FormGenerator: FormGroup;
 
 
-get FormcompetenceData(): FormArray {
-  return <FormArray>this.FormGenerator.get('Formcompetence');
-}
 
   constructor(
     private dataService:DataService,
     private route:ActivatedRoute,
-    public fb: FormBuilder,
+ 
   ) { }
 
   ngOnInit(): void {  
    this.getDetailByEmpID()
-   this.getFormcompetencebyDetailppId(),
-   this.createForm();
-   }
+   this.getFormcompetencebyDetailppId()
+
+  }
 
 getDetailByEmpID(){
   this.route.params.subscribe(params => {
@@ -68,53 +64,5 @@ getDetailByEmpID(){
  
 
 
- addInput(element) {
-  this.FormcompetenceData.push(this.createIndicateurGroup(element));
-}
-  
-removedIndica(index) {
-  const Indicateur = this.FormGenerator.get('Formcompetence') as FormArray
-
-  Indicateur.removeAt(index);
-
-}
-createForm() {
-  this.FormGenerator = this.fb.group({
-    nomprenom: new FormControl('', [Validators.required]),
-    objetevaluation: new FormControl('', [Validators.required]),
-    dateevaluation: new FormControl('', [Validators.required]),
-    decisiondirection: new FormControl('', [Validators.required]),
-    competence_id: new FormControl('', [Validators.required]),
-    soucompetence: new FormControl('', [Validators.required]),
-    niveauvise_id: new FormControl('', [Validators.required]),
-    Formcompetence: this.fb.array([]),
-
-  });
-
-}
-createIndicateurGroup(element): FormGroup {
-  return this.fb.group({
-    indicateur: this.fb.array(element.indicateursuivis && Array.isArray(element.indicateursuivis) ?
-    element.indicateursuivis.map(data => this.createOption(data.id, data.label)) : [])
-  })
-}
-createOption(id:string,label:string): FormGroup {
-  return this.fb.group({
-    id: [id, [Validators.required]],
-    label: [label, [Validators.required]],
-
-  });
-}
-addOptions(i) {
-  const optionsArray = <FormArray>this.FormcompetenceData.at(i).get('indicateur');
-  optionsArray.push(this.createOption('',null));
-}
-
-removeOptions(i, j) {
- 
-    (<FormArray>this.FormcompetenceData.at(i).get('indicateur')).removeAt(j);
-  
-  
-}
 
   }

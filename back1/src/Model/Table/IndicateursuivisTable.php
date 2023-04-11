@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Indicateursuivis Model
  *
- * @property \App\Model\Table\FormcompetencesTable&\Cake\ORM\Association\BelongsTo $Formcompetences
+ * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
  * @property \App\Model\Table\NoteevaluationsTable&\Cake\ORM\Association\HasMany $Noteevaluations
  *
  * @method \App\Model\Entity\Indicateursuivi newEmptyEntity()
@@ -48,11 +48,14 @@ class IndicateursuivisTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Formcompetences', [
-            'foreignKey' => 'formcompetence_id',
+        $this->belongsTo('Competences', [
+            'foreignKey' => 'competence_id',
             'joinType' => 'INNER',
         ]);
         $this->hasMany('Noteevaluations', [
+            'foreignKey' => 'indicateursuivi_id',
+        ]);
+        $this->hasMany('Souscompetences', [
             'foreignKey' => 'indicateursuivi_id',
         ]);
     }
@@ -72,8 +75,8 @@ class IndicateursuivisTable extends Table
             ->notEmptyString('label');
 
         $validator
-            ->integer('formcompetence_id')
-            ->notEmptyString('formcompetence_id');
+            ->integer('competence_id')
+            ->notEmptyString('competence_id');
 
         return $validator;
     }
@@ -87,7 +90,7 @@ class IndicateursuivisTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('formcompetence_id', 'Formcompetences'), ['errorField' => 'formcompetence_id']);
+        $rules->add($rules->existsIn('competence_id', 'Competences'), ['errorField' => 'competence_id']);
 
         return $rules;
     }

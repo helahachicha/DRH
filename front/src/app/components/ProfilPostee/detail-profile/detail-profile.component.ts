@@ -17,6 +17,7 @@ export class DetailProfileComponent implements OnInit {
   public  Categories
   public Competences
   public Niveauvises
+  
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
@@ -106,13 +107,28 @@ export class DetailProfileComponent implements OnInit {
   addInput(element) {
     this.FormcompetenceData.push(this.createIndicateurGroup(element));
   }
-    
+  addInputSoucomp(i) {
+    const optionsArray = <FormArray>this.FormcompetenceData.at(i).get('souscompetence');
+    optionsArray.push(this.createSoucomp('',null));  }
   removedIndica(index) {
     const Indicateur = this.FormGenerator.get('Formcompetence') as FormArray
 
     Indicateur.removeAt(index);
 
   }
+  
+  removeSoucomp(i, j) {
+   
+    (<FormArray>this.FormcompetenceData.at(i).get('souscompetence')).removeAt(j);
+  
+}
+createSoucomp(id:string,label:string): FormGroup {
+  return this.fb.group({
+    id: [id, [Validators.required]],
+    label: ['', [Validators.required]],
+
+  });
+}
   createForm() {
     this.FormGenerator = this.fb.group({
       nom: new FormControl('', [Validators.required]),
@@ -135,7 +151,8 @@ export class DetailProfileComponent implements OnInit {
   createIndicateurGroup(element): FormGroup {
     return this.fb.group({
       competence_id: [element.competence_id, [Validators.required]],
-      soucompetence: [element.soucompetence, [Validators.required]],
+      souscompetence: this.fb.array(element.souscompet && Array.isArray(element.souscompet) ?
+      element.souscompet.map(data => this.createSoucomp(data.id, data.label)) : []),
       niveauvise_id: [element.niveauvise_id, [Validators.required]],
       indicateur: this.fb.array(element.indicateursuivis && Array.isArray(element.indicateursuivis) ?
       element.indicateursuivis.map(data => this.createOption(data.id, data.label)) : [])
