@@ -36,8 +36,8 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.getallEmployer()
     this.getallabreviation()
     //this.getMatriceByEmpId()
-    this.getPolyvalenceByMatCompId
-  
+    this.getPolyvalenceByMatCompId()
+    this.getAllPolyvalence()  
   }
   getallechelle() {
     this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
@@ -100,9 +100,9 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       })
   }
   
-  getallEmployer() {
-    this.dataService.get('Employes/getAllEmployeByCat.json').subscribe(res => {
-      this.Employes = res.data;
+  getAllPolyvalence() {
+    this.dataService.get('Polyvalences/getAllPolyvalence.json').subscribe(res => {
+      this.Polyvalences = res.data;
       this.open = true
     })
   }
