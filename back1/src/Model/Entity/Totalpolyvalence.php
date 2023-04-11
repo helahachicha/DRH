@@ -6,17 +6,14 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Polyvalence Entity
+ * Totalpolyvalence Entity
  *
  * @property int $id
  * @property float $valeur
- * @property int $matricecompetence_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
- *
- * @property \App\Model\Entity\Matricecompetence $matricecompetence
  */
-class Polyvalence extends Entity
+class Totalpolyvalence extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -29,9 +26,7 @@ class Polyvalence extends Entity
      */
     protected $_accessible = [
         'valeur' => true,
-        'matricecompetence_id' => true,
         'created' => true,
         'modified' => true,
-        'matricecompetence' => true,
     ];
 }

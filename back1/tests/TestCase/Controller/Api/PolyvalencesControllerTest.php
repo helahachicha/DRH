@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller\Api;
 
-use App\Controller\Api\TotalpolyvalencesController;
+use App\Controller\Api\PolyvalencesController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\Api\TotalpolyvalencesController Test Case
+ * App\Controller\Api\PolyvalencesController Test Case
  *
- * @uses \App\Controller\Api\TotalpolyvalencesController
+ * @uses \App\Controller\Api\PolyvalencesController
  */
-class TotalpolyvalencesControllerTest extends TestCase
+class PolyvalencesControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,14 +22,15 @@ class TotalpolyvalencesControllerTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Totalpolyvalences',
+        'app.Polyvalences',
+        'app.Matricecompetences',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\Api\TotalpolyvalencesController::index()
+     * @uses \App\Controller\Api\PolyvalencesController::index()
      */
     public function testIndex(): void
     {
@@ -40,7 +41,7 @@ class TotalpolyvalencesControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\Api\TotalpolyvalencesController::view()
+     * @uses \App\Controller\Api\PolyvalencesController::view()
      */
     public function testView(): void
     {
@@ -51,7 +52,7 @@ class TotalpolyvalencesControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\Api\TotalpolyvalencesController::add()
+     * @uses \App\Controller\Api\PolyvalencesController::add()
      */
     public function testAdd(): void
     {
@@ -62,7 +63,7 @@ class TotalpolyvalencesControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\Api\TotalpolyvalencesController::edit()
+     * @uses \App\Controller\Api\PolyvalencesController::edit()
      */
     public function testEdit(): void
     {
@@ -73,7 +74,7 @@ class TotalpolyvalencesControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\Api\TotalpolyvalencesController::delete()
+     * @uses \App\Controller\Api\PolyvalencesController::delete()
      */
     public function testDelete(): void
     {

@@ -25,7 +25,6 @@ class TotalpolyvalencesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Totalpolyvalences',
-        'app.Matricecompetences',
     ];
 
     /**
@@ -59,17 +58,6 @@ class TotalpolyvalencesTableTest extends TestCase
      * @uses \App\Model\Table\TotalpolyvalencesTable::validationDefault()
      */
     public function testValidationDefault(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     * @uses \App\Model\Table\TotalpolyvalencesTable::buildRules()
-     */
-    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

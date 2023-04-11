@@ -62,8 +62,7 @@ class PolyvalencesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('valeur')
-            ->maxLength('valeur', 255)
+            ->numeric('valeur')
             ->requirePresence('valeur', 'create')
             ->notEmptyString('valeur');
 

@@ -6,9 +6,9 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * PolyvalencesFixture
+ * TotalpolyvalencesFixture
  */
-class PolyvalencesFixture extends TestFixture
+class TotalpolyvalencesFixture extends TestFixture
 {
     /**
      * Init method
@@ -21,9 +21,8 @@ class PolyvalencesFixture extends TestFixture
             [
                 'id' => 1,
                 'valeur' => 1,
-                'matricecompetence_id' => 1,
-                'created' => '2023-04-11 00:12:38',
-                'modified' => '2023-04-11 00:12:38',
+                'created' => '2023-04-11 00:10:22',
+                'modified' => '2023-04-11 00:10:22',
             ],
         ];
         parent::init();

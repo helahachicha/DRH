@@ -20,10 +20,10 @@ class PolycompetencesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'valeur' => 'Lorem ipsum dolor sit amet',
+                'valeur' => 1,
                 'employe_id' => 1,
-                'created' => '2023-04-10 22:23:59',
-                'modified' => '2023-04-10 22:23:59',
+                'created' => '2023-04-11 00:16:28',
+                'modified' => '2023-04-11 00:16:28',
             ],
         ];
         parent::init();
