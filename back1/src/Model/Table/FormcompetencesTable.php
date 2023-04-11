@@ -14,7 +14,6 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
  * @property \App\Model\Table\NiveauvisesTable&\Cake\ORM\Association\BelongsTo $Niveauvises
  * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
- * @property \App\Model\Table\IndicateursuivisTable&\Cake\ORM\Association\HasMany $Indicateursuivis
  *
  * @method \App\Model\Entity\Formcompetence newEmptyEntity()
  * @method \App\Model\Entity\Formcompetence newEntity(array $data, array $options = [])
@@ -62,12 +61,6 @@ class FormcompetencesTable extends Table
             'foreignKey' => 'detailprofilposte_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('Indicateursuivis', [
-            'foreignKey' => 'formcompetence_id',
-        ]);
-        $this->hasMany('Noteevaluations', [
-            'foreignKey' => 'formcompetence_id',
-        ]);
     }
 
     /**
@@ -81,12 +74,6 @@ class FormcompetencesTable extends Table
         $validator
             ->integer('competence_id')
             ->notEmptyString('competence_id');
-
-        $validator
-            ->scalar('soucompetence')
-            ->maxLength('soucompetence', 255)
-            ->requirePresence('soucompetence', 'create')
-            ->notEmptyString('soucompetence');
 
         $validator
             ->integer('niveauvise_id')

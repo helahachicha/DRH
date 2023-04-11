@@ -29,6 +29,7 @@ class FormcompetencesTableTest extends TestCase
         'app.Niveauvises',
         'app.Detailprofilpostes',
         'app.Indicateursuivis',
+        'app.Souscompetences',
     ];
 
     /**

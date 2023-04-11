@@ -6,22 +6,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Formcompetence Entity
+ * Souscompetence Entity
  *
  * @property int $id
+ * @property string $label
  * @property int $competence_id
- * @property int $niveauvise_id
- * @property int $detailprofilposte_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Competence $competence
- * @property \App\Model\Entity\Niveauvise $niveauvise
- * @property \App\Model\Entity\Detailprofilposte $detailprofilposte
- * @property \App\Model\Entity\Indicateursuivi[] $indicateursuivis
- * @property \App\Model\Entity\Souscompetence[] $souscompetences
+ * @property \App\Model\Entity\Indicateursuivi $indicateursuivi
  */
-class Formcompetence extends Entity
+class Souscompetence extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -33,15 +29,11 @@ class Formcompetence extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
+        'label' => true,
         'competence_id' => true,
-        'niveauvise_id' => true,
-        'detailprofilposte_id' => true,
         'created' => true,
         'modified' => true,
         'competence' => true,
-        'niveauvise' => true,
-        'detailprofilposte' => true,
-        'indicateursuivis' => true,
-        'souscompetences' => true,
+        'indicateursuivi' => true,
     ];
 }

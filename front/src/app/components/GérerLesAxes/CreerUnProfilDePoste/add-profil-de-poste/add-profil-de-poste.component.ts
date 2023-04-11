@@ -65,13 +65,30 @@ export class AddProfilDePosteComponent implements OnInit {
   addInput() {
     this.FormcompetenceData.push(this.createIndicateurGroup());
   }
-    
+ 
+  addInputSoucomp(i) {
+    const optionsArray = <FormArray>this.FormcompetenceData.at(i).get('souscompetence');
+    optionsArray.push(this.createSoucomp());  }
+
   removedIndica(index) {
     const Indicateur = this.FormGenerator.get('Formcompetence') as FormArray
 
     Indicateur.removeAt(index);
 
   }
+
+  removeSoucomp(i, j) {
+   
+    (<FormArray>this.FormcompetenceData.at(i).get('souscompetence')).removeAt(j);
+  
+}
+createSoucomp(): FormGroup {
+  return this.fb.group({
+    label: ['', [Validators.required]],
+  
+  });
+}
+
   createForm() {
     this.FormGenerator = this.fb.group({
       nom: new FormControl('', [Validators.required]),
@@ -93,8 +110,8 @@ export class AddProfilDePosteComponent implements OnInit {
   createIndicateurGroup(): FormGroup {
     return this.fb.group({
       competence_id: ['', [Validators.required]],
-      soucompetence: ['', [Validators.required]],
       niveauvise_id: ['', [Validators.required]],
+      souscompetence:  this.fb.array([this.createSoucomp()]),
       indicateur:  this.fb.array([this.createOption()]),
     })
   }
@@ -104,6 +121,8 @@ export class AddProfilDePosteComponent implements OnInit {
 
     });
   }
+
+
   addOptions(i) {
     const optionsArray = <FormArray>this.FormcompetenceData.at(i).get('indicateur');
     optionsArray.push(this.createOption());
@@ -116,4 +135,24 @@ export class AddProfilDePosteComponent implements OnInit {
     
   }
 
+  createIndicaSouscomp(): FormGroup {
+    return this.fb.group({
+      label: ['', [Validators.required]],
+    
+
+    });
+  }
+
+
+  addIndicaSouscomp(i) {
+    const optionsArray = <FormArray>this.FormcompetenceData.at(i).get('indicateurSoucomp');
+    optionsArray.push(this.createIndicaSouscomp());
+  }
+
+  removeIndicaSouscomp(i, j) {
+   
+      (<FormArray>this.FormcompetenceData.at(i).get('indicateurSoucomp')).removeAt(j);
+    
+    
+  }
 }
