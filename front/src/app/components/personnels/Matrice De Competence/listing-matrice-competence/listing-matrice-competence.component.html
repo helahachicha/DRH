@@ -31,12 +31,15 @@
         </ul>
       </div>
       <div class="table-responsive">
+        <form id="contact-form" role="form" [formGroup]="externeForm">
+
         <table class="table  table-bordered align-items-center table-flush">
           <thead class="thead-light">
             <tr>
               <th>GP </th>
               <td class="text-center" colspan="4" *ngFor="let obj2 of Departements">{{obj2.label}}</td>
-              <th>TOTAL Polyvalence  : 62,25 %</th>
+              <th >TOTAL Polyvalence  : 62,25 %</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -50,10 +53,11 @@
             </tr>
             <tr scope="col-6" class="thead-light" *ngFor="let obj1 of Matricecompetences">
               <th scope="row">{{obj1.label}} ( {{obj1.abreviation}} )</th>
+             
 
               <td *ngFor="let obj3 of Employes">
                 <select class="form-control" id="exampleFormControlSelect2" placeholder="Veuillez choisir le niveau">
-                  <option selected disabled value="">Affecter Niveau</option>
+                  <option selected disabled value="" ></option>
 
                   <option *ngFor="let obj4 of abreviation">
 
@@ -62,12 +66,20 @@
                 </select>
               </td>
 
+              <td >
+                <!---<input type="text" class="form-control" 
+                required="required" formControlName="valeur">-->
+                
+              </td>
+             
+
             </tr>
             <tr class="thead-light">
               <th>Total polycompétence /collaborateur </th>
             </tr>
           </tbody>
         </table>
+        </form>
       </div>
     </div>
   </div>
