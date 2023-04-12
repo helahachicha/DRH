@@ -31,21 +31,19 @@
         </ul>
       </div>
       <div class="table-responsive">
-       
-
-        <table class="table  table-bordered align-items-center table-flush">
+        <table class="table  table-bordered align-items-center table-flush" >
           <thead class="thead-light">
             <tr>
               <th>GP </th>
               <td class="text-center" colspan="4" *ngFor="let obj2 of Departements">{{obj2.label}}</td>
-              <th >TOTAL Polyvalence  : 62,25 %</th>
+              <th *ngFor="let total of Totalpolycompetences">TOTAL Polycompetence : {{total.valeur}} %</th>
               
             </tr>
           </thead>
           <tbody>
             <tr class="thead-light">
               <th>Nom & Prenom</th>
-              <td  *ngFor="let obj3 of Employes">{{obj3.nomprenom}}<br> <div *ngFor="let poly of obj3.polycompetences">{{poly.valeur}} </div> </td>
+              <td  *ngFor="let obj3 of Employes">{{obj3.nomprenom}}<br> <div *ngFor="let poly of obj3.polycompetences">{{poly.valeur}}% </div> </td>
             </tr>
 
             <tr class="thead-light">
@@ -53,13 +51,18 @@
               <td *ngFor="let obj3 of Employes">{{obj3.category.label}}</td>
             </tr>
             
-            <tr scope="col-6" class="thead-light" *ngFor="let obj1 of Matricecompetences;let i=index">
-              <th scope="row">{{obj1.label}} ( {{obj1.abreviation}} )</th>
+            <tr scope="col-6" class="thead-light" *ngFor="let obj3 of Matricecompetences">
+              <th scope="row">{{obj3.label}} ({{obj3.abreviation}} ) 
+              <div class="text-center" *ngFor="let obj5 of obj3.polyvalences">
+                {{obj5.valeur}}%
+              </div>
+              </th>
               
-             
-              <td *ngFor="let obj3 of Employes">
+              
+              <td *ngFor="let obj2 of Employes" >
                 <select class="form-control" id="exampleFormControlSelect2"  placeholder="Veuillez choisir le niveau">
-                  <option   >{{obj3.matrices[i].note}}</option>
+
+
 
                   <option *ngFor="let obj4 of abreviation">
 
@@ -68,13 +71,10 @@
                 </select>
               </td>
 
-              <!--<td *ngFor="let obj6 of Polyvalences">
-                <input type="text" class="form-control" 
-                required="required" formControlName="valeur">
-                {{obj6.valeur}}
-                
-              </td>-->
-              <td *ngFor="let o of Matricecompetences.polyvalences">{{o.valeur}}</td>
+             
+            </tr>
+            <tr scope="col-6" class="thead-light">
+              <th *ngFor="let total of Totalpolyvalences">TOTAL Polyvalence  : {{total.valeur}} %</th>
             </tr>
            
           </tbody>

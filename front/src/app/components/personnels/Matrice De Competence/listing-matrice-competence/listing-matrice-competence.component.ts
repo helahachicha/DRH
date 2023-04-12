@@ -18,6 +18,8 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   public abreviation
   public Matrices
   public Polyvalences
+  public Totalpolyvalences
+  public Totalpolycompetences
 
   
   constructor(
@@ -34,6 +36,8 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     //this.getMatriceByEmpId()
    // this.getPolyvalenceByMatCompId()
     //this.getAllPolyvalence()  
+    this.getallTotalpolyvalence()
+    this.getallTotalpolcomp()
   }
   getallechelle() {
     this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
@@ -47,7 +51,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       this.open = true
     })
   }
-  getallmatricecompetence() {
+ getallmatricecompetence() {
     this.dataService.get('Matricecompetences/getAllMatricecompetence.json').subscribe(res => {
       this.Matricecompetences = res.data;
       this.open = true
@@ -64,22 +68,43 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.dataService.get('Employes/getAllEmployeByCatAndPc.json').subscribe(res => {
       this.Employes = res.data;
       this.open = true
-      console.log('testtttt',this.Employes[0])
+      console.log('testtttt',this.Employes)
       
     })
   }
 
   getallTotalpolyvalence() {
-    this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
-      this.Echelleevaluations = res.data;
+    this.dataService.get('Totalpolyvalences/getAllTotalpolyvalence.json').subscribe(res => {
+      this.Totalpolyvalences = res.data;
       this.open = true
     })
   }
   getallTotalpolcomp() {
-    this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
-      this.Echelleevaluations = res.data;
+    this.dataService.get('Totalpolycompetences/getAllTotalpolycompetence.json').subscribe(res => {
+      this.Totalpolycompetences = res.data;
       this.open = true
     })
+  }
+
+  getID(id:any){
+    this.ids=id;
+  }
+  ids:any;
+note:any=null;
+  checknote(employee:any){
+  
+    employee.matrices.forEach((element: any) => {
+
+
+      if(element.matricecompetence_id==this.ids){
+        this.note=element.note;
+        console.log(this.note)
+
+      }else{
+        this.note=null;
+      }
+    });
+
   }
   /*getMatriceByEmpId() {
     this.dataService.get('Matrices/getMatriceByEmpId.json').subscribe(res => {
@@ -116,6 +141,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.dataService.get('Polyvalences/getAllPolyvalence.json').subscribe(res => {
       this.Polyvalences = res.data;
       this.open = true
+      console.log('test', this.Polyvalences)
     })
   }*/
   
