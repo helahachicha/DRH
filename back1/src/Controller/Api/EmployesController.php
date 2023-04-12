@@ -77,7 +77,7 @@ class EmployesController extends AppController
         /* search */
         $employes = $this->Employes->find('all', [
             'contain'=>[
-                'Categories','Polycompetences'
+                'Categories','Polycompetences','Matrices'
 
             ]
         ]);

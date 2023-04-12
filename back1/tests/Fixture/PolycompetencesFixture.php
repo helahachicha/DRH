@@ -22,8 +22,8 @@ class PolycompetencesFixture extends TestFixture
                 'id' => 1,
                 'valeur' => 1,
                 'employe_id' => 1,
-                'created' => '2023-04-11 00:16:28',
-                'modified' => '2023-04-11 00:16:28',
+                'created' => '2023-04-12 08:20:58',
+                'modified' => '2023-04-12 08:20:58',
             ],
         ];
         parent::init();

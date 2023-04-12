@@ -19,11 +19,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   public Matrices
   public Polyvalences
 
-  public externeForm = new FormGroup({
-    valeur: new FormControl('', [Validators.required]),
-    note: new FormControl('', [Validators.required]),
-  })
-
+  
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute
@@ -36,8 +32,8 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.getallEmployer()
     this.getallabreviation()
     //this.getMatriceByEmpId()
-    this.getPolyvalenceByMatCompId()
-    this.getAllPolyvalence()  
+   // this.getPolyvalenceByMatCompId()
+    //this.getAllPolyvalence()  
   }
   getallechelle() {
     this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
@@ -55,6 +51,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.dataService.get('Matricecompetences/getAllMatricecompetence.json').subscribe(res => {
       this.Matricecompetences = res.data;
       this.open = true
+      console.log('tes1',this.Matricecompetences)
     })
   }
   getalldepartement() {
@@ -64,8 +61,23 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     })
   }
   getallEmployer() {
-    this.dataService.get('Employes/getAllEmployeByCat.json').subscribe(res => {
+    this.dataService.get('Employes/getAllEmployeByCatAndPc.json').subscribe(res => {
       this.Employes = res.data;
+      this.open = true
+      console.log('testtttt',this.Employes.matrices)
+      
+    })
+  }
+
+  getallTotalpolyvalence() {
+    this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
+      this.Echelleevaluations = res.data;
+      this.open = true
+    })
+  }
+  getallTotalpolcomp() {
+    this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
+      this.Echelleevaluations = res.data;
       this.open = true
     })
   }
@@ -92,19 +104,19 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       console.log('test',this.Polyvalences)
     })
   }*/
-  getPolyvalenceByMatCompId() {
+  /*getPolyvalenceByMatCompId() {
     this.id = this.route.snapshot.params['id'];
     this.dataService.get('Polyvalences/getPolyvalenceByMatCompId.json?id=' + this.id).subscribe(
       res => {
         this.Polyvalences = res.data;
       })
-  }
+  }*/
   
-  getAllPolyvalence() {
+ /* getAllPolyvalence() {
     this.dataService.get('Polyvalences/getAllPolyvalence.json').subscribe(res => {
       this.Polyvalences = res.data;
       this.open = true
     })
-  }
+  }*/
   
 }

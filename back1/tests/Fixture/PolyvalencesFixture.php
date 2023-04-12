@@ -22,8 +22,8 @@ class PolyvalencesFixture extends TestFixture
                 'id' => 1,
                 'valeur' => 1,
                 'matricecompetence_id' => 1,
-                'created' => '2023-04-11 00:12:38',
-                'modified' => '2023-04-11 00:12:38',
+                'created' => '2023-04-12 08:19:23',
+                'modified' => '2023-04-12 08:19:23',
             ],
         ];
         parent::init();
