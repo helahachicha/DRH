@@ -64,7 +64,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.dataService.get('Employes/getAllEmployeByCatAndPc.json').subscribe(res => {
       this.Employes = res.data;
       this.open = true
-      console.log('testtttt',this.Employes.matrices)
+      console.log('testtttt',this.Employes[0])
       
     })
   }

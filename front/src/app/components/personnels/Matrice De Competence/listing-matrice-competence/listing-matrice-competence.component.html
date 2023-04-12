@@ -45,7 +45,7 @@
           <tbody>
             <tr class="thead-light">
               <th>Nom & Prenom</th>
-              <td  *ngFor="let obj3 of Employes">{{obj3.nomprenom}}<br>{{obj3.polycompetences.valeur}} </td>
+              <td  *ngFor="let obj3 of Employes">{{obj3.nomprenom}}<br> <div *ngFor="let poly of obj3.polycompetences">{{poly.valeur}} </div> </td>
             </tr>
 
             <tr class="thead-light">
@@ -53,13 +53,13 @@
               <td *ngFor="let obj3 of Employes">{{obj3.category.label}}</td>
             </tr>
             
-            <tr scope="col-6" class="thead-light" *ngFor="let obj1 of Matricecompetences">
+            <tr scope="col-6" class="thead-light" *ngFor="let obj1 of Matricecompetences;let i=index">
               <th scope="row">{{obj1.label}} ( {{obj1.abreviation}} )</th>
               
              
               <td *ngFor="let obj3 of Employes">
-                <select class="form-control" id="exampleFormControlSelect2" placeholder="Veuillez choisir le niveau">
-                  <option *ngFor="let bj of Employes.matrices">{{bj.note}}</option>
+                <select class="form-control" id="exampleFormControlSelect2"  placeholder="Veuillez choisir le niveau">
+                  <option   >{{obj3.matrices[i].note}}</option>
 
                   <option *ngFor="let obj4 of abreviation">
 
