@@ -31,7 +31,7 @@
         </ul>
       </div>
       <div class="table-responsive">
-        <form id="contact-form" role="form" [formGroup]="externeForm">
+       
 
         <table class="table  table-bordered align-items-center table-flush">
           <thead class="thead-light">
@@ -45,19 +45,21 @@
           <tbody>
             <tr class="thead-light">
               <th>Nom & Prenom</th>
-              <td *ngFor="let obj3 of Employes">{{obj3.nomprenom}}</td>
+              <td  *ngFor="let obj3 of Employes">{{obj3.nomprenom}}<br>{{obj3.polycompetences.valeur}} </td>
             </tr>
+
             <tr class="thead-light">
               <th>CT</th>
               <td *ngFor="let obj3 of Employes">{{obj3.category.label}}</td>
             </tr>
+            
             <tr scope="col-6" class="thead-light" *ngFor="let obj1 of Matricecompetences">
               <th scope="row">{{obj1.label}} ( {{obj1.abreviation}} )</th>
+              
              
-
               <td *ngFor="let obj3 of Employes">
                 <select class="form-control" id="exampleFormControlSelect2" placeholder="Veuillez choisir le niveau">
-                  <option selected disabled value="" ></option>
+                  <option *ngFor="let bj of Employes.matrices">{{bj.note}}</option>
 
                   <option *ngFor="let obj4 of abreviation">
 
@@ -66,21 +68,18 @@
                 </select>
               </td>
 
-              <td *ngFor="let obj6 of Polyvalences">
-                <!---<input type="text" class="form-control" 
-                required="required" formControlName="valeur">-->
+              <!--<td *ngFor="let obj6 of Polyvalences">
+                <input type="text" class="form-control" 
+                required="required" formControlName="valeur">
                 {{obj6.valeur}}
                 
-              </td>
-             
-
+              </td>-->
+              <td *ngFor="let o of Matricecompetences.polyvalences">{{o.valeur}}</td>
             </tr>
-            <tr class="thead-light">
-              <th>Total polycompétence /collaborateur </th>
-            </tr>
+           
           </tbody>
         </table>
-        </form>
+        
       </div>
     </div>
   </div>
