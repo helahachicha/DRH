@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/service/data.service';
 
 @Component({
@@ -16,15 +16,19 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   public Departements
   public Employes
   public abreviation
-  public Matrices
   public Polyvalences
   public Totalpolyvalences
   public Totalpolycompetences
 
+  public matriceForm = new FormGroup({
+    note: new FormControl('', [Validators.required]),
+  });
   
   constructor(
     private dataService: DataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router :Router
+
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +42,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     //this.getAllPolyvalence()  
     this.getallTotalpolyvalence()
     this.getallTotalpolcomp()
+   this.submit()
   }
   getallechelle() {
     this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
@@ -85,11 +90,16 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       this.open = true
     })
   }
+  submit() {
+    this.dataService.post('Matrices/addNoteMatrice.json',this.matriceForm.value).subscribe(res=> {
+    this.router.navigate(['/liste-matrice'])
+    })
+ }
 
-  getID(id:any){
+ /* getID(id:any){
     this.ids=id;
-  }
-  ids:any;
+  }*/
+ /* ids:any;
 note:any=null;
   checknote(employee:any){
   
@@ -105,7 +115,7 @@ note:any=null;
       }
     });
 
-  }
+  }*/
   /*getMatriceByEmpId() {
     this.dataService.get('Matrices/getMatriceByEmpId.json').subscribe(res => {
       this.Matrices = res.data;

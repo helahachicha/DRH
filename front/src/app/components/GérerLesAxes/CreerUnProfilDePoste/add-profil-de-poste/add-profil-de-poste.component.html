@@ -84,7 +84,7 @@
                                         </div>
 
                                     </div>
-                                     <!-- Form dynamique for Competence-->
+                                    <!-- Form dynamique for Competence-->
                                     <button (click)="addInput()" type="button" class="btn btn-success mb-3"><i
                                             class="bi bi-plus-square"></i> Ajouter un autre formulaire</button>
 
@@ -181,8 +181,9 @@
 
                                                                     </div>
                                                                 </div>
-                                                                <button class="btn btn-danger" (click)="removeIndicaSouscomp(i,j)"><i
-                                                                    class="bi bi-trash"></i></button>
+                                                                <button class="btn btn-danger"
+                                                                    (click)="removeSoucomp(i,j)"><i
+                                                                        class="bi bi-trash"></i></button>
                                                             </div>
 
                                                         </div> -->
@@ -254,13 +255,9 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Nom & Prenom</label>
-                                                    <input type="text" class="form-control" required="required"
                                                         formControlName="nomprenomverif">
                                                 </div>
 
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
                                                     <label>Fonction abrobation</label>
                                                     <input type="text" class="form-control" required="required"
                                                         formControlName="fonctionabrobation">
@@ -293,7 +290,7 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            
                         </form>
                     </div>
                 </div>

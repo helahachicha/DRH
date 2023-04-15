@@ -52,7 +52,6 @@ export class AddProfilDePosteComponent implements OnInit {
   getAllniveau() {
     this.dataService.get('Niveauvises/getAllNiveauvise.json').subscribe(res => {
       this.Niveauvises = res.data;
-
     }
     )
   }
