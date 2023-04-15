@@ -1,3 +1,8 @@
 img{
     width: 5%;
 }
+
+.text{
+    writing-mode: vertical-rl; /* Tourne le texte à 90 degrés */
+    transform: rotate(180deg); /* Retourne le texte pour le rendre lisible */
+  }

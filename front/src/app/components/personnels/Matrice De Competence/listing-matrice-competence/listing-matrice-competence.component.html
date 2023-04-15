@@ -7,10 +7,12 @@
       <div class="card-header border-0">
         <h3 class="mb-0">Echelle d'évaluation</h3>
         <div class="row">
-          <div class="col-8" *ngFor="let obj of Echelleevaluations">
+          <div class="col-8 mt-3" *ngFor="let obj of Echelleevaluations">
             <ul>
               <li>
+                <span [ngStyle]="{'color': dataValue < 0 ? 'red' : 'green'}">
                 {{obj.label}}: {{obj.abreviation}} : {{obj.valeur}}
+                </span>
               </li>
             </ul>
           </div>
@@ -30,20 +32,26 @@
           </li>
         </ul>
       </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-0">Static Table With Checkboxes</h5>
+        </div>
+        <form id="contact-form" role="form" [formGroup]="matriceForm">
+        <div class="table-responsive">
       <div class="table-responsive">
         <table class="table  table-bordered align-items-center table-flush" >
           <thead class="thead-light">
             <tr>
               <th>GP </th>
               <td class="text-center" colspan="4" *ngFor="let obj2 of Departements">{{obj2.label}}</td>
-              <th *ngFor="let total of Totalpolycompetences">TOTAL Polycompetence : {{total.valeur}} %</th>
+              <th *ngFor="let total of Totalpolycompetences" style="background-color: rgb(131, 222, 222);">TOTAL Polycompetence : {{total.valeur}} %</th>
               
             </tr>
           </thead>
           <tbody>
             <tr class="thead-light">
               <th>Nom & Prenom</th>
-              <td  *ngFor="let obj3 of Employes">{{obj3.nomprenom}}<br> <div *ngFor="let poly of obj3.polycompetences">{{poly.valeur}}% </div> </td>
+              <td  *ngFor="let obj3 of Employes">{{obj3.nomprenom}}<br> <div *ngFor="let poly of obj3.polycompetences" style="background-color: coral;">{{poly.valeur}}% </div> </td>
             </tr>
 
             <tr class="thead-light">
@@ -53,13 +61,15 @@
             
             <tr scope="col-6" class="thead-light" *ngFor="let obj3 of Matricecompetences">
               <th scope="row">{{obj3.label}} ({{obj3.abreviation}} ) 
-              <div class="text-center" *ngFor="let obj5 of obj3.polyvalences">
+              <div class="text-center" *ngFor="let obj5 of obj3.polyvalences" style="background-color: coral;">
                 {{obj5.valeur}}%
               </div>
               </th>
-              
-              
               <td *ngFor="let obj2 of Employes" >
+              <input type="text" class="form-control" placeholder="ex:NE"
+                required="required" formControlName="note">
+              </td>
+            <!-- <td *ngFor="let obj2 of Employes" >
                 <select class="form-control" id="exampleFormControlSelect2"  placeholder="Veuillez choisir le niveau">
 
 
@@ -70,17 +80,27 @@
                   </option>
                 </select>
               </td>
+              <td *ngFor="let obj3 of obj3.matrices">
+                {{obj3.note}}
+              </td>-->
 
              
             </tr>
             <tr scope="col-6" class="thead-light">
-              <th *ngFor="let total of Totalpolyvalences">TOTAL Polyvalence  : {{total.valeur}} %</th>
-            </tr>
-           
+              <th *ngFor="let total of Totalpolyvalences" style="background-color: rgb(131, 222, 222);">TOTAL Polyvalence  : {{total.valeur}} %</th>
+            </tr>          
           </tbody>
-        </table>
-        
-      </div>
+        </table>  
+        <div class="row">
+          <div class="col-md-12">
+
+              <button class="btn btn-primary m-5" type="submit"
+                  (click)="submit()">Ajouter</button>
+
+          </div>
+      </div>     
+      </div>  
     </div>
+    </form>
   </div>
 </div>

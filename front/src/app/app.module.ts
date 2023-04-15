@@ -33,6 +33,7 @@ import { AuthentificationModule } from './Authentification/authentification.modu
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,   
@@ -68,8 +69,8 @@ import { AuthentificationModule } from './Authentification/authentification.modu
     FormationInternesModule,
     FormaexternesModule,
     CoutFormationModule,
-    AuthentificationModule
-
+    AuthentificationModule,
+  
 
   ],
   providers: [],
