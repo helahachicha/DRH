@@ -37,9 +37,9 @@ export class AddProfilDePosteComponent implements OnInit {
   const data = this.FormGenerator.value
   console.log("res.data",data)
 
-      this.dataService.post('Profilpostes/addProfilposte.json',data).subscribe(res=> {
-        this.router.navigate(['/listingprofilposte'])
-         })
+       this.dataService.post('Profilpostes/addProfilposte.json',data).subscribe(res=> {
+         this.router.navigate(['/listingprofilposte'])
+          })
 
 
   }
@@ -52,7 +52,7 @@ export class AddProfilDePosteComponent implements OnInit {
   getAllniveau() {
     this.dataService.get('Niveauvises/getAllNiveauvise.json').subscribe(res => {
       this.Niveauvises = res.data;
-      
+
     }
     )
   }
@@ -62,33 +62,12 @@ export class AddProfilDePosteComponent implements OnInit {
     }
     )
   }
-  addInput() {
-    this.FormcompetenceData.push(this.createIndicateurGroup());
-  }
- 
-  addInputSoucomp(i) {
-    const optionsArray = <FormArray>this.FormcompetenceData.at(i).get('souscompetence');
-    optionsArray.push(this.createSoucomp());  }
 
-  removedIndica(index) {
-    const Indicateur = this.FormGenerator.get('Formcompetence') as FormArray
 
-    Indicateur.removeAt(index);
-
-  }
-
-  removeSoucomp(i, j) {
-   
-    (<FormArray>this.FormcompetenceData.at(i).get('souscompetence')).removeAt(j);
-  
+removedCompetence(index) {
+  const Indicateur = this.FormGenerator.get('Formcompetence') as FormArray
+  Indicateur.removeAt(index);
 }
-createSoucomp(): FormGroup {
-  return this.fb.group({
-    label: ['', [Validators.required]],
-  
-  });
-}
-
   createForm() {
     this.FormGenerator = this.fb.group({
       nom: new FormControl('', [Validators.required]),
@@ -111,17 +90,55 @@ createSoucomp(): FormGroup {
     return this.fb.group({
       competence_id: ['', [Validators.required]],
       niveauvise_id: ['', [Validators.required]],
-      souscompetence:  this.fb.array([this.createSoucomp()]),
+      Souscompetence:  this.fb.array([this.createSoucomp()]),
       indicateur:  this.fb.array([this.createOption()]),
+      // indicateurSoucomp:  this.fb.array([this.createIndicaSouscomp()]),
+
     })
   }
-  createOption(): FormGroup {
+  createSoucomp(): FormGroup {
     return this.fb.group({
       label: ['', [Validators.required]],
+      indicateurSoucomp:   this.fb.array([this.createIndicaSouscomp()]),
 
     });
   }
 
+
+  createOption(): FormGroup {
+    return this.fb.group({
+      label: ['', [Validators.required]],
+    });
+  }
+  createIndicaSouscomp(): FormGroup {
+    return this.fb.group({
+      label: ['', [Validators.required]],
+    });
+  }
+
+
+  addInput() {
+    this.FormcompetenceData.push(this.createIndicateurGroup());
+  }
+
+  addInputSoucomp(i) {
+    const optionsArray = <FormArray>this.FormcompetenceData.at(i).get('Souscompetence');
+    optionsArray.push(this.createSoucomp());
+   }
+
+   indicateurSoucomp(i: number, j: number) {
+    const souscompArray = this.FormGenerator.get(`Formcompetence.${i}.Souscompetence`) as FormArray;
+    const indicateurSoucompArray = souscompArray.at(j).get('indicateurSoucomp') as FormArray;
+    indicateurSoucompArray.push(this.createIndicaSouscomp());
+  }
+
+
+
+  removeSoucomp(i, j) {
+
+    (<FormArray>this.FormcompetenceData.at(i).get('Souscompetence')).removeAt(j);
+
+}
 
   addOptions(i) {
     const optionsArray = <FormArray>this.FormcompetenceData.at(i).get('indicateur');
@@ -129,18 +146,10 @@ createSoucomp(): FormGroup {
   }
 
   removeOptions(i, j) {
-   
+
       (<FormArray>this.FormcompetenceData.at(i).get('indicateur')).removeAt(j);
-    
-    
-  }
 
-  createIndicaSouscomp(): FormGroup {
-    return this.fb.group({
-      label: ['', [Validators.required]],
-    
 
-    });
   }
 
 
@@ -150,9 +159,6 @@ createSoucomp(): FormGroup {
   }
 
   removeIndicaSouscomp(i, j) {
-   
       (<FormArray>this.FormcompetenceData.at(i).get('indicateurSoucomp')).removeAt(j);
-    
-    
   }
 }
