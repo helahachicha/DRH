@@ -74,11 +74,12 @@ class ProfilpostesController extends AppController
              //   debug($data->Formcompetence);
             $formcompetences = $this->Formcompetences->newEmptyEntity();
             $formcompetences->competence_id=$formcomp->competence_id; 
+            $formcompetences->soucompetence=$formcomp->soucompetence;
             $formcompetences->niveauvise_id=$formcomp->niveauvise_id;  
             $formcompetences->detailprofilposte_id=$savedProfilPoste->id; 
             $savedFormComp=$this->Formcompetences->save($formcompetences); 
-            $this->loadModel('Souscompetences');
-            /* create Souscompetences entity */
+            //$this->loadModel('Souscompetences');
+            /* create Souscompetences entity 
                  if (1==1){
                      foreach ($formcomp->souscompetence  as $soucomp) {
           
@@ -88,7 +89,7 @@ class ProfilpostesController extends AppController
                         $savedProfil=$this->Souscompetences->save($soucompetences);
                     }
                    
-             }
+             }*/
              $this->loadModel('Indicateursuivis');
              /* create Indicateursuivis entity */
                   if (1==1){
