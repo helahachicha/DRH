@@ -50,6 +50,12 @@ class CompetencesTable extends Table
         $this->hasMany('Formcompetences', [
             'foreignKey' => 'competence_id',
         ]);
+        $this->hasMany('Indicateursuivis', [
+            'foreignKey' => 'competence_id',
+        ]);
+        $this->hasMany('Souscompetences', [
+            'foreignKey' => 'competence_id',
+        ]);
     }
 
     /**

@@ -51,6 +51,9 @@ class SouscompetencesTable extends Table
             'foreignKey' => 'competence_id',
             'joinType' => 'INNER',
         ]);
+        $this->hasMany('Indicasoucompas', [
+            'foreignKey' => 'souscompetence_id',
+        ]);
     }
 
     /**

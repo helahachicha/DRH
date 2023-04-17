@@ -84,15 +84,15 @@
                                         </div>
 
                                     </div>
-                                     <!-- Form dynamique for Competence-->
+                                    <!-- Form dynamique for Competence-->
                                     <button (click)="addInput()" type="button" class="btn btn-success mb-3"><i
                                             class="bi bi-plus-square"></i> Ajouter un autre formulaire</button>
-                                           
+
                                     <div class="shadow p-3 mb-5 bg-body rounded">
                                         <div class="item-box" formArrayName="Formcompetence"
                                             *ngFor="let indicateur of FormcompetenceData.controls; let i = index">
                                             <div [formGroupName]="i">
-                                                <button class="btn btn-danger" (click)="removedIndica(i)"><i
+                                                <button class="btn btn-danger" (click)="removedCompetence(i)"><i
                                                     class="bi bi-trash"></i></button>
                                                 <div class="d-flex">
                                                     <h1>Competence: {{i+1}}</h1>
@@ -118,75 +118,77 @@
                                                             </div>
 
                                                         </div>
-                                                        <!-- Form dynamique for indicateur-->
-                                                        <button (click)="addOptions(i)" type="button" class="btn btn-success mb-3"><i
-                                                            class="bi bi-plus-square"></i> Ajouter un indicateur</button>
-                                                        <div class="item-box" formArrayName="indicateur"
-                                                            *ngFor="let item of indicateur.get('indicateur').controls; let j = index">
-                                                            <div [formGroupName]="j">
-                                                                <div class="d-flex">
-                                                                    <h1>Indicateur: {{j+1}}</h1>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <label>Indicateur</label>
-                                                                            <input type="text" class="form-control"
-                                                                                required="required"
-                                                                                formControlName="label">
-                                                                        </div>
+                                                             <!-- Form dynamique for indicateur-->
+                                                             <button (click)="addOptions(i)" type="button" class="btn btn-success mb-3"><i
+                                                              class="bi bi-plus-square"></i> Ajouter un indicateur</button>
+                                                          <div class="item-box" formArrayName="indicateur"
+                                                              *ngFor="let item of indicateur.get('indicateur').controls; let j = index">
+                                                              <div [formGroupName]="j">
+                                                                  <div class="d-flex">
+                                                                      <h1>indicateur: {{j+1}}</h1>
+                                                                      <div class="col-md-12">
+                                                                          <div class="form-group">
+                                                                              <label>indicateur</label>
+                                                                              <input type="text" class="form-control"
+                                                                                  required="required"
+                                                                                  formControlName="label">
+                                                                          </div>
 
-                                                                    </div>
-                                                                </div>
-                                                                <button class="btn btn-danger" (click)="removeOptions(i,j)"><i
-                                                                    class="bi bi-trash"></i></button>
-                                                            </div>
-                                                  
-                                                        </div>
+                                                                      </div>
+                                                                  </div>
+                                                                  <button class="btn btn-danger" (click)="removeOptions(i,j)"><i
+                                                                      class="bi bi-trash"></i></button>
+                                                              </div>
 
+                                                          </div>
+                                                        <!-- Form dynamique for souscompetence-->
                                                         <button (click)="addInputSoucomp(i)" type="button" class="btn btn-success mb-3"><i
-                                                            class="bi bi-plus-square"></i> Ajouter un sou competence</button>
-                                                        <div class="item-box" formArrayName="souscompetence"
-                                                            *ngFor="let item of indicateur.get('souscompetence').controls; let j = index">
-                                                            <div [formGroupName]="j">
-                                                                <div class="d-flex">
-                                                                    <h1>Sous competence: {{j+1}}</h1>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <label>Sous Competences</label>
-                                                                            <input type="text" class="form-control"
-                                                                                required="required"
-                                                                                formControlName="label">
-                                                                        </div>
-
+                                                            class="bi bi-plus-square"></i> Ajouter un Souscompetence</button>
+                                                            <div formArrayName="Souscompetence">
+                                                              <div *ngFor="let souscomp of indicateur.get('Souscompetence').controls; let j = index" [formGroupName]="j">
+                                                                <hr>
+                                                                <h4>Sous-compétence {{j+1}}</h4>
+                                                                <div>
+                                                                  <label>Nom de la sous-compétence :</label>
+                                                                  <input type="text" formControlName="label" required>
+                                                                </div>
+                                                                <div formArrayName="indicateurSoucomp">
+                                                                  <div *ngFor="let indicateurSoucomp of souscomp.get('indicateurSoucomp').controls; let k = index" [formGroupName]="k">
+                                                                    <div>
+                                                                      <label>Indicateur de la sous-compétence {{k+1}} :</label>
+                                                                      <input type="text" formControlName="label" required>
                                                                     </div>
-                                                                         <!-- Form dynamique for indicateur souscompetence-->
-                                                        <button (click)="addIndicaSouscomp(i)" type="button" class="btn btn-success mb-3"><i
-                                                            class="bi bi-plus-square"></i> Ajouter un indicateur de souscompetence</button>
-                                                        <div class="item-box" formArrayName="indicateurSoucomp"
+                                                                  </div>
+                                                                </div>
+                                                                <button (click)="indicateurSoucomp(i, j)">Ajouter un indicateur</button>
+                                                              </div>
+                                                            </div>
+                                                     <!-- Form dynamique for indicateursouscompetence-->
+                                                        <!-- <button (click)="addIndicaSouscomp(i)" type="button" class="btn btn-success mb-3"><i
+                                                            class="bi bi-plus-square"></i> Ajouter un indicateursouscompetence</button> -->
+                                                        <!-- <div class="item-box" formArrayName="indicateurSoucomp"
                                                             *ngFor="let item of indicateur.get('indicateurSoucomp').controls; let j = index">
                                                             <div [formGroupName]="j">
                                                                 <div class="d-flex">
-                                                                    <h1>Indicateur: {{j+1}}</h1>
+                                                                    <h1>indicateurSoucomp: {{j+1}}</h1>
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
-                                                                            <label>Indicateur</label>
+                                                                            <label>indicateurSoucomp</label>
                                                                             <input type="text" class="form-control"
                                                                                 required="required"
-                                                                                formControlName="indicatsoucomp">
+                                                                                formControlName="label">
                                                                         </div>
 
                                                                     </div>
                                                                 </div>
-                                                                <button class="btn btn-danger" (click)="removeIndicaSouscomp(i,j)"><i
-                                                                    class="bi bi-trash"></i></button>
+                                                                <button class="btn btn-danger"
+                                                                    (click)="removeSoucomp(i,j)"><i
+                                                                        class="bi bi-trash"></i></button>
                                                             </div>
-                                                  
-                                                        </div>
-                                                                </div>
-                                                                <button class="btn btn-danger" (click)="removeSoucomp(i,j)"><i
-                                                                    class="bi bi-trash"></i></button>
-                                                            </div>
-                                                  
-                                                        </div>
+
+                                                        </div> -->
+
+
 
                                                         <div class="col-md-12">
                                                             <div class="form-group">
@@ -208,12 +210,12 @@
                                                             </div>
 
                                                         </div>
-                                               
-                                                   
+
+
 
                                                     </div>
                                                 </div>
-                                              
+
                                             </div>
 
                                         </div>
@@ -253,13 +255,9 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Nom & Prenom</label>
-                                                    <input type="text" class="form-control" required="required"
                                                         formControlName="nomprenomverif">
                                                 </div>
 
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
                                                     <label>Fonction abrobation</label>
                                                     <input type="text" class="form-control" required="required"
                                                         formControlName="fonctionabrobation">
@@ -292,7 +290,7 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            
                         </form>
                     </div>
                 </div>

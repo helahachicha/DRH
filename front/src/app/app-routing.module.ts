@@ -3,9 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Home/home/home.component';
 import { FooterComponent } from './Layout/footer/footer.component';
 import { HeaderComponent } from './Layout/header/header.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'header', component: HeaderComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  
   //path module profil
   {
     path: 'Detail-profile/:id',
