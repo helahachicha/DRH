@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 11 avr. 2023 à 23:21
+-- Généré le : lun. 17 avr. 2023 à 17:10
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `drh`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `activiteloisirs`
+--
+
+CREATE TABLE `activiteloisirs` (
+  `id` int(11) NOT NULL,
+  `activitesportive` varchar(255) NOT NULL,
+  `lequelactsportive` varchar(255) NOT NULL,
+  `activitecreative` varchar(255) NOT NULL,
+  `activiteinventivite` varchar(255) NOT NULL,
+  `activitecorporelle` varchar(255) NOT NULL,
+  `jeureflexion` varchar(255) NOT NULL,
+  `exerceractivite` varchar(255) NOT NULL,
+  `pourquoiexercer` varchar(255) NOT NULL,
+  `sallesport` varchar(255) NOT NULL,
+  `disposallesport` varchar(255) NOT NULL,
+  `activitebenevolat` varchar(255) NOT NULL,
+  `lequelactbenevolat` varchar(255) NOT NULL,
+  `lieuactbenevolat` varchar(255) NOT NULL,
+  `exerceractbenevolat` varchar(255) NOT NULL,
+  `informationprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -89,6 +116,25 @@ INSERT INTO `comptechniques` (`id`, `label`, `testtechnique_id`, `created`, `mod
 (1, 'A. Orientée Objet', 1, '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
 (2, 'B. Algorithme', 1, '2023-03-28 00:28:08', '2023-03-28 00:28:08'),
 (3, 'C. SQL', 1, '2023-03-28 00:29:04', '2023-03-28 00:29:04');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `conjoints`
+--
+
+CREATE TABLE `conjoints` (
+  `id` int(11) NOT NULL,
+  `nomprenom` varchar(255) NOT NULL,
+  `datenaissance` date NOT NULL,
+  `niveauetude` varchar(255) NOT NULL,
+  `fonction` varchar(255) NOT NULL,
+  `etat` varchar(255) NOT NULL,
+  `salaire` float NOT NULL,
+  `informationprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -221,6 +267,77 @@ INSERT INTO `employes` (`id`, `nomprenom`, `categorie_id`, `created`, `modified`
 (1, 'bilel', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
 (2, 'chourouk', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
 (3, 'hela', 2, '2023-04-07 09:59:32', '2023-04-07 09:59:32');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `enfants`
+--
+
+CREATE TABLE `enfants` (
+  `id` int(11) NOT NULL,
+  `ordre` int(11) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `datenaissance` date NOT NULL,
+  `niveauetude` varchar(255) NOT NULL,
+  `centreinteret` varchar(255) NOT NULL,
+  `etatsante` varchar(255) NOT NULL,
+  `informationprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `experienceprofessionnelles`
+--
+
+CREATE TABLE `experienceprofessionnelles` (
+  `id` int(11) NOT NULL,
+  `societe` varchar(255) NOT NULL,
+  `periode` varchar(255) NOT NULL,
+  `fonction` varchar(255) NOT NULL,
+  `initiative` varchar(255) NOT NULL,
+  `salaire` float NOT NULL,
+  `informationprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `formaacademiques`
+--
+
+CREATE TABLE `formaacademiques` (
+  `id` int(11) NOT NULL,
+  `niveau` varchar(255) NOT NULL,
+  `specialite` varchar(255) NOT NULL,
+  `annee` varchar(255) NOT NULL,
+  `etablissement` varchar(255) NOT NULL,
+  `informationprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `formacomplementaires`
+--
+
+CREATE TABLE `formacomplementaires` (
+  `id` int(11) NOT NULL,
+  `formation` varchar(255) NOT NULL,
+  `attestation` varchar(255) NOT NULL,
+  `annee` varchar(255) NOT NULL,
+  `etablissement` varchar(255) NOT NULL,
+  `informationprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -465,6 +582,74 @@ INSERT INTO `infoficheevaluations` (`id`, `objetevaluation`, `dateevaluation`, `
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `informationpersonnelles`
+--
+
+CREATE TABLE `informationpersonnelles` (
+  `id` int(11) NOT NULL,
+  `datenaissance` date NOT NULL,
+  `lieunaissance` varchar(255) NOT NULL,
+  `nationalite` varchar(255) NOT NULL,
+  `ncin` int(11) NOT NULL,
+  `lieucin` varchar(255) NOT NULL,
+  `datecin` date NOT NULL,
+  `permis` varchar(255) NOT NULL,
+  `datepermis` date NOT NULL,
+  `logement` varchar(255) NOT NULL,
+  `moyentransport` varchar(255) NOT NULL,
+  `minutetrajet` int(11) NOT NULL,
+  `heuretrajet` int(11) NOT NULL,
+  `situationfamiliale` varchar(255) NOT NULL,
+  `datesituation` date NOT NULL,
+  `critereenfance` varchar(255) NOT NULL,
+  `beaumoment` varchar(255) NOT NULL,
+  `mauvaismoment` varchar(255) NOT NULL,
+  `informationprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `informationprofessionnelles`
+--
+
+CREATE TABLE `informationprofessionnelles` (
+  `id` int(11) NOT NULL,
+  `nomprenom` varchar(255) NOT NULL,
+  `adresse` varchar(255) NOT NULL,
+  `telprofessionnel` int(11) NOT NULL,
+  `telpersonnel` int(11) NOT NULL,
+  `contact` int(11) NOT NULL,
+  `mailprofessionnel` varchar(255) NOT NULL,
+  `mailpersonnel` varchar(255) NOT NULL,
+  `service` varchar(255) NOT NULL,
+  `poste` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `langues`
+--
+
+CREATE TABLE `langues` (
+  `id` int(11) NOT NULL,
+  `arabe` varchar(255) NOT NULL,
+  `francais` varchar(255) NOT NULL,
+  `anglais` varchar(255) NOT NULL,
+  `autre` varchar(255) NOT NULL,
+  `informationprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `matricecompetences`
 --
 
@@ -634,6 +819,21 @@ INSERT INTO `noteevaluations` (`id`, `point_id`, `indicateursuivi_id`, `created`
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `performances`
+--
+
+CREATE TABLE `performances` (
+  `id` int(11) NOT NULL,
+  `pointsforce` text NOT NULL,
+  `pointsameliore` text NOT NULL,
+  `informationprofessionnelle_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `points`
 --
 
@@ -738,7 +938,8 @@ CREATE TABLE `profilpostes` (
 
 INSERT INTO `profilpostes` (`id`, `nom`, `poste_id`, `created`, `modified`) VALUES
 (1, 'Profil de poste développeur ', 1, '2023-04-05 23:22:59', '2023-04-05 23:22:59'),
-(2, 'Profil poste responsable marketing ', 0, '2023-04-05 23:23:33', '2023-04-05 23:23:33');
+(2, 'Profil poste responsable marketing ', 0, '2023-04-05 23:23:33', '2023-04-05 23:23:33'),
+(3, 'test', 0, '2023-04-13 07:06:45', '2023-04-13 07:06:45');
 
 -- --------------------------------------------------------
 
@@ -950,6 +1151,12 @@ INSERT INTO `users` (`id`, `email`, `password`, `token`, `role_id`, `created`, `
 --
 
 --
+-- Index pour la table `activiteloisirs`
+--
+ALTER TABLE `activiteloisirs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `categories`
 --
 ALTER TABLE `categories`
@@ -965,6 +1172,12 @@ ALTER TABLE `competences`
 -- Index pour la table `comptechniques`
 --
 ALTER TABLE `comptechniques`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `conjoints`
+--
+ALTER TABLE `conjoints`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -998,6 +1211,30 @@ ALTER TABLE `employes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `enfants`
+--
+ALTER TABLE `enfants`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `experienceprofessionnelles`
+--
+ALTER TABLE `experienceprofessionnelles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `formaacademiques`
+--
+ALTER TABLE `formaacademiques`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `formacomplementaires`
+--
+ALTER TABLE `formacomplementaires`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `formaexternes`
 --
 ALTER TABLE `formaexternes`
@@ -1028,6 +1265,24 @@ ALTER TABLE `infoficheevaluations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `informationpersonnelles`
+--
+ALTER TABLE `informationpersonnelles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `informationprofessionnelles`
+--
+ALTER TABLE `informationprofessionnelles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `langues`
+--
+ALTER TABLE `langues`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `matricecompetences`
 --
 ALTER TABLE `matricecompetences`
@@ -1049,6 +1304,12 @@ ALTER TABLE `niveauvises`
 -- Index pour la table `noteevaluations`
 --
 ALTER TABLE `noteevaluations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `performances`
+--
+ALTER TABLE `performances`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1134,6 +1395,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT pour la table `activiteloisirs`
+--
+ALTER TABLE `activiteloisirs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
@@ -1150,6 +1417,12 @@ ALTER TABLE `competences`
 --
 ALTER TABLE `comptechniques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `conjoints`
+--
+ALTER TABLE `conjoints`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `coutformaexternes`
@@ -1182,6 +1455,30 @@ ALTER TABLE `employes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT pour la table `enfants`
+--
+ALTER TABLE `enfants`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `experienceprofessionnelles`
+--
+ALTER TABLE `experienceprofessionnelles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `formaacademiques`
+--
+ALTER TABLE `formaacademiques`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `formacomplementaires`
+--
+ALTER TABLE `formacomplementaires`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `formaexternes`
 --
 ALTER TABLE `formaexternes`
@@ -1212,6 +1509,24 @@ ALTER TABLE `infoficheevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT pour la table `informationpersonnelles`
+--
+ALTER TABLE `informationpersonnelles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `informationprofessionnelles`
+--
+ALTER TABLE `informationprofessionnelles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `langues`
+--
+ALTER TABLE `langues`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `matricecompetences`
 --
 ALTER TABLE `matricecompetences`
@@ -1234,6 +1549,12 @@ ALTER TABLE `niveauvises`
 --
 ALTER TABLE `noteevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `performances`
+--
+ALTER TABLE `performances`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `points`
@@ -1263,7 +1584,7 @@ ALTER TABLE `postes`
 -- AUTO_INCREMENT pour la table `profilpostes`
 --
 ALTER TABLE `profilpostes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `questions`

@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\LanguesTable;
+use App\Model\Table\ActiviteloisirsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\LanguesTable Test Case
+ * App\Model\Table\ActiviteloisirsTable Test Case
  */
-class LanguesTableTest extends TestCase
+class ActiviteloisirsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\LanguesTable
+     * @var \App\Model\Table\ActiviteloisirsTable
      */
-    protected $Langues;
+    protected $Activiteloisirs;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class LanguesTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Langues',
+        'app.Activiteloisirs',
         'app.Informationprofessionnelles',
     ];
 
@@ -36,8 +36,8 @@ class LanguesTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Langues') ? [] : ['className' => LanguesTable::class];
-        $this->Langues = $this->getTableLocator()->get('Langues', $config);
+        $config = $this->getTableLocator()->exists('Activiteloisirs') ? [] : ['className' => ActiviteloisirsTable::class];
+        $this->Activiteloisirs = $this->getTableLocator()->get('Activiteloisirs', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class LanguesTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Langues);
+        unset($this->Activiteloisirs);
 
         parent::tearDown();
     }
@@ -56,7 +56,7 @@ class LanguesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\LanguesTable::validationDefault()
+     * @uses \App\Model\Table\ActiviteloisirsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +67,7 @@ class LanguesTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\LanguesTable::buildRules()
+     * @uses \App\Model\Table\ActiviteloisirsTable::buildRules()
      */
     public function testBuildRules(): void
     {

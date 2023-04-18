@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\LanguesTable;
+use App\Model\Table\ExperienceprofessionnellesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\LanguesTable Test Case
+ * App\Model\Table\ExperienceprofessionnellesTable Test Case
  */
-class LanguesTableTest extends TestCase
+class ExperienceprofessionnellesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\LanguesTable
+     * @var \App\Model\Table\ExperienceprofessionnellesTable
      */
-    protected $Langues;
+    protected $Experienceprofessionnelles;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class LanguesTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Langues',
+        'app.Experienceprofessionnelles',
         'app.Informationprofessionnelles',
     ];
 
@@ -36,8 +36,8 @@ class LanguesTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Langues') ? [] : ['className' => LanguesTable::class];
-        $this->Langues = $this->getTableLocator()->get('Langues', $config);
+        $config = $this->getTableLocator()->exists('Experienceprofessionnelles') ? [] : ['className' => ExperienceprofessionnellesTable::class];
+        $this->Experienceprofessionnelles = $this->getTableLocator()->get('Experienceprofessionnelles', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class LanguesTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Langues);
+        unset($this->Experienceprofessionnelles);
 
         parent::tearDown();
     }
@@ -56,7 +56,7 @@ class LanguesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\LanguesTable::validationDefault()
+     * @uses \App\Model\Table\ExperienceprofessionnellesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +67,7 @@ class LanguesTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\LanguesTable::buildRules()
+     * @uses \App\Model\Table\ExperienceprofessionnellesTable::buildRules()
      */
     public function testBuildRules(): void
     {

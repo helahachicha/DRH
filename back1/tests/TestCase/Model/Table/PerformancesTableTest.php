@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\LanguesTable;
+use App\Model\Table\PerformancesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\LanguesTable Test Case
+ * App\Model\Table\PerformancesTable Test Case
  */
-class LanguesTableTest extends TestCase
+class PerformancesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\LanguesTable
+     * @var \App\Model\Table\PerformancesTable
      */
-    protected $Langues;
+    protected $Performances;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class LanguesTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Langues',
+        'app.Performances',
         'app.Informationprofessionnelles',
     ];
 
@@ -36,8 +36,8 @@ class LanguesTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Langues') ? [] : ['className' => LanguesTable::class];
-        $this->Langues = $this->getTableLocator()->get('Langues', $config);
+        $config = $this->getTableLocator()->exists('Performances') ? [] : ['className' => PerformancesTable::class];
+        $this->Performances = $this->getTableLocator()->get('Performances', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class LanguesTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Langues);
+        unset($this->Performances);
 
         parent::tearDown();
     }
@@ -56,7 +56,7 @@ class LanguesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\LanguesTable::validationDefault()
+     * @uses \App\Model\Table\PerformancesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +67,7 @@ class LanguesTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\LanguesTable::buildRules()
+     * @uses \App\Model\Table\PerformancesTable::buildRules()
      */
     public function testBuildRules(): void
     {

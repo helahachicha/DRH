@@ -69,8 +69,26 @@ class ProfilpostesController extends AppController
 
         /* create formcompetences entity */
            if(1==1){
-
-
+            foreach ($data->Formcompetence as $formcomp) {
+             //   debug($data->Formcompetence);
+            $formcompetences = $this->Formcompetences->newEmptyEntity();
+            $formcompetences->competence_id=$formcomp->competence_id; 
+            $formcompetences->soucompetence=$formcomp->soucompetence;
+            $formcompetences->niveauvise_id=$formcomp->niveauvise_id;  
+            $formcompetences->detailprofilposte_id=$savedProfilPoste->id; 
+            $savedFormComp=$this->Formcompetences->save($formcompetences); 
+            //$this->loadModel('Souscompetences');
+            /* create Souscompetences entity 
+                 if (1==1){
+                     foreach ($formcomp->souscompetence  as $soucomp) {
+          
+                        $soucompetences = $this->Souscompetences->newEmptyEntity();
+                        $soucompetences->label=$soucomp->label;
+                        $soucompetences->formcompetence_id= $savedFormComp->id;
+                        $savedProfil=$this->Souscompetences->save($soucompetences);
+                    }
+                   
+             }*/
              $this->loadModel('Indicateursuivis');
              /* create Indicateursuivis entity */
                   if (1==1){
@@ -129,6 +147,7 @@ class ProfilpostesController extends AppController
         ]);
 
     }
+}
 
      /**
      * editProfilposte
