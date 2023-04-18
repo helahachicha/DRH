@@ -22,13 +22,13 @@ class EnfantsFixture extends TestFixture
                 'id' => 1,
                 'ordre' => 1,
                 'prenom' => 'Lorem ipsum dolor sit amet',
-                'datenaissance' => '2023-04-17',
+                'datenaissancee' => '2023-04-18',
                 'niveauetude' => 'Lorem ipsum dolor sit amet',
                 'centreinteret' => 'Lorem ipsum dolor sit amet',
                 'etatsante' => 'Lorem ipsum dolor sit amet',
                 'informationprofessionnelle_id' => 1,
-                'created' => '2023-04-17 14:14:46',
-                'modified' => '2023-04-17 14:14:46',
+                'created' => '2023-04-18 08:43:32',
+                'modified' => '2023-04-18 08:43:32',
             ],
         ];
         parent::init();

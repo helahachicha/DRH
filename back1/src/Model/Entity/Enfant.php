@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $ordre
  * @property string $prenom
- * @property \Cake\I18n\FrozenDate $datenaissance
+ * @property \Cake\I18n\FrozenDate $datenaissancee
  * @property string $niveauetude
  * @property string $centreinteret
  * @property string $etatsante
@@ -35,7 +35,7 @@ class Enfant extends Entity
     protected $_accessible = [
         'ordre' => true,
         'prenom' => true,
-        'datenaissance' => true,
+        'datenaissancee' => true,
         'niveauetude' => true,
         'centreinteret' => true,
         'etatsante' => true,

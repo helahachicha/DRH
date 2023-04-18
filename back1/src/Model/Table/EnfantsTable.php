@@ -73,9 +73,9 @@ class EnfantsTable extends Table
             ->notEmptyString('prenom');
 
         $validator
-            ->date('datenaissance')
-            ->requirePresence('datenaissance', 'create')
-            ->notEmptyDate('datenaissance');
+            ->date('datenaissancee')
+            ->requirePresence('datenaissancee', 'create')
+            ->notEmptyDate('datenaissancee');
 
         $validator
             ->scalar('niveauetude')

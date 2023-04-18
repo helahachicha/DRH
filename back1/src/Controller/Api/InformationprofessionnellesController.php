@@ -126,12 +126,12 @@ class InformationprofessionnellesController extends AppController
             foreach ($infoprof->conjoint as $conjoint) {
  
                $conjoints = $this->Conjoints->newEmptyEntity();
-               $conjoints->nomprenom=$conjoint->nomprenom;
-               $conjoints->datenaissance=$conjoint->datenaissance;
-               $conjoints->niveauetude=$conjoint->niveauetude;
-               $conjoints->fonction=$conjoint->fonction;
-               $conjoints->etat=$conjoint->etat;
-               $conjoints->salaire=$conjoint->salaire;
+               $conjoints->nomprenomep=$conjoint->nomprenomep;
+               $conjoints->datenaissanceep=$conjoint->datenaissanceep;
+               $conjoints->niveauetudeep=$conjoint->niveauetudeep;
+               $conjoints->fonctionep=$conjoint->fonctionep;
+               $conjoints->etatep=$conjoint->etatep;
+               $conjoints->salaireep=$conjoint->salaireep;
                $conjoints->informationprofessionnelle_id= $savedConjoint->id;
                $savedProfil=$this->Conjoints->save($conjoints);
            }
@@ -144,7 +144,7 @@ class InformationprofessionnellesController extends AppController
                $enfants = $this->Enfants->newEmptyEntity();
                $enfants->ordre=$enfant->ordre;
                $enfants->prenom=$enfant->prenom;
-               $enfants->datenaissance=$enfant->datenaissance;
+               $enfants->datenaissancee=$enfant->datenaissancee;
                $enfants->niveauetude=$enfant->niveauetude;
                $enfants->centreinteret=$enfant->centreinteret;
                $enfants->etatsante=$enfant->etatsante;
@@ -174,8 +174,8 @@ class InformationprofessionnellesController extends AppController
                $formacomplementaires = $this->Formacomplementaire->newEmptyEntity();
                $formacomplementaires->formation=$formacomplementaire->formation;
                $formacomplementaires->attestation=$formacomplementaire->attestation;
-               $formacomplementaires->annee=$formacomplementaire->annee;
-               $formacomplementaires->etablissement=$formacomplementaire->etablissement;
+               $formacomplementaires->anne=$formacomplementaire->anne;
+               $formacomplementaires->etablissements=$formacomplementaire->etablissements;
                $formacomplementaires->informationprofessionnelle_id= $savedFormacomplementaire->id;
                $savedProfil=$this->Formacomplementaire->save($formacomplementaires);
            }

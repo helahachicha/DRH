@@ -20,15 +20,15 @@ class ConjointsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'nomprenom' => 'Lorem ipsum dolor sit amet',
-                'datenaissance' => '2023-04-17',
-                'niveauetude' => 'Lorem ipsum dolor sit amet',
-                'fonction' => 'Lorem ipsum dolor sit amet',
-                'etat' => 'Lorem ipsum dolor sit amet',
-                'salaire' => 1,
+                'nomprenomep' => 'Lorem ipsum dolor sit amet',
+                'datenaissanceep' => '2023-04-18',
+                'niveauetudeep' => 'Lorem ipsum dolor sit amet',
+                'fonctionep' => 'Lorem ipsum dolor sit amet',
+                'etatep' => 'Lorem ipsum dolor sit amet',
+                'salaireep' => 1,
                 'informationprofessionnelle_id' => 1,
-                'created' => '2023-04-17 14:14:36',
-                'modified' => '2023-04-17 14:14:36',
+                'created' => '2023-04-18 08:39:51',
+                'modified' => '2023-04-18 08:39:51',
             ],
         ];
         parent::init();

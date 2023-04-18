@@ -74,16 +74,16 @@ class FormacomplementairesTable extends Table
             ->notEmptyString('attestation');
 
         $validator
-            ->scalar('annee')
-            ->maxLength('annee', 255)
-            ->requirePresence('annee', 'create')
-            ->notEmptyString('annee');
+            ->scalar('anne')
+            ->maxLength('anne', 255)
+            ->requirePresence('anne', 'create')
+            ->notEmptyString('anne');
 
         $validator
-            ->scalar('etablissement')
-            ->maxLength('etablissement', 255)
-            ->requirePresence('etablissement', 'create')
-            ->notEmptyString('etablissement');
+            ->scalar('etablissements')
+            ->maxLength('etablissements', 255)
+            ->requirePresence('etablissements', 'create')
+            ->notEmptyString('etablissements');
 
         $validator
             ->integer('informationprofessionnelle_id')

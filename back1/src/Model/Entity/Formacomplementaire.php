@@ -11,8 +11,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $formation
  * @property string $attestation
- * @property string $annee
- * @property string $etablissement
+ * @property string $anne
+ * @property string $etablissements
  * @property int $informationprofessionnelle_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -33,8 +33,8 @@ class Formacomplementaire extends Entity
     protected $_accessible = [
         'formation' => true,
         'attestation' => true,
-        'annee' => true,
-        'etablissement' => true,
+        'anne' => true,
+        'etablissements' => true,
         'informationprofessionnelle_id' => true,
         'created' => true,
         'modified' => true,

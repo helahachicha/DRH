@@ -62,38 +62,38 @@ class ConjointsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('nomprenom')
-            ->maxLength('nomprenom', 255)
-            ->requirePresence('nomprenom', 'create')
-            ->notEmptyString('nomprenom');
+            ->scalar('nomprenomep')
+            ->maxLength('nomprenomep', 255)
+            ->requirePresence('nomprenomep', 'create')
+            ->notEmptyString('nomprenomep');
 
         $validator
-            ->date('datenaissance')
-            ->requirePresence('datenaissance', 'create')
-            ->notEmptyDate('datenaissance');
+            ->date('datenaissanceep')
+            ->requirePresence('datenaissanceep', 'create')
+            ->notEmptyDate('datenaissanceep');
 
         $validator
-            ->scalar('niveauetude')
-            ->maxLength('niveauetude', 255)
-            ->requirePresence('niveauetude', 'create')
-            ->notEmptyString('niveauetude');
+            ->scalar('niveauetudeep')
+            ->maxLength('niveauetudeep', 255)
+            ->requirePresence('niveauetudeep', 'create')
+            ->notEmptyString('niveauetudeep');
 
         $validator
-            ->scalar('fonction')
-            ->maxLength('fonction', 255)
-            ->requirePresence('fonction', 'create')
-            ->notEmptyString('fonction');
+            ->scalar('fonctionep')
+            ->maxLength('fonctionep', 255)
+            ->requirePresence('fonctionep', 'create')
+            ->notEmptyString('fonctionep');
 
         $validator
-            ->scalar('etat')
-            ->maxLength('etat', 255)
-            ->requirePresence('etat', 'create')
-            ->notEmptyString('etat');
+            ->scalar('etatep')
+            ->maxLength('etatep', 255)
+            ->requirePresence('etatep', 'create')
+            ->notEmptyString('etatep');
 
         $validator
-            ->numeric('salaire')
-            ->requirePresence('salaire', 'create')
-            ->notEmptyString('salaire');
+            ->numeric('salaireep')
+            ->requirePresence('salaireep', 'create')
+            ->notEmptyString('salaireep');
 
         $validator
             ->integer('informationprofessionnelle_id')

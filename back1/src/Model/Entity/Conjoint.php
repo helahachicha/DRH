@@ -9,12 +9,12 @@ use Cake\ORM\Entity;
  * Conjoint Entity
  *
  * @property int $id
- * @property string $nomprenom
- * @property \Cake\I18n\FrozenDate $datenaissance
- * @property string $niveauetude
- * @property string $fonction
- * @property string $etat
- * @property float $salaire
+ * @property string $nomprenomep
+ * @property \Cake\I18n\FrozenDate $datenaissanceep
+ * @property string $niveauetudeep
+ * @property string $fonctionep
+ * @property string $etatep
+ * @property float $salaireep
  * @property int $informationprofessionnelle_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -33,12 +33,12 @@ class Conjoint extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'nomprenom' => true,
-        'datenaissance' => true,
-        'niveauetude' => true,
-        'fonction' => true,
-        'etat' => true,
-        'salaire' => true,
+        'nomprenomep' => true,
+        'datenaissanceep' => true,
+        'niveauetudeep' => true,
+        'fonctionep' => true,
+        'etatep' => true,
+        'salaireep' => true,
         'informationprofessionnelle_id' => true,
         'created' => true,
         'modified' => true,
