@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : lun. 17 avr. 2023 à 17:10
--- Version du serveur : 10.4.27-MariaDB
--- Version de PHP : 8.1.12
+-- Host: 127.0.0.1
+-- Generation Time: Apr 18, 2023 at 12:47 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,40 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `drh`
+-- Database: `drh`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `activiteloisirs`
---
-
-CREATE TABLE `activiteloisirs` (
-  `id` int(11) NOT NULL,
-  `activitesportive` varchar(255) NOT NULL,
-  `lequelactsportive` varchar(255) NOT NULL,
-  `activitecreative` varchar(255) NOT NULL,
-  `activiteinventivite` varchar(255) NOT NULL,
-  `activitecorporelle` varchar(255) NOT NULL,
-  `jeureflexion` varchar(255) NOT NULL,
-  `exerceractivite` varchar(255) NOT NULL,
-  `pourquoiexercer` varchar(255) NOT NULL,
-  `sallesport` varchar(255) NOT NULL,
-  `disposallesport` varchar(255) NOT NULL,
-  `activitebenevolat` varchar(255) NOT NULL,
-  `lequelactbenevolat` varchar(255) NOT NULL,
-  `lieuactbenevolat` varchar(255) NOT NULL,
-  `exerceractbenevolat` varchar(255) NOT NULL,
-  `informationprofessionnelle_id` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -63,7 +36,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`) VALUES
@@ -75,7 +48,7 @@ INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `competences`
+-- Table structure for table `competences`
 --
 
 CREATE TABLE `competences` (
@@ -86,7 +59,7 @@ CREATE TABLE `competences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `competences`
+-- Dumping data for table `competences`
 --
 
 INSERT INTO `competences` (`id`, `label`, `created`, `modified`) VALUES
@@ -97,7 +70,7 @@ INSERT INTO `competences` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comptechniques`
+-- Table structure for table `comptechniques`
 --
 
 CREATE TABLE `comptechniques` (
@@ -109,7 +82,7 @@ CREATE TABLE `comptechniques` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `comptechniques`
+-- Dumping data for table `comptechniques`
 --
 
 INSERT INTO `comptechniques` (`id`, `label`, `testtechnique_id`, `created`, `modified`) VALUES
@@ -120,26 +93,7 @@ INSERT INTO `comptechniques` (`id`, `label`, `testtechnique_id`, `created`, `mod
 -- --------------------------------------------------------
 
 --
--- Structure de la table `conjoints`
---
-
-CREATE TABLE `conjoints` (
-  `id` int(11) NOT NULL,
-  `nomprenom` varchar(255) NOT NULL,
-  `datenaissance` date NOT NULL,
-  `niveauetude` varchar(255) NOT NULL,
-  `fonction` varchar(255) NOT NULL,
-  `etat` varchar(255) NOT NULL,
-  `salaire` float NOT NULL,
-  `informationprofessionnelle_id` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `coutformaexternes`
+-- Table structure for table `coutformaexternes`
 --
 
 CREATE TABLE `coutformaexternes` (
@@ -155,7 +109,7 @@ CREATE TABLE `coutformaexternes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `coutformaexternes`
+-- Dumping data for table `coutformaexternes`
 --
 
 INSERT INTO `coutformaexternes` (`id`, `coutformahd`, `tocoformadt`, `locaespace`, `comax`, `tocout`, `chargeto`, `created`, `modified`) VALUES
@@ -165,7 +119,7 @@ INSERT INTO `coutformaexternes` (`id`, `coutformahd`, `tocoformadt`, `locaespace
 -- --------------------------------------------------------
 
 --
--- Structure de la table `departements`
+-- Table structure for table `departements`
 --
 
 CREATE TABLE `departements` (
@@ -176,7 +130,7 @@ CREATE TABLE `departements` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `departements`
+-- Dumping data for table `departements`
 --
 
 INSERT INTO `departements` (`id`, `label`, `created`, `modified`) VALUES
@@ -187,7 +141,7 @@ INSERT INTO `departements` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `detailprofilpostes`
+-- Table structure for table `detailprofilpostes`
 --
 
 CREATE TABLE `detailprofilpostes` (
@@ -209,19 +163,70 @@ CREATE TABLE `detailprofilpostes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `detailprofilpostes`
+-- Dumping data for table `detailprofilpostes`
 --
 
 INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie_id`, `profilposte_id`, `superhierar`, `supervision`, `interim`, `fonctionelaboration`, `fonctionverification`, `fonctionabrobation`, `nomprenomelab`, `nomprenomverif`, `nomprenomabrob`, `created`, `modified`) VALUES
 (1, 'Ingénieur Recherche & Développement', 1, 1, 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jaweher KHMIRI', 'Hayet  BEN SALEM', 'Rochdi ABID', '2023-04-05 23:24:36', '2023-04-05 23:24:36'),
 (2, 'Ingénieur Recherche & Développement', 2, 1, 'Gérant', 'Développeur Senior', 'Développeur Senior', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-05 23:27:20', '2023-04-05 23:27:20'),
 (3, 'Ingénieur Recherche & Développement', 3, 1, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-05 23:27:20', '2023-04-05 23:27:20'),
-(4, 'Ingénieur Recherche & Développement', 4, 1, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-05 23:30:22', '2023-04-05 23:30:22');
+(4, 'Ingénieur Recherche & Développement', 4, 1, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-05 23:30:22', '2023-04-05 23:30:22'),
+(5, 'test', 1, 3, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:19:36', '2023-04-15 08:19:36'),
+(6, 'test', 1, 4, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:24:14', '2023-04-15 08:24:14'),
+(7, 'test', 1, 5, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:25:52', '2023-04-15 08:25:52'),
+(8, 'test', 1, 6, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:26:27', '2023-04-15 08:26:27'),
+(9, 'test', 1, 7, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:26:53', '2023-04-15 08:26:53'),
+(10, 'test', 1, 8, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:27:14', '2023-04-15 08:27:14'),
+(11, 'test', 1, 9, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:29:00', '2023-04-15 08:29:00'),
+(12, 'test', 1, 10, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:29:32', '2023-04-15 08:29:32'),
+(13, 'test', 1, 11, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:30:33', '2023-04-15 08:30:33'),
+(14, 'test', 1, 12, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:31:11', '2023-04-15 08:31:11'),
+(15, 'test', 1, 13, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:31:43', '2023-04-15 08:31:43'),
+(16, 'test', 1, 14, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:33:25', '2023-04-15 08:33:25'),
+(17, 'test', 1, 15, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:33:55', '2023-04-15 08:33:55'),
+(18, 'test', 1, 16, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:34:58', '2023-04-15 08:34:58'),
+(19, 'test', 1, 17, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:35:40', '2023-04-15 08:35:40'),
+(20, 'test', 1, 18, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:35:52', '2023-04-15 08:35:52'),
+(21, 'test', 1, 19, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:37:05', '2023-04-15 08:37:05'),
+(22, 'test', 1, 20, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:37:17', '2023-04-15 08:37:17'),
+(23, 'test', 1, 21, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:38:27', '2023-04-15 08:38:27'),
+(24, 'test', 2, 22, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:18:00', '2023-04-17 13:18:00'),
+(25, 'test', 2, 23, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:22:34', '2023-04-17 13:22:34'),
+(26, 'test', 2, 24, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:23:49', '2023-04-17 13:23:49'),
+(27, 'test', 2, 25, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:24:20', '2023-04-17 13:24:20'),
+(28, 'test', 2, 26, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:24:41', '2023-04-17 13:24:41'),
+(29, 'test', 2, 27, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:25:15', '2023-04-17 13:25:15'),
+(30, 'test', 2, 28, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:25:26', '2023-04-17 13:25:26'),
+(31, 'test', 2, 29, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:26:09', '2023-04-17 13:26:09'),
+(32, 'test', 2, 30, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:26:52', '2023-04-17 13:26:52'),
+(33, 'test', 2, 31, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:27:03', '2023-04-17 13:27:03'),
+(34, 'test', 2, 32, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:27:25', '2023-04-17 13:27:25'),
+(35, 'test', 2, 33, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:27:59', '2023-04-17 13:27:59'),
+(36, 'test', 2, 34, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:29:01', '2023-04-17 13:29:01'),
+(37, 'test', 2, 35, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:30:03', '2023-04-17 13:30:03'),
+(38, 'ttttttttt', 2, 36, 'tttt', 'ttt', 'ttt', 't', 't', 't', 't', 't', 't', '2023-04-17 13:31:56', '2023-04-17 13:31:56'),
+(39, 'ttttttttt', 2, 37, 'tttt', 'ttt', 'ttt', 't', 't', 't', 't', 't', 't', '2023-04-17 13:38:53', '2023-04-17 13:38:53'),
+(40, 'ttttttttt', 2, 38, 'tttt', 'ttt', 'ttt', 't', 't', 't', 't', 't', 't', '2023-04-17 13:40:20', '2023-04-17 13:40:20'),
+(41, 'test', 1, 39, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:06:03', '2023-04-18 09:06:03'),
+(42, 'test', 1, 40, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:06:10', '2023-04-18 09:06:10'),
+(43, 'test', 1, 41, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:06:58', '2023-04-18 09:06:58'),
+(44, 'test', 1, 42, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:07:37', '2023-04-18 09:07:37'),
+(45, 'test', 1, 43, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:08:07', '2023-04-18 09:08:07'),
+(46, 'test', 1, 44, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:08:35', '2023-04-18 09:08:35'),
+(47, 'test', 1, 45, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:14:52', '2023-04-18 09:14:52'),
+(48, 'test', 1, 46, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:15:13', '2023-04-18 09:15:13'),
+(49, 'test', 1, 47, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:16:34', '2023-04-18 09:16:34'),
+(50, 'Ingénieur Recherche & Développement', 1, 1, 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jaweher KHMIRI', 'Hayet  BEN SALEM', 'Rochdi ABID', '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(51, 'sdf', 2, 2, 'fd', 'sfdsf', 'fdsf', 'gfg', 'fgfg', 'fgfg', 'ffgf', 'fggf', 'fgfgfg', '2023-04-18 09:59:13', '2023-04-18 09:59:13'),
+(52, 'sdf', 2, 3, 'fd', 'sfdsf', 'fdsf', 'gfg', 'fgfg', 'fgfg', 'ffgf', 'fggf', 'fgfgfg', '2023-04-18 09:59:29', '2023-04-18 09:59:29'),
+(53, 'sdf', 2, 4, 'fd', 'sfdsf', 'fdsf', 'gfg', 'fgfg', 'fgfg', 'ffgf', 'fggf', 'fgfgfg', '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
+(54, 'sdf', 2, 5, 'fd', 'sfdsf', 'fdsf', 'gfg', 'fgfg', 'fgfg', 'ffgf', 'fggf', 'fgfgfg', '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
+(55, 'tttttt', 3, 6, 'ttttttttttttttttttttt', 'ttttttttttttttttttt', 'ttttttttttttttt', 'tttttttttttttttttttttttt', 'nhgd,njxfgh,nj', 'jh,jh', 'tttttttttttttttttttttttt', 'nsnhsftnj', 'ghj,', '2023-04-18 10:06:58', '2023-04-18 10:06:58');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `echelleevaluations`
+-- Table structure for table `echelleevaluations`
 --
 
 CREATE TABLE `echelleevaluations` (
@@ -234,7 +239,7 @@ CREATE TABLE `echelleevaluations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `echelleevaluations`
+-- Dumping data for table `echelleevaluations`
 --
 
 INSERT INTO `echelleevaluations` (`id`, `label`, `abreviation`, `valeur`, `created`, `modified`) VALUES
@@ -248,7 +253,7 @@ INSERT INTO `echelleevaluations` (`id`, `label`, `abreviation`, `valeur`, `creat
 -- --------------------------------------------------------
 
 --
--- Structure de la table `employes`
+-- Table structure for table `employes`
 --
 
 CREATE TABLE `employes` (
@@ -260,7 +265,7 @@ CREATE TABLE `employes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `employes`
+-- Dumping data for table `employes`
 --
 
 INSERT INTO `employes` (`id`, `nomprenom`, `categorie_id`, `created`, `modified`) VALUES
@@ -271,78 +276,7 @@ INSERT INTO `employes` (`id`, `nomprenom`, `categorie_id`, `created`, `modified`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `enfants`
---
-
-CREATE TABLE `enfants` (
-  `id` int(11) NOT NULL,
-  `ordre` int(11) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `datenaissance` date NOT NULL,
-  `niveauetude` varchar(255) NOT NULL,
-  `centreinteret` varchar(255) NOT NULL,
-  `etatsante` varchar(255) NOT NULL,
-  `informationprofessionnelle_id` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `experienceprofessionnelles`
---
-
-CREATE TABLE `experienceprofessionnelles` (
-  `id` int(11) NOT NULL,
-  `societe` varchar(255) NOT NULL,
-  `periode` varchar(255) NOT NULL,
-  `fonction` varchar(255) NOT NULL,
-  `initiative` varchar(255) NOT NULL,
-  `salaire` float NOT NULL,
-  `informationprofessionnelle_id` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `formaacademiques`
---
-
-CREATE TABLE `formaacademiques` (
-  `id` int(11) NOT NULL,
-  `niveau` varchar(255) NOT NULL,
-  `specialite` varchar(255) NOT NULL,
-  `annee` varchar(255) NOT NULL,
-  `etablissement` varchar(255) NOT NULL,
-  `informationprofessionnelle_id` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `formacomplementaires`
---
-
-CREATE TABLE `formacomplementaires` (
-  `id` int(11) NOT NULL,
-  `formation` varchar(255) NOT NULL,
-  `attestation` varchar(255) NOT NULL,
-  `annee` varchar(255) NOT NULL,
-  `etablissement` varchar(255) NOT NULL,
-  `informationprofessionnelle_id` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `formaexternes`
+-- Table structure for table `formaexternes`
 --
 
 CREATE TABLE `formaexternes` (
@@ -368,7 +302,7 @@ CREATE TABLE `formaexternes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `formaexternes`
+-- Dumping data for table `formaexternes`
 --
 
 INSERT INTO `formaexternes` (`id`, `typecomp`, `themeformation_id`, `participant`, `nbparticipant`, `raisonforma`, `organismeforma`, `formalite`, `formateur`, `raisonchoix`, `dureeforma`, `nbjour`, `nbhjour`, `date`, `horaireforma`, `pause`, `lieuforma`, `created`, `modified`) VALUES
@@ -378,7 +312,7 @@ INSERT INTO `formaexternes` (`id`, `typecomp`, `themeformation_id`, `participant
 -- --------------------------------------------------------
 
 --
--- Structure de la table `formainternes`
+-- Table structure for table `formainternes`
 --
 
 CREATE TABLE `formainternes` (
@@ -395,7 +329,7 @@ CREATE TABLE `formainternes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `formainternes`
+-- Dumping data for table `formainternes`
 --
 
 INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `poste`, `date`, `hentrer`, `hsortie`, `created`, `modified`) VALUES
@@ -405,7 +339,7 @@ INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `formcompetences`
+-- Table structure for table `formcompetences`
 --
 
 CREATE TABLE `formcompetences` (
@@ -419,7 +353,7 @@ CREATE TABLE `formcompetences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `formcompetences`
+-- Dumping data for table `formcompetences`
 --
 
 INSERT INTO `formcompetences` (`id`, `competence_id`, `soucompetence`, `niveauvise_id`, `detailprofilposte_id`, `created`, `modified`) VALUES
@@ -455,110 +389,83 @@ INSERT INTO `formcompetences` (`id`, `competence_id`, `soucompetence`, `niveauvi
 (30, 3, 'RÉSOLUTION DES PROBLÈMES', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
 (31, 3, 'RAISONNEMENT ANALYTIQUE ', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
 (32, 3, 'LEADERSHIP', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(33, 3, 'SOUTIEN AU DÉVELOPPEMENT DES AUTRES', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04');
+(33, 3, 'SOUTIEN AU DÉVELOPPEMENT DES AUTRES', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
+(34, 1, '', 1, 5, '2023-04-15 08:19:36', '2023-04-15 08:19:36'),
+(35, 1, '', 1, 6, '2023-04-15 08:24:14', '2023-04-15 08:24:14'),
+(36, 2, '', 1, 6, '2023-04-15 08:24:14', '2023-04-15 08:24:14'),
+(37, 3, '', 1, 6, '2023-04-15 08:24:14', '2023-04-15 08:24:14'),
+(38, 1, '', 1, 7, '2023-04-15 08:25:52', '2023-04-15 08:25:52'),
+(39, 2, '', 1, 7, '2023-04-15 08:25:52', '2023-04-15 08:25:52'),
+(40, 3, '', 1, 7, '2023-04-15 08:25:52', '2023-04-15 08:25:52'),
+(41, 1, '', 1, 8, '2023-04-15 08:26:27', '2023-04-15 08:26:27'),
+(42, 1, '', 1, 9, '2023-04-15 08:26:53', '2023-04-15 08:26:53'),
+(43, 1, '', 1, 10, '2023-04-15 08:27:14', '2023-04-15 08:27:14');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `indicateursuivis`
+-- Table structure for table `indicasoucompas`
+--
+
+CREATE TABLE `indicasoucompas` (
+  `id` int(11) NOT NULL,
+  `label` varchar(400) DEFAULT '',
+  `souscompetence_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `indicasoucompas`
+--
+
+INSERT INTO `indicasoucompas` (`id`, `label`, `souscompetence_id`, `created`, `modified`) VALUES
+(1, 'Fournir une réponse claire & logique aux questions ou préoccupations.', 7, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(2, 'Fournir un service, y compris des renseignements utiles ou une aide, conforme aux normes de service et aux lignes directrices pertinentes.', 7, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(3, '', 8, '2023-04-18 09:59:45', '2023-04-18 09:59:45'),
+(4, '', 9, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
+(5, '', 10, '2023-04-18 10:06:58', '2023-04-18 10:06:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `indicateursuivis`
 --
 
 CREATE TABLE `indicateursuivis` (
   `id` int(11) NOT NULL,
-  `label` varchar(255) NOT NULL,
-  `formcompetence_id` int(11) NOT NULL,
+  `label` varchar(255) DEFAULT NULL,
+  `competence_id` int(11) NOT NULL,
+  `niveauvise_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `indicateursuivis`
+-- Dumping data for table `indicateursuivis`
 --
 
-INSERT INTO `indicateursuivis` (`id`, `label`, `formcompetence_id`, `created`, `modified`) VALUES
-(1, '- Compétence algorithmique niveau élevé  ', 1, '2023-03-27 15:06:29', '2023-03-27 15:06:29'),
-(2, '- Connaissance de l’architecture de développement Orientée Objet ', 1, '2023-03-27 15:15:17', '2023-03-27 15:15:17'),
-(3, '- Une bonne maîtrise du SQL   ', 1, '2023-03-27 15:17:53', '2023-03-27 15:17:53'),
-(4, '- Planifier & compléter les tâches/projets à temps efficacement', 2, '2023-03-27 15:18:27', '2023-03-27 15:18:27'),
-(5, '- Informer de la progression des tâches ou du projet ', 2, '2023-03-27 15:19:04', '2023-03-27 15:19:04'),
-(6, '- Déclarer en cas de difficulté technique : c’est à dire après dépasser 50 % du temps prévu de réalisation d’une tâche au maximum à l’essai de résolution d’une difficulté technique ', 2, '2023-03-27 15:19:22', '2023-03-27 15:19:22'),
-(7, '- Écouter activement afin de bien comprendre le message', 6, '2023-03-27 15:20:14', '2023-03-27 15:20:14'),
-(8, '- Essayer de partager l’information liée à l’exécution de travail et la communiquer clairement (quelque soit de la part développeur junior et de son vis-à-vis)', 6, '2023-03-27 15:20:14', '2023-03-27 15:20:14'),
-(9, '- Répondre de manière appropriée en donnant l’information et les faits de façon logique, claire et cohérente', 6, '2023-03-27 15:20:57', '2023-03-27 15:20:57'),
-(10, '- Transmet et reçoit le besoin facile à comprendre : c’est à dire transmet, reçoit et vérifie la bonne compréhension de la part de l’émetteur et récepteur', 6, '2023-03-27 15:20:57', '2023-03-27 15:20:57'),
-(11, '- Tenir compte de l’objectif de toute l’équipe  ', 7, '2023-03-27 15:21:46', '2023-03-27 15:21:46'),
-(12, '- Réussite collective ou échec collective ! : c’est toute l’équipe est responsable soit en cas de la réussite ou en cas d’échec', 7, '2023-03-27 15:21:46', '2023-03-27 15:21:46'),
-(13, '- Répartition des tâches d’une manière équitable', 7, '2023-03-27 15:22:10', '2023-03-27 15:22:10'),
-(14, '- Appuyer les décisions ou les activités de l’équipe et aider à réaliser l’objectif principal', 7, '2023-03-27 15:22:10', '2023-03-27 15:22:10'),
-(15, '- Poser les questions adéquates et distinguer entre les renseignements pertinents et ceux qui ne le sont pas', 8, '2023-03-27 15:22:49', '2023-03-27 15:22:49'),
-(16, '- Identifier la cause principale du problème affronté', 8, '2023-03-27 15:22:49', '2023-03-27 15:22:49'),
-(17, '- Fournir une réponse claire & logique aux questions ou préoccupations', 9, '2023-03-27 15:23:11', '2023-03-27 15:23:11'),
-(18, '- Fournir un service, y compris des renseignements utiles ou une aide, conforme aux normes de service et aux lignes directrices pertinentes', 9, '2023-03-27 15:23:11', '2023-03-27 15:23:11'),
-(19, 'Maîtrise fonctionnel (Certification dans l’une des trois dernières versions)', 10, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(20, 'Compétence technique (produit odoo) ', 10, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(21, 'Déterminer l’importance des tâches/activités, et passer rapidement et efficacement d’une tâche à l’autre', 11, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(22, 'Veiller à accomplir le travail en utilisant des solutions efficaces', 11, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(23, 'Valider la compréhension du message par l’autre partie ', 13, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(24, 'Reconnaître les signes non verbaux et les utilise pour identifier les pensées ou les préoccupations non exprimées afin de répondre de façon appropriée', 13, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(25, 'Utiliser des techniques de communication appropriées (poser des questions clairement, l’écoute, la ré formulation du message...) afin de clarifier son message et d’en faciliter la compréhension.', 13, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(26, 'Prendre l’initiative ', 14, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(27, 'Faire part des connaissances,  expérience ou expertise pertinente et utile en vue d’aider les membres du groupe à réaliser leurs objectifs de façon plus efficace ou efficiente', 14, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(28, 'S’efforcer de faire quelque chose de plus pour aider les membres du groupe (Exp : Assister les membres du groupe à acquérir les habiletés nécessaires afin d’atteindre les objectifs de travail)', 14, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(29, 'Recueillir des faits et des renseignements additionnels pour acquérir une meilleure compréhension de la situation', 15, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(30, 'Reconnaître les situations où les procédures habituelles peuvent ne pas s’appliquer et où une solution différente est requise', 15, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(31, 'S’assurer que le besoin est traité; cela peut nécessiter l’intervention d’un tiers', 16, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(32, 'Assurer un suivi auprès du client lorsque nécessaire ou prend d’autres mesures', 16, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(33, 'Prendre l’initiative et gérer les difficultés ', 17, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(34, 'Appliquer des règles simples, jugement et expériences passées pour cerner les problèmes', 17, '2023-03-31 12:36:12', '2023-03-31 12:36:12'),
-(35, 'Remarquer qu\'une situation présente est similaire à une situation passée ou est différente d\'une situation passée et déterminer les similitudes et (ou) les différences', 17, '2023-03-31 12:41:43', '2023-03-31 12:41:43'),
-(36, 'Identifier l’information pertinente ainsi que les tendances, les constantes ou les éléments manquants', 17, '2023-03-31 12:41:43', '2023-03-31 12:41:43'),
-(37, 'Maîtrise fonctionnel (2 Certifications parmi les 3 derniers versions)', 18, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(38, 'Maîtrise technique ', 18, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(39, 'Maîtrise une autre technologie (Plus qu’Odoo) ', 18, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(40, 'Avoir une visibilité sur le planning de l’équipe de développement', 19, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(41, 'Organiser les horaires, le travail et le milieu pour maximiser l’efficacité', 19, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(42, 'Anticiper et se préparer à gérer les problèmes  efficacement', 19, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(43, 'Avoir un équilibre psychique et une bonne gestion de stress', 20, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(44, 'Personnaliser son langage et son style de communication en fonction de la situation et de l’interlocuteur ou de l’auditoire, tout en livrant le même message', 20, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(45, 'Adapter la façon de transmettre le message lorsque des difficultés de compréhension surviennent', 20, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(46, 'Tirer profit des forces, des habiletés et des capacités des membres de l’équipe en vue d’atteindre l’objectif commun', 21, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(47, 'Encourager les membres de l’équipe à exprimer leurs points de vue ainsi que leurs opinions tout en tentant d’obtenir le consensus', 21, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(48, 'Traiter un problème ou une situation qui laisse place à l’interprétation.', 22, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(49, 'Évaluer les risques et les avantages d’autres solutions', 22, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(50, 'Déterminer le besoin sous-jacent du client et fournit une aide ou des renseignements supplémentaires au-delà de l’attente du client ou de la norme de service applicable', 23, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(51, 'Fait appel à son expérience et à ses connaissances pour fournir un service additionnel à valeur ajoutée pour le client, ou pour améliorer d’une certaine manière sa situation', 23, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(52, 'Utiliser ses connaissances ou situations passées pour examiner les situations présentes', 24, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(53, 'Appliquer et modifier des méthodes de manière appropriée à la situation  ', 24, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(54, 'Veiller aux besoins de l’équipe pour lui permettre de donner son plein potentiel et d’atteindre les objectifs (Remarque : la satisfaction des besoins est une source de motivation)', 25, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(55, 'Favoriser la collaboration, le travail en équipe et la confiance entre les membres de l’équipe', 25, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(56, 'Reconnaître et optimiser les forces et la diversité des membres de l’équipe', 25, '2023-03-31 12:51:07', '2023-03-31 12:51:07'),
-(57, 'Développer une équipe talentueux en reconnaissant le potentiel d’accomplissement des membres de l’équipe et en fournissant des occasions d’apprentissage continu', 25, '2023-03-31 12:56:33', '2023-03-31 12:56:33'),
-(58, 'Maîtrise fonctionnel (3 Certifications)', 26, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(59, 'Maîtrise technique ', 26, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(60, 'Maîtrise une autre technologie (Plus Odoo) ', 26, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(61, 'Gestion de projet', 26, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(62, 'Développer et mettre en œuvre des plans de travail efficace pour des projets complexes impliquant plusieurs personnes', 27, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(63, 'Démontrer une compréhension des relations entre les personnes intéressés à l’interne à afin de coordonner leur implication dans les projets de grande envergue', 27, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(64, 'Gérer habilement les questions spontanées difficiles (p. ex posées par des responsables)', 28, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(65, 'Encadrer les autres ', 28, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(66, 'Inciter à prendre part au processus d’échange des connaissances', 28, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(67, 'Supervise, oriente, conseille et encadrer les autres dans l’accomplissement efficace des activités & tâches ', 29, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(68, '- Apprécier, reconnaître et récompenser les succès d’équipe par des initiatives entreprises (Boite de proposition)', 29, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(69, 'Gérer les conflits d’équipe de manière efficace', 29, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(70, 'Tirer les conclusions ou élaborer des explications possibles aux autres', 30, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(71, 'Élaborer une solution fiable à un problème ou une situation qui compte plusieurs éléments inter-reliés', 30, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(72, 'Prévoir et cerner les nouveaux enjeux et élaborer des stratégies pour permettre à l’entreprise de gérer les nouvelles tendances', 31, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(73, 'Établir un accord avant la prise de décisions, si possible et au besoin', 31, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(74, 'Encourager les autres à promouvoir la vision et les objectifs de l’entreprise', 32, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(75, 'Entretient un environnement propice au changement, à l’innovation, à l’amélioration et à la prise de risques responsables', 32, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(76, 'Cerner les besoins et élaborer des initiatives et des plans d’action en apprentissage ', 33, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(77, 'Mettre en œuvre des stratégies pour renforcer, appuyer et maintenir une culture d’apprentissage ', 33, '2023-03-31 13:00:54', '2023-03-31 13:00:54'),
-(78, 'Encourager la recherche et l’examen des données probantes pour évaluer l’incidence et l’efficacité des efforts d’apprentissage', 33, '2023-03-31 13:06:15', '2023-03-31 13:06:15');
+INSERT INTO `indicateursuivis` (`id`, `label`, `competence_id`, `niveauvise_id`, `created`, `modified`) VALUES
+(1, 'Compétence algorithmique niveau élevé  ', 1, 1, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(2, 'Connaissance de l’architecture de développement Orientée Objet ', 1, 1, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(3, 'Une bonne maîtrise du SQL  ', 1, 1, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(4, '', 3, 1, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(5, 'ffgf', 3, 2, '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
+(6, 'fgf', 3, 2, '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
+(7, 'fgff', 3, 2, '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
+(8, 'ffgf', 3, 2, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
+(9, 'fgf', 3, 2, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
+(10, 'fgff', 3, 2, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
+(11, 'ttttttttttttttttttttt', 1, 1, '2023-04-18 10:06:58', '2023-04-18 10:06:58'),
+(12, 'tttttttttttttttttttttttttttttttt', 1, 1, '2023-04-18 10:06:58', '2023-04-18 10:06:58'),
+(13, 'tttttttttttttttttttttttttttttttttttttt', 3, 1, '2023-04-18 10:06:58', '2023-04-18 10:06:58'),
+(14, 'tttttttttttttttttttttt', 3, 1, '2023-04-18 10:06:58', '2023-04-18 10:06:58'),
+(15, 'ttttttttttttttttttttttttttt', 3, 1, '2023-04-18 10:06:58', '2023-04-18 10:06:58');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `infoficheevaluations`
+-- Table structure for table `infoficheevaluations`
 --
 
 CREATE TABLE `infoficheevaluations` (
@@ -572,7 +479,7 @@ CREATE TABLE `infoficheevaluations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `infoficheevaluations`
+-- Dumping data for table `infoficheevaluations`
 --
 
 INSERT INTO `infoficheevaluations` (`id`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `employe_id`, `created`, `modified`) VALUES
@@ -582,75 +489,7 @@ INSERT INTO `infoficheevaluations` (`id`, `objetevaluation`, `dateevaluation`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `informationpersonnelles`
---
-
-CREATE TABLE `informationpersonnelles` (
-  `id` int(11) NOT NULL,
-  `datenaissance` date NOT NULL,
-  `lieunaissance` varchar(255) NOT NULL,
-  `nationalite` varchar(255) NOT NULL,
-  `ncin` int(11) NOT NULL,
-  `lieucin` varchar(255) NOT NULL,
-  `datecin` date NOT NULL,
-  `permis` varchar(255) NOT NULL,
-  `datepermis` date NOT NULL,
-  `logement` varchar(255) NOT NULL,
-  `moyentransport` varchar(255) NOT NULL,
-  `minutetrajet` int(11) NOT NULL,
-  `heuretrajet` int(11) NOT NULL,
-  `situationfamiliale` varchar(255) NOT NULL,
-  `datesituation` date NOT NULL,
-  `critereenfance` varchar(255) NOT NULL,
-  `beaumoment` varchar(255) NOT NULL,
-  `mauvaismoment` varchar(255) NOT NULL,
-  `informationprofessionnelle_id` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `informationprofessionnelles`
---
-
-CREATE TABLE `informationprofessionnelles` (
-  `id` int(11) NOT NULL,
-  `nomprenom` varchar(255) NOT NULL,
-  `adresse` varchar(255) NOT NULL,
-  `telprofessionnel` int(11) NOT NULL,
-  `telpersonnel` int(11) NOT NULL,
-  `contact` int(11) NOT NULL,
-  `mailprofessionnel` varchar(255) NOT NULL,
-  `mailpersonnel` varchar(255) NOT NULL,
-  `service` varchar(255) NOT NULL,
-  `poste` varchar(255) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `langues`
---
-
-CREATE TABLE `langues` (
-  `id` int(11) NOT NULL,
-  `arabe` varchar(255) NOT NULL,
-  `francais` varchar(255) NOT NULL,
-  `anglais` varchar(255) NOT NULL,
-  `autre` varchar(255) NOT NULL,
-  `informationprofessionnelle_id` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `matricecompetences`
+-- Table structure for table `matricecompetences`
 --
 
 CREATE TABLE `matricecompetences` (
@@ -662,7 +501,7 @@ CREATE TABLE `matricecompetences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `matricecompetences`
+-- Dumping data for table `matricecompetences`
 --
 
 INSERT INTO `matricecompetences` (`id`, `label`, `abreviation`, `created`, `modified`) VALUES
@@ -720,7 +559,7 @@ INSERT INTO `matricecompetences` (`id`, `label`, `abreviation`, `created`, `modi
 -- --------------------------------------------------------
 
 --
--- Structure de la table `matrices`
+-- Table structure for table `matrices`
 --
 
 CREATE TABLE `matrices` (
@@ -733,7 +572,7 @@ CREATE TABLE `matrices` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `matrices`
+-- Dumping data for table `matrices`
 --
 
 INSERT INTO `matrices` (`id`, `note`, `employe_id`, `matricecompetence_id`, `created`, `modified`) VALUES
@@ -764,12 +603,312 @@ INSERT INTO `matrices` (`id`, `note`, `employe_id`, `matricecompetence_id`, `cre
 (25, 'A+', 1, 3, '2023-04-10 15:42:47', '2023-04-10 15:42:47'),
 (26, 'A+', 1, 4, '2023-04-10 15:42:47', '2023-04-10 15:42:47'),
 (27, 'B', 1, 5, '2023-04-10 15:42:47', '2023-04-10 15:42:47'),
-(28, 'A+', 1, 6, '2023-04-10 15:42:47', '2023-04-10 15:42:47');
+(28, 'A+', 1, 6, '2023-04-10 15:42:47', '2023-04-10 15:42:47'),
+(29, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(30, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(31, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(32, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(33, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(34, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(35, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(36, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(37, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(38, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(39, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(40, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(41, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(42, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(43, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(44, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(45, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(46, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(47, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(48, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(49, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(50, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(51, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(52, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(53, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(54, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(55, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(56, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(57, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(58, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(59, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(60, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(61, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(62, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(63, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(64, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(65, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(66, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(67, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(68, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(69, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(70, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(71, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(72, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(73, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(74, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(75, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(76, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(77, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(78, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(79, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(80, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(81, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(82, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(83, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(84, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(85, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(86, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(87, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(88, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(89, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(90, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(91, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(92, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(93, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(94, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(95, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(96, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(97, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(98, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(99, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(100, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(101, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(102, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(103, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(104, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(105, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(106, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(107, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(108, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(109, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(110, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(111, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(112, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(113, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(114, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(115, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(116, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(117, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(118, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(119, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(120, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(121, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(122, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(123, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(124, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(125, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(126, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(127, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(128, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(129, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(130, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(131, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(132, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(133, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(134, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(135, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(136, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(137, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(138, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(139, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(140, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(141, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(142, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(143, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(144, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(145, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(146, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(147, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(148, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(149, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(150, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(151, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(152, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(153, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(154, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(155, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(156, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(157, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(158, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(159, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(160, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(161, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(162, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(163, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(164, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(165, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(166, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(167, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(168, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(169, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(170, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(171, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(172, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(173, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(174, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(175, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(176, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(177, '', 0, 0, '2023-04-15 10:31:27', '2023-04-15 10:31:27'),
+(178, '', 0, 0, '2023-04-15 10:31:28', '2023-04-15 10:31:28'),
+(179, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(180, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(181, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(182, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(183, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(184, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(185, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(186, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(187, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(188, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(189, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(190, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(191, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(192, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(193, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(194, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(195, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(196, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(197, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(198, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(199, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(200, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(201, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(202, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(203, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(204, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(205, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(206, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(207, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(208, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(209, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(210, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(211, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(212, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(213, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(214, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(215, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(216, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(217, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(218, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(219, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(220, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(221, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(222, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(223, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(224, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(225, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(226, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(227, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(228, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(229, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(230, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(231, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(232, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(233, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(234, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(235, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(236, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(237, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(238, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(239, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(240, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(241, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(242, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(243, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(244, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(245, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(246, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(247, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(248, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(249, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(250, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(251, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(252, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(253, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(254, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(255, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(256, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(257, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(258, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(259, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(260, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(261, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(262, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(263, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(264, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(265, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(266, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(267, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(268, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(269, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(270, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(271, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(272, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(273, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(274, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(275, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(276, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(277, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(278, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(279, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(280, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(281, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(282, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(283, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(284, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(285, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(286, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(287, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(288, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(289, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(290, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(291, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(292, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(293, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(294, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(295, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(296, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(297, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(298, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(299, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(300, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(301, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(302, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(303, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(304, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(305, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(306, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(307, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(308, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(309, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(310, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(311, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(312, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(313, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(314, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(315, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(316, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(317, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(318, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(319, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(320, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(321, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(322, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(323, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(324, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(325, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(326, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(327, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05'),
+(328, '', 0, 0, '2023-04-17 13:08:05', '2023-04-17 13:08:05');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `niveauvises`
+-- Table structure for table `niveauvises`
 --
 
 CREATE TABLE `niveauvises` (
@@ -781,7 +920,7 @@ CREATE TABLE `niveauvises` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `niveauvises`
+-- Dumping data for table `niveauvises`
 --
 
 INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
@@ -793,7 +932,7 @@ INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`)
 -- --------------------------------------------------------
 
 --
--- Structure de la table `noteevaluations`
+-- Table structure for table `noteevaluations`
 --
 
 CREATE TABLE `noteevaluations` (
@@ -805,7 +944,7 @@ CREATE TABLE `noteevaluations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `noteevaluations`
+-- Dumping data for table `noteevaluations`
 --
 
 INSERT INTO `noteevaluations` (`id`, `point_id`, `indicateursuivi_id`, `created`, `modified`) VALUES
@@ -819,22 +958,7 @@ INSERT INTO `noteevaluations` (`id`, `point_id`, `indicateursuivi_id`, `created`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `performances`
---
-
-CREATE TABLE `performances` (
-  `id` int(11) NOT NULL,
-  `pointsforce` text NOT NULL,
-  `pointsameliore` text NOT NULL,
-  `informationprofessionnelle_id` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `points`
+-- Table structure for table `points`
 --
 
 CREATE TABLE `points` (
@@ -845,7 +969,7 @@ CREATE TABLE `points` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `points`
+-- Dumping data for table `points`
 --
 
 INSERT INTO `points` (`id`, `label`, `created`, `modified`) VALUES
@@ -855,7 +979,7 @@ INSERT INTO `points` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `polycompetences`
+-- Table structure for table `polycompetences`
 --
 
 CREATE TABLE `polycompetences` (
@@ -867,7 +991,7 @@ CREATE TABLE `polycompetences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `polycompetences`
+-- Dumping data for table `polycompetences`
 --
 
 INSERT INTO `polycompetences` (`id`, `valeur`, `employe_id`, `created`, `modified`) VALUES
@@ -876,7 +1000,7 @@ INSERT INTO `polycompetences` (`id`, `valeur`, `employe_id`, `created`, `modifie
 -- --------------------------------------------------------
 
 --
--- Structure de la table `polyvalences`
+-- Table structure for table `polyvalences`
 --
 
 CREATE TABLE `polyvalences` (
@@ -888,7 +1012,7 @@ CREATE TABLE `polyvalences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `polyvalences`
+-- Dumping data for table `polyvalences`
 --
 
 INSERT INTO `polyvalences` (`id`, `valeur`, `matricecompetence_id`, `created`, `modified`) VALUES
@@ -898,7 +1022,7 @@ INSERT INTO `polyvalences` (`id`, `valeur`, `matricecompetence_id`, `created`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `postes`
+-- Table structure for table `postes`
 --
 
 CREATE TABLE `postes` (
@@ -910,18 +1034,18 @@ CREATE TABLE `postes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `postes`
+-- Dumping data for table `postes`
 --
 
 INSERT INTO `postes` (`id`, `label`, `departement_id`, `created`, `modified`) VALUES
 (1, 'Développement', 1, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
-(2, 'Responsable marketing ', 2, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
-(3, 'Responsable ressource humaine ', 2, '2023-03-27 12:31:16', '2023-03-27 12:31:16');
+(2, 'Responsable marketing ', 0, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
+(3, 'Responsable ressource humaine ', 0, '2023-03-27 12:31:16', '2023-03-27 12:31:16');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `profilpostes`
+-- Table structure for table `profilpostes`
 --
 
 CREATE TABLE `profilpostes` (
@@ -933,18 +1057,21 @@ CREATE TABLE `profilpostes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `profilpostes`
+-- Dumping data for table `profilpostes`
 --
 
 INSERT INTO `profilpostes` (`id`, `nom`, `poste_id`, `created`, `modified`) VALUES
-(1, 'Profil de poste développeur ', 1, '2023-04-05 23:22:59', '2023-04-05 23:22:59'),
-(2, 'Profil poste responsable marketing ', 0, '2023-04-05 23:23:33', '2023-04-05 23:23:33'),
-(3, 'test', 0, '2023-04-13 07:06:45', '2023-04-13 07:06:45');
+(1, 'Dévloppeur', 0, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(2, 'ffzsq', 0, '2023-04-18 09:59:13', '2023-04-18 09:59:13'),
+(3, 'ffzsq', 0, '2023-04-18 09:59:29', '2023-04-18 09:59:29'),
+(4, 'ffzsq', 0, '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
+(5, 'ffzsq', 0, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
+(6, 'tttttttttttttt', 0, '2023-04-18 10:06:58', '2023-04-18 10:06:58');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `questions`
+-- Table structure for table `questions`
 --
 
 CREATE TABLE `questions` (
@@ -956,7 +1083,7 @@ CREATE TABLE `questions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `questions`
+-- Dumping data for table `questions`
 --
 
 INSERT INTO `questions` (`id`, `label`, `comptechnique_id`, `created`, `modified`) VALUES
@@ -979,7 +1106,7 @@ INSERT INTO `questions` (`id`, `label`, `comptechnique_id`, `created`, `modified
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reponses`
+-- Table structure for table `reponses`
 --
 
 CREATE TABLE `reponses` (
@@ -991,7 +1118,7 @@ CREATE TABLE `reponses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `reponses`
+-- Dumping data for table `reponses`
 --
 
 INSERT INTO `reponses` (`id`, `label`, `question_id`, `created`, `modified`) VALUES
@@ -1018,7 +1145,7 @@ INSERT INTO `reponses` (`id`, `label`, `question_id`, `created`, `modified`) VAL
 -- --------------------------------------------------------
 
 --
--- Structure de la table `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -1029,7 +1156,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
@@ -1039,7 +1166,37 @@ INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `testtechniques`
+-- Table structure for table `souscompetences`
+--
+
+CREATE TABLE `souscompetences` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) DEFAULT NULL,
+  `competence_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `souscompetences`
+--
+
+INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `created`, `modified`) VALUES
+(1, 'GEEK', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(2, 'AUTODÉTERMINATION ', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(3, 'POSITIVITÉ', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(4, 'COMMUNICATION INTERACTIVE EFFICACE', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(5, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(6, 'RÉSOLUTION DE PROBLÈMES', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(7, 'SERVICES D’EXCELLENCE  ', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
+(8, '', 3, '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
+(9, '', 3, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
+(10, '', 3, '2023-04-18 10:06:58', '2023-04-18 10:06:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `testtechniques`
 --
 
 CREATE TABLE `testtechniques` (
@@ -1051,7 +1208,7 @@ CREATE TABLE `testtechniques` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `testtechniques`
+-- Dumping data for table `testtechniques`
 --
 
 INSERT INTO `testtechniques` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
@@ -1063,7 +1220,7 @@ INSERT INTO `testtechniques` (`id`, `label`, `categorie_id`, `created`, `modifie
 -- --------------------------------------------------------
 
 --
--- Structure de la table `themeformations`
+-- Table structure for table `themeformations`
 --
 
 CREATE TABLE `themeformations` (
@@ -1074,7 +1231,7 @@ CREATE TABLE `themeformations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `themeformations`
+-- Dumping data for table `themeformations`
 --
 
 INSERT INTO `themeformations` (`id`, `label`, `created`, `modified`) VALUES
@@ -1086,7 +1243,7 @@ INSERT INTO `themeformations` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `totalpolycompetences`
+-- Table structure for table `totalpolycompetences`
 --
 
 CREATE TABLE `totalpolycompetences` (
@@ -1097,7 +1254,7 @@ CREATE TABLE `totalpolycompetences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `totalpolycompetences`
+-- Dumping data for table `totalpolycompetences`
 --
 
 INSERT INTO `totalpolycompetences` (`id`, `valeur`, `created`, `modified`) VALUES
@@ -1106,7 +1263,7 @@ INSERT INTO `totalpolycompetences` (`id`, `valeur`, `created`, `modified`) VALUE
 -- --------------------------------------------------------
 
 --
--- Structure de la table `totalpolyvalences`
+-- Table structure for table `totalpolyvalences`
 --
 
 CREATE TABLE `totalpolyvalences` (
@@ -1117,7 +1274,7 @@ CREATE TABLE `totalpolyvalences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `totalpolyvalences`
+-- Dumping data for table `totalpolyvalences`
 --
 
 INSERT INTO `totalpolyvalences` (`id`, `valeur`, `created`, `modified`) VALUES
@@ -1126,7 +1283,7 @@ INSERT INTO `totalpolyvalences` (`id`, `valeur`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -1140,496 +1297,400 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `token`, `role_id`, `created`, `modified`) VALUES
 (1, 'helatest@gmail.com', '$2y$10$X2xZ9SDDJUvw4KQjE/3/heD.F4vykCn.j9ZEZuWrVH8UObiI6qJk2', '', 1, '2023-03-10 14:37:00', '2023-03-10 14:37:00');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `activiteloisirs`
---
-ALTER TABLE `activiteloisirs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `competences`
+-- Indexes for table `competences`
 --
 ALTER TABLE `competences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `comptechniques`
+-- Indexes for table `comptechniques`
 --
 ALTER TABLE `comptechniques`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `conjoints`
---
-ALTER TABLE `conjoints`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `coutformaexternes`
+-- Indexes for table `coutformaexternes`
 --
 ALTER TABLE `coutformaexternes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `departements`
+-- Indexes for table `departements`
 --
 ALTER TABLE `departements`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `detailprofilpostes`
+-- Indexes for table `detailprofilpostes`
 --
 ALTER TABLE `detailprofilpostes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `echelleevaluations`
+-- Indexes for table `echelleevaluations`
 --
 ALTER TABLE `echelleevaluations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `employes`
+-- Indexes for table `employes`
 --
 ALTER TABLE `employes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `enfants`
---
-ALTER TABLE `enfants`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `experienceprofessionnelles`
---
-ALTER TABLE `experienceprofessionnelles`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `formaacademiques`
---
-ALTER TABLE `formaacademiques`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `formacomplementaires`
---
-ALTER TABLE `formacomplementaires`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `formaexternes`
+-- Indexes for table `formaexternes`
 --
 ALTER TABLE `formaexternes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `formainternes`
+-- Indexes for table `formainternes`
 --
 ALTER TABLE `formainternes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `formcompetences`
+-- Indexes for table `formcompetences`
 --
 ALTER TABLE `formcompetences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `indicateursuivis`
+-- Indexes for table `indicasoucompas`
+--
+ALTER TABLE `indicasoucompas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `indicateursuivis`
 --
 ALTER TABLE `indicateursuivis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `infoficheevaluations`
+-- Indexes for table `infoficheevaluations`
 --
 ALTER TABLE `infoficheevaluations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `informationpersonnelles`
---
-ALTER TABLE `informationpersonnelles`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `informationprofessionnelles`
---
-ALTER TABLE `informationprofessionnelles`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `langues`
---
-ALTER TABLE `langues`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `matricecompetences`
+-- Indexes for table `matricecompetences`
 --
 ALTER TABLE `matricecompetences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `matrices`
+-- Indexes for table `matrices`
 --
 ALTER TABLE `matrices`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `niveauvises`
+-- Indexes for table `niveauvises`
 --
 ALTER TABLE `niveauvises`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `noteevaluations`
+-- Indexes for table `noteevaluations`
 --
 ALTER TABLE `noteevaluations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `performances`
---
-ALTER TABLE `performances`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `points`
+-- Indexes for table `points`
 --
 ALTER TABLE `points`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `polycompetences`
+-- Indexes for table `polycompetences`
 --
 ALTER TABLE `polycompetences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `polyvalences`
+-- Indexes for table `polyvalences`
 --
 ALTER TABLE `polyvalences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `postes`
+-- Indexes for table `postes`
 --
 ALTER TABLE `postes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `profilpostes`
+-- Indexes for table `profilpostes`
 --
 ALTER TABLE `profilpostes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `questions`
+-- Indexes for table `questions`
 --
 ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `reponses`
+-- Indexes for table `reponses`
 --
 ALTER TABLE `reponses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `testtechniques`
+-- Indexes for table `souscompetences`
+--
+ALTER TABLE `souscompetences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `testtechniques`
 --
 ALTER TABLE `testtechniques`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `themeformations`
+-- Indexes for table `themeformations`
 --
 ALTER TABLE `themeformations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `totalpolycompetences`
+-- Indexes for table `totalpolycompetences`
 --
 ALTER TABLE `totalpolycompetences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `totalpolyvalences`
+-- Indexes for table `totalpolyvalences`
 --
 ALTER TABLE `totalpolyvalences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `activiteloisirs`
---
-ALTER TABLE `activiteloisirs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `competences`
+-- AUTO_INCREMENT for table `competences`
 --
 ALTER TABLE `competences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT pour la table `comptechniques`
+-- AUTO_INCREMENT for table `comptechniques`
 --
 ALTER TABLE `comptechniques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `conjoints`
---
-ALTER TABLE `conjoints`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `coutformaexternes`
+-- AUTO_INCREMENT for table `coutformaexternes`
 --
 ALTER TABLE `coutformaexternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT pour la table `departements`
+-- AUTO_INCREMENT for table `departements`
 --
 ALTER TABLE `departements`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `detailprofilpostes`
+-- AUTO_INCREMENT for table `detailprofilpostes`
 --
 ALTER TABLE `detailprofilpostes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
--- AUTO_INCREMENT pour la table `echelleevaluations`
+-- AUTO_INCREMENT for table `echelleevaluations`
 --
 ALTER TABLE `echelleevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `employes`
+-- AUTO_INCREMENT for table `employes`
 --
 ALTER TABLE `employes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `enfants`
---
-ALTER TABLE `enfants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `experienceprofessionnelles`
---
-ALTER TABLE `experienceprofessionnelles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `formaacademiques`
---
-ALTER TABLE `formaacademiques`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `formacomplementaires`
---
-ALTER TABLE `formacomplementaires`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `formaexternes`
+-- AUTO_INCREMENT for table `formaexternes`
 --
 ALTER TABLE `formaexternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT pour la table `formainternes`
+-- AUTO_INCREMENT for table `formainternes`
 --
 ALTER TABLE `formainternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `formcompetences`
+-- AUTO_INCREMENT for table `formcompetences`
 --
 ALTER TABLE `formcompetences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT pour la table `indicateursuivis`
+-- AUTO_INCREMENT for table `indicasoucompas`
+--
+ALTER TABLE `indicasoucompas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `indicateursuivis`
 --
 ALTER TABLE `indicateursuivis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT pour la table `infoficheevaluations`
+-- AUTO_INCREMENT for table `infoficheevaluations`
 --
 ALTER TABLE `infoficheevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `informationpersonnelles`
---
-ALTER TABLE `informationpersonnelles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `informationprofessionnelles`
---
-ALTER TABLE `informationprofessionnelles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `langues`
---
-ALTER TABLE `langues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `matricecompetences`
+-- AUTO_INCREMENT for table `matricecompetences`
 --
 ALTER TABLE `matricecompetences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT pour la table `matrices`
+-- AUTO_INCREMENT for table `matrices`
 --
 ALTER TABLE `matrices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
 
 --
--- AUTO_INCREMENT pour la table `niveauvises`
+-- AUTO_INCREMENT for table `niveauvises`
 --
 ALTER TABLE `niveauvises`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `noteevaluations`
+-- AUTO_INCREMENT for table `noteevaluations`
 --
 ALTER TABLE `noteevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `performances`
---
-ALTER TABLE `performances`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `points`
+-- AUTO_INCREMENT for table `points`
 --
 ALTER TABLE `points`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `polycompetences`
+-- AUTO_INCREMENT for table `polycompetences`
 --
 ALTER TABLE `polycompetences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `polyvalences`
+-- AUTO_INCREMENT for table `polyvalences`
 --
 ALTER TABLE `polyvalences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `postes`
+-- AUTO_INCREMENT for table `postes`
 --
 ALTER TABLE `postes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `profilpostes`
+-- AUTO_INCREMENT for table `profilpostes`
 --
 ALTER TABLE `profilpostes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `questions`
+-- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT pour la table `reponses`
+-- AUTO_INCREMENT for table `reponses`
 --
 ALTER TABLE `reponses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT pour la table `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `testtechniques`
+-- AUTO_INCREMENT for table `souscompetences`
+--
+ALTER TABLE `souscompetences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `testtechniques`
 --
 ALTER TABLE `testtechniques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `themeformations`
+-- AUTO_INCREMENT for table `themeformations`
 --
 ALTER TABLE `themeformations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `totalpolycompetences`
+-- AUTO_INCREMENT for table `totalpolycompetences`
 --
 ALTER TABLE `totalpolycompetences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `totalpolyvalences`
+-- AUTO_INCREMENT for table `totalpolyvalences`
 --
 ALTER TABLE `totalpolyvalences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
