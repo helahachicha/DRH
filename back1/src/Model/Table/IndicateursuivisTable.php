@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * Indicateursuivis Model
  *
  * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
+ * @property \App\Model\Table\NiveauvisesTable&\Cake\ORM\Association\BelongsTo $Niveauvises
  * @property \App\Model\Table\NoteevaluationsTable&\Cake\ORM\Association\HasMany $Noteevaluations
  *
  * @method \App\Model\Entity\Indicateursuivi newEmptyEntity()
@@ -72,8 +73,7 @@ class IndicateursuivisTable extends Table
         $validator
             ->scalar('label')
             ->maxLength('label', 255)
-            ->requirePresence('label', 'create')
-            ->notEmptyString('label');
+            ->allowEmptyString('label');
 
         $validator
             ->integer('competence_id')

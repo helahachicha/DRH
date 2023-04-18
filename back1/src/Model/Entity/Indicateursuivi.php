@@ -9,13 +9,14 @@ use Cake\ORM\Entity;
  * Indicateursuivi Entity
  *
  * @property int $id
- * @property string $label
+ * @property string|null $label
  * @property int $competence_id
  * @property int $niveauvise_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Competence $competence
+ * @property \App\Model\Entity\Niveauvise $niveauvise
  * @property \App\Model\Entity\Noteevaluation[] $noteevaluations
  */
 class Indicateursuivi extends Entity
@@ -36,6 +37,7 @@ class Indicateursuivi extends Entity
         'created' => true,
         'modified' => true,
         'competence' => true,
+        'niveauvise' => true,
         'noteevaluations' => true,
     ];
 }
