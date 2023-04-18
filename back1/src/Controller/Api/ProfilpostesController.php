@@ -33,7 +33,7 @@ class ProfilpostesController extends AppController
             $querry=$this->request->getData();
             $data=json_decode($querry['data']);
             //$data=$this->request->getData();
- //debug($data);
+
 
         }
          /* create profilpostes entity */
@@ -93,16 +93,17 @@ class ProfilpostesController extends AppController
              /* create Indicateursuivis entity */
                   if (1==1){
                     foreach ($data->Formcompetence as $formcomp) {
-//debug($formcomp);
-$formcomp->competence_id= $formcomp->competence_id;
-$formcomp->niveauvise_id= $formcomp->niveauvise_id;
-                        foreach ($formcomp->indicateur as $indic) {
-                         //   debug($indic);die;
+
+
+                        foreach ($formcomp->indicateur  as $indic) {
+                          //debug($formcomp->niveauvise_id);die;
 
                            $indicateurs = $this->Indicateursuivis->newEmptyEntity();
+                           $indicateurs->competence_id= $formcomp->competence_id;
+                           $indicateurs->niveauvise_id= $formcomp->niveauvise_id;
                            $indicateurs->label=$indic->label;
 
-                     //      debug($indicateurs);die;
+                        //  debug($indicateurs);die;
 
                            $savedProfil=$this->Indicateursuivis->save($indicateurs);
                        }
@@ -111,6 +112,7 @@ $formcomp->niveauvise_id= $formcomp->niveauvise_id;
 
               }
             }
+
             $this->loadModel('Souscompetences');
             $this->loadModel('Indicasoucompas');
 
@@ -128,7 +130,7 @@ $formcomp->niveauvise_id= $formcomp->niveauvise_id;
 
                         $savedProfil=$this->Indicasoucompas->save($indicasoucompas);
 
-                        
+
                     }
                         $savedProfil=$this->Souscompetences->save($soucompetences);
                     }
