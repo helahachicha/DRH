@@ -97,7 +97,7 @@ removedCompetence(index) {
   }
   createSoucomp(): FormGroup {
     return this.fb.group({
-      label: ['', [Validators.required]],
+      label: [''],
       indicateurSoucomp:   this.fb.array([this.createIndicaSouscomp()]),
 
     });
@@ -106,12 +106,12 @@ removedCompetence(index) {
 
   createOption(): FormGroup {
     return this.fb.group({
-      label: ['', [Validators.required]],
+      label: [''],
     });
   }
   createIndicaSouscomp(): FormGroup {
     return this.fb.group({
-      label: ['', [Validators.required]],
+      label: [''],
     });
   }
 

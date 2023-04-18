@@ -33,6 +33,7 @@ class ProfilpostesController extends AppController
             $querry=$this->request->getData();
             $data=json_decode($querry['data']);
             //$data=$this->request->getData();
+           // debug($data);
 
 
         }
@@ -69,74 +70,56 @@ class ProfilpostesController extends AppController
 
         /* create formcompetences entity */
            if(1==1){
-            foreach ($data->Formcompetence as $formcomp) {
-             //   debug($data->Formcompetence);
-            $formcompetences = $this->Formcompetences->newEmptyEntity();
-            $formcompetences->competence_id=$formcomp->competence_id; 
-            $formcompetences->soucompetence=$formcomp->soucompetence;
-            $formcompetences->niveauvise_id=$formcomp->niveauvise_id;  
-            $formcompetences->detailprofilposte_id=$savedProfilPoste->id; 
-            $savedFormComp=$this->Formcompetences->save($formcompetences); 
-            //$this->loadModel('Souscompetences');
-            /* create Souscompetences entity 
-                 if (1==1){
-                     foreach ($formcomp->souscompetence  as $soucomp) {
-          
-                        $soucompetences = $this->Souscompetences->newEmptyEntity();
-                        $soucompetences->label=$soucomp->label;
-                        $soucompetences->formcompetence_id= $savedFormComp->id;
-                        $savedProfil=$this->Souscompetences->save($soucompetences);
-                    }
-                   
-             }*/
+
+
              $this->loadModel('Indicateursuivis');
              /* create Indicateursuivis entity */
                   if (1==1){
                     foreach ($data->Formcompetence as $formcomp) {
-
+                        $idComp=$formcomp->competence_id ;
+                        $idNiveau=$formcomp->niveauvise_id ;
 
                         foreach ($formcomp->indicateur  as $indic) {
                           //debug($formcomp->niveauvise_id);die;
-
                            $indicateurs = $this->Indicateursuivis->newEmptyEntity();
-                           $indicateurs->competence_id= $formcomp->competence_id;
-                           $indicateurs->niveauvise_id= $formcomp->niveauvise_id;
+                           $indicateurs->competence_id= $idComp ;
+                           $indicateurs->niveauvise_id= $idNiveau;
                            $indicateurs->label=$indic->label;
-
-                        //  debug($indicateurs);die;
-
-                           $savedProfil=$this->Indicateursuivis->save($indicateurs);
+                          // debug($indicateurs);
+                           $savedIndicateur=$this->Indicateursuivis->save($indicateurs);
                        }
-
-
-
               }
             }
 
             $this->loadModel('Souscompetences');
-            $this->loadModel('Indicasoucompas');
 
             /* create Souscompetences entity */
                  if (1==1){
                      foreach ($formcomp->Souscompetence  as $soucomp) {
-                        //debug($soucomp);
+                      // debug($formcomp->Souscompetence);
 
                         $soucompetences = $this->Souscompetences->newEmptyEntity();
                         $soucompetences->label=$soucomp->label;
-                        foreach ($soucomp->indicateurSoucomp as $indisou) {
-                       // debug($indicateurs);die;
+                        $soucompetences->competence_id=   $indicateurs->competence_id;
+                        $savedSouscompetence=$this->Souscompetences->save($soucompetences);
+                    }
+             $this->loadModel('Indicasoucompas');
 
+                        foreach ($soucomp->indicateurSoucomp as $indisou) {
+
+                        $indicasoucompas = $this->Indicasoucompas->newEmptyEntity();
                         $indicasoucompas->label= $indisou->label;
+                        $indicasoucompas->souscompetence_id=$savedSouscompetence->id;
+
+                     //  debug($indicasoucompas);die;
 
                         $savedProfil=$this->Indicasoucompas->save($indicasoucompas);
 
 
-                    }
-                        $savedProfil=$this->Souscompetences->save($soucompetences);
+
                     }
 
              }
-        // debug($savedFormComp->id);die;
         }
 
          /*send result */
@@ -147,7 +130,6 @@ class ProfilpostesController extends AppController
         ]);
 
     }
-}
 
      /**
      * editProfilposte
