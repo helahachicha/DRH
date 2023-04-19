@@ -10,14 +10,16 @@
             <table class="table table-bordered " >
                 <thead>
                     <tr class="text-bold">
-                        <th>Nom profil de poste </th>
+                        <th colspan="2">Nom profil de poste </th>
                     </tr>
                 </thead>
                 <tbody >
                     <tr *ngFor="let p of Profilpostes" >
                         <td>{{p.nom}}</td>
                         <td>
-                            <button class="btn btn-danger "  (click)="deleteprofilposte(p.id)">Supprimer</button>
+                            <button type="button" class="btn btn-danger" (click)="deleteprofilposte(p.id)"><i class="far fa-trash-alt"
+                                >Supprimer</i>
+                              </button>
                         </td>
 
                     </tr>

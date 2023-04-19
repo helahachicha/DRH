@@ -13,3 +13,13 @@ body{
 .nav-link:hover .fa{
     transform:rotate(360deg);
 }
+
+span.mr-2.d-none.d-lg-inline.text-gray-600.small{
+    margin-right: 18px;
+}
+.topbar .topbar-divider {
+    width: 0;
+    border-right: 1px solid #e3e6f0;
+    height: calc(4.375rem - 2rem);
+    margin: auto 1rem;
+}

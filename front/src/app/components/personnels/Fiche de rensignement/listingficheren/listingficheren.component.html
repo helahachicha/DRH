@@ -5,14 +5,18 @@
        
         <h3 class="text-center mt-5"> Liste des fiches de rensignements </h3>
         
-        <button class="btn btn-danger " routerLink="/add-fiche-rensignement" >Ajouter</button>
-       
+        
+        <div class="mb-2 end-50 ">
+            <button type="button" class="btn btn-primary " routerLink="/add-fiche-rensignement"><i
+                    class=" fas fa-plus-circle"></i>
+                Ajouter</button>
+        </div>
         <div class=" table-responsive ">
            
             <table class="table table-bordered " >
                 <thead>
                     <tr class="text-bold">
-                        <th>Nom & Prenom </th>
+                        <th colspan="2">Nom & Prenom </th>
                     </tr>
                 </thead>
                 <tbody  >
@@ -22,8 +26,11 @@
                         <td>
                             <!-- (click)="deletenom(p.id)"-->
                             <!---routerLink="/detail-fiche-devalu/{{p.id}}"-->
-                            <button class="btn btn-primary" routerLink="/detail-fiche-rensignement">Afficher</button>
-                            <button class="btn btn-danger " >Supprimer</button>
+                            
+                            <button type="button" class="btn btn-info"><i
+                                class="far fa-hand-pointer">Afficher</i></button>
+                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"
+                                >Supprimer</i></button>
                         </td>
 
                     </tr>
