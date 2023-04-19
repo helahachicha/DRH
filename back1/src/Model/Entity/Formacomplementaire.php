@@ -6,20 +6,20 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Indicateursuivi Entity
+ * Formacomplementaire Entity
  *
  * @property int $id
- * @property string|null $label
- * @property int $competence_id
- * @property int $niveauvise_id
+ * @property string $formation
+ * @property string $attestation
+ * @property string $annee
+ * @property string $etablissement
+ * @property int $informationprofessionnelle_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Competence $competence
- * @property \App\Model\Entity\Niveauvise $niveauvise
- * @property \App\Model\Entity\Noteevaluation[] $noteevaluations
+ * @property \App\Model\Entity\Informationprofessionnelle $informationprofessionnelle
  */
-class Indicateursuivi extends Entity
+class Formacomplementaire extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -31,13 +31,13 @@ class Indicateursuivi extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'label' => true,
-        'competence_id' => true,
-        'niveauvise_id' => true,
+        'formation' => true,
+        'attestation' => true,
+        'annee' => true,
+        'etablissement' => true,
+        'informationprofessionnelle_id' => true,
         'created' => true,
         'modified' => true,
-        'competence' => true,
-        'niveauvise' => true,
-        'noteevaluations' => true,
+        'informationprofessionnelle' => true,
     ];
 }

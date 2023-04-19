@@ -25,7 +25,7 @@ class LanguesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Langues',
-        'app.Infoprofessionnelles',
+        'app.Informationprofessionnelles',
     ];
 
     /**

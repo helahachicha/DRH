@@ -25,7 +25,7 @@ class FormacomplementairesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Formacomplementaires',
-        'app.Infoprofessionnelles',
+        'app.Informationprofessionnelles',
     ];
 
     /**

@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\IndicateursuivisTable;
+use App\Model\Table\ExperienceprofessionnellesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\IndicateursuivisTable Test Case
+ * App\Model\Table\ExperienceprofessionnellesTable Test Case
  */
-class IndicateursuivisTableTest extends TestCase
+class ExperienceprofessionnellesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\IndicateursuivisTable
+     * @var \App\Model\Table\ExperienceprofessionnellesTable
      */
-    protected $Indicateursuivis;
+    protected $Experienceprofessionnelles;
 
     /**
      * Fixtures
@@ -24,10 +24,8 @@ class IndicateursuivisTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Indicateursuivis',
-        'app.Competences',
-        'app.Niveauvises',
-        'app.Noteevaluations',
+        'app.Experienceprofessionnelles',
+        'app.Informationprofessionnelles',
     ];
 
     /**
@@ -38,8 +36,8 @@ class IndicateursuivisTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Indicateursuivis') ? [] : ['className' => IndicateursuivisTable::class];
-        $this->Indicateursuivis = $this->getTableLocator()->get('Indicateursuivis', $config);
+        $config = $this->getTableLocator()->exists('Experienceprofessionnelles') ? [] : ['className' => ExperienceprofessionnellesTable::class];
+        $this->Experienceprofessionnelles = $this->getTableLocator()->get('Experienceprofessionnelles', $config);
     }
 
     /**
@@ -49,7 +47,7 @@ class IndicateursuivisTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Indicateursuivis);
+        unset($this->Experienceprofessionnelles);
 
         parent::tearDown();
     }
@@ -58,7 +56,7 @@ class IndicateursuivisTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\IndicateursuivisTable::validationDefault()
+     * @uses \App\Model\Table\ExperienceprofessionnellesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -69,7 +67,7 @@ class IndicateursuivisTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\IndicateursuivisTable::buildRules()
+     * @uses \App\Model\Table\ExperienceprofessionnellesTable::buildRules()
      */
     public function testBuildRules(): void
     {

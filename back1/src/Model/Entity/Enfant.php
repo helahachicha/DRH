@@ -6,20 +6,22 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Indicateursuivi Entity
+ * Enfant Entity
  *
  * @property int $id
- * @property string|null $label
- * @property int $competence_id
- * @property int $niveauvise_id
+ * @property int $ordre
+ * @property string $prenom
+ * @property \Cake\I18n\FrozenDate $datenaissance
+ * @property string $niveauetude
+ * @property string $centreinteret
+ * @property string $etatsante
+ * @property int $informationprofessionnelle_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Competence $competence
- * @property \App\Model\Entity\Niveauvise $niveauvise
- * @property \App\Model\Entity\Noteevaluation[] $noteevaluations
+ * @property \App\Model\Entity\Informationprofessionnelle $informationprofessionnelle
  */
-class Indicateursuivi extends Entity
+class Enfant extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -31,13 +33,15 @@ class Indicateursuivi extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'label' => true,
-        'competence_id' => true,
-        'niveauvise_id' => true,
+        'ordre' => true,
+        'prenom' => true,
+        'datenaissance' => true,
+        'niveauetude' => true,
+        'centreinteret' => true,
+        'etatsante' => true,
+        'informationprofessionnelle_id' => true,
         'created' => true,
         'modified' => true,
-        'competence' => true,
-        'niveauvise' => true,
-        'noteevaluations' => true,
+        'informationprofessionnelle' => true,
     ];
 }

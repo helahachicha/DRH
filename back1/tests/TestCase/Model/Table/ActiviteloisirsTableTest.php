@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\IndicateursuivisTable;
+use App\Model\Table\ActiviteloisirsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\IndicateursuivisTable Test Case
+ * App\Model\Table\ActiviteloisirsTable Test Case
  */
-class IndicateursuivisTableTest extends TestCase
+class ActiviteloisirsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\IndicateursuivisTable
+     * @var \App\Model\Table\ActiviteloisirsTable
      */
-    protected $Indicateursuivis;
+    protected $Activiteloisirs;
 
     /**
      * Fixtures
@@ -24,10 +24,8 @@ class IndicateursuivisTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Indicateursuivis',
-        'app.Competences',
-        'app.Niveauvises',
-        'app.Noteevaluations',
+        'app.Activiteloisirs',
+        'app.Informationprofessionnelles',
     ];
 
     /**
@@ -38,8 +36,8 @@ class IndicateursuivisTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Indicateursuivis') ? [] : ['className' => IndicateursuivisTable::class];
-        $this->Indicateursuivis = $this->getTableLocator()->get('Indicateursuivis', $config);
+        $config = $this->getTableLocator()->exists('Activiteloisirs') ? [] : ['className' => ActiviteloisirsTable::class];
+        $this->Activiteloisirs = $this->getTableLocator()->get('Activiteloisirs', $config);
     }
 
     /**
@@ -49,7 +47,7 @@ class IndicateursuivisTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Indicateursuivis);
+        unset($this->Activiteloisirs);
 
         parent::tearDown();
     }
@@ -58,7 +56,7 @@ class IndicateursuivisTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\IndicateursuivisTable::validationDefault()
+     * @uses \App\Model\Table\ActiviteloisirsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -69,7 +67,7 @@ class IndicateursuivisTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\IndicateursuivisTable::buildRules()
+     * @uses \App\Model\Table\ActiviteloisirsTable::buildRules()
      */
     public function testBuildRules(): void
     {
