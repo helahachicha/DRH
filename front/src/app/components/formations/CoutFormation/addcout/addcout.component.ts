@@ -10,7 +10,8 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./addcout.component.scss']
 })
 export class AddcoutComponent implements OnInit {
-
+data:any;
+message:any;
   public coutForm = new FormGroup({
     coutformahd: new FormControl('', [Validators.required]),
     tocoformadt: new FormControl('', [Validators.required]),
@@ -31,6 +32,7 @@ export class AddcoutComponent implements OnInit {
 
   submit() {
     this.dataService.post('Coutformaexternes/addCoutformaexterne.json',this.coutForm.value).subscribe(res=> {
+      
       this.router.navigate(['/coutlisting']) 
       })
    }

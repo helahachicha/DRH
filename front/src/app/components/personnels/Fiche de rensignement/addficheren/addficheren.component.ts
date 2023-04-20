@@ -146,7 +146,7 @@ onCheckChangeSport(event) {
 
   /* Selected */
   if(event.target.checked){
-    // Add a new control in the arrayForm
+    // Add a new control in the arrayForm  
     formArray.push(new FormControl(event.target.value));
   }
   /* unselected */

@@ -50,14 +50,26 @@ class FormainternesController extends AppController
             $formainternes->hentrer=$data->hentrer; 
             $formainternes->hsortie=$data->hsortie;     
 
-            $this->Formainternes->save($formainternes); 
+            if (!empty($formainternes->tycomp) and !empty($formainternes->themeformation_id)
+            and !empty($formainternes->animateur)and !empty($formainternes->poste)
+            and !empty($formainternes->date)and !empty($formainternes->hentrer) 
+            and !empty($formainternes->hsortie)) {
+                if ($this->Formainternes->save($formainternes)){
+                    $message= "Added with success";
+                    
+        
+                }
+                    
+            } else {
+                $message = "Remplir tous les champs !";    
+            }
         }
-       
+
          /*send result */
         $this->set([
             'success' => true,
-            'data' =>  "Added with success",
-            '_serialize' => ['success', 'data']
+            'message' =>  $message,
+            '_serialize' => ['success', 'message']
         ]);
     
     }

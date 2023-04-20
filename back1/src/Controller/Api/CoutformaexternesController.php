@@ -35,30 +35,32 @@ class CoutformaexternesController extends AppController
             $querry=$this->request->getData();
             $data=json_decode($querry['data']); 
             //$data=$this->request->getData();
-            //debug($data);die;
+           // debug($data);die;
 
         }
          /* create coutformaexternes entity */
         if (1==1){
             $coutformaexternes = $this->Coutformaexternes->newEmptyEntity();
-            $coutformaexternes->coutformahd=$data->coutformahd;  
-            $coutformaexternes->tocoformadt=$data->tocoformadt;  
-            $coutformaexternes->locaespace=$data->locaespace;  
-            $coutformaexternes->comax=$data->comax;  
-            $coutformaexternes->tocout=$data->tocout;  
-            $coutformaexternes->chargeto=$data->chargeto;   
+            
+            $coutformaexternes->coutformahd= (float) $data->coutformahd;
+            $coutformaexternes->tocoformadt=(float)$data->tocoformadt;  
+            $coutformaexternes->locaespace=(float)$data->locaespace;   
+            $coutformaexternes->comax=(float)$data->comax;   
+            $coutformaexternes->tocout=(float)$data->tocout;   
+            $coutformaexternes->chargeto=(float)$data->chargeto;   
 
-            $this->Coutformaexternes->save($coutformaexternes); 
+            $this->Coutformaexternes->save($coutformaexternes);
+                   
         }
-       
          /*send result */
         $this->set([
             'success' => true,
-            'data' =>  "Added with success",
-            '_serialize' => ['success', 'data']
+            'message' =>  'Added with success',
+            '_serialize' => ['success', 'message']
         ]);
     
     }
+
 
      /**
      * editCoutformaexterne
