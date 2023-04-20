@@ -15,13 +15,17 @@
                             {{test.label}}
                         </td>
                         <td>
-                            <button class="btn btn-danger " (click)="deletetest(test.id)">Supprimer</button>
+                            <button type="button" class="btn btn-danger"(click)="deletetest(test.id)"><i class="far fa-trash-alt"
+                                >Supprimer</i>
+                              </button>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="mt-2 mb-2 end-50 ">
-                <button class="btn btn-primary m-2" routerLink="/add-test" type="submit">Ajouter test</button>
+                <button type="button" class="btn btn-primary " routerLink="/add-test"><i
+                    class=" fas fa-plus-circle"></i>
+                Ajouter</button>
             </div>
         </div>
     </div>

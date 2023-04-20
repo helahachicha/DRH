@@ -3,8 +3,11 @@
     <div class="shadow-lg p-3 mb-5 bg-body rounded mt-5">
         
         <h3 class="text-center mt-5">Les listes des profils de poste</h3>
-
-        <button class="btn btn-primary "  routerLink="/addtheme" >Ajouter</button>
+        <div class="mb-2 end-50 ">
+            <button type="button" class="btn btn-primary " routerLink="/addtheme"><i
+                    class=" fas fa-plus-circle"></i>
+                Ajouter</button>
+        </div>
         <div class=" table-responsive ">
             <table class="table table-bordered " >
                 <thead>
@@ -21,7 +24,9 @@
                             {{theme.label}}
                         </td>
                         <td>
-                            <button class="btn btn-danger "  (click)="deletethemeforma(theme .id)">Supprimer</button>
+                            <button type="button" class="btn btn-danger" (click)="deletethemeforma(theme .id)"><i class="far fa-trash-alt"
+                                >Supprimer</i>
+                              </button>
                         </td>
 
                     </tr>

@@ -1,8 +1,12 @@
 
        
 
+   
 
     <div class="container mt-5">
+        <div class="row">
+            <div class="card">
+              <div class="card-body">
         <div class="row header " style="text-align:center">
             <h3>Table Formation interne</h3>
         </div>
@@ -38,9 +42,9 @@
                         <td>
                             <button type="button" class="btn btn-success"
                                 routerLink="/editformainterne/{{formainter.id}}"><i
-                                    class="fas fa-edit">Modifier</i></button><br>
+                                    class="far fa-edit">Modifier</i></button><br>
                                     <button type="button" class="btn btn-danger mt-2" ><i
-                                        class="fas fa-trash" (click)="deleteformainterne(formainter.id)">Supprimer</i></button>
+                                        class="far fa-trash-alt" (click)="deleteformainterne(formainter.id)">Supprimer</i></button>
 
                         </td>
                     </tr>
@@ -51,5 +55,8 @@
             </table>
 
 
+        </div>
+        </div>
+        </div>
         </div>
     </div>

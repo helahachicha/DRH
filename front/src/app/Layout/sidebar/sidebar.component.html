@@ -13,23 +13,32 @@
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="/home"
                         aria-expanded="false"><i class="fas fa-home"></i><span class="hide-menu">Home</span></a>
                 </li>
+
+                 <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="/dashboard"
                         aria-expanded="false"><i class=" fas fa-chart-bar"></i><span class="hide-menu">Dashboard</span></a>
                 </li>
+
+                 <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                            class="fas fa-list"></i><span class="hide-menu">Formation et
+                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Formation et
                             développement </span></a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a routerLink="/listingforma" class="sidebar-link"><i
-                                    class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Formation
+                            <a routerLink="/listingforma" class="sidebar-link">
+                                <i class="fas fa-certificate"></i>
+                                <span class="hide-menu"> Formation
                                     externe </span></a>
                         </li>
                         <li class="sidebar-item">
-                            <a routerLink="/formainternelisting" class="sidebar-link"><i
-                                    class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Formation
+                            <a routerLink="/formainternelisting" class="sidebar-link"><i class="fas fa-certificate"></i>
+                                <span class="hide-menu"> Formation
                                     interne</span></a>
                         </li>
                     </ul>
@@ -41,7 +50,7 @@
 
                 <!-- <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                            class="fas fa-list"></i><span class="hide-menu">Profil de poste </span></a>
+                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Profil de poste </span></a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item" *ngFor="let obj of poste">
                             <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
@@ -53,7 +62,7 @@
 
                 <!-- <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                            class="fas fa-list"></i><span class="hide-menu">Profil de poste </span>
+                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Profil de poste </span>
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
 
@@ -63,7 +72,7 @@
                                 aria-expanded="false">
 
                         <li aria-expanded="false" class="" *ngFor="let obj of poste">
-                            <i class="fas fa-list"></i>
+                            <i class="fas fa-ellipsis-h"></i>
                             <span (click)="getid(obj.id)" class="hide-menu">
                                 {{obj.label}}</span></a>
                         </li>
@@ -82,7 +91,7 @@
 
                 <!-- <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false" ><i
-                            class="fas fa-list"></i><span class="hide-menu">Profil de poste </span>
+                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Profil de poste </span>
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
 
@@ -92,7 +101,7 @@
                                 aria-expanded="false">
 
                                
-                                    <i class="fas fa-list"></i>
+                                    <i class="fas fa-ellipsis-h"></i>
                                    
                                     <span    class="hide-menu" (click)="getid(obj.id)">{{obj.label}}</span>
                                 
@@ -138,18 +147,20 @@
                                 </li>
                         
                             </ul>-->
+ <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
 
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                            class="fas fa-list"></i><span class="hide-menu">Profil de poste </span></a>
+                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Profil de poste </span></a>
                     <ul aria-expanded="false" class="collapse first-level">
 
                         <li class="sidebar-item">
 
                             <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false">
-                                <i class="fas fa-list"></i><span class="hide-menu"
+                                <i class="fas fa-laptop"></i><span class="hide-menu"
                                     *ngFor="let obj of poste">{{obj.label}} </span></a>
 
                             <ul aria-expanded="false" class="collapse first-level">
@@ -162,41 +173,43 @@
                         </li>
                     </ul>
                 </li>
+ <!-- Divider -->
+ <hr class="sidebar-divider my-0">
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                            class="fas fa-list"></i><span class="hide-menu">Personnel </span></a>
+                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Personnel </span></a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
                             <a routerLink="/liste-fiche-rensignement" class="sidebar-link"><i
-                                    class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu">Fiche de
+                                    class=" fas fa-file-alt"></i><span class="hide-menu">Fiche de
                                     rensignement</span></a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                                    class="fas fa-list"></i><span class="hide-menu">Fiche
+                                    class="fas fa-ellipsis-h"></i><span class="hide-menu">Fiche
                                     d'évaluation </span></a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
                                     <a routerLink="/fiche/liste-fiche-devalu" class="sidebar-link"><i
-                                            class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Fiche
+                                            class=" fas fa-file-alt"></i><span class="hide-menu"> Fiche
                                             d'évaluation psychique </span></a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                                            class=" fas fa-list"></i><span class="hide-menu"> Tests
+                                            class=" fas fa-ellipsis-h"></i><span class="hide-menu"> Tests
                                             Techniques</span></a>
 
                                     <ul aria-expanded="false" class="collapse first-level">
                                         <li class="sidebar-item">
                                             <a class="sidebar-link has-arrow waves-effect waves-dark"
                                                 aria-expanded="false">
-                                                <i class="fas fa-list"></i><span *ngFor="let obj of poste"
+                                                <i class="fas fa-spinner"></i><span *ngFor="let obj of poste"
                                                     class="hide-menu">{{obj.label}} </span>
                                             </a>
                                             <ul aria-expanded="false" class="collapse first-level">
                                                 <li class="sidebar-item" *ngFor="let obj of Testtechniques">
-                                                    <a class="sidebar-link" routerLink="detail-test/{{obj.id}}" ><i class=" fas fa-arrow-alt-circle-right"></i><span
+                                                    <a class="sidebar-link" routerLink="detail-test/{{obj.id}}" ><i class=" far fa-question-circle"></i><span
                                                             class="hide-menu" >
                                                             {{obj.label}}</span></a>
                                                 </li>
@@ -210,51 +223,53 @@
                         </li>
                         <li class="sidebar-item">
                             <a routerLink="/liste-matrice" class="sidebar-link"><i
-                                    class="fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Matrice des
+                                    class=" fas fa-tachometer-alt"></i><span class="hide-menu"> Matrice des
                                     compétence</span></a>
                         </li>
                     </ul>
                 </li>
+ <!-- Divider -->
+ <hr class="sidebar-divider my-0">
 
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                            class="fas fa-list"></i><span class="hide-menu">Gérer les
+                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Gérer les
                             axes</span></a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                                    class="fas fa-list"></i><span class="hide-menu">Profil de
+                                    class="fas fa-ellipsis-h"></i><span class="hide-menu">Profil de
                                     poste</span></a>
 
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
                                     <a routerLink="/addprofil" class="sidebar-link"><i
-                                            class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Créer un
+                                            class=" far fa-plus-square"></i><span class="hide-menu"> Créer un
                                             profil
                                             de poste </span></a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a routerLink="/listingprofilposte" class="sidebar-link"><i
-                                            class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Liste
+                                            class="far fa-list-alt"></i><span class="hide-menu"> Liste
                                             des profils
                                             de poste</span></a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a routerLink="/listingtest" class="sidebar-link"><i
-                                            class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Liste
+                                            class="  far fa-list-alt"></i><span class="hide-menu"> Liste
                                             des tests techniques</span></a>
                                 </li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                                    class="fas fa-list"></i><span class="hide-menu">Formation</span></a>
+                                    class="fas fa-ellipsis-h"></i><span class="hide-menu">Formation</span></a>
 
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
                                     <a routerLink="/listingtheme" class="sidebar-link"><i
-                                            class=" fas fa-arrow-alt-circle-right"></i><span class="hide-menu"> Thémes
+                                            class=" far fa-list-alt"></i><span class="hide-menu"> Thémes
                                             des
                                             formations </span></a>
                                 </li>

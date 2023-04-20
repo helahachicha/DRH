@@ -19,7 +19,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   public Polyvalences
   public Totalpolyvalences
   public Totalpolycompetences
-
+  public Matrices
   public matriceForm = new FormGroup({
     note: new FormControl('', [Validators.required]),
   });
@@ -42,7 +42,9 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     //this.getAllPolyvalence()  
     this.getallTotalpolyvalence()
     this.getallTotalpolcomp()
-   this.submit()
+    this.getallMatrice()
+   //this.submit()
+  // this.getformaById()
   }
   getallechelle() {
     this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
@@ -84,17 +86,31 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       this.open = true
     })
   }
+  
   getallTotalpolcomp() {
     this.dataService.get('Totalpolycompetences/getAllTotalpolycompetence.json').subscribe(res => {
       this.Totalpolycompetences = res.data;
       this.open = true
     })
   }
-  submit() {
+  getformaById() {
+    this.id = this.route.snapshot.params['id'];
+    this.dataService.get('Matrices/getMatriceByEmpId.json?id=' + this.id).subscribe(
+      res => {
+        this.Matrices = res.data;
+      })
+  }
+  getallMatrice() {
+    this.dataService.get('Matrices/getAllMatrice.json').subscribe(res => {
+      this.Matrices = res.data;
+      this.open = true
+    })
+  }
+  /*submit() {
     this.dataService.post('Matrices/addNoteMatrice.json',this.matriceForm.value).subscribe(res=> {
     this.router.navigate(['/liste-matrice'])
     })
- }
+ }*/
 
  /* getID(id:any){
     this.ids=id;

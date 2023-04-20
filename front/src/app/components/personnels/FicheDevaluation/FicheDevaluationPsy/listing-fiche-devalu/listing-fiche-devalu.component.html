@@ -4,8 +4,11 @@
 
        
         <h3 class="text-center mt-5"> Liste des fiche d'evaluation psychique:</h3>
-        <button class="btn btn-danger " routerLink="/add-fiche-devalu" >Ajouter</button>
-       
+        <div class="mb-2 end-50 ">
+            <button type="button" class="btn btn-primary " routerLink="/add-fiche-devalu"><i
+                    class=" fas fa-plus-circle"></i>
+                Ajouter</button>
+        </div>
         <div class=" table-responsive ">
            
             <table class="table table-bordered " >
@@ -20,8 +23,14 @@
                         <td>{{p.nomprenom}}</td>
                         <td>
                             <!-- (click)="deletefichedevalu(id)"-->
-                            <button class="btn btn-primary" [routerLink]='["/detail-fiche-devalu",p.id]'>Afficher</button>
-                            <button class="btn btn-danger " (click)="deletenom(p.id)">Supprimer</button>
+                            <button type="button" class="btn btn-info" [routerLink]='["/detail-fiche-devalu",p.id]'><i
+                                class="far fa-hand-pointer">
+                               Afficher</i>
+                               </button>
+                            <button type="button" class="btn btn-danger" (click)="deletenom(p.id)">
+                                <i class="far fa-trash-alt">
+                                    Supprimer</i>
+                              </button>
                         </td>
 
                     </tr>

@@ -1,49 +1,58 @@
 <div class="container mt-5">
+
     <button type="button" class="btn btn-primary " routerLink="/listingforma"><i
             class="  fas fa-arrow-alt-circle-left"></i> REV</button>
-    <div class="row header " style="text-align:center">
-        <h3>Table Cout Formation Externe</h3>
-    </div>
-    <div class="mb-2 end-50 ">
-        <button type="button" class="btn btn-primary " routerLink="/addcout/"><i class=" fas fa-plus-circle"></i>
-            Ajouter</button>
-    </div>
-    <div class=" table-responsive ">
-        <table class="  table table-bordered ">
-            <thead>
-                <tr>
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <div class="row header " style="text-align:center">
+                    <h3>Table Cout Formation Externe</h3>
+                </div>
+                <div class="mb-2 end-50 ">
+                    <button type="button" class="btn btn-primary " routerLink="/addcout/"><i
+                            class=" fas fa-plus-circle"></i>
+                        Ajouter</button>
+                </div>
+                <div class=" table-responsive ">
+                    <table class="  table table-bordered ">
+                        <thead>
+                            <tr>
 
-                    <th scope="col">Coût formateur / heure en DT</th>
-                    <th scope="col">Total coût formateur en DT</th>
-                    <th scope="col">Location espace</th>
-                    <th scope="col">Coût max (Salé + Sucré)</th>
-                    <th scope="col">Total coût</th>
-                    <th scope="col">Charge Total</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let coutformaex of Coutformaexternes">
+                                <th scope="col">Coût formateur / heure en DT</th>
+                                <th scope="col">Total coût formateur en DT</th>
+                                <th scope="col">Location espace</th>
+                                <th scope="col">Coût max (Salé + Sucré)</th>
+                                <th scope="col">Total coût</th>
+                                <th scope="col">Charge Total</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let coutformaex of Coutformaexternes">
 
-                    <td>{{coutformaex.coutformahd}}</td>
-                    <td>{{coutformaex.tocoformadt}}</td>
-                    <td>{{coutformaex.locaespace}}</td>
-                    <td>{{coutformaex.comax}}</td>
-                    <td>{{coutformaex.tocout}}</td>
-                    <td>{{coutformaex.chargeto}}</td>
-                    <td>
-                        <button type="button" class="btn btn-success" routerLink="/editcout/{{coutformaex.id}}"><i
-                                class="fas fa-edit">Modifier</i></button>
-                        <button type="button" class="btn btn-danger mt-2"><i class="fas fa-trash"
-                                (click)="deletecout(coutformaex.id)">Supprimer</i></button>
-                    </td>
-                </tr>
-
-
-            </tbody>
-
-        </table>
+                                <td>{{coutformaex.coutformahd}}</td>
+                                <td>{{coutformaex.tocoformadt}}</td>
+                                <td>{{coutformaex.locaespace}}</td>
+                                <td>{{coutformaex.comax}}</td>
+                                <td>{{coutformaex.tocout}}</td>
+                                <td>{{coutformaex.chargeto}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-success"
+                                        routerLink="/editcout/{{coutformaex.id}}"><i
+                                            class="far fa-edit">Modifier</i></button>
+                                    <button type="button" class="btn btn-danger mt-2"><i class="far fa-trash-alt"
+                                            (click)="deletecout(coutformaex.id)">Supprimer</i></button>
+                                </td>
+                            </tr>
 
 
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
