@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string|null $label
+ * @property int $detailprofilposte_id
  * @property int $competence_id
  * @property int $niveauvise_id
  * @property \Cake\I18n\FrozenTime $created
@@ -32,6 +33,7 @@ class Indicateursuivi extends Entity
      */
     protected $_accessible = [
         'label' => true,
+        'detailprofilposte_id' => true,
         'competence_id' => true,
         'niveauvise_id' => true,
         'created' => true,
