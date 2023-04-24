@@ -14,57 +14,6 @@ class DetailprofilpostesController extends AppController
 {
 
     /**
-     * editDetailprofilposte
-     *
-     * @Input:
-     *         data:
-     *
-     *
-     * @Output: data : success message
-     */
-    public function editDetailprofilposte(){
-
-        $this->request->allowMethod(['post', 'put']);
-
-        /* format data */
-        if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']);
-         //$data=$this->request->getData();
-            //debug($data);die;
-        }
-
-        $id=$this->request->getQuery('id');
-        $detailprofilpostes=$this->Detailprofilpostes->get($id);
-         /* create detailprofilpostes entity */
-        if (1==1){
-            $detailprofilpostes->fonction=$data->fonction;
-            $detailprofilpostes->categorie_id=$data->categorie_id;
-            $detailprofilpostes->superhierar=$data->superhierar;
-            $detailprofilpostes->supervision=$data->supervision;
-            $detailprofilpostes->interim=$data->interim;
-            $detailprofilpostes->fonctionelaboration=$data->fonctionelaboration;
-            $detailprofilpostes->fonctionverification=$data->fonctionverification;
-            $detailprofilpostes->fonctionabrobation=$data->fonctionabrobation;
-            $detailprofilpostes->nomprenomelab=$data->nomprenomelab;
-            $detailprofilpostes->nomprenomverif=$data->nomprenomverif;
-            $detailprofilpostes->nomprenomabrob=$data->nomprenomabrob;
-
-            $this->Detailprofilpostes->save($detailprofilpostes);
-        }
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' =>  "Updated with success",
-            '_serialize' => ['success', 'data']
-        ]);
-
-    }
-
-
-
-
-    /**
       * getDetailppByCat
       *
       * @Input: id
@@ -95,8 +44,7 @@ class DetailprofilpostesController extends AppController
                 'detailprofilpostes.categorie_id IS'=>$id,
             ],
             'contain' => [
-                'Profilpostes','Categories' , 'Formcompetences.Competences','Formcompetences.Indicateursuivis' ,
-                'Formcompetences.Niveauvises'
+                'Formcompetences','Formcompetences.Competences.Indicateursuivis','Formcompetences.Competences.Souscompetences.Indicasoucompas'
               ],
 
         ])->first();
