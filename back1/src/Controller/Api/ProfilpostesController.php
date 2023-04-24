@@ -88,8 +88,8 @@ class ProfilpostesController extends AppController
                           // debug($indicateurs);
                            $savedIndicateur=$this->Indicateursuivis->save($indicateurs);
                        }
-              }
-            }
+                    }
+                    }
 
             $this->loadModel('Souscompetences');
 
