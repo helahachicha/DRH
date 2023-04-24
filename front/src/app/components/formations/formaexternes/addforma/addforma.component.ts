@@ -11,7 +11,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class AddformaComponent implements OnInit {
   
-
+data: any;
+message: any;
 public Themeformations
 
 
@@ -40,12 +41,19 @@ public externeForm = new FormGroup({
   ) {}
 
   ngOnInit(): void {
-    this.getallthemeforma()
+    this.getallthemeforma();
+    
   }
 
   submit() {
       this.dataService.post('formaexternes/addFormaexterne.json',this.externeForm.value).subscribe(res=> {
-      this.router.navigate(['/listingforma'])
+        this.data = res;
+        this.message=this.data.message;
+        if (this.message=="Formation ajouter avec succés !"){
+          this.externeForm.reset();
+        }
+        
+        console.log(this.message);
       })
    }
   

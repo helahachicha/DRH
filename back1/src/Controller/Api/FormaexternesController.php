@@ -66,16 +66,49 @@ class FormaexternesController extends AppController
             $formaexternes->date=$data->date;  
             $formaexternes->horaireforma=$data->horaireforma;  
             $formaexternes->pause=$data->pause ;  
-            $formaexternes->lieuforma=$data->lieuforma;  
+            $formaexternes->lieuforma=$data->lieuforma; 
+            
+            if (!empty($formaexternes->typecomp && preg_match('/^[a-zA-Z]+$/', $formaexternes->typecomp)) 
+            and !empty($formaexternes->themeformation_id)
+            and !empty($formaexternes->participant && preg_match('/^[a-zA-Z]+$/', $formaexternes->participant))
+            and !empty($formaexternes->nbparticipant)
+            and !empty($formaexternes->raisonforma && preg_match('/^[a-zA-Z]+$/', $formaexternes->raisonforma))
+            and !empty($formaexternes->organismeforma && preg_match('/^[a-zA-Z]+$/', $formaexternes->organismeforma)) 
+            and !empty($formaexternes->formalite && preg_match('/^[a-zA-Z]+$/', $formaexternes->formalite))
+            and !empty($formaexternes->formateur && preg_match('/^[a-zA-Z]+$/', $formaexternes->formateur))
+            and !empty($formaexternes->raisonchoix && preg_match('/^[a-zA-Z]+$/', $formaexternes->raisonchoix))
+            and !empty($formaexternes->dureeforma)and !empty($formaexternes->nbjour)
+            and !empty($formaexternes->nbhjour)and !empty($formaexternes->date)
+            and !empty($formaexternes->horaireforma)
+            and !empty($formaexternes->pause && preg_match('/^[a-zA-Z]+$/', $formaexternes->pause))
+            and !empty($formaexternes->lieuforma && preg_match('/^[a-zA-Z]+$/', $formaexternes->lieuforma))) {
+                if ($this->Formaexternes->save($formaexternes)){
+                    $message= "Formation ajouter avec succés !";
+                    
+                }
+                    
+            } else if (empty($formaexternes->typecomp) or empty($formaexternes->themeformation_id)
+            or empty($formaexternes->participant)or empty($formaexternes->nbparticipant)
+            or empty($formaexternes->raisonforma)or empty($formaexternes->organismeforma) 
+            or empty($formaexternes->formalite)or empty($formaexternes->formateur)
+            or empty($formaexternes->raisonchoix)or empty($formaexternes->dureeforma)
+            or empty($formaexternes->nbjour)or empty($formaexternes->nbhjour)
+            or empty($formaexternes->date)or empty($formaexternes->horaireforma)
+            or empty($formaexternes->pause)or empty($formaexternes->lieuforma)) {
+                $message = "Remplir tous les champs !";    
+            } else {
+                $message = "Les champs 'Type de compétence', 'Participant','Raison de formation',
+                'Organisme de formation', 'Formalité de réalisation', 'Formateur', 'Pause café' et 
+                'Lieu de formation' doit être des chaînes de caractères non vide !"; 
+            }
 
-            $this->Formaexternes->save($formaexternes); 
         }
        
          /*send result */
-        $this->set([
+         $this->set([
             'success' => true,
-            'data' =>  "Added with success",
-            '_serialize' => ['success', 'data']
+            'message' =>  $message,
+            '_serialize' => ['success', 'message']
         ]);
     
     }
@@ -138,15 +171,47 @@ class FormaexternesController extends AppController
             $formaexternes->pause=$data->pause ;  
             $formaexternes->lieuforma=$data->lieuforma;  
 
-            $this->Formaexternes->save($formaexternes); 
+            if (!empty($formaexternes->typecomp && preg_match('/^[a-zA-Z]+$/', $formaexternes->typecomp)) 
+            and !empty($formaexternes->themeformation_id)
+            and !empty($formaexternes->participant && preg_match('/^[a-zA-Z]+$/', $formaexternes->participant))
+            and !empty($formaexternes->nbparticipant)
+            and !empty($formaexternes->raisonforma && preg_match('/^[a-zA-Z]+$/', $formaexternes->raisonforma))
+            and !empty($formaexternes->organismeforma && preg_match('/^[a-zA-Z]+$/', $formaexternes->organismeforma)) 
+            and !empty($formaexternes->formalite && preg_match('/^[a-zA-Z]+$/', $formaexternes->formalite))
+            and !empty($formaexternes->formateur && preg_match('/^[a-zA-Z]+$/', $formaexternes->formateur))
+            and !empty($formaexternes->raisonchoix && preg_match('/^[a-zA-Z]+$/', $formaexternes->raisonchoix))
+            and !empty($formaexternes->dureeforma)and !empty($formaexternes->nbjour)
+            and !empty($formaexternes->nbhjour)and !empty($formaexternes->date)
+            and !empty($formaexternes->horaireforma)
+            and !empty($formaexternes->pause && preg_match('/^[a-zA-Z]+$/', $formaexternes->pause))
+            and !empty($formaexternes->lieuforma && preg_match('/^[a-zA-Z]+$/', $formaexternes->lieuforma))) {
+                if ($this->Formaexternes->save($formaexternes)){
+                    $message= "Formation modifier avec succés !";
+                    
+                }
+                    
+            } else if (empty($formaexternes->typecomp) or empty($formaexternes->themeformation_id)
+            or empty($formaexternes->participant)or empty($formaexternes->nbparticipant)
+            or empty($formaexternes->raisonforma)or empty($formaexternes->organismeforma) 
+            or empty($formaexternes->formalite)or empty($formaexternes->formateur)
+            or empty($formaexternes->raisonchoix)or empty($formaexternes->dureeforma)
+            or empty($formaexternes->nbjour)or empty($formaexternes->nbhjour)
+            or empty($formaexternes->date)or empty($formaexternes->horaireforma)
+            or empty($formaexternes->pause)or empty($formaexternes->lieuforma)) {
+                $message = "Remplir tous les champs !";    
+            } else {
+                $message = "Les champs 'Type de compétence', 'Participant','Raison de formation',
+                'Organisme de formation', 'Formalité de réalisation', 'Formateur', 'Pause café' et 
+                'Lieu de formation' doit être des chaînes de caractères non vide !"; 
+            }
         }
        
 
          /*send result */
         $this->set([
             'success' => true,
-            'data' =>  "Updated with success",
-            '_serialize' => ['success', 'data']
+            'message' =>  $message,
+            '_serialize' => ['success', 'message']
         ]);
     
     }

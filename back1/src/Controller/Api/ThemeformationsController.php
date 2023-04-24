@@ -34,21 +34,25 @@ class ThemeformationsController extends AppController
 
         }
          /* create themeformations entity */
-        if (1==1 and !empty($data->label)){
+        if (1==1){
             $themeformations = $this->Themeformations->newEmptyEntity();
             $themeformations->label=$data->label;  
 
-            $this->Themeformations->save($themeformations); 
-            $message = "Added with success";
-        } else {
-                $message = "Data was empty or did not contain a label property";
+            if (!empty($themeformations->label) && preg_match('/^[a-zA-Z]+$/', $themeformations->label)) {
+                if ($this->Themeformations->save($themeformations)){
+                    $message = "Théme de formation ajouter avec succés !";
+                }
+                    
+            } else {
+                $message = "Le champ 'Nom théme formation' doit être une chaîne de caractères non vide !";    
             }
+        }
        
          /*send result */
         $this->set([
             'success' => true,
-            'data' =>  $message,
-            '_serialize' => ['success', 'data']
+            'message' =>  $message,
+            '_serialize' => ['success', 'message']
         ]);
     
     }

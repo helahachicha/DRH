@@ -38,9 +38,14 @@ message:any;
     this.dataService.post('Formainternes/addFormainterne.json',this.interneForm.value).subscribe(res=> {
       this.data = res;
       this.message=this.data.message;
+      if (this.message=="Formation ajouter avec succés !"){
+        this.interneForm.reset();
+      }
       console.log(this.message);
         
       })
+
+      
    }
    getallthemeforma() {
     this.dataService.get('Themeformations/getAllThemeformation.json').subscribe(res => {

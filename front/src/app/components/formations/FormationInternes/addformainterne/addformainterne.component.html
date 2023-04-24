@@ -1,15 +1,20 @@
-    <div class="container">
+<div class="container">
+
+    <div class=" text-left mt-5 ">
+        <button type="button" class="btn btn-primary " routerLink="/formainternelisting"><i
+                class="  fas fa-arrow-alt-circle-left"></i> REV</button>
+    </div>
+
     <div class=" text-center mt-5 ">
 
         <h1>Formation Interne</h1>
 
-
     </div>
 
 
+
     <div class="row ">
-        <button type="button" class="btn btn-primary " routerLink="/formainternelisting"><i
-            class="  fas fa-arrow-alt-circle-left"></i> REV</button>
+
         <div class="col-lg-10 mx-auto">
             <div class="card mt-2 mx-auto p-4 bg-light">
                 <div class="card-body bg-light">
@@ -65,16 +70,16 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_label">Date</label>
-                                            <input type="date" class="form-control" 
-                                                required="required" formControlName="date">
+                                            <input type="date" class="form-control" required="required"
+                                                formControlName="date">
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_label">Heur entrer </label>
-                                            <input type="time" class="form-control" 
-                                                required="required" formControlName="hentrer">
+                                            <input type="time" class="form-control" required="required"
+                                                formControlName="hentrer">
                                         </div>
                                     </div>
                                 </div>
@@ -82,8 +87,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_label">Heur sortie</label>
-                                            <input type="time" class="form-control" 
-                                                required="required" formControlName="hsortie">
+                                            <input type="time" class="form-control" required="required"
+                                                formControlName="hsortie">
 
                                         </div>
                                     </div>
@@ -91,12 +96,16 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <span class="text-succes ">{{message}}</span>
+                                            
+                                    </div>
+                                    <div class="col-md-12">
 
                                         <button class="btn btn-primary m-5" type="submit"
                                             (click)="submit()">Ajouter</button>
-                                            <span class="text-succes">{{message}}</span>
+                                        
                                     </div>
-                                    
+
                                 </div>
 
                             </div>

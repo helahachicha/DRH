@@ -50,18 +50,24 @@ class FormainternesController extends AppController
             $formainternes->hentrer=$data->hentrer; 
             $formainternes->hsortie=$data->hsortie;     
 
-            if (!empty($formainternes->tycomp) and !empty($formainternes->themeformation_id)
-            and !empty($formainternes->animateur)and !empty($formainternes->poste)
+            if (!empty($formainternes->tycomp && preg_match('/^[a-zA-Z]+$/', $formainternes->tycomp)) 
+            and !empty($formainternes->themeformation_id)
+            and !empty($formainternes->animateur && preg_match('/^[a-zA-Z]+$/', $formainternes->animateur))
+            and !empty($formainternes->poste && preg_match('/^[a-zA-Z]+$/', $formainternes->poste))
             and !empty($formainternes->date)and !empty($formainternes->hentrer) 
             and !empty($formainternes->hsortie)) {
                 if ($this->Formainternes->save($formainternes)){
-                    $message= "Added with success";
-                    
-        
+                    $message= "Formation ajouter avec succés !";
                 }
                     
-            } else {
+            } else if (empty($formainternes->tycomp) or empty($formainternes->themeformation_id)
+            or empty($formainternes->animateur)or empty($formainternes->poste)
+            or empty($formainternes->date)or empty($formainternes->hentrer) 
+            or empty($formainternes->hsortie)) {
                 $message = "Remplir tous les champs !";    
+            } else {
+                $message = "Les champs 'Type de compétence', 'Animateur' et 'Poste' doit 
+                être des chaînes de caractères non vide !"; 
             }
         }
 
@@ -102,7 +108,7 @@ class FormainternesController extends AppController
 
         $id=$this->request->getQuery('id');
         $formainternes=$this->Formainternes->get($id);
-         /* create coutformaexternes entity */
+         /* create coutformainternes entity */
         if (1==1){
             $formainternes->tycomp=$data->tycomp;  
             $formainternes->themeformation_id=$data->themeformation_id;  
@@ -112,13 +118,31 @@ class FormainternesController extends AppController
             $formainternes->hentrer=$data->hentrer; 
             $formainternes->hsortie=$data->hsortie;  
 
-            $this->Formainternes->save($formainternes); 
+            if (!empty($formainternes->tycomp && preg_match('/^[a-zA-Z]+$/', $formainternes->tycomp)) 
+            and !empty($formainternes->themeformation_id)
+            and !empty($formainternes->animateur && preg_match('/^[a-zA-Z]+$/', $formainternes->animateur))
+            and !empty($formainternes->poste && preg_match('/^[a-zA-Z]+$/', $formainternes->poste))
+            and !empty($formainternes->date)and !empty($formainternes->hentrer) 
+            and !empty($formainternes->hsortie)) {
+                if ($this->Formainternes->save($formainternes)){
+                    $message= "Formation modifier avec succés !";
+                }
+                    
+            } else if (empty($formainternes->tycomp) or empty($formainternes->themeformation_id)
+            or empty($formainternes->animateur)or empty($formainternes->poste)
+            or empty($formainternes->date)or empty($formainternes->hentrer) 
+            or empty($formainternes->hsortie)) {
+                $message = "Remplir tous les champs !";    
+            } else {
+                $message = "Les champs 'Type de compétence', 'Animateur' et 'Poste' doit 
+                être des chaînes de caractères non vide !"; 
+            }
         }
         /*send result */
         $this->set([
             'success' => true,
-            'data' =>  "Updatesd with success",
-            '_serialize' => ['success', 'data']
+            'message' =>  $message,
+            '_serialize' => ['success', 'message']
         ]);
     
     }
