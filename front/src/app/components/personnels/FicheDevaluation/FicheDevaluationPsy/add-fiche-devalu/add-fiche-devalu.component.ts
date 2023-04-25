@@ -29,7 +29,6 @@ export class AddFicheDevaluComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCategorie()
-
   }
 
    adddetailfichedevalu() {
