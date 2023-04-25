@@ -13,6 +13,7 @@ export class AddFicheDevaluComponent implements OnInit {
   public Niveauvises
   public Categories
   public competences
+  public open:boolean=false
   public ficheForm = new FormGroup({
     nomprenom: new FormControl('', [Validators.required]),
     objetevaluation: new FormControl('', [Validators.required]),
@@ -44,6 +45,10 @@ export class AddFicheDevaluComponent implements OnInit {
     }
     )
   }
+
+
+  formCompteance: any[] = [];
+
   onChangeData(e){
      let id = e.target.value
 
@@ -52,6 +57,11 @@ export class AddFicheDevaluComponent implements OnInit {
       this.dataService.get('detailprofilpostes/getDetailppByCat.json?id='+id).subscribe(res=>{
         console.log(res.data)
         this.competences = res.data;
+
+        this.formCompteance = Object.values(res.data.formcompetences);
+        this.open = true
+
+        console.log(this.formCompteance)
 
 
       })
