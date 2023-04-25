@@ -34,7 +34,7 @@ export class AddFicheDevaluComponent implements OnInit {
    adddetailfichedevalu() {
     this.dataService.post('Infoficheevaluations/addInfoficheevaluation.json',this.ficheForm.value).subscribe(res=> {
       this.router.navigate(['/list-fiche-devalu'])
-      console.log('testt',this.ficheForm.value)
+      console.log('testtt',this.ficheForm.value)
       })
    }
 
@@ -60,7 +60,7 @@ export class AddFicheDevaluComponent implements OnInit {
         this.formCompteance = Object.values(res.data.formcompetences);
         this.open = true
 
-        console.log(this.formCompteance)
+        console.log('tes',this.formCompteance)
 
 
       })
