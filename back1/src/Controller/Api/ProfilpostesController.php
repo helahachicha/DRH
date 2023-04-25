@@ -33,7 +33,6 @@ class ProfilpostesController extends AppController
             $querry=$this->request->getData();
             $data=json_decode($querry['data']);
             //$data=$this->request->getData();
-           // debug($data);
 
 
         }
@@ -70,66 +69,90 @@ class ProfilpostesController extends AppController
 
         /* create formcompetences entity */
            if(1==1){
-
-
+            $this->loadModel('Formcompetences');
              $this->loadModel('Indicateursuivis');
              /* create Indicateursuivis entity */
-                  if (1==1){
-                    foreach ($data->Formcompetence as $formcomp) {
+                if (1==1)
+                {
+
+                    foreach ($data->Formcompetence as $formcomp)
+                    {
                         $idComp=$formcomp->competence_id ;
                         $idNiveau=$formcomp->niveauvise_id ;
+                        $comp = $this->Formcompetences->newEmptyEntity();
+                        $comp->competence_id=$idComp ;
+                        $comp->detailprofilposte_id= $savedProfilPoste->id;
+                       // debug($formcomp);
 
-                        foreach ($formcomp->indicateur  as $indic) {
+                        $savedFormcomp=$this->Formcompetences->save($comp);
+                        foreach ($formcomp->indicateur  as $indic)
+                        {
                           //debug($formcomp->niveauvise_id);die;
                            $indicateurs = $this->Indicateursuivis->newEmptyEntity();
                            $indicateurs->competence_id= $idComp ;
                            $indicateurs->niveauvise_id= $idNiveau;
-                           $indicateurs->label=$indic->label;
-                          // debug($indicateurs);
+                           $indicateurs->detailprofilposte_id= $savedProfilPoste->id;
+
+                            $indicateurs->label=$indic->label;
+                            // debug($indicateurs);
+
+
                            $savedIndicateur=$this->Indicateursuivis->save($indicateurs);
+
+
                        }
                     }
-                    }
+                }
 
-            $this->loadModel('Souscompetences');
+                       $this->loadModel('Souscompetences');
 
-            /* create Souscompetences entity */
-                 if (1==1){
-                     foreach ($formcomp->Souscompetence  as $soucomp) {
-                      // debug($formcomp->Souscompetence);
+                       /* create Souscompetences entity */
 
-                        $soucompetences = $this->Souscompetences->newEmptyEntity();
-                        $soucompetences->label=$soucomp->label;
-                        $soucompetences->competence_id=   $indicateurs->competence_id;
-                        $savedSouscompetence=$this->Souscompetences->save($soucompetences);
-                    }
-             $this->loadModel('Indicasoucompas');
+                                foreach ($formcomp->Souscompetence  as $soucomp) {
+                                 // debug($formcomp);
+                                    $idComp=$formcomp->competence_id;
+                                   $soucompetences = $this->Souscompetences->newEmptyEntity();
+                                   $soucompetences->label=$soucomp->label;
+                                   $soucompetences->competence_id= $indicateurs->competence_id;
+                                   $soucompetences->detailprofilposte_id= $savedProfilPoste->id;
 
-                        foreach ($soucomp->indicateurSoucomp as $indisou) {
+                                   $savedSouscompetence=$this->Souscompetences->save($soucompetences);
+                                   $this->loadModel('Indicasoucompas');
 
-                        $indicasoucompas = $this->Indicasoucompas->newEmptyEntity();
-                        $indicasoucompas->label= $indisou->label;
-                        $indicasoucompas->souscompetence_id=$savedSouscompetence->id;
+                                   foreach ($soucomp->indicateurSoucomp as $indisou) {
 
-                     //  debug($indicasoucompas);die;
+                                   $indicasoucompas = $this->Indicasoucompas->newEmptyEntity();
+                                   $indicasoucompas->label= $indisou->label;
+                                   $indicasoucompas->souscompetence_id=$savedSouscompetence->id;
 
-                        $savedProfil=$this->Indicasoucompas->save($indicasoucompas);
+                                //  debug($indicasoucompas);die;
+                                //debug($indicasoucompas);
+                                   $savedProfil=$this->Indicasoucompas->save($indicasoucompas);
 
 
 
-                    }
+                               }
 
-             }
-        }
 
-         /*send result */
+                               }
+
+
+
+            }
+             /*send result */
         $this->set([
             'success' => true,
             'data' =>  "Added with success",
             '_serialize' => ['success', 'data']
         ]);
-
     }
+
+
+        
+
+        
+
+    
 
      /**
      * editProfilposte

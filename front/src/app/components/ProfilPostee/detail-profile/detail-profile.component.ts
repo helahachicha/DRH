@@ -77,6 +77,7 @@ export class DetailProfileComponent implements OnInit {
   getAllCategorie() {
     this.dataService.get('Categories/getAllCategorie.json').subscribe(res => {
       this.Categories = res.data;
+      //console.log('test',this.Categories)
     }
     )
   }

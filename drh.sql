@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2023 at 12:47 PM
+-- Generation Time: Apr 24, 2023 at 05:50 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -167,61 +167,7 @@ CREATE TABLE `detailprofilpostes` (
 --
 
 INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie_id`, `profilposte_id`, `superhierar`, `supervision`, `interim`, `fonctionelaboration`, `fonctionverification`, `fonctionabrobation`, `nomprenomelab`, `nomprenomverif`, `nomprenomabrob`, `created`, `modified`) VALUES
-(1, 'Ingénieur Recherche & Développement', 1, 1, 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jaweher KHMIRI', 'Hayet  BEN SALEM', 'Rochdi ABID', '2023-04-05 23:24:36', '2023-04-05 23:24:36'),
-(2, 'Ingénieur Recherche & Développement', 2, 1, 'Gérant', 'Développeur Senior', 'Développeur Senior', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-05 23:27:20', '2023-04-05 23:27:20'),
-(3, 'Ingénieur Recherche & Développement', 3, 1, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-05 23:27:20', '2023-04-05 23:27:20'),
-(4, 'Ingénieur Recherche & Développement', 4, 1, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-05 23:30:22', '2023-04-05 23:30:22'),
-(5, 'test', 1, 3, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:19:36', '2023-04-15 08:19:36'),
-(6, 'test', 1, 4, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:24:14', '2023-04-15 08:24:14'),
-(7, 'test', 1, 5, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:25:52', '2023-04-15 08:25:52'),
-(8, 'test', 1, 6, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:26:27', '2023-04-15 08:26:27'),
-(9, 'test', 1, 7, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:26:53', '2023-04-15 08:26:53'),
-(10, 'test', 1, 8, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:27:14', '2023-04-15 08:27:14'),
-(11, 'test', 1, 9, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:29:00', '2023-04-15 08:29:00'),
-(12, 'test', 1, 10, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:29:32', '2023-04-15 08:29:32'),
-(13, 'test', 1, 11, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:30:33', '2023-04-15 08:30:33'),
-(14, 'test', 1, 12, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:31:11', '2023-04-15 08:31:11'),
-(15, 'test', 1, 13, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:31:43', '2023-04-15 08:31:43'),
-(16, 'test', 1, 14, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:33:25', '2023-04-15 08:33:25'),
-(17, 'test', 1, 15, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:33:55', '2023-04-15 08:33:55'),
-(18, 'test', 1, 16, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:34:58', '2023-04-15 08:34:58'),
-(19, 'test', 1, 17, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:35:40', '2023-04-15 08:35:40'),
-(20, 'test', 1, 18, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:35:52', '2023-04-15 08:35:52'),
-(21, 'test', 1, 19, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:37:05', '2023-04-15 08:37:05'),
-(22, 'test', 1, 20, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:37:17', '2023-04-15 08:37:17'),
-(23, 'test', 1, 21, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-15 08:38:27', '2023-04-15 08:38:27'),
-(24, 'test', 2, 22, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:18:00', '2023-04-17 13:18:00'),
-(25, 'test', 2, 23, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:22:34', '2023-04-17 13:22:34'),
-(26, 'test', 2, 24, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:23:49', '2023-04-17 13:23:49'),
-(27, 'test', 2, 25, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:24:20', '2023-04-17 13:24:20'),
-(28, 'test', 2, 26, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:24:41', '2023-04-17 13:24:41'),
-(29, 'test', 2, 27, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:25:15', '2023-04-17 13:25:15'),
-(30, 'test', 2, 28, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:25:26', '2023-04-17 13:25:26'),
-(31, 'test', 2, 29, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:26:09', '2023-04-17 13:26:09'),
-(32, 'test', 2, 30, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:26:52', '2023-04-17 13:26:52'),
-(33, 'test', 2, 31, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:27:03', '2023-04-17 13:27:03'),
-(34, 'test', 2, 32, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:27:25', '2023-04-17 13:27:25'),
-(35, 'test', 2, 33, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:27:59', '2023-04-17 13:27:59'),
-(36, 'test', 2, 34, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:29:01', '2023-04-17 13:29:01'),
-(37, 'test', 2, 35, 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', 'test', '2023-04-17 13:30:03', '2023-04-17 13:30:03'),
-(38, 'ttttttttt', 2, 36, 'tttt', 'ttt', 'ttt', 't', 't', 't', 't', 't', 't', '2023-04-17 13:31:56', '2023-04-17 13:31:56'),
-(39, 'ttttttttt', 2, 37, 'tttt', 'ttt', 'ttt', 't', 't', 't', 't', 't', 't', '2023-04-17 13:38:53', '2023-04-17 13:38:53'),
-(40, 'ttttttttt', 2, 38, 'tttt', 'ttt', 'ttt', 't', 't', 't', 't', 't', 't', '2023-04-17 13:40:20', '2023-04-17 13:40:20'),
-(41, 'test', 1, 39, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:06:03', '2023-04-18 09:06:03'),
-(42, 'test', 1, 40, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:06:10', '2023-04-18 09:06:10'),
-(43, 'test', 1, 41, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:06:58', '2023-04-18 09:06:58'),
-(44, 'test', 1, 42, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:07:37', '2023-04-18 09:07:37'),
-(45, 'test', 1, 43, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:08:07', '2023-04-18 09:08:07'),
-(46, 'test', 1, 44, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:08:35', '2023-04-18 09:08:35'),
-(47, 'test', 1, 45, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:14:52', '2023-04-18 09:14:52'),
-(48, 'test', 1, 46, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:15:13', '2023-04-18 09:15:13'),
-(49, 'test', 1, 47, 'test', 'test', 'test', 't', 't', 't', 't', 't', 't', '2023-04-18 09:16:34', '2023-04-18 09:16:34'),
-(50, 'Ingénieur Recherche & Développement', 1, 1, 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jaweher KHMIRI', 'Hayet  BEN SALEM', 'Rochdi ABID', '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(51, 'sdf', 2, 2, 'fd', 'sfdsf', 'fdsf', 'gfg', 'fgfg', 'fgfg', 'ffgf', 'fggf', 'fgfgfg', '2023-04-18 09:59:13', '2023-04-18 09:59:13'),
-(52, 'sdf', 2, 3, 'fd', 'sfdsf', 'fdsf', 'gfg', 'fgfg', 'fgfg', 'ffgf', 'fggf', 'fgfgfg', '2023-04-18 09:59:29', '2023-04-18 09:59:29'),
-(53, 'sdf', 2, 4, 'fd', 'sfdsf', 'fdsf', 'gfg', 'fgfg', 'fgfg', 'ffgf', 'fggf', 'fgfgfg', '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
-(54, 'sdf', 2, 5, 'fd', 'sfdsf', 'fdsf', 'gfg', 'fgfg', 'fgfg', 'ffgf', 'fggf', 'fgfgfg', '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
-(55, 'tttttt', 3, 6, 'ttttttttttttttttttttt', 'ttttttttttttttttttt', 'ttttttttttttttt', 'tttttttttttttttttttttttt', 'nhgd,njxfgh,nj', 'jh,jh', 'tttttttttttttttttttttttt', 'nsnhsftnj', 'ghj,', '2023-04-18 10:06:58', '2023-04-18 10:06:58');
+(1, 'Ingénieur Recherche & Développement', 1, 3, 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jaweher KHMIRI', 'Hayet  BEN SALEM', 'Rochdi ABID', '2023-04-24 10:59:58', '2023-04-24 10:59:58');
 
 -- --------------------------------------------------------
 
@@ -345,8 +291,6 @@ INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `
 CREATE TABLE `formcompetences` (
   `id` int(11) NOT NULL,
   `competence_id` int(11) NOT NULL,
-  `soucompetence` varchar(255) NOT NULL,
-  `niveauvise_id` int(11) NOT NULL,
   `detailprofilposte_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -356,50 +300,10 @@ CREATE TABLE `formcompetences` (
 -- Dumping data for table `formcompetences`
 --
 
-INSERT INTO `formcompetences` (`id`, `competence_id`, `soucompetence`, `niveauvise_id`, `detailprofilposte_id`, `created`, `modified`) VALUES
-(1, 1, '', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(2, 2, 'GESTION DE TEMPS & PRIORITÉS', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(3, 3, 'GEEK', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(4, 3, 'AUTODÉTERMINATION ', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(5, 3, 'POSITIVITÉ', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(6, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(7, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(8, 3, 'RÉSOLUTION DE PROBLÈMES', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(9, 3, 'SERVICES D’EXCELLENCE  ', 1, 1, '2023-04-05 23:44:40', '2023-04-05 23:44:40'),
-(10, 1, '', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(11, 2, 'GESTION DE TEMPS & PRIORITÉS', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(12, 3, 'Autonomie', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(13, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(14, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(15, 3, 'RÉSOLUTION DES PROBLÈMES', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(16, 3, 'SERVICE D’EXCELLENCE ', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(17, 3, 'RAISONNEMENT CONCEPTUEL ', 2, 2, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(18, 1, '', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(19, 2, 'GESTION DE TEMPS & PRIORITÉS', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(20, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(21, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(22, 3, 'RÉSOLUTION DES PROBLÈMES', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(23, 3, 'SERVICE D’EXCELLENCE ', 3, 3, '2023-04-05 23:48:37', '2023-04-05 23:48:37'),
-(24, 3, 'RAISONNEMENT CONCEPTUEL ', 3, 3, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(25, 3, 'LEADERSHIP', 3, 3, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(26, 1, '', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(27, 2, 'GESTION DE TEMPS & PRIORITÉS', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(28, 3, 'COMMUNICATION INTERACTIVE EFFICACE', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(29, 3, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(30, 3, 'RÉSOLUTION DES PROBLÈMES', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(31, 3, 'RAISONNEMENT ANALYTIQUE ', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(32, 3, 'LEADERSHIP', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(33, 3, 'SOUTIEN AU DÉVELOPPEMENT DES AUTRES', 4, 4, '2023-04-05 23:52:04', '2023-04-05 23:52:04'),
-(34, 1, '', 1, 5, '2023-04-15 08:19:36', '2023-04-15 08:19:36'),
-(35, 1, '', 1, 6, '2023-04-15 08:24:14', '2023-04-15 08:24:14'),
-(36, 2, '', 1, 6, '2023-04-15 08:24:14', '2023-04-15 08:24:14'),
-(37, 3, '', 1, 6, '2023-04-15 08:24:14', '2023-04-15 08:24:14'),
-(38, 1, '', 1, 7, '2023-04-15 08:25:52', '2023-04-15 08:25:52'),
-(39, 2, '', 1, 7, '2023-04-15 08:25:52', '2023-04-15 08:25:52'),
-(40, 3, '', 1, 7, '2023-04-15 08:25:52', '2023-04-15 08:25:52'),
-(41, 1, '', 1, 8, '2023-04-15 08:26:27', '2023-04-15 08:26:27'),
-(42, 1, '', 1, 9, '2023-04-15 08:26:53', '2023-04-15 08:26:53'),
-(43, 1, '', 1, 10, '2023-04-15 08:27:14', '2023-04-15 08:27:14');
+INSERT INTO `formcompetences` (`id`, `competence_id`, `detailprofilposte_id`, `created`, `modified`) VALUES
+(1, 1, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(2, 2, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(3, 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59');
 
 -- --------------------------------------------------------
 
@@ -420,11 +324,23 @@ CREATE TABLE `indicasoucompas` (
 --
 
 INSERT INTO `indicasoucompas` (`id`, `label`, `souscompetence_id`, `created`, `modified`) VALUES
-(1, 'Fournir une réponse claire & logique aux questions ou préoccupations.', 7, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(2, 'Fournir un service, y compris des renseignements utiles ou une aide, conforme aux normes de service et aux lignes directrices pertinentes.', 7, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(3, '', 8, '2023-04-18 09:59:45', '2023-04-18 09:59:45'),
-(4, '', 9, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
-(5, '', 10, '2023-04-18 10:06:58', '2023-04-18 10:06:58');
+(1, '', 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(2, '', 2, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(3, '', 3, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(4, '', 4, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(5, '', 5, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(6, 'Écouter activement afin de bien comprendre le message.', 6, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(7, 'Essayer de partager l’information liée à l’exécution de travail et la communiquer clairement (quelque soit de la part développeur junior et de son vis-à-vis)', 6, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(8, 'Répondre de manière appropriée en donnant l’information et les faits de façon logique, claire et cohérente.', 6, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(9, 'Transmet et reçoit le besoin facile à comprendre : c’est à dire transmet, reçoit et vérifie la bonne compréhension de la part de l’émetteur et récepteur', 6, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(10, 'Tenir compte de l’objectif de toute l’équipe  ', 7, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(11, 'Réussite collective ou échec collective ! : c’est toute l’équipe est responsable soit en cas de la réussite ou en cas d’échec', 7, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(12, 'Répartition des tâches d’une manière équitable', 7, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(13, 'Appuyer les décisions ou les activités de l’équipe et aider à réaliser l’objectif principal', 7, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(14, 'Poser les questions adéquates et distinguer entre les renseignements pertinents et ceux qui ne le sont pas.', 8, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(15, 'Identifier la cause principale du problème affronté', 8, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(16, 'Fournir une réponse claire & logique aux questions ou préoccupations.', 9, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(17, 'Fournir un service, y compris des renseignements utiles ou une aide, conforme aux normes de service et aux lignes directrices pertinentes.', 9, '2023-04-24 10:59:59', '2023-04-24 10:59:59');
 
 -- --------------------------------------------------------
 
@@ -435,6 +351,7 @@ INSERT INTO `indicasoucompas` (`id`, `label`, `souscompetence_id`, `created`, `m
 CREATE TABLE `indicateursuivis` (
   `id` int(11) NOT NULL,
   `label` varchar(255) DEFAULT NULL,
+  `detailprofilposte_id` int(11) NOT NULL,
   `competence_id` int(11) NOT NULL,
   `niveauvise_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
@@ -445,22 +362,14 @@ CREATE TABLE `indicateursuivis` (
 -- Dumping data for table `indicateursuivis`
 --
 
-INSERT INTO `indicateursuivis` (`id`, `label`, `competence_id`, `niveauvise_id`, `created`, `modified`) VALUES
-(1, 'Compétence algorithmique niveau élevé  ', 1, 1, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(2, 'Connaissance de l’architecture de développement Orientée Objet ', 1, 1, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(3, 'Une bonne maîtrise du SQL  ', 1, 1, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(4, '', 3, 1, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(5, 'ffgf', 3, 2, '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
-(6, 'fgf', 3, 2, '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
-(7, 'fgff', 3, 2, '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
-(8, 'ffgf', 3, 2, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
-(9, 'fgf', 3, 2, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
-(10, 'fgff', 3, 2, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
-(11, 'ttttttttttttttttttttt', 1, 1, '2023-04-18 10:06:58', '2023-04-18 10:06:58'),
-(12, 'tttttttttttttttttttttttttttttttt', 1, 1, '2023-04-18 10:06:58', '2023-04-18 10:06:58'),
-(13, 'tttttttttttttttttttttttttttttttttttttt', 3, 1, '2023-04-18 10:06:58', '2023-04-18 10:06:58'),
-(14, 'tttttttttttttttttttttt', 3, 1, '2023-04-18 10:06:58', '2023-04-18 10:06:58'),
-(15, 'ttttttttttttttttttttttttttt', 3, 1, '2023-04-18 10:06:58', '2023-04-18 10:06:58');
+INSERT INTO `indicateursuivis` (`id`, `label`, `detailprofilposte_id`, `competence_id`, `niveauvise_id`, `created`, `modified`) VALUES
+(1, 'Compétence algorithmique niveau élevé  ', 1, 1, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(2, 'Connaissance de l’architecture de développement Orientée Objet ', 1, 1, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(3, 'Une bonne maîtrise du SQL   ', 1, 1, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(4, 'Planifier & compléter les tâches/projets à temps efficacement', 1, 2, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(5, 'Informer de la progression des tâches ou du projet ', 1, 2, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(6, '	Déclarer en cas de difficulté technique : c’est à dire après dépasser 50 % du temps prévu de réalisation d’une tâche au maximum à l’essai de résolution d’une difficulté technique ', 1, 2, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(7, '', 1, 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59');
 
 -- --------------------------------------------------------
 
@@ -1039,8 +948,8 @@ CREATE TABLE `postes` (
 
 INSERT INTO `postes` (`id`, `label`, `departement_id`, `created`, `modified`) VALUES
 (1, 'Développement', 1, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
-(2, 'Responsable marketing ', 0, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
-(3, 'Responsable ressource humaine ', 0, '2023-03-27 12:31:16', '2023-03-27 12:31:16');
+(2, 'Responsable marketing ', 2, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
+(3, 'Responsable ressource humaine ', 3, '2023-03-27 12:31:16', '2023-03-27 12:31:16');
 
 -- --------------------------------------------------------
 
@@ -1061,12 +970,9 @@ CREATE TABLE `profilpostes` (
 --
 
 INSERT INTO `profilpostes` (`id`, `nom`, `poste_id`, `created`, `modified`) VALUES
-(1, 'Dévloppeur', 0, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(2, 'ffzsq', 0, '2023-04-18 09:59:13', '2023-04-18 09:59:13'),
-(3, 'ffzsq', 0, '2023-04-18 09:59:29', '2023-04-18 09:59:29'),
-(4, 'ffzsq', 0, '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
-(5, 'ffzsq', 0, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
-(6, 'tttttttttttttt', 0, '2023-04-18 10:06:58', '2023-04-18 10:06:58');
+(1, 'ingenieur', 0, '2023-04-24 10:24:14', '2023-04-24 10:24:14'),
+(2, 'ingenieur', 0, '2023-04-24 10:25:42', '2023-04-24 10:25:42'),
+(3, ' Développement', 0, '2023-04-24 10:59:58', '2023-04-24 10:59:58');
 
 -- --------------------------------------------------------
 
@@ -1173,6 +1079,7 @@ CREATE TABLE `souscompetences` (
   `id` int(11) NOT NULL,
   `label` varchar(255) DEFAULT NULL,
   `competence_id` int(11) NOT NULL,
+  `detailprofilposte_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -1181,17 +1088,16 @@ CREATE TABLE `souscompetences` (
 -- Dumping data for table `souscompetences`
 --
 
-INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `created`, `modified`) VALUES
-(1, 'GEEK', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(2, 'AUTODÉTERMINATION ', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(3, 'POSITIVITÉ', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(4, 'COMMUNICATION INTERACTIVE EFFICACE', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(5, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(6, 'RÉSOLUTION DE PROBLÈMES', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(7, 'SERVICES D’EXCELLENCE  ', 3, '2023-04-18 09:43:46', '2023-04-18 09:43:46'),
-(8, '', 3, '2023-04-18 09:59:44', '2023-04-18 09:59:44'),
-(9, '', 3, '2023-04-18 10:00:36', '2023-04-18 10:00:36'),
-(10, '', 3, '2023-04-18 10:06:58', '2023-04-18 10:06:58');
+INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `detailprofilposte_id`, `created`, `modified`) VALUES
+(1, '', 1, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(2, '', 2, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(3, 'GEEK', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(4, 'AUTODÉTERMINATION ', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(5, 'POSITIVITÉ', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(6, 'COMMUNICATION INTERACTIVE EFFICACE', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(7, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(8, 'RÉSOLUTION DE PROBLÈMES', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
+(9, 'SERVICES D’EXCELLENCE  ', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59');
 
 -- --------------------------------------------------------
 
@@ -1537,7 +1443,7 @@ ALTER TABLE `departements`
 -- AUTO_INCREMENT for table `detailprofilpostes`
 --
 ALTER TABLE `detailprofilpostes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `echelleevaluations`
@@ -1567,19 +1473,19 @@ ALTER TABLE `formainternes`
 -- AUTO_INCREMENT for table `formcompetences`
 --
 ALTER TABLE `formcompetences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `indicasoucompas`
 --
 ALTER TABLE `indicasoucompas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `indicateursuivis`
 --
 ALTER TABLE `indicateursuivis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `infoficheevaluations`
@@ -1639,7 +1545,7 @@ ALTER TABLE `postes`
 -- AUTO_INCREMENT for table `profilpostes`
 --
 ALTER TABLE `profilpostes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `questions`
@@ -1663,7 +1569,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `souscompetences`
 --
 ALTER TABLE `souscompetences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `testtechniques`

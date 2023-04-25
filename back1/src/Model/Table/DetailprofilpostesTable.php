@@ -63,6 +63,9 @@ class DetailprofilpostesTable extends Table
         $this->hasMany('Formcompetences', [
             'foreignKey' => 'detailprofilposte_id',
         ]);
+        $this->hasMany('Indicateursuivis', [
+            'foreignKey' => 'detailprofilposte_id',
+        ]);
     }
 
     /**

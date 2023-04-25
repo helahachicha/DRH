@@ -9,10 +9,11 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./add-fiche-devalu.component.scss']
 })
 export class AddFicheDevaluComponent implements OnInit {
- 
+
   public Niveauvises
   public Categories
   public competences
+  public open:boolean=false
   public ficheForm = new FormGroup({
     nomprenom: new FormControl('', [Validators.required]),
     objetevaluation: new FormControl('', [Validators.required]),
@@ -20,7 +21,7 @@ export class AddFicheDevaluComponent implements OnInit {
     decisiondirection: new FormControl('', [Validators.required]),
     categorie_id: new FormControl('', [Validators.required]),
   });
-  
+
   constructor(
     private dataService:DataService,
     private router :Router
@@ -28,12 +29,11 @@ export class AddFicheDevaluComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCategorie()
-    
   }
-  
+
    adddetailfichedevalu() {
     this.dataService.post('Infoficheevaluations/addInfoficheevaluation.json',this.ficheForm.value).subscribe(res=> {
-      this.router.navigate(['/list-fiche-devalu']) 
+      this.router.navigate(['/list-fiche-devalu'])
       console.log('testt',this.ficheForm.value)
       })
    }
@@ -44,16 +44,26 @@ export class AddFicheDevaluComponent implements OnInit {
     }
     )
   }
+
+
+  formCompteance: any[] = [];
+
   onChangeData(e){
      let id = e.target.value
-  
 
-    
-      this.dataService.get('detailprofilpostes/getCompByCat.json?id='+id).subscribe(res=>{
+
+
+      this.dataService.get('detailprofilpostes/getDetailppByCat.json?id='+id).subscribe(res=>{
         console.log(res.data)
         this.competences = res.data;
 
+        this.formCompteance = Object.values(res.data.formcompetences);
+        this.open = true
+
+        console.log(this.formCompteance)
+
+
       })
-     
+
   }
 }
