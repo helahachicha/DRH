@@ -67,7 +67,7 @@ class ProfilpostesController extends AppController
         }
 
 
-        /* create formcompetences entity */
+        /* create formcompetences entity ***********/
            if(1==1){
             $this->loadModel('Formcompetences');
              $this->loadModel('Indicateursuivis');
