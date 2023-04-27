@@ -71,7 +71,7 @@
                                 <table class="table table-bordered justify-content-center">
 
                                         <thead>
-                                            
+
 
 
                                         </thead>
@@ -83,20 +83,21 @@
 
                                                         </th>
 
-                                                        <table style="border: none;" *ngIf="formCompteance[i].competence.souscompetences.length==0">
-                                                                
+                                                        <table style="border: none;" *ngFor="let indicateurSuivie  of formCompteance[i].competence.indicateursuivis">
+
+
                                                                 <td>
                                                                         <tr >
                                                                                 N°
                                                                         </tr>
                                                                         <hr>
                                                                         <tr>
-                                                                                
+
                                                                                         <input type="text"
                                                                                                 class="form-control "
                                                                                                 placeholder="N°"
                                                                                                 required="required">
-                                                                                
+
                                                                         </tr>
 
 
@@ -110,18 +111,15 @@
                                                                         </tr>
                                                                         <hr>
 
-                                                                        <tr>
-                                                                                
-                                                                                <input type="text"
-                                                                                class="form-control "
-                                                                                placeholder="Les Indicateurs"
-                                                                                required="required">
-                                                                                
+                                                                        <tr >
+
+                                                                             -  {{indicateurSuivie.label}}
+
                                                                         </tr>
 
 
                                                                 </td>
-                                                        
+
                                                                 <td>
                                                                         <tr >
                                                                                 POINTS
@@ -136,12 +134,12 @@
                                                                                 <option value="1">0</option>
                                                                                 <option value="2">1</option>
                                                                         </select>
-                                                                                
+
                                                                         </tr>
 
 
                                                                 </td>
-                                                        
+
                                                                 <td>
                                                                         <tr >
                                                                                 SCORE
@@ -149,60 +147,66 @@
                                                                         <hr>
 
                                                                         <tr>
-                                                                                
+
                                                                                 <input type="number" class="form-control "
                                                                                 required="required">/2
-                                                                                
+
                                                                         </tr>
 
 
                                                                 </td>
 
 
-                                                              
+
 
                                                                                <td>
                                                                                 <tr>
-                                                                                        Niveau visé      
+                                                                                        Niveau visé
                                                                                 </tr>
                                                                                 <hr>
 
                                                                                 <tr>
-                                                                                        Niveau 1 / Pré-actif    
+                                                                                        Niveau 1 / Pré-actif
                                                                                 </tr>
-                                                                        </td> 
+                                                                        </td>
                                                                         <td>
                                                                                 <tr>
-                                                                                        Résultat     
+                                                                                        Résultat
                                                                                 </tr>
                                                                                 <hr>
 
                                                                                 <tr>
-                                                                                        Accepté 
+                                                                                        Accepté
                                                                                 </tr>
-                                                                        </td> 
+                                                                        </td>
+
                                                         </table>
+
                                                         <table
-                                                                *ngFor="let obj of formCompteance[i].competence.souscompetences">
-                                                                
+                                                                *ngFor="let sousCompetence of formCompteance[i].competence.souscompetences;let k=index">
+
 
                                                                 <tr >
-                                                                        
-                                                                        {{obj.label}}
+
+                                                                        {{sousCompetence.label}}
 
                                                                 </tr>
+                                                                <div  *ngFor="let indicateursouComp of formCompteance[i].competence.souscompetences[k].indicasoucompas
+                                                                " >
+
+
                                                                 <td>
                                                                         <tr >
                                                                                 N°
                                                                         </tr>
                                                                         <hr>
                                                                         <tr>
-                                                                                
+
                                                                                         <input type="text"
                                                                                                 class="form-control "
                                                                                                 placeholder="N°"
                                                                                                 required="required">
-                                                                                
+
                                                                         </tr>
 
 
@@ -217,17 +221,14 @@
                                                                         <hr>
 
                                                                         <tr>
-                                                                                
-                                                                                <input type="text"
-                                                                                class="form-control "
-                                                                                placeholder="Les Indicateurs"
-                                                                                required="required">
-                                                                                
+
+                                                                          {{indicateursouComp.label}}
+
                                                                         </tr>
 
 
                                                                 </td>
-                                                        
+
                                                                 <td>
                                                                         <tr >
                                                                                 POINTS
@@ -242,12 +243,12 @@
                                                                                 <option value="1">0</option>
                                                                                 <option value="2">1</option>
                                                                         </select>
-                                                                                
+
                                                                         </tr>
 
 
                                                                 </td>
-                                                        
+
                                                                 <td>
                                                                         <tr >
                                                                                 SCORE
@@ -255,38 +256,39 @@
                                                                         <hr>
 
                                                                         <tr>
-                                                                                
+
                                                                                 <input type="number" class="form-control "
                                                                                 required="required">/2
-                                                                                
+
                                                                         </tr>
 
 
                                                                 </td>
 
 
-                                                              
+
 
                                                                                <td>
                                                                                 <tr>
-                                                                                        Niveau visé      
+                                                                                        Niveau visé
                                                                                 </tr>
                                                                                 <hr>
 
                                                                                 <tr>
-                                                                                        Niveau 1 / Pré-actif    
+                                                                                        Niveau 1 / Pré-actif
                                                                                 </tr>
-                                                                        </td> 
+                                                                        </td>
                                                                         <td>
                                                                                 <tr>
-                                                                                        Résultat     
+                                                                                        Résultat
                                                                                 </tr>
                                                                                 <hr>
 
                                                                                 <tr>
-                                                                                        Accepté 
+                                                                                        Accepté
                                                                                 </tr>
-                                                                        </td> 
+                                                                        </td>
+                                                                      </div>
                                                         </table>
 
                                                         <!---pour competence 1-->
@@ -296,7 +298,7 @@
 
                                                 </tr>
 
-                                                
+
                                         </tbody>
                                 </table>
 

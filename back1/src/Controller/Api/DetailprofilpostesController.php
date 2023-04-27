@@ -44,7 +44,7 @@ class DetailprofilpostesController extends AppController
                 'detailprofilpostes.categorie_id IS'=>$id,
             ],
             'contain' => [
-                'Formcompetences','Formcompetences.Competences.Indicateursuivis','Formcompetences.Competences.Souscompetences.Indicasoucompas'
+                'Profilpostes','Formcompetences','Formcompetences.Competences.Indicateursuivis','Formcompetences.Competences.Souscompetences.Indicasoucompas'
               ],
 
         ])->first();

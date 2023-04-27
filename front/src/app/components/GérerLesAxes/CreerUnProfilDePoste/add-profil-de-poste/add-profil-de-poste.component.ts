@@ -98,6 +98,7 @@ removedCompetence(index) {
   createSoucomp(): FormGroup {
     return this.fb.group({
       label: [''],
+      
       indicateurSoucomp:   this.fb.array([this.createIndicaSouscomp()]),
 
     });
