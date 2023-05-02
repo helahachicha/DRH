@@ -127,7 +127,7 @@
                                                                                                 *ngFor="let item1 of item.competence.indicateursuivis ;let i=index">
 
 
-                                                                                                <input type="text"
+                                                                                                <input *ngIf="item1.label" type="text"
                                                                                                         style="width: 200px;"
                                                                                                         class="form-control "
                                                                                                         required="required"
