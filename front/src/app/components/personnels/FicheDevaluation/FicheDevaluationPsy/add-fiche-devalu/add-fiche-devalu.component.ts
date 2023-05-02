@@ -14,6 +14,7 @@ export class AddFicheDevaluComponent implements OnInit {
   public Categories
   public competences
   public open:boolean=false
+
   public ficheForm = new FormGroup({
     nomprenom: new FormControl('', [Validators.required]),
     objetevaluation: new FormControl('', [Validators.required]),
@@ -38,7 +39,6 @@ export class AddFicheDevaluComponent implements OnInit {
    adddetailfichedevalu() {
     this.dataService.post('Infoficheevaluations/addInfoficheevaluation.json',this.ficheForm.value).subscribe(res=> {
       this.router.navigate(['/list-fiche-devalu'])
-      console.log('testtt',this.ficheForm.value)
       })
    }
 
@@ -49,11 +49,11 @@ export class AddFicheDevaluComponent implements OnInit {
     )
   }
 
-
   formCompteance: any[] = [];
 indic:any=[];
 label:any=[];
   onChangeData(e){
+
      let id = e.target.value
 
 

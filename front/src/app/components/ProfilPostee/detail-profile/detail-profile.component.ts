@@ -11,13 +11,13 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class DetailProfileComponent implements OnInit {
 
   id: any;
-  public detailpp 
+  public detailpp
   public open:boolean=false
   public FormGenerator: FormGroup;
   public  Categories
   public Competences
   public Niveauvises
-  
+
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
@@ -61,12 +61,12 @@ export class DetailProfileComponent implements OnInit {
             nomprenomverif: this.detailpp.nomprenomverif,
             nomprenomabrob: this.detailpp.nomprenomabrob
           });
-          
+
           // supprimer les anciens champs de saisie
           while (this.FormcompetenceData.length !== 0) {
             this.FormcompetenceData.removeAt(0);
           }
-          
+
           // ajouter les champs de saisie avec les valeurs récupérées
           formcompetences.forEach(element => {
             this.FormcompetenceData.push(this.createIndicateurGroup(element));
@@ -84,7 +84,7 @@ export class DetailProfileComponent implements OnInit {
   getAllniveau() {
     this.dataService.get('Niveauvises/getAllNiveauvise.json').subscribe(res => {
       this.Niveauvises = res.data;
-      
+
     }
     )
   }
@@ -110,23 +110,40 @@ export class DetailProfileComponent implements OnInit {
   }
   addInputSoucomp(i) {
     const optionsArray = <FormArray>this.FormcompetenceData.at(i).get('souscompetence');
-    optionsArray.push(this.createSoucomp('',null));  }
+    optionsArray.push(this.createSoucomp('',null));
+   }
+   indicateurSoucomp(i: number, j: number) {
+    const souscompArray = this.FormGenerator.get(`Formcompetence.${i}.Souscompetence`) as FormArray;
+    const indicateurSoucompArray = souscompArray.at(j).get('indicateurSoucomp') as FormArray;
+    indicateurSoucompArray.push(this.createIndicaSouscomp());
+  }
+
+  removeSoucomp(i, j) {
+
+    (<FormArray>this.FormcompetenceData.at(i).get('souscompetence')).removeAt(j);
+
+}
+
+
+
   removedIndica(index) {
     const Indicateur = this.FormGenerator.get('Formcompetence') as FormArray
 
     Indicateur.removeAt(index);
 
   }
-  
-  removeSoucomp(i, j) {
-   
-    (<FormArray>this.FormcompetenceData.at(i).get('souscompetence')).removeAt(j);
-  
+
+
+createIndicaSouscomp(): FormGroup {
+  return this.fb.group({
+    label: [''],
+  });
 }
+
 createSoucomp(id:string,label:string): FormGroup {
   return this.fb.group({
     id: [id, [Validators.required]],
-    label: ['', [Validators.required]],
+    indicateurSoucomp:   this.fb.array([this.createIndicaSouscomp()]),
 
   });
 }
@@ -158,6 +175,7 @@ createSoucomp(id:string,label:string): FormGroup {
       indicateur: this.fb.array(element.indicateursuivis && Array.isArray(element.indicateursuivis) ?
       element.indicateursuivis.map(data => this.createOption(data.id, data.label)) : [])
     })
+
   }
   createOption(id:string,label:string): FormGroup {
     return this.fb.group({
@@ -172,10 +190,10 @@ createSoucomp(id:string,label:string): FormGroup {
   }
 
   removeOptions(i, j) {
-   
+
       (<FormArray>this.FormcompetenceData.at(i).get('indicateur')).removeAt(j);
-    
-    
+
+
   }
 
   enabled: boolean = false;
