@@ -43,23 +43,31 @@
                                 </div>
                                 <div class="col-md-5">
                                         <div class="form-group">
-                                                <div class="col-md-6">
-                                                        <label for="staticZone">Catégorie</label>
-                                                        <select (change)="onChangeData($event)" class="form-control"
-                                                                id="exampleFormControlSelect2"
-                                                                placeholder="Veuillez choisir votre competence"
-                                                                formControlName="categorie_id">
-                                                                <option selected disabled value="">Affecter Catégorie
-                                                                </option>
 
-                                                                <option *ngFor="let obj of Categories" [value]="obj.id">
+                                                <label for="staticZone">Catégorie</label>
+                                                <select (change)="onChangeData($event)" class="form-control"
+                                                        id="exampleFormControlSelect2"
+                                                        placeholder="Veuillez choisir votre competence"
+                                                        formControlName="categorie_id">
+                                                        <option selected disabled value="">Affecter Catégorie
+                                                        </option>
 
-                                                                        {{obj.label}}
-                                                                </option>
-                                                        </select>
-                                                </div>
+                                                        <option *ngFor="let obj of Categories" [value]="obj.id">
+
+                                                                {{obj.label}}
+                                                        </option>
+                                                </select>
                                         </div>
                                 </div>
+
+                                <div class="col-md-5">
+                                        <div class="form-group">
+                                                <label for="staticZone">Niveau Vises</label>
+                                                <input type="text" class="form-control" placeholder="objet"
+                                                        required="required">
+                                        </div>
+                                </div>
+
 
 
 
