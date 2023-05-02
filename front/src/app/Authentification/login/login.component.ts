@@ -34,9 +34,10 @@ export class LoginComponent implements OnInit {
     
 
  ) }
-  handleResponse(data) {
+  async handleResponse(data) {
     this.auth.login(data.token);
-    this.router.navigate(['/home']);
+   await this.router.navigate(['/home']);
+    window.location.reload()
   }
 
 
