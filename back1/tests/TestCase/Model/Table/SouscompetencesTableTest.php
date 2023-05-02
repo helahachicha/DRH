@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\IndicasoucompasTable;
+use App\Model\Table\SouscompetencesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\IndicasoucompasTable Test Case
+ * App\Model\Table\SouscompetencesTable Test Case
  */
-class IndicasoucompasTableTest extends TestCase
+class SouscompetencesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\IndicasoucompasTable
+     * @var \App\Model\Table\SouscompetencesTable
      */
-    protected $Indicasoucompas;
+    protected $Souscompetences;
 
     /**
      * Fixtures
@@ -24,9 +24,10 @@ class IndicasoucompasTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Indicasoucompas',
         'app.Souscompetences',
+        'app.Competences',
         'app.Detailprofilpostes',
+        'app.Indicasoucompas',
     ];
 
     /**
@@ -37,8 +38,8 @@ class IndicasoucompasTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Indicasoucompas') ? [] : ['className' => IndicasoucompasTable::class];
-        $this->Indicasoucompas = $this->getTableLocator()->get('Indicasoucompas', $config);
+        $config = $this->getTableLocator()->exists('Souscompetences') ? [] : ['className' => SouscompetencesTable::class];
+        $this->Souscompetences = $this->getTableLocator()->get('Souscompetences', $config);
     }
 
     /**
@@ -48,7 +49,7 @@ class IndicasoucompasTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Indicasoucompas);
+        unset($this->Souscompetences);
 
         parent::tearDown();
     }
@@ -57,7 +58,7 @@ class IndicasoucompasTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\IndicasoucompasTable::validationDefault()
+     * @uses \App\Model\Table\SouscompetencesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -68,7 +69,7 @@ class IndicasoucompasTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\IndicasoucompasTable::buildRules()
+     * @uses \App\Model\Table\SouscompetencesTable::buildRules()
      */
     public function testBuildRules(): void
     {

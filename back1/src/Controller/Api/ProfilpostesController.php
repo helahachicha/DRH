@@ -101,6 +101,8 @@ class ProfilpostesController extends AppController
 
 
                        }
+                    }
+                }
 
                        $this->loadModel('Souscompetences');
 
@@ -136,20 +138,21 @@ class ProfilpostesController extends AppController
 
 
 
-                    }
-                }
-
-
-        }
-
-         /*send result */
+            }
+             /*send result */
         $this->set([
             'success' => true,
             'data' =>  "Added with success",
             '_serialize' => ['success', 'data']
         ]);
-
     }
+
+
+        
+
+        
+
+    
 
      /**
      * editProfilposte

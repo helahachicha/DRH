@@ -9,7 +9,8 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./addthemedeformation.component.scss']
 })
 export class AddthemedeformationComponent implements OnInit {
-
+data:any;
+message:any;
   public themeForm= new FormGroup({
     label: new FormControl('', [Validators.required]),
     
@@ -24,7 +25,13 @@ export class AddthemedeformationComponent implements OnInit {
 
   addthemeforma() {
    this.dataService.post('Themeformations/addThemeformation.json',this.themeForm.value).subscribe(res=> {
-    this.router.navigate(['/listingtheme'])
+    this.data = res;
+      this.message=this.data.message;
+      if (this.message=="Théme de formation ajouter avec succés !"){
+        this.themeForm.reset();
+      }
+      console.log(this.message);
+    //this.router.navigate(['/listingtheme'])
       })
  }
 }

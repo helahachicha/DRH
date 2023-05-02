@@ -22,8 +22,9 @@ class IndicasoucompasFixture extends TestFixture
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
                 'souscompetence_id' => 1,
-                'created' => '2023-04-15 08:36:47',
-                'modified' => '2023-04-15 08:36:47',
+                'detailprofilposte_id' => 1,
+                'created' => '2023-04-28 09:43:34',
+                'modified' => '2023-04-28 09:43:34',
             ],
         ];
         parent::init();

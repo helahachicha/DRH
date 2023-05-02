@@ -20,7 +20,7 @@ class EmployesController extends AppController
       *
       * @Output: data
       */
-      public function getEmployeByFormcompId(){
+      public function getEmployeByCatId(){
  
         $id = $this->request->getQuery('id');
 
@@ -39,12 +39,22 @@ class EmployesController extends AppController
 
         $employes = $this->Employes->find('all', [
             'conditions'=>[
-                'formcompetence_id IS'=>$id
-
+                'Employes.id '=>$id
             ],
             'contain' => [
-                'Formcompetences.Detailprofilpostes.Categories','Formcompetences.Competences',
-                'Formcompetences.Indicateursuivis','Formcompetences.Niveauvises'
+                'Categories',
+                'Categories.Detailprofilpostes.Formcompetences.Competences.Indicateursuivis' => 
+                ['conditions'=>[
+                    'Formcompetences.detailprofilposte_id IS'=>intval('categorie_id'),
+                ]],
+                'Categories.Detailprofilpostes.Formcompetences.Competences.Souscompetences' => 
+                ['conditions'=>[
+                    'Souscompetences.detailprofilposte_id IS'=>intval('categorie_id'),
+                ]],
+                'Categories.Detailprofilpostes.Formcompetences.Competences.Souscompetences.Indicasoucompas' => 
+                ['conditions'=>[
+                    'Indicasoucompas.detailprofilposte_id IS'=>intval('categorie_id'),
+                ]],
               ],
     
         ])->toArray();
@@ -115,5 +125,45 @@ class EmployesController extends AppController
         ]);
     }
     
+
+
+    /**
+      * deleteEmploye
+      *
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteEmploye(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $employes = $this->Employes->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+           
+        ])->first();
+
+        /* delete employes  */
+
+        if (1==1){
+            $this->Employes->delete($employes);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
+
 
 }

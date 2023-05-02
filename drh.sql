@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 24, 2023 at 05:50 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Hôte : 127.0.0.1
+-- Généré le : mar. 02 mai 2023 à 10:39
+-- Version du serveur : 10.4.27-MariaDB
+-- Version de PHP : 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `drh`
+-- Base de données : `drh`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Structure de la table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -36,7 +36,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `categories`
+-- Déchargement des données de la table `categories`
 --
 
 INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `categories` (`id`, `label`, `profilposte_id`, `created`, `modified`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `competences`
+-- Structure de la table `competences`
 --
 
 CREATE TABLE `competences` (
@@ -59,7 +59,7 @@ CREATE TABLE `competences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `competences`
+-- Déchargement des données de la table `competences`
 --
 
 INSERT INTO `competences` (`id`, `label`, `created`, `modified`) VALUES
@@ -70,7 +70,7 @@ INSERT INTO `competences` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comptechniques`
+-- Structure de la table `comptechniques`
 --
 
 CREATE TABLE `comptechniques` (
@@ -82,7 +82,7 @@ CREATE TABLE `comptechniques` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `comptechniques`
+-- Déchargement des données de la table `comptechniques`
 --
 
 INSERT INTO `comptechniques` (`id`, `label`, `testtechnique_id`, `created`, `modified`) VALUES
@@ -93,7 +93,7 @@ INSERT INTO `comptechniques` (`id`, `label`, `testtechnique_id`, `created`, `mod
 -- --------------------------------------------------------
 
 --
--- Table structure for table `coutformaexternes`
+-- Structure de la table `coutformaexternes`
 --
 
 CREATE TABLE `coutformaexternes` (
@@ -109,7 +109,7 @@ CREATE TABLE `coutformaexternes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `coutformaexternes`
+-- Déchargement des données de la table `coutformaexternes`
 --
 
 INSERT INTO `coutformaexternes` (`id`, `coutformahd`, `tocoformadt`, `locaespace`, `comax`, `tocout`, `chargeto`, `created`, `modified`) VALUES
@@ -119,7 +119,7 @@ INSERT INTO `coutformaexternes` (`id`, `coutformahd`, `tocoformadt`, `locaespace
 -- --------------------------------------------------------
 
 --
--- Table structure for table `departements`
+-- Structure de la table `departements`
 --
 
 CREATE TABLE `departements` (
@@ -130,7 +130,7 @@ CREATE TABLE `departements` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `departements`
+-- Déchargement des données de la table `departements`
 --
 
 INSERT INTO `departements` (`id`, `label`, `created`, `modified`) VALUES
@@ -141,7 +141,7 @@ INSERT INTO `departements` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detailprofilpostes`
+-- Structure de la table `detailprofilpostes`
 --
 
 CREATE TABLE `detailprofilpostes` (
@@ -163,16 +163,19 @@ CREATE TABLE `detailprofilpostes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `detailprofilpostes`
+-- Déchargement des données de la table `detailprofilpostes`
 --
 
 INSERT INTO `detailprofilpostes` (`id`, `fonction`, `categorie_id`, `profilposte_id`, `superhierar`, `supervision`, `interim`, `fonctionelaboration`, `fonctionverification`, `fonctionabrobation`, `nomprenomelab`, `nomprenomverif`, `nomprenomabrob`, `created`, `modified`) VALUES
-(1, 'Ingénieur Recherche & Développement', 1, 3, 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jaweher KHMIRI', 'Hayet  BEN SALEM', 'Rochdi ABID', '2023-04-24 10:59:58', '2023-04-24 10:59:58');
+(1, 'Ingénieur Recherche & Développement', 1, 1, 'Gérant', 'Développeur confirmé', 'Développeur confirmé', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jaweher KHMIRI', 'Hayet  BEN SALEM', 'Rochdi ABID', '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(2, 'Ingénieur Recherche & Développement', 2, 2, 'Gérant', 'Développeur Senior', 'Développeur Senior', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(3, 'Ingénieur Recherche & Développement', 3, 3, 'Gérant', 'Référant technique', 'Référant technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(4, 'Ingénieur Recherche & Développement', 4, 4, 'Gérant', 'Référant Technique', 'Référant Technique', 'Responsable développement RH', 'Responsable Qualité', 'Gérant', 'Jawaher KHMIRI', 'Hayet BEN SALEM', 'Rochdi ABID', '2023-04-26 10:07:39', '2023-04-26 10:07:39');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `echelleevaluations`
+-- Structure de la table `echelleevaluations`
 --
 
 CREATE TABLE `echelleevaluations` (
@@ -185,7 +188,7 @@ CREATE TABLE `echelleevaluations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `echelleevaluations`
+-- Déchargement des données de la table `echelleevaluations`
 --
 
 INSERT INTO `echelleevaluations` (`id`, `label`, `abreviation`, `valeur`, `created`, `modified`) VALUES
@@ -199,7 +202,7 @@ INSERT INTO `echelleevaluations` (`id`, `label`, `abreviation`, `valeur`, `creat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employes`
+-- Structure de la table `employes`
 --
 
 CREATE TABLE `employes` (
@@ -211,18 +214,20 @@ CREATE TABLE `employes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `employes`
+-- Déchargement des données de la table `employes`
 --
 
 INSERT INTO `employes` (`id`, `nomprenom`, `categorie_id`, `created`, `modified`) VALUES
 (1, 'bilel', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
 (2, 'chourouk', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
-(3, 'hela', 2, '2023-04-07 09:59:32', '2023-04-07 09:59:32');
+(3, 'hela', 2, '2023-04-07 09:59:32', '2023-04-07 09:59:32'),
+(4, 'bolbol', 1, '2023-05-01 20:42:26', '2023-05-01 20:42:26'),
+(5, 'chou', 4, '2023-05-01 20:44:00', '2023-05-01 20:44:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `formaexternes`
+-- Structure de la table `formaexternes`
 --
 
 CREATE TABLE `formaexternes` (
@@ -248,7 +253,7 @@ CREATE TABLE `formaexternes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `formaexternes`
+-- Déchargement des données de la table `formaexternes`
 --
 
 INSERT INTO `formaexternes` (`id`, `typecomp`, `themeformation_id`, `participant`, `nbparticipant`, `raisonforma`, `organismeforma`, `formalite`, `formateur`, `raisonchoix`, `dureeforma`, `nbjour`, `nbhjour`, `date`, `horaireforma`, `pause`, `lieuforma`, `created`, `modified`) VALUES
@@ -258,7 +263,7 @@ INSERT INTO `formaexternes` (`id`, `typecomp`, `themeformation_id`, `participant
 -- --------------------------------------------------------
 
 --
--- Table structure for table `formainternes`
+-- Structure de la table `formainternes`
 --
 
 CREATE TABLE `formainternes` (
@@ -275,7 +280,7 @@ CREATE TABLE `formainternes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `formainternes`
+-- Déchargement des données de la table `formainternes`
 --
 
 INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `poste`, `date`, `hentrer`, `hsortie`, `created`, `modified`) VALUES
@@ -285,7 +290,7 @@ INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `formcompetences`
+-- Structure de la table `formcompetences`
 --
 
 CREATE TABLE `formcompetences` (
@@ -297,55 +302,118 @@ CREATE TABLE `formcompetences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `formcompetences`
+-- Déchargement des données de la table `formcompetences`
 --
 
 INSERT INTO `formcompetences` (`id`, `competence_id`, `detailprofilposte_id`, `created`, `modified`) VALUES
-(1, 1, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(2, 2, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(3, 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59');
+(1, 1, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(2, 2, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(3, 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(4, 1, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(5, 2, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(6, 3, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(7, 1, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(8, 2, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(9, 3, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(10, 1, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(11, 2, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(12, 3, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `indicasoucompas`
+-- Structure de la table `indicasoucompas`
 --
 
 CREATE TABLE `indicasoucompas` (
   `id` int(11) NOT NULL,
   `label` varchar(400) DEFAULT '',
   `souscompetence_id` int(11) NOT NULL,
+  `detailprofilposte_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `indicasoucompas`
+-- Déchargement des données de la table `indicasoucompas`
 --
 
-INSERT INTO `indicasoucompas` (`id`, `label`, `souscompetence_id`, `created`, `modified`) VALUES
-(1, '', 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(2, '', 2, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(3, '', 3, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(4, '', 4, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(5, '', 5, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(6, 'Écouter activement afin de bien comprendre le message.', 6, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(7, 'Essayer de partager l’information liée à l’exécution de travail et la communiquer clairement (quelque soit de la part développeur junior et de son vis-à-vis)', 6, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(8, 'Répondre de manière appropriée en donnant l’information et les faits de façon logique, claire et cohérente.', 6, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(9, 'Transmet et reçoit le besoin facile à comprendre : c’est à dire transmet, reçoit et vérifie la bonne compréhension de la part de l’émetteur et récepteur', 6, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(10, 'Tenir compte de l’objectif de toute l’équipe  ', 7, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(11, 'Réussite collective ou échec collective ! : c’est toute l’équipe est responsable soit en cas de la réussite ou en cas d’échec', 7, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(12, 'Répartition des tâches d’une manière équitable', 7, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(13, 'Appuyer les décisions ou les activités de l’équipe et aider à réaliser l’objectif principal', 7, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(14, 'Poser les questions adéquates et distinguer entre les renseignements pertinents et ceux qui ne le sont pas.', 8, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(15, 'Identifier la cause principale du problème affronté', 8, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(16, 'Fournir une réponse claire & logique aux questions ou préoccupations.', 9, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(17, 'Fournir un service, y compris des renseignements utiles ou une aide, conforme aux normes de service et aux lignes directrices pertinentes.', 9, '2023-04-24 10:59:59', '2023-04-24 10:59:59');
+INSERT INTO `indicasoucompas` (`id`, `label`, `souscompetence_id`, `detailprofilposte_id`, `created`, `modified`) VALUES
+(1, '', 1, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(2, '', 2, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(3, '', 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(4, 'Écouter activement afin de bien comprendre le message', 4, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(5, 'Essayer de partager l’information liée à l’exécution de travail et la communiquer clairement (quelque soit de la part développeur junior et de son vis-à-vis)', 4, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(6, 'Répondre de manière appropriée en donnant l’information et les faits de façon logique, claire et cohérente', 4, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(7, 'Transmet et reçoit le besoin facile à comprendre : c’est à dire transmet, reçoit et vérifie la bonne compréhension de la part de l’émetteur et récepteur', 4, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(8, 'Tenir compte de l’objectif de toute l’équipe  ', 5, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(9, 'Réussite collective ou échec collective ! : c’est toute l’équipe est responsable soit en cas de la réussite ou en cas d’échec', 5, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(10, 'Répartition des tâches d’une manière équitable', 5, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(11, 'Appuyer les décisions ou les activités de l’équipe et aider à réaliser l’objectif principal', 5, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(12, 'Poser les questions adéquates et distinguer entre les renseignements pertinents et ceux qui ne le sont pas', 6, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(13, 'Identifier la cause principale du problème affronté', 6, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(14, 'Fournir une réponse claire & logique aux questions ou préoccupations', 7, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(15, 'Fournir un service, y compris des renseignements utiles ou une aide, conforme aux normes de service et aux lignes directrices pertinentes', 7, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(16, '', 8, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(17, 'Valider la compréhension du message par l’autre partie ', 9, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(18, 'Reconnaître les signes non verbaux et les utilise pour identifier les pensées ou les préoccupations non exprimées afin de répondre de façon appropriée', 9, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(19, 'Utiliser des techniques de communication appropriées (poser des questions clairement, l’écoute, la ré formulation du message...) afin de clarifier son message et d’en faciliter la compréhension.', 9, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(20, 'Prendre l’initiative ', 10, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(21, 'Faire part des connaissances,  expérience ou expertise pertinente et utile en vue d’aider les membres du groupe à réaliser leurs objectifs de façon plus efficace ou efficiente.', 10, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(22, 'S’efforcer de faire quelque chose de plus pour aider les membres du groupe (Exp : Assister les membres du groupe à acquérir les habiletés nécessaires afin d’atteindre les objectifs de travail)', 10, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(23, 'Recueillir des faits et des renseignements additionnels pour acquérir une meilleure compréhension de la situation', 11, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(24, 'Reconnaître les situations où les procédures habituelles peuvent ne pas s’appliquer et où une solution différente est requise', 11, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(25, 'S’assurer que le besoin est traité; cela peut nécessiter l’intervention d’un tiers', 12, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(26, 'Assurer un suivi auprès du client lorsque nécessaire ou prend d’autres mesures.', 12, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(27, 'Prendre l’initiative et gérer les difficultés ', 13, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(28, 'Appliquer des règles simples, jugement et expériences passées pour cerner les problèmes', 13, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(29, 'Remarquer qu\'une situation présente est similaire à une situation passée ou est différente d\'une situation passée et déterminer les similitudes et (ou) les différences', 13, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(30, 'Identifier l’information pertinente ainsi que les tendances, les constantes ou les éléments manquants. ', 13, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(31, 'Planifier & compléter les tâches/projets à temps efficacement', 14, 1, '2023-04-26 11:35:15', '2023-04-26 11:35:15'),
+(32, 'Informer de la progression des tâches ou du projet ', 14, 1, '2023-04-26 11:35:15', '2023-04-26 11:35:15'),
+(33, 'Déclarer en cas de difficulté technique : c’est à dire après dépasser 50 % du temps prévu de réalisation d’une tâche au maximum à l’essai de résolution d’une difficulté technique ', 14, 1, '2023-04-26 11:35:15', '2023-04-26 11:35:15'),
+(34, 'Déterminer l’importance des tâches/activités, et passer rapidement et efficacement d’une tâche à l’autre', 15, 2, '2023-04-26 11:37:50', '2023-04-26 11:37:50'),
+(35, 'Veiller à accomplir le travail en utilisant des solutions efficaces', 15, 2, '2023-04-26 11:37:50', '2023-04-26 11:37:50'),
+(36, 'Avoir un équilibre psychique et une bonne gestion de stress', 16, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(37, 'Personnaliser son langage et son style de communication en fonction de la situation et de l’interlocuteur ou de l’auditoire, tout en livrant le même message', 16, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(38, 'Adapter la façon de transmettre le message lorsque des difficultés de compréhension surviennent', 16, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(39, 'Tirer profit des forces, des habiletés et des capacités des membres de l’équipe en vue d’atteindre l’objectif commun', 17, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(40, 'Encourager les membres de l’équipe à exprimer leurs points de vue ainsi que leurs opinions tout en tentant d’obtenir le consensus', 17, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(41, 'Traiter un problème ou une situation qui laisse place à l’interprétation.', 18, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(42, 'Évaluer les risques et les avantages d’autres solutions.', 18, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(43, 'Déterminer le besoin sous-jacent du client et fournit une aide ou des renseignements supplémentaires au-delà de l’attente du client ou de la norme de service applicable.', 19, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(44, 'Fait appel à son expérience et à ses connaissances pour fournir un service additionnel à valeur ajoutée pour le client, ou pour améliorer d’une certaine manière sa situation.', 19, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(45, 'Utiliser ses connaissances ou situations passées pour examiner les situations présentes', 20, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(46, 'Appliquer et modifier des méthodes de manière appropriée à la situation  ', 20, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(47, 'Veiller aux besoins de l’équipe pour lui permettre de donner son plein potentiel et d’atteindre les objectifs (Remarque : la satisfaction des besoins est une source de motivation)', 21, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(48, 'Favoriser la collaboration, le travail en équipe et la confiance entre les membres de l’équipe', 21, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(49, 'Reconnaître et optimiser les forces et la diversité des membres de l’équipe', 21, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(50, 'Développer une équipe talentueux en reconnaissant le potentiel d’accomplissement des membres de l’équipe et en fournissant des occasions d’apprentissage continu', 21, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(51, 'Avoir une visibilité sur le planning de l’équipe de développement', 22, 3, '2023-04-26 11:53:26', '2023-04-26 11:53:26'),
+(52, 'Organiser les horaires, le travail et le milieu pour maximiser l’efficacité', 22, 3, '2023-04-26 11:53:26', '2023-04-26 11:53:26'),
+(53, 'Anticiper et se préparer à gérer les problèmes  efficacement', 22, 3, '2023-04-26 11:53:26', '2023-04-26 11:53:26'),
+(54, 'Gérer habilement les questions spontanées difficiles (p. ex posées par des responsables)', 23, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(55, 'Encadrer les autres ', 23, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(56, 'Inciter à prendre part au processus d’échange des connaissances', 23, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(57, 'Supervise, oriente, conseille et encadrer les autres dans l’accomplissement efficace des activités & tâches ', 24, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(58, 'Apprécier, reconnaître et récompenser les succès d’équipe par des initiatives entreprises (Boite de proposition)', 24, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(59, 'Gérer les conflits d’équipe de manière efficace', 24, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(60, 'Tirer les conclusions ou élaborer des explications possibles aux autres', 25, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(61, 'Élaborer une solution fiable à un problème ou une situation qui compte plusieurs éléments inter-reliés.', 25, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(62, 'Prévoir et cerner les nouveaux enjeux et élaborer des stratégies pour permettre à l’entreprise de gérer les nouvelles tendances', 26, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(63, 'Établir un accord avant la prise de décisions, si possible et au besoin', 26, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(64, 'Encourager les autres à promouvoir la vision et les objectifs de l’entreprise', 27, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(65, 'Entretient un environnement propice au changement, à l’innovation, à l’amélioration et à la prise de risques responsables', 27, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(66, 'Cerner les besoins et élaborer des initiatives et des plans d’action en apprentissage ', 28, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(67, 'Mettre en œuvre des stratégies pour renforcer, appuyer et maintenir une culture d’apprentissage ', 28, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(68, 'Encourager la recherche et l’examen des données probantes pour évaluer l’incidence et l’efficacité des efforts d’apprentissage', 28, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(69, 'Développer et mettre en œuvre des plans de travail efficace pour des projets complexes impliquant plusieurs personnes', 29, 4, '2023-04-26 12:08:56', '2023-04-26 12:08:56'),
+(70, 'Démontrer une compréhension des relations entre les personnes intéressés à l’interne à afin de coordonner leur implication dans les projets de grande envergue', 29, 4, '2023-04-26 12:08:56', '2023-04-26 12:08:56');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `indicateursuivis`
+-- Structure de la table `indicateursuivis`
 --
 
 CREATE TABLE `indicateursuivis` (
@@ -359,22 +427,35 @@ CREATE TABLE `indicateursuivis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `indicateursuivis`
+-- Déchargement des données de la table `indicateursuivis`
 --
 
 INSERT INTO `indicateursuivis` (`id`, `label`, `detailprofilposte_id`, `competence_id`, `niveauvise_id`, `created`, `modified`) VALUES
-(1, 'Compétence algorithmique niveau élevé  ', 1, 1, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(2, 'Connaissance de l’architecture de développement Orientée Objet ', 1, 1, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(3, 'Une bonne maîtrise du SQL   ', 1, 1, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(4, 'Planifier & compléter les tâches/projets à temps efficacement', 1, 2, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(5, 'Informer de la progression des tâches ou du projet ', 1, 2, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(6, '	Déclarer en cas de difficulté technique : c’est à dire après dépasser 50 % du temps prévu de réalisation d’une tâche au maximum à l’essai de résolution d’une difficulté technique ', 1, 2, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(7, '', 1, 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59');
+(1, 'Compétence algorithmique niveau élevé  ', 1, 1, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(2, 'Connaissance de l’architecture de développement Orientée Objet ', 1, 1, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(3, 'Une bonne maîtrise du SQL', 1, 1, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(4, '', 1, 2, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(5, '', 1, 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(6, 'Maîtrise fonctionnel (Certification dans l’une des trois dernières versions)', 2, 1, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(7, 'Compétence technique (produit odoo) ', 2, 1, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(8, '', 2, 2, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(9, '', 2, 3, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(10, 'Maîtrise fonctionnel (2 Certifications parmi les 3 derniers versions)', 3, 1, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(11, 'Maîtrise technique ', 3, 1, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(12, 'Maîtrise une autre technologie (Plus qu’Odoo) ', 3, 1, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(13, '', 3, 2, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(14, '', 3, 3, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(15, 'Maîtrise fonctionnel (3 Certifications)', 4, 1, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(16, 'Maîtrise technique ', 4, 1, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(17, 'Maîtrise une autre technologie (Plus Odoo) ', 4, 1, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(18, 'Maîtrise une autre technologie (Plus Odoo) ', 4, 1, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(19, '', 4, 2, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(20, '', 4, 3, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `infoficheevaluations`
+-- Structure de la table `infoficheevaluations`
 --
 
 CREATE TABLE `infoficheevaluations` (
@@ -387,18 +468,10 @@ CREATE TABLE `infoficheevaluations` (
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `infoficheevaluations`
---
-
-INSERT INTO `infoficheevaluations` (`id`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `employe_id`, `created`, `modified`) VALUES
-(1, 'test', 'test', 'test', 1, '2023-03-30 22:20:26', '2023-03-30 22:20:26'),
-(2, 'test', 'test', 'test', 1, '2023-04-03 10:59:45', '2023-04-03 10:59:45');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `matricecompetences`
+-- Structure de la table `matricecompetences`
 --
 
 CREATE TABLE `matricecompetences` (
@@ -410,7 +483,7 @@ CREATE TABLE `matricecompetences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `matricecompetences`
+-- Déchargement des données de la table `matricecompetences`
 --
 
 INSERT INTO `matricecompetences` (`id`, `label`, `abreviation`, `created`, `modified`) VALUES
@@ -468,7 +541,7 @@ INSERT INTO `matricecompetences` (`id`, `label`, `abreviation`, `created`, `modi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `matrices`
+-- Structure de la table `matrices`
 --
 
 CREATE TABLE `matrices` (
@@ -481,7 +554,7 @@ CREATE TABLE `matrices` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `matrices`
+-- Déchargement des données de la table `matrices`
 --
 
 INSERT INTO `matrices` (`id`, `note`, `employe_id`, `matricecompetence_id`, `created`, `modified`) VALUES
@@ -817,7 +890,7 @@ INSERT INTO `matrices` (`id`, `note`, `employe_id`, `matricecompetence_id`, `cre
 -- --------------------------------------------------------
 
 --
--- Table structure for table `niveauvises`
+-- Structure de la table `niveauvises`
 --
 
 CREATE TABLE `niveauvises` (
@@ -829,7 +902,7 @@ CREATE TABLE `niveauvises` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `niveauvises`
+-- Déchargement des données de la table `niveauvises`
 --
 
 INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
@@ -841,7 +914,7 @@ INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `noteevaluations`
+-- Structure de la table `noteevaluations`
 --
 
 CREATE TABLE `noteevaluations` (
@@ -853,7 +926,7 @@ CREATE TABLE `noteevaluations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `noteevaluations`
+-- Déchargement des données de la table `noteevaluations`
 --
 
 INSERT INTO `noteevaluations` (`id`, `point_id`, `indicateursuivi_id`, `created`, `modified`) VALUES
@@ -867,7 +940,7 @@ INSERT INTO `noteevaluations` (`id`, `point_id`, `indicateursuivi_id`, `created`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `points`
+-- Structure de la table `points`
 --
 
 CREATE TABLE `points` (
@@ -878,7 +951,7 @@ CREATE TABLE `points` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `points`
+-- Déchargement des données de la table `points`
 --
 
 INSERT INTO `points` (`id`, `label`, `created`, `modified`) VALUES
@@ -888,7 +961,7 @@ INSERT INTO `points` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `polycompetences`
+-- Structure de la table `polycompetences`
 --
 
 CREATE TABLE `polycompetences` (
@@ -900,7 +973,7 @@ CREATE TABLE `polycompetences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `polycompetences`
+-- Déchargement des données de la table `polycompetences`
 --
 
 INSERT INTO `polycompetences` (`id`, `valeur`, `employe_id`, `created`, `modified`) VALUES
@@ -909,7 +982,7 @@ INSERT INTO `polycompetences` (`id`, `valeur`, `employe_id`, `created`, `modifie
 -- --------------------------------------------------------
 
 --
--- Table structure for table `polyvalences`
+-- Structure de la table `polyvalences`
 --
 
 CREATE TABLE `polyvalences` (
@@ -921,7 +994,7 @@ CREATE TABLE `polyvalences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `polyvalences`
+-- Déchargement des données de la table `polyvalences`
 --
 
 INSERT INTO `polyvalences` (`id`, `valeur`, `matricecompetence_id`, `created`, `modified`) VALUES
@@ -931,7 +1004,7 @@ INSERT INTO `polyvalences` (`id`, `valeur`, `matricecompetence_id`, `created`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `postes`
+-- Structure de la table `postes`
 --
 
 CREATE TABLE `postes` (
@@ -943,7 +1016,7 @@ CREATE TABLE `postes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `postes`
+-- Déchargement des données de la table `postes`
 --
 
 INSERT INTO `postes` (`id`, `label`, `departement_id`, `created`, `modified`) VALUES
@@ -954,7 +1027,7 @@ INSERT INTO `postes` (`id`, `label`, `departement_id`, `created`, `modified`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profilpostes`
+-- Structure de la table `profilpostes`
 --
 
 CREATE TABLE `profilpostes` (
@@ -966,18 +1039,19 @@ CREATE TABLE `profilpostes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `profilpostes`
+-- Déchargement des données de la table `profilpostes`
 --
 
 INSERT INTO `profilpostes` (`id`, `nom`, `poste_id`, `created`, `modified`) VALUES
-(1, 'ingenieur', 0, '2023-04-24 10:24:14', '2023-04-24 10:24:14'),
-(2, 'ingenieur', 0, '2023-04-24 10:25:42', '2023-04-24 10:25:42'),
-(3, ' Développement', 0, '2023-04-24 10:59:58', '2023-04-24 10:59:58');
+(1, 'Développeur', 0, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(2, 'Développeur', 0, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(3, 'Développeur', 0, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(4, 'Développeur', 0, '2023-04-26 10:07:39', '2023-04-26 10:07:39');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `questions`
+-- Structure de la table `questions`
 --
 
 CREATE TABLE `questions` (
@@ -989,7 +1063,7 @@ CREATE TABLE `questions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `questions`
+-- Déchargement des données de la table `questions`
 --
 
 INSERT INTO `questions` (`id`, `label`, `comptechnique_id`, `created`, `modified`) VALUES
@@ -1012,7 +1086,7 @@ INSERT INTO `questions` (`id`, `label`, `comptechnique_id`, `created`, `modified
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reponses`
+-- Structure de la table `reponses`
 --
 
 CREATE TABLE `reponses` (
@@ -1024,7 +1098,7 @@ CREATE TABLE `reponses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `reponses`
+-- Déchargement des données de la table `reponses`
 --
 
 INSERT INTO `reponses` (`id`, `label`, `question_id`, `created`, `modified`) VALUES
@@ -1051,7 +1125,7 @@ INSERT INTO `reponses` (`id`, `label`, `question_id`, `created`, `modified`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Structure de la table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -1062,7 +1136,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `roles`
+-- Déchargement des données de la table `roles`
 --
 
 INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
@@ -1072,7 +1146,7 @@ INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `souscompetences`
+-- Structure de la table `souscompetences`
 --
 
 CREATE TABLE `souscompetences` (
@@ -1085,24 +1159,44 @@ CREATE TABLE `souscompetences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `souscompetences`
+-- Déchargement des données de la table `souscompetences`
 --
 
 INSERT INTO `souscompetences` (`id`, `label`, `competence_id`, `detailprofilposte_id`, `created`, `modified`) VALUES
-(1, '', 1, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(2, '', 2, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(3, 'GEEK', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(4, 'AUTODÉTERMINATION ', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(5, 'POSITIVITÉ', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(6, 'COMMUNICATION INTERACTIVE EFFICACE', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(7, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(8, 'RÉSOLUTION DE PROBLÈMES', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59'),
-(9, 'SERVICES D’EXCELLENCE  ', 3, 1, '2023-04-24 10:59:59', '2023-04-24 10:59:59');
+(1, 'GEEK', 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(2, 'AUTODÉTERMINATION ', 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(3, 'POSITIVITÉ', 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(4, 'COMMUNICATION INTERACTIVE EFFICACE', 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(5, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(6, 'RÉSOLUTION DE PROBLÈMES', 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(7, 'SERVICES D’EXCELLENCE  ', 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(8, 'Autonomie', 3, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(9, 'COMMUNICATION INTERACTIVE EFFICACE', 3, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(10, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(11, 'RÉSOLUTION DES PROBLÈMES', 3, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(12, 'SERVICE D’EXCELLENCE ', 3, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(13, 'RAISONNEMENT CONCEPTUEL ', 3, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(14, 'GESTION DE TEMPS & PRIORITÉS', 2, 1, '2023-04-26 11:33:18', '2023-04-26 11:33:18'),
+(15, 'GESTION DE TEMPS & PRIORITÉS', 2, 2, '2023-04-26 11:36:50', '2023-04-26 11:36:50'),
+(16, 'COMMUNICATION INTERACTIVE EFFICACE', 3, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(17, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(18, 'RÉSOLUTION DES PROBLÈMES', 3, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(19, 'SERVICE D’EXCELLENCE ', 3, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(20, 'RAISONNEMENT CONCEPTUEL ', 3, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(21, 'LEADERSHIP', 3, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(22, 'GESTION DE TEMPS & PRIORITÉS', 2, 3, '2023-04-26 11:52:22', '2023-04-26 11:52:22'),
+(23, 'COMMUNICATION INTERACTIVE EFFICACE', 3, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(24, 'TRAVAIL EN ÉQUIPE & COLLABORATION ', 3, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(25, 'RÉSOLUTION DES PROBLÈMES', 3, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(26, 'RAISONNEMENT ANALYTIQUE ', 3, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(27, 'LEADERSHIP', 3, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(28, 'SOUTIEN AU DÉVELOPPEMENT DES AUTRES', 3, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(29, 'GESTION DE TEMPS & PRIORITÉS', 2, 4, '2023-04-26 12:08:31', '2023-04-26 12:08:31');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `testtechniques`
+-- Structure de la table `testtechniques`
 --
 
 CREATE TABLE `testtechniques` (
@@ -1114,7 +1208,7 @@ CREATE TABLE `testtechniques` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `testtechniques`
+-- Déchargement des données de la table `testtechniques`
 --
 
 INSERT INTO `testtechniques` (`id`, `label`, `categorie_id`, `created`, `modified`) VALUES
@@ -1126,7 +1220,7 @@ INSERT INTO `testtechniques` (`id`, `label`, `categorie_id`, `created`, `modifie
 -- --------------------------------------------------------
 
 --
--- Table structure for table `themeformations`
+-- Structure de la table `themeformations`
 --
 
 CREATE TABLE `themeformations` (
@@ -1137,7 +1231,7 @@ CREATE TABLE `themeformations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `themeformations`
+-- Déchargement des données de la table `themeformations`
 --
 
 INSERT INTO `themeformations` (`id`, `label`, `created`, `modified`) VALUES
@@ -1149,47 +1243,7 @@ INSERT INTO `themeformations` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `totalpolycompetences`
---
-
-CREATE TABLE `totalpolycompetences` (
-  `id` int(11) NOT NULL,
-  `valeur` float NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `totalpolycompetences`
---
-
-INSERT INTO `totalpolycompetences` (`id`, `valeur`, `created`, `modified`) VALUES
-(1, 91.6667, '2023-04-11 07:27:47', '2023-04-11 07:29:35');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `totalpolyvalences`
---
-
-CREATE TABLE `totalpolyvalences` (
-  `id` int(11) NOT NULL,
-  `valeur` float NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `totalpolyvalences`
---
-
-INSERT INTO `totalpolyvalences` (`id`, `valeur`, `created`, `modified`) VALUES
-(1, 65.4167, '2023-04-11 00:11:23', '2023-04-11 00:11:23');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -1203,400 +1257,376 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `token`, `role_id`, `created`, `modified`) VALUES
 (1, 'helatest@gmail.com', '$2y$10$X2xZ9SDDJUvw4KQjE/3/heD.F4vykCn.j9ZEZuWrVH8UObiI6qJk2', '', 1, '2023-03-10 14:37:00', '2023-03-10 14:37:00');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `categories`
+-- Index pour la table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `competences`
+-- Index pour la table `competences`
 --
 ALTER TABLE `competences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `comptechniques`
+-- Index pour la table `comptechniques`
 --
 ALTER TABLE `comptechniques`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `coutformaexternes`
+-- Index pour la table `coutformaexternes`
 --
 ALTER TABLE `coutformaexternes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `departements`
+-- Index pour la table `departements`
 --
 ALTER TABLE `departements`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `detailprofilpostes`
+-- Index pour la table `detailprofilpostes`
 --
 ALTER TABLE `detailprofilpostes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `echelleevaluations`
+-- Index pour la table `echelleevaluations`
 --
 ALTER TABLE `echelleevaluations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `employes`
+-- Index pour la table `employes`
 --
 ALTER TABLE `employes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `formaexternes`
+-- Index pour la table `formaexternes`
 --
 ALTER TABLE `formaexternes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `formainternes`
+-- Index pour la table `formainternes`
 --
 ALTER TABLE `formainternes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `formcompetences`
+-- Index pour la table `formcompetences`
 --
 ALTER TABLE `formcompetences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `indicasoucompas`
+-- Index pour la table `indicasoucompas`
 --
 ALTER TABLE `indicasoucompas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `indicateursuivis`
+-- Index pour la table `indicateursuivis`
 --
 ALTER TABLE `indicateursuivis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `infoficheevaluations`
+-- Index pour la table `infoficheevaluations`
 --
 ALTER TABLE `infoficheevaluations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `matricecompetences`
+-- Index pour la table `matricecompetences`
 --
 ALTER TABLE `matricecompetences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `matrices`
+-- Index pour la table `matrices`
 --
 ALTER TABLE `matrices`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `niveauvises`
+-- Index pour la table `niveauvises`
 --
 ALTER TABLE `niveauvises`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `noteevaluations`
+-- Index pour la table `noteevaluations`
 --
 ALTER TABLE `noteevaluations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `points`
+-- Index pour la table `points`
 --
 ALTER TABLE `points`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `polycompetences`
+-- Index pour la table `polycompetences`
 --
 ALTER TABLE `polycompetences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `polyvalences`
+-- Index pour la table `polyvalences`
 --
 ALTER TABLE `polyvalences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `postes`
+-- Index pour la table `postes`
 --
 ALTER TABLE `postes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `profilpostes`
+-- Index pour la table `profilpostes`
 --
 ALTER TABLE `profilpostes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `questions`
+-- Index pour la table `questions`
 --
 ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `reponses`
+-- Index pour la table `reponses`
 --
 ALTER TABLE `reponses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `roles`
+-- Index pour la table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `souscompetences`
+-- Index pour la table `souscompetences`
 --
 ALTER TABLE `souscompetences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `testtechniques`
+-- Index pour la table `testtechniques`
 --
 ALTER TABLE `testtechniques`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `themeformations`
+-- Index pour la table `themeformations`
 --
 ALTER TABLE `themeformations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `totalpolycompetences`
---
-ALTER TABLE `totalpolycompetences`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `totalpolyvalences`
---
-ALTER TABLE `totalpolyvalences`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `competences`
+-- AUTO_INCREMENT pour la table `competences`
 --
 ALTER TABLE `competences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `comptechniques`
+-- AUTO_INCREMENT pour la table `comptechniques`
 --
 ALTER TABLE `comptechniques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `coutformaexternes`
+-- AUTO_INCREMENT pour la table `coutformaexternes`
 --
 ALTER TABLE `coutformaexternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `departements`
+-- AUTO_INCREMENT pour la table `departements`
 --
 ALTER TABLE `departements`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `detailprofilpostes`
+-- AUTO_INCREMENT pour la table `detailprofilpostes`
 --
 ALTER TABLE `detailprofilpostes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `echelleevaluations`
+-- AUTO_INCREMENT pour la table `echelleevaluations`
 --
 ALTER TABLE `echelleevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `employes`
+-- AUTO_INCREMENT pour la table `employes`
 --
 ALTER TABLE `employes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `formaexternes`
+-- AUTO_INCREMENT pour la table `formaexternes`
 --
 ALTER TABLE `formaexternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `formainternes`
+-- AUTO_INCREMENT pour la table `formainternes`
 --
 ALTER TABLE `formainternes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `formcompetences`
+-- AUTO_INCREMENT pour la table `formcompetences`
 --
 ALTER TABLE `formcompetences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `indicasoucompas`
+-- AUTO_INCREMENT pour la table `indicasoucompas`
 --
 ALTER TABLE `indicasoucompas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
--- AUTO_INCREMENT for table `indicateursuivis`
+-- AUTO_INCREMENT pour la table `indicateursuivis`
 --
 ALTER TABLE `indicateursuivis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `infoficheevaluations`
+-- AUTO_INCREMENT pour la table `infoficheevaluations`
 --
 ALTER TABLE `infoficheevaluations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `matricecompetences`
+-- AUTO_INCREMENT pour la table `matricecompetences`
 --
 ALTER TABLE `matricecompetences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `matrices`
+-- AUTO_INCREMENT pour la table `matrices`
 --
 ALTER TABLE `matrices`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
 
 --
--- AUTO_INCREMENT for table `niveauvises`
+-- AUTO_INCREMENT pour la table `niveauvises`
 --
 ALTER TABLE `niveauvises`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `noteevaluations`
+-- AUTO_INCREMENT pour la table `noteevaluations`
 --
 ALTER TABLE `noteevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `points`
+-- AUTO_INCREMENT pour la table `points`
 --
 ALTER TABLE `points`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `polycompetences`
+-- AUTO_INCREMENT pour la table `polycompetences`
 --
 ALTER TABLE `polycompetences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `polyvalences`
+-- AUTO_INCREMENT pour la table `polyvalences`
 --
 ALTER TABLE `polyvalences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `postes`
+-- AUTO_INCREMENT pour la table `postes`
 --
 ALTER TABLE `postes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `profilpostes`
+-- AUTO_INCREMENT pour la table `profilpostes`
 --
 ALTER TABLE `profilpostes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `questions`
+-- AUTO_INCREMENT pour la table `questions`
 --
 ALTER TABLE `questions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `reponses`
+-- AUTO_INCREMENT pour la table `reponses`
 --
 ALTER TABLE `reponses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `souscompetences`
+-- AUTO_INCREMENT pour la table `souscompetences`
 --
 ALTER TABLE `souscompetences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `testtechniques`
+-- AUTO_INCREMENT pour la table `testtechniques`
 --
 ALTER TABLE `testtechniques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `themeformations`
+-- AUTO_INCREMENT pour la table `themeformations`
 --
 ALTER TABLE `themeformations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `totalpolycompetences`
---
-ALTER TABLE `totalpolycompetences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `totalpolyvalences`
---
-ALTER TABLE `totalpolyvalences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

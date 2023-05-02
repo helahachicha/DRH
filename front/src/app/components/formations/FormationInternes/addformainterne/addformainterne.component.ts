@@ -9,7 +9,8 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./addformainterne.component.scss']
 })
 export class AddformainterneComponent implements OnInit {
-
+data: any;
+message:any;
   public  Themeformations
 
   public interneForm= new FormGroup({
@@ -35,8 +36,16 @@ export class AddformainterneComponent implements OnInit {
   submit() {
     console.log("hello",this.interneForm.value)
     this.dataService.post('Formainternes/addFormainterne.json',this.interneForm.value).subscribe(res=> {
-      this.router.navigate(['/formainternelisting'])    
+      this.data = res;
+      this.message=this.data.message;
+      if (this.message=="Formation ajouter avec succés !"){
+        this.interneForm.reset();
+      }
+      console.log(this.message);
+        
       })
+
+      
    }
    getallthemeforma() {
     this.dataService.get('Themeformations/getAllThemeformation.json').subscribe(res => {
@@ -44,3 +53,4 @@ export class AddformainterneComponent implements OnInit {
     })
   }
 }
+

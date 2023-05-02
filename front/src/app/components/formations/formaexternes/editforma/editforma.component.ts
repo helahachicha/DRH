@@ -11,6 +11,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class EditformaComponent implements OnInit {
   public formaexternes;
   id: any;
+  data:any;
+  message:any;
   public  Themeformations;
 
   public externeForm = new FormGroup({
@@ -52,8 +54,15 @@ export class EditformaComponent implements OnInit {
   }
   editforma() {
     this.dataService.post('formaexternes/editFormaexterne.json?id=' + this.id, this.externeForm.value).subscribe(res => {
-      this.router.navigate(['/listingforma'])
+      this.data = res;
+      this.message=this.data.message;
+      if (this.message=="Formation modifier avec succés !"){
+        this.router.navigate(['/listingforma'])
+      }
+      console.log(this.message);
+      
     })
+      
   }
   getallthemeforma() {
     this.dataService.get('Themeformations/getAllThemeformation.json').subscribe(res => {

@@ -15,9 +15,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Competence $competence
- * @property \App\Model\Entity\Niveauvise $niveauvise
  * @property \App\Model\Entity\Detailprofilposte $detailprofilposte
- * @property \App\Model\Entity\Indicateursuivi[] $indicateursuivis
  */
 class Formcompetence extends Entity
 {
@@ -36,8 +34,6 @@ class Formcompetence extends Entity
         'created' => true,
         'modified' => true,
         'competence' => true,
-        'niveauvise' => true,
         'detailprofilposte' => true,
-        'indicateursuivis' => true,
     ];
 }

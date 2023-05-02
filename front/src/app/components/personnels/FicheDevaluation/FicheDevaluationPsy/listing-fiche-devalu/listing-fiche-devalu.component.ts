@@ -28,7 +28,7 @@ export class ListingFicheDevaluComponent implements OnInit {
     })
   }
   deletenom(id){
-    this.dataService.delete('Infoficheevaluations/deleteInfoficheevaluation.json?id='+id).subscribe(res => {
+    this.dataService.delete('Infoficheevaluations/deleteEmploye.json?id='+id).subscribe(res => {
       this.getallnom()
     })
   }

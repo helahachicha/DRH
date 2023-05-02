@@ -11,6 +11,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class EditformainterneComponent implements OnInit {
 public formainternes
   id: any;
+  data:any;
+  message:any;
 public Themeformations
 
   public interneForm= new FormGroup({
@@ -45,7 +47,13 @@ public Themeformations
 
   editformainterne(){
     this.dataService.post('formainternes/editFormainterne.json?id='+this.id,this.interneForm.value).subscribe(res=> {
-    this.router.navigate(['/formainternelisting'])
+      this.data = res;
+      this.message=this.data.message;
+      if (this.message=="Formation modifier avec succés !"){
+        this.router.navigate(['/formainternelisting'])
+      }
+      console.log(this.message);
+      
     })
   
   }
