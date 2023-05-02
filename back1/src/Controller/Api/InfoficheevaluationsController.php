@@ -200,43 +200,4 @@ class InfoficheevaluationsController extends AppController
 
 
 
-
-     /**
-      * deleteInfoficheevaluation
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-
-      public function deleteInfoficheevaluation(){
-
-        $id = $this->request->getQuery('id');
-
-        $this->request->allowMethod(['post','delete']);
-
-        /* search */
-
-        $infoficheevaluations = $this->Infoficheevaluations->find('all', [
-            'conditions'=>[
-                'id'=>$id,
-            ],
-           
-        ])->first();
-
-        /* delete$infoficheevaluations  */
-
-        if (1==1){
-            $this->Infoficheevaluations->delete($infoficheevaluations);
-        }
-
-        /*send result */
-
-            $this->set([
-                'success' => true,
-                'data' => "Deleted with success",
-                '_serialize' => ['success','data']
-            ]);
-        }
-
 }

@@ -21,46 +21,46 @@ class DetailprofilpostesController extends AppController
       * @Output: data
       */
       public function getDetailppByCat(){
-
         $id = $this->request->getQuery('id');
-
+    
         /* search */
-        if(1==1){
-            if (!isset($id) or empty($id) or $id == null ){
-               throw new UnauthorizedException('Id is Required');
+        if (1 == 1) {
+            if (!isset($id) or empty($id) or $id == null) {
+                throw new UnauthorizedException('Id is Required');
             }
-
-            if(!is_numeric($id)){
-               throw new UnauthorizedException('Id is not Valid');
+    
+            if (!is_numeric($id)) {
+                throw new UnauthorizedException('Id is not Valid');
             }
         }
+    
+       $detailprofilpostes = $this->Detailprofilpostes->find('all', [
 
+        'conditions'=>[
+            'id IS'=>$id,
+        ],
+    
+        'contain' => [
+            'Formcompetences.Competences.Indicateursuivis' => ['conditions'=>[
+                'Indicateursuivis.detailprofilposte_id IS'=>$id,
+            ]],
+            'Formcompetences.Competences.Souscompetences' => ['conditions'=>[
+                'Souscompetences.detailprofilposte_id IS'=>$id,
+            ]],
+            'Formcompetences.Competences.Souscompetences.Indicasoucompas' => ['conditions'=>[
+                'Indicasoucompas.detailprofilposte_id IS'=>$id,
+            ]],
+        ],
+    ])->first();
+        
 
-        $detailprofilpostes = $this->Detailprofilpostes->find('all', [
-             /*'contain' => [
-               'Categories','Niveauvises','Competences.Indicateursuivis'
-             ],*/
-            'conditions'=>[
-                'detailprofilpostes.categorie_id IS'=>$id,
-            ],
-            'contain' => [
-                'Formcompetences','Formcompetences.Competences.Indicateursuivis','Formcompetences.Competences.Souscompetences.Indicasoucompas'
-              ],
-
-        ])->first();
-
-        if(empty($detailprofilpostes)){
-           throw new UnauthorizedException('Detailprofilpostes not found');
-       }
-
-       /*send result */
-
-       $this->set([
-           'success' => true,
-           'data' => $detailprofilpostes,
-           '_serialize' => ['success', 'data']
-       ]);
+        /* send result */
+        $this->set([
+            'success' => true,
+            'data' => $detailprofilpostes,
+            '_serialize' => ['success', 'data']
+        ]);
     }
-
+    
 
 }

@@ -71,7 +71,7 @@
                                 <table class="table table-bordered justify-content-center">
 
                                         <thead>
-                                            
+
 
 
                                         </thead>
@@ -83,20 +83,20 @@
 
                                                         </th>
 
-                                                        <table style="border: none;" *ngIf="formCompteance[i].competence.souscompetences.length==0">
-                                                                
+                                                        <table style="border: none;"
+                                                                *ngIf="formCompteance[i].competence.souscompetences.length==0">
+
                                                                 <td>
-                                                                        <tr >
+                                                                        <tr>
                                                                                 N°
                                                                         </tr>
                                                                         <hr>
                                                                         <tr>
-                                                                                
-                                                                                        <input type="text"
-                                                                                                class="form-control "
-                                                                                                placeholder="N°"
-                                                                                                required="required">
-                                                                                
+
+                                                                                <input type="text" class="form-control "
+                                                                                        placeholder="N°"
+                                                                                        required="required">
+
                                                                         </tr>
 
 
@@ -105,104 +105,115 @@
 
 
                                                                 <td>
-                                                                        <tr >
+                                                                        <tr>
                                                                                 INDICATEUR DE MESURE
                                                                         </tr>
                                                                         <hr>
 
                                                                         <tr>
-                                                                                
-                                                                                <input type="text"
-                                                                                class="form-control "
-                                                                                placeholder="Les Indicateurs"
-                                                                                required="required">
-                                                                                
+
+
+                                                                                <div
+                                                                                        *ngFor="let item of indic;let i=index">
+                                                                                        <div
+                                                                                                *ngFor="let item1 of item.competence.indicateursuivis ;let i=index">
+                                                                                               
+
+                                                                                                        <input type="text"
+                                                                                                                style="width: 200px;"
+                                                                                                                class="form-control "
+                                                                                                                required="required"
+                                                                                                                [placeholder]="item1.label">
+                                                                                                </div>
+                                                                                        </div>
+
                                                                         </tr>
 
 
                                                                 </td>
-                                                        
+
                                                                 <td>
-                                                                        <tr >
+                                                                        <tr>
                                                                                 POINTS
                                                                         </tr>
                                                                         <hr>
 
                                                                         <tr>
                                                                                 <select class="form-select"
-                                                                                aria-label="Default select example">
-                                                                                <option selected>Choisir un point
-                                                                                </option>
-                                                                                <option value="1">0</option>
-                                                                                <option value="2">1</option>
-                                                                        </select>
-                                                                                
+                                                                                        aria-label="Default select example">
+                                                                                        <option selected>Choisir un
+                                                                                                point
+                                                                                        </option>
+                                                                                        <option value="1">0</option>
+                                                                                        <option value="2">1</option>
+                                                                                </select>
+
                                                                         </tr>
 
 
                                                                 </td>
-                                                        
+
                                                                 <td>
-                                                                        <tr >
+                                                                        <tr>
                                                                                 SCORE
                                                                         </tr>
                                                                         <hr>
 
                                                                         <tr>
-                                                                                
-                                                                                <input type="number" class="form-control "
-                                                                                required="required">/2
-                                                                                
+
+                                                                                <input type="number"
+                                                                                        class="form-control "
+                                                                                        required="required">/2
+
                                                                         </tr>
 
 
                                                                 </td>
 
 
-                                                              
 
-                                                                               <td>
-                                                                                <tr>
-                                                                                        Niveau visé      
-                                                                                </tr>
-                                                                                <hr>
 
-                                                                                <tr>
-                                                                                        Niveau 1 / Pré-actif    
-                                                                                </tr>
-                                                                        </td> 
-                                                                        <td>
-                                                                                <tr>
-                                                                                        Résultat     
-                                                                                </tr>
-                                                                                <hr>
+                                                                <td>
+                                                                        <tr>
+                                                                                Niveau visé
+                                                                        </tr>
+                                                                        <hr>
 
-                                                                                <tr>
-                                                                                        Accepté 
-                                                                                </tr>
-                                                                        </td> 
+                                                                        <tr>
+                                                                                Niveau 1 / Pré-actif
+                                                                        </tr>
+                                                                </td>
+                                                                <td>
+                                                                        <tr>
+                                                                                Résultat
+                                                                        </tr>
+                                                                        <hr>
+
+                                                                        <tr>
+                                                                                Accepté
+                                                                        </tr>
+                                                                </td>
                                                         </table>
                                                         <table
                                                                 *ngFor="let obj of formCompteance[i].competence.souscompetences">
-                                                                
 
-                                                                <tr >
-                                                                        
+
+                                                                <tr>
+
                                                                         {{obj.label}}
 
                                                                 </tr>
                                                                 <td>
-                                                                        <tr >
+                                                                        <tr>
                                                                                 N°
                                                                         </tr>
                                                                         <hr>
                                                                         <tr>
-                                                                                
-                                                                                        <input type="text"
-                                                                                                class="form-control "
-                                                                                                placeholder="N°"
-                                                                                                required="required">
-                                                                                
+
+                                                                                <input type="text" class="form-control "
+                                                                                        placeholder="N°"
+                                                                                        required="required">
+
                                                                         </tr>
 
 
@@ -211,82 +222,92 @@
 
 
                                                                 <td>
-                                                                        <tr >
+                                                                        <tr>
                                                                                 INDICATEUR DE MESURE
                                                                         </tr>
                                                                         <hr>
 
                                                                         <tr>
-                                                                                
-                                                                                <input type="text"
-                                                                                class="form-control "
-                                                                                placeholder="Les Indicateurs"
-                                                                                required="required">
-                                                                                
+                                                                              
+
+                                                                               
+                                                                                        
+                                                                                        <div
+                                                                                                *ngFor="let item2 of obj.indicasoucompas ;let i=index">
+
+                                                                                                        <input type="text"
+                                                                                                                style="width: 200px;"
+                                                                                                                class="form-control "
+                                                                                                                required="required"
+                                                                                                                [placeholder]="item2.label">
+                                                                                                </div>
+                                                                                        
                                                                         </tr>
 
 
                                                                 </td>
-                                                        
+
                                                                 <td>
-                                                                        <tr >
+                                                                        <tr>
                                                                                 POINTS
                                                                         </tr>
                                                                         <hr>
 
                                                                         <tr>
                                                                                 <select class="form-select"
-                                                                                aria-label="Default select example">
-                                                                                <option selected>Choisir un point
-                                                                                </option>
-                                                                                <option value="1">0</option>
-                                                                                <option value="2">1</option>
-                                                                        </select>
-                                                                                
+                                                                                        aria-label="Default select example">
+                                                                                        <option selected>Choisir un
+                                                                                                point
+                                                                                        </option>
+                                                                                        <option value="1">0</option>
+                                                                                        <option value="2">1</option>
+                                                                                </select>
+
                                                                         </tr>
 
 
                                                                 </td>
-                                                        
+
                                                                 <td>
-                                                                        <tr >
+                                                                        <tr>
                                                                                 SCORE
                                                                         </tr>
                                                                         <hr>
 
                                                                         <tr>
-                                                                                
-                                                                                <input type="number" class="form-control "
-                                                                                required="required">/2
-                                                                                
+
+                                                                                <input type="number"
+                                                                                        class="form-control "
+                                                                                        required="required">/2
+
                                                                         </tr>
 
 
                                                                 </td>
 
 
-                                                              
 
-                                                                               <td>
-                                                                                <tr>
-                                                                                        Niveau visé      
-                                                                                </tr>
-                                                                                <hr>
 
-                                                                                <tr>
-                                                                                        Niveau 1 / Pré-actif    
-                                                                                </tr>
-                                                                        </td> 
-                                                                        <td>
-                                                                                <tr>
-                                                                                        Résultat     
-                                                                                </tr>
-                                                                                <hr>
+                                                                <td>
+                                                                        <tr>
+                                                                                Niveau visé
+                                                                        </tr>
+                                                                        <hr>
 
-                                                                                <tr>
-                                                                                        Accepté 
-                                                                                </tr>
-                                                                        </td> 
+                                                                        <tr>
+                                                                                Niveau 1 / Pré-actif
+                                                                        </tr>
+                                                                </td>
+                                                                <td>
+                                                                        <tr>
+                                                                                Résultat
+                                                                        </tr>
+                                                                        <hr>
+
+                                                                        <tr>
+                                                                                Accepté
+                                                                        </tr>
+                                                                </td>
                                                         </table>
 
                                                         <!---pour competence 1-->
@@ -296,7 +317,7 @@
 
                                                 </tr>
 
-                                                
+
                                         </tbody>
                                 </table>
 

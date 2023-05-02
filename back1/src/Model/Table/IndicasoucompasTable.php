@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * Indicasoucompas Model
  *
  * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\BelongsTo $Souscompetences
+ * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
  *
  * @method \App\Model\Entity\Indicasoucompa newEmptyEntity()
  * @method \App\Model\Entity\Indicasoucompa newEntity(array $data, array $options = [])
@@ -51,6 +52,10 @@ class IndicasoucompasTable extends Table
             'foreignKey' => 'souscompetence_id',
             'joinType' => 'INNER',
         ]);
+        $this->belongsTo('Detailprofilpostes', [
+            'foreignKey' => 'detailprofilposte_id',
+            'joinType' => 'INNER',
+        ]);
     }
 
     /**
@@ -70,6 +75,10 @@ class IndicasoucompasTable extends Table
             ->integer('souscompetence_id')
             ->notEmptyString('souscompetence_id');
 
+        $validator
+            ->integer('detailprofilposte_id')
+            ->notEmptyString('detailprofilposte_id');
+
         return $validator;
     }
 
@@ -83,6 +92,7 @@ class IndicasoucompasTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('souscompetence_id', 'Souscompetences'), ['errorField' => 'souscompetence_id']);
+        $rules->add($rules->existsIn('detailprofilposte_id', 'Detailprofilpostes'), ['errorField' => 'detailprofilposte_id']);
 
         return $rules;
     }

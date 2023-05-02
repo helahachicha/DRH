@@ -22,6 +22,10 @@ export class AddFicheDevaluComponent implements OnInit {
     categorie_id: new FormControl('', [Validators.required]),
   });
 
+  public indicateurform=new FormGroup({
+    label: new FormControl('', [Validators.required]),
+
+  })
   constructor(
     private dataService:DataService,
     private router :Router
@@ -47,22 +51,24 @@ export class AddFicheDevaluComponent implements OnInit {
 
 
   formCompteance: any[] = [];
-
+indic:any=[];
+label:any=[];
   onChangeData(e){
      let id = e.target.value
 
 
 
-      this.dataService.get('detailprofilpostes/getDetailppByCat.json?id='+id).subscribe(res=>{
-        console.log(res.data)
+      this.dataService.get('detailprofilpostes/getDetailppByCat.json?id='+id).subscribe(async res=>{
+        console.log('hhh',res.data[0])
         this.competences = res.data;
 
         this.formCompteance = Object.values(res.data.formcompetences);
         this.open = true
-
-        console.log('tes',this.formCompteance)
-
-
+  //this.label=this.competences.souscompetences[3].indicasoucompas[0].label
+      
+        this.indic=this.competences.formcompetences
+        console.log('indic',this.indic)
+        await console.log('competencesssssssssssssssssss',this.formCompteance[1].competence.souscompetences[0 ])
       })
 
   }

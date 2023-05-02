@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Indicateursuivis Model
  *
+ * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
  * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
  * @property \App\Model\Table\NiveauvisesTable&\Cake\ORM\Association\BelongsTo $Niveauvises
  * @property \App\Model\Table\NoteevaluationsTable&\Cake\ORM\Association\HasMany $Noteevaluations

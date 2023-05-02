@@ -12,6 +12,8 @@ use Cake\Validation\Validator;
  * Souscompetences Model
  *
  * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
+ * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
+ * @property \App\Model\Table\IndicasoucompasTable&\Cake\ORM\Association\HasMany $Indicasoucompas
  *
  * @method \App\Model\Entity\Souscompetence newEmptyEntity()
  * @method \App\Model\Entity\Souscompetence newEntity(array $data, array $options = [])
@@ -51,6 +53,10 @@ class SouscompetencesTable extends Table
             'foreignKey' => 'competence_id',
             'joinType' => 'INNER',
         ]);
+        $this->belongsTo('Detailprofilpostes', [
+            'foreignKey' => 'detailprofilposte_id',
+            'joinType' => 'INNER',
+        ]);
         $this->hasMany('Indicasoucompas', [
             'foreignKey' => 'souscompetence_id',
         ]);
@@ -67,12 +73,15 @@ class SouscompetencesTable extends Table
         $validator
             ->scalar('label')
             ->maxLength('label', 255)
-            ->requirePresence('label', 'create')
-            ->notEmptyString('label');
+            ->allowEmptyString('label');
 
         $validator
             ->integer('competence_id')
             ->notEmptyString('competence_id');
+
+        $validator
+            ->integer('detailprofilposte_id')
+            ->notEmptyString('detailprofilposte_id');
 
         return $validator;
     }
@@ -87,6 +96,7 @@ class SouscompetencesTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('competence_id', 'Competences'), ['errorField' => 'competence_id']);
+        $rules->add($rules->existsIn('detailprofilposte_id', 'Detailprofilpostes'), ['errorField' => 'detailprofilposte_id']);
 
         return $rules;
     }

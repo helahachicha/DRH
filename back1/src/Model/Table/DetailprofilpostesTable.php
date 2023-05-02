@@ -14,6 +14,8 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
  * @property \App\Model\Table\ProfilpostesTable&\Cake\ORM\Association\BelongsTo $Profilpostes
  * @property \App\Model\Table\FormcompetencesTable&\Cake\ORM\Association\HasMany $Formcompetences
+ * @property \App\Model\Table\IndicateursuivisTable&\Cake\ORM\Association\HasMany $Indicateursuivis
+ * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\HasMany $Souscompetences
  *
  * @method \App\Model\Entity\Detailprofilposte newEmptyEntity()
  * @method \App\Model\Entity\Detailprofilposte newEntity(array $data, array $options = [])
@@ -57,13 +59,13 @@ class DetailprofilpostesTable extends Table
             'foreignKey' => 'profilposte_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('Employes', [
-            'foreignKey' => 'detailprofilposte_id',
-        ]);
         $this->hasMany('Formcompetences', [
             'foreignKey' => 'detailprofilposte_id',
         ]);
         $this->hasMany('Indicateursuivis', [
+            'foreignKey' => 'detailprofilposte_id',
+        ]);
+        $this->hasMany('Souscompetences', [
             'foreignKey' => 'detailprofilposte_id',
         ]);
     }

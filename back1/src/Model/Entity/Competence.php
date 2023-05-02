@@ -14,6 +14,8 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Formcompetence[] $formcompetences
+ * @property \App\Model\Entity\Indicateursuivi[] $indicateursuivis
+ * @property \App\Model\Entity\Souscompetence[] $souscompetences
  */
 class Competence extends Entity
 {
@@ -31,5 +33,7 @@ class Competence extends Entity
         'created' => true,
         'modified' => true,
         'formcompetences' => true,
+        'indicateursuivis' => true,
+        'souscompetences' => true,
     ];
 }

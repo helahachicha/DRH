@@ -26,9 +26,7 @@ class FormcompetencesTableTest extends TestCase
     protected $fixtures = [
         'app.Formcompetences',
         'app.Competences',
-        'app.Niveauvises',
         'app.Detailprofilpostes',
-        'app.Indicateursuivis',
     ];
 
     /**

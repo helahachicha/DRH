@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 26 avr. 2023 à 14:05
+-- Généré le : mar. 02 mai 2023 à 10:39
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -220,7 +220,9 @@ CREATE TABLE `employes` (
 INSERT INTO `employes` (`id`, `nomprenom`, `categorie_id`, `created`, `modified`) VALUES
 (1, 'bilel', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
 (2, 'chourouk', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
-(3, 'hela', 2, '2023-04-07 09:59:32', '2023-04-07 09:59:32');
+(3, 'hela', 2, '2023-04-07 09:59:32', '2023-04-07 09:59:32'),
+(4, 'bolbol', 1, '2023-05-01 20:42:26', '2023-05-01 20:42:26'),
+(5, 'chou', 4, '2023-05-01 20:44:00', '2023-05-01 20:44:00');
 
 -- --------------------------------------------------------
 
@@ -327,6 +329,7 @@ CREATE TABLE `indicasoucompas` (
   `id` int(11) NOT NULL,
   `label` varchar(400) DEFAULT '',
   `souscompetence_id` int(11) NOT NULL,
+  `detailprofilposte_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -335,77 +338,77 @@ CREATE TABLE `indicasoucompas` (
 -- Déchargement des données de la table `indicasoucompas`
 --
 
-INSERT INTO `indicasoucompas` (`id`, `label`, `souscompetence_id`, `created`, `modified`) VALUES
-(1, '', 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(2, '', 2, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(3, '', 3, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(4, 'Écouter activement afin de bien comprendre le message', 4, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(5, 'Essayer de partager l’information liée à l’exécution de travail et la communiquer clairement (quelque soit de la part développeur junior et de son vis-à-vis)', 4, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(6, 'Répondre de manière appropriée en donnant l’information et les faits de façon logique, claire et cohérente', 4, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(7, 'Transmet et reçoit le besoin facile à comprendre : c’est à dire transmet, reçoit et vérifie la bonne compréhension de la part de l’émetteur et récepteur', 4, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(8, 'Tenir compte de l’objectif de toute l’équipe  ', 5, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(9, 'Réussite collective ou échec collective ! : c’est toute l’équipe est responsable soit en cas de la réussite ou en cas d’échec', 5, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(10, 'Répartition des tâches d’une manière équitable', 5, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(11, 'Appuyer les décisions ou les activités de l’équipe et aider à réaliser l’objectif principal', 5, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(12, 'Poser les questions adéquates et distinguer entre les renseignements pertinents et ceux qui ne le sont pas', 6, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(13, 'Identifier la cause principale du problème affronté', 6, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(14, 'Fournir une réponse claire & logique aux questions ou préoccupations', 7, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(15, 'Fournir un service, y compris des renseignements utiles ou une aide, conforme aux normes de service et aux lignes directrices pertinentes', 7, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(16, '', 8, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(17, 'Valider la compréhension du message par l’autre partie ', 9, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(18, 'Reconnaître les signes non verbaux et les utilise pour identifier les pensées ou les préoccupations non exprimées afin de répondre de façon appropriée', 9, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(19, 'Utiliser des techniques de communication appropriées (poser des questions clairement, l’écoute, la ré formulation du message...) afin de clarifier son message et d’en faciliter la compréhension.', 9, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(20, 'Prendre l’initiative ', 10, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(21, 'Faire part des connaissances,  expérience ou expertise pertinente et utile en vue d’aider les membres du groupe à réaliser leurs objectifs de façon plus efficace ou efficiente.', 10, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(22, 'S’efforcer de faire quelque chose de plus pour aider les membres du groupe (Exp : Assister les membres du groupe à acquérir les habiletés nécessaires afin d’atteindre les objectifs de travail)', 10, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(23, 'Recueillir des faits et des renseignements additionnels pour acquérir une meilleure compréhension de la situation', 11, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(24, 'Reconnaître les situations où les procédures habituelles peuvent ne pas s’appliquer et où une solution différente est requise', 11, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(25, 'S’assurer que le besoin est traité; cela peut nécessiter l’intervention d’un tiers', 12, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(26, 'Assurer un suivi auprès du client lorsque nécessaire ou prend d’autres mesures.', 12, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(27, 'Prendre l’initiative et gérer les difficultés ', 13, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(28, 'Appliquer des règles simples, jugement et expériences passées pour cerner les problèmes', 13, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(29, 'Remarquer qu\'une situation présente est similaire à une situation passée ou est différente d\'une situation passée et déterminer les similitudes et (ou) les différences', 13, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(30, 'Identifier l’information pertinente ainsi que les tendances, les constantes ou les éléments manquants. ', 13, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(31, 'Planifier & compléter les tâches/projets à temps efficacement', 14, '2023-04-26 11:35:15', '2023-04-26 11:35:15'),
-(32, 'Informer de la progression des tâches ou du projet ', 14, '2023-04-26 11:35:15', '2023-04-26 11:35:15'),
-(33, 'Déclarer en cas de difficulté technique : c’est à dire après dépasser 50 % du temps prévu de réalisation d’une tâche au maximum à l’essai de résolution d’une difficulté technique ', 14, '2023-04-26 11:35:15', '2023-04-26 11:35:15'),
-(34, 'Déterminer l’importance des tâches/activités, et passer rapidement et efficacement d’une tâche à l’autre', 15, '2023-04-26 11:37:50', '2023-04-26 11:37:50'),
-(35, 'Veiller à accomplir le travail en utilisant des solutions efficaces', 15, '2023-04-26 11:37:50', '2023-04-26 11:37:50'),
-(36, 'Avoir un équilibre psychique et une bonne gestion de stress', 16, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(37, 'Personnaliser son langage et son style de communication en fonction de la situation et de l’interlocuteur ou de l’auditoire, tout en livrant le même message', 16, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(38, 'Adapter la façon de transmettre le message lorsque des difficultés de compréhension surviennent', 16, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(39, 'Tirer profit des forces, des habiletés et des capacités des membres de l’équipe en vue d’atteindre l’objectif commun', 17, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(40, 'Encourager les membres de l’équipe à exprimer leurs points de vue ainsi que leurs opinions tout en tentant d’obtenir le consensus', 17, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(41, 'Traiter un problème ou une situation qui laisse place à l’interprétation.', 18, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(42, 'Évaluer les risques et les avantages d’autres solutions.', 18, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(43, 'Déterminer le besoin sous-jacent du client et fournit une aide ou des renseignements supplémentaires au-delà de l’attente du client ou de la norme de service applicable.', 19, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(44, 'Fait appel à son expérience et à ses connaissances pour fournir un service additionnel à valeur ajoutée pour le client, ou pour améliorer d’une certaine manière sa situation.', 19, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(45, 'Utiliser ses connaissances ou situations passées pour examiner les situations présentes', 20, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(46, 'Appliquer et modifier des méthodes de manière appropriée à la situation  ', 20, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(47, 'Veiller aux besoins de l’équipe pour lui permettre de donner son plein potentiel et d’atteindre les objectifs (Remarque : la satisfaction des besoins est une source de motivation)', 21, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(48, 'Favoriser la collaboration, le travail en équipe et la confiance entre les membres de l’équipe', 21, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(49, 'Reconnaître et optimiser les forces et la diversité des membres de l’équipe', 21, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(50, 'Développer une équipe talentueux en reconnaissant le potentiel d’accomplissement des membres de l’équipe et en fournissant des occasions d’apprentissage continu', 21, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(51, 'Avoir une visibilité sur le planning de l’équipe de développement', 22, '2023-04-26 11:53:26', '2023-04-26 11:53:26'),
-(52, 'Organiser les horaires, le travail et le milieu pour maximiser l’efficacité', 22, '2023-04-26 11:53:26', '2023-04-26 11:53:26'),
-(53, 'Anticiper et se préparer à gérer les problèmes  efficacement', 22, '2023-04-26 11:53:26', '2023-04-26 11:53:26'),
-(54, 'Gérer habilement les questions spontanées difficiles (p. ex posées par des responsables)', 23, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(55, 'Encadrer les autres ', 23, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(56, 'Inciter à prendre part au processus d’échange des connaissances', 23, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(57, 'Supervise, oriente, conseille et encadrer les autres dans l’accomplissement efficace des activités & tâches ', 24, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(58, 'Apprécier, reconnaître et récompenser les succès d’équipe par des initiatives entreprises (Boite de proposition)', 24, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(59, 'Gérer les conflits d’équipe de manière efficace', 24, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(60, 'Tirer les conclusions ou élaborer des explications possibles aux autres', 25, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(61, 'Élaborer une solution fiable à un problème ou une situation qui compte plusieurs éléments inter-reliés.', 25, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(62, 'Prévoir et cerner les nouveaux enjeux et élaborer des stratégies pour permettre à l’entreprise de gérer les nouvelles tendances', 26, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(63, 'Établir un accord avant la prise de décisions, si possible et au besoin', 26, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(64, 'Encourager les autres à promouvoir la vision et les objectifs de l’entreprise', 27, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(65, 'Entretient un environnement propice au changement, à l’innovation, à l’amélioration et à la prise de risques responsables', 27, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(66, 'Cerner les besoins et élaborer des initiatives et des plans d’action en apprentissage ', 28, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(67, 'Mettre en œuvre des stratégies pour renforcer, appuyer et maintenir une culture d’apprentissage ', 28, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(68, 'Encourager la recherche et l’examen des données probantes pour évaluer l’incidence et l’efficacité des efforts d’apprentissage', 28, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(69, 'Développer et mettre en œuvre des plans de travail efficace pour des projets complexes impliquant plusieurs personnes', 29, '2023-04-26 12:08:56', '2023-04-26 12:08:56'),
-(70, 'Démontrer une compréhension des relations entre les personnes intéressés à l’interne à afin de coordonner leur implication dans les projets de grande envergue', 29, '2023-04-26 12:08:56', '2023-04-26 12:08:56');
+INSERT INTO `indicasoucompas` (`id`, `label`, `souscompetence_id`, `detailprofilposte_id`, `created`, `modified`) VALUES
+(1, '', 1, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(2, '', 2, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(3, '', 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(4, 'Écouter activement afin de bien comprendre le message', 4, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(5, 'Essayer de partager l’information liée à l’exécution de travail et la communiquer clairement (quelque soit de la part développeur junior et de son vis-à-vis)', 4, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(6, 'Répondre de manière appropriée en donnant l’information et les faits de façon logique, claire et cohérente', 4, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(7, 'Transmet et reçoit le besoin facile à comprendre : c’est à dire transmet, reçoit et vérifie la bonne compréhension de la part de l’émetteur et récepteur', 4, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(8, 'Tenir compte de l’objectif de toute l’équipe  ', 5, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(9, 'Réussite collective ou échec collective ! : c’est toute l’équipe est responsable soit en cas de la réussite ou en cas d’échec', 5, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(10, 'Répartition des tâches d’une manière équitable', 5, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(11, 'Appuyer les décisions ou les activités de l’équipe et aider à réaliser l’objectif principal', 5, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(12, 'Poser les questions adéquates et distinguer entre les renseignements pertinents et ceux qui ne le sont pas', 6, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(13, 'Identifier la cause principale du problème affronté', 6, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(14, 'Fournir une réponse claire & logique aux questions ou préoccupations', 7, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(15, 'Fournir un service, y compris des renseignements utiles ou une aide, conforme aux normes de service et aux lignes directrices pertinentes', 7, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
+(16, '', 8, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(17, 'Valider la compréhension du message par l’autre partie ', 9, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(18, 'Reconnaître les signes non verbaux et les utilise pour identifier les pensées ou les préoccupations non exprimées afin de répondre de façon appropriée', 9, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(19, 'Utiliser des techniques de communication appropriées (poser des questions clairement, l’écoute, la ré formulation du message...) afin de clarifier son message et d’en faciliter la compréhension.', 9, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(20, 'Prendre l’initiative ', 10, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(21, 'Faire part des connaissances,  expérience ou expertise pertinente et utile en vue d’aider les membres du groupe à réaliser leurs objectifs de façon plus efficace ou efficiente.', 10, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(22, 'S’efforcer de faire quelque chose de plus pour aider les membres du groupe (Exp : Assister les membres du groupe à acquérir les habiletés nécessaires afin d’atteindre les objectifs de travail)', 10, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(23, 'Recueillir des faits et des renseignements additionnels pour acquérir une meilleure compréhension de la situation', 11, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(24, 'Reconnaître les situations où les procédures habituelles peuvent ne pas s’appliquer et où une solution différente est requise', 11, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(25, 'S’assurer que le besoin est traité; cela peut nécessiter l’intervention d’un tiers', 12, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(26, 'Assurer un suivi auprès du client lorsque nécessaire ou prend d’autres mesures.', 12, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(27, 'Prendre l’initiative et gérer les difficultés ', 13, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(28, 'Appliquer des règles simples, jugement et expériences passées pour cerner les problèmes', 13, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(29, 'Remarquer qu\'une situation présente est similaire à une situation passée ou est différente d\'une situation passée et déterminer les similitudes et (ou) les différences', 13, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(30, 'Identifier l’information pertinente ainsi que les tendances, les constantes ou les éléments manquants. ', 13, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
+(31, 'Planifier & compléter les tâches/projets à temps efficacement', 14, 1, '2023-04-26 11:35:15', '2023-04-26 11:35:15'),
+(32, 'Informer de la progression des tâches ou du projet ', 14, 1, '2023-04-26 11:35:15', '2023-04-26 11:35:15'),
+(33, 'Déclarer en cas de difficulté technique : c’est à dire après dépasser 50 % du temps prévu de réalisation d’une tâche au maximum à l’essai de résolution d’une difficulté technique ', 14, 1, '2023-04-26 11:35:15', '2023-04-26 11:35:15'),
+(34, 'Déterminer l’importance des tâches/activités, et passer rapidement et efficacement d’une tâche à l’autre', 15, 2, '2023-04-26 11:37:50', '2023-04-26 11:37:50'),
+(35, 'Veiller à accomplir le travail en utilisant des solutions efficaces', 15, 2, '2023-04-26 11:37:50', '2023-04-26 11:37:50'),
+(36, 'Avoir un équilibre psychique et une bonne gestion de stress', 16, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(37, 'Personnaliser son langage et son style de communication en fonction de la situation et de l’interlocuteur ou de l’auditoire, tout en livrant le même message', 16, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(38, 'Adapter la façon de transmettre le message lorsque des difficultés de compréhension surviennent', 16, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(39, 'Tirer profit des forces, des habiletés et des capacités des membres de l’équipe en vue d’atteindre l’objectif commun', 17, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(40, 'Encourager les membres de l’équipe à exprimer leurs points de vue ainsi que leurs opinions tout en tentant d’obtenir le consensus', 17, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(41, 'Traiter un problème ou une situation qui laisse place à l’interprétation.', 18, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(42, 'Évaluer les risques et les avantages d’autres solutions.', 18, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(43, 'Déterminer le besoin sous-jacent du client et fournit une aide ou des renseignements supplémentaires au-delà de l’attente du client ou de la norme de service applicable.', 19, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(44, 'Fait appel à son expérience et à ses connaissances pour fournir un service additionnel à valeur ajoutée pour le client, ou pour améliorer d’une certaine manière sa situation.', 19, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(45, 'Utiliser ses connaissances ou situations passées pour examiner les situations présentes', 20, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(46, 'Appliquer et modifier des méthodes de manière appropriée à la situation  ', 20, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(47, 'Veiller aux besoins de l’équipe pour lui permettre de donner son plein potentiel et d’atteindre les objectifs (Remarque : la satisfaction des besoins est une source de motivation)', 21, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(48, 'Favoriser la collaboration, le travail en équipe et la confiance entre les membres de l’équipe', 21, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(49, 'Reconnaître et optimiser les forces et la diversité des membres de l’équipe', 21, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(50, 'Développer une équipe talentueux en reconnaissant le potentiel d’accomplissement des membres de l’équipe et en fournissant des occasions d’apprentissage continu', 21, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
+(51, 'Avoir une visibilité sur le planning de l’équipe de développement', 22, 3, '2023-04-26 11:53:26', '2023-04-26 11:53:26'),
+(52, 'Organiser les horaires, le travail et le milieu pour maximiser l’efficacité', 22, 3, '2023-04-26 11:53:26', '2023-04-26 11:53:26'),
+(53, 'Anticiper et se préparer à gérer les problèmes  efficacement', 22, 3, '2023-04-26 11:53:26', '2023-04-26 11:53:26'),
+(54, 'Gérer habilement les questions spontanées difficiles (p. ex posées par des responsables)', 23, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(55, 'Encadrer les autres ', 23, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(56, 'Inciter à prendre part au processus d’échange des connaissances', 23, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(57, 'Supervise, oriente, conseille et encadrer les autres dans l’accomplissement efficace des activités & tâches ', 24, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(58, 'Apprécier, reconnaître et récompenser les succès d’équipe par des initiatives entreprises (Boite de proposition)', 24, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(59, 'Gérer les conflits d’équipe de manière efficace', 24, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(60, 'Tirer les conclusions ou élaborer des explications possibles aux autres', 25, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(61, 'Élaborer une solution fiable à un problème ou une situation qui compte plusieurs éléments inter-reliés.', 25, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(62, 'Prévoir et cerner les nouveaux enjeux et élaborer des stratégies pour permettre à l’entreprise de gérer les nouvelles tendances', 26, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(63, 'Établir un accord avant la prise de décisions, si possible et au besoin', 26, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(64, 'Encourager les autres à promouvoir la vision et les objectifs de l’entreprise', 27, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(65, 'Entretient un environnement propice au changement, à l’innovation, à l’amélioration et à la prise de risques responsables', 27, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(66, 'Cerner les besoins et élaborer des initiatives et des plans d’action en apprentissage ', 28, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(67, 'Mettre en œuvre des stratégies pour renforcer, appuyer et maintenir une culture d’apprentissage ', 28, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(68, 'Encourager la recherche et l’examen des données probantes pour évaluer l’incidence et l’efficacité des efforts d’apprentissage', 28, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
+(69, 'Développer et mettre en œuvre des plans de travail efficace pour des projets complexes impliquant plusieurs personnes', 29, 4, '2023-04-26 12:08:56', '2023-04-26 12:08:56'),
+(70, 'Démontrer une compréhension des relations entre les personnes intéressés à l’interne à afin de coordonner leur implication dans les projets de grande envergue', 29, 4, '2023-04-26 12:08:56', '2023-04-26 12:08:56');
 
 -- --------------------------------------------------------
 
@@ -464,14 +467,6 @@ CREATE TABLE `infoficheevaluations` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `infoficheevaluations`
---
-
-INSERT INTO `infoficheevaluations` (`id`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `employe_id`, `created`, `modified`) VALUES
-(1, 'test', 'test', 'test', 1, '2023-03-30 22:20:26', '2023-03-30 22:20:26'),
-(2, 'test', 'test', 'test', 1, '2023-04-03 10:59:45', '2023-04-03 10:59:45');
 
 -- --------------------------------------------------------
 
@@ -1248,46 +1243,6 @@ INSERT INTO `themeformations` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `totalpolycompetences`
---
-
-CREATE TABLE `totalpolycompetences` (
-  `id` int(11) NOT NULL,
-  `valeur` float NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `totalpolycompetences`
---
-
-INSERT INTO `totalpolycompetences` (`id`, `valeur`, `created`, `modified`) VALUES
-(1, 91.6667, '2023-04-11 07:27:47', '2023-04-11 07:29:35');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `totalpolyvalences`
---
-
-CREATE TABLE `totalpolyvalences` (
-  `id` int(11) NOT NULL,
-  `valeur` float NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `totalpolyvalences`
---
-
-INSERT INTO `totalpolyvalences` (`id`, `valeur`, `created`, `modified`) VALUES
-(1, 65.4167, '2023-04-11 00:11:23', '2023-04-11 00:11:23');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `users`
 --
 
@@ -1487,18 +1442,6 @@ ALTER TABLE `themeformations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `totalpolycompetences`
---
-ALTER TABLE `totalpolycompetences`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `totalpolyvalences`
---
-ALTER TABLE `totalpolyvalences`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -1554,7 +1497,7 @@ ALTER TABLE `echelleevaluations`
 -- AUTO_INCREMENT pour la table `employes`
 --
 ALTER TABLE `employes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `formaexternes`
@@ -1590,7 +1533,7 @@ ALTER TABLE `indicateursuivis`
 -- AUTO_INCREMENT pour la table `infoficheevaluations`
 --
 ALTER TABLE `infoficheevaluations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `matricecompetences`
@@ -1681,18 +1624,6 @@ ALTER TABLE `testtechniques`
 --
 ALTER TABLE `themeformations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT pour la table `totalpolycompetences`
---
-ALTER TABLE `totalpolycompetences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `totalpolyvalences`
---
-ALTER TABLE `totalpolyvalences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `users`
