@@ -43,16 +43,9 @@ class DetailprofilpostesController extends AppController
         'contain' => [
             'Profilpostes',
             'Categories.Niveauvises',
-            
-            'Formcompetences.Competences.Indicateursuivis' => ['conditions'=>[
-                'Indicateursuivis.detailprofilposte_id IS'=>$id,
-            ]],
-            'Formcompetences.Competences.Souscompetences' => ['conditions'=>[
-                'Souscompetences.detailprofilposte_id IS'=>$id,
-            ]],
-            'Formcompetences.Competences.Souscompetences.Indicasoucompas' => ['conditions'=>[
-                'Indicasoucompas.detailprofilposte_id IS'=>$id,
-            ]],
+            'Formcompetences.Competences.Indicateursuivis' ,
+            'Formcompetences.Competences.Souscompetences' ,
+            'Formcompetences.Competences.Souscompetences.Indicasoucompas',
         ],
     ])->first();
         
