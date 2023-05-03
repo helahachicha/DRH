@@ -26,10 +26,11 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
+                                                    <!--formControlName="nom"
+                                                     [(ngModel)]="detailpp.profilposte.nom"-->
                                                     <label for="form_name">Nom du profil de poste</label>
-                                                    <input type="text" formControlName="nom" class="form-control"
+                                                    <input type="text" class="form-control"
                                                         placeholder="Nom du profil de poste" required="required"
-                                                        [(ngModel)]="detailpp.profilposte.nom"
                                                         [attr.disabled]="enabled?null:''" />
                                                 </div>
                                             </div>
@@ -117,8 +118,6 @@
                                                                     id="exampleFormControlSelect2"
                                                                     placeholder="Veuillez choisir votre competence"
                                                                     formControlName="competence_id">
-                                                                    <option selected disabled value="">Affecter
-                                                                        Competence</option>
 
                                                                     <option *ngFor="let obj of Competences"
                                                                         [ngValue]="obj.id">
@@ -130,7 +129,9 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="item-box" formArrayName="souscompetence"
+
+                                                        
+                                                        <!--  <div class="item-box" formArrayName="souscompetence"
                                                         *ngFor="let item of indicateur.get('souscompetence').controls; let j = index">
                                                         <div [formGroupName]="j">
                                                             <div class="d-flex">
@@ -148,7 +149,10 @@
 
                                                         </div>
 
-                                                    </div>
+                                                        </div>-->
+                                                        <div>
+
+                                                        </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group">
