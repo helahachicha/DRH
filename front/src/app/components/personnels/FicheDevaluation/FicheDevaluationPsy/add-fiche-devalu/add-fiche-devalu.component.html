@@ -78,64 +78,18 @@
 
                                 <table class="table table-bordered justify-content-center">
 
-                                        <thead >
-                                          <div *ngIf="open" >
-                                            <div *ngFor="let item of formCompteance;let i=index" >
-                                            <tr class="text-bold text-center">
-
-                                              <th colspan="3">
-                                                {{item.competence.label}}
-
-                                              </th>
-                                            </tr>
-
-                                              <div *ngFor="let obj of formCompteance[i].competence.souscompetences" >
-                                                <tr class="text-bold text-center">
-
-                                                  <th colspan="3">
-                                                    {{obj.label}}
-
-                                                  </th>
-                                                </tr>
-
-                                              </div>
-
-                                              <div *ngFor="let obj of formCompteance[i].competence.indicateursuivis" >
-                                                <tr class="text-bold text-center">
-
-                                                  <th colspan="3">
-                                                    {{obj.label}}
-
-                                                  </th>
-                                                </tr>
-
-                                              </div>
-
-                                            </div>
-
-                                          </div>
+                                        <thead>
 
 
 
                                         </thead>
                                         <tbody>
-                                                <tr class="text-bold ">
-                                                        <!---pour competence 1-->
-                                                        <td>N°</td>
-                                                        <td>INDICATEUR DE MESURE</td>
-                                                        <td>POINTS</td>
-                                                        <!---pour competence 2-->
-                                                        <td>N°</td>
-                                                        <td>INDICATEUR DE MESURE</td>
-                                                        <td>POINTS</td>
+                                                <tr class="text-bold " *ngFor="let item of formCompteance;let i=index">
 
-                                                        <td>N°</td>
-                                                        <td>INDICATEUR DE MESURE</td>
-                                                        <td>POINTS</td>
+                                                        <th colspan="3">
+                                                                {{item.competence.label}}
 
-                                                        <td>N°</td>
-                                                        <td>INDICATEUR DE MESURE</td>
-                                                        <td>POINTS</td>
+                                                        </th>
 
                                                         <table style="border: none;"
                                                                 *ngIf="formCompteance[i].competence.souscompetences.length==0">
@@ -148,11 +102,7 @@
                                                                                 <hr>
                                                                                 <tr>
 
-                                                                                        <input type="text"
-                                                                                                class="form-control "
-                                                                                                placeholder="{{c+1}}"
-                                                                                                required="required"
-                                                                                                disabled>
+                                                                                        {{indicateurSuivie.id}}
 
                                                                                 </tr>
 
@@ -167,6 +117,7 @@
                                                                                 </tr>
                                                                                 <hr>
                                                                                 <tr>
+                                                                                       
                                                                                         {{indicateurSuivie.label}}
 
                                                                                 </tr>
@@ -186,7 +137,7 @@
 
 
                                                                         </td>
-
+</div>
                                                                         <td>
                                                                                 <tr>
                                                                                         SCORE
@@ -219,7 +170,7 @@
                                                                                         Accepté
                                                                                 </tr>
                                                                         </td>
-                                                                </div>
+                                                                
                                                         </table>
 
                                                         <table *ngFor="let sousCompetence of formCompteance[i].competence.souscompetences;let k=index">
@@ -228,7 +179,7 @@
                                                                                 {{sousCompetence.label}}
 
                                                                         </tr>
-                                                                        <div  *ngFor="let indicateursouComp of formCompteance[i].competence.souscompetences[k].indicasoucompas">
+                                                                        <div  *ngFor="let indicateursouComp of formCompteance[i].competence.souscompetences[k].indicasoucompas;let j=index">
                                                                         <td>
                                                                                 <tr>
                                                                                         N°
@@ -237,7 +188,7 @@
                                                                                 <tr>
                                                                                         <input type='text'
                                                                                                 class="form-control"
-                                                                                                placeholder="{{k+1}}"
+                                                                                                placeholder="{{j+1}}"
                                                                                                 required="required"
                                                                                                 disabled>
                                                                                 </tr>
@@ -258,7 +209,7 @@
 
                                                                                 </tr>
                                                                         </td>
-
+                                                               
                                                                         <td>
                                                                                 <tr>
                                                                                         POINTS
@@ -271,6 +222,7 @@
 
                                                                                 </tr>
                                                                         </td>
+                                                                </div>
                                                                         <td>
                                                                                 <tr>
                                                                                         SCORE
@@ -296,67 +248,17 @@
                                                                                         Accepté
                                                                                 </tr>
                                                                         </td>
-                                                                </div>
+                                                               
                                                         </table>
 
                                                         <!---pour competence 1heloooooo-->
 
-                                                        <td colspan="2">SCORE</td>
-                                                        <td>0/2</td>
-                                                        <!---pour competence 3-->
-                                                        <td colspan="2">SCORE</td>
-                                                        <td>0/2</td>
 
 
 
                                                 </tr>
-                                                <tr class="text-bold text-center">
-                                                        <!---pour competence 1
-                                                        <td colspan="2">Niveau visé: Niveau 1 / <select class="form-control"
-                                                                id="exampleFormControlSelect2"
-                                                                placeholder="Veuillez choisir votre Niveau Visé"
-                                                                formControlName="niveauvise_id">
-                                                                <option selected disabled value="">Affecter Niveau
-                                                                    Visé</option>
-
-                                                                <option *ngFor="let obj of Niveauvises"
-                                                                    [ngValue]="obj.id">
-
-                                                                    {{obj.label}}
-                                                                </option>
-                                                            </select></td>
-                                                        <td>accepter</td>-->
-
-                                                        <!---pour competence 2-->
-                                                        <td colspan="2">Niveau visé: Niveau 1 / Pré-actif</td>
-                                                        <td>accepter</td>
-
-                                                        <td colspan="2">Niveau visé: Niveau 1 / Pré-actif</td>
-                                                        <td>accepter</td>
-
-                                                        <td colspan="2">Niveau visé: Niveau 1 / Pré-actif</td>
-                                                        <td>accepter</td>
 
 
-                                                        <td colspan="2">Niveau visé: Niveau 1 / Pré-actif</td>
-                                                        <td>accepter</td>
-
-
-                                                        <td colspan="2">Niveau visé: Niveau 1 / Pré-actif</td>
-                                                        <td>accepter</td>
-
-                                                        <td colspan="2">Niveau visé: Niveau 1 / Pré-actif</td>
-                                                        <td>accepter</td>
-
-                                                        <td colspan="2">Niveau visé: Niveau 1 / Pré-actif</td>
-                                                        <td>accepter</td>
-
-                                                        <!---pour competence 3-->
-                                                        <td colspan="2">Niveau visé: Niveau 1 / Pré-actif</td>
-                                                        <td>accepter</td>
-
-
-                                                </tr>
                                         </tbody>
                                 </table>
 
