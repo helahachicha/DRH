@@ -95,7 +95,7 @@
                                                                 *ngIf="formCompteance[i].competence.souscompetences.length==0">
                                                                 <div
                                                                         *ngFor="let indicateurSuivie  of formCompteance[i].competence.indicateursuivis;let c=index">
-                                                                        <td>
+                                                                        <td class="n">
                                                                                 <tr>
                                                                                         N°
                                                                                 </tr>
@@ -111,7 +111,7 @@
 
 
 
-                                                                        <td>
+                                                                        <td class="ind">
                                                                                 <tr>
                                                                                         INDICATEUR DE MESURE
                                                                                 </tr>
@@ -123,7 +123,7 @@
                                                                                 </tr>
                                                                         </td>
 
-                                                                        <td>
+                                                                        <td class="point">
                                                                                 <tr>
                                                                                         POINTS
                                                                                 </tr>
@@ -138,7 +138,7 @@
 
                                                                         </td>
 </div>
-                                                                        <td>
+                                                                        <td class="score">
                                                                                 <tr>
                                                                                         SCORE
                                                                                 </tr>
@@ -152,6 +152,9 @@
                                                                                                 disabled>/2
 
                                                                                 </tr>
+                                                                                <tr class="mt-5">
+                                                                                        <button>Calculer </button>
+                                                                                </tr>
 
 
                                                                         </td>
@@ -160,7 +163,7 @@
 
 
 
-                                                                        <td>
+                                                                        <td class="final">
                                                                                 <tr>
                                                                                         Résultat
                                                                                 </tr>
@@ -174,13 +177,13 @@
                                                         </table>
 
                                                         <table *ngFor="let sousCompetence of formCompteance[i].competence.souscompetences;let k=index">
-                                                                        <tr>
+                                                                        <tr class="text-center mt-5 mb-5">
 
                                                                                 {{sousCompetence.label}}
 
                                                                         </tr>
                                                                         <div  *ngFor="let indicateursouComp of formCompteance[i].competence.souscompetences[k].indicasoucompas;let j=index">
-                                                                        <td>
+                                                                        <td class="n">
                                                                                 <tr>
                                                                                         N°
                                                                                 </tr>
@@ -195,12 +198,12 @@
 
                                                                         </td>
                                                                            
-                                                                        <td>
+                                                                        <td class="ind">
                                                                                 <tr>
                                                                                         INDICATEUR DE MESURE
                                                                                 </tr>
                                                                                 <hr>
-                                                                                <tr>
+                                                                                <tr class="text-center">
 
                                                                                    {{indicateursouComp.label}}
                                                                                    
@@ -210,7 +213,7 @@
                                                                                 </tr>
                                                                         </td>
                                                                
-                                                                        <td>
+                                                                        <td class="point">
                                                                                 <tr>
                                                                                         POINTS
                                                                                 </tr>
@@ -223,7 +226,7 @@
                                                                                 </tr>
                                                                         </td>
                                                                 </div>
-                                                                        <td>
+                                                                        <td class="score"> 
                                                                                 <tr>
                                                                                         SCORE
                                                                                 </tr>
@@ -234,11 +237,13 @@
                                                                                                 class="form-control "
                                                                                                 required="required"
                                                                                                 disabled>/2
-
+                                                                                </tr>
+                                                                                <tr class="mt-5">
+                                                                                        <button>Calculer </button>
                                                                                 </tr>
                                                                         </td>
 
-                                                                        <td>
+                                                                        <td class="final">
                                                                                 <tr>
                                                                                         Résultat
                                                                                 </tr>
