@@ -2,12 +2,16 @@ body {
     font-family: 'Lato', sans-serif;
 }
 input{
-    border: 1px solid rgb(118, 99, 99);
+    border: 1px solid rgb(230 219 219);
+    border-radius: 5px;
+
 }
 
 select{
-    border: 1px solid rgb(118, 99, 99);
-    width: 100%;
+    border: 1px solid rgb(230 219 219);
+    border-radius: 5px;
+
+ 
 }
 
 label {
