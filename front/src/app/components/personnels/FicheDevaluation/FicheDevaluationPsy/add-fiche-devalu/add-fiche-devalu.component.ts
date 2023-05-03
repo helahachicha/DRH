@@ -50,26 +50,96 @@ export class AddFicheDevaluComponent implements OnInit {
   }
 
   formCompteance: any[] = [];
-indic:any=[];
-label:any=[];
-  onChangeData(e){
 
+  onChangeData(e){
      let id = e.target.value
       this.dataService.get('detailprofilpostes/getDetailppByCat.json?id='+id).subscribe(async res=>{
-        console.log('hhh',res.data)
         this.competences = res.data;
         this.formCompteance = Object.values(res.data.formcompetences);
         this.open = true
-  //this.label=this.competences.souscompetences[3].indicasoucompas[0].label
-      
-        this.indic=this.competences.formcompetences
-        console.log('indic',this.indic)
-        
-        await console.log('competencesssssssssssssssssss',this.formCompteance[1].competence.souscompetences[0 ])
-         console.log('Niveau',this.competences.category.niveauvises)
-
-       
       })
 
   }
+
+  points=[];
+  onChangePoint(id:any,event:any){
+   let sum=0
+    let exist=false
+    let point1:string
+    point1=event.target.value;
+    point1=JSON.parse(point1)
+    let point:number
+    point=<number><unknown>point1
+
+    this.points.forEach(element => {
+      if(element.key==id){
+        element.value=point
+        exist=true
+      }
+    });
+
+    if(exist==false){
+      this.points.push({ key : id,value:point1})
+    }
+    console.log(this.points)
+    this.points.forEach(element => {
+      sum+=element.value
+    });
+
+   let count=this.points.length
+    this.result =sum/count
+
+
+
+
+  }
+  result:any
+  calculer(){
+
+    this.points.push({ result:this.result})
+
+    this.dataService.post('Infoficheevaluations/calculpoint.json',this.points).subscribe(res=> {
+      //this.router.navigate(['/list-fiche-devalu'])
+      console.log('res',res.data)
+      this.result=0
+      this.points=[]
+      })
+
+
+  }
+  pointsoucomp=[];
+
+  onChangePointIndicateur(id:any,event:any){
+    let sum=0
+     let exist=false
+     let point1:string
+     point1=event.target.value;
+     point1=JSON.parse(point1)
+     let point:number
+     point=<number><unknown>point1
+
+     this.pointsoucomp.forEach(element => {
+       if(element.key==id){
+         element.value=point
+         exist=true
+       }
+     });
+
+     if(exist==false){
+       this.pointsoucomp.push({ key : id,value:point1})
+     }
+     console.log(this.pointsoucomp)
+     this.pointsoucomp.forEach(element => {
+       sum+=element.value
+     });
+
+    let count=this.pointsoucomp.length
+     let result =sum/count
+     console.log(result)
+
+     let formdata=new FormData()
+     formdata.append('sum',JSON.stringify(result))
+
+
+   }
 }

@@ -19,54 +19,159 @@ class InfoficheevaluationsController extends AppController
      *
      * @Input:
      *         data:
-     *   
+     *
      *          objetevaluation(String) *Required
      *          dateevaluation (Date) *Required
      *          decisiondirection (String) *Required
      *          employe_id(Int) *Required
-     *         
+     *
      * @Output: data : success message
      */
     public function addInfoficheevaluation(){
-        
+
         $this->request->allowMethod(['post', 'put']);
 
         /* format data */
         if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
+           // $querry=$this->request->getData();
+            //$data=json_decode($querry['data']);
+            $data=$this->request->getData();
            // debug($data);
 
-        }     
+        }
         $this->loadModel('Employes');
 
         /* create employes entity */
         if (1==1){
-         $employes = $this->Employes->newEmptyEntity(); 
-         $employes->nomprenom=$data->nomprenom;  
-         $employes->categorie_id=$data->categorie_id;  
-         $savedEmployes=$this->Employes->save($employes); 
+         $employes = $this->Employes->newEmptyEntity();
+         $employes->nomprenom=$data->nomprenom;
+         $employes->categorie_id=$data->categorie_id;
+         $savedEmployes=$this->Employes->save($employes);
      }
          /* create infoficheevaluations entity */
         if (1==1){
-            $infoficheevaluations = $this->Infoficheevaluations->newEmptyEntity(); 
-            $infoficheevaluations->objetevaluation=$data->objetevaluation;  
-            $infoficheevaluations->dateevaluation=$data->dateevaluation;  
-            $infoficheevaluations->decisiondirection=$data->decisiondirection;  
-            $infoficheevaluations->employe_id=$savedEmployes->id;  
-            $this->Infoficheevaluations->save($infoficheevaluations); 
+            $infoficheevaluations = $this->Infoficheevaluations->newEmptyEntity();
+            $infoficheevaluations->objetevaluation=$data->objetevaluation;
+            $infoficheevaluations->dateevaluation=$data->dateevaluation;
+            $infoficheevaluations->decisiondirection=$data->decisiondirection;
+            $infoficheevaluations->employe_id=$savedEmployes->id;
+            $this->Infoficheevaluations->save($infoficheevaluations);
         }
-    
 
-            
+        $this->loadModel('Pointindicateurs');
+        /* create pointindicateurs entity */
+           if (1==1)
+           {
+               foreach ($data->Pointindicateur as $pointindic)
+               {
+                   $pointindicateurs = $this->Pointindicateurs->newEmptyEntity();
+                   $pointindicateurs->label=$pointindic->label;
+
+                   $pointindicateurs->indicateursuivi_id=$pointindic->id;
+                  // debug($pointindic);
+
+                $pointindicateurs->employe_id=$savedEmployes->id;
+
+                  $savedPointindic=$this->Pointindicateurs->save($pointindicateurs);
+                }
+            }
+
+            $this->loadModel('Pointindicasous');
+        /* create pointindicasous entity */
+           if (1==1)
+           {
+               foreach ($data->Pointindicasou as $pointindicsou)
+               {
+                   $pointindicasous = $this->Pointindicasous->newEmptyEntity();
+                   $pointindicasous->label=$pointindicsou->label;
+                   $pointindicasous->indicasoucompa_id=$pointindicsou->indicasoucompa_id;
+                   $pointindicasous->employe_id=$savedEmployes->id;
+                  // debug($pointindicsou);
+                  $savedPointindic=$this->Pointindicasous->save($pointindicasous);
+                }
+            }
+
+
          /*send result */
         $this->set([
             'success' => true,
             'data' =>  "Added with success",
             '_serialize' => ['success', 'data']
         ]);
-    
+
+    }
+    public function calculpoint(){
+
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+           // $querry=$this->request->getData();
+            //$data=json_decode($querry['data']);
+            $data=$this->request->getData();
+           // debug($data);
+
+        }
+        $this->loadModel('Employes');
+
+        /* create employes entity */
+        if (1==1){
+         $employes = $this->Employes->newEmptyEntity();
+         $employes->nomprenom=$data->nomprenom;
+         $employes->categorie_id=$data->categorie_id;
+         $savedEmployes=$this->Employes->save($employes);
+     }
+         /* create infoficheevaluations entity */
+        if (1==1){
+            $infoficheevaluations = $this->Infoficheevaluations->newEmptyEntity();
+            $infoficheevaluations->objetevaluation=$data->objetevaluation;
+            $infoficheevaluations->dateevaluation=$data->dateevaluation;
+            $infoficheevaluations->decisiondirection=$data->decisiondirection;
+            $infoficheevaluations->employe_id=$savedEmployes->id;
+            $this->Infoficheevaluations->save($infoficheevaluations);
+        }
+
+        $this->loadModel('Pointindicateurs');
+        /* create pointindicateurs entity */
+           if (1==1)
+           {
+               foreach ($data->Pointindicateur as $pointindic)
+               {
+                   $pointindicateurs = $this->Pointindicateurs->newEmptyEntity();
+                   $pointindicateurs->label=$pointindic->label;
+
+                   $pointindicateurs->indicateursuivi_id=$pointindic->id;
+                  // debug($pointindic);
+
+                $pointindicateurs->employe_id=$savedEmployes->id;
+
+                  $savedPointindic=$this->Pointindicateurs->save($pointindicateurs);
+                }
+            }
+
+            $this->loadModel('Pointindicasous');
+        /* create pointindicasous entity */
+           if (1==1)
+           {
+               foreach ($data->Pointindicasou as $pointindicsou)
+               {
+                   $pointindicasous = $this->Pointindicasous->newEmptyEntity();
+                   $pointindicasous->label=$pointindicsou->label;
+                   $pointindicasous->indicasoucompa_id=$pointindicsou->indicasoucompa_id;
+                   $pointindicasous->employe_id=$savedEmployes->id;
+                  // debug($pointindicsou);
+                  $savedPointindic=$this->Pointindicasous->save($pointindicasous);
+                }
+            }
+
+
+         /*send result */
+        $this->set([
+            'success' => true,
+            'data' =>  "Added with success",
+            '_serialize' => ['success', 'data']
+        ]);
+
     }
 
      /**
@@ -79,17 +184,17 @@ class InfoficheevaluationsController extends AppController
      *          dateevaluation (Date) *Required
      *          decisiondirection (String) *Required
      *          categorie_id(Int) *Required
-     *         
+     *
      * @Output: data : success message
      */
     public function editInfoficheevaluation(){
-        
+
         $this->request->allowMethod(['post', 'put']);
 
         /* format data */
         if (1 == 1) {
             $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
+            $data=json_decode($querry['data']);
             //$data=$this->request->getData();
             //debug ($data);die;
         }
@@ -98,13 +203,13 @@ class InfoficheevaluationsController extends AppController
         $infoficheevaluations=$this->Infoficheevaluations->get($id);
          /* create infoficheevaluations entity */
         if (1==1){
-            $infoficheevaluations->nomprenom=$data->nomprenom;  
-            $infoficheevaluations->objetevaluation=$data->objetevaluation;  
-            $infoficheevaluations->dateevaluation=$data->dateevaluation;  
-            $infoficheevaluations->decisiondirection=$data->decisiondirection;  
-            $infoficheevaluations->categorie_id=$data->categorie_id; 
+            $infoficheevaluations->nomprenom=$data->nomprenom;
+            $infoficheevaluations->objetevaluation=$data->objetevaluation;
+            $infoficheevaluations->dateevaluation=$data->dateevaluation;
+            $infoficheevaluations->decisiondirection=$data->decisiondirection;
+            $infoficheevaluations->categorie_id=$data->categorie_id;
 
-            $this->Infoficheevaluations->save($infoficheevaluations); 
+            $this->Infoficheevaluations->save($infoficheevaluations);
         }
         /*send result */
         $this->set([
@@ -112,7 +217,7 @@ class InfoficheevaluationsController extends AppController
             'data' =>  "Updated with success",
             '_serialize' => ['success', 'data']
         ]);
-    
+
     }
 
 
@@ -126,7 +231,7 @@ class InfoficheevaluationsController extends AppController
       * @Output: data
       */
       public function getInfoficheevaluationByEmployeId(){
- 
+
         $id = $this->request->getQuery('id');
 
         /* search */
@@ -140,19 +245,19 @@ class InfoficheevaluationsController extends AppController
             }
          }
 
-         
+
 
         $infoficheevaluations = $this->Infoficheevaluations->find('all', [
-           
+
             'contain' => [
                 'Employes'
-            ], 
+            ],
             'conditions'=>[
                 'infoficheevaluations.employe_id IS'=>$id
 
             ],
-           
-           
+
+
         ])->toArray();
 
         if(empty($infoficheevaluations)){
@@ -178,14 +283,14 @@ class InfoficheevaluationsController extends AppController
       * @Output: data
       */
       public function getAllNom(){
- 
+
         $infoficheevaluations = $this->Infoficheevaluations->find('all', [
             'fields'=>[
                 'id',
                 'nomprenom'
 
             ],
-               
+
         ])->toArray();
 
         /*send result */
