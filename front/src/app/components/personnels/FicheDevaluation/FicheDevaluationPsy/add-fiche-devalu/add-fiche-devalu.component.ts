@@ -52,7 +52,7 @@ export class AddFicheDevaluComponent implements OnInit {
      let id = e.target.value
       this.dataService.get('detailprofilpostes/getDetailppByCat.json?id='+id).subscribe(res=>{
         this.competences = res.data;
-
+console.log('testttt', this.competences)
         this.formCompteance = Object.values(res.data.formcompetences);
         this.open = true
 
