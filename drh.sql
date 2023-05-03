@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 03 mai 2023 à 13:18
+-- Généré le : mer. 03 mai 2023 à 17:06
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -222,7 +222,10 @@ INSERT INTO `employes` (`id`, `nomprenom`, `categorie_id`, `created`, `modified`
 (2, 'chourouk', 1, '2023-04-07 09:59:14', '2023-04-07 09:59:14'),
 (3, 'hela', 2, '2023-04-07 09:59:32', '2023-04-07 09:59:32'),
 (4, 'bolbol', 1, '2023-05-01 20:42:26', '2023-05-01 20:42:26'),
-(5, 'chou', 4, '2023-05-01 20:44:00', '2023-05-01 20:44:00');
+(5, 'chou', 4, '2023-05-01 20:44:00', '2023-05-01 20:44:00'),
+(6, 'ahmed', 1, '2023-05-03 13:10:17', '2023-05-03 13:10:17'),
+(7, 'ali', 1, '2023-05-03 13:39:21', '2023-05-03 13:39:21'),
+(8, '', 1, '2023-05-03 14:27:26', '2023-05-03 14:27:26');
 
 -- --------------------------------------------------------
 
@@ -459,6 +462,15 @@ CREATE TABLE `infoficheevaluations` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `infoficheevaluations`
+--
+
+INSERT INTO `infoficheevaluations` (`id`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `employe_id`, `created`, `modified`) VALUES
+(1, 'aa', '2023-05-05', 'aa', 6, '2023-05-03 13:10:17', '2023-05-03 13:10:17'),
+(2, 'ddd', '2023-05-07', 'ddd', 7, '2023-05-03 13:39:21', '2023-05-03 13:39:21'),
+(3, '', '', '', 8, '2023-05-03 14:27:26', '2023-05-03 14:27:26');
 
 -- --------------------------------------------------------
 
@@ -882,6 +894,21 @@ INSERT INTO `matrices` (`id`, `note`, `employe_id`, `matricecompetence_id`, `cre
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `moyennepoints`
+--
+
+CREATE TABLE `moyennepoints` (
+  `id` int(11) NOT NULL,
+  `moyenne` float NOT NULL,
+  `employe_id` int(11) NOT NULL,
+  `pointindicateur_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `niveauvises`
 --
 
@@ -956,7 +983,6 @@ CREATE TABLE `pointindicateurs` (
   `id` int(11) NOT NULL,
   `label` int(11) NOT NULL,
   `indicateursuivi_id` int(11) NOT NULL,
-  `employe_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -965,13 +991,10 @@ CREATE TABLE `pointindicateurs` (
 -- Déchargement des données de la table `pointindicateurs`
 --
 
-INSERT INTO `pointindicateurs` (`id`, `label`, `indicateursuivi_id`, `employe_id`, `created`, `modified`) VALUES
-(1, 1, 1, 1, '2023-05-02 22:54:20', '2023-05-02 22:54:20'),
-(2, 0, 2, 1, '2023-05-02 22:54:20', '2023-05-02 22:54:20'),
-(3, 1, 3, 1, '2023-05-02 22:54:20', '2023-05-02 22:54:20'),
-(4, 0, 4, 1, '2023-05-02 22:54:20', '2023-05-02 22:54:20'),
-(5, 1, 5, 1, '2023-05-02 22:54:20', '2023-05-02 22:54:20'),
-(6, 0, 1, 2, '2023-05-02 23:46:31', '2023-05-02 23:46:31');
+INSERT INTO `pointindicateurs` (`id`, `label`, `indicateursuivi_id`, `created`, `modified`) VALUES
+(1, 1, 1, '2023-05-03 14:43:36', '2023-05-03 14:43:36'),
+(2, 0, 2, '2023-05-03 14:43:36', '2023-05-03 14:43:36'),
+(3, 1, 3, '2023-05-03 14:43:36', '2023-05-03 14:43:36');
 
 -- --------------------------------------------------------
 
@@ -1379,6 +1402,12 @@ ALTER TABLE `matrices`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `moyennepoints`
+--
+ALTER TABLE `moyennepoints`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `niveauvises`
 --
 ALTER TABLE `niveauvises`
@@ -1518,7 +1547,7 @@ ALTER TABLE `echelleevaluations`
 -- AUTO_INCREMENT pour la table `employes`
 --
 ALTER TABLE `employes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `formaexternes`
@@ -1554,7 +1583,7 @@ ALTER TABLE `indicateursuivis`
 -- AUTO_INCREMENT pour la table `infoficheevaluations`
 --
 ALTER TABLE `infoficheevaluations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `matricecompetences`
@@ -1567,6 +1596,12 @@ ALTER TABLE `matricecompetences`
 --
 ALTER TABLE `matrices`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
+
+--
+-- AUTO_INCREMENT pour la table `moyennepoints`
+--
+ALTER TABLE `moyennepoints`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `niveauvises`
@@ -1590,7 +1625,7 @@ ALTER TABLE `pointindicasous`
 -- AUTO_INCREMENT pour la table `pointindicateurs`
 --
 ALTER TABLE `pointindicateurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `polycompetences`
