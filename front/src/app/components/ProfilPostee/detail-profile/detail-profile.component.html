@@ -113,13 +113,13 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group ">
                                                                 <!---<label class="h4" for="staticZone">Competence</label>-->
-                                                                <select class="form-control text-center"
+                                                                <select class="form-control text-center" style="width: 300px;"
                                                                     [attr.disabled]="enabled?null:''"
                                                                     id="exampleFormControlSelect2"
                                                                     placeholder="Veuillez choisir votre competence"
                                                                     formControlName="competence_id">
 
-                                                                    <option *ngFor="let obj of Competences"
+                                                                    <option *ngFor="let obj of Competences;let k=index"
                                                                         [ngValue]="obj.id">
 
                                                                         {{obj.label}}
@@ -129,10 +129,22 @@
                                                             </div>
 
                                                         </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group "  
+                                                             *ngFor="let obj of detailpp.formcompetences;let i=index">
+                                                                <!---<label class="h4" for="staticZone">souscompetences</label>-->
+                                                               <div *ngFor="let indica of detailpp.formcompetences[i].competence.indicateursuivis">
+                                                                {{indica.label}}
 
+                                                               </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                             
                                                         
-                                                        <!--  <div class="item-box" formArrayName="souscompetence"
-                                                        *ngFor="let item of indicateur.get('souscompetence').controls; let j = index">
+                                                         <!-- <div class="item-box" formArrayName="souscompetence"
+                                                         *ngFor="let item of indicateur.get('souscompetence').controls; let j = index">
                                                         <div [formGroupName]="j">
                                                             <div class="d-flex">
                                                                 <h1>Sous competence: {{j+1}}</h1>
