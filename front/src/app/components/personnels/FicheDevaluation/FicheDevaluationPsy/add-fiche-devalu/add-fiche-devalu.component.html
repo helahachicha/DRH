@@ -60,14 +60,16 @@
                                         </div>
                                 </div>
 
-                                <div class="col-md-5">
+                                
+                                <div class="col-md-5" *ngIf="competences">
                                         <div class="form-group">
-                                                <label for="staticZone">Niveau Vises</label>
-                                                <input type="text" class="form-control" placeholder="objet"
-                                                        required="required">
+                                                <label for="form_name">Niveau</label>
+                                                
+                                                <div *ngFor="let niveau of competences.category.niveauvises">
+                                                        {{niveau.label}}
+                                                </div>
                                         </div>
                                 </div>
-
 
 
 
