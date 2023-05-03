@@ -27,6 +27,8 @@ class CompetencesTableTest extends TestCase
         'app.Competences',
         'app.Formcompetences',
         'app.Indicateursuivis',
+        'app.Pointindicasous',
+        'app.Pointindicateurs',
         'app.Souscompetences',
     ];
 

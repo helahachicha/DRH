@@ -33,10 +33,10 @@ class InfoficheevaluationsController extends AppController
 
         /* format data */
         if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-          //  debug($data);
+           // $querry=$this->request->getData();
+            //$data=json_decode($querry['data']); 
+            $data=$this->request->getData();
+           // debug($data);
 
         }     
         $this->loadModel('Employes');
@@ -46,7 +46,6 @@ class InfoficheevaluationsController extends AppController
          $employes = $this->Employes->newEmptyEntity(); 
          $employes->nomprenom=$data->nomprenom;  
          $employes->categorie_id=$data->categorie_id;  
-
          $savedEmployes=$this->Employes->save($employes); 
      }
          /* create infoficheevaluations entity */
@@ -56,11 +55,66 @@ class InfoficheevaluationsController extends AppController
             $infoficheevaluations->dateevaluation=$data->dateevaluation;  
             $infoficheevaluations->decisiondirection=$data->decisiondirection;  
             $infoficheevaluations->employe_id=$savedEmployes->id;  
-
             $this->Infoficheevaluations->save($infoficheevaluations); 
         }
-       
+        $idcompet=[];
+        $idindica=[];
+
+        $this->loadModel('Competences');
+        $competence= $this->Competences->find('all')->toArray();
+        foreach($competence as $compet){
+   
+            array_push($idcompet,$compet->id);
+            debug($idcompet,$compet->id);
+
+        }
+        $this->loadModel('Indicateursuivis');
+        $indicateur= $this->Indicateursuivis->find('all',[
+            'conditions' => [
+                'Indicateursuivis.competence_id'=> $idcompet
+            ]
+        ])->toArray();
+        foreach($indicateur as $indic){
+      
+            array_push($idindica,$indic->id);
+            debug($idindica,$indic->id);
+
+        }
+        $this->loadModel('Pointindicateurs');
+        /* create pointindicateurs entity */
+           if (1==1)
+           {
+               foreach ($data->Pointindicateur as $pointindic)
+               {
+                   $pointindicateurs = $this->Pointindicateurs->newEmptyEntity();
+                   $pointindicateurs->label=$pointindic->label; 
+                   foreach($indicateur as $indic){
+
+                   $pointindicateurs->indicateursuivi_id=$indic->id;  
+                  // debug($pointindic); 
+                }
+                $pointindicateurs->employe_id=$savedEmployes->id; 
+
+                  $savedPointindic=$this->Pointindicateurs->save($pointindicateurs);
+                }
+            }
   
+            $this->loadModel('Pointindicasous');
+        /* create pointindicasous entity */
+           if (1==1)
+           {
+               foreach ($data->Pointindicasou as $pointindicsou)
+               {
+                   $pointindicasous = $this->Pointindicasous->newEmptyEntity();
+                   $pointindicasous->label=$pointindicsou->label; 
+                   $pointindicasous->indicasoucompa_id=$pointindicsou->indicasoucompa_id;   
+                   $pointindicasous->employe_id=$savedEmployes->id; 
+                  // debug($pointindicsou); 
+                  $savedPointindic=$this->Pointindicasous->save($pointindicasous);
+                }
+            }
+
+            
          /*send result */
         $this->set([
             'success' => true,

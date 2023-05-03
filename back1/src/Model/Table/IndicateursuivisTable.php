@@ -15,6 +15,7 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
  * @property \App\Model\Table\NiveauvisesTable&\Cake\ORM\Association\BelongsTo $Niveauvises
  * @property \App\Model\Table\NoteevaluationsTable&\Cake\ORM\Association\HasMany $Noteevaluations
+ * @property \App\Model\Table\PointindicateursTable&\Cake\ORM\Association\HasMany $Pointindicateurs
  *
  * @method \App\Model\Entity\Indicateursuivi newEmptyEntity()
  * @method \App\Model\Entity\Indicateursuivi newEntity(array $data, array $options = [])
@@ -63,6 +64,9 @@ class IndicateursuivisTable extends Table
             'joinType' => 'INNER',
         ]);
         $this->hasMany('Noteevaluations', [
+            'foreignKey' => 'indicateursuivi_id',
+        ]);
+        $this->hasMany('Pointindicateurs', [
             'foreignKey' => 'indicateursuivi_id',
         ]);
     }

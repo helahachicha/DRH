@@ -24,8 +24,8 @@ class IndicateursuivisFixture extends TestFixture
                 'detailprofilposte_id' => 1,
                 'competence_id' => 1,
                 'niveauvise_id' => 1,
-                'created' => '2023-04-27 13:30:21',
-                'modified' => '2023-04-27 13:30:21',
+                'created' => '2023-05-02 21:32:50',
+                'modified' => '2023-05-02 21:32:50',
             ],
         ];
         parent::init();

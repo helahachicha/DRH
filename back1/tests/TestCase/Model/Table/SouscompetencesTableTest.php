@@ -28,6 +28,7 @@ class SouscompetencesTableTest extends TestCase
         'app.Competences',
         'app.Detailprofilpostes',
         'app.Indicasoucompas',
+        'app.Pointindicasous',
     ];
 
     /**

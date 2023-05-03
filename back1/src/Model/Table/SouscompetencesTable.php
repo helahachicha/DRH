@@ -14,6 +14,7 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
  * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
  * @property \App\Model\Table\IndicasoucompasTable&\Cake\ORM\Association\HasMany $Indicasoucompas
+ * @property \App\Model\Table\PointindicasousTable&\Cake\ORM\Association\HasMany $Pointindicasous
  *
  * @method \App\Model\Entity\Souscompetence newEmptyEntity()
  * @method \App\Model\Entity\Souscompetence newEntity(array $data, array $options = [])
@@ -58,6 +59,9 @@ class SouscompetencesTable extends Table
             'joinType' => 'INNER',
         ]);
         $this->hasMany('Indicasoucompas', [
+            'foreignKey' => 'souscompetence_id',
+        ]);
+        $this->hasMany('Pointindicasous', [
             'foreignKey' => 'souscompetence_id',
         ]);
     }

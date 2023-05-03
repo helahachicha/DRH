@@ -6,9 +6,9 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * NiveauvisesFixture
+ * PointindicateursFixture
  */
-class NiveauvisesFixture extends TestFixture
+class PointindicateursFixture extends TestFixture
 {
     /**
      * Init method
@@ -20,10 +20,11 @@ class NiveauvisesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'label' => 'Lorem ipsum dolor sit amet',
-                'categorie_id' => 1,
-                'created' => '2023-05-02 11:47:43',
-                'modified' => '2023-05-02 11:47:43',
+                'label' => 1,
+                'indicateursuivi_id' => 1,
+                'employe_id' => 1,
+                'created' => '2023-05-03 09:47:08',
+                'modified' => '2023-05-03 09:47:08',
             ],
         ];
         parent::init();

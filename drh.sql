@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 02 mai 2023 à 10:39
+-- Généré le : mer. 03 mai 2023 à 13:18
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -434,23 +434,15 @@ INSERT INTO `indicateursuivis` (`id`, `label`, `detailprofilposte_id`, `competen
 (1, 'Compétence algorithmique niveau élevé  ', 1, 1, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
 (2, 'Connaissance de l’architecture de développement Orientée Objet ', 1, 1, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
 (3, 'Une bonne maîtrise du SQL', 1, 1, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(4, '', 1, 2, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
-(5, '', 1, 3, 1, '2023-04-26 09:14:32', '2023-04-26 09:14:32'),
 (6, 'Maîtrise fonctionnel (Certification dans l’une des trois dernières versions)', 2, 1, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
 (7, 'Compétence technique (produit odoo) ', 2, 1, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(8, '', 2, 2, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
-(9, '', 2, 3, 2, '2023-04-26 09:26:51', '2023-04-26 09:26:51'),
 (10, 'Maîtrise fonctionnel (2 Certifications parmi les 3 derniers versions)', 3, 1, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
 (11, 'Maîtrise technique ', 3, 1, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
 (12, 'Maîtrise une autre technologie (Plus qu’Odoo) ', 3, 1, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(13, '', 3, 2, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
-(14, '', 3, 3, 3, '2023-04-26 09:51:29', '2023-04-26 09:51:29'),
 (15, 'Maîtrise fonctionnel (3 Certifications)', 4, 1, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
 (16, 'Maîtrise technique ', 4, 1, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
 (17, 'Maîtrise une autre technologie (Plus Odoo) ', 4, 1, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(18, 'Maîtrise une autre technologie (Plus Odoo) ', 4, 1, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(19, '', 4, 2, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39'),
-(20, '', 4, 3, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39');
+(18, 'Maîtrise une autre technologie (Plus Odoo) ', 4, 1, 4, '2023-04-26 10:07:39', '2023-04-26 10:07:39');
 
 -- --------------------------------------------------------
 
@@ -940,23 +932,46 @@ INSERT INTO `noteevaluations` (`id`, `point_id`, `indicateursuivi_id`, `created`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `points`
+-- Structure de la table `pointindicasous`
 --
 
-CREATE TABLE `points` (
+CREATE TABLE `pointindicasous` (
   `id` int(11) NOT NULL,
   `label` int(11) NOT NULL,
+  `indicasoucompa_id` int(11) NOT NULL,
+  `souscompetence_id` int(11) NOT NULL,
+  `competence_id` int(11) NOT NULL,
+  `employe_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `pointindicateurs`
+--
+
+CREATE TABLE `pointindicateurs` (
+  `id` int(11) NOT NULL,
+  `label` int(11) NOT NULL,
+  `indicateursuivi_id` int(11) NOT NULL,
+  `employe_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `points`
+-- Déchargement des données de la table `pointindicateurs`
 --
 
-INSERT INTO `points` (`id`, `label`, `created`, `modified`) VALUES
-(1, 0, '2023-04-07 12:14:02', '2023-04-07 12:14:02'),
-(2, 1, '2023-04-07 12:14:02', '2023-04-07 12:14:02');
+INSERT INTO `pointindicateurs` (`id`, `label`, `indicateursuivi_id`, `employe_id`, `created`, `modified`) VALUES
+(1, 1, 1, 1, '2023-05-02 22:54:20', '2023-05-02 22:54:20'),
+(2, 0, 2, 1, '2023-05-02 22:54:20', '2023-05-02 22:54:20'),
+(3, 1, 3, 1, '2023-05-02 22:54:20', '2023-05-02 22:54:20'),
+(4, 0, 4, 1, '2023-05-02 22:54:20', '2023-05-02 22:54:20'),
+(5, 1, 5, 1, '2023-05-02 22:54:20', '2023-05-02 22:54:20'),
+(6, 0, 1, 2, '2023-05-02 23:46:31', '2023-05-02 23:46:31');
 
 -- --------------------------------------------------------
 
@@ -1021,8 +1036,8 @@ CREATE TABLE `postes` (
 
 INSERT INTO `postes` (`id`, `label`, `departement_id`, `created`, `modified`) VALUES
 (1, 'Développement', 1, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
-(2, 'Responsable marketing ', 2, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
-(3, 'Responsable ressource humaine ', 3, '2023-03-27 12:31:16', '2023-03-27 12:31:16');
+(2, 'Responsable marketing ', 0, '2023-03-27 12:30:24', '2023-03-27 12:30:24'),
+(3, 'Responsable ressource humaine ', 0, '2023-03-27 12:31:16', '2023-03-27 12:31:16');
 
 -- --------------------------------------------------------
 
@@ -1376,9 +1391,15 @@ ALTER TABLE `noteevaluations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `points`
+-- Index pour la table `pointindicasous`
 --
-ALTER TABLE `points`
+ALTER TABLE `pointindicasous`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `pointindicateurs`
+--
+ALTER TABLE `pointindicateurs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1560,10 +1581,16 @@ ALTER TABLE `noteevaluations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `points`
+-- AUTO_INCREMENT pour la table `pointindicasous`
 --
-ALTER TABLE `points`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `pointindicasous`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `pointindicateurs`
+--
+ALTER TABLE `pointindicateurs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `polycompetences`

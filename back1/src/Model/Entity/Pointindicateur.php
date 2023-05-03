@@ -6,17 +6,19 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Category Entity
+ * Pointindicateur Entity
  *
  * @property int $id
- * @property string $label
- * @property int $profilposte_id
+ * @property int $label
+ * @property int $indicateursuivi_id
+ * @property int $employe_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Profilposte $profilposte
+ * @property \App\Model\Entity\Indicateursuivi $indicateursuivi
+ * @property \App\Model\Entity\Employe $employe
  */
-class Category extends Entity
+class Pointindicateur extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -29,11 +31,11 @@ class Category extends Entity
      */
     protected $_accessible = [
         'label' => true,
-        'profilposte_id' => true,
+        'indicateursuivi_id' => true,
+        'employe_id' => true,
         'created' => true,
         'modified' => true,
-        'profilposte' => true,
-        'detailprofilpostes'=> true,
-        'niveauvises'=> true,
+        'indicateursuivi' => true,
+        'employe' => true,
     ];
 }

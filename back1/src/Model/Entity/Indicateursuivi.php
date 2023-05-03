@@ -20,6 +20,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Competence $competence
  * @property \App\Model\Entity\Niveauvise $niveauvise
  * @property \App\Model\Entity\Noteevaluation[] $noteevaluations
+ * @property \App\Model\Entity\Pointindicateur[] $pointindicateurs
  */
 class Indicateursuivi extends Entity
 {
@@ -43,5 +44,6 @@ class Indicateursuivi extends Entity
         'competence' => true,
         'niveauvise' => true,
         'noteevaluations' => true,
+        'pointindicateurs' => true,
     ];
 }

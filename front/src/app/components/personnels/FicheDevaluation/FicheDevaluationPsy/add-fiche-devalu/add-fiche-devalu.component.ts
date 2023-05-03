@@ -10,7 +10,6 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class AddFicheDevaluComponent implements OnInit {
 
-  public Niveauvises
   public Categories
   public competences
   public open:boolean=false
@@ -21,6 +20,7 @@ export class AddFicheDevaluComponent implements OnInit {
     dateevaluation: new FormControl('', [Validators.required]),
     decisiondirection: new FormControl('', [Validators.required]),
     categorie_id: new FormControl('', [Validators.required]),
+
   });
 
   public indicateurform=new FormGroup({
@@ -55,20 +55,20 @@ label:any=[];
   onChangeData(e){
 
      let id = e.target.value
-
-
-
       this.dataService.get('detailprofilpostes/getDetailppByCat.json?id='+id).subscribe(async res=>{
-        console.log('hhh',res.data[0])
+        console.log('hhh',res.data)
         this.competences = res.data;
-
         this.formCompteance = Object.values(res.data.formcompetences);
         this.open = true
   //this.label=this.competences.souscompetences[3].indicasoucompas[0].label
       
         this.indic=this.competences.formcompetences
         console.log('indic',this.indic)
+        
         await console.log('competencesssssssssssssssssss',this.formCompteance[1].competence.souscompetences[0 ])
+         console.log('Niveau',this.competences.category.niveauvises)
+
+       
       })
 
   }

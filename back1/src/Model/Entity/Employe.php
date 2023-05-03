@@ -17,6 +17,8 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Category $category
  * @property \App\Model\Entity\Infoficheevaluation[] $infoficheevaluations
  * @property \App\Model\Entity\Matrix[] $matrices
+ * @property \App\Model\Entity\Pointindicasous[] $pointindicasous
+ * @property \App\Model\Entity\Pointindicateur[] $pointindicateurs
  * @property \App\Model\Entity\Polycompetence[] $polycompetences
  */
 class Employe extends Entity
@@ -38,6 +40,8 @@ class Employe extends Entity
         'category' => true,
         'infoficheevaluations' => true,
         'matrices' => true,
+        'pointindicasous' => true,
+        'pointindicateurs' => true,
         'polycompetences' => true,
     ];
 }

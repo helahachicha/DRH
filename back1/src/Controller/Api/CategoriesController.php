@@ -78,6 +78,7 @@ class CategoriesController extends AppController
         ]);
     }
 
+    
 
     /**
      * editCategorie

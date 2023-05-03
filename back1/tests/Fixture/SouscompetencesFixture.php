@@ -23,8 +23,8 @@ class SouscompetencesFixture extends TestFixture
                 'label' => 'Lorem ipsum dolor sit amet',
                 'competence_id' => 1,
                 'detailprofilposte_id' => 1,
-                'created' => '2023-04-28 08:20:20',
-                'modified' => '2023-04-28 08:20:20',
+                'created' => '2023-05-03 09:34:40',
+                'modified' => '2023-05-03 09:34:40',
             ],
         ];
         parent::init();

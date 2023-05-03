@@ -18,6 +18,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Competence $competence
  * @property \App\Model\Entity\Detailprofilposte $detailprofilposte
  * @property \App\Model\Entity\Indicasoucompa[] $indicasoucompas
+ * @property \App\Model\Entity\Pointindicasous[] $pointindicasous
  */
 class Souscompetence extends Entity
 {
@@ -39,5 +40,6 @@ class Souscompetence extends Entity
         'competence' => true,
         'detailprofilposte' => true,
         'indicasoucompas' => true,
+        'pointindicasous' => true,
     ];
 }

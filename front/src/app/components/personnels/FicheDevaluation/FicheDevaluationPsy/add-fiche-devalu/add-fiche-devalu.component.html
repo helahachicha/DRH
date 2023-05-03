@@ -58,6 +58,15 @@
                                                                 </option>
                                                         </select>
                                                 </div>
+
+                                        </div>
+                                </div>
+                                <div class="col-md-5" *ngIf="competences">
+                                        <div class="form-group">
+                                                <label for="form_name">Niveau</label>
+                                                <div *ngFor="let niveau of competences.category.niveauvises">
+                                                        {{niveau.label}}
+                                                </div>
                                         </div>
                                 </div>
 
@@ -119,7 +128,8 @@
                                                                                                 *ngFor="let item1 of item.competence.indicateursuivis ;let i=index">
 
 
-                                                                                                <input type="text"
+                                                                                                <input *ngIf="item1.label"
+                                                                                                        type="text"
                                                                                                         style="width: 200px;"
                                                                                                         class="form-control "
                                                                                                         required="required"
@@ -171,18 +181,6 @@
                                                                 </td>
 
 
-
-
-                                                                <td>
-                                                                        <tr>
-                                                                                Niveau visé
-                                                                        </tr>
-                                                                        <hr>
-
-                                                                        <tr>
-                                                                                Niveau 1 / Pré-actif
-                                                                        </tr>
-                                                                </td>
                                                                 <td>
                                                                         <tr>
                                                                                 Résultat
@@ -190,7 +188,7 @@
                                                                         <hr>
 
                                                                         <tr>
-                                                                                Accepté
+                                                                                ..........
                                                                         </tr>
                                                                 </td>
                                                         </table>
@@ -210,10 +208,10 @@
                                                                         </tr>
                                                                         <hr>
                                                                         <tr>
-                                                                                <input type ='text' class="form-control"
-                                                                        placeholder="N°"
-                                                                required="required">
-                                              </tr>
+                                                                                <input type='text' class="form-control"
+                                                                                        placeholder="N°"
+                                                                                        required="required">
+                                                                        </tr>
 
                                                                 </td>
 
@@ -224,14 +222,14 @@
                                                                         <hr>
                                                                         <tr>
                                                                                 <div
-                                                                                                *ngFor="let item2 of obj.indicasoucompas ;let i=index">
+                                                                                        *ngFor="let item2 of obj.indicasoucompas ;let i=index">
 
-                                                                                                        <input type="text"
-                                                                                                                style="width: 200px;"
-                                                                                                                class="form-control "
-                                                                                                                required="required"
-                                                                                                                [placeholder]="item2.label">
-                                                                                                </div>
+                                                                                        <input type="text"
+                                                                                                style="width: 200px;"
+                                                                                                class="form-control "
+                                                                                                required="required"
+                                                                                                [placeholder]="item2.label">
+                                                                                </div>
                                                                         </tr>
                                                                 </td>
 
@@ -243,7 +241,7 @@
 
                                                                         <tr>
                                                                                 <select class="form-select"
-                                                                                aria-label="Default select example">
+                                                                                        aria-label="Default select example">
                                                                                         <option selected>Choisir un
                                                                                                 point
                                                                                         </option>
@@ -267,17 +265,6 @@
                                                                         </tr>
                                                                 </td>
 
-
-                                                                <td>
-                                                                        <tr>
-                                                                                Niveau visé
-                                                                        </tr>
-                                                                        <hr>
-
-                                                                        <tr>
-                                                                                Niveau 1 / Pré-actif
-                                                                        </tr>
-                                                                </td>
                                                                 <td>
                                                                         <tr>
                                                                                 Résultat
@@ -285,11 +272,11 @@
                                                                         <hr>
 
                                                                         <tr>
-                                                                                Accepté
+                                                                               ........
                                                                         </tr>
                                                                 </td>
 
-                                                                
+
                                                         </table>
 
                                                         <!---pour competence 1-->

@@ -37,10 +37,12 @@ class DetailprofilpostesController extends AppController
        $detailprofilpostes = $this->Detailprofilpostes->find('all', [
 
         'conditions'=>[
-            'id IS'=>$id,
+            'detailprofilpostes.id IS'=>$id,
         ],
     
         'contain' => [
+            'Categories.Niveauvises',
+            
             'Formcompetences.Competences.Indicateursuivis' => ['conditions'=>[
                 'Indicateursuivis.detailprofilposte_id IS'=>$id,
             ]],

@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\EmployesTable;
+use App\Model\Table\PointindicasousTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\EmployesTable Test Case
+ * App\Model\Table\PointindicasousTable Test Case
  */
-class EmployesTableTest extends TestCase
+class PointindicasousTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\EmployesTable
+     * @var \App\Model\Table\PointindicasousTable
      */
-    protected $Employes;
+    protected $Pointindicasous;
 
     /**
      * Fixtures
@@ -24,13 +24,11 @@ class EmployesTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Employes',
-        'app.Categories',
-        'app.Infoficheevaluations',
-        'app.Matrices',
         'app.Pointindicasous',
-        'app.Pointindicateurs',
-        'app.Polycompetences',
+        'app.Indicasoucompas',
+        'app.Souscompetences',
+        'app.Competences',
+        'app.Employes',
     ];
 
     /**
@@ -41,8 +39,8 @@ class EmployesTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Employes') ? [] : ['className' => EmployesTable::class];
-        $this->Employes = $this->getTableLocator()->get('Employes', $config);
+        $config = $this->getTableLocator()->exists('Pointindicasous') ? [] : ['className' => PointindicasousTable::class];
+        $this->Pointindicasous = $this->getTableLocator()->get('Pointindicasous', $config);
     }
 
     /**
@@ -52,7 +50,7 @@ class EmployesTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Employes);
+        unset($this->Pointindicasous);
 
         parent::tearDown();
     }
@@ -61,7 +59,7 @@ class EmployesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\EmployesTable::validationDefault()
+     * @uses \App\Model\Table\PointindicasousTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -72,7 +70,7 @@ class EmployesTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\EmployesTable::buildRules()
+     * @uses \App\Model\Table\PointindicasousTable::buildRules()
      */
     public function testBuildRules(): void
     {

@@ -6,17 +6,23 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Category Entity
+ * Pointindicasous Entity
  *
  * @property int $id
- * @property string $label
- * @property int $profilposte_id
+ * @property int $label
+ * @property int $indicasoucompa_id
+ * @property int $souscompetence_id
+ * @property int $competence_id
+ * @property int $employe_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Profilposte $profilposte
+ * @property \App\Model\Entity\Indicasoucompa $indicasoucompa
+ * @property \App\Model\Entity\Souscompetence $souscompetence
+ * @property \App\Model\Entity\Competence $competence
+ * @property \App\Model\Entity\Employe $employe
  */
-class Category extends Entity
+class Pointindicasous extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -29,11 +35,15 @@ class Category extends Entity
      */
     protected $_accessible = [
         'label' => true,
-        'profilposte_id' => true,
+        'indicasoucompa_id' => true,
+        'souscompetence_id' => true,
+        'competence_id' => true,
+        'employe_id' => true,
         'created' => true,
         'modified' => true,
-        'profilposte' => true,
-        'detailprofilpostes'=> true,
-        'niveauvises'=> true,
+        'indicasoucompa' => true,
+        'souscompetence' => true,
+        'competence' => true,
+        'employe' => true,
     ];
 }

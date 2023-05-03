@@ -29,6 +29,7 @@ class IndicateursuivisTableTest extends TestCase
         'app.Competences',
         'app.Niveauvises',
         'app.Noteevaluations',
+        'app.Pointindicateurs',
     ];
 
     /**

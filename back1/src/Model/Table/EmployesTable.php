@@ -14,6 +14,8 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
  * @property \App\Model\Table\InfoficheevaluationsTable&\Cake\ORM\Association\HasMany $Infoficheevaluations
  * @property \App\Model\Table\MatricesTable&\Cake\ORM\Association\HasMany $Matrices
+ * @property \App\Model\Table\PointindicasousTable&\Cake\ORM\Association\HasMany $Pointindicasous
+ * @property \App\Model\Table\PointindicateursTable&\Cake\ORM\Association\HasMany $Pointindicateurs
  * @property \App\Model\Table\PolycompetencesTable&\Cake\ORM\Association\HasMany $Polycompetences
  *
  * @method \App\Model\Entity\Employe newEmptyEntity()
@@ -58,6 +60,12 @@ class EmployesTable extends Table
             'foreignKey' => 'employe_id',
         ]);
         $this->hasMany('Matrices', [
+            'foreignKey' => 'employe_id',
+        ]);
+        $this->hasMany('Pointindicasous', [
+            'foreignKey' => 'employe_id',
+        ]);
+        $this->hasMany('Pointindicateurs', [
             'foreignKey' => 'employe_id',
         ]);
         $this->hasMany('Polycompetences', [
