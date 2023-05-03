@@ -90,9 +90,9 @@ export class AddFicheDevaluComponent implements OnInit {
     this.result =sum/count
 
 
-
-
   }
+
+
   result:any
   calculer(){
 
@@ -107,6 +107,8 @@ export class AddFicheDevaluComponent implements OnInit {
 
 
   }
+
+  
   pointsoucomp=[];
 
   onChangePointIndicateur(id:any,event:any){
