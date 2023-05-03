@@ -33,9 +33,9 @@ class InfoficheevaluationsController extends AppController
 
         /* format data */
         if (1 == 1) {
-           // $querry=$this->request->getData();
-            //$data=json_decode($querry['data']);
-            $data=$this->request->getData();
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']);
+            //$data=$this->request->getData();
            // debug($data);
 
         }
@@ -48,6 +48,14 @@ class InfoficheevaluationsController extends AppController
          $employes->categorie_id=$data->categorie_id;
          $savedEmployes=$this->Employes->save($employes);
      }
+        $this->loadModel('Moyennepoints');
+        /* create moyennepoints entity */
+        if (1==1){
+            $moyennepoints = $this->Moyennepoints->newEmptyEntity();
+            $moyennepoints->employe_id=$data->employe_id;
+            $savedMoy=$this->Moyennepoints->save($moyennepoints);
+        }
+
          /* create infoficheevaluations entity */
         if (1==1){
             $infoficheevaluations = $this->Infoficheevaluations->newEmptyEntity();
@@ -58,40 +66,7 @@ class InfoficheevaluationsController extends AppController
             $this->Infoficheevaluations->save($infoficheevaluations);
         }
 
-        $this->loadModel('Pointindicateurs');
-        /* create pointindicateurs entity */
-           if (1==1)
-           {
-               foreach ($data->Pointindicateur as $pointindic)
-               {
-                   $pointindicateurs = $this->Pointindicateurs->newEmptyEntity();
-                   $pointindicateurs->label=$pointindic->label;
-
-                   $pointindicateurs->indicateursuivi_id=$pointindic->id;
-                  // debug($pointindic);
-
-                $pointindicateurs->employe_id=$savedEmployes->id;
-
-                  $savedPointindic=$this->Pointindicateurs->save($pointindicateurs);
-                }
-            }
-
-            $this->loadModel('Pointindicasous');
-        /* create pointindicasous entity */
-           if (1==1)
-           {
-               foreach ($data->Pointindicasou as $pointindicsou)
-               {
-                   $pointindicasous = $this->Pointindicasous->newEmptyEntity();
-                   $pointindicasous->label=$pointindicsou->label;
-                   $pointindicasous->indicasoucompa_id=$pointindicsou->indicasoucompa_id;
-                   $pointindicasous->employe_id=$savedEmployes->id;
-                  // debug($pointindicsou);
-                  $savedPointindic=$this->Pointindicasous->save($pointindicasous);
-                }
-            }
-
-
+        
          /*send result */
         $this->set([
             'success' => true,
@@ -100,70 +75,49 @@ class InfoficheevaluationsController extends AppController
         ]);
 
     }
+
+
+
+
     public function calculpoint(){
 
         $this->request->allowMethod(['post', 'put']);
 
         /* format data */
         if (1 == 1) {
-           // $querry=$this->request->getData();
-            //$data=json_decode($querry['data']);
-            $data=$this->request->getData();
-           // debug($data);
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']);
+            //$data=$this->request->getData();
+            debug($data);
 
         }
-        $this->loadModel('Employes');
-
-        /* create employes entity */
-        if (1==1){
-         $employes = $this->Employes->newEmptyEntity();
-         $employes->nomprenom=$data->nomprenom;
-         $employes->categorie_id=$data->categorie_id;
-         $savedEmployes=$this->Employes->save($employes);
-     }
-         /* create infoficheevaluations entity */
-        if (1==1){
-            $infoficheevaluations = $this->Infoficheevaluations->newEmptyEntity();
-            $infoficheevaluations->objetevaluation=$data->objetevaluation;
-            $infoficheevaluations->dateevaluation=$data->dateevaluation;
-            $infoficheevaluations->decisiondirection=$data->decisiondirection;
-            $infoficheevaluations->employe_id=$savedEmployes->id;
-            $this->Infoficheevaluations->save($infoficheevaluations);
-        }
+       
 
         $this->loadModel('Pointindicateurs');
         /* create pointindicateurs entity */
            if (1==1)
            {
-               foreach ($data->Pointindicateur as $pointindic)
+               foreach ($data as $pointindic)
                {
-                   $pointindicateurs = $this->Pointindicateurs->newEmptyEntity();
-                   $pointindicateurs->label=$pointindic->label;
+                // debug($pointindic);
+                 
 
-                   $pointindicateurs->indicateursuivi_id=$pointindic->id;
-                  // debug($pointindic);
+            $pointindicateurs = $this->Pointindicateurs->newEmptyEntity();
+            $pointindicateurs->label=$pointindic->value ;
 
-                $pointindicateurs->employe_id=$savedEmployes->id;
+            $pointindicateurs->indicateursuivi_id=$pointindic->key;
+        // debug($pointindicateurs);
 
-                  $savedPointindic=$this->Pointindicateurs->save($pointindicateurs);
+        //$pointindicateurs->employe_id=$savedEmployes->id;
+
+        $savedPointindic=$this->Pointindicateurs->save($pointindicateurs);
+        //debug($savedPointindic);
+
+                 
                 }
             }
 
-            $this->loadModel('Pointindicasous');
-        /* create pointindicasous entity */
-           if (1==1)
-           {
-               foreach ($data->Pointindicasou as $pointindicsou)
-               {
-                   $pointindicasous = $this->Pointindicasous->newEmptyEntity();
-                   $pointindicasous->label=$pointindicsou->label;
-                   $pointindicasous->indicasoucompa_id=$pointindicsou->indicasoucompa_id;
-                   $pointindicasous->employe_id=$savedEmployes->id;
-                  // debug($pointindicsou);
-                  $savedPointindic=$this->Pointindicasous->save($pointindicasous);
-                }
-            }
-
+          
 
          /*send result */
         $this->set([
@@ -173,6 +127,8 @@ class InfoficheevaluationsController extends AppController
         ]);
 
     }
+
+
 
      /**
      * editInfoficheevaluation
