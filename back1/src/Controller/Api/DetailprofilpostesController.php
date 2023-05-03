@@ -41,6 +41,7 @@ class DetailprofilpostesController extends AppController
         ],
     
         'contain' => [
+            'Profilpostes',
             'Categories.Niveauvises',
             
             'Formcompetences.Competences.Indicateursuivis' => ['conditions'=>[
