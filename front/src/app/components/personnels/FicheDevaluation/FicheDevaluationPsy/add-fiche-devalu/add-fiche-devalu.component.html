@@ -60,11 +60,11 @@
                                         </div>
                                 </div>
 
-                                
+
                                 <div class="col-md-5" *ngIf="competences">
                                         <div class="form-group">
                                                 <label for="form_name">Niveau</label>
-                                                
+
                                                 <div *ngFor="let niveau of competences.category.niveauvises">
                                                         {{niveau.label}}
                                                 </div>
@@ -119,7 +119,7 @@
                                                                                 </tr>
                                                                                 <hr>
                                                                                 <tr>
-                                                                                       
+
                                                                                         {{indicateurSuivie.label}}
 
                                                                                 </tr>
@@ -132,7 +132,7 @@
                                                                                 <hr>
 
                                                                                 <tr>
-                                                                                        <input type="text"
+                                                                                        <input type="text" (change)="onChangePoint(indicateurSuivie.id,$event)"
                                                                                                 class="form-control ">
 
                                                                                 </tr>
@@ -155,7 +155,7 @@
 
                                                                                 </tr>
                                                                                 <tr class="mt-5">
-                                                                                        <button>Calculer </button>
+                                                                                        <button (click)="calculer()">Calculer </button>
                                                                                 </tr>
 
 
@@ -175,7 +175,7 @@
                                                                                         Accepté
                                                                                 </tr>
                                                                         </td>
-                                                                
+
                                                         </table>
 
                                                         <table *ngFor="let sousCompetence of formCompteance[i].competence.souscompetences;let k=index">
@@ -199,7 +199,7 @@
                                                                                 </tr>
 
                                                                         </td>
-                                                                           
+
                                                                         <td class="ind">
                                                                                 <tr>
                                                                                         INDICATEUR DE MESURE
@@ -208,13 +208,13 @@
                                                                                 <tr class="text-center">
 
                                                                                    {{indicateursouComp.label}}
-                                                                                   
 
-                                                                                        
+
+
 
                                                                                 </tr>
                                                                         </td>
-                                                               
+
                                                                         <td class="point">
                                                                                 <tr>
                                                                                         POINTS
@@ -222,13 +222,13 @@
                                                                                 <hr>
 
                                                                                 <tr>
-                                                                                        <input type="text"
+                                                                                        <input type="text" (change)="onChangePointIndicateur(indicateursouComp.id,$event)"
                                                                                                 class="form-control ">
 
                                                                                 </tr>
                                                                         </td>
                                                                 </div>
-                                                                        <td class="score"> 
+                                                                        <td class="score">
                                                                                 <tr>
                                                                                         SCORE
                                                                                 </tr>
@@ -255,7 +255,7 @@
                                                                                         Accepté
                                                                                 </tr>
                                                                         </td>
-                                                               
+
                                                         </table>
 
                                                         <!---pour competence 1heloooooo-->
