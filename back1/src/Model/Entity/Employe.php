@@ -10,7 +10,11 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $nomprenom
+ * @property string $objetevaluation
+ * @property \Cake\I18n\FrozenTime|null $dateevaluation
+ * @property string $decisiondirection
  * @property int $categorie_id
+ * @property float $moyen
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
@@ -34,7 +38,11 @@ class Employe extends Entity
      */
     protected $_accessible = [
         'nomprenom' => true,
+        'objetevaluation' => true,
+        'dateevaluation' => true,
+        'decisiondirection' => true,
         'categorie_id' => true,
+        'moyen' => true,
         'created' => true,
         'modified' => true,
         'category' => true,

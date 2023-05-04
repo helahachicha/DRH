@@ -88,8 +88,29 @@ class EmployesTable extends Table
             ->notEmptyString('nomprenom');
 
         $validator
+            ->scalar('objetevaluation')
+            ->maxLength('objetevaluation', 255)
+            ->requirePresence('objetevaluation', 'create')
+            ->notEmptyString('objetevaluation');
+
+        $validator
+            ->dateTime('dateevaluation')
+            ->allowEmptyDateTime('dateevaluation');
+
+        $validator
+            ->scalar('decisiondirection')
+            ->maxLength('decisiondirection', 255)
+            ->requirePresence('decisiondirection', 'create')
+            ->notEmptyString('decisiondirection');
+
+        $validator
             ->integer('categorie_id')
             ->notEmptyString('categorie_id');
+
+        $validator
+            ->numeric('moyen')
+            ->requirePresence('moyen', 'create')
+            ->notEmptyString('moyen');
 
         return $validator;
     }
