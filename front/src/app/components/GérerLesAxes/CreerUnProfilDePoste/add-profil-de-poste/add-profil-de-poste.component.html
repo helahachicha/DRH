@@ -147,20 +147,21 @@
 
 
                                                     </div>
+                                                    <hr class="mt-2">
+
                                                     <!-- Form dynamique for indicateur-->
                                                     <div class="mt-2 mb-2 end-50 ">
                                                         <button (click)="addOptions(i)" type="button"
                                                             class="btn btn-primary "><i class=" fas fa-plus-circle"></i>
                                                             Ajouter un indicateur</button>
                                                     </div>
-                                                    <hr>
                                                     <div class="item-box" formArrayName="indicateur"
                                                         *ngFor="let item of indicateur.get('indicateur').controls; let j = index">
                                                         <div [formGroupName]="j">
                                                             <div class="row">
                                                                 <div class="col-md-3">
 
-                                                                    <h4>indicateur: {{j+1}}</h4>
+                                                                    <h4>Indicateur: {{j+1}}</h4>
                                                                 </div>
                                                                 <div class="col-md-2">
                                                                     <button class="btn btn-danger"
@@ -172,7 +173,7 @@
 
                                                                     <div class="col-md-2 mt-2">
                                                                 
-                                                                        <label>indicateur: </label>
+                                                                        <label>Indicateur: </label>
                                                                     </div>
                                                                     <div class="col-md-6 mt-2">
                                                                         <input type="text" class="form-control"
@@ -185,6 +186,7 @@
                                                         </div>
 
                                                     </div>
+                                                    <hr class="mt-2">
                                                     <!-- Form dynamique for souscompetence-->
                                                     <div class="mt-2 mb-2 end-50 ">
                                                         <button (click)="addInputSoucomp(i)" type="button"
@@ -195,7 +197,7 @@
                                                     <div formArrayName="Souscompetence">
                                                         <div *ngFor="let souscomp of indicateur.get('Souscompetence').controls; let j = index"
                                                             [formGroupName]="j">
-                                                            <hr>
+                                                           
                                                             <h4>Sous-compétence {{j+1}}</h4>
                                                             <div>
                                                                 <label>Nom de la sous-compétence :</label>
