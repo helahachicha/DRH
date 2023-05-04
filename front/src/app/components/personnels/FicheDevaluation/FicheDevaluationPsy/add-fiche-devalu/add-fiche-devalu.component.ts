@@ -13,6 +13,7 @@ export class AddFicheDevaluComponent implements OnInit {
   public Categories
   public competences
   public open:boolean=false
+  id: any;
 
   public ficheForm = new FormGroup({
     nomprenom: new FormControl('', [Validators.required]),
@@ -160,12 +161,14 @@ export class AddFicheDevaluComponent implements OnInit {
     point: this.pointsoucomp
    }
 
-    this.dataService.post('employes/calculpointIndicSou.json',DataInfo).subscribe(res=> {
+    this.dataService.post('employes/calculpointIndicSou.json',this.id,DataInfo).subscribe(res=> {
       //this.router.navigate(['/list-fiche-devalu'])
       console.log('res',res.data)
       this.result1=0
       this.pointsoucomp=[]
       })
   }
+
+  
 
 }
