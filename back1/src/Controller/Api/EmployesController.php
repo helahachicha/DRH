@@ -21,7 +21,7 @@ class EmployesController extends AppController
       * @Output: data
       */
       public function getEmployeByCatId(){
- 
+
         $id = $this->request->getQuery('id');
 
         /* search */
@@ -35,7 +35,7 @@ class EmployesController extends AppController
             }
          }
 
-         
+
 
         $employes = $this->Employes->find('all', [
             'conditions'=>[
@@ -43,20 +43,20 @@ class EmployesController extends AppController
             ],
             'contain' => [
                 'Categories',
-                'Categories.Detailprofilpostes.Formcompetences.Competences.Indicateursuivis' => 
+                'Categories.Detailprofilpostes.Formcompetences.Competences.Indicateursuivis' =>
                 ['conditions'=>[
                     'Formcompetences.detailprofilposte_id IS'=>intval('categorie_id'),
                 ]],
-                'Categories.Detailprofilpostes.Formcompetences.Competences.Souscompetences' => 
+                'Categories.Detailprofilpostes.Formcompetences.Competences.Souscompetences' =>
                 ['conditions'=>[
                     'Souscompetences.detailprofilposte_id IS'=>intval('categorie_id'),
                 ]],
-                'Categories.Detailprofilpostes.Formcompetences.Competences.Souscompetences.Indicasoucompas' => 
+                'Categories.Detailprofilpostes.Formcompetences.Competences.Souscompetences.Indicasoucompas' =>
                 ['conditions'=>[
                     'Indicasoucompas.detailprofilposte_id IS'=>intval('categorie_id'),
                 ]],
               ],
-    
+
         ])->toArray();
 
         if(empty($employes)){
@@ -92,7 +92,7 @@ class EmployesController extends AppController
 
             ]
         ]);
- 
+
         /*send result */
         $this->set([
             'success' => true,
@@ -116,7 +116,7 @@ class EmployesController extends AppController
 
         /* search */
         $employes = $this->Employes->find('all');
- 
+
         /*send result */
         $this->set([
             'success' => true,
@@ -124,7 +124,7 @@ class EmployesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
-    
+
 
 
     /**
@@ -147,7 +147,7 @@ class EmployesController extends AppController
             'conditions'=>[
                 'id'=>$id,
             ],
-           
+
         ])->first();
 
         /* delete employes  */
@@ -164,6 +164,45 @@ class EmployesController extends AppController
                 '_serialize' => ['success','data']
             ]);
         }
+     public function calculpoint(){
 
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']);
+        }
+
+        /* create employes entity */
+        if (1==1){
+            $employes = $this->Employes->newEmptyEntity();
+            $employes->nomprenom=$data->nomprenom;
+            $employes->categorie_id=$data->categorie_id;
+            $employes->objetevaluation=$data->objetevaluation;
+            $employes->dateevaluation=$data->dateevaluation;
+            $employes->decisiondirection=$data->decisiondirection;
+            $employes->moyen=$data->moyen;
+            $savedEmployes=$this->Employes->save($employes);
+
+            foreach ($data->point as $points) {
+              /* create  Pointindicateurs entity */
+              $this->loadModel('Pointindicateurs');
+              $pointindicateurs = $this->Pointindicateurs->newEmptyEntity();
+              $pointindicateurs->label=$points->value;
+              $pointindicateurs->indicateursuivi_id=$points->indicateurId ;
+              $pointindicateurs->employe_id=$savedEmployes->id;
+              $this->Pointindicateurs->save($pointindicateurs);
+              
+            }
+        }
+
+         /*send result */
+         $this->set([
+            'success' => true,
+            'data' => "added with success",
+            '_serialize' => ['success','data']
+        ]);
+     }
 
 }

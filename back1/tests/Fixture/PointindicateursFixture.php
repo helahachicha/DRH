@@ -23,8 +23,8 @@ class PointindicateursFixture extends TestFixture
                 'label' => 1,
                 'indicateursuivi_id' => 1,
                 'employe_id' => 1,
-                'created' => '2023-05-03 09:47:08',
-                'modified' => '2023-05-03 09:47:08',
+                'created' => '2023-05-04 14:02:53',
+                'modified' => '2023-05-04 14:02:53',
             ],
         ];
         parent::init();
