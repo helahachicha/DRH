@@ -22,34 +22,39 @@ class DetailprofilpostesController extends AppController
       */
       public function getDetailppByCat(){
         $id = $this->request->getQuery('id');
-
+    
         /* search */
         if (1 == 1) {
             if (!isset($id) or empty($id) or $id == null) {
                 throw new UnauthorizedException('Id is Required');
             }
-
+    
             if (!is_numeric($id)) {
                 throw new UnauthorizedException('Id is not Valid');
             }
         }
-
+    
        $detailprofilpostes = $this->Detailprofilpostes->find('all', [
 
         'conditions'=>[
             'detailprofilpostes.id IS'=>$id,
-
         ],
-
-         'contain' => [
+    
+        'contain' => [
             'Profilpostes',
-             'Categories.Niveauvises',
-             'Formcompetences.Competences.Indicateursuivis' ,
-             'Formcompetences.Competences.Souscompetences' ,
-             'Formcompetences.Competences.Souscompetences.Indicasoucompas',
-         ],
+            'Categories.Niveauvises',
+            'Formcompetences.Competences.Indicateursuivis'=>['conditions'=>[
+                'Indicateursuivis.detailprofilposte_id IS'=>$id,
+            ]], 
+            'Formcompetences.Competences.Souscompetences'=>['conditions'=>[
+                'Souscompetences.detailprofilposte_id IS'=>$id,
+            ]], 
+            'Formcompetences.Competences.Souscompetences.Indicasoucompas'=>['conditions'=>[
+                'Indicasoucompas.detailprofilposte_id IS'=>$id,
+            ]], 
+        ],
     ])->first();
-
+        
 
         /* send result */
         $this->set([
@@ -58,80 +63,6 @@ class DetailprofilpostesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
-
-
-     /**
-      * getDetailppById
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-      public function getDetailppById(){
-        $id = $this->request->getQuery('id');
-
-        /* search */
-        if (1 == 1) {
-            if (!isset($id) or empty($id) or $id == null) {
-                throw new UnauthorizedException('Id is Required');
-            }
-
-            if (!is_numeric($id)) {
-                throw new UnauthorizedException('Id is not Valid');
-            }
-        }
-
-        $result=[];
-        $this->loadModel('Indicateursuivis');
-        $indicateursuivis = $this->Indicateursuivis->find('all', [
-
-            'contain' => [
-               'Detailprofilpostes', 'Competences'
-            ],
-        ])->toArray();
-
-       $detailprofilpostes = $this->Detailprofilpostes->find('all', [
-
-        'conditions'=>[
-            'detailprofilpostes.id IS'=>$id,
-
-        ],
-
-          'contain' => [
-             'Profilpostes',
-              'Categories.Niveauvises',
-              'Formcompetences.Competences.Indicateursuivis' ,
-             'Formcompetences.Competences.Souscompetences' ,
-              'Formcompetences.Competences.Souscompetences.Indicasoucompas',
-          ],
-    ])->toArray();
-    foreach($detailprofilpostes as $detailpp)
-    {
-     
-      //  debug($result);
-      $detailprofilposteId = [];
-      $formcomp = [];
-      $indicateursuivi=[];
-      foreach($detailpp->formcompetences as $form)
-        {
-         // debug($form);
-
-            array_push($detailprofilposteId,$form->detailprofilposte_id);
-            array_push($result,$form);
-
-
-
-
-        }
-
-    }
-
-        /* send result */
-        $this->set([
-            'success' => true,
-            'data' => $result,
-            '_serialize' => ['success', 'data']
-        ]);
-    }
+    
 
 }

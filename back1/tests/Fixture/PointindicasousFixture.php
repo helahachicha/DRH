@@ -28,11 +28,9 @@ class PointindicasousFixture extends TestFixture
                 'id' => 1,
                 'label' => 1,
                 'indicasoucompa_id' => 1,
-                'souscompetence_id' => 1,
-                'competence_id' => 1,
                 'employe_id' => 1,
-                'created' => '2023-05-03 09:32:18',
-                'modified' => '2023-05-03 09:32:18',
+                'created' => '2023-05-04 19:11:36',
+                'modified' => '2023-05-04 19:11:36',
             ],
         ];
         parent::init();

@@ -12,8 +12,6 @@ use Cake\Validation\Validator;
  * Pointindicasous Model
  *
  * @property \App\Model\Table\IndicasoucompasTable&\Cake\ORM\Association\BelongsTo $Indicasoucompas
- * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\BelongsTo $Souscompetences
- * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
  * @property \App\Model\Table\EmployesTable&\Cake\ORM\Association\BelongsTo $Employes
  *
  * @method \App\Model\Entity\Pointindicasous newEmptyEntity()
@@ -54,14 +52,6 @@ class PointindicasousTable extends Table
             'foreignKey' => 'indicasoucompa_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Souscompetences', [
-            'foreignKey' => 'souscompetence_id',
-            'joinType' => 'INNER',
-        ]);
-        $this->belongsTo('Competences', [
-            'foreignKey' => 'competence_id',
-            'joinType' => 'INNER',
-        ]);
         $this->belongsTo('Employes', [
             'foreignKey' => 'employe_id',
             'joinType' => 'INNER',
@@ -86,14 +76,6 @@ class PointindicasousTable extends Table
             ->notEmptyString('indicasoucompa_id');
 
         $validator
-            ->integer('souscompetence_id')
-            ->notEmptyString('souscompetence_id');
-
-        $validator
-            ->integer('competence_id')
-            ->notEmptyString('competence_id');
-
-        $validator
             ->integer('employe_id')
             ->notEmptyString('employe_id');
 
@@ -110,8 +92,6 @@ class PointindicasousTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('indicasoucompa_id', 'Indicasoucompas'), ['errorField' => 'indicasoucompa_id']);
-        $rules->add($rules->existsIn('souscompetence_id', 'Souscompetences'), ['errorField' => 'souscompetence_id']);
-        $rules->add($rules->existsIn('competence_id', 'Competences'), ['errorField' => 'competence_id']);
         $rules->add($rules->existsIn('employe_id', 'Employes'), ['errorField' => 'employe_id']);
 
         return $rules;

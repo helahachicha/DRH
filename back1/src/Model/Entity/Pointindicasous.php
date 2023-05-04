@@ -11,15 +11,11 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $label
  * @property int $indicasoucompa_id
- * @property int $souscompetence_id
- * @property int $competence_id
  * @property int $employe_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Indicasoucompa $indicasoucompa
- * @property \App\Model\Entity\Souscompetence $souscompetence
- * @property \App\Model\Entity\Competence $competence
  * @property \App\Model\Entity\Employe $employe
  */
 class Pointindicasous extends Entity
@@ -36,14 +32,10 @@ class Pointindicasous extends Entity
     protected $_accessible = [
         'label' => true,
         'indicasoucompa_id' => true,
-        'souscompetence_id' => true,
-        'competence_id' => true,
         'employe_id' => true,
         'created' => true,
         'modified' => true,
         'indicasoucompa' => true,
-        'souscompetence' => true,
-        'competence' => true,
         'employe' => true,
     ];
 }
