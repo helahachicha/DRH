@@ -104,33 +104,50 @@
     
    
     
-       <table class="table" >
-        
-     
-            <th >
-                <tr ><h4>nom & Prenom</h4></tr>
-                <tr ><h4>CT</h4></tr>
-                
-                <tr  *ngFor="let obj3 of Employes; let i=index" >
-                  <div *ngFor="let mat of Employes[i].matrices; let j=index">
-                    {{mat.matricecompetence.label}}
-                  </div>
-                 
-                 </tr>
-               
-            </th>
-        
-       <th  *ngFor="let obj3 of Employes" >
-        
-          <tr ><h5>{{obj3.nomprenom}}</h5></tr>
-    
-          <tr ><h5>{{obj3.category.label}}</h5></tr>
-          <tr *ngFor="let o of Employes; let i=index"> 
-            <input *ngFor="let mat of Employes[i].matrices; let j=index"
-           [placeholder]="mat.note" (change)="onChangeEval(matcomp.id,emp.id,$event)" >
+    <table class="table" >
+      
+        <th>
+          <tr>
+            <h4>nom &amp; Prenom</h4>
           </tr>
-          
-          
+          <tr>
+            <h4>CT</h4>
+          </tr>
+         
+            <tr *ngFor="let mat of Employes[0].matrices">
+              {{mat.matricecompetence.label}}
+            </tr>
+            <tr>
+              Poly Competence
+            </tr>
+        
         </th>
+      
      
-        </table>
+        <ng-container *ngFor="let emp of Employes">
+          <th>
+            <tr>
+              <h5>{{emp.nomprenom}}</h5>
+            </tr>
+            <tr>
+              <h5>{{emp.category.label}}</h5>
+            </tr>
+            <tr *ngFor="let not of emp.matrices">
+              <input *ngIf="not.note !== null && not.note !== undefined && emp.matrices.length > 0" [placeholder]="not.note" (change)="onChangeEval(mat.id, emp.id, $event)" />
+              <input *ngIf="not.note == null || not.note == undefined || emp.matrices.length == 0" [placeholder]="" disabled/>
+            </tr>
+            <tr *ngFor="let val of emp.polycompetences">
+              <input [placeholder]="val.valeur" />
+            </tr>
+          </th>
+        </ng-container>
+      
+    </table>
+    <div class="row">
+      <div class="mb-2 end-50 ">
+        <button type="button" class="btn btn-primary " (click)="AddEval()">
+          <i class=" fas fa-plus-circle" ></i>
+          Sauvegarder</button>
+      </div>
+    </div>
+  
