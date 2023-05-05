@@ -37,14 +37,10 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.getalldepartement()
     this.getallEmployer()
     this.getallabreviation()
-    //this.getMatriceByEmpId()
-   // this.getPolyvalenceByMatCompId()
-    //this.getAllPolyvalence()  
-    this.getallTotalpolyvalence()
-    this.getallTotalpolcomp()
-    this.getallMatrice()
-   //this.submit()
-  // this.getformaById()
+    
+    //this.getallTotalpolyvalence()
+    //this.getallTotalpolcomp()
+    //this.getallMatrice()
   }
   getallechelle() {
     this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
@@ -58,29 +54,32 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       this.open = true
     })
   }
+
+  
  getallmatricecompetence() {
     this.dataService.get('Matricecompetences/getAllMatricecompetence.json').subscribe(res => {
       this.Matricecompetences = res.data;
       this.open = true
-      console.log('tes1',this.Matricecompetences)
+     // console.log('tes1',this.Matricecompetences)
     })
   }
   getalldepartement() {
     this.dataService.get('Departements/getAllDepartement.json').subscribe(res => {
       this.Departements = res.data;
-      this.open = true
-    })
-  }
-  getallEmployer() {
-    this.dataService.get('Employes/getAllEmployeByCatAndPc.json').subscribe(res => {
-      this.Employes = res.data;
-      this.open = true
-      console.log('testtttt',this.Employes)
-      
+      this.open = true 
     })
   }
 
-  getallTotalpolyvalence() {
+  getallEmployer() {
+    this.dataService.get('Employes/getAllEmployeByCat.json').subscribe(res => {
+      this.Employes = res.data;
+      this.open = true
+      console.log('tes1123',this.Employes)
+      
+    })
+  }
+//tayarhommm....
+ /* getallTotalpolyvalence() {
     this.dataService.get('Totalpolyvalences/getAllTotalpolyvalence.json').subscribe(res => {
       this.Totalpolyvalences = res.data;
       this.open = true
@@ -100,12 +99,17 @@ export class ListingMatriceCompetenceComponent implements OnInit {
         this.Matrices = res.data;
       })
   }
+  
   getallMatrice() {
     this.dataService.get('Matrices/getAllMatrice.json').subscribe(res => {
       this.Matrices = res.data;
       this.open = true
     })
-  }
+  }*/
+
+  //.....
+
+
   /*submit() {
     this.dataService.post('Matrices/addNoteMatrice.json',this.matriceForm.value).subscribe(res=> {
     this.router.navigate(['/liste-matrice'])

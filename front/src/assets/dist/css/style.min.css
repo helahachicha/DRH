@@ -3356,19 +3356,19 @@ fieldset:disabled .btn {
 .btn-purple.disabled,
 .btn-purple:disabled {
   color: #fff;
-  background-color: #7460ee;
-  border-color: #7460ee
+  background-color: #0081c2;
+  border-color: #0081c2
 }
 
 .btn-outline-primary {
-  color: #7460ee;
-  border-color: #7460ee
+  color: #0081c2;
+  border-color: #0081c2
 }
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #7460ee;
-  border-color: #7460ee
+  background-color: #0081c2;
+  border-color: #0081c2
 }
 
 .btn-check:focus+.btn-outline-primary,
@@ -3396,7 +3396,7 @@ fieldset:disabled .btn {
 
 .btn-outline-primary.disabled,
 .btn-outline-primary:disabled {
-  color: #7460ee;
+  color: #0081c2;
   background-color: transparent
 }
 
