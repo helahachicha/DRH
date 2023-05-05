@@ -26,6 +26,7 @@ class EmployesController extends AppController
     {
         $employes = $this->Employes->find('all', [
             'fields' => [
+                'id',
                 'nomprenom',
                 'Categories.label',
             ],

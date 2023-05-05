@@ -23,6 +23,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   public matriceForm = new FormGroup({
     note: new FormControl('', [Validators.required]),
   });
+  result: number;
   
   constructor(
     private dataService: DataService,
@@ -174,5 +175,36 @@ note:any=null;
       console.log('test', this.Polyvalences)
     })
   }*/
+
+
+  evalu=[];
+  onChangeEval(mcId:any, id:any,event:any){
+   let sum=0
+    let exist=false
+    let evaluation:string
+    evaluation=event.target.value;
+    //evaluation=JSON.parse(evaluation)
+
+    this.evalu.forEach(element => {
+      if(element.empId==id && element.MCId==mcId){
+        element.value=evaluation
+        exist=true
+      }
+    });
+
+    if(exist==false){
+      this.evalu.push({ MCId : mcId, empId : id, value:evaluation})
+    }
+    console.log(this.evalu)
+  }
   
+
+  
+  AddEval(){
+
+    this.dataService.post('matrices/addEvaluation.json',this.evalu).subscribe(res=> {
+      console.log('res',res.data)
+      this.evalu=[]
+      })
+  }
 }

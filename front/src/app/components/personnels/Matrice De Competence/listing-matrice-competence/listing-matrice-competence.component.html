@@ -69,13 +69,16 @@
                         
                     </tr>
 
-                    <tr scope="col-6" class="thead-light" *ngFor="let obj3 of Matricecompetences">
-                      <th scope="row">{{obj3.label}}
+                    <tr scope="col-6" class="thead-light" *ngFor="let matcomp of Matricecompetences">
+                      <th scope="row">{{matcomp.label}}
                         <!-- <div class="text-center" *ngFor="let obj5 of obj3.polyvalences" style="background-color: coral;">
                 {{obj5.valeur}}%
               </div>-->
                       </th>
-                      <td  *ngFor="let obj3 of Employes"><input type="text" style="width:40px;"></td>
+                      <td  *ngFor="let emp of Employes">
+                        <input type="text"  (change)="onChangeEval(matcomp.id,emp.id,$event)"
+                        style="width:40px;"
+                        ></td>
 
                       <!--<td *ngFor="let obj2 of Employes" >
                 <select class="form-control" id="exampleFormControlSelect2"  placeholder="Veuillez choisir le niveau">
@@ -103,7 +106,8 @@
                 </table>
                 <div class="row">
                   <div class="mb-2 end-50 ">
-                    <button type="button" class="btn btn-primary "><i class=" fas fa-plus-circle"></i>
+                    <button type="button" class="btn btn-primary " (click)="AddEval()">
+                      <i class=" fas fa-plus-circle" ></i>
                       Sauvegarder</button>
                   </div>
                 </div>
