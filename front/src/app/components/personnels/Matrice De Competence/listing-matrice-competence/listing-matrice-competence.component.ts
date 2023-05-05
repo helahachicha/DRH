@@ -12,7 +12,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   id:any
   public open: boolean = false
   public Echelleevaluations;
-  public Souscompetences
+  public Matricecompetences
   public Departements
   public Employes
   public abreviation
@@ -38,9 +38,9 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.getallEmployer()
     this.getallabreviation()
     
-    this.getallTotalpolyvalence()
-    this.getallTotalpolcomp()
-    this.getallMatrice()
+    //this.getallTotalpolyvalence()
+    //this.getallTotalpolcomp()
+    //this.getallMatrice()
   }
   getallechelle() {
     this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
@@ -55,30 +55,31 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     })
   }
 
-  //bedelha bel get all sous competence 
+  
  getallmatricecompetence() {
-    this.dataService.get('Souscompetences/getAllSouscompetence.json').subscribe(res => {
-      this.Souscompetences = res.data;
+    this.dataService.get('Matricecompetences/getAllMatricecompetence.json').subscribe(res => {
+      this.Matricecompetences = res.data;
       this.open = true
-      console.log('tes1',this.Souscompetences)
+     // console.log('tes1',this.Matricecompetences)
     })
   }
   getalldepartement() {
     this.dataService.get('Departements/getAllDepartement.json').subscribe(res => {
       this.Departements = res.data;
-      this.open = true
+      this.open = true 
     })
   }
+
   getallEmployer() {
-    this.dataService.get('Employes/getAllEmployeByCatAndPc.json').subscribe(res => {
+    this.dataService.get('Employes/getAllEmployeByCat.json').subscribe(res => {
       this.Employes = res.data;
       this.open = true
-      console.log('testtttt',this.Employes)
+      console.log('tes1123',this.Employes)
       
     })
   }
 //tayarhommm....
-  getallTotalpolyvalence() {
+ /* getallTotalpolyvalence() {
     this.dataService.get('Totalpolyvalences/getAllTotalpolyvalence.json').subscribe(res => {
       this.Totalpolyvalences = res.data;
       this.open = true
@@ -104,7 +105,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       this.Matrices = res.data;
       this.open = true
     })
-  }
+  }*/
 
   //.....
 
