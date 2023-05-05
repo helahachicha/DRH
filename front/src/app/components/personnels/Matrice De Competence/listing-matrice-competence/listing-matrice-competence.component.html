@@ -66,6 +66,7 @@
                       <th style="background-color: rgb(163, 203, 234);color: #004e75; text-align: center; ">CT</th>
                       <td style="font-weight: bold; text-align: center; color: rgba(0, 0, 0, 0.607);"
                         *ngFor="let obj3 of Employes">{{obj3.category.label}}</td>
+                        
                     </tr>
 
                     <tr scope="col-6" class="thead-light" *ngFor="let obj3 of Matricecompetences">
@@ -74,6 +75,7 @@
                 {{obj5.valeur}}%
               </div>-->
                       </th>
+                      <td  *ngFor="let obj3 of Employes"><input type="text" style="width:40px;"></td>
 
                       <!--<td *ngFor="let obj2 of Employes" >
                 <select class="form-control" id="exampleFormControlSelect2"  placeholder="Veuillez choisir le niveau">
