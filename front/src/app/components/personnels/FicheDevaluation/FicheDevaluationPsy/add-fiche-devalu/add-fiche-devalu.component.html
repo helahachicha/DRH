@@ -132,56 +132,65 @@
                                                                                 <hr>
 
                                                                                 <tr>
-                                                                                        <input type="text" (change)="onChangePoint(indicateurSuivie.id,$event)"
+                                                                                        <input type="text"
+                                                                                                (change)="onChangePoint(indicateurSuivie.id,$event)"
                                                                                                 class="form-control ">
 
                                                                                 </tr>
 
 
                                                                         </td>
-</div>
-                                                                        <td class="score">
-                                                                                <tr>
-                                                                                        SCORE
-                                                                                </tr>
-                                                                                <hr>
+                                                                </div>
+                                                                <td class="score">
+                                                                        <tr>
+                                                                                SCORE
+                                                                        </tr>
+                                                                        <hr>
 
-                                                                                <tr>
+                                                                        <tr>
 
-                                                                                   {{result}}
+                                                                                {{result}}
 
-                                                                                </tr>
-                                                                                <tr class="mt-5">
-                                                                                        <button (click)="calculerIndic()">Calculer </button>
-                                                                                </tr>
-
-
-                                                                        </td>
+                                                                        </tr>
+                                                                        <tr class="mt-5">
+                                                                                <button class="btn btn-primary" (click)="calculerIndic()">Calculer
+                                                                                </button>
+                                                                        </tr>
 
 
+                                                                </td>
 
 
 
-                                                                        <td class="final">
-                                                                                <tr>
-                                                                                        Résultat
-                                                                                </tr>
-                                                                                <hr>
 
-                                                                                <tr >
-                                                                                        Accepté
-                                                                                </tr>
-                                                                        </td>
+
+                                                                <td class="final">
+                                                                        <tr>
+                                                                                Résultat
+                                                                        </tr>
+                                                                        <hr>
+
+                                                                        <tr>
+                                                                                <p [ngClass]="result >= 0.5 ? 'texte-accepter' : 'texte-refuser'">
+                                                                                        {{ result >= 0.5 ? 'Accepter' : 'Refuser' }}
+                                                                                      </p>
+
+                                                                                
+                                                                               
+                                                                        </tr>
+                                                                </td>
 
                                                         </table>
 
-                                                        <table *ngFor="let sousCompetence of formCompteance[i].competence.souscompetences;let k=index">
-                                                                        <tr class="text-center mt-5 mb-5">
+                                                        <table
+                                                                *ngFor="let sousCompetence of formCompteance[i].competence.souscompetences;let k=index">
+                                                                <tr class="text-center mt-5 mb-5">
 
-                                                                                {{sousCompetence.label}}
+                                                                        {{sousCompetence.label}}
 
-                                                                        </tr>
-                                                                        <div  *ngFor="let indicateursouComp of formCompteance[i].competence.souscompetences[k].indicasoucompas;let j=index">
+                                                                </tr>
+                                                                <div
+                                                                        *ngFor="let indicateursouComp of formCompteance[i].competence.souscompetences[k].indicasoucompas;let j=index">
                                                                         <td class="n">
                                                                                 <tr>
                                                                                         N°
@@ -201,7 +210,7 @@
                                                                                 <hr>
                                                                                 <tr class="text-center">
 
-                                                                                   {{indicateursouComp.label}}
+                                                                                        {{indicateursouComp.label}}
 
 
 
@@ -216,36 +225,42 @@
                                                                                 <hr>
 
                                                                                 <tr>
-                                                                                        <input type="text" (change)="onChangePointIndicateur(indicateursouComp.id,$event)"
+                                                                                        <input type="text"
+                                                                                                (change)="onChangePointIndicateur(indicateursouComp.id,$event)"
                                                                                                 class="form-control ">
 
                                                                                 </tr>
                                                                         </td>
                                                                 </div>
-                                                                        <td class="score">
-                                                                                <tr>
-                                                                                        SCORE
-                                                                                </tr>
-                                                                                <hr>
+                                                                <td class="score">
+                                                                        <tr>
+                                                                                SCORE
+                                                                        </tr>
+                                                                        <hr>
 
-                                                                                <tr>
-                                                                                  {{result1}}
-                                                                                </tr>
-                                                                                <tr class="mt-5">
-                                                                                        <button (click)="calculerIndicSou()">Calculer </button>
-                                                                                </tr>
-                                                                        </td>
+                                                                        <tr>
+                                                                                {{result1}}
+                                                                        </tr>
+                                                                        <tr class="mt-5">
+                                                                                <button class="btn btn-primary" (click)="calculerIndicSou()">Calculer
+                                                                                </button>
+                                                                        </tr>
+                                                                </td>
 
-                                                                        <td class="final">
-                                                                                <tr>
-                                                                                        Résultat
-                                                                                </tr>
-                                                                                <hr>
+                                                                <td class="final">
+                                                                        <tr>
+                                                                                Résultat
+                                                                        </tr>
+                                                                        <hr>
 
-                                                                                <tr>
-                                                                                        Accepté
-                                                                                </tr>
-                                                                        </td>
+                                                                        <tr>
+                                                                               
+
+                                                                                <p [ngClass]="result1 >= 0.5 ? 'texte-accepter' : 'texte-refuser'">
+                                                                                        {{ result1 >= 0.5 ? 'Accepter' : 'Refuser' }}
+                                                                                      </p>
+                                                                        </tr>
+                                                                </td>
 
                                                         </table>
 

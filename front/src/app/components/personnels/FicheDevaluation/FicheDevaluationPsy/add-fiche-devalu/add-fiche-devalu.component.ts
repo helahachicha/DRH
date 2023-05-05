@@ -75,7 +75,7 @@ export class AddFicheDevaluComponent implements OnInit {
     point=<number><unknown>point1
 
     this.points.forEach(element => {
-      if(element.key==id){
+      if(element.indicateurId==id){
         element.value=point
         exist=true
       }
@@ -135,7 +135,7 @@ export class AddFicheDevaluComponent implements OnInit {
      point=<number><unknown>point1
 
      this.pointsoucomp.forEach(element => {
-       if(element.key==id){
+       if(element.indicateurSouId==id){
          element.value=point
          exist=true
        }
