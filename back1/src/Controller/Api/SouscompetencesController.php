@@ -22,12 +22,20 @@ class SouscompetencesController extends AppController
                 'label'
             ],
 
-        ]);
+        ])->distinct();
+        $this->loadModel('Indicateursuivis');
+        $indicateursuivis = $this->Indicateursuivis->find('all', [
+            'fields'=>[
+                'label'
+            ],
+
+        ])->distinct();
+        $data=[$indicateursuivis,$souscompetences];
 
         /*send result */
         $this->set([
             'success' => true,
-            'data' => $souscompetences,
+            'data' => $data,
             '_serialize' => ['success', 'data']
         ]);
     }
