@@ -37,10 +37,6 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.getalldepartement()
     this.getallEmployer()
     this.getallabreviation()
-    
-    //this.getallTotalpolyvalence()
-    //this.getallTotalpolcomp()
-    //this.getallMatrice()
   }
   getallechelle() {
     this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {

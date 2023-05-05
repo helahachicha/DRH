@@ -82,9 +82,9 @@
         <div>
             <div class="mt-3 mb-2">
                 <div *ngFor="let obj of Testtechniques;let i =index">
-                    <h1>{{obj.label}}</h1>
+                    <h3>{{obj.label}}</h3>
                     <div *ngFor="let question of Testtechniques[i].questions;let j =index">
-                        <p style="font-weight: 800;">{{question.label}}</p>
+                        <p style="font-weight: 500;line-height: 25px;">{{question.label}}</p>
                         <div *ngFor="let reponse of Testtechniques[i].questions[j].sousquestions">
                             <p>{{reponse.label}}</p>
 

@@ -31,6 +31,7 @@ export class DetailTestComponent implements OnInit {
       this.dataService.get('Comptechniques/getComptechByTesttech.json?id='+id).subscribe(
         res => {
         this.Testtechniques=res.data;  
+        console.log('testtt',this.Testtechniques)
       })
   });  
   }
