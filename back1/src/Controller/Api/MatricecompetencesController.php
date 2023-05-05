@@ -13,5 +13,24 @@ use App\Controller\AppController;
  */
 class MatricecompetencesController extends AppController
 {
+   /**
+    * getAllMatricecompetence
+    *
+    * @Input: nothing
+    *
+    * @Output: data
+    */
+    public function getAllMatricecompetence()
+    {
 
+        /* search */
+        $matricecompetences = $this->Matricecompetences->find('all');
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $matricecompetences,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
 }
