@@ -63,8 +63,8 @@
               <td *ngFor="let obj3 of Employes">{{obj3.category.label}}</td>
             </tr>
             
-            <tr scope="col-6" class="thead-light" *ngFor="let obj3 of Matricecompetences">
-              <th scope="row">{{obj3.label}} ({{obj3.abreviation}} ) 
+            <tr scope="col-6" class="thead-light" *ngFor="let obj3 of Souscompetences">
+              <th scope="row">{{obj3.label}} 
               <div class="text-center" *ngFor="let obj5 of obj3.polyvalences" style="background-color: coral;">
                 {{obj5.valeur}}%
               </div>
@@ -97,7 +97,7 @@
           <div class="mb-2 end-50 ">
             <button type="button" class="btn btn-primary "><i
                     class=" fas fa-plus-circle"></i>
-                Ajouter</button>
+                Sauvegarder</button>
         </div>
       </div>     
       </div>  
