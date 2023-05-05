@@ -58,6 +58,8 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       this.open = true
     })
   }
+
+  //bedelha bel get all sous competence 
  getallmatricecompetence() {
     this.dataService.get('Matricecompetences/getAllMatricecompetence.json').subscribe(res => {
       this.Matricecompetences = res.data;
@@ -79,7 +81,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       
     })
   }
-
+//tayarhommm....
   getallTotalpolyvalence() {
     this.dataService.get('Totalpolyvalences/getAllTotalpolyvalence.json').subscribe(res => {
       this.Totalpolyvalences = res.data;
@@ -100,12 +102,17 @@ export class ListingMatriceCompetenceComponent implements OnInit {
         this.Matrices = res.data;
       })
   }
+  
   getallMatrice() {
     this.dataService.get('Matrices/getAllMatrice.json').subscribe(res => {
       this.Matrices = res.data;
       this.open = true
     })
   }
+
+  //.....
+
+
   /*submit() {
     this.dataService.post('Matrices/addNoteMatrice.json',this.matriceForm.value).subscribe(res=> {
     this.router.navigate(['/liste-matrice'])
