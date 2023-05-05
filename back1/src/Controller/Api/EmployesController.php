@@ -75,31 +75,33 @@ class EmployesController extends AppController
 
 
      /**
-    * getAllEmployeByCatAndPc
+    * getAllEmployeByCat
     *
     * @Input: nothing
     *
     * @Output: data
     */
-    public function getAllEmployeByCatAndPc()
+    public function getAllEmployeByCat()
     {
-
-        /* search */
         $employes = $this->Employes->find('all', [
-            'contain'=>[
-                'Categories.Profilpostes.Postes.Departements','Polycompetences',
-                'Matrices.Matricecompetences'
+            'fields' => [
+                'nomprenom',
+                'Categories.label',
+            ],
+            'contain' => [
+                'Categories'
+            ],
+            'group' => 'nomprenom',
+            'order' => 'nomprenom'
+        ])->distinct();
 
-            ]
-        ]);
-
-        /*send result */
         $this->set([
             'success' => true,
             'data' => $employes,
             '_serialize' => ['success', 'data']
         ]);
     }
+
 
 
 
@@ -115,7 +117,12 @@ class EmployesController extends AppController
     {
 
         /* search */
-        $employes = $this->Employes->find('all');
+        $employes = $this->Employes->find('all', [
+            'fields'=>[
+                'nomprenom',
+            ],
+
+        ])->distinct();
 
         /*send result */
         $this->set([
@@ -244,36 +251,14 @@ class EmployesController extends AppController
             }
         }
 
-        $id = $this->request->getQuery($savedEmployes->id);
-        
-        /* search */
-        if(1==1){
-            if (!isset($id) or empty($id) or $id == null ){
-               throw new UnauthorizedException('Id is Required');
-            }
-
-            if(!is_numeric($id)){
-               throw new UnauthorizedException('Id is not Valid');
-            }
-        }
-
-        $employes = $this->Employes->find('all', [
-            'conditions'=>[
-                'id IS'=>$id,
-            ],
-            'fields'=>[
-                'moyen',
-            ],
-           
-        ])->first();
-
          /*send result */
          $this->set([
             'success' => true,
             'data' => "added with success",
             '_serialize' => ['success','data']
         ]);
-     }
+
+    }
 
 
 }
