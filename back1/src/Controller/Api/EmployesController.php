@@ -197,7 +197,7 @@ class EmployesController extends AppController
               $pointindicateurs->indicateursuivi_id=$points->indicateurId ;
               $pointindicateurs->employe_id=$savedEmployes->id;
               $this->Pointindicateurs->save($pointindicateurs);
-              
+
             }
         }
 
@@ -210,7 +210,7 @@ class EmployesController extends AppController
      }
 
 
-     
+
      public function calculpointIndicSou(){
 
         $this->request->allowMethod(['post', 'put']);
@@ -240,33 +240,11 @@ class EmployesController extends AppController
               $pointindicsous->indicasoucompa_id=$pointsoucomp->indicateurSouId ;
               $pointindicsous->employe_id=$savedEmployes->id;
               $this->Pointindicasous->save($pointindicsous);
-              
+
             }
         }
 
-        $id = $this->request->getQuery($savedEmployes->id);
-        
-        /* search */
-        if(1==1){
-            if (!isset($id) or empty($id) or $id == null ){
-               throw new UnauthorizedException('Id is Required');
-            }
-
-            if(!is_numeric($id)){
-               throw new UnauthorizedException('Id is not Valid');
-            }
-        }
-
-        $employes = $this->Employes->find('all', [
-            'conditions'=>[
-                'id IS'=>$id,
-            ],
-            'fields'=>[
-                'moyen',
-            ],
-           
-        ])->first();
-
+     
          /*send result */
          $this->set([
             'success' => true,
