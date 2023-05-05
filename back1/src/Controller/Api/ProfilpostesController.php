@@ -148,11 +148,11 @@ class ProfilpostesController extends AppController
     }
 
 
-        
 
-        
 
-    
+
+
+
 
      /**
      * editProfilposte

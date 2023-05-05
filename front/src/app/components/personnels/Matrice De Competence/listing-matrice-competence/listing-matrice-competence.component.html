@@ -4,35 +4,40 @@
       <div class="col">
         <div class="card shadow">
           <div class="card-header border-0 text-center">
-            <h3 class="mb-0">Matrice De Competence</h3>
+            <h3 class="mb-0" style="color: black;text-decoration-line: underline;">Matrice De Competence</h3>
           </div>
           <div class="card-header border-0">
-            <h3 class="mb-0">Echelle d'évaluation</h3>
+            <h3 class="mb-0" style="color: #005e8e;">Echelle d'évaluation</h3>
             <div class="row">
-              <div class="col-8 mt-3" *ngFor="let obj of Echelleevaluations">
+              <div class="col-4 mt-3 "style="line-height: 1px;" *ngFor="let obj of Echelleevaluations">
                 <ul>
                   <li>
-                    <span [ngStyle]="{'color': dataValue < 0 ? 'red' : 'green'}">
+                    <span [ngStyle]="{'color': dataValue < 0 ? 'red' : 'black'}">
                       {{obj.label}}: {{obj.abreviation}} : {{obj.valeur}}
                     </span>
                   </li>
                 </ul>
               </div>
+              <div class="col-2" style="line-height: 25px;">
+                <ul>
+                  <li style="color:#005e8e;font-weight: bold ;">
+                    Catégorie : (CT)
+                  </li>
+                  <li style="color:black">
+                    Junior : J
+                  </li>
+                  <li style="color:black">
+                    Confirmé : C
+                  </li >
+                  <li style="color:black">
+                    Senior : S
+                  </li>
+                  <li style="color:black">
+                    Teck Lead : T
+                  </li>
+                </ul>
+              </div>
             </div>
-            <ul>
-              <li>
-                Catégorie : (CT)
-              </li>
-              <li>
-                Junior : J
-              </li>
-              <li>
-                Confirmé : C
-              </li>
-              <li>
-                Senior : S
-              </li>
-            </ul>
           </div>
         </div>
       </div>
@@ -54,7 +59,7 @@
 
                     </tr>
                   </thead>
-                  <tbody> 
+                  <tbody>
                     <tr class="thead-light">
                       <th style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center;">Nom & Prenom
                       </th>
@@ -66,37 +71,14 @@
                       <th style="background-color: rgb(163, 203, 234);color: #004e75; text-align: center; ">CT</th>
                       <td style="font-weight: bold; text-align: center; color: rgba(0, 0, 0, 0.607);"
                         *ngFor="let obj3 of Employes">{{obj3.category.label}}</td>
-                        
+
                     </tr>
 
-                    <tr scope="col-6" class="thead-light" *ngFor="let matcomp of Matricecompetences">
-                      <th scope="row">{{matcomp.label}}
-                        <!-- <div class="text-center" *ngFor="let obj5 of obj3.polyvalences" style="background-color: coral;">
-                {{obj5.valeur}}%
-              </div>-->
+                    <tr scope="col-6" class="thead-light" *ngFor="let obj3 of Matricecompetences">
+                      <th scope="row">{{obj3.label}}
+
                       </th>
-                      <td  *ngFor="let emp of Employes">
-                        <input type="text"  (change)="onChangeEval(matcomp.id,emp.id,$event)"
-                        style="width:40px;"
-                        ></td>
-
-                      <!--<td *ngFor="let obj2 of Employes" >
-                <select class="form-control" id="exampleFormControlSelect2"  placeholder="Veuillez choisir le niveau">
-
-
-
-                  <option *ngFor="let obj4 of abreviation">
-
-                    {{obj4.abreviation}}
-                  </option>
-                </select>
-              </td>-->
-
-                      <!--<td *ngFor="let obj3 of obj3.matrices">
-                {{obj3.note}}
-              </td>-->
-
-
+                      <td *ngFor="let obj3 of Employes"><input type="text" style="width:40px;"></td>
                     </tr>
                     <tr scope="col-6" class="thead-light">
                       <th style="background-color: rgb(163, 203, 234); color: #004e75; text-align: center;">TOTAL

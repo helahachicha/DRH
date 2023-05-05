@@ -64,6 +64,8 @@ export class AddFicheDevaluComponent implements OnInit {
 
   points=[];
   onChangePoint(id:any,event:any){
+    this.result=0
+
    let sum=0
     let exist=false
     let point1:string
@@ -82,13 +84,16 @@ export class AddFicheDevaluComponent implements OnInit {
     if(exist==false){
       this.points.push({ indicateurId : id,value:point1})
     }
-    console.log(this.points)
+   // console.log(this.points)
     this.points.forEach(element => {
       sum+=element.value
+    //  console.log(sum)
+
     });
 
    let count=this.points.length
     this.result =sum/count
+   // console.log(this.result)
 
 
   }
@@ -110,15 +115,17 @@ export class AddFicheDevaluComponent implements OnInit {
     this.dataService.post('employes/calculpointIndic.json',DataInfo).subscribe(res=> {
       //this.router.navigate(['/list-fiche-devalu'])
       console.log('res',res.data)
-      this.result=0
       this.points=[]
       })
+
   }
 
 
   pointsoucomp=[];
 
   onChangePointIndicateur(id:any,event:any){
+    this.result1=0
+
     let sum=0
      let exist=false
      let point1:string
@@ -128,7 +135,7 @@ export class AddFicheDevaluComponent implements OnInit {
      point=<number><unknown>point1
 
      this.pointsoucomp.forEach(element => {
-       if(element.key==id){
+       if(element.indicateurSouId==id){
          element.value=point
          exist=true
        }
@@ -164,11 +171,10 @@ export class AddFicheDevaluComponent implements OnInit {
     this.dataService.post('employes/calculpointIndicSou.json',DataInfo).subscribe(res=> {
       //this.router.navigate(['/list-fiche-devalu'])
       console.log('res',res.data)
-      this.result1=0
       this.pointsoucomp=[]
       })
   }
 
-  
+
 
 }
