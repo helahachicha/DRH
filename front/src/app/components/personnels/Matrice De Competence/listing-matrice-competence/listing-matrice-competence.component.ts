@@ -12,7 +12,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   id:any
   public open: boolean = false
   public Echelleevaluations;
-  public Matricecompetences
+  public Souscompetences
   public Departements
   public Employes
   public abreviation
@@ -37,14 +37,10 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.getalldepartement()
     this.getallEmployer()
     this.getallabreviation()
-    //this.getMatriceByEmpId()
-   // this.getPolyvalenceByMatCompId()
-    //this.getAllPolyvalence()  
+    
     this.getallTotalpolyvalence()
     this.getallTotalpolcomp()
     this.getallMatrice()
-   //this.submit()
-  // this.getformaById()
   }
   getallechelle() {
     this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
@@ -61,10 +57,10 @@ export class ListingMatriceCompetenceComponent implements OnInit {
 
   //bedelha bel get all sous competence 
  getallmatricecompetence() {
-    this.dataService.get('Matricecompetences/getAllMatricecompetence.json').subscribe(res => {
-      this.Matricecompetences = res.data;
+    this.dataService.get('Souscompetences/getAllSouscompetence.json').subscribe(res => {
+      this.Souscompetences = res.data;
       this.open = true
-      console.log('tes1',this.Matricecompetences)
+      console.log('tes1',this.Souscompetences)
     })
   }
   getalldepartement() {
