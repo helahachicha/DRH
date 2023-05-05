@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 05 mai 2023 à 10:38
+-- Généré le : ven. 05 mai 2023 à 12:07
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -222,7 +222,15 @@ CREATE TABLE `employes` (
 INSERT INTO `employes` (`id`, `nomprenom`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `categorie_id`, `moyen`, `created`, `modified`) VALUES
 (1, 'ali', 'test', '2023-05-06 00:00:00', 'test', 1, 1, '2023-05-05 07:36:25', '2023-05-05 07:36:25'),
 (2, 'ali', 'test', '2023-05-06 00:00:00', 'test', 1, 1.33333, '2023-05-05 07:36:44', '2023-05-05 07:36:44'),
-(3, 'ali', 'test', '2023-05-06 00:00:00', 'test', 1, 1, '2023-05-05 07:37:08', '2023-05-05 07:37:08');
+(3, 'ali', 'test', '2023-05-06 00:00:00', 'test', 1, 1, '2023-05-05 07:37:08', '2023-05-05 07:37:08'),
+(4, 'sami', 'test', '2023-05-20 00:00:00', 'test', 1, 0.333333, '2023-05-05 08:41:51', '2023-05-05 08:41:51'),
+(5, 'sami', 'test', '2023-05-20 00:00:00', 'test', 1, 0.666667, '2023-05-05 08:42:00', '2023-05-05 08:42:00'),
+(6, 'sami', 'test', '2023-05-20 00:00:00', 'test', 1, 1, '2023-05-05 08:42:09', '2023-05-05 08:42:09'),
+(7, 'chourouk', 'test', '0000-00-00 00:00:00', 'test', 2, 1, '2023-05-05 10:05:22', '2023-05-05 10:05:22'),
+(8, 'chourouk', 'test', '0000-00-00 00:00:00', 'test', 2, 0.5, '2023-05-05 10:05:59', '2023-05-05 10:05:59'),
+(9, 'chourouk', 'test', '0000-00-00 00:00:00', 'test', 2, 0.666667, '2023-05-05 10:06:22', '2023-05-05 10:06:22'),
+(10, 'bilel', 'test', '2023-05-12 00:00:00', 'test', 3, 1, '2023-05-05 10:07:06', '2023-05-05 10:07:06'),
+(11, 'bilel', 'test', '2023-05-12 00:00:00', 'test', 3, 0.333333, '2023-05-05 10:07:23', '2023-05-05 10:07:23');
 
 -- --------------------------------------------------------
 
@@ -481,7 +489,7 @@ INSERT INTO `matricecompetences` (`id`, `label`, `abreviation`, `created`, `modi
 (16, 'Créativité & innovation\r\n', 'CI', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
 (17, 'Orientation stratégique\r\n', 'OS', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
 (18, 'Compétence algorithmique\r\n', 'CA', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
-(19, 'Connaissance de l’architecture de développement orienté objet \r\n', 'OO\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
+(19, 'Connaissance de l’architecture de\n développement orienté objet \n', 'OO\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
 (20, 'Une bonne maîtrise du SQL\r\n', 'SQL\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
 (21, 'Maîtrise fonctionnel', 'MF', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
 (22, 'Maîtrise technique odoo\r\n', 'MT\r\n', '2023-04-08 17:51:32', '2023-04-08 17:51:32'),
@@ -500,7 +508,7 @@ INSERT INTO `matricecompetences` (`id`, `label`, `abreviation`, `created`, `modi
 (35, 'Élaboration des documents qualité\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
 (36, 'Audit interne ISO 19001 Vs 2018\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
 (37, 'Pilotage système management qualité\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
-(38, 'Certification système de management qualité ISO 20000 Technologies de l’information dernière version\r\n ', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
+(38, 'Certification système de management qualité ISO\n 20000 Technologies de l’information dernière version\n ', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
 (39, 'Gérer les réseaux sociaux\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
 (40, 'Compréhension des outils de design \r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
 (41, 'Gestion de sponsoring\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
@@ -512,7 +520,7 @@ INSERT INTO `matricecompetences` (`id`, `label`, `abreviation`, `created`, `modi
 (47, 'Une bonne maîtirse de la comptabilité générale \r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
 (48, 'Maitrise du bilan comptable jusqu’à la clôture\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
 (49, 'Gérer les complexités des comptes comptables\r\n', '', '2023-04-08 17:55:56', '2023-04-08 17:55:56'),
-(50, 'Conseiller à propos l’évolution des normes et des pratiques comptables\r\n', '', '2023-04-08 17:58:19', '2023-04-08 17:58:19');
+(50, 'Conseiller à propos l’évolution des normes et \ndes pratiques comptables\n', '', '2023-04-08 17:58:19', '2023-04-08 17:58:19');
 
 -- --------------------------------------------------------
 
@@ -605,7 +613,21 @@ INSERT INTO `pointindicasous` (`id`, `label`, `indicasoucompa_id`, `employe_id`,
 (4, 1, 4, 3, '2023-05-05 07:37:08', '2023-05-05 07:37:08'),
 (5, 1, 5, 3, '2023-05-05 07:37:08', '2023-05-05 07:37:08'),
 (6, 1, 6, 3, '2023-05-05 07:37:08', '2023-05-05 07:37:08'),
-(7, 1, 7, 3, '2023-05-05 07:37:08', '2023-05-05 07:37:08');
+(7, 1, 7, 3, '2023-05-05 07:37:08', '2023-05-05 07:37:08'),
+(8, 0, 31, 5, '2023-05-05 08:42:00', '2023-05-05 08:42:00'),
+(9, 1, 32, 5, '2023-05-05 08:42:00', '2023-05-05 08:42:00'),
+(10, 1, 33, 5, '2023-05-05 08:42:00', '2023-05-05 08:42:00'),
+(11, 1, 4, 6, '2023-05-05 08:42:09', '2023-05-05 08:42:09'),
+(12, 1, 5, 6, '2023-05-05 08:42:09', '2023-05-05 08:42:09'),
+(13, 1, 6, 6, '2023-05-05 08:42:09', '2023-05-05 08:42:09'),
+(14, 1, 34, 8, '2023-05-05 10:05:59', '2023-05-05 10:05:59'),
+(15, 0, 35, 8, '2023-05-05 10:05:59', '2023-05-05 10:05:59'),
+(16, 0, 17, 9, '2023-05-05 10:06:22', '2023-05-05 10:06:22'),
+(17, 1, 18, 9, '2023-05-05 10:06:22', '2023-05-05 10:06:22'),
+(18, 1, 19, 9, '2023-05-05 10:06:22', '2023-05-05 10:06:22'),
+(19, 0, 51, 11, '2023-05-05 10:07:23', '2023-05-05 10:07:23'),
+(20, 0, 52, 11, '2023-05-05 10:07:23', '2023-05-05 10:07:23'),
+(21, 1, 53, 11, '2023-05-05 10:07:23', '2023-05-05 10:07:23');
 
 -- --------------------------------------------------------
 
@@ -629,7 +651,15 @@ CREATE TABLE `pointindicateurs` (
 INSERT INTO `pointindicateurs` (`id`, `label`, `indicateursuivi_id`, `employe_id`, `created`, `modified`) VALUES
 (1, 1, 1, 1, '2023-05-05 07:36:25', '2023-05-05 07:36:25'),
 (2, 1, 2, 1, '2023-05-05 07:36:25', '2023-05-05 07:36:25'),
-(3, 1, 3, 1, '2023-05-05 07:36:25', '2023-05-05 07:36:25');
+(3, 1, 3, 1, '2023-05-05 07:36:25', '2023-05-05 07:36:25'),
+(4, 1, 1, 4, '2023-05-05 08:41:51', '2023-05-05 08:41:51'),
+(5, 0, 2, 4, '2023-05-05 08:41:51', '2023-05-05 08:41:51'),
+(6, 0, 3, 4, '2023-05-05 08:41:51', '2023-05-05 08:41:51'),
+(7, 1, 6, 7, '2023-05-05 10:05:22', '2023-05-05 10:05:22'),
+(8, 1, 7, 7, '2023-05-05 10:05:22', '2023-05-05 10:05:22'),
+(9, 1, 10, 10, '2023-05-05 10:07:06', '2023-05-05 10:07:06'),
+(10, 1, 11, 10, '2023-05-05 10:07:06', '2023-05-05 10:07:06'),
+(11, 1, 12, 10, '2023-05-05 10:07:06', '2023-05-05 10:07:06');
 
 -- --------------------------------------------------------
 
@@ -1155,7 +1185,7 @@ ALTER TABLE `echelleevaluations`
 -- AUTO_INCREMENT pour la table `employes`
 --
 ALTER TABLE `employes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `formaexternes`
@@ -1215,13 +1245,13 @@ ALTER TABLE `noteevaluations`
 -- AUTO_INCREMENT pour la table `pointindicasous`
 --
 ALTER TABLE `pointindicasous`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `pointindicateurs`
 --
 ALTER TABLE `pointindicateurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `polycompetences`
