@@ -145,7 +145,7 @@ class EmployesController extends AppController
               $pointindicateurs->indicateursuivi_id=$points->indicateurId ;
               $pointindicateurs->employe_id=$savedEmployes->id;
               $this->Pointindicateurs->save($pointindicateurs);
-              
+
             }
         }
 
@@ -158,7 +158,7 @@ class EmployesController extends AppController
      }
 
 
-     
+
      public function calculpointIndicSou(){
 
         $this->request->allowMethod(['post', 'put']);
@@ -188,9 +188,10 @@ class EmployesController extends AppController
               $pointindicsous->indicasoucompa_id=$pointsoucomp->indicateurSouId ;
               $pointindicsous->employe_id=$savedEmployes->id;
               $this->Pointindicasous->save($pointindicsous);
-              
+
             }
         }
+
 
          /*send result */
          $this->set([
