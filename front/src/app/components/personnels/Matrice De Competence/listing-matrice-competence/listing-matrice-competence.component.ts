@@ -70,9 +70,10 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   getallEmployer() {
     this.dataService.get('Employes/getAllEmployeByCat.json').subscribe(res => {
       this.Employes = res.data;
+
       this.open = true
       console.log('tes1123',this.Employes)
-      
+      console.log('tes1123',this.Employes[0].matrices[0].matricecompetence.label)
     })
   }
 //tayarhommm....

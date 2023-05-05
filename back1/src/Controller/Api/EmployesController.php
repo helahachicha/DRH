@@ -31,7 +31,7 @@ class EmployesController extends AppController
                 'Categories.label',
             ],
             'contain' => [
-                'Categories'
+                'Categories','Matrices.Matricecompetences','Polycompetences'
             ],
             'group' => 'nomprenom',
             'order' => 'nomprenom'

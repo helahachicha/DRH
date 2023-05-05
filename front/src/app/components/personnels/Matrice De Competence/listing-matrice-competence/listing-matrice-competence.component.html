@@ -1,4 +1,4 @@
-<div class="card">
+<!--<div class="card">
   <div class="card-body">
     <div class="row">
       <div class="col">
@@ -64,21 +64,23 @@
                       <th style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center;">Nom & Prenom
                       </th>
                       <td style="font-weight: bold; text-align: center; color: black;" *ngFor="let obj3 of Employes">
-                        {{obj3.nomprenom}}</td>
+                        {{obj3.nomprenom}} </td>
                     </tr>
 
                     <tr class="thead-light">
                       <th style="background-color: rgb(163, 203, 234);color: #004e75; text-align: center; ">CT</th>
                       <td style="font-weight: bold; text-align: center; color: rgba(0, 0, 0, 0.607);"
-                        *ngFor="let obj3 of Employes">{{obj3.category.label}}</td>
+                        *ngFor="let emp of Employes">{{emp.category.label}}</td>
 
                     </tr>
 
-                    <tr scope="col-6" class="thead-light" *ngFor="let obj3 of Matricecompetences">
-                      <th scope="row">{{obj3.label}}
+                    <tr scope="col-6" class="thead-light" *ngFor="let obj3 of Employes; let i=index" >
+                      <th scope="row">{{obj3.matrices[i].matricecompetence.label}}</th>
+                      <td > 
+                        <input type="text" style="width:40px;"
+                       [placeholder]="obj3.matrices[i].note" (change)="onChangeEval(matcomp.id,emp.id,$event)" >
+                      </td>
 
-                      </th>
-                      <td *ngFor="let obj3 of Employes"><input type="text" style="width:40px;"></td>
                     </tr>
                     <tr scope="col-6" class="thead-light">
                       <th style="background-color: rgb(163, 203, 234); color: #004e75; text-align: center;">TOTAL
@@ -98,4 +100,37 @@
           </form>
         </div>
       </div>
-    </div>
+    </div>-->
+    
+   
+    
+       <table class="table" >
+        
+     
+            <th >
+                <tr ><h4>nom & Prenom</h4></tr>
+                <tr ><h4>CT</h4></tr>
+                
+                <tr  *ngFor="let obj3 of Employes; let i=index" >
+                  <div *ngFor="let mat of Employes[i].matrices; let j=index">
+                    {{mat.matricecompetence.label}}
+                  </div>
+                 
+                 </tr>
+               
+            </th>
+        
+       <th  *ngFor="let obj3 of Employes" >
+        
+          <tr ><h5>{{obj3.nomprenom}}</h5></tr>
+    
+          <tr ><h5>{{obj3.category.label}}</h5></tr>
+          <tr *ngFor="let o of Employes; let i=index"> 
+            <input *ngFor="let mat of Employes[i].matrices; let j=index"
+           [placeholder]="mat.note" (change)="onChangeEval(matcomp.id,emp.id,$event)" >
+          </tr>
+          
+          
+        </th>
+     
+        </table>
