@@ -73,7 +73,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
 
       this.open = true
       console.log('tes1123',this.Employes)
-      console.log('tes1123',this.Employes[0].matrices[0].matricecompetence.label)
+      console.log('tes11235',this.Employes[0].matrices[0].matricecompetence.label)
     })
   }
 //tayarhommm....
