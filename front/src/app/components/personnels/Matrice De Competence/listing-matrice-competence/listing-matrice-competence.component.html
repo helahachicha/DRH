@@ -9,7 +9,7 @@
           <div class="card-header border-0">
             <h3 class="mb-0" style="color: #005e8e;">Echelle d'évaluation</h3>
             <div class="row">
-              <div class="col-4 mt-3 "style="line-height: 1px;" *ngFor="let obj of Echelleevaluations">
+              <div class="col-4 mt-3 " style="line-height: 1px;" *ngFor="let obj of Echelleevaluations">
                 <ul>
                   <li>
                     <span [ngStyle]="{'color': dataValue < 0 ? 'red' : 'black'}">
@@ -28,7 +28,7 @@
                   </li>
                   <li style="color:black">
                     Confirmé : C
-                  </li >
+                  </li>
                   <li style="color:black">
                     Senior : S
                   </li>
@@ -74,11 +74,11 @@
 
                     </tr>
 
-                    <tr scope="col-6" class="thead-light" *ngFor="let obj3 of Employes; let i=index" >
+                    <tr scope="col-6" class="thead-light" *ngFor="let obj3 of Employes; let i=index">
                       <th scope="row">{{obj3.matrices[i].matricecompetence.label}}</th>
-                      <td > 
-                        <input type="text" style="width:40px;"
-                       [placeholder]="obj3.matrices[i].note" (change)="onChangeEval(matcomp.id,emp.id,$event)" >
+                      <td>
+                        <input type="text" style="width:40px;" [placeholder]="obj3.matrices[i].note"
+                          (change)="onChangeEval(matcomp.id,emp.id,$event)">
                       </td>
 
                     </tr>
@@ -91,7 +91,7 @@
                 <div class="row">
                   <div class="mb-2 end-50 ">
                     <button type="button" class="btn btn-primary " (click)="AddEval()">
-                      <i class=" fas fa-plus-circle" ></i>
+                      <i class=" fas fa-plus-circle"></i>
                       Sauvegarder</button>
                   </div>
                 </div>
@@ -101,53 +101,140 @@
         </div>
       </div>
     </div>-->
-    
-   
-    
-    <table class="table" >
-      
-        <th>
-          <tr>
-            <h4>nom &amp; Prenom</h4>
-          </tr>
-          <tr>
-            <h4>CT</h4>
-          </tr>
-         
-            <tr *ngFor="let mat of Employes[0].matrices">
-              {{mat.matricecompetence.label}}
-            </tr>
-            <tr>
-              Poly Competence
-            </tr>
-        
-        </th>
-      
-     
-        <ng-container *ngFor="let emp of Employes">
-          <th>
-            <tr>
-              <h5>{{emp.nomprenom}}</h5>
-            </tr>
-            <tr>
-              <h5>{{emp.category.label}}</h5>
-            </tr>
-            <tr *ngFor="let not of emp.matrices">
-              <input *ngIf="not.note !== null && not.note !== undefined && emp.matrices.length > 0" [placeholder]="not.note" (change)="onChangeEval(mat.id, emp.id, $event)" />
-              <input *ngIf="not.note == null || not.note == undefined || emp.matrices.length == 0" [placeholder]="" disabled/>
-            </tr>
-            <tr *ngFor="let val of emp.polycompetences">
-              <input [placeholder]="val.valeur" />
-            </tr>
-          </th>
-        </ng-container>
-      
-    </table>
+
+
+
+
+
+<div class="card">
+  <div class="card-body">
     <div class="row">
-      <div class="mb-2 end-50 ">
-        <button type="button" class="btn btn-primary " (click)="AddEval()">
-          <i class=" fas fa-plus-circle" ></i>
-          Sauvegarder</button>
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0 text-center">
+            <h3 class="mb-0" style="color: black;text-decoration-line: underline;">Matrice De Competence</h3>
+          </div>
+          <div class="card-header border-0">
+            <h3 class="mb-0" style="color: #005e8e;">Echelle d'évaluation</h3>
+            <div class="row">
+              <div class="col-4 mt-3 " style="line-height: 1px;" *ngFor="let obj of Echelleevaluations">
+                <ul>
+                  <li>
+                    <span [ngStyle]="{'color': dataValue < 0 ? 'red' : 'black'}">
+                      {{obj.label}}: {{obj.abreviation}} : {{obj.valeur}}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-2" style="line-height: 25px;">
+                <ul>
+                  <li style="color:#005e8e;font-weight: bold ;">
+                    Catégorie : (CT)
+                  </li>
+                  <li style="color:black">
+                    Junior : J
+                  </li>
+                  <li style="color:black">
+                    Confirmé : C
+                  </li>
+                  <li style="color:black">
+                    Senior : S
+                  </li>
+                  <li style="color:black">
+                    Teck Lead : T
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+
+
+          <form id="contact-form" role="form" [formGroup]="matriceForm">
+            <div class="table-responsive">
+              <div class="table-responsive">
+                <table class="table  table-bordered align-items-center table-flush">
+                  <thead>
+                    <tr style="background-color: rgb(163, 203, 234); color: #004e75;">
+                      <th style="color: #004e75; text-align: center;">GP </th>
+                      <td style=" font-weight: bold;" class="text-center" colspan="4" *ngFor="let obj2 of Departements">
+                        {{obj2.label}}</td>
+                      <th style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center;">TOTAL
+                        Polyvalence:</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <th style="padding: 0;">
+                      <tr style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center;">
+                        <th> nom &amp; Prenom</th>
+                      </tr>
+
+                      <tr>
+                        <th style="background-color: rgb(163, 203, 234);color: #004e75; text-align: center; ">CT</th>
+                      </tr>
+
+                      <tr class="thead-light" *ngFor="let mat of Employes[0].matrices">
+                        <th>
+                          {{mat.matricecompetence.label}}
+                        </th>
+                      </tr>
+                      <tr>
+                        <th style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center;">TOTAL
+                          Polycompetence :</th>
+                      </tr>
+
+                    </th>
+
+
+                    <ng-container *ngFor="let emp of Employes">
+                      <th style="padding: 0;">
+                        <tr>
+                          <td style="font-weight: bold; text-align: center; color: black;">
+                            {{emp.nomprenom}}
+
+                          </td>
+                        </tr>
+
+
+                        <tr>
+                          <td style="font-weight: bold; text-align: center; color: rgba(0, 0, 0, 0.607);">
+                            {{emp.category.label}}</td>
+
+                        </tr>
+
+                        <tr *ngFor="let not of emp.matrices" style="height: 80px;">
+                          <input class="mt-2"
+                            *ngIf="not.note !== null && not.note !== undefined && emp.matrices.length > 0"
+                            [placeholder]="not.note" (change)="onChangeEval(mat.id, emp.id, $event)" />
+                          <input *ngIf="not.note == null || not.note == undefined || emp.matrices.length == 0"
+                            [placeholder]="" disabled />
+                        </tr>
+
+                        <tr *ngFor="let val of emp.polycompetences">
+                          <input [placeholder]="val.valeur" />
+                        </tr>
+                      </th>
+                    </ng-container>
+                  </tbody>
+                </table>
+                <div class="row">
+                  <div class="mb-2 end-50 ">
+                    <button type="button" class="btn btn-primary " (click)="AddEval()">
+                      <i class=" fas fa-plus-circle"></i>
+                      Sauvegarder</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  
+  </div>
+</div>
