@@ -27,6 +27,7 @@ export class ListingprofilposteComponent implements OnInit {
     this.dataService.get('Profilpostes/getAllProfilposte.json').subscribe(res => {
       this.Profilpostes = res.data;
       this.open=true
+      console.log('test', this.Profilpostes)
     })
   }
 
