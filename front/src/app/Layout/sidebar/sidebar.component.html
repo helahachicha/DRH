@@ -1,4 +1,4 @@
-<aside class="left-sidebar " data-sidebarbg="skin5"style="
+<aside class="left-sidebar " data-sidebarbg="skin5" style="
  height: 100%;
 
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
@@ -11,27 +11,25 @@
     <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
-
-
-
-
-
             <ul id="sidebarnav" class="pt-2">
-               <!-- <li class="sidebar-item">
+                <!--***partie home page dans un commentaire*** -->
+
+                <!-- <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="/home"
                         aria-expanded="false"><i class="fas fa-home"></i><span class="hide-menu">Home</span></a>
                 </li>-->
 
-                 <!-- Divider -->
-          <!--  <hr class="sidebar-divider my-0">-->
+                <!-- Divider -->
+                <!--  <hr class="sidebar-divider my-0">-->
 
                 <li class="sidebar-item ">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="/dashboard"
-                        aria-expanded="false"><i class=" fas fa-chart-bar"></i><span class="hide-menu">Reporting</span></a>
+                        aria-expanded="false"><i class=" fas fa-chart-bar"></i><span
+                            class="hide-menu">Reporting</span></a>
                 </li>
 
-                 <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+                <!--*** partie formationet développement *** -->
+                <hr class="sidebar-divider my-0">
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
@@ -51,115 +49,10 @@
                         </li>
                     </ul>
                 </li>
+                <!--**terminer partie formation et développement-->
 
-
-
-
-
-                <!-- <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Profil de poste </span></a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item" *ngFor="let obj of poste">
-                            <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
-                                    class="hide-menu" routerLink="Detail-profile/{{obj.id}}"> {{obj.label}} </span></a>
-                        </li>
-                    </ul>
-                </li>-->
-
-
-                <!-- <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Profil de poste </span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse first-level">
-
-                        <li class="sidebar-item">
-
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" style="display: grid;"
-                                aria-expanded="false">
-
-                        <li aria-expanded="false" class="" *ngFor="let obj of poste">
-                            <i class="fas fa-ellipsis-h"></i>
-                            <span (click)="getid(obj.id)" class="hide-menu">
-                                {{obj.label}}</span></a>
-                        </li>
-
-                        <li class="sidebar-item" *ngFor="let obj of Categories">
-                            <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
-                                    class="hide-menu" routerLink="Detail-profile/{{obj.id}}"> {{obj.label}}
-                                </span></a>
-                        </li>
-                    </ul>
-                </li>-->
-
-
-
-
-
-                <!-- <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false" ><i
-                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Profil de poste </span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse first-level">
-
-                        <div  *ngFor="let obj of poste">
-                            <li class="sidebar-item"  >
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" 
-                                aria-expanded="false">
-
-                               
-                                    <i class="fas fa-ellipsis-h"></i>
-                                   
-                                    <span    class="hide-menu" (click)="getid(obj.id)">{{obj.label}}</span>
-                                
-                            </a>
-                            </li>
-                        </div>
-                            
-
-
-                                <li class="sidebar-item" *ngFor="let obj of Categories">
-                                    <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
-                                            class="hide-menu" routerLink="Detail-profile/{{obj.id}}"> {{obj.label}}
-                                        </span>
-                                    </a>
-                                </li>-->
-
-
-                <!-- <li class="sidebar-item">
-                                    <a class="sidebar-link"><i class=" fas fa-arrow-alt-circle-right"></i><span
-                                        class="hide-menu">aaa</span></a>
-
-                                </li>
-                          
-                          
-                            
-                    </ul>
-                </li>-->
-
-
-
-
-
-
-
-
-
-                <!-- <ul aria-expanded="false" class="collapse first-level">
-                                <li class="sidebar-item">
-                                    <a href="icon-fontawesome.html" class="sidebar-link">
-                                        <i class=" fas fa-arrow-alt-circle-right"></i>
-                                    <span class="hide-menu">
-                                        aaa </span></a>
-                                </li>
-                        
-                            </ul>-->
- <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-
-
+                <!---***partie profil de poste ***-->
+                <hr class="sidebar-divider my-0">
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
                             class="fas fa-ellipsis-h"></i><span class="hide-menu">Profil de poste </span></a>
@@ -181,18 +74,24 @@
                         </li>
                     </ul>
                 </li>
- <!-- Divider -->
- <hr class="sidebar-divider my-0">
+                <!--**terminer partie profil de poste **-->
+
+                <!--***partie personnel contient fiche de rensignement(dans un commentaire) , fiche d'evaluation ,test technique ,matrice de competence -->
+
+                <hr class="sidebar-divider my-0">
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
                             class="fas fa-ellipsis-h"></i><span class="hide-menu">Personnel </span></a>
                     <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
+                        <!--/////partie fiche de rensignement dan un commentaire -->
+
+                        <!-- <li class="sidebar-item">
                             <a routerLink="/liste-fiche-rensignement" class="sidebar-link"><i
                                     class=" fas fa-file-alt"></i><span class="hide-menu">Fiche de
                                     rensignement</span></a>
-                        </li>
+                        </li>-->
+                        <!---partie fiche de rensignement + test technique-->
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
                                     class="fas fa-ellipsis-h"></i><span class="hide-menu">Fiche
@@ -203,6 +102,7 @@
                                             class=" fas fa-file-alt"></i><span class="hide-menu"> Fiche
                                             d'évaluation psychique </span></a>
                                 </li>
+
                                 <li class="sidebar-item">
                                     <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
                                             class=" fas fa-ellipsis-h"></i><span class="hide-menu"> Tests
@@ -217,8 +117,8 @@
                                             </a>
                                             <ul aria-expanded="false" class="collapse first-level">
                                                 <li class="sidebar-item" *ngFor="let obj of Testtechniques">
-                                                    <a class="sidebar-link" routerLink="detail-test/{{obj.id}}" ><i class=" far fa-question-circle"></i><span
-                                                            class="hide-menu" >
+                                                    <a class="sidebar-link" routerLink="detail-test/{{obj.id}}"><i
+                                                            class=" far fa-question-circle"></i><span class="hide-menu">
                                                             {{obj.label}}</span></a>
                                                 </li>
                                             </ul>
@@ -228,6 +128,7 @@
                                     </ul>
                                 </li>
                             </ul>
+                            <!--terminer partie fiche d'evaluation + test technique -->
                         </li>
                         <li class="sidebar-item">
                             <a routerLink="/liste-matrice" class="sidebar-link"><i
@@ -236,8 +137,9 @@
                         </li>
                     </ul>
                 </li>
- <!-- Divider -->
- <hr class="sidebar-divider my-0">
+                <!--***terminer partie personnel**** -->
+                <!-- partie gerer les axes contient les listes et add de profil de poste  -->
+                <hr class="sidebar-divider my-0">
 
 
                 <li class="sidebar-item">
@@ -285,7 +187,7 @@
                         </li>
                     </ul>
                 </li>
-
+                <!--***terminer partie gerer les axes*** -->
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

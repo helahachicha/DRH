@@ -45,7 +45,7 @@ export class DetailProfileComponent implements OnInit {
           this.detailpp = res.data;
           let formcompetences = res.data.formcompetences;
           this.open=true;
-          console.log('test',formcompetences)
+          //console.log('test',formcompetences)
           // affecter les valeurs aux champs de saisie
           this.FormGenerator.patchValue({
             nom: this.detailpp.nom,
@@ -97,7 +97,7 @@ export class DetailProfileComponent implements OnInit {
 
  addprofilposte() {
   const data = this.FormGenerator.value
-  console.log("res.data",data)
+  //console.log("res.data",data)
 
       this.dataService.post('Profilpostes/addProfilposte.json',data).subscribe(res=> {
         this.router.navigate(['/listingprofilposte'])
