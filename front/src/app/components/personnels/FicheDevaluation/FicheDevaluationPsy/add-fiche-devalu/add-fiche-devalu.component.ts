@@ -39,10 +39,10 @@ export class AddFicheDevaluComponent implements OnInit {
 
    adddetailfichedevalu() {
     this.dataService.post('Infoficheevaluations/addInfoficheevaluation.json',this.ficheForm.value).subscribe(res=> {
-      this.router.navigate(['/list-fiche-devalu'])
+      this.router.navigate(['/list-fiche-devalu']);
       })
    }
-
+  
    getAllCategorie() {
     this.dataService.get('Categories/getAllCategorie.json').subscribe(res => {
       this.Categories = res.data;

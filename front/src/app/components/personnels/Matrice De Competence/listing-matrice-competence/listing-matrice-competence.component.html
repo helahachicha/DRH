@@ -207,8 +207,8 @@
 
                         </tr>
 
-                        <tr *ngFor="let not of emp.matrices" style="height: 80px;">
-                          <input class="mt-2"
+                        <tr *ngFor="let not of emp.matrices" style="height: 54px;">
+                          <input 
                             *ngIf="not.note !== null && not.note !== undefined && emp.matrices.length > 0"
                             [placeholder]="not.note" (change)="onChangeEval(mat.id, emp.id, $event)" />
                           <input *ngIf="not.note == null || not.note == undefined || emp.matrices.length == 0"
@@ -216,7 +216,7 @@
                         </tr>
 
                         <tr *ngFor="let val of emp.polycompetences">
-                          <input [placeholder]="val.valeur" />
+                          <input [placeholder]="val.valeur"  />
                         </tr>
                       </th>
                     </ng-container>
