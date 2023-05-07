@@ -8,6 +8,8 @@ import { DataService } from 'src/app/shared/service/data.service';
   templateUrl: './listing-matrice-competence.component.html',
   styleUrls: ['./listing-matrice-competence.component.scss']
 })
+
+
 export class ListingMatriceCompetenceComponent implements OnInit {
   id:any
   public open: boolean = false
@@ -25,13 +27,14 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   });
   result: number;
  
+  
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
     private router :Router
 
   ) { }
-
+  
   ngOnInit(): void {
     this.getallechelle(); 
     this.getallmatricecompetence();
@@ -43,7 +46,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   
 
   
-
+   
   getallechelle() {
     this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
       this.Echelleevaluations = res.data;
