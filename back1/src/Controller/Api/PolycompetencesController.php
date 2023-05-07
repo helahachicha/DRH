@@ -39,17 +39,12 @@ class PolycompetencesController extends AppController
             $success = $this->Totalpolycompetences->save($totalpolycompetences);
         }
 
-        $totalpolycompetences = $this->Totalpolycompetences->find('all', [
-            'fields'=>[
-                'valeur',
-            ],
-        ]);
-
         /*send result */
         $this->set([
             'success' => true,
-            'total' => $totalpolycompetences,
-            '_serialize' => ['success','total']
+            'data' => $polycompetences,
+            'total' => $total,
+            '_serialize' => ['success', 'data', 'total']
         ]);
     }
 
