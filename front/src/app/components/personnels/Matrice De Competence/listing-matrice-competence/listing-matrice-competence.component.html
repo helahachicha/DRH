@@ -106,7 +106,7 @@
 
 
 
-<div class="card">
+<!--<div class="card">
   <div class="card-body">
     <div class="row">
       <div class="col">
@@ -233,6 +233,101 @@
               </div>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0 text-center">
+            <h3 class="mb-0" style="color: black;text-decoration-line: underline;">Matrice De Competence</h3>
+          </div>
+          <div class="card-header border-0">
+            <h3 class="mb-0" style="color: #005e8e;">Echelle d'évaluation</h3>
+            <div class="row">
+              <div class="col-4 mt-3 " style="line-height: 1px;" *ngFor="let obj of Echelleevaluations">
+                <ul>
+                  <li>
+                    <span [ngStyle]="{'color': dataValue < 0 ? 'red' : 'black'}">
+                      {{obj.label}}: {{obj.abreviation}} : {{obj.valeur}}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-2" style="line-height: 25px;">
+                <ul>
+                  <li style="color:#005e8e;font-weight: bold ;">
+                    Catégorie : (CT)
+                  </li>
+                  <li style="color:black">
+                    Junior : J
+                  </li>
+                  <li style="color:black">
+                    Confirmé : C
+                  </li>
+                  <li style="color:black">
+                    Senior : S
+                  </li>
+                  <li style="color:black">
+                    Teck Lead : T
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+
+          <div class="table-responsive">
+            <div class="table-responsive">
+              <table class="table  table-bordered align-items-center table-flush">
+                <thead>
+                  <tr >
+                    <th scope="col" style="background-color: rgb(163, 203, 234);color: #004e75; text-align: center;">GP</th>
+                    <th scope="col"style="background-color: rgb(163, 203, 234); color: #004e75;text-align: center;">Nom &amp; Prenom</th>
+                    <th scope="col"style="background-color: rgb(163, 203, 234); color: #004e75;text-align: center;">Catégorie</th>
+
+                    <th scope="col" style="background-color: rgba(142, 147, 153, 0.429);color: black;text-align: center;" *ngFor="let mat of Employes[0].matrices"> {{mat.matricecompetence.label}}</th>
+                    <th scope="col"style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center;font-weight:bold;">Polycompétences</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor="let emp of Employes">
+                    <td style=" font-weight: bold;" class="text-center" *ngFor="let obj2 of Departements"> {{obj2.label}}</td>
+                    <td  style="font-weight: bold; text-align: center; color: black;"> {{emp.nomprenom}}</td>
+                    <td style="font-weight: bold; text-align: center; color: rgba(0, 0, 0, 0.607);">{{emp.category.label}}</td>
+                    <ng-container *ngFor="let mat of emp.matrices">
+                      <td>
+                        <input *ngIf="mat.note !== null && mat.note !== undefined && emp.matrices.length > 0"
+                          [placeholder]="mat.note" (change)="onChangeEval(mat.id, emp.id, $event)" />
+                        <input *ngIf="mat.note == null || mat.note == undefined || emp.matrices.length == 0"
+                          [placeholder]="" disabled />
+                      </td>
+                    </ng-container>
+                    <ng-container *ngFor="let val of emp.polycompetences">
+                      <td>
+                        <input [placeholder]="val.valeur" />
+                      </td>
+                    </ng-container>
+                  </tr>
+                  <tr>
+                    <td colspan="3"style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center; font-weight:bold;">Total Polyvalence</td>
+                    <td>20</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
