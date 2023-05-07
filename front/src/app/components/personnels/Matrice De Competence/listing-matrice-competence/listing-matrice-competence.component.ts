@@ -21,7 +21,8 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   public Employes
   public abreviation
   public Polyvalences
-  public Polycompetences
+  public Totalpolyvalences
+  public Totalpolycompetences
   public Matrices
 
  
@@ -136,18 +137,18 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     })
   }
   getTotalpolyComp() {
-    this.dataService.get('Polycompetences/calculTotalcomp.json').subscribe(
+    this.dataService.get('Totalpolycompetences/getAllTotalpolycompetence.json').subscribe(
       res => {
-        this.Polycompetences = res.data;
-        console.log('totalcomp', this.Polycompetences);
+        this.Totalpolycompetences = res.data;
+        console.log('totalcomp', this.Totalpolycompetences);
        
       },
     );
     }
     getTotalpolyVal() {
-        this.dataService.get('Polyvalences/calculTotalval.json').subscribe(res => {
-          this.Polyvalences = res.data;
-          console.log('totalpoly', this.Polyvalences)
+        this.dataService.get('Totalpolyvalences/getAllTotalpolyvalence.json').subscribe(res => {
+          this.Totalpolyvalences = res.data;
+          console.log('totalpoly', this.Totalpolyvalences)
       })
     }
 }
