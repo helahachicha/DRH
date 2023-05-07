@@ -12,6 +12,8 @@ import { DataService } from 'src/app/shared/service/data.service';
 
 export class ListingMatriceCompetenceComponent implements OnInit {
   id:any
+  result: number;
+
   public open: boolean = false
   public Echelleevaluations;
   public Matricecompetences
@@ -19,13 +21,9 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   public Employes
   public abreviation
   public Polyvalences
-  public Totalpolyvalences
-  public Totalpolycompetences
+  public Polycompetences
   public Matrices
-  public matriceForm = new FormGroup({
-    note: new FormControl('', [Validators.required]),
-  });
-  result: number;
+
  
   
   constructor(
@@ -41,7 +39,9 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.getalldepartement();
     this.getallEmployer();
     this.getallabreviation();
-    this.getallcalculPolyval()
+    this.getallcalculPolyval();
+    this.getTotalpolyVal();
+    this.getTotalpolyComp();
   }
   
 
@@ -83,6 +83,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       console.log('tes1123',this.Employes)
     })
   }
+  
   evalu=[];
   onChangeEval(mcId:any, id:any,event:any){
    let sum=0
@@ -128,11 +129,25 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       }
     );
   }
-  
   getallcalculPolyval() {
     this.dataService.get('Polyvalences/getallPolyvalence.json').subscribe(res => {
       this.Polyvalences = res.data;
       console.log('testpoly', this.Polyvalences)
     })
   }
+  getTotalpolyComp() {
+    this.dataService.get('Polycompetences/calculTotalcomp.json').subscribe(
+      res => {
+        this.Polycompetences = res.data;
+        console.log('totalcomp', this.Polycompetences);
+       
+      },
+    );
+    }
+    getTotalpolyVal() {
+        this.dataService.get('Polyvalences/calculTotalval.json').subscribe(res => {
+          this.Polyvalences = res.data;
+          console.log('totalpoly', this.Polyvalences)
+      })
+    }
 }
