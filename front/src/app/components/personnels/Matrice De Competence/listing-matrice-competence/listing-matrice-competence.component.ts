@@ -34,11 +34,15 @@ export class ListingMatriceCompetenceComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallechelle(); 
-    this.getallmatricecompetence()
-    this.getalldepartement()
-    this.getallEmployer()
-    this.getallabreviation()
+    this.getallmatricecompetence();
+    this.getalldepartement();
+    this.getallEmployer();
+    this.getallabreviation();
   }
+
+
+  
+
   getallechelle() {
     this.dataService.get('Echelleevaluations/getAllEchelleevaluation.json').subscribe(res => {
       this.Echelleevaluations = res.data;
@@ -206,12 +210,19 @@ note:any=null;
   }
 
 
-  /*CalculPolyvalence(){
-    this.id = this.route.snapshot.params['id'];
-    this.dataService.post('polyvalences/calculPolyvalence.json?id=' + this.id).subscribe(res=> {
-      console.log('res',res.data)
-      this.evalu=[]
-      })
-  }*/
-
+  calculPolyval(id: any, index: number) {
+    this.dataService.get('polyvalences/calculPolyvalence.json?id=' + id).subscribe(
+      res => {
+        console.log('res', res.data);
+        // Update the Polyvalence value for the corresponding input field
+        this.Employes[0].matrices[index].polyvalence = res.Polyvalence;
+      },
+      error => {
+        console.log('error', error);
+        // Handle the error here, for example by displaying an error message
+      }
+    );
+  }
+  
+  
 }

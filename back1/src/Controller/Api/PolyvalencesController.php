@@ -14,9 +14,9 @@ use Cake\ORM\TableRegistry;
 class PolyvalencesController extends AppController
 {
    
-    public function calculPolyvalence($id){
+    public function calculPolyvalence(){
         $this->loadModel('Matricecompetences');
-        
+        $id = $this->request->getQuery('id');
         $matricecompetences = $this->Matricecompetences->find('all', [
             'conditions'=>[
                 'id IS'=>$id,
@@ -58,22 +58,34 @@ class PolyvalencesController extends AppController
 
         $score = ($resultAplusCount * 100) + ($resultACount * 75) + ($resultBCount * 50) +
                 ($resultCCount * 25) + ($resultDCount * 10) ;
-        
         $Polyvalence =$score/ $MatricecompCounts;       
 
-        // Create a new entity object for the Polyvalence
-        $polyvalence = $this->Polyvalences->newEntity([
-            'valeur' => $Polyvalence,
-            'matricecompetence_id' => $id
-        ]);
-        // Save the new Polyvalence record
+        
+        $matricecompetences = $this->Matricecompetences->get($id);
+        // Vérifier si une polyvalence existe déjà pour cette matrice de compétences
+        $polyvalence = $this->Polyvalences->find()
+            ->where(['matricecompetence_id' => $id])
+            ->first();
+        if ($polyvalence) {
+            // Mettre à jour la valeur de la polyvalence existante
+            $polyvalence->valeur = $Polyvalence;
+        } else {
+            // Créer une nouvelle entité de polyvalence et l'enregistrer pour cette matrice de compétences
+            $polyvalence = $this->Polyvalences->newEntity([
+                'valeur' => $Polyvalence,
+                'matricecompetence_id' => $id
+            ]);
+        }
+        // Enregistrer la polyvalence
         $this->Polyvalences->save($polyvalence);
+
 
         $get = $this->Polyvalences->find('all', [
             'conditions'=>[
                 'Polyvalences.id IS'=>$id,
             ],
         ])->first(); 
+        
 
         /*send result */
         $this->set([

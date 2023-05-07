@@ -318,9 +318,13 @@
                     </ng-container>
                   </tr>
                   <tr>
-                    <td colspan="3"style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center; font-weight:bold;">Total Polyvalence</td>
-                    <td><button class="btn btn-primary">Calculer</button><input type="text"/></td>
+                    <td colspan="3" style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center; font-weight:bold;">Total Polyvalence</td>
+                    <td *ngFor="let val of Employes[0].matrices; let i = index">
+                      <button class="btn btn-primary" (click)="calculPolyval(val.matricecompetence.id, i)">Calculer</button>
+                      <input type="text" [(ngModel)]="val.polyvalence"  />
+                    </td>
                   </tr>
+                                  
                 </tbody>
               </table>
             </div>
