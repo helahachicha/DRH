@@ -105,4 +105,19 @@ class PolyvalencesController extends AppController
             'Polyvalence', 'Get']
         ]);
     }
+    
+    public function getallPolyvalence()
+    {
+
+        /* search */
+        $Polyvalences = $this->Polyvalences->find('all');
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $Polyvalences,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
+
 }

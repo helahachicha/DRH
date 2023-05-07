@@ -24,7 +24,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     note: new FormControl('', [Validators.required]),
   });
   result: number;
-  
+ 
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
@@ -38,8 +38,9 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.getalldepartement();
     this.getallEmployer();
     this.getallabreviation();
+    this.getallcalculPolyval()
   }
-
+  
 
   
 
@@ -77,107 +78,8 @@ export class ListingMatriceCompetenceComponent implements OnInit {
 
       this.open = true
       console.log('tes1123',this.Employes)
-     // console.log('tes11235',this.Employes[0].matrices[0].matricecompetence.label)
     })
   }
-//tayarhommm....
- /* getallTotalpolyvalence() {
-    this.dataService.get('Totalpolyvalences/getAllTotalpolyvalence.json').subscribe(res => {
-      this.Totalpolyvalences = res.data;
-      this.open = true
-    })
-  }
-  
-  getallTotalpolcomp() {
-    this.dataService.get('Totalpolycompetences/getAllTotalpolycompetence.json').subscribe(res => {
-      this.Totalpolycompetences = res.data;
-      this.open = true
-    })
-  }
-  getformaById() {
-    this.id = this.route.snapshot.params['id'];
-    this.dataService.get('Matrices/getMatriceByEmpId.json?id=' + this.id).subscribe(
-      res => {
-        this.Matrices = res.data;
-      })
-  }
-  
-  getallMatrice() {
-    this.dataService.get('Matrices/getAllMatrice.json').subscribe(res => {
-      this.Matrices = res.data;
-      this.open = true
-    })
-  }*/
-
-  //.....
-
-
-  /*submit() {
-    this.dataService.post('Matrices/addNoteMatrice.json',this.matriceForm.value).subscribe(res=> {
-    this.router.navigate(['/liste-matrice'])
-    })
- }*/
-
- /* getID(id:any){
-    this.ids=id;
-  }*/
- /* ids:any;
-note:any=null;
-  checknote(employee:any){
-  
-    employee.matrices.forEach((element: any) => {
-
-
-      if(element.matricecompetence_id==this.ids){
-        this.note=element.note;
-        console.log(this.note)
-
-      }else{
-        this.note=null;
-      }
-    });
-
-  }*/
-  /*getMatriceByEmpId() {
-    this.dataService.get('Matrices/getMatriceByEmpId.json').subscribe(res => {
-      this.Matrices = res.data;
-      this.open = true
-      console.log('test',this.Matrices)
-    })
-    
-  }*/
-  /*getMatriceByEmpId() {
-    this.id = this.route.snapshot.params['id'];
-    this.dataService.get('Matrices/getMatriceByEmpId.json?id=' + this.id).subscribe(
-      res => {
-        this.Matrices = res.data;
-      })
-    
-  }*/
-  /*getPolyvalenceByMatCompId (){
-    this.dataService.get('Polyvalences/getPolyvalenceByMatCompId.json').subscribe(res => {
-      this.Polyvalences = res.data;
-      this.open = true
-      console.log('test',this.Polyvalences)
-    })
-  }*/
-  /*getPolyvalenceByMatCompId() {
-    this.id = this.route.snapshot.params['id'];
-    this.dataService.get('Polyvalences/getPolyvalenceByMatCompId.json?id=' + this.id).subscribe(
-      res => {
-        this.Polyvalences = res.data;
-      })
-  }*/
-  
- /* getAllPolyvalence() {
-    this.dataService.get('Polyvalences/getAllPolyvalence.json').subscribe(res => {
-      this.Polyvalences = res.data;
-      this.open = true
-      console.log('test', this.Polyvalences)
-    })
-  }*/
-
-
   evalu=[];
   onChangeEval(mcId:any, id:any,event:any){
    let sum=0
@@ -224,5 +126,10 @@ note:any=null;
     );
   }
   
-  
+  getallcalculPolyval() {
+    this.dataService.get('Polyvalences/getallPolyvalence.json').subscribe(res => {
+      this.Polyvalences = res.data;
+      console.log('testpoly', this.Polyvalences)
+    })
+  }
 }
