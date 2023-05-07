@@ -120,4 +120,46 @@ class PolyvalencesController extends AppController
         ]);
     }
 
+    public function calculTotalval()
+    {
+        /* search */
+        $polyvalence = $this->Polyvalences->find('all', [
+            'fields'=>[
+                'valeur',
+            ],
+        ])->toArray();
+        $total=0;
+        /* calcul total polyvalence */
+        $total=array_sum(array_column($polyvalence, 'valeur'))/count($polyvalence);
+
+        $this->loadModel('Totalpolyvalences');
+        /* check if Totalpolyvalences record exists */
+        $totalpolyvalence = $this->Totalpolyvalences->find('all')->first();
+
+        if ($totalpolyvalence) {
+            /* if record exists, update its valeur attribute with the new total */
+            $totalpolyvalence->valeur = $total;
+            $success = $this->Totalpolyvalences->save($totalpolyvalence);
+        } else {
+            /* if record does not exist, create a new record with the new total */
+            $totalpolyvalence = $this->Totalpolyvalences->newEntity(['valeur' => $total]);
+            $success = $this->Totalpolyvalences->save($totalpolyvalence);
+        }
+
+        $totalpolyvalence = $this->Totalpolyvalences->find('all', [
+            'fields'=>[
+                'valeur',
+            ],
+        ]);
+
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $polyvalence,
+            'total' => $total,
+            'get' => $totalpolyvalence,
+            '_serialize' => ['success', 'data', 'total', 'get']
+        ]);
+    }
+
 }
