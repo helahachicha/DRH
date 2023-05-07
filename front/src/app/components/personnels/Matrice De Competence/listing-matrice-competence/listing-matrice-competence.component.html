@@ -308,10 +308,7 @@
                     <td style="font-weight: bold; text-align: center; color: rgba(0, 0, 0, 0.607);">{{emp.category.label}}</td>
                     <ng-container *ngFor="let mat of emp.matrices">
                       <td>
-                        <input *ngIf="mat.note !== null && mat.note !== undefined && emp.matrices.length > 0"
-                          [placeholder]="mat.note" (change)="onChangeEval(mat.id, emp.id, $event)" />
-                        <input *ngIf="mat.note == null || mat.note == undefined || emp.matrices.length == 0"
-                          [placeholder]="" disabled />
+                        <input [placeholder]="mat.note" (change)="onChangeEval(mat.id, emp.id, $event)"/>
                       </td>
                     </ng-container>
                     <ng-container *ngFor="let val of emp.polycompetences">
@@ -322,7 +319,7 @@
                   </tr>
                   <tr>
                     <td colspan="3"style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center; font-weight:bold;">Total Polyvalence</td>
-                    <td>20</td>
+                    <td><button class="btn btn-primary">Calculer</button><input type="text"/></td>
                   </tr>
                 </tbody>
               </table>

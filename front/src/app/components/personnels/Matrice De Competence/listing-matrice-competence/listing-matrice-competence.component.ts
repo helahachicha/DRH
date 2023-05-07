@@ -204,4 +204,14 @@ note:any=null;
       this.evalu=[]
       })
   }
+
+
+  /*CalculPolyvalence(){
+    this.id = this.route.snapshot.params['id'];
+    this.dataService.post('polyvalences/calculPolyvalence.json?id=' + this.id).subscribe(res=> {
+      console.log('res',res.data)
+      this.evalu=[]
+      })
+  }*/
+
 }
