@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 07 mai 2023 à 22:32
+-- Généré le : dim. 07 mai 2023 à 22:24
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -757,7 +757,7 @@ CREATE TABLE `polycompetences` (
 
 INSERT INTO `polycompetences` (`id`, `valeur`, `employe_id`, `created`, `modified`) VALUES
 (1, 56.254, 1, '2023-05-05 16:12:13', '2023-05-05 16:12:13'),
-(2, 43.3333, 7, '2023-05-05 16:12:13', '2023-05-05 16:12:13'),
+(2, 43.333, 7, '2023-05-05 16:12:13', '2023-05-05 16:12:13'),
 (3, 67.325, 10, '2023-05-05 16:12:13', '2023-05-05 16:12:13'),
 (4, 38.3463, 4, '2023-05-05 16:12:13', '2023-05-05 16:12:13');
 
@@ -780,22 +780,22 @@ CREATE TABLE `polyvalences` (
 --
 
 INSERT INTO `polyvalences` (`id`, `valeur`, `matricecompetence_id`, `created`, `modified`) VALUES
-(1, 62.5, 1, '2023-05-07 14:42:14', '2023-05-07 15:13:50'),
-(2, 40, 2, '2023-05-07 14:51:18', '2023-05-07 14:54:25'),
-(3, 56.25, 3, '2023-05-07 14:54:26', '2023-05-07 14:54:26'),
-(4, 33.75, 4, '2023-05-07 14:54:27', '2023-05-07 14:54:27'),
-(5, 17.5, 5, '2023-05-07 14:54:28', '2023-05-07 14:54:28'),
-(6, 31.25, 6, '2023-05-07 14:54:30', '2023-05-07 14:54:30'),
-(7, 52.5, 7, '2023-05-07 14:54:31', '2023-05-07 14:54:31'),
-(8, 50, 8, '2023-05-07 14:54:32', '2023-05-07 14:54:32'),
-(9, 52.5, 9, '2023-05-07 14:54:33', '2023-05-07 14:54:33'),
-(10, 50, 10, '2023-05-07 14:54:34', '2023-05-07 14:54:34'),
-(11, 42.5, 11, '2023-05-07 14:54:35', '2023-05-07 14:54:35'),
-(12, 37.5, 12, '2023-05-07 14:54:36', '2023-05-07 14:54:36'),
-(13, 68.75, 13, '2023-05-07 14:54:37', '2023-05-07 14:54:37'),
-(14, 56.25, 14, '2023-05-07 14:54:38', '2023-05-07 14:54:38'),
-(15, 50, 15, '2023-05-07 14:54:41', '2023-05-07 14:54:41'),
-(18, 50, 16, '2023-05-07 15:25:34', '2023-05-07 15:25:34');
+(1, 62.5, 1, '2023-05-07 19:11:35', '2023-05-07 19:11:35'),
+(2, 40, 2, '2023-05-07 19:12:18', '2023-05-07 19:12:18'),
+(3, 56.25, 3, '2023-05-07 19:12:20', '2023-05-07 19:12:20'),
+(4, 33.75, 4, '2023-05-07 19:12:21', '2023-05-07 19:12:21'),
+(5, 17.5, 5, '2023-05-07 19:12:22', '2023-05-07 19:12:22'),
+(6, 31.25, 6, '2023-05-07 19:12:24', '2023-05-07 19:12:24'),
+(7, 52.5, 7, '2023-05-07 19:12:25', '2023-05-07 19:12:25'),
+(8, 50, 8, '2023-05-07 19:12:26', '2023-05-07 19:12:26'),
+(9, 52.5, 9, '2023-05-07 19:12:27', '2023-05-07 19:12:27'),
+(10, 50, 10, '2023-05-07 19:12:29', '2023-05-07 19:12:29'),
+(11, 42.5, 11, '2023-05-07 19:12:30', '2023-05-07 19:12:30'),
+(12, 37.5, 12, '2023-05-07 19:12:34', '2023-05-07 19:12:34'),
+(13, 68.75, 13, '2023-05-07 19:12:34', '2023-05-07 19:12:34'),
+(14, 56.25, 14, '2023-05-07 19:12:35', '2023-05-07 19:12:35'),
+(15, 50, 15, '2023-05-07 19:12:36', '2023-05-07 19:12:36'),
+(16, 50, 16, '2023-05-07 19:12:48', '2023-05-07 19:12:48');
 
 -- --------------------------------------------------------
 
@@ -1039,6 +1039,46 @@ INSERT INTO `themeformations` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `totalpolycompetences`
+--
+
+CREATE TABLE `totalpolycompetences` (
+  `id` int(11) NOT NULL,
+  `valeur` float NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `totalpolycompetences`
+--
+
+INSERT INTO `totalpolycompetences` (`id`, `valeur`, `created`, `modified`) VALUES
+(1, 51.3146, '2023-05-07 20:06:40', '2023-05-07 20:20:05');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `totalpolyvalences`
+--
+
+CREATE TABLE `totalpolyvalences` (
+  `id` int(11) NOT NULL,
+  `valeur` float NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `totalpolyvalences`
+--
+
+INSERT INTO `totalpolyvalences` (`id`, `valeur`, `created`, `modified`) VALUES
+(1, 46.9531, '2023-05-07 19:50:02', '2023-05-07 20:19:14');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -1238,6 +1278,18 @@ ALTER TABLE `themeformations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `totalpolycompetences`
+--
+ALTER TABLE `totalpolycompetences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `totalpolyvalences`
+--
+ALTER TABLE `totalpolyvalences`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -1371,7 +1423,7 @@ ALTER TABLE `polycompetences`
 -- AUTO_INCREMENT pour la table `polyvalences`
 --
 ALTER TABLE `polyvalences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `postes`
@@ -1420,6 +1472,18 @@ ALTER TABLE `testtechniques`
 --
 ALTER TABLE `themeformations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `totalpolycompetences`
+--
+ALTER TABLE `totalpolycompetences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `totalpolyvalences`
+--
+ALTER TABLE `totalpolyvalences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `users`
