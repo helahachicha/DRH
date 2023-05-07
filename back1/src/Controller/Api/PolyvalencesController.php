@@ -105,20 +105,7 @@ class PolyvalencesController extends AppController
             'Polyvalence', 'Get']
         ]);
     }
-    
-    public function getallPolyvalence()
-    {
 
-        /* search */
-        $Polyvalences = $this->Polyvalences->find('all');
- 
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' => $Polyvalences,
-            '_serialize' => ['success', 'data']
-        ]);
-    }
 
     public function calculTotalval()
     {
@@ -155,5 +142,53 @@ class PolyvalencesController extends AppController
             '_serialize' => ['success', 'data', 'total', 'get']
         ]);
     }
+
+
+    /*GetAll Polyvalence*/
+    public function getallPolyvalence()
+    {
+
+        /* search */
+        $polyvalences = $this->Polyvalences->find('all');
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $polyvalences,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
+
+
+
+    /*function of 10 best polyvalence for Chart*/
+
+    public function getBestPolyVal()
+    {
+        $polyvalences = $this->Polyvalences->find('all', [
+            'fields' => [
+                'valeur',
+            ],
+            'order' => [
+                'valeur' => 'DESC'
+            ],
+            'limit' => 10
+        ]);
+
+        // Create a list of the top 10 Polyvalences records
+        $polyvalencesList = [];
+        foreach ($polyvalences as $polyvalence) {
+            $polyvalencesList[] = $polyvalence->valeur;
+        }
+
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $polyvalencesList,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
+
+
 
 }
