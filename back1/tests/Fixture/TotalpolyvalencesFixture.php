@@ -21,8 +21,8 @@ class TotalpolyvalencesFixture extends TestFixture
             [
                 'id' => 1,
                 'valeur' => 1,
-                'created' => '2023-04-11 00:10:22',
-                'modified' => '2023-04-11 00:10:22',
+                'created' => '2023-05-07 19:40:52',
+                'modified' => '2023-05-07 19:40:52',
             ],
         ];
         parent::init();

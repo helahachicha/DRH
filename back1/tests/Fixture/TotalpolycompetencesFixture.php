@@ -21,8 +21,8 @@ class TotalpolycompetencesFixture extends TestFixture
             [
                 'id' => 1,
                 'valeur' => 1,
-                'created' => '2023-04-11 07:21:55',
-                'modified' => '2023-04-11 07:21:55',
+                'created' => '2023-05-07 20:03:21',
+                'modified' => '2023-05-07 20:03:21',
             ],
         ];
         parent::init();
