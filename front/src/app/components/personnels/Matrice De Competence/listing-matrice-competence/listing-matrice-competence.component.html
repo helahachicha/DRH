@@ -308,7 +308,7 @@
                     <td style="font-weight: bold; text-align: center; color: rgba(0, 0, 0, 0.607);">{{emp.category.label}}</td>
                     <ng-container *ngFor="let mat of emp.matrices">
                       <td>
-                        <input [placeholder]="mat.note" (change)="onChangeEval(mat.id, emp.id, $event)"/>
+                        <input [placeholder]="mat.note" style="text-align: center;" (change)="onChangeEval(mat.id, emp.id, $event)"/>
                       </td>
                     </ng-container>
                     <ng-container *ngFor="let val of emp.polycompetences">
