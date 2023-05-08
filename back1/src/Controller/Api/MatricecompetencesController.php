@@ -13,24 +13,29 @@ use App\Controller\AppController;
  */
 class MatricecompetencesController extends AppController
 {
-   /**
-    * getAllMatricecompetence
-    *
-    * @Input: nothing
-    *
-    * @Output: data
-    */
-    public function getAllMatricecompetence()
+    /*function get Matricecompetences for Chart*/
+    public function getMatricecomp()
     {
-
-        /* search */
-        $matricecompetences = $this->Matricecompetences->find('all');
- 
-        /*send result */
+        $matricecompetences = $this->Matricecompetences->find('all', [
+            'fields' => [
+                'label',
+            ],
+            'limit' => 16,
+        ]);
+        
+        $matricecompetencesList = [];
+        foreach ($matricecompetences as $mc) {
+            $matricecompetencesList[] = $mc->label;
+        }
+        
         $this->set([
             'success' => true,
-            'data' => $matricecompetences,
+            'data' => [
+                'matricecompetencesList' => $matricecompetencesList,
+            ],
             '_serialize' => ['success', 'data']
         ]);
-    }
+    }        
+
+
 }

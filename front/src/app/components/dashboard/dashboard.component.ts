@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { DataService } from 'src/app/shared/service/data.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -9,34 +10,31 @@ export class DashboardComponent implements OnInit {
   public chart: any;
   public doughnut: any;
   public line:any;
-  constructor() { }
+  public Poly
+  public matricescomp
+  constructor( private dataService: DataService,) { }
   
   ngOnInit(): void {
-    this.createChart();
     this.createDoughnut();
-    this.createLine()
+    this.createLine();
+    this.getpolyVal();
+    this.getPolyMatricecomp()
   }
-  createChart(){
-  
+  createChart(pol:any , mat:any){
+    if (this.chart) {
+      this.chart.destroy();
+    }
     this.chart = new Chart("MyChart", {
       type: 'bar', //this denotes tha type of chart
 
       data: {// values on X-Axis
-        labels: ['Janvier', 'Février', 'Mars','Avril',
-								 'Mai', 'Juin', 'Juillet',' Août','Septembre','Octobre','Novembre','Décembre'], 
+        labels: mat, 
 	       datasets: [
           {
             label: "Polyvalence",
-            data: ['35','45', '50', '50.01', '54',
-								 '50', '55', '63','55','60','74','75'],
+            data: pol,
             backgroundColor: '#fc9eb5'
           },
-          {
-            label: "Polycompetence",
-            data: ['40','30', '47.20', '53', '57',
-								 '62', '60', '55','67','75','78','78'],
-            backgroundColor: '#82c4f2'
-          }  
         ]
       },
       options: {
@@ -101,6 +99,27 @@ export class DashboardComponent implements OnInit {
       
     });
   }
+
+
+  getpolyVal() {
+    this.dataService.get('polyvalences/getallPolyVal.json').subscribe(res => {
+      this.Poly = res.data.polyvalences;
+      console.log('All Poly', this.Poly)
+      this.createChart(this.Poly,this.matricescomp)
+
+  })
+}
+
+getPolyMatricecomp() {
+  this.dataService.get('Matricecompetences/getMatricecomp.json').subscribe(res => {
+    this.matricescomp = res.data.matricecompetencesList;
+    console.log('All matricecomp', this.matricescomp)
+    this.createChart(this.Poly,this.matricescomp)
+
+})
+}
+
+
 }
 
 

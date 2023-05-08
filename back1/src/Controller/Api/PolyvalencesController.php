@@ -161,34 +161,40 @@ class PolyvalencesController extends AppController
 
 
 
-    /*function of 10 best polyvalence for Chart*/
+    /*function get polyvalence for Chart*/
 
-    public function getBestPolyVal()
+    public function getallPolyVal()
     {
         $polyvalences = $this->Polyvalences->find('all', [
             'fields' => [
                 'valeur',
             ],
-            'order' => [
-                'valeur' => 'DESC'
-            ],
-            'limit' => 10
         ]);
 
-        // Create a list of the top 10 Polyvalences records
+        // Create a list of Polyvalences records
         $polyvalencesList = [];
         foreach ($polyvalences as $polyvalence) {
             $polyvalencesList[] = $polyvalence->valeur;
         }
 
-        /*send result */
+        // Fetch the Matricecompetences records corresponding to the Polyvalences
+        $matricecompetences = [];
+        foreach ($polyvalences as $polyvalence) {
+            $matricecompetence = $polyvalence->matricecompetence;
+            if ($matricecompetence) {
+                $matricecompetences[] = $matricecompetence;
+            }
+        }
+
+        
         $this->set([
             'success' => true,
-            'data' => $polyvalencesList,
+            'data' => [
+                'polyvalences' => $polyvalencesList,
+            ],
             '_serialize' => ['success', 'data']
         ]);
     }
-
 
 
 }
