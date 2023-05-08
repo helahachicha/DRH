@@ -35,5 +35,6 @@ class Category extends Entity
         'profilposte' => true,
         'detailprofilpostes'=> true,
         'niveauvises'=> true,
+        'employes'=> true,
     ];
 }

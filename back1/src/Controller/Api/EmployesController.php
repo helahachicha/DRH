@@ -43,31 +43,6 @@ class EmployesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
-
-
-
-
-
-     /**For chart*/
-     public function getAllEmploye()
-     {
-         /* search */
-         $employes = $this->Employes->find('all', [
-             'fields' => [
-                 'nomprenom',
-             ],
-             
-         ])->distinct()->toArray();
-     
-         $nomprenoms = \Cake\Utility\Hash::extract($employes, '{n}.nomprenom');
-     
-         /* send result */
-         $this->set([
-             'success' => true,
-             'data' => $nomprenoms,
-             '_serialize' => ['success', 'data']
-         ]);
-     }
      
 
 
@@ -198,6 +173,30 @@ class EmployesController extends AppController
         ]);
 
     }
+
+
+
+
+         /**For chart*/
+         public function getAllEmploye()
+         {
+             /* search */
+             $employes = $this->Employes->find('all', [
+                 'fields' => [
+                     'nomprenom',
+                 ],
+                 
+             ])->distinct()->toArray();
+         
+             $nomprenoms = \Cake\Utility\Hash::extract($employes, '{n}.nomprenom');
+         
+             /* send result */
+             $this->set([
+                 'success' => true,
+                 'data' => $nomprenoms,
+                 '_serialize' => ['success', 'data']
+             ]);
+         }
 
 
 }

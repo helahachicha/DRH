@@ -36,4 +36,23 @@ class TotalpolyvalencesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
+
+    /*For chart*/
+    public function getTotalpolyvalence()
+    {
+        $totalpolyvalences = $this->Totalpolyvalences->find('all', [
+            'fields' => [
+                'valeur',
+            ],
+        ]);
+
+        $valeur = \Cake\Utility\Hash::extract($totalpolyvalences->toArray(), '{n}.valeur');
+
+        /* send result */
+        $this->set([
+            'success' => true,
+            'data' => $valeur,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
 }
