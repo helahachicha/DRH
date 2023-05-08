@@ -116,6 +116,7 @@ export class AddFicheDevaluComponent implements OnInit {
       //this.router.navigate(['/list-fiche-devalu'])
       console.log('res',res.data)
       this.points=[]
+
       })
 
   }
@@ -167,11 +168,13 @@ export class AddFicheDevaluComponent implements OnInit {
     moyen:this.result1,
     point: this.pointsoucomp
    }
+   console.log(this.result1)
 
     this.dataService.post('employes/calculpointIndicSou.json',DataInfo).subscribe(res=> {
       //this.router.navigate(['/list-fiche-devalu'])
       console.log('res',res.data)
       this.pointsoucomp=[]
+      this.result1=0
       })
   }
 
