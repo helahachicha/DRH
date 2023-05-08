@@ -1,51 +1,71 @@
-
-   
-
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 justifiejustify-content center">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Bar chart<br>
-                            Pourcentage de Polyvalence par chaque SousCompetence   
-                            </h5>
-                            <div class="pie" style="height: 400px">
-                            <canvas id="MyChart">{{ chart }}</canvas>
-                  </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-6">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">doughnut Chart<br>
-                      Les nombres des personnes dans chaque categerie 
-                      </h5>
-                      <div class="pie" style="height: 400px">
-                        <canvas id="MyChartD" >{{ doughnut}}</canvas></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Line Chart<br>
-                      Polayvalence par chaque Sous Competence </h5>
-                      <div class="bars" style="height: 400px">
-                        <canvas id="MyChartL">{{ line }}</canvas></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8 justifiejustify-content center">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Bar chart<br>
+            Pourcentage de Polyvalence par chaque SousCompetence
+          </h5>
+          <div class="pie" style="height: 400px">
+            <canvas id="MyChart">{{ chart }}</canvas>
+          </div>
         </div>
- 
+      </div>
+    </div>
+    <div class="col-4 justifiejustify-content center">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">doughnut Chart<br>
+            Les nombres des personnes dans chaque categerie
+          </h5>
+          <div class="pie" style="height: 400px">
+            <canvas id="MyChartDP">{{ doughnutt}}</canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 justifiejustify-content center">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Bar chart<br>
+            Pourcentage de Polycompeyence par chaque employer
+          </h5>
+          <div class="pie" style="height: 400px">
+            <canvas id="MyChartcomp">{{ chartt }}</canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">doughnut Chart<br>
+            Les nombres des personnes dans chaque categerie
+          </h5>
+          <div class="pie" style="height: 400px">
+            <canvas id="MyChartD">{{ doughnut}}</canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Line Chart<br>
+            Polayvalence par chaque Sous Competence </h5>
+          <div class="bars" style="height: 400px">
+            <canvas id="MyChartL">{{ line }}</canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-   
+
+</div>
