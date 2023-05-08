@@ -48,4 +48,25 @@ class PolycompetencesController extends AppController
         ]);
     }
 
+
+    /*For chart*/
+    public function getAllPolycompetence()
+     {
+         /* search */
+         $polycompetences = $this->Polycompetences->find('all', [
+             'fields' => [
+                 'valeur',
+             ],
+             
+         ])->toArray();
+     
+         $valeurs = \Cake\Utility\Hash::extract($polycompetences, '{n}.valeur');
+     
+         /* send result */
+         $this->set([
+             'success' => true,
+             'data' => $valeurs,
+             '_serialize' => ['success', 'data']
+         ]);
+     }
 }

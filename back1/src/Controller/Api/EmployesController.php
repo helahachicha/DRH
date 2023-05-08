@@ -48,31 +48,27 @@ class EmployesController extends AppController
 
 
 
-     /**
-    * getAllEmploye****
-    *
-    * @Input: nothing
-    *
-    * @Output: data
-    */
-    public function getAllEmploye()
-    {
-
-        /* search */
-        $employes = $this->Employes->find('all', [
-            'fields'=>[
-                'nomprenom',
-            ],
-
-        ])->distinct();
-
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' => $employes,
-            '_serialize' => ['success', 'data']
-        ]);
-    }
+     /**For chart*/
+     public function getAllEmploye()
+     {
+         /* search */
+         $employes = $this->Employes->find('all', [
+             'fields' => [
+                 'nomprenom',
+             ],
+             
+         ])->distinct()->toArray();
+     
+         $nomprenoms = \Cake\Utility\Hash::extract($employes, '{n}.nomprenom');
+     
+         /* send result */
+         $this->set([
+             'success' => true,
+             'data' => $nomprenoms,
+             '_serialize' => ['success', 'data']
+         ]);
+     }
+     
 
 
 
