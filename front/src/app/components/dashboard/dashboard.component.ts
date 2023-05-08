@@ -16,18 +16,23 @@ export class DashboardComponent implements OnInit {
   public matricescomp
   public Polycom
   public Employes
+  public Totalpoly
 
+
+
+   
   constructor( private dataService: DataService,) { }
   
   ngOnInit(): void {
     this.createDoughnut();
-    this.createDoughnutpolyval();
     this.createLine();
     this.getpolyVal();
     this.getPolyMatricecomp();
     this.getpolycomp();
-    this.getemployer()
+    this.getemployer();
+    this.gettotalPolyVal()
   }
+  
   createChart(pol:any , mat:any){
     if (this.chart) {
       this.chart.destroy();
@@ -80,31 +85,28 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  createDoughnutpolyval(){
+  createDoughnutpolyval(Tpolyval){
     this.doughnutt = new Chart("MyChartDP", {
       type: 'doughnut', //this denotes tha type of chart
 
       data: {// values on X-Axis
-        labels: ['JUNIOR', 'CONFIRMÉ','SÉNIOR', ],
+        labels: ['Total Poly Valence', ],
         
 	       datasets: [{
-    label: 'My First Dataset',
-    data: [35,35,30],
+    label: 'Total',
+    data: Tpolyval,
     backgroundColor: [
-      '#f05f5a',
-      '#feea33',
-      '#22ab4d',
-      			
+      'rgb(242, 75, 36)',
+      'rgb(255, 236, 62)',
+      'rgb(122, 185, 35)',
     ],
-    borderWidth:1,
     circumference:180,
     rotation:270
   }],
   
       },
       options: {
-        cutout: 120, //Définit la taille du trou central à 50%
-        
+        aspectRatio:1   
       }
 
     });
@@ -197,13 +199,23 @@ getpolycomp() {
 }
 
 getemployer() {
-this.dataService.get('Employes/getAllEmploye.json').subscribe(res => {
+ this.dataService.get('Employes/getAllEmploye.json').subscribe(res => {
   this.Employes = res.data;
   console.log('All comp', this.Employes)
   this.createChartcomp(this.Polycom,this.Employes)
 
 })
 }
+
+gettotalPolyVal() {
+  this.dataService.get('Totalpolyvalences/getTotalpolyvalence.json').subscribe(res => {
+   this.Totalpoly = res.data;
+   console.log('All comp', this.Totalpoly)
+   this.createDoughnutpolyval(this.Totalpoly)
+ 
+ })
+ }
+
 
 
 }
