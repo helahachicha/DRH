@@ -36,4 +36,25 @@ class TotalpolycompetencesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
+
+
+    /*For chart*/
+    public function getTotalpolycompetence()
+    {
+
+        $totalpolycompetences = $this->Totalpolycompetences->find('all', [
+            'fields'=>[
+                'valeur',
+            ],
+        ]);
+
+        $valeur = \Cake\Utility\Hash::extract($totalpolycompetences->toArray(), '{n}.valeur');
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $valeur,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
 }
