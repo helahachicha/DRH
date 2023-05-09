@@ -12,11 +12,13 @@ export class DashboardComponent implements OnInit {
   public doughnut: any;
   public doughnutt:any;
   public line:any;
+  public linee:any;
   public Poly
   public matricescomp
   public Polycom
   public Employes
-  public Totalpoly
+  public Totalpolyvalences
+  public Totalpolycomp
 
 
 
@@ -30,7 +32,9 @@ export class DashboardComponent implements OnInit {
     this.getPolyMatricecomp();
     this.getpolycomp();
     this.getemployer();
-    this.gettotalPolyVal()
+    this.gettotalPolyVal();
+    this.gettotalPolyComp();
+    this.createLinepersonelle()
   }
   
   createChart(pol:any , mat:any){
@@ -85,32 +89,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  createDoughnutpolyval(Tpolyval){
-    this.doughnutt = new Chart("MyChartDP", {
-      type: 'doughnut', //this denotes tha type of chart
-
-      data: {// values on X-Axis
-        labels: ['Total Poly Valence', ],
-        
-	       datasets: [{
-    label: 'Total',
-    data: Tpolyval,
-    backgroundColor: [
-      'rgb(242, 75, 36)',
-      'rgb(255, 236, 62)',
-      'rgb(122, 185, 35)',
-    ],
-    circumference:180,
-    rotation:270
-  }],
   
-      },
-      options: {
-        aspectRatio:1   
-      }
-
-    });
-  }
 
 
   createDoughnut(){
@@ -122,7 +101,7 @@ export class DashboardComponent implements OnInit {
         labels: ['JUNIOR', 'CONFIRMÉ','SÉNIOR','TECK LEAD', ],
 	       datasets: [{
     label: 'My First Dataset',
-    data: [30,20,15,25],
+    data: [6,4,3,2],
     backgroundColor: [
       'red',
       'pink',
@@ -141,22 +120,40 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  createLinepersonelle(){
+  
+    this.linee = new Chart("MyChartP", {
+      type: 'line', //this denotes tha type of chart
+
+      data: {// values on X-Axis
+        labels: ['p1','p2','p3','p4'], 
+	       datasets: [
+          {
+            label: "gestion de temps et priorités",
+            data: ['100','50','25', '75' ],
+            backgroundColor: '#7209b7'
+          },
+         
+        ]
+      },
+      options: {
+        aspectRatio:1
+      }
+      
+    });
+  }
+
   createLine(){
   
     this.line = new Chart("MyChartL", {
       type: 'line', //this denotes tha type of chart
 
       data: {// values on X-Axis
-        labels: ['0' ,'GTP ', 'CIE', 'TEC','RP',
-								 'SE','RC', 'LP ', 'CC','EA', 'GER', 'SQ', 'IM', 'ED'
-                 , 'AF', 'CI', 'OS', 'CA', 'OO', 'SQL' ,
-                 'MF', 'MT', 'MTC',' EA', 'ES', 'EL'], 
+        labels: ['NE','D','C','B', 'A','A+'], 
 	       datasets: [
           {
-            label: "Polyvalence/SousCompetence",
-            data: ['40','60','50', '65','45','75','65','55','60','80',
-            '75','61','60','50', '65','45','75'
-            ,'65','55','60','80','75','70','80','52','45' ],
+            label: "Valeur/chaque echelle",
+            data: ['0','10','25', '50','75','100' ],
             backgroundColor: 'blue'
           },
          
@@ -208,10 +205,17 @@ getemployer() {
 }
 
 gettotalPolyVal() {
-  this.dataService.get('Totalpolyvalences/getTotalpolyvalence.json').subscribe(res => {
-   this.Totalpoly = res.data;
-   console.log('All comp', this.Totalpoly)
-   this.createDoughnutpolyval(this.Totalpoly)
+  this.dataService.get('Totalpolyvalences/getAllTotalpolyvalence.json').subscribe(res => {
+   this.Totalpolyvalences = res.data;
+   console.log('All', this.Totalpolyvalences)
+ 
+ })
+ }
+
+ gettotalPolyComp() {
+  this.dataService.get('Totalpolycompetences/getAllTotalpolycompetence.json').subscribe(res => {
+   this.Totalpolycomp = res.data;
+   console.log('All', this.Totalpolycomp)
  
  })
  }
