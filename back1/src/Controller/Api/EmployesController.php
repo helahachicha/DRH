@@ -188,12 +188,10 @@ class EmployesController extends AppController
                  
              ])->distinct()->toArray();
          
-             $nomprenoms = \Cake\Utility\Hash::extract($employes, '{n}.nomprenom');
-         
              /* send result */
              $this->set([
                  'success' => true,
-                 'data' => $nomprenoms,
+                 'data' => $employes,
                  '_serialize' => ['success', 'data']
              ]);
          }
