@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 08 mai 2023 à 21:22
+-- Généré le : mar. 09 mai 2023 à 23:56
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -265,8 +265,8 @@ CREATE TABLE `formaexternes` (
 --
 
 INSERT INTO `formaexternes` (`id`, `typecomp`, `themeformation_id`, `participant`, `nbparticipant`, `raisonforma`, `organismeforma`, `formalite`, `formateur`, `raisonchoix`, `dureeforma`, `nbjour`, `nbhjour`, `date`, `horaireforma`, `pause`, `lieuforma`, `created`, `modified`) VALUES
-(6, 'zdqscwx', 1, 'dqSW', 7, 'Dq', 'dQCW', 'dQX<', 'Qdx', 'dqx<', '6', 5, 5, '2023-03-23 00:00:00', '14:55', 'dq', 'dQ<', '2023-03-22 09:55:39', '2023-03-22 09:55:39'),
-(7, 'competence technique ', 2, 'test', 44, 'test', 'test', 'test', 'test', 'test', '3', 4, 3, '2023-03-24 00:00:00', '10:15', 'test', 'test', '2023-03-23 09:14:57', '2023-03-23 09:14:57');
+(6, 'Compétence technique', 1, 'Développeurs', 21, 'Encadrement', 'Centre de formation', 'Test', 'Amine louz', 'coach', '32', 5, 5, '2023-03-23 00:00:00', '14:55', 'dq', 'dQ<', '2023-03-22 09:55:39', '2023-03-22 09:55:39'),
+(7, 'Compétence technique ', 2, 'Développeurs', 44, 'test', 'test', 'test', 'test', 'test', '21', 4, 3, '2023-03-24 00:00:00', '10:15', 'test', 'test', '2023-03-23 09:14:57', '2023-03-23 09:14:57');
 
 -- --------------------------------------------------------
 
@@ -292,8 +292,8 @@ CREATE TABLE `formainternes` (
 --
 
 INSERT INTO `formainternes` (`id`, `tycomp`, `themeformation_id`, `animateur`, `poste`, `date`, `hentrer`, `hsortie`, `created`, `modified`) VALUES
-(1, 'hhhhhhh', 1, 'hhh', 'hhhhhh', '2023-03-22', '00:00:15', '00:00:17', '2023-03-27 16:57:51', '2023-03-27 16:57:51'),
-(2, 'bolbol', 2, 'hhh', 'hhh', '2023-03-22', '00:00:15', '00:00:17', '2023-03-27 17:00:13', '2023-03-27 17:00:13');
+(1, 'Compétence organisationnelle', 1, 'Ali harbi', 'Développeur', '2023-03-22', '00:00:15', '00:00:17', '2023-03-27 16:57:51', '2023-03-27 16:57:51'),
+(2, 'Compétence technique', 2, 'Hama harbi', 'Développeur', '2023-03-22', '00:00:15', '00:00:17', '2023-03-27 17:00:13', '2023-03-27 17:00:13');
 
 -- --------------------------------------------------------
 
@@ -630,32 +630,6 @@ INSERT INTO `niveauvises` (`id`, `label`, `categorie_id`, `created`, `modified`)
 (2, 'Actif', 2, '2023-03-27 13:37:01', '2023-03-27 13:37:01'),
 (3, 'Pro-actif', 3, '2023-03-27 13:37:01', '2023-03-27 13:37:01'),
 (4, 'Expert', 4, '2023-03-27 13:37:16', '2023-03-27 13:37:16');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `noteevaluations`
---
-
-CREATE TABLE `noteevaluations` (
-  `id` int(11) NOT NULL,
-  `point_id` int(11) NOT NULL,
-  `indicateursuivi_id` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `noteevaluations`
---
-
-INSERT INTO `noteevaluations` (`id`, `point_id`, `indicateursuivi_id`, `created`, `modified`) VALUES
-(1, 2, 1, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
-(2, 1, 2, '2023-03-30 13:06:42', '2023-03-30 13:06:42'),
-(3, 2, 3, '2023-03-30 13:07:56', '2023-03-30 13:07:56'),
-(4, 1, 4, '2023-04-06 11:34:50', '2023-04-06 11:34:50'),
-(5, 1, 5, '2023-04-06 11:34:50', '2023-04-06 11:34:50'),
-(6, 2, 6, '2023-04-06 11:34:50', '2023-04-06 11:34:50');
 
 -- --------------------------------------------------------
 
@@ -1200,12 +1174,6 @@ ALTER TABLE `niveauvises`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `noteevaluations`
---
-ALTER TABLE `noteevaluations`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `pointindicasous`
 --
 ALTER TABLE `pointindicasous`
@@ -1394,12 +1362,6 @@ ALTER TABLE `matrices`
 --
 ALTER TABLE `niveauvises`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT pour la table `noteevaluations`
---
-ALTER TABLE `noteevaluations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `pointindicasous`
