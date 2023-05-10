@@ -13,17 +13,17 @@ use App\Controller\AppController;
  */
 class FormcompetencesController extends AppController
 {
-    $newArray = [];
+    // $newArray = [];
 
-        foreach($detailprofilpostes->formcompetences as $value) {
-          foreach ($value->competence as $comp) {
-            foreach ($comp->indicateursuivis as $ind) {
-              if($ind->detailprofilposte_id == $id) {
-                array_push($newArray, $detailprofilpostes);
-              }
-            } 
-          }
-        }
-        //debug($newArray);die;
-    
+    //     foreach($detailprofilpostes->formcompetences as $value) {
+    //       foreach ($value->competence as $comp) {
+    //         foreach ($comp->indicateursuivis as $ind) {
+    //           if($ind->detailprofilposte_id == $id) {
+    //             array_push($newArray, $detailprofilpostes);
+    //           }
+    //         }
+    //       }
+    //     }
+    //     //debug($newArray);die;
+
 }

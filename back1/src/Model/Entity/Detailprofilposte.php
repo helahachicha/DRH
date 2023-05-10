@@ -27,6 +27,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Category $category
  * @property \App\Model\Entity\Profilposte $profilposte
  * @property \App\Model\Entity\Formcompetence[] $formcompetences
+ * @property \App\Model\Entity\Indicasoucompa[] $indicasoucompas
  * @property \App\Model\Entity\Indicateursuivi[] $indicateursuivis
  * @property \App\Model\Entity\Souscompetence[] $souscompetences
  */
@@ -59,6 +60,7 @@ class Detailprofilposte extends Entity
         'category' => true,
         'profilposte' => true,
         'formcompetences' => true,
+        'indicasoucompas' => true,
         'indicateursuivis' => true,
         'souscompetences' => true,
     ];

@@ -26,7 +26,7 @@ class IndicasoucompasTableTest extends TestCase
     protected $fixtures = [
         'app.Indicasoucompas',
         'app.Souscompetences',
-        'app.Detailprofilpostes',
+        'app.Pointindicasous',
     ];
 
     /**

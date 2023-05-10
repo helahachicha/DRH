@@ -36,24 +36,17 @@ class DetailprofilpostesController extends AppController
 
        $detailprofilpostes = $this->Detailprofilpostes->find('all', [
 
-        'conditions'=>[
-            'detailprofilpostes.id IS'=>$id,
+        'conditions'=> [
+            'Detailprofilpostes.id' => $id
         ],
-
         'contain' => [
-            'Profilpostes',
-            'Categories.Niveauvises',
-            'Formcompetences.Competences.Indicateursuivis'=>['conditions'=>[
-                'Indicateursuivis.detailprofilposte_id IS'=>$id,
-            ]],
-            'Formcompetences.Competences.Souscompetences'=>['conditions'=>[
-                'Souscompetences.detailprofilposte_id IS'=>$id,
-            ]],
-            'Formcompetences.Competences.Souscompetences.Indicasoucompas'=>['conditions'=>[
-                'Indicasoucompas.detailprofilposte_id IS'=>$id,
-            ]],
+           'Formcompetences.Competences',
+            'Formcompetences.Indicateursuivis',
+            'Formcompetences.Souscompetences.Indicasoucompas',
         ],
     ])->first();
+
+
 
 
         /* send result */
@@ -63,6 +56,6 @@ class DetailprofilpostesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
-    
+
 
 }
