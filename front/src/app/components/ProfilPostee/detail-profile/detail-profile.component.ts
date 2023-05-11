@@ -46,7 +46,7 @@ export class DetailProfileComponent implements OnInit {
           let formcompetences = res.data.formcompetences;
           this.open=true;
           console.log('test',formcompetences)
-          console.log('test',formcompetences[1].competence.souscompetence)
+          console.log('testt',formcompetences)
           // affecter les valeurs aux champs de saisie
           this.FormGenerator.patchValue({
             nom: this.detailpp.nom,

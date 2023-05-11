@@ -140,17 +140,22 @@
 
                                                                 </div>
                                                                 <div
-                                                                *ngFor="let souscomp of detailpp.formcompetences[i].souscompetences">
-                                                                {{souscomp.label}}
+                                                                    *ngFor="let souscomp of detailpp.formcompetences[i].souscompetences;let k=index">
+                                                                    {{souscomp.label}}
 
-                                                            </div>
+                                                                </div>
+                                                              <!--  <div
+                                                                    *ngFor="let indicasou of detailpp.formcompetences[i].souscompetences[k].indicasoucompas">
+                                                                    {{indicasou.label}}
+
+                                                                </div>-->
                                                             </div>
 
                                                         </div>
-                                                        
-                                                    
 
-                                                     <!--  <div class="item-box" formArrayName="souscompetence"
+
+
+                                                         <div class="item-box" formArrayName="souscompetence"
                                                             *ngFor="let item of indicateur.get('souscompetence').controls; let j = index">
                                                             <div [formGroupName]="j">
                                                                 <div class="d-flex">
@@ -169,7 +174,7 @@
 
                                                             </div>
 
-                                                        </div>-->
+                                                        </div>
                                                         <div>
 
                                                         </div>
