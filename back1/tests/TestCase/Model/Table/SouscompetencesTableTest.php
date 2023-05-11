@@ -25,10 +25,8 @@ class SouscompetencesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Souscompetences',
-        'app.Competences',
-        'app.Detailprofilpostes',
+        'app.Formcompetences',
         'app.Indicasoucompas',
-        'app.Pointindicasous',
     ];
 
     /**

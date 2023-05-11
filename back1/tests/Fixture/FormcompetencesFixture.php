@@ -22,8 +22,8 @@ class FormcompetencesFixture extends TestFixture
                 'id' => 1,
                 'competence_id' => 1,
                 'detailprofilposte_id' => 1,
-                'created' => '2023-04-28 08:40:51',
-                'modified' => '2023-04-28 08:40:51',
+                'created' => '2023-05-10 10:16:28',
+                'modified' => '2023-05-10 10:16:28',
             ],
         ];
         parent::init();

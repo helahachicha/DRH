@@ -10,16 +10,13 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string|null $label
- * @property int $detailprofilposte_id
- * @property int $competence_id
+ * @property int $formcompetence_id
  * @property int $niveauvise_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Detailprofilposte $detailprofilposte
- * @property \App\Model\Entity\Competence $competence
+ * @property \App\Model\Entity\Formcompetence $formcompetence
  * @property \App\Model\Entity\Niveauvise $niveauvise
- * @property \App\Model\Entity\Noteevaluation[] $noteevaluations
  * @property \App\Model\Entity\Pointindicateur[] $pointindicateurs
  */
 class Indicateursuivi extends Entity
@@ -35,15 +32,12 @@ class Indicateursuivi extends Entity
      */
     protected $_accessible = [
         'label' => true,
-        'detailprofilposte_id' => true,
-        'competence_id' => true,
+        'formcompetence_id' => true,
         'niveauvise_id' => true,
         'created' => true,
         'modified' => true,
-        'detailprofilposte' => true,
-        'competence' => true,
+        'formcompetence' => true,
         'niveauvise' => true,
-        'noteevaluations' => true,
         'pointindicateurs' => true,
     ];
 }

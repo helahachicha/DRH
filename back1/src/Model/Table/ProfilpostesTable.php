@@ -13,6 +13,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\PostesTable&\Cake\ORM\Association\BelongsTo $Postes
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\HasMany $Categories
+ * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\HasMany $Detailprofilpostes
  *
  * @method \App\Model\Entity\Profilposte newEmptyEntity()
  * @method \App\Model\Entity\Profilposte newEntity(array $data, array $options = [])

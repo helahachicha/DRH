@@ -13,8 +13,6 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\FormcompetencesTable&\Cake\ORM\Association\HasMany $Formcompetences
  * @property \App\Model\Table\IndicateursuivisTable&\Cake\ORM\Association\HasMany $Indicateursuivis
- * @property \App\Model\Table\PointindicasousTable&\Cake\ORM\Association\HasMany $Pointindicasous
- * @property \App\Model\Table\PointindicateursTable&\Cake\ORM\Association\HasMany $Pointindicateurs
  * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\HasMany $Souscompetences
  *
  * @method \App\Model\Entity\Competence newEmptyEntity()
@@ -54,18 +52,7 @@ class CompetencesTable extends Table
         $this->hasMany('Formcompetences', [
             'foreignKey' => 'competence_id',
         ]);
-        $this->hasMany('Indicateursuivis', [
-            'foreignKey' => 'competence_id',
-        ]);
-        $this->hasMany('Pointindicasous', [
-            'foreignKey' => 'competence_id',
-        ]);
-        $this->hasMany('Pointindicateurs', [
-            'foreignKey' => 'competence_id',
-        ]);
-        $this->hasMany('Souscompetences', [
-            'foreignKey' => 'competence_id',
-        ]);
+ 
     }
 
     /**

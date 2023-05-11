@@ -13,6 +13,8 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
  * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
+ * @property \App\Model\Table\IndicateursuivisTable&\Cake\ORM\Association\HasMany $Indicateursuivis
+ * @property \App\Model\Table\SouscompetencesTable&\Cake\ORM\Association\HasMany $Souscompetences
  *
  * @method \App\Model\Entity\Formcompetence newEmptyEntity()
  * @method \App\Model\Entity\Formcompetence newEntity(array $data, array $options = [])
@@ -55,6 +57,12 @@ class FormcompetencesTable extends Table
         $this->belongsTo('Detailprofilpostes', [
             'foreignKey' => 'detailprofilposte_id',
             'joinType' => 'INNER',
+        ]);
+        $this->hasMany('Indicateursuivis', [
+            'foreignKey' => 'formcompetence_id',
+        ]);
+        $this->hasMany('Souscompetences', [
+            'foreignKey' => 'formcompetence_id',
         ]);
     }
 

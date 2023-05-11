@@ -11,10 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Indicateursuivis Model
  *
- * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
- * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
+ * @property \App\Model\Table\FormcompetencesTable&\Cake\ORM\Association\BelongsTo $Formcompetences
  * @property \App\Model\Table\NiveauvisesTable&\Cake\ORM\Association\BelongsTo $Niveauvises
- * @property \App\Model\Table\NoteevaluationsTable&\Cake\ORM\Association\HasMany $Noteevaluations
  * @property \App\Model\Table\PointindicateursTable&\Cake\ORM\Association\HasMany $Pointindicateurs
  *
  * @method \App\Model\Entity\Indicateursuivi newEmptyEntity()
@@ -51,20 +49,13 @@ class IndicateursuivisTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Detailprofilpostes', [
-            'foreignKey' => 'detailprofilposte_id',
-            'joinType' => 'INNER',
-        ]);
-        $this->belongsTo('Competences', [
-            'foreignKey' => 'competence_id',
+        $this->belongsTo('Formcompetences', [
+            'foreignKey' => 'formcompetence_id',
             'joinType' => 'INNER',
         ]);
         $this->belongsTo('Niveauvises', [
             'foreignKey' => 'niveauvise_id',
             'joinType' => 'INNER',
-        ]);
-        $this->hasMany('Noteevaluations', [
-            'foreignKey' => 'indicateursuivi_id',
         ]);
         $this->hasMany('Pointindicateurs', [
             'foreignKey' => 'indicateursuivi_id',
@@ -85,12 +76,8 @@ class IndicateursuivisTable extends Table
             ->allowEmptyString('label');
 
         $validator
-            ->integer('detailprofilposte_id')
-            ->notEmptyString('detailprofilposte_id');
-
-        $validator
-            ->integer('competence_id')
-            ->notEmptyString('competence_id');
+            ->integer('formcompetence_id')
+            ->notEmptyString('formcompetence_id');
 
         $validator
             ->integer('niveauvise_id')
@@ -108,8 +95,7 @@ class IndicateursuivisTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('detailprofilposte_id', 'Detailprofilpostes'), ['errorField' => 'detailprofilposte_id']);
-        $rules->add($rules->existsIn('competence_id', 'Competences'), ['errorField' => 'competence_id']);
+        $rules->add($rules->existsIn('formcompetence_id', 'Formcompetences'), ['errorField' => 'formcompetence_id']);
         $rules->add($rules->existsIn('niveauvise_id', 'Niveauvises'), ['errorField' => 'niveauvise_id']);
 
         return $rules;

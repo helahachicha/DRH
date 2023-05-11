@@ -11,10 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Souscompetences Model
  *
- * @property \App\Model\Table\CompetencesTable&\Cake\ORM\Association\BelongsTo $Competences
- * @property \App\Model\Table\DetailprofilpostesTable&\Cake\ORM\Association\BelongsTo $Detailprofilpostes
+ * @property \App\Model\Table\FormcompetencesTable&\Cake\ORM\Association\BelongsTo $Formcompetences
  * @property \App\Model\Table\IndicasoucompasTable&\Cake\ORM\Association\HasMany $Indicasoucompas
- * @property \App\Model\Table\PointindicasousTable&\Cake\ORM\Association\HasMany $Pointindicasous
  *
  * @method \App\Model\Entity\Souscompetence newEmptyEntity()
  * @method \App\Model\Entity\Souscompetence newEntity(array $data, array $options = [])
@@ -50,18 +48,11 @@ class SouscompetencesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Competences', [
-            'foreignKey' => 'competence_id',
-            'joinType' => 'INNER',
-        ]);
-        $this->belongsTo('Detailprofilpostes', [
-            'foreignKey' => 'detailprofilposte_id',
+        $this->belongsTo('Formcompetences', [
+            'foreignKey' => 'formcompetence_id',
             'joinType' => 'INNER',
         ]);
         $this->hasMany('Indicasoucompas', [
-            'foreignKey' => 'souscompetence_id',
-        ]);
-        $this->hasMany('Pointindicasous', [
             'foreignKey' => 'souscompetence_id',
         ]);
     }
@@ -80,12 +71,8 @@ class SouscompetencesTable extends Table
             ->allowEmptyString('label');
 
         $validator
-            ->integer('competence_id')
-            ->notEmptyString('competence_id');
-
-        $validator
-            ->integer('detailprofilposte_id')
-            ->notEmptyString('detailprofilposte_id');
+            ->integer('formcompetence_id')
+            ->notEmptyString('formcompetence_id');
 
         return $validator;
     }
@@ -99,8 +86,7 @@ class SouscompetencesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('competence_id', 'Competences'), ['errorField' => 'competence_id']);
-        $rules->add($rules->existsIn('detailprofilposte_id', 'Detailprofilpostes'), ['errorField' => 'detailprofilposte_id']);
+        $rules->add($rules->existsIn('formcompetence_id', 'Formcompetences'), ['errorField' => 'formcompetence_id']);
 
         return $rules;
     }

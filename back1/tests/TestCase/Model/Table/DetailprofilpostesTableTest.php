@@ -28,6 +28,7 @@ class DetailprofilpostesTableTest extends TestCase
         'app.Categories',
         'app.Profilpostes',
         'app.Formcompetences',
+        'app.Indicasoucompas',
         'app.Indicateursuivis',
         'app.Souscompetences',
     ];
