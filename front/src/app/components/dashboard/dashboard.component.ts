@@ -72,7 +72,7 @@ export class DashboardComponent implements OnInit {
       type: 'bar', //this denotes tha type of chart
 
       data: {// values on X-Axis
-        labels: emp, 
+        labels: this.Employes, 
 	       datasets: [
           {
             label: "Polycompetence",
@@ -196,9 +196,9 @@ getpolycomp() {
 }
 
 getemployer() {
- this.dataService.get('Employes/getAllEmploye.json').subscribe(res => {
+ this.dataService.get('Employes/getEmploye.json').subscribe(res => {
   this.Employes = res.data;
-  console.log('All comp', this.Employes)
+  console.log('All emp', this.Employes)
   this.createChartcomp(this.Polycom,this.Employes)
 
 })

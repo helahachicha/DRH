@@ -175,9 +175,7 @@ class EmployesController extends AppController
     }
 
 
-
-
-         /**For chart*/
+         /**Liste des employes*/
          public function getAllEmploye()
          {
              /* search */
@@ -196,5 +194,28 @@ class EmployesController extends AppController
              ]);
          }
 
+/**For chart*/
+         public function getEmploye()
+        {
+            /* search */
+            $employes = $this->Employes->find('all', [
+                'fields' => [
+                    'nomprenom',
+                ],
+            ])->distinct()->toArray();
+            
+            /* create list */
+            $employeList = [];
+            foreach ($employes as $employe) {
+                $employeList[] = $employe['nomprenom'];
+            }
+            
+            /* send result */
+            $this->set([
+                'success' => true,
+                'data' => $employeList,
+                '_serialize' => ['success', 'data']
+            ]);
+        }
 
 }

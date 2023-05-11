@@ -42,13 +42,14 @@ export class DetailProfileComponent implements OnInit {
       const id = params['id'];
       this.dataService.get('Detailprofilpostes/getDetailppByCat.json?id=' + id).subscribe(
         res => {
-          this.detailpp = res.data;
+          let detailpp = res.data;
           let formcompetences = res.data.formcompetences;
           this.open=true;
+          console.log('hhhhh',detailpp)
           console.log('test',formcompetences)
           // affecter les valeurs aux champs de saisie
           this.FormGenerator.patchValue({
-            nom: this.detailpp.nom,
+            nom: this.detailpp.profilposte_id,
             fonction: this.detailpp.fonction,
             categorie_id: this.detailpp.categorie_id,
             superhierar: this.detailpp.superhierar,
