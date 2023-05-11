@@ -113,7 +113,8 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group ">
                                                                 <!---<label class="h4" for="staticZone">Competence</label>-->
-                                                                <select class="form-control text-center" style="width: 300px;"
+                                                                <select class="form-control text-center"
+                                                                    style="width: 300px;"
                                                                     [attr.disabled]="enabled?null:''"
                                                                     id="exampleFormControlSelect2"
                                                                     placeholder="Veuillez choisir votre competence"
@@ -131,37 +132,44 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group "
-                                                             *ngFor="let obj of detailpp.formcompetences;let i=index">
+                                                                *ngFor="let obj of detailpp.formcompetences;let i=index">
                                                                 <!---<label class="h4" for="staticZone">souscompetences</label>-->
-                                                               <div *ngFor="let indica of detailpp.formcompetences[i].competence.indicateursuivis">
-                                                                {{indica.label}}
-
-                                                               </div>
-
-                                                            </div>
-
-                                                        </div>
-
-
-                                                         <div class="item-box" formArrayName="souscompetence"
-                                                         *ngFor="let item of indicateur.get('souscompetence').controls; let j = index">
-                                                        <div [formGroupName]="j">
-                                                            <div class="d-flex">
-                                                                <h1>Sous competence: {{j+1}}</h1>
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <label>Sous Competences</label>
-                                                                        <input type="text" class="form-control"
-                                                                            required="required"
-                                                                            formControlName="label"  [attr.disabled]="enabled?null:''" >
-                                                                    </div>
+                                                                <div
+                                                                    *ngFor="let indica of detailpp.formcompetences[i].competence.indicateursuivis">
+                                                                    {{indica.label}}
 
                                                                 </div>
+                                                                <div
+                                                                 *ngFor="let souscomp of detailpp.formcompetences[i].competence.souscompetences">
+                                                                 {{souscomp.label}}
+
+                                                                 </div>
                                                             </div>
 
                                                         </div>
+                                                        
+                                                    
 
-                                                        </div>
+                                                        <!--   <div class="item-box" formArrayName="souscompetence"
+                                                            *ngFor="let item of indicateur.get('souscompetence').controls; let j = index">
+                                                            <div [formGroupName]="j">
+                                                                <div class="d-flex">
+                                                                    <h1>Sous competence: {{j+1}}</h1>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label>Sous Competences</label>
+                                                                            <input type="text" class="form-control"
+                                                                                required="required"
+                                                                                formControlName="label"
+                                                                                [attr.disabled]="enabled?null:''">
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>-->
                                                         <div>
 
                                                         </div>
