@@ -222,4 +222,31 @@ class InfoemployesController extends AppController
                 '_serialize' => ['success','data']
             ]);
         }
+
+
+
+    /**
+    * getAllInfoemploye
+    *
+    * @Input: nothing
+    *
+    * @Output: data
+    */
+    public function getAllInfoemploye()
+    {
+
+        /* search */
+        $infoemployes = $this->Infoemployes->find('all',[
+            'fields' => [
+                'nomprenom'
+            ]
+        ])->distinct()->toArray();
+ 
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $infoemployes,
+            '_serialize' => ['success', 'data']
+        ]);
+    }
 }
