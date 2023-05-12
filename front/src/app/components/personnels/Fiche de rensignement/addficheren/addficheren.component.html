@@ -64,9 +64,21 @@
                         <input type="email" class="infopro" formControlName="servicetravail">
                     </div>
                     <div class="row mt-2">
-                        <h5 class="col-6">Poste: </h5>
+                    <!--  <h5 class="col-6">Poste: </h5>
                         <input type="text" class="infopro" formControlName="poste">
-                    </div>
+                    </div>-->
+                                    <h5 class="col-6"> Poste : </h5>
+                                        <select class="form-control" id="exampleFormControlSelect2"
+                                            placeholder="Veuillez choisir votre Thème de formation"
+                                            formControlName="poste_id">
+                                            <option selected disabled value="">Affecter un poste</option>
+
+                                            <option *ngFor="let obj of Postes" [ngValue]="obj.id">
+
+                                                {{obj.label}}
+                                            </option>
+                                        </select>
+                                        </div>
                 </div>
 
             </div>

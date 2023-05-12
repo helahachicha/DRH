@@ -8,8 +8,9 @@ import { DataService } from 'src/app/shared/service/data.service';
   templateUrl: './addficheren.component.html',
   styleUrls: ['./addficheren.component.scss']
 })
-export class AddficherenComponent implements OnInit {
 
+export class AddficherenComponent implements OnInit {
+public Postes
   public moyenForm = new FormGroup({
     nomprenom: new FormControl('', [Validators.required]),
     adresse: new FormControl('', [Validators.required]),
@@ -19,7 +20,7 @@ export class AddficherenComponent implements OnInit {
     mailprof: new FormControl('', [Validators.required]),
     mailpersonnel: new FormControl('', [Validators.required]),
     servicetravail: new FormControl('', [Validators.required]),
-    poste: new FormControl('', [Validators.required]),
+    poste_id: new FormControl('', [Validators.required]),
     datenaissance: new FormControl('', [Validators.required]),
     lieu: new FormControl('', [Validators.required]),
     nationnalite: new FormControl('', [Validators.required]),
@@ -38,9 +39,11 @@ export class AddficherenComponent implements OnInit {
 
   constructor(
     private dataService:DataService,
+    private router:Router
     ) { }
 
   ngOnInit(): void {
+    this.getallposte()
     
   }
   
@@ -55,10 +58,15 @@ export class AddficherenComponent implements OnInit {
     console.log('test',this.moyenForm.value) 
     this.dataService.post('Infoemployes/addInfoemploye.json',this.moyenForm.value).subscribe(res=> {
       
-     /// this.router.navigate(['/coutlisting'])
+     this.router.navigate(['/liste-fiche-rensignement'])
      
       })
    }
+   getallposte() {
+    this.dataService.get('Postes/getAllPoste.json').subscribe(res => {
+      this.Postes = res.data;
+    })
+  }
 
    /*onCheckChangeMoyen(event) {
     var formArray: FormArray = this.moyenForm.get('label') as FormArray;

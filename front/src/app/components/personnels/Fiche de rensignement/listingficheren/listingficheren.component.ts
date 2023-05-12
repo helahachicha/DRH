@@ -9,7 +9,7 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./listingficheren.component.scss']
 })
 export class ListingficherenComponent implements OnInit {
- 
+ public Infoemployes
   constructor(
     private dataService:DataService,
     private router :Router,
@@ -17,8 +17,13 @@ export class ListingficherenComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getallnomemp()
   }
-
+  getallnomemp() {
+    this.dataService.get('Infoemployes/getAllInfoemploye.json').subscribe(res => {
+      this.Infoemployes = res.data;
+    })
+  }
  //////////////////////////////he4a elli lezmou yete5dem//////////
  //getallnom() {
  // this.dataService.get('Infoficheevaluations/getAllNom.json').subscribe(res => {
@@ -27,10 +32,10 @@ export class ListingficherenComponent implements OnInit {
  // })
 //}
 
-//deletenom(id){
- // this.dataService.delete('Infoficheevaluations/deleteInfoficheevaluation.json?id='+id).subscribe(res => {
- //   this.getallnom()
- // })
-//}
+deletenom(id){
+  this.dataService.delete('Infoemployes/deleteInfoemploye.json?id='+id).subscribe(res => {
+    this.getallnomemp()
+  })
+}
 
 }

@@ -21,15 +21,15 @@
                 </thead>
                 <tbody  >
                     
-                    <tr>
-                        <td>nom p</td>
+                    <tr *ngFor="let obj of Infoemployes">
+                        <td>{{obj.nomprenom}}</td>
                         <td>
-                            <!-- (click)="deletenom(p.id)"-->
+                            <!-- "-->
                             <!---routerLink="/detail-fiche-devalu/{{p.id}}"-->
                             
-                            <button type="button" class="btn btn-info"><i
+                            <button type="button" class="btn btn-info" [routerLink]='["/detail-fiche-rensignement",obj.id]'><i
                                 class="far fa-hand-pointer">Afficher</i></button>
-                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"
+                            <button type="button" class="btn btn-danger" (click)="deletenom(obj.id)"><i class="far fa-trash-alt"
                                 >Supprimer</i></button>
                         </td>
 

@@ -7,7 +7,7 @@ import { ListingficherenComponent } from './listingficheren/listingficheren.comp
 
 const routes: Routes = [
 { path: '', component: ListingficherenComponent },
-{ path: 'detail-fiche-rensignement', component: DetailFichRensigComponent },
+{ path: 'detail-fiche-rensignement/:id', component: DetailFichRensigComponent },
 { path: 'add-fiche-rensignement', component: AddficherenComponent },
 { path: 'edit-fiche-rensignement', component: EditficherenComponent },];
 
