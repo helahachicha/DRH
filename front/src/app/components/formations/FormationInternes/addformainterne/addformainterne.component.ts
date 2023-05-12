@@ -25,7 +25,6 @@ message:any;
   });
   constructor(
     private dataService:DataService,
-    private router :Router
   ) { }
 
   ngOnInit(): void {

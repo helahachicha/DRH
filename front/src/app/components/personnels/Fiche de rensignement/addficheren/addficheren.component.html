@@ -1,3 +1,4 @@
+
 <div class="border border-primary row  ">
 
     <div class="col text-center m-3">
@@ -6,8 +7,8 @@
 
 </div>
 
-<div class="">
-    <div class=" mt-2 mb-2 end-50">
+
+    <div class=" mt-2 mb-2 end-50" style="margin-left: 30px;">
         <!--routerLink="/edit-datail-profil/{{detailpp.id}}"-->
         <button type="button" class="btn btn-primary mt-2 " routerLink="/liste-fiche-rensignement"><i
                 class="  fas fa-arrow-alt-circle-left"></i> REV</button>
@@ -20,12 +21,12 @@
         </div>-->
         
 
-        <div class="row">
-            <div class=" p-3 mb-5 bg-body rounded mt-2 col-5">
+        
+            <div class=" p-3 mb-5  rounded mt-2 " >
                 <div class="text-center h2">
                     Information Professionnelles
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="width: 500px;margin-left: 400px;">
                     <div class="row">
                         <h5 class="col-6"> Nom et Prénom: </h5>
                         <input type="text" class="infopro" formControlName="nomprenom">
@@ -37,7 +38,7 @@
 
                     <div class="row mt-2">
                         <h5 class="col-6"> Tél professionnel: </h5>
-                        <input type="tel" class="infopro" formControlName="telprofessionnel">
+                        <input type="tel" class="infopro" formControlName="telprof">
                     </div>
 
                     <div class="row mt-2">
@@ -52,7 +53,7 @@
 
                     <div class="row mt-2">
                         <h5 class="col-6">Mail professionnel: </h5>
-                        <input type="email" class="infopro" formControlName="mailprofessionnel">
+                        <input type="email" class="infopro" formControlName="mailprof">
                     </div>
                     <div class="row mt-2">
                         <h5 class="col-6">Mail personnel: </h5>
@@ -60,7 +61,7 @@
                     </div>
                     <div class="row mt-2">
                         <h5 class="col-6">Service de travail: </h5>
-                        <input type="email" class="infopro" formControlName="service">
+                        <input type="email" class="infopro" formControlName="servicetravail">
                     </div>
                     <div class="row mt-2">
                         <h5 class="col-6">Poste: </h5>
@@ -71,35 +72,35 @@
             </div>
        
 
-         <div class=" p-3 mb-5 bg-body rounded mt-2 col-7 ">
+            <div class=" p-3 mb-5  rounded mt-2 " >
 
             <div class="text-center h2">
                 Information Personnelles
             </div>
-            <div class="card-body">
+            <div class="card-body" style="width: 1200px;margin-left: 130px;">
 
                 <div class="row">
                     <h5 class="col-3"> Date de naissance: </h5>
                     <input type="date" formControlName="datenaissance" required="required">
 
                     <h5 class="col-1"> Lieu: </h5>
-                    <input type="text" class="lieu" formControlName="lieunaissance" required="required">
+                    <input type="text" class="lieu" formControlName="lieu" required="required">
                 </div>
 
                 <div class="row mt-2">
                     <h5 class="col-3">Nationalité: </h5>
-                    <input type="text" class="lieu" formControlName="nationalite" required="required">
+                    <input type="text" class="lieu" formControlName="nationnalite" required="required">
 
                     <h5 class="col-1"> N°CIN: </h5>
-                    <input type="number" class="lieu" formControlName="ncin" required="required">
+                    <input type="number" class="lieu" formControlName="cin" required="required">
                 </div>
 
                 <div class="row mt-2">
                     <h5 class="col-3">Délivrée à:</h5>
-                    <input type="text" class="lieu" formControlName="lieucin" required="required">
+                    <input type="text" class="lieu" formControlName="delivreea" required="required">
 
                     <h5 class="col-1"> Le: </h5>
-                    <input type="date" class="lieu" formControlName="datecin" required="required">
+                    <input type="date" class="lieu" formControlName="datedelivrance" required="required">
                 </div>
 
                 <div class="row">
@@ -149,26 +150,26 @@
                         <div class="row">
                             
                                 <input type="radio" class="form-check-input mr-sm-2" name="moyentransport" required="required"
-                                    formControlName="moyentransport" value="voiture">
+                                    formControlName="moytransport" value="voiture">
                                 <label class="form-check-label  col-2"> Voiture </label>
     
     
-                                <input type="radio" class="form-check-input mr-sm-2" name="moyentransport" required="required"
-                                    formControlName="moyentransport" value="moto">
+                                <input type="radio" class="form-check-input mr-sm-2" name="moytransport" required="required"
+                                    formControlName="moytransport" value="moto">
                                 <label class="form-check-label col-2 margin-right"> Moto </label>
     
     
     
-                                <input type="radio" class="form-check-input mr-sm-2" name="moyentransport" required="required"
-                                    formControlName="moyentransport" value="taxi">
+                                <input type="radio" class="form-check-input mr-sm-2" name="moytransport" required="required"
+                                    formControlName="moytransport" value="taxi">
                                 <label class="form-check-label col-2"> Taxi</label>
 
-                                <input type="radio" class="form-check-input mr-sm-2 " name="moyentransport" required="required"
-                                formControlName="moyentransport" value="bus">
+                                <input type="radio" class="form-check-input mr-sm-2 " name="moytransport" required="required"
+                                formControlName="moytransport" value="bus">
                             <label class="form-check-label col-2">Bus</label>
 
-                            <input type="radio" class="form-check-input mr-sm-2 " name="moyentransport" required="required"
-                            formControlName="moyentransport" value="Autre">
+                            <input type="radio" class="form-check-input mr-sm-2 " name="moytransport" required="required"
+                            formControlName="moytransport" value="Autre">
                         <label class="form-check-label col-2"> Autre</label>
 
                         </div>
@@ -180,10 +181,7 @@
                         <p>
                         <h5 class=" col-5">Le temps entre domicile et travail: </h5>
                         <div class="row">
-                            
-
-
-                            <input type="time" class="number" formControlName="heuretrajet">
+                            <input type="time" class="number" formControlName="estimatransport">
                             <label class="form-check-label col-3 margin-right" style="width: 10px;"> Durée: </label>
                         </div>
                     </div>
@@ -194,30 +192,30 @@
                         <p>
                         <h5 class=" col-3">Situation familiale:</h5>
                         <div class="row">
-                            <input type="radio" class="form-check-input mr-sm-2" name="situationfamiliale"
-                                formControlName="situationfamiliale" value="Célibataire">
+                            <input type="radio" class="form-check-input mr-sm-2" name="etatsociale"
+                                formControlName="etatsociale" value="Célibataire">
                             <label class="form-check-label  col-2"> Célibataire </label>
 
 
-                            <input type="radio" class="form-check-input col-2" name="situationfamiliale"
-                                formControlName="situationfamiliale" value="Marié(e)">
+                            <input type="radio" class="form-check-input col-2" name="etatsociale"
+                                formControlName="etatsociale" value="Marié(e)">
                             <label class="form-check-label col-3 margin-right"> Marié(e) </label>
 
 
 
-                            <input type="radio" class="form-check-input col-2 " name="situationfamiliale"
-                                formControlName="situationfamiliale" value="Divorcé">
+                            <input type="radio" class="form-check-input col-2 " name="etatsociale"
+                                formControlName="etatsociale" value="Divorcé">
                             <label class="form-check-label col-3"> Divorcé(e)</label>
                         </div>
 
                         <p class=" col-5">Si marié(e) ou divorcé(e) depuis quand?</p>
-                        <input type="text" class="infopro" formControlName="datesituation">
+                        <input type="text" class="dateetatsociale" formControlName="dateetatsociale">
                     </div>
                 </div>
             </div>
 
           </div>
-        </div>
+       
        <!-- <div class="shadow p-3 mb-5 bg-body rounded mt-2 col-12 ">
             <div class="card-body">
                 <div class="text-center h2 mb-3">
@@ -696,9 +694,8 @@
                 </div>
             </div>
         </div>-->
-        <div class=" mt-2 mb-2 end-50">
+        <div class=" mt-2 mb-2 end-50" style="margin-left: 30px;" >
 
             <button type="button" class="btn btn-primary mt-2 " (click)="submit()"> Ajouter</button>
         </div>
     </form>
-</div>
