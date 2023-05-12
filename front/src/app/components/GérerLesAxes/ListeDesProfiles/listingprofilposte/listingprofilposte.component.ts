@@ -11,6 +11,7 @@ export class ListingprofilposteComponent implements OnInit {
 
   Profilpostes:any;
   public open:boolean=false
+  public Categories
 
 
  
@@ -21,6 +22,7 @@ export class ListingprofilposteComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallprofile();
+    this.getAllcategorie()
   }
 
   getallprofile() {
@@ -34,6 +36,12 @@ export class ListingprofilposteComponent implements OnInit {
   deleteprofilposte(id){
     this.dataService.delete('Profilpostes/deleteProfilposte.json?id='+id).subscribe(res => {
       this.getallprofile()
+    })
+  }
+  getAllcategorie(){
+    this.dataService.get('Categories/getAllCategorie.json').subscribe(res=>{
+       this.Categories=res.data
+       this.open=true
     })
   }
 }

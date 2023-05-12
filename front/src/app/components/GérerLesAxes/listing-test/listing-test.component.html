@@ -20,7 +20,9 @@
                             {{test.label}}
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger"(click)="deletetest(test.id)"><i class="far fa-trash-alt"
+                            <button type="button" class="btn btn-info" routerLink="/detail-test/{{test.id}}"  ><i
+                                class="far fa-hand-pointer">Afficher </i></button>
+                            <button type="button" class="btn btn-danger"(click)="deletetest(test.id)" style="margin-left: 5px;"><i class="far fa-trash-alt"
                                 >Supprimer</i>
                               </button>
                         </td>
