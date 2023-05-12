@@ -71,7 +71,7 @@ class PostesController extends AppController
             'contain' => [
                 'Departements'
             ]
-        ]);
+        ])->distinct()->toArray();
  
         /*send result */
         $this->set([
