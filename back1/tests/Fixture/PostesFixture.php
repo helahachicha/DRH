@@ -22,8 +22,8 @@ class PostesFixture extends TestFixture
                 'id' => 1,
                 'label' => 'Lorem ipsum dolor sit amet',
                 'departement_id' => 1,
-                'created' => '2023-03-30 14:09:45',
-                'modified' => '2023-03-30 14:09:45',
+                'created' => '2023-05-12 14:12:16',
+                'modified' => '2023-05-12 14:12:16',
             ],
         ];
         parent::init();

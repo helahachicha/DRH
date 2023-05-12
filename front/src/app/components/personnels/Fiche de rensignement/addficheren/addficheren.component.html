@@ -6,7 +6,7 @@
 
 </div>
 
-<div class="container">
+<div class="">
     <div class=" mt-2 mb-2 end-50">
         <!--routerLink="/edit-datail-profil/{{detailpp.id}}"-->
         <button type="button" class="btn btn-primary mt-2 " routerLink="/liste-fiche-rensignement"><i
@@ -15,13 +15,13 @@
 
     <form id="contact-form" role="form" [formGroup]="moyenForm">
 
-         <div class="text-end mt-2">date d'entrée:
+        <!-- <div class="text-end mt-2">date d'entrée:
             <input type="date">
-        </div>
+        </div>-->
         
 
         <div class="row">
-            <div class="shadow p-3 mb-5 bg-body rounded mt-2 col-5">
+            <div class=" p-3 mb-5 bg-body rounded mt-2 col-5">
                 <div class="text-center h2">
                     Information Professionnelles
                 </div>
@@ -69,9 +69,9 @@
                 </div>
 
             </div>
-        </div>
+       
 
-        <div class="shadow p-3 mb-5 bg-body rounded mt-2 col-7 ">
+         <div class=" p-3 mb-5 bg-body rounded mt-2 col-7 ">
 
             <div class="text-center h2">
                 Information Personnelles
@@ -147,12 +147,29 @@
                         <p>
                         <h5 class=" col-3">Moyen de transport: </h5>
                         <div class="row">
-                            <div *ngFor="let choice of array ;let i=index">
-                                <label class="form-check-label  col-2">
-                                    <input type="checkbox" class="form-check-input mr-sm-2 col-2" [value]="choice"
-                                        (change)=" onCheckChangeMoyen($event)" formControlName="moyentransport">
-                                    {{choice}} </label>
-                            </div>
+                            
+                                <input type="radio" class="form-check-input mr-sm-2" name="moyentransport" required="required"
+                                    formControlName="moyentransport" value="voiture">
+                                <label class="form-check-label  col-2"> Voiture </label>
+    
+    
+                                <input type="radio" class="form-check-input mr-sm-2" name="moyentransport" required="required"
+                                    formControlName="moyentransport" value="moto">
+                                <label class="form-check-label col-2 margin-right"> Moto </label>
+    
+    
+    
+                                <input type="radio" class="form-check-input mr-sm-2" name="moyentransport" required="required"
+                                    formControlName="moyentransport" value="taxi">
+                                <label class="form-check-label col-2"> Taxi</label>
+
+                                <input type="radio" class="form-check-input mr-sm-2 " name="moyentransport" required="required"
+                                formControlName="moyentransport" value="bus">
+                            <label class="form-check-label col-2">Bus</label>
+
+                            <input type="radio" class="form-check-input mr-sm-2 " name="moyentransport" required="required"
+                            formControlName="moyentransport" value="Autre">
+                        <label class="form-check-label col-2"> Autre</label>
 
                         </div>
                     </div>
@@ -163,12 +180,11 @@
                         <p>
                         <h5 class=" col-5">Le temps entre domicile et travail: </h5>
                         <div class="row">
-                            <input type="number" class="number" formControlName="minutetrajet">
-                            <label class="form-check-label  col-2"> Minutes: </label>
+                            
 
 
-                            <input type="number" class="number" formControlName="heuretrajet">
-                            <label class="form-check-label col-3 margin-right"> Heure: </label>
+                            <input type="time" class="number" formControlName="heuretrajet">
+                            <label class="form-check-label col-3 margin-right" style="width: 10px;"> Durée: </label>
                         </div>
                     </div>
                 </div>
@@ -200,8 +216,9 @@
                 </div>
             </div>
 
+          </div>
         </div>
-        <div class="shadow p-3 mb-5 bg-body rounded mt-2 col-12 ">
+       <!-- <div class="shadow p-3 mb-5 bg-body rounded mt-2 col-12 ">
             <div class="card-body">
                 <div class="text-center h2 mb-3">
                     Activités et Loisirs
@@ -678,7 +695,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
+        <div class=" mt-2 mb-2 end-50">
 
+            <button type="button" class="btn btn-primary mt-2 " (click)="submit()"> Ajouter</button>
+        </div>
     </form>
 </div>

@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\PostesTable;
+use App\Model\Table\InfoemployesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PostesTable Test Case
+ * App\Model\Table\InfoemployesTable Test Case
  */
-class PostesTableTest extends TestCase
+class InfoemployesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\PostesTable
+     * @var \App\Model\Table\InfoemployesTable
      */
-    protected $Postes;
+    protected $Infoemployes;
 
     /**
      * Fixtures
@@ -24,10 +24,8 @@ class PostesTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Postes',
-        'app.Departements',
         'app.Infoemployes',
-        'app.Profilpostes',
+        'app.Postes',
     ];
 
     /**
@@ -38,8 +36,8 @@ class PostesTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Postes') ? [] : ['className' => PostesTable::class];
-        $this->Postes = $this->getTableLocator()->get('Postes', $config);
+        $config = $this->getTableLocator()->exists('Infoemployes') ? [] : ['className' => InfoemployesTable::class];
+        $this->Infoemployes = $this->getTableLocator()->get('Infoemployes', $config);
     }
 
     /**
@@ -49,7 +47,7 @@ class PostesTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Postes);
+        unset($this->Infoemployes);
 
         parent::tearDown();
     }
@@ -58,7 +56,7 @@ class PostesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\PostesTable::validationDefault()
+     * @uses \App\Model\Table\InfoemployesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -69,7 +67,7 @@ class PostesTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\PostesTable::buildRules()
+     * @uses \App\Model\Table\InfoemployesTable::buildRules()
      */
     public function testBuildRules(): void
     {
