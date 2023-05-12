@@ -1,3 +1,6 @@
+
+
+
 <aside class="left-sidebar " data-sidebarbg="skin5" style="
  height: 100%;
 
@@ -12,45 +15,6 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav" class="pt-2">
-                <!--***partie home page dans un commentaire*** -->
-
-                <!-- <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="/home"
-                        aria-expanded="false"><i class="fas fa-home"></i><span class="hide-menu">Home</span></a>
-                </li>-->
-
-                <!-- Divider -->
-                <!--  <hr class="sidebar-divider my-0">-->
-
-                <li class="sidebar-item ">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="/dashboard"
-                        aria-expanded="false"><i class=" fas fa-chart-bar"></i><span
-                            class="hide-menu">Reporting</span></a>
-                </li>
-
-                <!--*** partie formationet développement *** -->
-                <hr class="sidebar-divider my-0">
-
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Formation et
-                            développement </span></a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a routerLink="/listingforma" class="sidebar-link">
-                                <i class="fas fa-certificate"></i>
-                                <span class="hide-menu"> Formation
-                                    externe </span></a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a routerLink="/formainternelisting" class="sidebar-link"><i class="fas fa-certificate"></i>
-                                <span class="hide-menu"> Formation
-                                    interne</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <!--**terminer partie formation et développement-->
-
                 <!---***partie profil de poste ***-->
                 <hr class="sidebar-divider my-0">
                 <li class="sidebar-item">
@@ -75,9 +39,6 @@
                     </ul>
                 </li>
                 <!--**terminer partie profil de poste **-->
-
-                <!--***partie personnel contient fiche de rensignement(dans un commentaire) , fiche d'evaluation ,test technique ,matrice de competence -->
-
                 <hr class="sidebar-divider my-0">
 
                 <li class="sidebar-item">
@@ -86,11 +47,11 @@
                     <ul aria-expanded="false" class="collapse first-level">
                         <!--/////partie fiche de rensignement dan un commentaire -->
 
-                        <!-- <li class="sidebar-item">
+                         <li class="sidebar-item">
                             <a routerLink="/liste-fiche-rensignement" class="sidebar-link"><i
                                     class=" fas fa-file-alt"></i><span class="hide-menu">Fiche de
                                     rensignement</span></a>
-                        </li>-->
+                        </li>
                         <!---partie fiche de rensignement + test technique-->
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
@@ -130,67 +91,50 @@
                             </ul>
                             <!--terminer partie fiche d'evaluation + test technique -->
                         </li>
-                        <li class="sidebar-item">
-                            <a routerLink="/liste-matrice" class="sidebar-link"><i
-                                    class=" fas fa-tachometer-alt"></i><span class="hide-menu"> Matrice des
-                                    compétence</span></a>
-                        </li>
+                       
                     </ul>
+                    <!--  <hr class="sidebar-divider my-0">-->
+<!--*** partie formationet développement *** -->
+<hr class="sidebar-divider my-0">
+
+<li class="sidebar-item">
+    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
+            class="fas fa-ellipsis-h"></i><span class="hide-menu">Formation et
+            développement </span></a>
+    <ul aria-expanded="false" class="collapse first-level">
+        <li class="sidebar-item">
+            <a routerLink="/listingforma" class="sidebar-link">
+                <i class="fas fa-certificate"></i>
+                <span class="hide-menu"> Formation
+                    externe </span></a>
+        </li>
+        <li class="sidebar-item">
+            <a routerLink="/formainternelisting" class="sidebar-link"><i class="fas fa-certificate"></i>
+                <span class="hide-menu"> Formation
+                    interne</span></a>
+        </li>
+    </ul>
+</li>
+<!--**terminer partie formation et développement-->
+                
+<hr class="sidebar-divider my-0">
+
+                
+                <li class="sidebar-item">
+                    <a routerLink="/liste-matrice" class="sidebar-link"><i
+                            class=" fas fa-tachometer-alt"></i><span class="hide-menu"> Matrice des
+                            compétence</span></a>
                 </li>
-                <!--***terminer partie personnel**** -->
-                <!-- partie gerer les axes contient les listes et add de profil de poste  -->
                 <hr class="sidebar-divider my-0">
 
-
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                            class="fas fa-ellipsis-h"></i><span class="hide-menu">Gérer les
-                            axes</span></a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                                    class="fas fa-ellipsis-h"></i><span class="hide-menu">Profil de
-                                    poste</span></a>
-
-                            <ul aria-expanded="false" class="collapse first-level">
-                                <li class="sidebar-item">
-                                    <a routerLink="/addprofil" class="sidebar-link"><i
-                                            class=" far fa-plus-square"></i><span class="hide-menu"> Créer un
-                                            profil
-                                            de poste </span></a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a routerLink="/listingprofilposte" class="sidebar-link"><i
-                                            class="far fa-list-alt"></i><span class="hide-menu"> Liste
-                                            des profils
-                                            de poste</span></a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a routerLink="/listingtest" class="sidebar-link"><i
-                                            class="  far fa-list-alt"></i><span class="hide-menu"> Liste
-                                            des tests techniques</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false"><i
-                                    class="fas fa-ellipsis-h"></i><span class="hide-menu">Formation</span></a>
-
-                            <ul aria-expanded="false" class="collapse first-level">
-                                <li class="sidebar-item">
-                                    <a routerLink="/listingtheme" class="sidebar-link"><i
-                                            class=" far fa-list-alt"></i><span class="hide-menu"> Thémes
-                                            des
-                                            formations </span></a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                <li class="sidebar-item ">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="/dashboard"
+                        aria-expanded="false"><i class=" fas fa-chart-bar"></i><span
+                            class="hide-menu">Reporting</span></a>
                 </li>
-                <!--***terminer partie gerer les axes*** -->
-            </ul>
-        </nav>
-        <!-- End Sidebar navigation -->
-    </div>
-    <!-- End Sidebar scroll-->
-</aside>
+                <!--***terminer partie personnel**** -->
+                </ul>
+                </nav>
+                </div>
+                </aside>
+                

@@ -65,9 +65,9 @@
                                         <div class="form-group">
                                                 <label for="form_name">Niveau</label>
 
-                                                <div *ngFor="let niveau of competences.category.niveauvises">
+                                               <!-- <div *ngFor="let niveau of competences.category.niveauvises">
                                                         {{niveau.label}}
-                                                </div>
+                                                </div>-->
                                         </div>
                                 </div>
 
@@ -94,9 +94,9 @@
                                                         </th>
 
                                                         <table style="border: none;"
-                                                                *ngIf="formCompteance[i].competence.souscompetences.length==0">
+                                                                *ngIf="formCompteance[i].souscompetences">
                                                                 <div
-                                                                        *ngFor="let indicateurSuivie  of formCompteance[i].competence.indicateursuivis;let c=index">
+                                                                        *ngFor="let indicateurSuivie  of formCompteance[i].indicateursuivis;let c=index">
                                                                         <td class="n">
                                                                                 <tr>
                                                                                         N°
@@ -182,13 +182,13 @@
                                                         </table>
 
                                                         <table
-                                                                *ngFor="let sousCompetence of formCompteance[i].competence.souscompetences;let k=index">
+                                                                *ngFor="let sousCompetence of formCompteance[i].souscompetences;let k=index">
                                                                 <tr class="text-center mt-5 mb-5">
 
                                                                         {{sousCompetence.label}}
 
                                                                 </tr>
-                                                                <div *ngFor="let indicateursouComp of formCompteance[i].competence.souscompetences[k].indicasoucompas;let j=index">
+                                                                <div *ngFor="let indicateursouComp of formCompteance[i].souscompetences[k].indicasoucompas;let j=index">
                                                                         <td class="n">
                                                                                 <tr>
                                                                                         N°
