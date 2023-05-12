@@ -158,8 +158,6 @@ class InfoemployesController extends AppController
                throw new UnauthorizedException('Id is not Valid');
            }
        }
-
-
         $infoemployes = $this->Infoemployes->find('all', [
             'conditions'=>[
                 'Infoemployes.id IS'=>$id,
@@ -238,7 +236,8 @@ class InfoemployesController extends AppController
         /* search */
         $infoemployes = $this->Infoemployes->find('all',[
             'fields' => [
-                'nomprenom'
+                'id',
+                'nomprenom',
             ]
         ])->distinct()->toArray();
  
