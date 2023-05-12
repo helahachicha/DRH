@@ -9,37 +9,36 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./addficheren.component.scss']
 })
 export class AddficherenComponent implements OnInit {
-public Infoprofessionnelles
+
   public moyenForm = new FormGroup({
     nomprenom: new FormControl('', [Validators.required]),
     adresse: new FormControl('', [Validators.required]),
-    telprofessionnel: new FormControl('', [Validators.required]),
+    telprof: new FormControl('', [Validators.required]),
     telpersonnel: new FormControl('', [Validators.required]),
     contact: new FormControl('', [Validators.required]),
-    mailprofessionnel: new FormControl('', [Validators.required]),
+    mailprof: new FormControl('', [Validators.required]),
     mailpersonnel: new FormControl('', [Validators.required]),
-    service: new FormControl('', [Validators.required]),
+    servicetravail: new FormControl('', [Validators.required]),
     poste: new FormControl('', [Validators.required]),
     datenaissance: new FormControl('', [Validators.required]),
-    lieunaissance: new FormControl('', [Validators.required]),
-    nationalite: new FormControl('', [Validators.required]),
-    ncin: new FormControl('', [Validators.required]),
-    lieucin: new FormControl('', [Validators.required]),
-    datecin: new FormControl('', [Validators.required]),
+    lieu: new FormControl('', [Validators.required]),
+    nationnalite: new FormControl('', [Validators.required]),
+    cin: new FormControl('', [Validators.required]),
+    delivreea: new FormControl('', [Validators.required]),
+    datedelivrance: new FormControl('', [Validators.required]),
     permis: new FormControl('', [Validators.required]),
     datepermis: new FormControl('', [Validators.required]),
     logement: new FormControl('', [Validators.required]),
-    moyentransport: new FormControl('', [Validators.required]),
-    heuretrajet: new FormControl('', [Validators.required]),
-    situationfamiliale: new FormControl('', [Validators.required]),
-    datesituation: new FormControl('', [Validators.required]),
+    moytransport: new FormControl('', [Validators.required]),
+    estimatransport: new FormControl('', [Validators.required]),
+    etatsociale: new FormControl('', [Validators.required]),
+    dateetatsociale: new FormControl('', [Validators.required]),
     
   });
 
   constructor(
     private dataService:DataService,
-    private router :Router
-  ) { }
+    ) { }
 
   ngOnInit(): void {
     
@@ -51,12 +50,13 @@ public Infoprofessionnelles
  arraycorporelle:any=['Dance','Théâtre','Autre']*/
  
 
-  submit() {
-    console.log('test',this.moyenForm.value)
+  
+   submit() {
+    console.log('test',this.moyenForm.value) 
     this.dataService.post('Infoemployes/addInfoemploye.json',this.moyenForm.value).subscribe(res=> {
       
-      //this.router.navigate(['/coutlisting']) 
-      
+     /// this.router.navigate(['/coutlisting'])
+     
       })
    }
 

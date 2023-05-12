@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 11 mai 2023 à 20:52
+-- Généré le : ven. 12 mai 2023 à 23:50
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -465,6 +465,40 @@ INSERT INTO `indicateursuivis` (`id`, `label`, `formcompetence_id`, `niveauvise_
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `infoemployes`
+--
+
+CREATE TABLE `infoemployes` (
+  `id` int(11) NOT NULL,
+  `nomprenom` varchar(255) NOT NULL,
+  `adresse` varchar(255) NOT NULL,
+  `telprof` int(11) NOT NULL,
+  `telpersonnel` int(11) NOT NULL,
+  `contact` int(11) NOT NULL,
+  `mailprof` varchar(255) NOT NULL,
+  `mailpersonnel` varchar(255) NOT NULL,
+  `servicetravail` varchar(255) NOT NULL,
+  `poste_id` int(11) NOT NULL,
+  `datenaissance` datetime NOT NULL,
+  `lieu` varchar(255) NOT NULL,
+  `nationnalite` varchar(255) NOT NULL,
+  `cin` int(11) NOT NULL,
+  `delivreea` varchar(255) NOT NULL,
+  `datedelivrance` datetime NOT NULL,
+  `permis` varchar(255) NOT NULL,
+  `datepermis` datetime NOT NULL,
+  `logement` varchar(255) NOT NULL,
+  `moytransport` varchar(255) NOT NULL,
+  `estimatransport` time NOT NULL,
+  `etatsociale` varchar(255) NOT NULL,
+  `dateetatsociale` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `matricecompetences`
 --
 
@@ -719,7 +753,8 @@ INSERT INTO `pointindicateurs` (`id`, `label`, `indicateursuivi_id`, `employe_id
 (12, 1, 15, 12, '2023-05-05 21:06:47', '2023-05-05 21:06:47'),
 (13, 2, 16, 12, '2023-05-05 21:06:47', '2023-05-05 21:06:47'),
 (14, 1, 17, 12, '2023-05-05 21:06:47', '2023-05-05 21:06:47'),
-(15, 2, 18, 12, '2023-05-05 21:06:47', '2023-05-05 21:06:47');
+(15, 2, 18, 12, '2023-05-05 21:06:47', '2023-05-05 21:06:47'),
+(16, 1, 4, 14, '2023-05-12 09:11:53', '2023-05-12 09:11:53');
 
 -- --------------------------------------------------------
 
@@ -823,7 +858,7 @@ CREATE TABLE `profilpostes` (
 --
 
 INSERT INTO `profilpostes` (`id`, `nom`, `poste_id`, `created`, `modified`) VALUES
-(1, 'Développeur', 0, '2023-05-11 10:16:18', '2023-05-11 10:16:18'),
+(1, 'Développeur', 1, '2023-05-11 10:16:18', '2023-05-11 10:16:18'),
 (2, 'Développeur', 0, '2023-05-11 10:31:38', '2023-05-11 10:31:38'),
 (3, 'Développeur', 0, '2023-05-11 10:50:47', '2023-05-11 10:50:47'),
 (4, 'Développeur', 0, '2023-05-11 11:02:29', '2023-05-11 11:02:29');
@@ -1169,6 +1204,12 @@ ALTER TABLE `indicateursuivis`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `infoemployes`
+--
+ALTER TABLE `infoemployes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `matricecompetences`
 --
 ALTER TABLE `matricecompetences`
@@ -1326,7 +1367,7 @@ ALTER TABLE `echelleevaluations`
 -- AUTO_INCREMENT pour la table `employes`
 --
 ALTER TABLE `employes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `formaexternes`
@@ -1359,6 +1400,12 @@ ALTER TABLE `indicateursuivis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT pour la table `infoemployes`
+--
+ALTER TABLE `infoemployes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `matricecompetences`
 --
 ALTER TABLE `matricecompetences`
@@ -1386,7 +1433,7 @@ ALTER TABLE `pointindicasous`
 -- AUTO_INCREMENT pour la table `pointindicateurs`
 --
 ALTER TABLE `pointindicateurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `polycompetences`
