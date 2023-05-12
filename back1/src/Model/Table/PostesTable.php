@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * Postes Model
  *
  * @property \App\Model\Table\DepartementsTable&\Cake\ORM\Association\BelongsTo $Departements
+ * @property \App\Model\Table\InfoemployesTable&\Cake\ORM\Association\HasMany $Infoemployes
  * @property \App\Model\Table\ProfilpostesTable&\Cake\ORM\Association\HasMany $Profilpostes
  *
  * @method \App\Model\Entity\Poste newEmptyEntity()
@@ -51,6 +52,9 @@ class PostesTable extends Table
         $this->belongsTo('Departements', [
             'foreignKey' => 'departement_id',
             'joinType' => 'INNER',
+        ]);
+        $this->hasMany('Infoemployes', [
+            'foreignKey' => 'poste_id',
         ]);
         $this->hasMany('Profilpostes', [
             'foreignKey' => 'poste_id',
