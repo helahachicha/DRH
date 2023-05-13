@@ -1,4 +1,3 @@
-
 <div class="border border-primary row  ">
 
     <div class="col text-center m-3">
@@ -8,218 +7,185 @@
 </div>
 
 
-    <div class=" mt-2 mb-2 end-50" style="margin-left: 30px;">
-        <!--routerLink="/edit-datail-profil/{{detailpp.id}}"-->
-        <button type="button" class="btn btn-primary mt-2 " routerLink="/liste-fiche-rensignement"><i
-                class="  fas fa-arrow-alt-circle-left"></i> REV</button>
-    </div>
+<div class=" mt-2 mb-2 end-50" style="margin-left: 30px;">
+    <!--routerLink="/edit-datail-profil/{{detailpp.id}}"-->
+    <button type="button" class="btn btn-primary mt-2 " routerLink="/liste-fiche-rensignement"><i
+            class="  fas fa-arrow-alt-circle-left"></i> REV</button>
+</div>
 
-    <form id="contact-form" role="form" >
+<div *ngFor="let obj of Infoemployes">
 
-        <!-- <div class="text-end mt-2">date d'entrée:
+    <!-- <div class="text-end mt-2">date d'entrée:
             <input type="date">
         </div>-->
-        
 
-        
-            <div class=" p-3 mb-5  rounded mt-2 " >
-                <div class="text-center h2">
-                    Information Professionnelles
-                </div>
-                <div class="card-body" style="width: 500px;margin-left: 400px;">
-                    <div class="row">
-                        <h5 class="col-6"> Nom et Prénom: </h5>
-                        <input type="text" class="infopro" formControlName="nomprenom">
-                    </div>
-                    <div class="row mt-2">
-                        <h5 class="col-6"> Adresse : </h5>
-                        <input type="text" class="infopro" formControlName="adresse">
-                    </div>
 
-                    <div class="row mt-2">
-                        <h5 class="col-6"> Tél professionnel: </h5>
-                        <input type="tel" class="infopro" formControlName="telprof">
-                    </div>
 
-                    <div class="row mt-2">
-                        <h5 class="col-6"> Tél personnel: </h5>
-                        <input type="tel" class="infopro" formControlName="telpersonnel">
-                    </div>
+    <div class=" p-3 mb-5  rounded mt-2 ">
+        <div class="text-center h2">
+            Information Professionnelles
+        </div>
+        <div class="card-body" style="width: 500px;margin-left: 400px;">
+            <div class="row">
+                <h5 class="col-6"> Nom et Prénom: </h5>
+                <p>{{obj.nomprenom}} </p>
+            </div>
+            <div class="row mt-2">
+                <h5 class="col-6"> Adresse : </h5>
 
-                    <div class="row mt-2">
-                        <h5 class="col-6 mb-3">Contact en cas d’urgence: </h5>
-                        <input type="tel" class="infopro" formControlName="contact">
-                    </div>
+                <p>{{obj.adresse}} </p>
+            </div>
 
-                    <div class="row mt-2">
-                        <h5 class="col-6">Mail professionnel: </h5>
-                        <input type="email" class="infopro" formControlName="mailprof">
-                    </div>
-                    <div class="row mt-2">
-                        <h5 class="col-6">Mail personnel: </h5>
-                        <input type="email" class="infopro" formControlName="mailpersonnel">
-                    </div>
-                    <div class="row mt-2">
-                        <h5 class="col-6">Service de travail: </h5>
-                        <input type="email" class="infopro" formControlName="servicetravail">
-                    </div>
-                    <div class="row mt-2">
-                    <!--  <h5 class="col-6">Poste: </h5>
+            <div class="row mt-2">
+                <h5 class="col-6"> Tél professionnel: </h5>
+
+                <p>{{obj.telprof}} </p>
+            </div>
+
+            <div class="row mt-2">
+                <h5 class="col-6"> Tél personnel: </h5>
+
+                <p>{{obj.telpersonnel}} </p>
+            </div>
+
+            <div class="row mt-2">
+                <h5 class="col-6 mb-3">Contact en cas d’urgence: </h5>
+                <p>{{obj.contact}} </p>
+            </div>
+
+            <div class="row mt-2">
+                <h5 class="col-6">Mail professionnel: </h5>
+                <p>{{obj.mailprof}} </p>
+            </div>
+            <div class="row mt-2">
+                <h5 class="col-6">Mail personnel: </h5>
+                <p>{{obj.mailpersonnel}} </p>
+            </div>
+            <div class="row mt-2">
+                <h5 class="col-6">Service de travail: </h5>
+
+                <p>{{obj.servicetravail}} </p>
+            </div>
+            <div class="row mt-2">
+                <!--  <h5 class="col-6">Poste: </h5>
                         <input type="text" class="infopro" formControlName="poste">
                     </div>-->
-                                    <h5 class="col-6"> Poste : </h5>
-                                        
-                                        </div>
+                <h5 class="col-6"> Poste : </h5>
+                <p>{{obj.poste_id}} </p>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class=" p-3 mb-5  rounded mt-2 ">
+
+        <div class="text-center h2">
+            Information Personnelles
+        </div>
+        <div class="card-body" style="width: 1200px;margin-left: 130px;">
+
+            <div class="row">
+                <h5 class="col-3"> Date de naissance: </h5>
+
+                <p>{{obj.datenaissance}} </p>
+
+                <h5 class="col-1"> Lieu: </h5>
+
+                <p>{{obj.lieu}} </p>
+            </div>
+
+            <div class="row mt-2">
+                <h5 class="col-3">Nationalité: </h5>
+
+                <p>{{obj.nationnalite}} </p>
+
+                <h5 class="col-1"> N°CIN: </h5>
+
+                <p>{{obj.cin}} </p>
+            </div>
+
+            <div class="row mt-2">
+                <h5 class="col-3">Délivrée à:</h5>
+
+                <p>{{obj.delivreea}} </p>
+
+                <h5 class="col-1"> Le: </h5>
+
+                <p>{{obj.datedelivrance}} </p>
+            </div>
+
+            <div class="row">
+                <h5 class="col-3">Permis de conduite:</h5>
+                <div class="form-check mr-sm-2 col-md-4">
+
+
+                    <p>{{obj.permis}} </p>
+
+                    <p class="col-8"> Si oui depuis quand?</p>
+
+                    <p>{{obj.datepermis}} </p>
+
                 </div>
 
             </div>
-       
 
-            <div class=" p-3 mb-5  rounded mt-2 " >
+            <div class="row">
+                <div class="checkbox_box">
+                    <p>
+                    <h5 class=" col-3">Logement:</h5>
+                    <div class="row">
+                        <p>{{obj.logement}} </p>
 
-            <div class="text-center h2">
-                Information Personnelles
+                    </div>
+                </div>
             </div>
-            <div class="card-body" style="width: 1200px;margin-left: 130px;">
+            <div class="row">
 
-                <div class="row">
-                    <h5 class="col-3"> Date de naissance: </h5>
-                    <input type="date" formControlName="datenaissance" required="required">
+                <div class="checkbox_box">
+                    <p>
+                    <h5 class=" col-3">Moyen de transport: </h5>
 
-                    <h5 class="col-1"> Lieu: </h5>
-                    <input type="text" class="lieu" formControlName="lieu" required="required">
-                </div>
-
-                <div class="row mt-2">
-                    <h5 class="col-3">Nationalité: </h5>
-                    <input type="text" class="lieu" formControlName="nationnalite" required="required">
-
-                    <h5 class="col-1"> N°CIN: </h5>
-                    <input type="number" class="lieu" formControlName="cin" required="required">
-                </div>
-
-                <div class="row mt-2">
-                    <h5 class="col-3">Délivrée à:</h5>
-                    <input type="text" class="lieu" formControlName="delivreea" required="required">
-
-                    <h5 class="col-1"> Le: </h5>
-                    <input type="date" class="lieu" formControlName="datedelivrance" required="required">
-                </div>
-
-                <div class="row">
-                    <h5 class="col-3">Permis de conduite:</h5>
-                    <div class="form-check mr-sm-2 col-md-4">
-
-                        <input type="radio" class="form-check-input" name="permis" formControlName="permis" value="Oui"
-                            required="required">
-                        <label class="form-check-label ">Oui </label><br>
-                        <input type="radio" class="form-check-input  col-md-4" name="permis" formControlName="permis"
-                            required="required " value="Non">
-                        <label class="form-check-label ">Non </label>
-                        <p class="col-8"> Si oui depuis quand?</p>
-                        <input type="date" class="infopro" formControlName="datepermis" required="required">
+                    <div class="row">
+                        <p>{{obj.moyentransport}} </p>
 
                     </div>
-
                 </div>
 
-                <div class="row">
-                    <div class="checkbox_box">
-                        <p>
-                        <h5 class=" col-3">Logement:</h5>
-                        <div class="row">
-                            <input type="radio" class="form-check-input mr-sm-2" name="logement" required="required"
-                                formControlName="logement" value="Propre">
-                            <label class="form-check-label  col-2"> Propre </label>
+            </div>
+            <div class="row">
+                <div class="checkbox_box">
+                    <p>
+                    <h5 class=" col-5">Le temps entre domicile et travail: </h5>
 
+                    <div class="row">
 
-                            <input type="radio" class="form-check-input col-2" name="logement" required="required"
-                                formControlName="logement" value="Loyer">
-                            <label class="form-check-label col-3 margin-right"> Loyer </label>
-
-
-
-                            <input type="radio" class="form-check-input col-2 " name="logement" required="required"
-                                formControlName="logement" value="Chez quelqu’un">
-                            <label class="form-check-label col-3"> Chez quelqu’un </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="checkbox_box">
-                        <p>
-                        <h5 class=" col-3">Moyen de transport: </h5>
-                        <div class="row">
-                            
-                                <input type="radio" class="form-check-input mr-sm-2" name="moyentransport" required="required"
-                                    formControlName="moytransport" value="voiture">
-                                <label class="form-check-label  col-2"> Voiture </label>
-    
-    
-                                <input type="radio" class="form-check-input mr-sm-2" name="moytransport" required="required"
-                                    formControlName="moytransport" value="moto">
-                                <label class="form-check-label col-2 margin-right"> Moto </label>
-    
-    
-    
-                                <input type="radio" class="form-check-input mr-sm-2" name="moytransport" required="required"
-                                    formControlName="moytransport" value="taxi">
-                                <label class="form-check-label col-2"> Taxi</label>
-
-                                <input type="radio" class="form-check-input mr-sm-2 " name="moytransport" required="required"
-                                formControlName="moytransport" value="bus">
-                            <label class="form-check-label col-2">Bus</label>
-
-                            <input type="radio" class="form-check-input mr-sm-2 " name="moytransport" required="required"
-                            formControlName="moytransport" value="Autre">
-                        <label class="form-check-label col-2"> Autre</label>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="checkbox_box">
-                        <p>
-                        <h5 class=" col-5">Le temps entre domicile et travail: </h5>
-                        <div class="row">
-                            <input type="time" class="number" formControlName="estimatransport">
-                            <label class="form-check-label col-3 margin-right" style="width: 10px;"> Durée: </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="checkbox_box">
-                        <p>
-                        <h5 class=" col-3">Situation familiale:</h5>
-                        <div class="row">
-                            <input type="radio" class="form-check-input mr-sm-2" name="etatsociale"
-                                formControlName="etatsociale" value="Célibataire">
-                            <label class="form-check-label  col-2"> Célibataire </label>
-
-
-                            <input type="radio" class="form-check-input col-2" name="etatsociale"
-                                formControlName="etatsociale" value="Marié(e)">
-                            <label class="form-check-label col-3 margin-right"> Marié(e) </label>
-
-
-
-                            <input type="radio" class="form-check-input col-2 " name="etatsociale"
-                                formControlName="etatsociale" value="Divorcé">
-                            <label class="form-check-label col-3"> Divorcé(e)</label>
-                        </div>
-
-                        <p class=" col-5">Si marié(e) ou divorcé(e) depuis quand?</p>
-                        <input type="text" class="dateetatsociale" formControlName="dateetatsociale">
+                        <p>{{obj.estimatransport}} </p>
                     </div>
                 </div>
             </div>
 
-          </div>
-       
-       <!-- <div class="shadow p-3 mb-5 bg-body rounded mt-2 col-12 ">
+            <div class="row">
+                <div class="checkbox_box">
+                    <p>
+                    <h5 class=" col-3">Situation familiale:</h5>
+                    <div class="row">
+
+                        <p>{{obj.etatsociale}} </p>
+
+                    </div>
+
+                    <p class=" col-5">Si marié(e) ou divorcé(e) depuis quand?</p>
+                    <p>{{obj.dateetatsociale}} </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div class="shadow p-3 mb-5 bg-body rounded mt-2 col-12 ">
             <div class="card-body">
                 <div class="text-center h2 mb-3">
                     Activités et Loisirs
@@ -697,5 +663,5 @@
                 </div>
             </div>
         </div>-->
-       
-    </form>
+
+</div>

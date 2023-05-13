@@ -145,7 +145,7 @@ class InfoemployesController extends AppController
       *
       * @Output: data
       */
-      public function getInfoemploye(){
+      public function getInfoemployeById(){
  
         $id = $this->request->getQuery('id');
         /* search */
@@ -181,7 +181,7 @@ class InfoemployesController extends AppController
         ]);
     }
 
-
+   
 
     /**
       * deleteInfoemploye

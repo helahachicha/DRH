@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from 'src/app/shared/service/data.service';
 
 @Component({
   selector: 'app-detail-fich-rensig',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-fich-rensig.component.scss']
 })
 export class DetailFichRensigComponent implements OnInit {
-
-  constructor() { }
+  id: any;
+  public Infoemployes
+  constructor(
+    private dataService:DataService,
+    private router :Router,
+    private route:ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.getEmpById()
+   
   }
 
+  getEmpById() {
+    this.id=this.route.snapshot.params['id'];
+    this.dataService.get('Infoemployes/getInfoemployeBy.json?id='+this.id).subscribe(
+      res => {
+      this.Infoemployes=res.data; 
+      console.log('test', this.Infoemployes)
+    })
+    
+  }
 }
