@@ -25,53 +25,53 @@
         <div class="text-center h2">
             Information Professionnelles
         </div>
-        <div class="card-body" style="width: 500px;margin-left: 400px;">
+        <div class="card-body" style="width: 500px;margin-left: 450px;">
             <div class="row">
                 <h5 class="col-6"> Nom et Prénom: </h5>
-                <p>{{obj.nomprenom}} </p>
+                <p class="col-6">{{obj.nomprenom}} </p>
             </div>
             <div class="row mt-2">
                 <h5 class="col-6"> Adresse : </h5>
 
-                <p>{{obj.adresse}} </p>
+                <p class="col-6">{{obj.adresse}} </p>
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-6"> Tél professionnel: </h5>
 
-                <p>{{obj.telprof}} </p>
+                <p class="col-6">{{obj.telprof}} </p>
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-6"> Tél personnel: </h5>
 
-                <p>{{obj.telpersonnel}} </p>
+                <p class="col-6">{{obj.telpersonnel}} </p>
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-6 mb-3">Contact en cas d’urgence: </h5>
-                <p>{{obj.contact}} </p>
+                <p class="col-6">{{obj.contact}} </p>
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-6">Mail professionnel: </h5>
-                <p>{{obj.mailprof}} </p>
+                <p class="col-6">{{obj.mailprof}} </p>
             </div>
             <div class="row mt-2">
                 <h5 class="col-6">Mail personnel: </h5>
-                <p>{{obj.mailpersonnel}} </p>
+                <p class="col-6">{{obj.mailpersonnel}} </p>
             </div>
             <div class="row mt-2">
                 <h5 class="col-6">Service de travail: </h5>
 
-                <p>{{obj.servicetravail}} </p>
+                <p class="col-6">{{obj.servicetravail}} </p>
             </div>
             <div class="row mt-2">
                 <!--  <h5 class="col-6">Poste: </h5>
                         <input type="text" class="infopro" formControlName="poste">
                     </div>-->
                 <h5 class="col-6"> Poste : </h5>
-                <p>{{obj.poste.label}} </p>
+                <p class="col-6">{{obj.poste.label}} </p>
 
             </div>
         </div>
@@ -84,36 +84,36 @@
         <div class="text-center h2">
             Information Personnelles
         </div>
-        <div class="card-body" style="width: 1200px;margin-left: 130px;">
+        <div class="card-body" style="width: 989px;margin-left: 200px;">
 
             <div class="row">
                 <h5 class="col-3"> Date de naissance: </h5>
 
-                <p>{{obj.datenaissance}} </p>
+                <p class="col-3">{{obj.datenaissance}} </p>
 
-                <h5 class="col-1"> Lieu: </h5>
+                <h5 class="col-2"> Lieu: </h5>
 
-                <p>{{obj.lieu}} </p>
+                <p class="col-2">{{obj.lieu}} </p>
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-3">Nationalité: </h5>
 
-                <p>{{obj.nationnalite}} </p>
+                <p class="col-3">{{obj.nationnalite}} </p>
 
-                <h5 class="col-1"> N°CIN: </h5>
+                <h5 class="col-2"> N°CIN: </h5>
 
-                <p>{{obj.cin}} </p>
+                <p class="col-2">{{obj.cin}} </p>
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-3">Délivrée à:</h5>
 
-                <p>{{obj.delivreea}} </p>
+                <p class="col-3">{{obj.delivreea}} </p>
 
-                <h5 class="col-1"> Le: </h5>
+                <h5 class="col-2"> Le: </h5>
 
-                <p>{{obj.datedelivrance}} </p>
+                <p class="col-2">{{obj.datedelivrance}} </p>
             </div>
 
             <div class="row">
@@ -125,7 +125,7 @@
 
                     <p class="col-8"> Si oui depuis quand?</p>
 
-                    <p>{{obj.datepermis}} </p>
+                    <p class="col-8">{{obj.datepermis}} </p>
 
                 </div>
 
@@ -133,10 +133,11 @@
 
             <div class="row">
                 <div class="checkbox_box">
-                    <p>
-                    <h5 class=" col-3">Logement:</h5>
+                    
+                    
                     <div class="row">
-                        <p>{{obj.logement}} </p>
+                        <h5 class=" col-3">Logement:</h5>
+                        <p class=" col-3">{{obj.logement}} </p>
 
                     </div>
                 </div>
@@ -144,11 +145,12 @@
             <div class="row">
 
                 <div class="checkbox_box">
-                    <p>
-                    <h5 class=" col-3">Moyen de transport: </h5>
+                    
+                  
 
                     <div class="row">
-                        <p>{{obj.moyentransport}} </p>
+                        <h5 class=" col-3">Moyen de transport: </h5>
+                        <p class=" col-3">{{obj.moytransport}} </p>
 
                     </div>
                 </div>
@@ -156,12 +158,12 @@
             </div>
             <div class="row">
                 <div class="checkbox_box">
-                    <p>
-                    <h5 class=" col-5">Le temps entre domicile et travail: </h5>
+                   
+                    
 
                     <div class="row">
-
-                        <p>{{obj.estimatransport}} </p>
+                        <h5 class=" col-5">Le temps entre domicile et travail: </h5>
+                        <p class=" col-5">{{obj.estimatransport}} </p>
                     </div>
                 </div>
             </div>
@@ -169,15 +171,15 @@
             <div class="row">
                 <div class="checkbox_box">
                     <p>
-                    <h5 class=" col-3">Situation familiale:</h5>
+                   
                     <div class="row">
-
-                        <p>{{obj.etatsociale}} </p>
+                        <h5 class=" col-3">Situation familiale:</h5>
+                        <p class=" col-3">{{obj.etatsociale}} </p>
 
                     </div>
 
                     <p class=" col-5">Si marié(e) ou divorcé(e) depuis quand?</p>
-                    <p>{{obj.dateetatsociale}} </p>
+                    <p class=" col-5">{{obj.dateetatsociale}} </p>
 
                 </div>
             </div>
