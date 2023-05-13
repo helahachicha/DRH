@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 12 mai 2023 à 23:50
+-- Généré le : sam. 13 mai 2023 à 13:32
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -495,6 +495,13 @@ CREATE TABLE `infoemployes` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `infoemployes`
+--
+
+INSERT INTO `infoemployes` (`id`, `nomprenom`, `adresse`, `telprof`, `telpersonnel`, `contact`, `mailprof`, `mailpersonnel`, `servicetravail`, `poste_id`, `datenaissance`, `lieu`, `nationnalite`, `cin`, `delivreea`, `datedelivrance`, `permis`, `datepermis`, `logement`, `moytransport`, `estimatransport`, `etatsociale`, `dateetatsociale`, `created`, `modified`) VALUES
+(1, 'ALI HARBI', 'Rue mohamed baklouti', 23546852, 25645894, 56324896, 'ali.harbi@gmail.com', 'ali.harbi@gmail.com', 'service de développement', 1, '2023-05-25 00:00:00', 'tunis', 'tunisienne', 14029111, 'tunis', '2023-05-11 00:00:00', 'Oui', '2023-06-06 00:00:00', 'Propre', 'moto', '17:56:00', 'Marié(e)', '20 ans ', '2023-05-13 10:57:03', '2023-05-13 10:57:03');
 
 -- --------------------------------------------------------
 
@@ -1403,7 +1410,7 @@ ALTER TABLE `indicateursuivis`
 -- AUTO_INCREMENT pour la table `infoemployes`
 --
 ALTER TABLE `infoemployes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `matricecompetences`
