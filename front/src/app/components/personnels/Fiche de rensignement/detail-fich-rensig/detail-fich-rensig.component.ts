@@ -23,7 +23,7 @@ export class DetailFichRensigComponent implements OnInit {
 
   getEmpById() {
     this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Infoemployes/getInfoemployeBy.json?id='+this.id).subscribe(
+    this.dataService.get('Infoemployes/getInfoemployeById.json?id='+this.id).subscribe(
       res => {
       this.Infoemployes=res.data; 
       console.log('test', this.Infoemployes)

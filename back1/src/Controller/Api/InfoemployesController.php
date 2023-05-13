@@ -166,7 +166,7 @@ class InfoemployesController extends AppController
                 'Postes',
             ],
            
-        ])->first();
+        ])->toArray();
           // debug($infoemployes);die;
 
         if(empty($infoemployes)){
