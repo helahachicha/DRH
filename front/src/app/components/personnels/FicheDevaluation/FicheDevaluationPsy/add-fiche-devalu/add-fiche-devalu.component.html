@@ -1,288 +1,278 @@
 <div class="border border-primary mt-1 ">
-        <div class="col  ">
-                <h1 class="text-center">Ajouter une fiche d'évaluation psychique</h1>
-        </div>
+  <div class="col  ">
+    <h1 class="text-center">Ajouter une fiche d'évaluation psychique</h1>
+  </div>
 </div>
 
 
 <div class="container">
 
 
-        <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded">
-                <form id="contact-form" role="form" [formGroup]="ficheForm">
-                        <hr>
-                        <div class="row justify-content-center">
-
-                                <div class="col-md-5">
-                                        <div class="form-group">
-                                                <label for="form_name">Nom et Prenom </label>
-                                                <input type="text" formControlName="nomprenom" class="form-control"
-                                                        placeholder="Nom et Prenom" required="required">
-                                        </div>
-                                </div>
-                                <div class="col-md-5">
-                                        <div class="form-group">
-                                                <label for="form_name">Objet D'évaluation</label>
-                                                <input type="text" formControlName="objetevaluation"
-                                                        class="form-control" placeholder="objet" required="required">
-                                        </div>
-                                </div>
-                                <div class="col-md-5">
-                                        <div class="form-group">
-                                                <label for="form_name">Date d'evaluation </label>
-                                                <input type="date" formControlName="dateevaluation" class="form-control"
-                                                        required="required">
-                                        </div>
-                                </div>
-                                <div class="col-md-5">
-                                        <div class="form-group">
-                                                <label for="form_name">Décision de la direction</label>
-                                                <input type="text" formControlName="decisiondirection"
-                                                        class="form-control" placeholder="Décision" required="required">
-                                        </div>
-                                </div>
-                                <div class="col-md-5">
-                                        <div class="form-group">
-
-                                                <label for="staticZone">Catégorie</label>
-                                                <select (change)="onChangeData($event)" class="form-control"
-                                                        id="exampleFormControlSelect2"
-                                                        placeholder="Veuillez choisir votre competence"
-                                                        formControlName="categorie_id">
-                                                        <option selected disabled value="">Affecter Catégorie
-                                                        </option>
-
-                                                        <option *ngFor="let obj of Categories" [value]="obj.id">
-
-                                                                {{obj.label}}
-                                                        </option>
-                                                </select>
-                                        </div>
-                                </div>
-
-
-                                <div class="col-md-5" *ngIf="competences">
-                                        <div class="form-group">
-                                                <label for="form_name">Niveau</label>
-
-                                               <!-- <div *ngFor="let niveau of competences.category.niveauvises">
-                                                        {{niveau.label}}
-                                                </div>-->
-                                        </div>
-                                </div>
-
-
-
-                        </div>
-
-                        <hr>
-                        <div class="table-responsive">
-
-                                <table class="table table-bordered justify-content-center">
-
-                                        <thead>
-
-
-
-                                        </thead>
-                                        <tbody>
-                                                <tr class="text-bold " *ngFor="let item of formCompteance;let i=index">
-
-                                                        <th colspan="3">
-                                                                {{item.competence.label}}
-
-                                                        </th>
-
-                                                        <table style="border: none;"
-                                                                *ngIf="formCompteance[i].souscompetences">
-                                                                <div
-                                                                        *ngFor="let indicateurSuivie  of formCompteance[i].indicateursuivis;let c=index">
-                                                                        <td class="n">
-                                                                                <tr>
-                                                                                        N°
-                                                                                </tr>
-                                                                                <hr>
-                                                                                <tr>
-
-                                                                                        {{c+1}}
-
-                                                                                </tr>
-
-
-                                                                        </td>
-
-
-
-                                                                        <td class="ind">
-                                                                                <tr>
-                                                                                        INDICATEUR DE MESURE
-                                                                                </tr>
-                                                                                <hr>
-                                                                                <tr>
-
-                                                                                        {{indicateurSuivie.label}}
-
-                                                                                </tr>
-                                                                        </td>
-
-                                                                        <td class="point">
-                                                                                <tr>
-                                                                                        POINTS
-                                                                                </tr>
-                                                                                <hr>
-
-                                                                                <tr>
-                                                                                        <input type="text"
-                                                                                                (change)="onChangePoint(indicateurSuivie.id,$event)"
-                                                                                                class="form-control ">
-
-                                                                                </tr>
-
-
-                                                                        </td>
-                                                                </div>
-                                                                <td class="score">
-                                                                        <tr>
-                                                                                SCORE
-                                                                        </tr>
-                                                                        <hr>
-
-                                                                        <tr>
-                                                                           {{result}}
-
-                                                                        </tr>
-                                                                        <tr class="mt-5">
-                                                                                <button class="btn btn-primary" (click)="calculerIndic()">Calculer
-                                                                                </button>
-                                                                        </tr>
-
-
-                                                                </td>
-
-
-
-
-
-                                                                <td class="final">
-                                                                        <tr>
-                                                                                Résultat
-                                                                        </tr>
-                                                                        <hr>
-
-                                                                        <tr>
-                                                                                <p [ngClass]="result >= 0.5 ? 'texte-accepter' : 'texte-refuser'">
-                                                                                        {{ result >= 0.5 ? 'Accepter' : 'Refuser' }}
-                                                                                      </p>
-
-                                                                                
-                                                                               
-                                                                        </tr>
-                                                                </td>
-
-                                                        </table>
-
-                                                        <table
-                                                                *ngFor="let sousCompetence of formCompteance[i].souscompetences;let k=index">
-                                                                <tr class="text-center mt-5 mb-5">
-
-                                                                        {{sousCompetence.label}}
-
-                                                                </tr>
-                                                                <div *ngFor="let indicateursouComp of formCompteance[i].souscompetences[k].indicasoucompas;let j=index">
-                                                                        <td class="n">
-                                                                                <tr>
-                                                                                        N°
-                                                                                </tr>
-                                                                                <hr>
-                                                                                <tr>
-                                                                                        {{j+1}}
-
-                                                                                </tr>
-
-                                                                        </td>
-
-                                                                        <td class="ind">
-                                                                                <tr>
-                                                                                        INDICATEUR DE MESURE
-                                                                                </tr>
-                                                                                <hr>
-                                                                                <tr class="text-center">
-
-                                                                                        {{indicateursouComp.label}}
-
-
-
-
-                                                                                </tr>
-                                                                        </td>
-
-                                                                        <td class="point">
-                                                                                <tr>
-                                                                                        POINTS
-                                                                                </tr>
-                                                                                <hr>
-
-                                                                                <tr>
-                                                                                        <input type="text"
-                                                                                                (change)="onChangePointIndicateur(indicateursouComp.id,$event)"
-                                                                                                class="form-control ">
-
-                                                                                </tr>
-                                                                        </td>
-                                                                </div>
-                                                                <td class="score">
-                                                                        <tr>
-                                                                                SCORE
-                                                                        </tr>
-                                                                        <hr>
-
-                                                                        <tr>
-                                                                                {{result1}}
-                                                                        </tr>
-                                                                        <tr class="mt-5">
-                                                                                <button class="btn btn-primary" (click)="calculerIndicSou()">Calculer
-                                                                                </button>
-                                                                        </tr>
-                                                                </td>
-
-                                                                <td class="final">
-                                                                        <tr>
-                                                                                Résultat
-                                                                        </tr>
-                                                                        <hr>
-
-                                                                        <tr>
-                                                                               
-
-                                                                                <p [ngClass]="result1 >= 0.5 ? 'texte-accepter' : 'texte-refuser'">
-                                                                                        {{ result1 >= 0.5 ? 'Accepter' : 'Refuser' }}
-                                                                                      </p>
-                                                                        </tr>
-                                                                </td>
-
-                                                        </table>
-
-
-
-
-
-                                                </tr>
-
-
-                                        </tbody>
-                                </table>
-
-                                <button class="btn btn-primary" (click)="adddetailfichedevalu()">Terminer</button>
-
-                        </div>
-
-
-
-
-
-
-                </form>
+  <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+    <form id="contact-form" role="form" [formGroup]="ficheForm">
+      <hr>
+      <div class="row justify-content-center">
+
+        <div class="col-md-5">
+          <div class="form-group">
+            <label for="form_name">Nom et Prenom </label>
+            <input type="text" formControlName="nomprenom" class="form-control" placeholder="Nom et Prenom"
+              required="required">
+          </div>
         </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <label for="form_name">Objet D'évaluation</label>
+            <input type="text" formControlName="objetevaluation" class="form-control" placeholder="objet"
+              required="required">
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <label for="form_name">Date d'evaluation </label>
+            <input type="date" formControlName="dateevaluation" class="form-control" required="required">
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <label for="form_name">Décision de la direction</label>
+            <input type="text" formControlName="decisiondirection" class="form-control" placeholder="Décision"
+              required="required">
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="form-group">
+
+            <label for="staticZone">Catégorie</label>
+            <select (change)="onChangeData($event)" class="form-control" id="exampleFormControlSelect2"
+              placeholder="Veuillez choisir votre competence" formControlName="categorie_id">
+              <option selected disabled value="">Affecter Catégorie
+              </option>
+
+              <option *ngFor="let obj of Categories" [value]="obj.id">
+
+                {{obj.label}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="col-md-5" *ngIf="competences">
+          <div class="form-group">
+            <label for="form_name">Niveau</label>
+            <!--
+                                              <div *ngFor="let niveau of competences.category.niveauvises">
+                                                        {{niveau.label}}
+                                                </div> -->
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <hr>
+      <div class="table-responsive">
+
+        <table class="table table-bordered justify-content-center">
+
+          <thead>
+
+
+
+          </thead>
+          <tbody>
+            <tr class="text-bold " *ngFor="let item of formCompteance;let i=index">
+
+              <th colspan="3">
+                {{item.competence.label}}
+
+              </th>
+
+              <table style="border: none;" *ngIf="formCompteance[i].souscompetences">
+                <div *ngFor="let indicateurSuivie  of formCompteance[i].indicateursuivis;let c=index">
+                  <td class="n">
+                    <tr>
+                      N°
+                    </tr>
+                    <hr>
+                    <tr>
+
+                      {{c+1}}
+
+                    </tr>
+
+
+                  </td>
+                  <td class="ind">
+                    <tr>
+                      INDICATEUR DE MESURE
+                    </tr>
+                    <hr>
+                    <tr>
+
+                      {{indicateurSuivie.label}}
+
+                    </tr>
+                  </td>
+                  <td  class="point">
+                    <tr>
+                      POINTS
+                    </tr>
+                    <hr>
+
+                    <tr>
+                      <input type="text" (change)="onChangePoint(indicateurSuivie.id,$event)" class="form-control ">
+
+                    </tr>
+
+
+                  </td>
+
+
+
+                </div>
+                <tr *ngIf="formCompteance[i].indicateursuivis.length!=0">
+                  <td     class="score">
+                    <tr>
+                      SCORE
+                    </tr>
+                    <hr>
+                    <button class="btn btn-primary" (click)="calculerIndicSou()">Calculer
+                    </button>
+                    <tr>
+                      {{result}}
+
+                    </tr>
+
+
+                  </td>
+                  <td style="border: none;" class="final">
+                    <tr>
+                      Résultat
+                    </tr>
+                    <hr>
+
+                    <tr>
+                      <p [ngClass]="result >= 0.5 ? 'texte-accepter' : 'texte-refuser'">
+                        {{ result >= 0.5 ? 'Acceptée' : 'Refusée' }}
+                      </p>
+
+
+
+                    </tr>
+                  </td>
+                </tr>
+
+
+              </table>
+              <table *ngFor="let sousCompetence of formCompteance[i].souscompetences;let k=index">
+                <div>
+                  <tr class="text-center mt-5 mb-5">
+
+                    {{sousCompetence.label}}
+
+                  </tr>
+                  <div
+                    *ngFor="let indicateursouComp of formCompteance[i].souscompetences[k].indicasoucompas;let j=index">
+                    <td class="n">
+                      <tr>
+                        N°
+                      </tr>
+                      <hr>
+                      <tr>
+                        {{j+1}}
+
+                      </tr>
+
+                    </td>
+
+                    <td class="ind">
+                      <tr>
+                        INDICATEUR DE MESURE
+                      </tr>
+                      <hr>
+                      <tr class="text-center">
+
+                        {{indicateursouComp.label}}
+
+
+
+
+                      </tr>
+                    </td>
+
+                    <td class="point">
+                      <tr>
+                        POINTS
+                      </tr>
+                      <hr>
+
+                      <tr>
+                        <input type="text" (change)="onChangePointIndicateur(indicateursouComp.id,$event)"
+                          class="form-control ">
+
+                      </tr>
+                    </td>
+
+                  </div>
+                  <tr *ngIf="formCompteance[i].souscompetences[k].indicasoucompas.length!=0">
+                    <td class="score">
+                      <tr>
+                        SCORE
+                      </tr>
+                      <hr>
+
+                      <tr>
+                        {{result1}}
+                      </tr>
+                      <tr class="mt-5">
+                        <button class="btn btn-primary" (click)="calculerIndicSou()">Calculer
+                        </button>
+                      </tr>
+                    </td>
+
+                    <td class="final">
+                      <tr>
+                        Résultat
+                      </tr>
+                      <hr>
+
+                      <tr>
+
+
+                        <p [ngClass]="result1 >= 0.5 ? 'texte-accepter' : 'texte-refuser'">
+                          {{ result1 >= 0.5 ? 'Acceptée' : 'Refusée' }}
+                        </p>
+                      </tr>
+                    </td>
+                  </tr>
+
+                </div>
+              </table>
+
+
+
+
+
+            </tr>
+
+
+          </tbody>
+        </table>
+
+        <button class="btn btn-primary" (click)="adddetailfichedevalu()">Terminer</button>
+
+      </div>
+
+
+
+
+
+
+    </form>
+  </div>
 
 
 </div>
