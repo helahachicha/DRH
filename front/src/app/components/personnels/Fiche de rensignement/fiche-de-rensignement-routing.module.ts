@@ -9,7 +9,7 @@ const routes: Routes = [
 { path: '', component: ListingficherenComponent },
 { path: 'detail-fiche-rensignement/:id', component: DetailFichRensigComponent },
 { path: 'add-fiche-rensignement', component: AddficherenComponent },
-{ path: 'edit-fiche-rensignement', component: EditficherenComponent },];
+{ path: 'edit-fiche-rensignement/:id', component: EditficherenComponent },];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
