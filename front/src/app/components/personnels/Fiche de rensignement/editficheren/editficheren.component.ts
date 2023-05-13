@@ -13,6 +13,7 @@ export class EditficherenComponent implements OnInit {
   data:any;
   message:any;
   public Infoemployes
+  public Postes
   public moyenForm = new FormGroup({
     nomprenom: new FormControl('', [Validators.required]),
     adresse: new FormControl('', [Validators.required]),
@@ -38,6 +39,7 @@ export class EditficherenComponent implements OnInit {
     dateetatsociale: new FormControl('', [Validators.required]),
     
   });
+  
   constructor(
     private dataService:DataService,
     private router:Router,
@@ -46,28 +48,33 @@ export class EditficherenComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEmpById();
+    this.getallposte()
     
   }
+
+  getEmpById() {
+    this.id = this.route.snapshot.params['id'];
+    this.dataService.get('Infoemployes/getInfoemployeById.json?id=' + this.id).subscribe(
+      res => {
+        this.Infoemployes = res.data[0];
+      }
+    );
+  }
+  
   
   editinfoemployer() {
     this.dataService.post('Infoemployes/editInfoemploye.json?id=' + this.id, this.moyenForm.value).subscribe(res => {
       this.data = res;
       this.message=this.data.message;
-      if (this.message==" Modifier avec succés !"){
         this.router.navigate(['/liste-fiche-rensignement'])
-      }
-      console.log(this.message);
       
     })
       
   }
-  getEmpById() {
-    this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Infoemployes/getInfoemployeById.json?id='+this.id).subscribe(
-      res => {
-      this.Infoemployes=res.data; 
-      console.log('test', this.Infoemployes)
+
+  getallposte() {
+    this.dataService.get('Postes/getAllPoste.json').subscribe(res => {
+      this.Postes = res.data;
     })
-    
   }
 }

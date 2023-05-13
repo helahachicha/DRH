@@ -28,11 +28,12 @@
         <div class="card-body" style="width: 500px;margin-left: 400px;">
             <div class="row">
                 <h5 class="col-6"> Nom et Prénom: </h5>
-                <input type="text" class="infopro" formControlName="nomprenom"  required="required"  [(ngModel)]="Infoemployes.nomprenom" >
+                <input type="text" class="infopro" formControlName="nomprenom" required="required"
+                    [(ngModel)]="Infoemployes.nomprenom">
             </div>
             <div class="row mt-2">
                 <h5 class="col-6"> Adresse : </h5>
-                <input type="text" class="infopro" formControlName="adresse"  [(ngModel)]="Infoemployes.adresse">
+                <input type="text" class="infopro" formControlName="adresse" [(ngModel)]="Infoemployes.adresse">
             </div>
 
             <div class="row mt-2">
@@ -42,7 +43,8 @@
 
             <div class="row mt-2">
                 <h5 class="col-6"> Tél personnel: </h5>
-                <input type="tel" class="infopro" formControlName="telpersonnel" [(ngModel)]="Infoemployes.telpersonnel">
+                <input type="tel" class="infopro" formControlName="telpersonnel"
+                    [(ngModel)]="Infoemployes.telpersonnel">
             </div>
 
             <div class="row mt-2">
@@ -56,18 +58,28 @@
             </div>
             <div class="row mt-2">
                 <h5 class="col-6">Mail personnel: </h5>
-                <input type="email" class="infopro" formControlName="mailpersonnel" [(ngModel)]="Infoemployes.mailpersonnel">
+                <input type="email" class="infopro" formControlName="mailpersonnel"
+                    [(ngModel)]="Infoemployes.mailpersonnel">
             </div>
             <div class="row mt-2">
                 <h5 class="col-6">Service de travail: </h5>
-                <input type="email" class="infopro" formControlName="servicetravail" [(ngModel)]="Infoemployes.servicetravail">
+                <input type="email" class="infopro" formControlName="servicetravail"
+                    [(ngModel)]="Infoemployes.servicetravail">
             </div>
             <div class="row mt-2">
                 <!--  <h5 class="col-6">Poste: </h5>
                         <input type="text" class="infopro" formControlName="poste">
                     </div>-->
                 <h5 class="col-6"> Poste : </h5>
-                <input type="email" class="infopro" formControlName="poste_id" [(ngModel)]="Infoemployes.poste_id">
+                <select class="form-control" id="exampleFormControlSelect2"
+                    placeholder="Veuillez choisir votre Thème de formation" formControlName="poste_id">
+                    <option selected disabled value="">Affecter un poste</option>
+
+                    <option *ngFor="let obj of Postes" [ngValue]="obj.id">
+
+                        {{obj.label}}
+                    </option>
+                </select>
             </div>
         </div>
 
@@ -83,26 +95,32 @@
 
             <div class="row">
                 <h5 class="col-3"> Date de naissance: </h5>
-                <input type="date" formControlName="datenaissance" required="required" [(ngModel)]="Infoemployes.datenaissance">
+                <input type="date" formControlName="datenaissance" required="required"
+                    [(ngModel)]="Infoemployes.datenaissance">
 
                 <h5 class="col-1"> Lieu: </h5>
-                <input type="text" class="lieu" formControlName="lieu" required="required" [(ngModel)]="Infoemployes.lieu">
+                <input type="text" class="lieu" formControlName="lieu" required="required"
+                    [(ngModel)]="Infoemployes.lieu">
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-3">Nationalité: </h5>
-                <input type="text" class="lieu" formControlName="nationnalite" required="required" [(ngModel)]="Infoemployes.nationnalite">
+                <input type="text" class="lieu" formControlName="nationnalite" required="required"
+                    [(ngModel)]="Infoemployes.nationnalite">
 
                 <h5 class="col-1"> N°CIN: </h5>
-                <input type="number" class="lieu" formControlName="cin" required="required" [(ngModel)]="Infoemployes.cin">
+                <input type="number" class="lieu" formControlName="cin" required="required"
+                    [(ngModel)]="Infoemployes.cin">
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-3">Délivrée à:</h5>
-                <input type="text" class="lieu" formControlName="delivreea" required="required" [(ngModel)]="Infoemployes.delivreea">
+                <input type="text" class="lieu" formControlName="delivreea" required="required"
+                    [(ngModel)]="Infoemployes.delivreea">
 
                 <h5 class="col-1"> Le: </h5>
-                <input type="date" class="lieu" formControlName="datedelivrance" required="required" [(ngModel)]="Infoemployes.datedelivrance">
+                <input type="date" class="lieu" formControlName="datedelivrance" required="required"
+                    [(ngModel)]="Infoemployes.datedelivrance">
             </div>
 
             <div class="row">
@@ -116,7 +134,8 @@
                         required="required " value="Non" [(ngModel)]="Infoemployes.permis">
                     <label class="form-check-label ">Non </label>
                     <p class="col-8"> Si oui depuis quand?</p>
-                    <input type="date" class="infopro" formControlName="datepermis" required="required" [(ngModel)]="Infoemployes.datepermis">
+                    <input type="date" class="infopro" formControlName="datepermis" required="required"
+                        [(ngModel)]="Infoemployes.datepermis">
 
                 </div>
 
@@ -183,8 +202,9 @@
                     <p>
                     <h5 class=" col-5">Le temps entre domicile et travail: </h5>
                     <div class="row">
-                        <input type="time" class="number" formControlName="estimatransport" [(ngModel)]="Infoemployes.estimatransport" >
-                      
+                        <input type="time" class="number" formControlName="estimatransport"
+                            [(ngModel)]="Infoemployes.estimatransport">
+
                     </div>
                 </div>
             </div>
@@ -211,7 +231,8 @@
                     </div>
 
                     <p class=" col-5">Si marié(e) ou divorcé(e) depuis quand?</p>
-                    <input type="text" class="dateetatsociale" formControlName="dateetatsociale" [(ngModel)]="Infoemployes.dateetatsociale">
+                    <input type="text" class="dateetatsociale" formControlName="dateetatsociale"
+                        [(ngModel)]="Infoemployes.dateetatsociale">
                 </div>
             </div>
         </div>
@@ -698,6 +719,6 @@
         </div>-->
     <div class=" mt-2 mb-2 end-50" style="margin-left: 30px;">
 
-        <button type="button" class="btn btn-primary mt-2 " (click)="editinfoemployer()"> Modifier</button>
+        <button type="submit" class="btn btn-primary mt-2 " (click)="editinfoemployer()"> Modifier</button>
     </div>
 </form>
