@@ -25,7 +25,7 @@ class TesttechniquesController extends AppController
     public function addTesttechnique(){
         $this->loadModel('Comptechniques');
         $this->loadModel('Questions');
-        $this->loadModel('Sousquestions');
+        $this->loadModel('Reponses');
         $this->request->allowMethod(['post', 'put']);
 
         /* format data */
@@ -42,33 +42,39 @@ class TesttechniquesController extends AppController
             $testtechniques->label=$data->label;  
             $testtechniques->categorie_id=$data->categorie_id;     
 
-            $this->Testtechniques->save($testtechniques); 
+            $savedTest=$this->Testtechniques->save($testtechniques); 
         }
         /* create comptechniques entity */
         if (1==1){
-            $comptechniques = $this->Comptechniques->newEmptyEntity();
-            $comptechniques->label=$data->label;  
-            $comptechniques->testtechnique_id=$data->testtechnique_id;   
+            foreach ($data->Comptechnique as $comptech)
+                   {
+                        $comptechniques = $this->Comptechniques->newEmptyEntity();
+                        $comptechniques->label=$comptech->label;  
+                        $comptechniques->testtechnique_id=$savedTest->id; 
+                        $savedComptech=$this->Comptechniques->save($comptechniques); 
 
-            $this->Comptechniques->save($comptechniques); 
-        }
-         /* create questions entity */
-         if (1==1){
-            $questions = $this->Questions->newEmptyEntity();
-            $questions->label=$data->label;  
-            $questions->comptechnique_id=$data->comptechnique_id;  
-            $this->Questions->save($questions); 
-        }
-         /* create sousquestions entity */
-         if (1==1){
-            $sousquestions = $this->Sousquestions->newEmptyEntity();
-            $sousquestions->label=$data->label;  
-            $sousquestions->question_id=$data->question_id;    
+                        foreach ($comptech->Question  as $quest)
+                        {
+                            $questions = $this->Questions->newEmptyEntity();
+                            $questions->label=$quest->label;  
+                            $questions->comptechnique_id=$savedComptech->id;  
+                            $savedQuest=$this->Questions->save($questions); 
 
-            $this->Sousquestions->save($sousquestions); 
+                            foreach ($quest->Reponse  as $rep)
+                            {
+                                $reponses = $this->Reponses->newEmptyEntity();
+                                $reponses->label=$rep->label;  
+                                $reponses->question_id=$savedQuest->id;  
+                                $this->Reponses->save($reponses); 
+
+                            }
+
+                        }
+                   }
+
         }
-       
-       
+
+
          /*send result */
         $this->set([
             'success' => true,
@@ -77,6 +83,11 @@ class TesttechniquesController extends AppController
         ]);
     
     }
+
+
+
+
+
 
      /**
      * editTesttechnique
