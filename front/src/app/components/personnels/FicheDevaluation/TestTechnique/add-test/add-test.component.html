@@ -6,25 +6,25 @@
 
 <div class="container">
     <form id="contact-form" role="form" [formGroup]="FormGenerator">
-    <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded">
-       <hr>
-        <div class="row ">
-            <div class="col-lg-10 mx-auto">
-                <div class="card mt-2 mx-auto p-4 bg-light">
-                    <div class="card-body bg-light">
+        <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+            <hr>
+            <div class="row ">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card mt-2 mx-auto p-4 bg-light">
+                        <div class="card-body bg-light">
 
-                        <div class="container">
-                            
+                            <div class="container">
+
                                 <div class="controls">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="staticZone">Test technique</label>
+                                            <label for="staticZone">Categorie</label>
                                             <select class="form-control" id="exampleFormControlSelect2"
                                                 placeholder="Veuillez choisir votre Thème de formation"
-                                                formControlName="label_id">
-                                                <option selected disabled value="">Affecter test</option>
+                                                formControlName="categorie_id">
+                                                <option selected disabled value="">Affecter categorie</option>
 
-                                                <option *ngFor="let obj of Testtechniques" [ngValue]="obj.id">
+                                                <option *ngFor="let obj of categorie" [ngValue]="obj.id">
 
                                                     {{obj.label}}
                                                 </option>
@@ -34,43 +34,90 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="form_name">Nom competence technique</label>
-                                                <input type="text" formControlName="label1" class="form-control"
+                                                <input type="text" formControlName="label" class="form-control"
                                                     placeholder="Nom competence technique" required="required">
                                             </div>
                                         </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Question</label>
-                                                <input type="text" class="form-control" required="required"
-                                                    formControlName="label2">
-                                            </div>
-
+                                        <!-- Form dynamique for Competence Technique-->
+                                        <div class="mt-2 mb-2 end-50 ">
+                                            <button (click)="addInput()" type="button" class="btn btn-primary "><i
+                                                    class=" fas fa-plus-circle"></i>
+                                                Ajouter un competence technique </button>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Sous Question</label>
-                                                <input type="text" class="form-control" required="required"
-                                                    formControlName="label3">
-                                            </div>
 
+
+                                        <div class="shadow p-3 mb-5 bg-body rounded">
+                                            <div class="item-box" formArrayName="Formtest"
+                                                *ngFor="let competence of FormtestData.controls; let i = index">
+                                                <div [formGroupName]="i">
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <h4>Competence technique: {{i+1}}</h4>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <button class="btn btn-danger"
+                                                                (click)="removedCompetence(i)"><i
+                                                                    class="bi bi-trash"></i></button>
+                                                                    <input type="text" class="form-control"
+                                                                    formControlName="label">
+                                                        </div>
+                                                    </div>
+                                                    <hr class="mt-2">
+                                                    <!-- Form dynamique for souscompetence-->
+                                                    <div class="mt-2 mb-2 end-50 ">
+                                                        <button (click)="addOptions(i)" type="button"
+                                                            class="btn btn-primary "><i class=" fas fa-plus-circle"></i>
+                                                            Ajouter un question</button>
+                                                            
+                                                    </div>
+
+                                                    <div class="item-box" formArrayName="competence">
+                                                         <div *ngFor="let item of competence.get('competence').controls; let j = index"
+                                                            [formGroupName]="j">
+                                                            <div class="row">
+                                                            <div class="col-md-3">
+                                                            <h4>Question {{j+1}}</h4>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <button class="btn btn-danger" style="margin-bottom: 5px;"
+                                                                    (click)="removeOptions(i,j)"><i
+                                                                        class="bi bi-trash"></i></button>
+                                                            </div>
+                                                        </div>
+                                                            <div>
+                                                                <label>Question :</label>
+                                                                <input type="text" formControlName="label" required>
+                                                            </div> 
+                                               
+                                                    </div>
+                                                    
+                                                
+                                              
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
                                         </div>
+
                                     </div>
                                 </div>
-                           
 
-                            <div class="mt-2 mb-2 end-50">
 
-                                <button type="button" class="btn btn-primary " (click)="submit()"><i
-                                    class=" fas fa-plus-circle"></i>
-                                Ajouter</button>
+                                <div class="mt-2 mb-2 end-50">
+
+                                    <button type="button" class="btn btn-primary " (click)="submit()"><i
+                                            class=" fas fa-plus-circle"></i>
+                                        Ajouter</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <hr>
         </div>
-        <hr>
-    </div>
-</form>
+    </form>
 </div>

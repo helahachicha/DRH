@@ -33,46 +33,48 @@ class TesttechniquesController extends AppController
             $querry=$this->request->getData();
             $data=json_decode($querry['data']); 
             //$data=$this->request->getData();
-            //debug($data);die;
-
+            //debug($data);
         }
          /* create testtechniques entity */
         if (1==1){
             $testtechniques = $this->Testtechniques->newEmptyEntity();
             $testtechniques->label=$data->label;  
             $testtechniques->categorie_id=$data->categorie_id;     
-
             $savedTest=$this->Testtechniques->save($testtechniques); 
-        }
-        /* create comptechniques entity */
-        if (1==1){
-            foreach ($data->Comptechnique as $comptech)
+
+             /* create comptechniques entity */
+      
+            foreach ($data->Formtest as $comptech)
                    {
+
+                   
                         $comptechniques = $this->Comptechniques->newEmptyEntity();
-                        $comptechniques->label=$comptech->label;  
+                        $comptechniques->label= $comptech->label;  
                         $comptechniques->testtechnique_id=$savedTest->id; 
                         $savedComptech=$this->Comptechniques->save($comptechniques); 
 
-                        foreach ($comptech->Question  as $quest)
-                        {
-                            $questions = $this->Questions->newEmptyEntity();
-                            $questions->label=$quest->label;  
-                            $questions->comptechnique_id=$savedComptech->id;  
-                            $savedQuest=$this->Questions->save($questions); 
+                        /* create question entity */
+                         foreach ($comptech->competence as $quest)
+                         {
+                           // debug($quest);
+                             $questions = $this->Questions->newEmptyEntity();
+                             $questions->label=$quest->label;  
+                             $questions->comptechnique_id=$savedComptech->id;  
+                             $savedQuest=$this->Questions->save($questions); 
 
-                            foreach ($quest->Reponse  as $rep)
-                            {
-                                $reponses = $this->Reponses->newEmptyEntity();
-                                $reponses->label=$rep->label;  
-                                $reponses->question_id=$savedQuest->id;  
-                                $this->Reponses->save($reponses); 
+                        //     foreach ($quest->Reponse  as $rep)
+                        //     {
+                        //         $reponses = $this->Reponses->newEmptyEntity();
+                        //         $reponses->label=$rep->label;  
+                        //         $reponses->question_id=$savedQuest->id;  
+                        //         $this->Reponses->save($reponses); 
 
-                            }
+                        //     }
 
-                        }
+                         }
                    }
-
         }
+       
 
 
          /*send result */
