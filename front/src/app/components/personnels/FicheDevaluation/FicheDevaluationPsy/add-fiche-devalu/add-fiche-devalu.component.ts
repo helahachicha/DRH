@@ -136,7 +136,8 @@ export class AddFicheDevaluComponent implements OnInit {
 
   pointsoucomp=[];
 
-  onChangePointIndicateur(id:any,event:any){
+  onChangePointIndicateur(souscomp_id:any,id:any,event:any){
+    console.log(souscomp_id)
     this.result1=0
 
     let sum=0
@@ -155,7 +156,7 @@ export class AddFicheDevaluComponent implements OnInit {
      });
 
      if(exist==false){
-       this.pointsoucomp.push({ indicateurSouId : id,value:point1})
+       this.pointsoucomp.push({ SoucompetenceId : souscomp_id,indicateurSouId : id,value:point1})
      }
      console.log(this.pointsoucomp)
      this.pointsoucomp.forEach(element => {
@@ -177,7 +178,7 @@ export class AddFicheDevaluComponent implements OnInit {
     dateevaluation:this.ficheForm.controls.dateevaluation.value,
     decisiondirection:this.ficheForm.controls.decisiondirection.value,
     categorie_id:this.ficheForm.controls.categorie_id.value,
-    moyen:this.result1,
+    score:this.result1,
     point: this.pointsoucomp
    }
   

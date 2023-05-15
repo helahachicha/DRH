@@ -124,17 +124,17 @@ class EmployesController extends AppController
                 $pointindicateurs->indicateursuivi_id = $points->indicateurId;
                 $pointindicateurs->employe_id = $savedEmployes->id;
                 $this->Pointindicateurs->save($pointindicateurs);
+
             }
 
-            foreach ($data->scorecompetence as $scorecomp) {
-                /* create Scorecompetences entity */
-                $this->loadModel('Scorecompetences');
-                $scorecompetences = $this->Scorecompetences->newEmptyEntity();
-                $scorecompetences->score = $scorecomp->moyen;
-                $scorecompetences->competence_id = $scorecomp->compId;
-                $scorecompetences->employe_id = $savedEmployes->id;
-                $this->Scorecompetences->save($scorecompetences);
-            }
+            /* create Scorecompetences entity */
+            $this->loadModel('Scorecompetences');
+            $scorecompetences = $this->Scorecompetences->newEmptyEntity();
+            $scorecompetences->score = $data->moyen; // Assuming the 'moyen' property exists in $data
+            $scorecompetences->competence_id = $points->compId;
+            $scorecompetences->employe_id = $savedEmployes->id;
+            $this->Scorecompetences->save($scorecompetences);
+
         }
 
         /* send result */
@@ -161,14 +161,21 @@ class EmployesController extends AppController
 
         /* create employes entity */
         if (1==1){
+            $existingEmployee = $this->Employes->find()
+            ->where(['infoemploye_id' => $data->infoemploye_id])
+            ->first();
+
+        if ($existingEmployee) {
+            $savedEmployes = $existingEmployee;
+        } else {
             $employes = $this->Employes->newEmptyEntity();
-            $employes->nomprenom=$data->nomprenom;
-            $employes->categorie_id=$data->categorie_id;
-            $employes->objetevaluation=$data->objetevaluation;
-            $employes->dateevaluation=$data->dateevaluation;
-            $employes->decisiondirection=$data->decisiondirection;
-            $employes->moyen=$data->moyen;
-            $savedEmployes=$this->Employes->save($employes);
+            $employes->infoemploye_id = $data->infoemploye_id;
+            $employes->categorie_id = $data->categorie_id;
+            $employes->objetevaluation = $data->objetevaluation;
+            $employes->dateevaluation = $data->dateevaluation;
+            $employes->decisiondirection = $data->decisiondirection;
+            $savedEmployes = $this->Employes->save($employes);
+        }
 
             foreach ($data->point as $pointsoucomp) {
               /* create  Pointindicasous entity */
@@ -180,6 +187,14 @@ class EmployesController extends AppController
               $this->Pointindicasous->save($pointindicsous);
 
             }
+
+            /* create Scoresouscomps entity */
+            $this->loadModel('Scoresouscomps');
+            $Scoresouscomps = $this->Scoresouscomps->newEmptyEntity();
+            $Scoresouscomps->score = $data->score; // Assuming the 'moyen' property exists in $data
+            $Scoresouscomps->souscompetence_id = $pointsoucomp->SoucompetenceId;
+            $Scoresouscomps->employe_id = $savedEmployes->id;
+            $this->Scoresouscomps->save($Scoresouscomps);
         }
 
 
