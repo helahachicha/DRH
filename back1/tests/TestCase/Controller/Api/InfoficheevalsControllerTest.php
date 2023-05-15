@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller\Api;
 
-use App\Controller\Api\EmployesController;
+use App\Controller\Api\InfoficheevalsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\Api\EmployesController Test Case
+ * App\Controller\Api\InfoficheevalsController Test Case
  *
- * @uses \App\Controller\Api\EmployesController
+ * @uses \App\Controller\Api\InfoficheevalsController
  */
-class EmployesControllerTest extends TestCase
+class InfoficheevalsControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,20 +22,16 @@ class EmployesControllerTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Employes',
-        'app.Postes',
         'app.Infoficheevals',
-        'app.Matrices',
-        'app.Pointindicasous',
-        'app.Pointindicateurs',
-        'app.Polycompetences',
+        'app.Employes',
+        'app.Categories',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\Api\EmployesController::index()
+     * @uses \App\Controller\Api\InfoficheevalsController::index()
      */
     public function testIndex(): void
     {
@@ -46,7 +42,7 @@ class EmployesControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\Api\EmployesController::view()
+     * @uses \App\Controller\Api\InfoficheevalsController::view()
      */
     public function testView(): void
     {
@@ -57,7 +53,7 @@ class EmployesControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\Api\EmployesController::add()
+     * @uses \App\Controller\Api\InfoficheevalsController::add()
      */
     public function testAdd(): void
     {
@@ -68,7 +64,7 @@ class EmployesControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\Api\EmployesController::edit()
+     * @uses \App\Controller\Api\InfoficheevalsController::edit()
      */
     public function testEdit(): void
     {
@@ -79,7 +75,7 @@ class EmployesControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\Api\EmployesController::delete()
+     * @uses \App\Controller\Api\InfoficheevalsController::delete()
      */
     public function testDelete(): void
     {

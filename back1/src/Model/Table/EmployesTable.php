@@ -11,8 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Employes Model
  *
- * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
- * @property \App\Model\Table\InfoficheevaluationsTable&\Cake\ORM\Association\HasMany $Infoficheevaluations
+ * @property \App\Model\Table\PostesTable&\Cake\ORM\Association\BelongsTo $Postes
+ * @property \App\Model\Table\InfoficheevalsTable&\Cake\ORM\Association\HasMany $Infoficheevals
  * @property \App\Model\Table\MatricesTable&\Cake\ORM\Association\HasMany $Matrices
  * @property \App\Model\Table\PointindicasousTable&\Cake\ORM\Association\HasMany $Pointindicasous
  * @property \App\Model\Table\PointindicateursTable&\Cake\ORM\Association\HasMany $Pointindicateurs
@@ -52,11 +52,11 @@ class EmployesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Categories', [
-            'foreignKey' => 'categorie_id',
+        $this->belongsTo('Postes', [
+            'foreignKey' => 'poste_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('Infoficheevaluations', [
+        $this->hasMany('Infoficheevals', [
             'foreignKey' => 'employe_id',
         ]);
         $this->hasMany('Matrices', [
@@ -88,29 +88,120 @@ class EmployesTable extends Table
             ->notEmptyString('nomprenom');
 
         $validator
-            ->scalar('objetevaluation')
-            ->maxLength('objetevaluation', 255)
-            ->requirePresence('objetevaluation', 'create')
-            ->notEmptyString('objetevaluation');
+            ->scalar('adresse')
+            ->maxLength('adresse', 255)
+            ->requirePresence('adresse', 'create')
+            ->notEmptyString('adresse');
 
         $validator
-            ->dateTime('dateevaluation')
-            ->allowEmptyDateTime('dateevaluation');
+            ->integer('telprof')
+            ->requirePresence('telprof', 'create')
+            ->notEmptyString('telprof');
 
         $validator
-            ->scalar('decisiondirection')
-            ->maxLength('decisiondirection', 255)
-            ->requirePresence('decisiondirection', 'create')
-            ->notEmptyString('decisiondirection');
+            ->integer('telpersonnel')
+            ->requirePresence('telpersonnel', 'create')
+            ->notEmptyString('telpersonnel');
 
         $validator
-            ->integer('categorie_id')
-            ->notEmptyString('categorie_id');
+            ->integer('contact')
+            ->requirePresence('contact', 'create')
+            ->notEmptyString('contact');
 
         $validator
-            ->numeric('moyen')
-            ->requirePresence('moyen', 'create')
-            ->notEmptyString('moyen');
+            ->scalar('mailprof')
+            ->maxLength('mailprof', 255)
+            ->requirePresence('mailprof', 'create')
+            ->notEmptyString('mailprof');
+
+        $validator
+            ->scalar('mailpersonnel')
+            ->maxLength('mailpersonnel', 255)
+            ->requirePresence('mailpersonnel', 'create')
+            ->notEmptyString('mailpersonnel');
+
+        $validator
+            ->scalar('servicetravail')
+            ->maxLength('servicetravail', 255)
+            ->requirePresence('servicetravail', 'create')
+            ->notEmptyString('servicetravail');
+
+        $validator
+            ->integer('poste_id')
+            ->notEmptyString('poste_id');
+
+        $validator
+            ->dateTime('datenaissance')
+            ->requirePresence('datenaissance', 'create')
+            ->notEmptyDateTime('datenaissance');
+
+        $validator
+            ->scalar('lieu')
+            ->maxLength('lieu', 255)
+            ->requirePresence('lieu', 'create')
+            ->notEmptyString('lieu');
+
+        $validator
+            ->scalar('nationnalite')
+            ->maxLength('nationnalite', 255)
+            ->requirePresence('nationnalite', 'create')
+            ->notEmptyString('nationnalite');
+
+        $validator
+            ->integer('cin')
+            ->requirePresence('cin', 'create')
+            ->notEmptyString('cin');
+
+        $validator
+            ->scalar('delivreea')
+            ->maxLength('delivreea', 255)
+            ->requirePresence('delivreea', 'create')
+            ->notEmptyString('delivreea');
+
+        $validator
+            ->dateTime('datedelivrance')
+            ->requirePresence('datedelivrance', 'create')
+            ->notEmptyDateTime('datedelivrance');
+
+        $validator
+            ->scalar('permis')
+            ->maxLength('permis', 255)
+            ->requirePresence('permis', 'create')
+            ->notEmptyString('permis');
+
+        $validator
+            ->dateTime('datepermis')
+            ->requirePresence('datepermis', 'create')
+            ->notEmptyDateTime('datepermis');
+
+        $validator
+            ->scalar('logement')
+            ->maxLength('logement', 255)
+            ->requirePresence('logement', 'create')
+            ->notEmptyString('logement');
+
+        $validator
+            ->scalar('moytransport')
+            ->maxLength('moytransport', 255)
+            ->requirePresence('moytransport', 'create')
+            ->notEmptyString('moytransport');
+
+        $validator
+            ->time('estimatransport')
+            ->requirePresence('estimatransport', 'create')
+            ->notEmptyTime('estimatransport');
+
+        $validator
+            ->scalar('etatsociale')
+            ->maxLength('etatsociale', 255)
+            ->requirePresence('etatsociale', 'create')
+            ->notEmptyString('etatsociale');
+
+        $validator
+            ->scalar('dateetatsociale')
+            ->maxLength('dateetatsociale', 255)
+            ->requirePresence('dateetatsociale', 'create')
+            ->notEmptyString('dateetatsociale');
 
         return $validator;
     }
@@ -124,7 +215,7 @@ class EmployesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
+        $rules->add($rules->existsIn('poste_id', 'Postes'), ['errorField' => 'poste_id']);
 
         return $rules;
     }
