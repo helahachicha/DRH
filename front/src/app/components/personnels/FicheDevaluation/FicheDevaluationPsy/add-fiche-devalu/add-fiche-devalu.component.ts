@@ -116,6 +116,7 @@ export class AddFicheDevaluComponent implements OnInit {
       //this.router.navigate(['/list-fiche-devalu'])
       console.log('res',res.data)
       this.points=[]
+      this.result=0
 
       })
 
