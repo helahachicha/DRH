@@ -72,7 +72,7 @@
                     </div>-->
                 <h5 class="col-6"> Poste : </h5>
                 <select class="form-control" id="exampleFormControlSelect2"
-                    placeholder="Veuillez choisir votre Thème de formation" formControlName="poste_id">
+                    placeholder="" [(ngModel)]="Infoemployes.poste_id" formControlName="poste_id">
                     <option selected disabled value="">Affecter un poste</option>
 
                     <option *ngFor="let obj of Postes" [ngValue]="obj.id">
@@ -96,7 +96,7 @@
             <div class="row">
                 <h5 class="col-3"> Date de naissance: </h5>
                 <input type="date" formControlName="datenaissance" required="required"
-                    [(ngModel)]="Infoemployes.datenaissance">
+                    [ngModel]="Infoemployes.datenaissance | date:'yyyy-MM-dd'">
 
                 <h5 class="col-1"> Lieu: </h5>
                 <input type="text" class="lieu" formControlName="lieu" required="required"
@@ -120,7 +120,7 @@
 
                 <h5 class="col-1"> Le: </h5>
                 <input type="date" class="lieu" formControlName="datedelivrance" required="required"
-                    [(ngModel)]="Infoemployes.datedelivrance">
+                [ngModel]="Infoemployes.datedelivrance | date:'yyyy-MM-dd'">
             </div>
 
             <div class="row">
@@ -135,7 +135,7 @@
                     <label class="form-check-label ">Non </label>
                     <p class="col-8"> Si oui depuis quand?</p>
                     <input type="date" class="infopro" formControlName="datepermis" required="required"
-                        [(ngModel)]="Infoemployes.datepermis">
+                    [ngModel]="Infoemployes.datepermis | date:'yyyy-MM-dd'">
 
                 </div>
 

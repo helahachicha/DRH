@@ -85,7 +85,7 @@
                     <h3>{{obj.label}}</h3>
                     <div *ngFor="let question of Testtechniques[i].questions;let j =index">
                         <p style="font-weight: 500;line-height: 25px;">{{question.label}}</p>
-                        <div *ngFor="let reponse of Testtechniques[i].questions[j].sousquestions">
+                        <div *ngFor="let reponse of Testtechniques[i].questions[j].reponses">
                             <p>{{reponse.label}}</p>
 
                         </div>
