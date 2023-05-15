@@ -12,11 +12,12 @@ export class AddFicheDevaluComponent implements OnInit {
 
   public Categories
   public competences
+  public Infoemployes
   public open:boolean=false
   id: any;
 
   public ficheForm = new FormGroup({
-    nomprenom: new FormControl('', [Validators.required]),
+    infoemploye_id: new FormControl('', [Validators.required]),
     objetevaluation: new FormControl('', [Validators.required]),
     dateevaluation: new FormControl('', [Validators.required]),
     decisiondirection: new FormControl('', [Validators.required]),
@@ -35,6 +36,7 @@ export class AddFicheDevaluComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCategorie()
+    this.getAllNom()
   }
 
    adddetailfichedevalu() {
@@ -46,6 +48,13 @@ export class AddFicheDevaluComponent implements OnInit {
    getAllCategorie() {
     this.dataService.get('Categories/getAllCategorie.json').subscribe(res => {
       this.Categories = res.data;
+    }
+    )
+  }
+  getAllNom() {
+    this.dataService.get('Infoemployes/getAllInfoemploye.json').subscribe(res => {
+      this.Infoemployes = res.data;
+         //console.log('tes',this.Infoemployes)
     }
     )
   }
@@ -63,7 +72,8 @@ export class AddFicheDevaluComponent implements OnInit {
   }
 
   points=[];
-  onChangePoint(id:any,event:any){
+  onChangePoint(comp_id:any,id:any,event:any){
+    console.log(comp_id)
     this.result=0
 
    let sum=0
@@ -82,9 +92,9 @@ export class AddFicheDevaluComponent implements OnInit {
     });
 
     if(exist==false){
-      this.points.push({ indicateurId : id,value:point1})
+      this.points.push({ compId : comp_id,indicateurId : id,value:point1})
     }
-   // console.log(this.points)
+    console.log(this.points)
     this.points.forEach(element => {
       sum+=element.value
     //  console.log(sum)
@@ -102,8 +112,9 @@ export class AddFicheDevaluComponent implements OnInit {
   result:any
   calculerIndic(){
     /*format Data*/
+
    const DataInfo = {
-    nomprenom:this.ficheForm.controls.nomprenom.value,
+    infoemploye_id:this.ficheForm.controls.infoemploye_id.value,
     objetevaluation:this.ficheForm.controls.objetevaluation.value,
     dateevaluation:this.ficheForm.controls.dateevaluation.value,
     decisiondirection:this.ficheForm.controls.decisiondirection.value,
@@ -111,7 +122,7 @@ export class AddFicheDevaluComponent implements OnInit {
     moyen:this.result,
     point: this.points
    }
-
+   console.log('test',DataInfo)
     this.dataService.post('employes/calculpointIndic.json',DataInfo).subscribe(res=> {
       //this.router.navigate(['/list-fiche-devalu'])
       console.log('res',res.data)
@@ -161,7 +172,7 @@ export class AddFicheDevaluComponent implements OnInit {
   calculerIndicSou(){
     /*format Data*/
    const DataInfo = {
-    nomprenom:this.ficheForm.controls.nomprenom.value,
+    infoemploye_id:this.ficheForm.controls.infoemploye_id.value,
     objetevaluation:this.ficheForm.controls.objetevaluation.value,
     dateevaluation:this.ficheForm.controls.dateevaluation.value,
     decisiondirection:this.ficheForm.controls.decisiondirection.value,
@@ -169,7 +180,8 @@ export class AddFicheDevaluComponent implements OnInit {
     moyen:this.result1,
     point: this.pointsoucomp
    }
-   console.log(this.result1)
+  
+   console.log(DataInfo)
 
     this.dataService.post('employes/calculpointIndicSou.json',DataInfo).subscribe(res=> {
       //this.router.navigate(['/list-fiche-devalu'])
