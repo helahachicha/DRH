@@ -75,90 +75,15 @@ class EmployesController extends AppController
     }
 
 
-
-    /**
-     * editEmploye
-     *
-     * @Input:
-     *         data:
-     *         
-     * @Output: data : success message
-     */
-    public function editEmploye(){
-        
-        $this->request->allowMethod(['post', 'put']);
-
-        /* format data */
-        if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
-            //$data=$this->request->getData();
-            // debug($data);die;
-
-        }
-        $id=$this->request->getQuery('id');
-        $employes=$this->Employes->get($id);
-         /* create employes entity */
-        
-        if (1==1){
-            $employes->nomprenom=$data->nomprenom;  
-            $employes->adresse=$data->adresse;  
-            $employes->telprof=$data->telprof;  
-            $employes->telpersonnel=$data->telpersonnel;  
-            $employes->contact=$data->contact ;  
-            $employes->mailprof=$data->mailprof ;  
-            $employes->mailpersonnel=$data->mailpersonnel ;  
-            $employes->servicetravail=$data->servicetravail;  
-            $employes->poste_id=$data->poste_id ;  
-            $employes->datenaissance=$data->datenaissance;  
-            $employes->lieu=$data->lieu;  
-            $employes->nationnalite=$data->nationnalite;  
-            $employes->cin=$data->cin;  
-            $employes->delivreea=$data->delivreea;  
-            $employes->datedelivrance=$data->datedelivrance ;  
-            $employes->permis=$data->permis; 
-            $employes->datepermis=$data->datepermis ;  
-            $employes->logement=$data->logement;  
-            $employes->moytransport=$data->moytransport ;  
-            $employes->estimatransport=$data->estimatransport;  
-            $employes->etatsociale=$data->etatsociale; 
-            $employes->dateetatsociale=$data->dateetatsociale;  
- 
-            $this->Employes->save($employes);
-                    
-            }
-
-         /*send result */
-        $this->set([
-            'success' => true,
-            'message' =>  $employes,
-            '_serialize' => ['success', 'message']
-        ]);
-    
-    }
-
-
-
-    /**
-      * getEmploye
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-      public function getEmploye(){
- 
-        $id = $this->request->getQuery('id');
-        /* search */
-         
-        if(1==1){
-           if (!isset($id) or empty($id) or $id == null ){
-               throw new UnauthorizedException('Id is Required');
-           }
-           if(!is_numeric($id)){
-               throw new UnauthorizedException('Id is not Valid');
-           }
-       }
+     /***
+    * getAllEmployeByCat
+    *
+    * @Input: nothing
+    *
+    * @Output: data
+    */
+    public function getAllEmployeByCat()
+    {
         $employes = $this->Employes->find('all', [
             'conditions'=>[
                 'Employes.id IS'=>$id,
