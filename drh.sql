@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 15 mai 2023 à 10:07
+-- Généré le : sam. 13 mai 2023 à 13:32
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -206,38 +206,31 @@ INSERT INTO `echelleevaluations` (`id`, `label`, `abreviation`, `valeur`, `creat
 CREATE TABLE `employes` (
   `id` int(11) NOT NULL,
   `nomprenom` varchar(255) NOT NULL,
-  `adresse` varchar(255) NOT NULL,
-  `telprof` int(11) NOT NULL,
-  `telpersonnel` int(11) NOT NULL,
-  `contact` int(11) NOT NULL,
-  `mailprof` varchar(255) NOT NULL,
-  `mailpersonnel` varchar(255) NOT NULL,
-  `servicetravail` varchar(255) NOT NULL,
-  `poste_id` int(11) NOT NULL,
-  `datenaissance` datetime NOT NULL,
-  `lieu` varchar(255) NOT NULL,
-  `nationnalite` varchar(255) NOT NULL,
-  `cin` int(11) NOT NULL,
-  `delivreea` varchar(255) NOT NULL,
-  `datedelivrance` datetime NOT NULL,
-  `permis` varchar(255) NOT NULL,
-  `datepermis` datetime NOT NULL,
-  `logement` varchar(255) NOT NULL,
-  `moytransport` varchar(255) NOT NULL,
-  `estimatransport` time NOT NULL,
-  `etatsociale` varchar(255) NOT NULL,
-  `dateetatsociale` varchar(255) NOT NULL,
+  `objetevaluation` varchar(255) NOT NULL,
+  `dateevaluation` datetime DEFAULT NULL,
+  `decisiondirection` varchar(255) NOT NULL,
+  `categorie_id` int(11) NOT NULL,
+  `moyen` float NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `employes`
 --
 
-INSERT INTO `employes` (`id`, `nomprenom`, `adresse`, `telprof`, `telpersonnel`, `contact`, `mailprof`, `mailpersonnel`, `servicetravail`, `poste_id`, `datenaissance`, `lieu`, `nationnalite`, `cin`, `delivreea`, `datedelivrance`, `permis`, `datepermis`, `logement`, `moytransport`, `estimatransport`, `etatsociale`, `dateetatsociale`, `created`, `modified`) VALUES
-(1, 'ALI HARBI', 'Rue mohamed baklouti', 23546852, 25645894, 56324896, 'ali.harbi@gmail.com', 'ali.harbi@gmail.com', 'service de développement', 1, '2023-05-25 00:00:00', 'tunis', 'tunisienne', 14029111, 'tunis', '2023-05-11 00:00:00', 'Oui', '2023-06-06 00:00:00', 'Propre', 'moto', '17:56:00', 'Marié(e)', '20 ans ', '2023-05-13 10:57:03', '2023-05-13 10:57:03'),
-(2, 'HAMA HARBI', 'Rue khartom', 24321524, 29532142, 28541254, 'hama.harbi@gmail.com', 'hama.harbi@gmail.com', 'service dev', 1, '2023-05-18 00:00:00', 'tunis', 'tunisienne', 14025123, 'tunis', '2023-05-11 00:00:00', 'Oui', '2023-05-16 00:00:00', 'Propre', 'voiture', '18:15:00', 'Marié(e)', '4 ans ', '2023-05-13 16:09:28', '2023-05-13 16:21:29');
+INSERT INTO `employes` (`id`, `nomprenom`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `categorie_id`, `moyen`, `created`, `modified`) VALUES
+(1, 'ALI HARBI', 'test', '2023-05-06 00:00:00', 'test', 1, 1, '2023-05-05 07:36:25', '2023-05-05 07:36:25'),
+(2, 'ALI HARBI', 'test', '2023-05-06 00:00:00', 'test', 1, 1.33333, '2023-05-05 07:36:44', '2023-05-05 07:36:44'),
+(3, 'ALI HARBI', 'test', '2023-05-06 00:00:00', 'test', 1, 1, '2023-05-05 07:37:08', '2023-05-05 07:37:08'),
+(4, 'HAMA HARBI', 'test', '2023-05-20 00:00:00', 'test', 1, 0.333333, '2023-05-05 08:41:51', '2023-05-05 08:41:51'),
+(5, 'HAMA HARBI', 'test', '2023-05-20 00:00:00', 'test', 1, 0.666667, '2023-05-05 08:42:00', '2023-05-05 08:42:00'),
+(6, 'HAMA HARBI', 'test', '2023-05-20 00:00:00', 'test', 1, 1, '2023-05-05 08:42:09', '2023-05-05 08:42:09'),
+(7, 'BILEL IFA', 'test', '0000-00-00 00:00:00', 'test', 2, 1, '2023-05-05 10:05:22', '2023-05-05 10:05:22'),
+(8, 'BILEL IFA', 'test', '0000-00-00 00:00:00', 'test', 2, 0.5, '2023-05-05 10:05:59', '2023-05-05 10:05:59'),
+(9, 'BILEL IFA', 'test', '0000-00-00 00:00:00', 'test', 2, 0.666667, '2023-05-05 10:06:22', '2023-05-05 10:06:22'),
+(10, 'HAIKEL MGANEM', 'test', '2023-05-12 00:00:00', 'test', 3, 1, '2023-05-05 10:07:06', '2023-05-05 10:07:06'),
+(11, 'HAIKEL MGANEM', 'test', '2023-05-12 00:00:00', 'test', 3, 0.333333, '2023-05-05 10:07:23', '2023-05-05 10:07:23');
 
 -- --------------------------------------------------------
 
@@ -472,19 +465,43 @@ INSERT INTO `indicateursuivis` (`id`, `label`, `formcompetence_id`, `niveauvise_
 -- --------------------------------------------------------
 
 --
--- Structure de la table `infoficheevals`
+-- Structure de la table `infoemployes`
 --
 
-CREATE TABLE `infoficheevals` (
+CREATE TABLE `infoemployes` (
   `id` int(11) NOT NULL,
-  `employe_id` int(11) NOT NULL,
-  `objetevaluation` varchar(255) NOT NULL,
-  `dateevaluation` datetime DEFAULT NULL,
-  `decisiondirection` varchar(255) NOT NULL,
-  `categorie_id` int(11) NOT NULL,
+  `nomprenom` varchar(255) NOT NULL,
+  `adresse` varchar(255) NOT NULL,
+  `telprof` int(11) NOT NULL,
+  `telpersonnel` int(11) NOT NULL,
+  `contact` int(11) NOT NULL,
+  `mailprof` varchar(255) NOT NULL,
+  `mailpersonnel` varchar(255) NOT NULL,
+  `servicetravail` varchar(255) NOT NULL,
+  `poste_id` int(11) NOT NULL,
+  `datenaissance` datetime NOT NULL,
+  `lieu` varchar(255) NOT NULL,
+  `nationnalite` varchar(255) NOT NULL,
+  `cin` int(11) NOT NULL,
+  `delivreea` varchar(255) NOT NULL,
+  `datedelivrance` datetime NOT NULL,
+  `permis` varchar(255) NOT NULL,
+  `datepermis` datetime NOT NULL,
+  `logement` varchar(255) NOT NULL,
+  `moytransport` varchar(255) NOT NULL,
+  `estimatransport` time NOT NULL,
+  `etatsociale` varchar(255) NOT NULL,
+  `dateetatsociale` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `infoemployes`
+--
+
+INSERT INTO `infoemployes` (`id`, `nomprenom`, `adresse`, `telprof`, `telpersonnel`, `contact`, `mailprof`, `mailpersonnel`, `servicetravail`, `poste_id`, `datenaissance`, `lieu`, `nationnalite`, `cin`, `delivreea`, `datedelivrance`, `permis`, `datepermis`, `logement`, `moytransport`, `estimatransport`, `etatsociale`, `dateetatsociale`, `created`, `modified`) VALUES
+(1, 'ALI HARBI', 'Rue mohamed baklouti', 23546852, 25645894, 56324896, 'ali.harbi@gmail.com', 'ali.harbi@gmail.com', 'service de développement', 1, '2023-05-25 00:00:00', 'tunis', 'tunisienne', 14029111, 'tunis', '2023-05-11 00:00:00', 'Oui', '2023-06-06 00:00:00', 'Propre', 'moto', '17:56:00', 'Marié(e)', '20 ans ', '2023-05-13 10:57:03', '2023-05-13 10:57:03');
 
 -- --------------------------------------------------------
 
@@ -1194,9 +1211,9 @@ ALTER TABLE `indicateursuivis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `infoficheevals`
+-- Index pour la table `infoemployes`
 --
-ALTER TABLE `infoficheevals`
+ALTER TABLE `infoemployes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1357,7 +1374,7 @@ ALTER TABLE `echelleevaluations`
 -- AUTO_INCREMENT pour la table `employes`
 --
 ALTER TABLE `employes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `formaexternes`
@@ -1390,10 +1407,10 @@ ALTER TABLE `indicateursuivis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT pour la table `infoficheevals`
+-- AUTO_INCREMENT pour la table `infoemployes`
 --
-ALTER TABLE `infoficheevals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `infoemployes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `matricecompetences`

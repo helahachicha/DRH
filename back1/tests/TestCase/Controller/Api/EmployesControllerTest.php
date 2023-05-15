@@ -23,12 +23,8 @@ class EmployesControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Employes',
-        'app.Postes',
-        'app.Infoficheevals',
-        'app.Matrices',
-        'app.Pointindicasous',
-        'app.Pointindicateurs',
-        'app.Polycompetences',
+        'app.Detailprofilpostes',
+        'app.Infoficheevaluations',
     ];
 
     /**
