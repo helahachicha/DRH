@@ -35,6 +35,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Poste $poste
+ * @property \App\Model\Entity\Employe[] $employes
  */
 class Infoemploye extends Entity
 {
@@ -73,5 +74,6 @@ class Infoemploye extends Entity
         'created' => true,
         'modified' => true,
         'poste' => true,
+        'employes' => true,
     ];
 }

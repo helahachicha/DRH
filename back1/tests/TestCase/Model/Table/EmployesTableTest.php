@@ -26,11 +26,13 @@ class EmployesTableTest extends TestCase
     protected $fixtures = [
         'app.Employes',
         'app.Categories',
-        'app.Infoficheevaluations',
+        'app.Infoemployes',
         'app.Matrices',
         'app.Pointindicasous',
         'app.Pointindicateurs',
         'app.Polycompetences',
+        'app.Scorecompetences',
+        'app.Scoresouscomps',
     ];
 
     /**

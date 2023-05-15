@@ -9,21 +9,22 @@ use Cake\ORM\Entity;
  * Employe Entity
  *
  * @property int $id
- * @property string $nomprenom
  * @property string $objetevaluation
  * @property \Cake\I18n\FrozenTime|null $dateevaluation
  * @property string $decisiondirection
  * @property int $categorie_id
- * @property float $moyen
+ * @property int $infoemploye_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Category $category
- * @property \App\Model\Entity\Infoficheevaluation[] $infoficheevaluations
+ * @property \App\Model\Entity\Infoemploye $infoemploye
  * @property \App\Model\Entity\Matrix[] $matrices
  * @property \App\Model\Entity\Pointindicasous[] $pointindicasous
  * @property \App\Model\Entity\Pointindicateur[] $pointindicateurs
  * @property \App\Model\Entity\Polycompetence[] $polycompetences
+ * @property \App\Model\Entity\Scorecompetence[] $scorecompetences
+ * @property \App\Model\Entity\Scoresouscomp[] $scoresouscomps
  */
 class Employe extends Entity
 {
@@ -37,19 +38,20 @@ class Employe extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'nomprenom' => true,
         'objetevaluation' => true,
         'dateevaluation' => true,
         'decisiondirection' => true,
         'categorie_id' => true,
-        'moyen' => true,
+        'infoemploye_id' => true,
         'created' => true,
         'modified' => true,
         'category' => true,
-        'infoficheevaluations' => true,
+        'infoemploye' => true,
         'matrices' => true,
         'pointindicasous' => true,
         'pointindicateurs' => true,
         'polycompetences' => true,
+        'scorecompetences' => true,
+        'scoresouscomps' => true,
     ];
 }

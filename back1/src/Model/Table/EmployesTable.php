@@ -12,11 +12,13 @@ use Cake\Validation\Validator;
  * Employes Model
  *
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
- * @property \App\Model\Table\InfoficheevaluationsTable&\Cake\ORM\Association\HasMany $Infoficheevaluations
+ * @property \App\Model\Table\InfoemployesTable&\Cake\ORM\Association\BelongsTo $Infoemployes
  * @property \App\Model\Table\MatricesTable&\Cake\ORM\Association\HasMany $Matrices
  * @property \App\Model\Table\PointindicasousTable&\Cake\ORM\Association\HasMany $Pointindicasous
  * @property \App\Model\Table\PointindicateursTable&\Cake\ORM\Association\HasMany $Pointindicateurs
  * @property \App\Model\Table\PolycompetencesTable&\Cake\ORM\Association\HasMany $Polycompetences
+ * @property \App\Model\Table\ScorecompetencesTable&\Cake\ORM\Association\HasMany $Scorecompetences
+ * @property \App\Model\Table\ScoresouscompsTable&\Cake\ORM\Association\HasMany $Scoresouscomps
  *
  * @method \App\Model\Entity\Employe newEmptyEntity()
  * @method \App\Model\Entity\Employe newEntity(array $data, array $options = [])
@@ -56,8 +58,9 @@ class EmployesTable extends Table
             'foreignKey' => 'categorie_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('Infoficheevaluations', [
-            'foreignKey' => 'employe_id',
+        $this->belongsTo('Infoemployes', [
+            'foreignKey' => 'infoemploye_id',
+            'joinType' => 'INNER',
         ]);
         $this->hasMany('Matrices', [
             'foreignKey' => 'employe_id',
@@ -71,6 +74,12 @@ class EmployesTable extends Table
         $this->hasMany('Polycompetences', [
             'foreignKey' => 'employe_id',
         ]);
+        $this->hasMany('Scorecompetences', [
+            'foreignKey' => 'employe_id',
+        ]);
+        $this->hasMany('Scoresouscomps', [
+            'foreignKey' => 'employe_id',
+        ]);
     }
 
     /**
@@ -81,12 +90,6 @@ class EmployesTable extends Table
      */
     public function validationDefault(Validator $validator): Validator
     {
-        $validator
-            ->scalar('nomprenom')
-            ->maxLength('nomprenom', 255)
-            ->requirePresence('nomprenom', 'create')
-            ->notEmptyString('nomprenom');
-
         $validator
             ->scalar('objetevaluation')
             ->maxLength('objetevaluation', 255)
@@ -108,9 +111,8 @@ class EmployesTable extends Table
             ->notEmptyString('categorie_id');
 
         $validator
-            ->numeric('moyen')
-            ->requirePresence('moyen', 'create')
-            ->notEmptyString('moyen');
+            ->integer('infoemploye_id')
+            ->notEmptyString('infoemploye_id');
 
         return $validator;
     }
@@ -125,6 +127,7 @@ class EmployesTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('categorie_id', 'Categories'), ['errorField' => 'categorie_id']);
+        $rules->add($rules->existsIn('infoemploye_id', 'Infoemployes'), ['errorField' => 'infoemploye_id']);
 
         return $rules;
     }

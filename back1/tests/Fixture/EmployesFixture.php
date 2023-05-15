@@ -20,14 +20,13 @@ class EmployesFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'nomprenom' => 'Lorem ipsum dolor sit amet',
                 'objetevaluation' => 'Lorem ipsum dolor sit amet',
-                'dateevaluation' => '2023-05-04 14:02:48',
+                'dateevaluation' => '2023-05-15 13:56:51',
                 'decisiondirection' => 'Lorem ipsum dolor sit amet',
                 'categorie_id' => 1,
-                'moyen' => 1,
-                'created' => '2023-05-04 14:02:48',
-                'modified' => '2023-05-04 14:02:48',
+                'infoemploye_id' => 1,
+                'created' => '2023-05-15 13:56:51',
+                'modified' => '2023-05-15 13:56:51',
             ],
         ];
         parent::init();

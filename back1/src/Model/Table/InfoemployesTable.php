@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * Infoemployes Model
  *
  * @property \App\Model\Table\PostesTable&\Cake\ORM\Association\BelongsTo $Postes
+ * @property \App\Model\Table\EmployesTable&\Cake\ORM\Association\HasMany $Employes
  *
  * @method \App\Model\Entity\Infoemploye newEmptyEntity()
  * @method \App\Model\Entity\Infoemploye newEntity(array $data, array $options = [])
@@ -50,6 +51,9 @@ class InfoemployesTable extends Table
         $this->belongsTo('Postes', [
             'foreignKey' => 'poste_id',
             'joinType' => 'INNER',
+        ]);
+        $this->hasMany('Employes', [
+            'foreignKey' => 'infoemploye_id',
         ]);
     }
 

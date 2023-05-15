@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 13 mai 2023 à 13:32
+-- Généré le : lun. 15 mai 2023 à 16:10
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -205,32 +205,14 @@ INSERT INTO `echelleevaluations` (`id`, `label`, `abreviation`, `valeur`, `creat
 
 CREATE TABLE `employes` (
   `id` int(11) NOT NULL,
-  `nomprenom` varchar(255) NOT NULL,
   `objetevaluation` varchar(255) NOT NULL,
   `dateevaluation` datetime DEFAULT NULL,
   `decisiondirection` varchar(255) NOT NULL,
   `categorie_id` int(11) NOT NULL,
-  `moyen` float NOT NULL,
+  `infoemploye_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `employes`
---
-
-INSERT INTO `employes` (`id`, `nomprenom`, `objetevaluation`, `dateevaluation`, `decisiondirection`, `categorie_id`, `moyen`, `created`, `modified`) VALUES
-(1, 'ALI HARBI', 'test', '2023-05-06 00:00:00', 'test', 1, 1, '2023-05-05 07:36:25', '2023-05-05 07:36:25'),
-(2, 'ALI HARBI', 'test', '2023-05-06 00:00:00', 'test', 1, 1.33333, '2023-05-05 07:36:44', '2023-05-05 07:36:44'),
-(3, 'ALI HARBI', 'test', '2023-05-06 00:00:00', 'test', 1, 1, '2023-05-05 07:37:08', '2023-05-05 07:37:08'),
-(4, 'HAMA HARBI', 'test', '2023-05-20 00:00:00', 'test', 1, 0.333333, '2023-05-05 08:41:51', '2023-05-05 08:41:51'),
-(5, 'HAMA HARBI', 'test', '2023-05-20 00:00:00', 'test', 1, 0.666667, '2023-05-05 08:42:00', '2023-05-05 08:42:00'),
-(6, 'HAMA HARBI', 'test', '2023-05-20 00:00:00', 'test', 1, 1, '2023-05-05 08:42:09', '2023-05-05 08:42:09'),
-(7, 'BILEL IFA', 'test', '0000-00-00 00:00:00', 'test', 2, 1, '2023-05-05 10:05:22', '2023-05-05 10:05:22'),
-(8, 'BILEL IFA', 'test', '0000-00-00 00:00:00', 'test', 2, 0.5, '2023-05-05 10:05:59', '2023-05-05 10:05:59'),
-(9, 'BILEL IFA', 'test', '0000-00-00 00:00:00', 'test', 2, 0.666667, '2023-05-05 10:06:22', '2023-05-05 10:06:22'),
-(10, 'HAIKEL MGANEM', 'test', '2023-05-12 00:00:00', 'test', 3, 1, '2023-05-05 10:07:06', '2023-05-05 10:07:06'),
-(11, 'HAIKEL MGANEM', 'test', '2023-05-12 00:00:00', 'test', 3, 0.333333, '2023-05-05 10:07:23', '2023-05-05 10:07:23');
 
 -- --------------------------------------------------------
 
@@ -501,7 +483,7 @@ CREATE TABLE `infoemployes` (
 --
 
 INSERT INTO `infoemployes` (`id`, `nomprenom`, `adresse`, `telprof`, `telpersonnel`, `contact`, `mailprof`, `mailpersonnel`, `servicetravail`, `poste_id`, `datenaissance`, `lieu`, `nationnalite`, `cin`, `delivreea`, `datedelivrance`, `permis`, `datepermis`, `logement`, `moytransport`, `estimatransport`, `etatsociale`, `dateetatsociale`, `created`, `modified`) VALUES
-(1, 'ALI HARBI', 'Rue mohamed baklouti', 23546852, 25645894, 56324896, 'ali.harbi@gmail.com', 'ali.harbi@gmail.com', 'service de développement', 1, '2023-05-25 00:00:00', 'tunis', 'tunisienne', 14029111, 'tunis', '2023-05-11 00:00:00', 'Oui', '2023-06-06 00:00:00', 'Propre', 'moto', '17:56:00', 'Marié(e)', '20 ans ', '2023-05-13 10:57:03', '2023-05-13 10:57:03');
+(1, 'ALI HARBI', 'Rue manzel chaker', 23546852, 25645894, 56324896, 'ali.harbi@gmail.com', 'ali.harbi@gmail.com', 'service de développement', 1, '2023-05-25 00:00:00', 'tunis', 'tunisienne', 14029111, 'tunis', '2023-05-11 00:00:00', 'Oui', '2023-06-06 00:00:00', 'Propre', 'moto', '17:56:00', 'Marié(e)', '20 ans ', '2023-05-13 10:57:03', '2023-05-13 18:20:57');
 
 -- --------------------------------------------------------
 
@@ -968,6 +950,36 @@ INSERT INTO `roles` (`id`, `label`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `scorecompetences`
+--
+
+CREATE TABLE `scorecompetences` (
+  `id` int(11) NOT NULL,
+  `employe_id` int(11) NOT NULL,
+  `competence_id` int(11) NOT NULL,
+  `score` float NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `scoresouscomps`
+--
+
+CREATE TABLE `scoresouscomps` (
+  `id` int(11) NOT NULL,
+  `employe_id` int(11) NOT NULL,
+  `souscompetence_id` int(11) NOT NULL,
+  `score` float NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `souscompetences`
 --
 
@@ -1289,6 +1301,18 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `scorecompetences`
+--
+ALTER TABLE `scorecompetences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `scoresouscomps`
+--
+ALTER TABLE `scoresouscomps`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `souscompetences`
 --
 ALTER TABLE `souscompetences`
@@ -1344,7 +1368,7 @@ ALTER TABLE `competences`
 -- AUTO_INCREMENT pour la table `comptechniques`
 --
 ALTER TABLE `comptechniques`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT pour la table `coutformaexternes`
@@ -1374,7 +1398,7 @@ ALTER TABLE `echelleevaluations`
 -- AUTO_INCREMENT pour la table `employes`
 --
 ALTER TABLE `employes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `formaexternes`
@@ -1410,7 +1434,7 @@ ALTER TABLE `indicateursuivis`
 -- AUTO_INCREMENT pour la table `infoemployes`
 --
 ALTER TABLE `infoemployes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `matricecompetences`
@@ -1470,19 +1494,31 @@ ALTER TABLE `profilpostes`
 -- AUTO_INCREMENT pour la table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT pour la table `reponses`
 --
 ALTER TABLE `reponses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `scorecompetences`
+--
+ALTER TABLE `scorecompetences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `scoresouscomps`
+--
+ALTER TABLE `scoresouscomps`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `souscompetences`
@@ -1494,7 +1530,7 @@ ALTER TABLE `souscompetences`
 -- AUTO_INCREMENT pour la table `testtechniques`
 --
 ALTER TABLE `testtechniques`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT pour la table `themeformations`
