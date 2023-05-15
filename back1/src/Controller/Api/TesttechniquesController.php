@@ -19,7 +19,7 @@ class TesttechniquesController extends AppController
      *         data:
      *          label(String) *Required
      *          categorie_id (Int) *Required
-     *         
+     *
      * @Output: data : success message
      */
     public function addTesttechnique(){
@@ -31,50 +31,50 @@ class TesttechniquesController extends AppController
         /* format data */
         if (1 == 1) {
             $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
+            $data=json_decode($querry['data']);
             //$data=$this->request->getData();
-            //debug($data);
+           // debug($data);
         }
          /* create testtechniques entity */
         if (1==1){
             $testtechniques = $this->Testtechniques->newEmptyEntity();
-            $testtechniques->label=$data->label;  
-            $testtechniques->categorie_id=$data->categorie_id;     
-            $savedTest=$this->Testtechniques->save($testtechniques); 
+            $testtechniques->label=$data->label;
+            $testtechniques->categorie_id=$data->categorie_id;
+            $savedTest=$this->Testtechniques->save($testtechniques);
 
              /* create comptechniques entity */
-      
-            foreach ($data->Formtest as $comptech)
+
+            foreach ($data->Competence as $comptech)
                    {
 
-                   
+
                         $comptechniques = $this->Comptechniques->newEmptyEntity();
-                        $comptechniques->label= $comptech->label;  
-                        $comptechniques->testtechnique_id=$savedTest->id; 
-                        $savedComptech=$this->Comptechniques->save($comptechniques); 
+                        $comptechniques->label= $comptech->label;
+                        $comptechniques->testtechnique_id=$savedTest->id;
+                        $savedComptech=$this->Comptechniques->save($comptechniques);
 
                         /* create question entity */
-                         foreach ($comptech->competence as $quest)
+                         foreach ($comptech->QuestReponse as $quest)
                          {
                            // debug($quest);
                              $questions = $this->Questions->newEmptyEntity();
-                             $questions->label=$quest->label;  
-                             $questions->comptechnique_id=$savedComptech->id;  
-                             $savedQuest=$this->Questions->save($questions); 
+                             $questions->label=$quest->question;
+                             $questions->comptechnique_id=$savedComptech->id;
+                             $savedQuest=$this->Questions->save($questions);
 
-                        //     foreach ($quest->Reponse  as $rep)
-                        //     {
-                        //         $reponses = $this->Reponses->newEmptyEntity();
-                        //         $reponses->label=$rep->label;  
-                        //         $reponses->question_id=$savedQuest->id;  
-                        //         $this->Reponses->save($reponses); 
+                             foreach ($quest->reponse  as $rep)
+                            {
+                                 $reponses = $this->Reponses->newEmptyEntity();
+                                 $reponses->label=$rep->label;
+                                 $reponses->question_id=$savedQuest->id;
+                                 $this->Reponses->save($reponses);
 
-                        //     }
+                             }
 
                          }
                    }
         }
-       
+
 
 
          /*send result */
@@ -83,7 +83,7 @@ class TesttechniquesController extends AppController
             'data' =>  "Added with success",
             '_serialize' => ['success', 'data']
         ]);
-    
+
     }
 
 
@@ -98,17 +98,17 @@ class TesttechniquesController extends AppController
      *         data:
      *          label(String) *Required
      *          categorie_id (Int) *Required
-     *         
+     *
      * @Output: data : success message
      */
     public function editTesttechnique(){
-        
+
         $this->request->allowMethod(['post', 'put']);
 
         /* format data */
         if (1 == 1) {
             $querry=$this->request->getData();
-            $data=json_decode($querry['data']); 
+            $data=json_decode($querry['data']);
             //$data=$this->request->getData();
             //debug ($data);die;
         }
@@ -117,10 +117,10 @@ class TesttechniquesController extends AppController
         $testtechniques=$this->Testtechniques->get($id);
          /* create testtechniques entity */
         if (1==1){
-            $testtechniques->label=$data->label;  
+            $testtechniques->label=$data->label;
             $testtechniques->categorie_id=$data->categorie_id;
 
-            $this->Testtechniques->save($testtechniques); 
+            $this->Testtechniques->save($testtechniques);
         }
         /*send result */
         $this->set([
@@ -128,7 +128,7 @@ class TesttechniquesController extends AppController
             'data' =>  "Updated with success",
             '_serialize' => ['success', 'data']
         ]);
-    
+
     }
 
 
@@ -148,7 +148,7 @@ class TesttechniquesController extends AppController
                 'Categories'
             ]
         ]);
- 
+
         /*send result */
         $this->set([
             'success' => true,
@@ -159,7 +159,7 @@ class TesttechniquesController extends AppController
 
 
 
-    
+
     /**
       * getTesttechnique
       *
@@ -168,9 +168,9 @@ class TesttechniquesController extends AppController
       * @Output: data
       */
      public function getTesttechnique(){
- 
+
          $id = $this->request->getQuery('id');
-         
+
          /* search */
          if(1==1){
              if (!isset($id) or empty($id) or $id == null ){
@@ -181,15 +181,15 @@ class TesttechniquesController extends AppController
                 throw new UnauthorizedException('Id is not Valid');
              }
          }
- 
+
          $testtechniques = $this->Testtechniques->find('all', [
              'conditions'=>[
                  'id IS'=>$id,
              ],
-            
+
          ])->first();
          // debug($testtechniques);die;
-         
+
          if(empty($testtechniques)){
             throw new UnauthorizedException('Testtechniques not found');
         }
@@ -223,7 +223,7 @@ class TesttechniquesController extends AppController
             'conditions'=>[
                 'id'=>$id,
             ],
-           
+
         ])->first();
 
         /* delete testtechniques  */

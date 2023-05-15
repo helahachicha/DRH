@@ -12,7 +12,7 @@ export class AddTestComponent implements OnInit {
   public FormGenerator: FormGroup;
   public categorie
 
-  
+
 
   constructor(
     private dataService:DataService,
@@ -21,7 +21,7 @@ export class AddTestComponent implements OnInit {
 
   ) { }
   get FormtestData(): FormArray {
-    return <FormArray>this.FormGenerator.get('Formtest');
+    return <FormArray>this.FormGenerator.get('Competence');
   }
 
   ngOnInit(): void {
@@ -29,76 +29,65 @@ export class AddTestComponent implements OnInit {
     this.createForm();
 
   }
-  removedCompetence(index) {
-    const Competence = this.FormGenerator.get('Formtest') as FormArray
-    Competence.removeAt(index);
-  }
+
 
   createForm() {
     this.FormGenerator = this.fb.group({
       label: new FormControl('', [Validators.required]),
       categorie_id: new FormControl('', [Validators.required]),
-      Formtest: this.fb.array([this.createCompetenceGroup()]),
+      Competence: this.fb.array([this.createCompetenceGroup()]),
 
     });
   }
   createCompetenceGroup(): FormGroup {
     return this.fb.group({
-      label:[''],
-      competence:  this.fb.array([this.createOption()]),
-
+      label: new FormControl('', [Validators.required]),
+      QuestReponse:  this.fb.array([this.createQuestReponse()]),
     })
   }
-
-  createQuestion(): FormGroup {
+  createQuestReponse(): FormGroup {
     return this.fb.group({
-      label: [''],
+      question: ['', [Validators.required]],
       reponse:  this.fb.array([this.createReponse()]),
-
-
-    });
+    })
   }
   createReponse(): FormGroup {
     return this.fb.group({
       label: [''],
     });
   }
-  createOption(): FormGroup {
-    return this.fb.group({
-      label: [''],
-      question:  this.fb.array([this.createQuestion()]),
 
-    });
-  }
-  addOptions(i) {
-    const optionsArray = <FormArray>this.FormtestData.at(i).get('competence');
-    optionsArray.push(this.createOption());
-  }
-
-  removeOptions(i, j) {
-
-      (<FormArray>this.FormtestData.at(i).get('competence')).removeAt(j);
-
-
-  }
-
-  addInputReponse(i) {
-    const optionsArray = <FormArray>this.FormtestData.at(i).get('Reponse');
-    optionsArray.push(this.createReponse());
-   }
-
- 
-   removeReponse(i, j) {
-
-    (<FormArray>this.FormtestData.at(i).get('Reponse')).removeAt(j);
-
-}
-  addInput() {
+  addCompetence() {
     this.FormtestData.push(this.createCompetenceGroup());
   }
+  addQuestRep(i) {
+    const optionsArray = <FormArray>this.FormtestData.at(i).get('QuestReponse');
+    optionsArray.push(this.createQuestReponse());
+   }
+
+   addReponse(i: number, j: number) {
+    const questionArray = this.FormGenerator.get(`Competence.${i}.QuestReponse`) as FormArray;
+    const reponseArray = questionArray.at(j).get('reponse') as FormArray;
+    reponseArray.push(this.createReponse());
+  }
+
+  removedCompetence(index) {
+    const Competence = this.FormGenerator.get('Competence') as FormArray
+    Competence.removeAt(index);
+  }
+
+  removeQuestRep(i, j) {
+
+    (<FormArray>this.FormtestData.at(i).get('QuestReponse')).removeAt(j);
+}
+removeReponse(i, j) {
+
+  (<FormArray>this.FormtestData.at(i).get('reponse')).removeAt(j);
+
+}
   submit() {
     const data = this.FormGenerator.value
-    //console.log("res.data",data)
+console.log("res.data",data)
     this.dataService.post('Testtechniques/addTesttechnique.json',data).subscribe(res=> {
       this.router.navigate(['/listingtest'])
       })
