@@ -10,16 +10,32 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $nomprenom
- * @property string $objetevaluation
- * @property \Cake\I18n\FrozenTime|null $dateevaluation
- * @property string $decisiondirection
- * @property int $categorie_id
- * @property float $moyen
+ * @property string $adresse
+ * @property int $telprof
+ * @property int $telpersonnel
+ * @property int $contact
+ * @property string $mailprof
+ * @property string $mailpersonnel
+ * @property string $servicetravail
+ * @property int $poste_id
+ * @property \Cake\I18n\FrozenTime $datenaissance
+ * @property string $lieu
+ * @property string $nationnalite
+ * @property int $cin
+ * @property string $delivreea
+ * @property \Cake\I18n\FrozenTime $datedelivrance
+ * @property string $permis
+ * @property \Cake\I18n\FrozenTime $datepermis
+ * @property string $logement
+ * @property string $moytransport
+ * @property \Cake\I18n\Time $estimatransport
+ * @property string $etatsociale
+ * @property string $dateetatsociale
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Category $category
- * @property \App\Model\Entity\Infoficheevaluation[] $infoficheevaluations
+ * @property \App\Model\Entity\Poste $poste
+ * @property \App\Model\Entity\Infoficheeval[] $infoficheevals
  * @property \App\Model\Entity\Matrix[] $matrices
  * @property \App\Model\Entity\Pointindicasous[] $pointindicasous
  * @property \App\Model\Entity\Pointindicateur[] $pointindicateurs
@@ -38,15 +54,31 @@ class Employe extends Entity
      */
     protected $_accessible = [
         'nomprenom' => true,
-        'objetevaluation' => true,
-        'dateevaluation' => true,
-        'decisiondirection' => true,
-        'categorie_id' => true,
-        'moyen' => true,
+        'adresse' => true,
+        'telprof' => true,
+        'telpersonnel' => true,
+        'contact' => true,
+        'mailprof' => true,
+        'mailpersonnel' => true,
+        'servicetravail' => true,
+        'poste_id' => true,
+        'datenaissance' => true,
+        'lieu' => true,
+        'nationnalite' => true,
+        'cin' => true,
+        'delivreea' => true,
+        'datedelivrance' => true,
+        'permis' => true,
+        'datepermis' => true,
+        'logement' => true,
+        'moytransport' => true,
+        'estimatransport' => true,
+        'etatsociale' => true,
+        'dateetatsociale' => true,
         'created' => true,
         'modified' => true,
-        'category' => true,
-        'infoficheevaluations' => true,
+        'poste' => true,
+        'infoficheevals' => true,
         'matrices' => true,
         'pointindicasous' => true,
         'pointindicateurs' => true,
