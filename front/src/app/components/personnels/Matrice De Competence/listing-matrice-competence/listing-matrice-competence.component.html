@@ -295,7 +295,12 @@
                     <th scope="col"style="background-color: rgb(163, 203, 234); color: #004e75;text-align: center;">Nom &amp; Prenom</th>
                     <th scope="col"style="background-color: rgb(163, 203, 234); color: #004e75;text-align: center;">Catégorie</th>
 
-                    <th scope="col" style="background-color: rgba(142, 147, 153, 0.429);color: black;text-align: center;" *ngFor="let mat of Employes[0].matrices"> {{mat.matricecompetence.label}}</th>
+                    <th scope="col" style="background-color: rgba(142, 147, 153, 0.429);color: black;text-align: center;" *ngFor="let mat of Employes[0].matrices"> 
+                      {{mat.matricecompetence.label}}
+                      <hr>
+                      <button class="btn btn-primary" 
+                      (click)="calculPolyval(mat.matricecompetence.id)">Calculer</button></th>
+
                     <th scope="col"style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center;font-weight:bold;" *ngFor="let totalcom of Totalpolycompetences">Polycompétences<br> ({{totalcom.valeur}}%)</th>
 
                   </tr>
@@ -304,13 +309,16 @@
 
                   <tr *ngFor="let emp of Employes">
                     <td style=" font-weight: bold;" class="text-center" *ngFor="let obj2 of Departements"> {{obj2.label}}</td>
-                    <td  style="font-weight: bold; text-align: center; color: black;"> {{emp.infoemploye.nomprenom}}</td>
+                    <td  style="font-weight: bold; text-align: center; color: black;"> 
+                      {{emp.infoemploye.nomprenom}}
+                      <button class="btn btn-primary" 
+                      (click)="calculPolycomp(emp.infoemploye.id)">Calculer</button></td>
                     <td style="font-weight: bold; text-align: center; color: rgba(0, 0, 0, 0.607);">{{emp.category.label}}</td>
                   
                     
                     <ng-container *ngFor="let mat of emp.matrices">
                       <td *ngIf="mat.note">
-                        <input [(ngModel)]="mat.note" style="text-align: center;" (change)="onChangeEval(mat.id, emp.id, $event)"/>
+                        <input [(ngModel)]="mat.note" style="text-align: center;" (change)="onChangeEval(mat.matricecompetence.id, emp.id, $event)"/>
                       </td>
                    
                      
@@ -331,8 +339,9 @@
                       <input type="text"disabled  placeholder="{{vall.valeur}}" />
                   
                     </td>
+
                   </tr>
-                                  
+                      <button class="btn btn-primary" (click)="AddEval()">Modifier</button>            
                 </tbody>
               </table>
             </div>

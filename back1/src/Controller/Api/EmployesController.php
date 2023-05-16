@@ -129,6 +129,19 @@ class EmployesController extends AppController
             $scorecompetences->employe_id = $savedEmployes->id;
             $this->Scorecompetences->save($scorecompetences);
 
+            $this->loadModel('Matricecompetences');
+            foreach ($data->Matricecompetences as $matricecompetences) {
+                /* create Matrices entity */
+                $this->loadModel('Matrices');
+                $matrices = $this->Matrices->newEmptyEntity();
+                $matrices->note = "Ne";
+                $matrices->employe_id = $savedEmployes->id;
+                $matrices->matricecompetence_id = $matricecompetences->id; // Assuming the ID is present in $matricecompetences
+                $this->Matrices->save($matrices);
+            }
+
+
+
         }
 
         /* send result */

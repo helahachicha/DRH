@@ -13,6 +13,111 @@ use Cake\ORM\TableRegistry;
  */
 class PolycompetencesController extends AppController
 {
+
+
+    public function calculPolycompetence(){
+        $this->loadModel('Employes');
+        $id = $this->request->getQuery('id');
+        $employes = $this->Employes->find('all', [
+            'conditions'=>[
+                'id IS'=>$id,
+            ],
+            'contain'=>[
+                'Matrices',
+            ],
+        ])->first(); 
+        $MatricecompCounts = count($employes->matrices);
+
+        $resultAplusCount = 0;
+        $resultACount = 0;
+        $resultBCount = 0;
+        $resultCCount = 0;
+        $resultDCount = 0;
+        $resultNeCount = 0;
+        foreach ($employes->matrices as $count ) {
+            switch ($count->note) {
+                case 'A+':
+                    $resultAplusCount++;
+                    break;
+                case 'A':
+                    $resultACount++;
+                    break;
+                case 'B':
+                    $resultBCount++;
+                    break;
+                case 'C':
+                    $resultCCount++;
+                    break;
+                case 'D':
+                    $resultDCount++;
+                    break;
+                case 'Ne':
+                    $resultNeCount++;
+                    break;
+            }
+        }
+
+        $score = ($resultAplusCount * 100) + ($resultACount * 75) + ($resultBCount * 50) +
+                ($resultCCount * 25) + ($resultDCount * 10) ;
+        $Polycompetence =$score/ $MatricecompCounts;       
+
+        
+        $employes = $this->Employes->get($id);
+        // Vérifier si une polycompetence existe déjà pour cette matrice de compétences
+        $polycompetence = $this->Polycompetences->find()
+            ->where(['employe_id' => $id])
+            ->first();
+        if ($polycompetence) {
+            // Mettre à jour la valeur de la polycompetence existante
+            $polycompetence->valeur = $Polycompetence;
+        } else {
+            // Créer une nouvelle entité de polycompetence et l'enregistrer pour cette matrice de compétences
+            $polycompetence = $this->Polycompetences->newEntity([
+                'valeur' => $Polycompetence,
+                'employe_id' => $id
+            ]);
+        }
+        // Enregistrer la polycompetence
+        $this->Polycompetences->save($polycompetence);
+
+
+        $get = $this->Polycompetences->find('all', [
+            'conditions'=>[
+                'Polycompetences.id IS'=>$id,
+            ],
+        ])->first(); 
+        
+
+        /*send result */
+        $this->set([
+            'success' => true,
+            'data' => $employes,
+            'count' => $MatricecompCounts,
+            'Aplus' => $resultAplusCount,
+            'A' => $resultACount,
+            'B' => $resultBCount,
+            'C' => $resultCCount,
+            'D' => $resultDCount,
+            'Ne' => $resultNeCount,
+            'score' => $score,
+            'Polycompetence' => $Polycompetence,
+            'Get' => $get,
+            '_serialize' => ['success', 'data', 'count', 'Aplus', 'A', 'B', 'C', 'D', 'Ne', 'score',
+            'Polycompetence', 'Get']
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     public function calculTotalcomp()
     {
         /* search */

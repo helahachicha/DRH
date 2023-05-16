@@ -130,6 +130,23 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       }
     );
   }
+
+
+  calculPolycomp  (id: any, index: number) {
+    this.dataService.get('polycompetences/calculPolycompetence.json?id=' + id).subscribe(
+      res => {
+        console.log('res', res.data);
+        // Update the Polycompetence value for the corresponding input field
+        this.Employes[0].matrices[index].polycompetence = res.Polycompetence;
+      },
+      error => {
+        console.log('error', error);
+        // Handle the error here, for example by displaying an error message
+      }
+    );
+  }
+
+
   getallcalculPolyval() {
     this.dataService.get('Polyvalences/getallPolyvalence.json').subscribe(res => {
       this.Polyvalences = res.data;

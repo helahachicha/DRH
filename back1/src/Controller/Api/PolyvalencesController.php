@@ -107,6 +107,8 @@ class PolyvalencesController extends AppController
     }
 
 
+
+    
     public function calculTotalval()
     {
         /* search */
@@ -144,6 +146,8 @@ class PolyvalencesController extends AppController
     }
 
 
+
+
     /*GetAll Polyvalence*/
     public function getallPolyvalence()
     {
@@ -158,6 +162,8 @@ class PolyvalencesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
+
+
 
 
 
