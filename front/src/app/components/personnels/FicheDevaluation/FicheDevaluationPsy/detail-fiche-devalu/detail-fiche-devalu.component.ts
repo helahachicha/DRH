@@ -9,11 +9,11 @@ import { DataService } from 'src/app/shared/service/data.service';
   styleUrls: ['./detail-fiche-devalu.component.scss']
 })
 export class DetailFicheDevaluComponent implements OnInit {
-id:any
 
- public Infoficheevaluations
-public open:boolean=false
-public Formcompetences
+ id:any
+ public Employes
+ public open:boolean=false
+ public Formcompetences
 
 
 
@@ -24,43 +24,49 @@ public Formcompetences
   ) { }
 
   ngOnInit(): void {  
-   this.getDetailByEmpID()
-   this.getFormcompetencebyDetailppId()
+   //this.getDetailByEmpID()
+   //this.getFormcompetencebyDetailppId()
 
   }
-
-getDetailByEmpID(){
-  this.route.params.subscribe(params => {
-    const id = params['id'];
-    this.dataService.get('Infoficheevaluations/getInfoficheevaluationByEmployeId.json?id=' + id).subscribe(
+  getemploaById() {
+    this.id = this.route.snapshot.params['id'];
+    this.dataService.get('Employes/getficheevalByEmp.json?id=' + this.id).subscribe(
       res => {
-        this.Infoficheevaluations = res.data;
+        this.Employes = res.data;
+        console.log('test', this.Employes)
+      })
+  }
+//getDetailByEmpID(){
+ // this.route.params.subscribe(params => {
+   // const id = params['id'];
+   // this.dataService.get('Employes/Employes.json?id=' + id).subscribe(
+    //  res => {
        
-        this.open=true
+    //    this.open=true
         
-       // console.log('test',this.Infoficheevaluations)
+     //   console.log('test',this.Employes)
 
          
-      })
-  });
- }
+     // })
+ // });
+ //}
 
  
- getFormcompetencebyDetailppId(){
-  this.route.params.subscribe(params => {
-    const id = params['id'];
-    this.dataService.get('Formcompetences/getFormcompetencebyDetailppId.json?id=' + id).subscribe(
-      res => {
-        this.Formcompetences = res.data;
+ //getFormcompetencebyDetailppId(){
+  //this.route.params.subscribe(params => {
+   // const id = params['id'];
+   // this.dataService.get('Formcompetences/getFormcompetencebyDetailppId.json?id=' + id).subscribe(
+    //  res => {
+     //   this.Formcompetences = res.data;
        
-        this.open=true
+      ///  this.open=true
         
-        console.log('comp',this.Formcompetences)
+      //  console.log('comp',this.Formcompetences)
 
          
-      })
-  });
- }
+      //})
+  //});
+ //}
  
 
 

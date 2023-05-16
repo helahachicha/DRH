@@ -1,119 +1,262 @@
 <div class="border border-primary mt-1 ">
-    
     <div class="col  ">
-        <h1 class="text-center"> Fiche d'evaluation psychique</h1>
+      <h1 class="text-center">Ajouter une fiche d'évaluation psychique</h1>
     </div>
-</div>
-
-<div class="container">
-
-    <form id="contact-form" role="form" >
-
+  </div>
+  
+  
+  <div class="container">
+  
+  
     <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded">
-        
-            <div *ngFor="let obj of Infoficheevaluations;let i =index">
-                <hr>
-                <div class="row justify-content-center">
 
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label for="form_name">Nom et Prenom </label>
-
-                            <p>{{obj.employe.nomprenom}}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label for="form_name">Objet D'évaluation</label>
-
-                            <p>{{obj.objetevaluation}}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label for="form_name">Date d'evaluation </label>
-
-                            <p>{{obj.dateevaluation}}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label for="form_name">Décision de la direction</label>
-
-                            <p>{{obj.decisiondirection}}</p>
-                        </div>
-                    </div>
-                    
-
-
-
-                </div>
-
-                <hr>
-                <div >
-                    <h2 class="text-center"></h2>
-                    <table  style="border: 1px solid black; width: 100%; text-align: center; margin-bottom: 50px;"
-                            *ngFor="let obj1 of Formcompetences;let i =index" >
-
-                        <thead class="thead-bordered" >
-
-                            <tr class="h5 text-center" >
-                                <th colspan="4">{{obj1.competence.label}}</th>
-                            </tr>
-                            <tr class="h5 text-center" >
-                                <th colspan="3">{{obj1.soucompetence}}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="text-bold ">
-
-                                <td>num</td>
-                                <td>INDICATEUR DE MESURE</td>
-                                <td>POINTS</td>
-                            </tr>
-                            
-                            <tr >
-                                <th></th>
-                                <td>
-                                    <div class="item-box" formArrayName="indicateur"
-                                    *ngFor="let item of obj1.get('indicateur').controls; let j = index">
-                                    <div [formGroupName]="j">
-                                        <h5 class="col-md-2">Indicateur: {{j+1}}</h5>
-                                        <div class="d-flex">
-                                           
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   
-                                                    <input type="text" class="form-control"
-                                                        required="required"
-                                                        formControlName="label"
-                                                        [attr.disabled]="enabled?null:''" />
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-</td>
-                                <td>point</td>
-                            </tr>
-
-                            <tr class="text-bold text-center">
-                                <td colspan="2">SCORE</td>
-                                <td colspan="2">note</td>
-                            </tr>
-                            <tr class="text-bold text-center"  >
-                                <td colspan="2">Niveau visé: Niveau 1 /{{obj1.niveauvise.label}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <hr>
+        <hr>
+        <div class="row justify-content-center">
+  
+          <div class="col-md-5">
+            <div class="form-group">
+              <div class="form-group">
+  
+                <label for="staticZone">Nom et Prénom</label>
+                <input type="text" formControlName="objetevaluation" class="form-control" placeholder="objet"
+                required="required">
+              </div>
             </div>
-     
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="form_name">Objet D'évaluation</label>
+              <input type="text" formControlName="objetevaluation" class="form-control" placeholder="objet"
+                required="required">
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="form_name">Date d'evaluation </label>
+              <input type="date" formControlName="dateevaluation" class="form-control" required="required">
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="form_name">Décision de la direction</label>
+              <input type="text" formControlName="decisiondirection" class="form-control" placeholder="Décision"
+                required="required">
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+  
+              <label for="staticZone">Catégorie</label>
+              <input type="text" formControlName="objetevaluation" class="form-control" placeholder="objet"
+                required="required">
+            </div>
+          </div>
+  
+  
+          <div class="col-md-5" >
+            <div class="form-group">
+              <label for="form_name">Niveau</label>
+              <!--
+                                                <div *ngFor="let niveau of competences.category.niveauvises">
+                                                          {{niveau.label}}
+                                                  </div> -->
+            </div>
+          </div>
+  
+  
+  
+        </div>
+  
+        <hr>
+        <div class="table-responsive">
+  
+          <table class="table table-bordered justify-content-center">
+  
+            <thead>
+  
+  
+  
+            </thead>
+            <tbody>
+              <tr class="text-bold " >
+  
+                <th colspan="3">
+                 
+  
+                </th>
+  
+                <table style="border: none;" >
+                  <div >
+                    <ng-container >
+                      <td class="n">
+                        <tr>
+                          N°
+                        </tr>
+                        <hr>
+                        <tr>
+  
+                        
+  
+                        </tr>
+                      </td>
+                      <td class="ind">
+  
+                        <tr>
+                          INDICATEUR DE MESURE
+                        </tr>
+  
+                        <hr>
+                        <tr>
+  
+                          
+  
+                        </tr>
+                      </td>
+                      <td class="point">
+                        <tr>
+                          POINTS
+                        </tr>
+                        <hr>
+  
+                        <tr>
+                          <input type="text" 
+                            class="form-control ">
+  
+                        </tr>
+                      </td>
+                    </ng-container>
+                  </div>
+  
+                  <tr >
+  
+                    <td class="score">
+                  <tr>
+                    SCORE
+                  </tr>
+                  <hr>
+                  <button class="btn btn-primary" >Calculer</button>
+                  <tr>
+                
+                  </tr>
+                  </td>
+                  <td style="border: none;" class="final">
+                    <tr>
+                      Résultat
+                    </tr>
+                    <hr>
+                    <tr>
+                      <p >
+                      </p>
+                    </tr>
+                  </td>
+  
+              </tr>
+  
+  
+  
+          </table>
+          <table >
+            
+            <div >
+              <tr class="text-center mt-5 mb-5">
+  
+              
+  
+              </tr>
+              <div >
+  
+                <td class="n">
+                  <tr>
+                    N°
+                  </tr>
+                  <hr>
+                  <tr>
+                  
+  
+                  </tr>
+  
+                </td>
+  
+                <td class="ind">
+                  <tr>
+                    INDICATEUR DE MESURE
+                  </tr>
+                  <hr>
+                  <tr class="text-center">
+  
+                    
+  
+                  </tr>
+                </td>
+  
+                <td class="point">
+                  <tr>
+                    POINTS
+                  </tr>
+                  <hr>
+  
+                  <tr>
+                    <input type="text" 
+                      class="form-control ">
+  
+                  </tr>
+                </td>
+              </div>
+  
+              <tr >
+                <td class="score">
+              <tr>
+                SCORE
+              </tr>
+              <hr>
+  
+              <tr>
+                
+              </tr>
+              <tr class="mt-5">
+                <button class="btn btn-primary" >Calculer
+                </button>
+              </tr>
+              </td>
+  
+              <td class="final">
+                <tr>
+                  Résultat
+                </tr>
+                <hr>
+  
+                <tr>
+  
+  
+                  <p >
+                  </p>
+                </tr>
+              </td>
+              
+  
+            </div>
+          </table>
+  
+  
+  
+  
+  
+          </tr>
+  
+  
+          </tbody>
+          </table>
+  
+          <button class="btn btn-primary" [routerLink]='["/fiche/liste-fiche-devalu"]'>Terminer</button>
+  
+        </div>
+  
+  
+  
+  
+  
+  
     </div>
-    </form>
-</div>
+  
+  
+  </div>

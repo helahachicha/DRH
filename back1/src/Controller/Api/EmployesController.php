@@ -203,7 +203,7 @@ class EmployesController extends AppController
 
 
          /**Liste des employes qui ont des fiches d'évaluation */
-         public function getAllEmploye()
+         public function Employes()
         {
             /* search */
             $employes = $this->Employes->find('all', [
