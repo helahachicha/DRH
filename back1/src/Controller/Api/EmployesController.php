@@ -129,19 +129,20 @@ class EmployesController extends AppController
             $scorecompetences->employe_id = $savedEmployes->id;
             $this->Scorecompetences->save($scorecompetences);
 
+            // Load Matricecompetences model
             $this->loadModel('Matricecompetences');
-            foreach ($data->Matricecompetences as $matricecompetences) {
-                /* create Matrices entity */
+            $matricecompetences = $this->Matricecompetences->find('all')->limit(16);
+
+            // Iterate through Matricecompetences and assign the id to matricecompetence_id
+            foreach ($matricecompetences as $index => $matricecompetence) {
+                /* create Matrice entity */
                 $this->loadModel('Matrices');
-                $matrices = $this->Matrices->newEmptyEntity();
-                $matrices->note = "Ne";
-                $matrices->employe_id = $savedEmployes->id;
-                $matrices->matricecompetence_id = $matricecompetences->id; // Assuming the ID is present in $matricecompetences
-                $this->Matrices->save($matrices);
+                $matrice = $this->Matrices->newEmptyEntity();
+                $matrice->note = ($index < 16) ? "Ne" : null; // Add "Ne" to the first 16 records
+                $matrice->employe_id = $savedEmployes->id;
+                $matrice->matricecompetence_id = $matricecompetence->id;
+                $this->Matrices->save($matrice);
             }
-
-
-
         }
 
         /* send result */
