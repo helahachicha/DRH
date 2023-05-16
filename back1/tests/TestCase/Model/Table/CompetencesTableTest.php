@@ -26,6 +26,7 @@ class CompetencesTableTest extends TestCase
     protected $fixtures = [
         'app.Competences',
         'app.Formcompetences',
+        'app.Scorecompetences',
     ];
 
     /**

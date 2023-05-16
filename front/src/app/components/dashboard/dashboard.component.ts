@@ -196,7 +196,7 @@ getpolycomp() {
 }
 
 getemployer() {
- this.dataService.get('Employes/getEmploye.json').subscribe(res => {
+ this.dataService.get('Employes/employeForChart.json').subscribe(res => {
   this.Employes = res.data;
   console.log('All emp', this.Employes)
   this.createChartcomp(this.Polycom,this.Employes)

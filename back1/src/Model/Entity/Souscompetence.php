@@ -16,6 +16,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Formcompetence $formcompetence
  * @property \App\Model\Entity\Indicasoucompa[] $indicasoucompas
+ * @property \App\Model\Entity\Scoresouscomp[] $scoresouscomps
  */
 class Souscompetence extends Entity
 {
@@ -35,5 +36,6 @@ class Souscompetence extends Entity
         'modified' => true,
         'formcompetence' => true,
         'indicasoucompas' => true,
+        'scoresouscomps' => true,
     ];
 }

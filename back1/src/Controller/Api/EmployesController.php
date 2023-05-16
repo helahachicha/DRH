@@ -25,16 +25,10 @@ class EmployesController extends AppController
     public function getAllEmployeByCat()
     {
         $employes = $this->Employes->find('all', [
-            'fields' => [
-                'id',
-                'nomprenom',
-                'Categories.label',
-            ],
+
             'contain' => [
-                'Categories','Matrices.Matricecompetences','Polycompetences'
+                'Infoemployes','Categories','Matrices.Matricecompetences','Polycompetences'
             ],
-            'group' => 'nomprenom',
-            'order' => 'nomprenom'
         ])->distinct();
 
         $this->set([
@@ -208,47 +202,129 @@ class EmployesController extends AppController
     }
 
 
-         /**Liste des employes*/
+         /**Liste des employes qui ont des fiches d'évaluation */
          public function getAllEmploye()
-         {
-             /* search */
-             $employes = $this->Employes->find('all', [
-                 'fields' => [
-                     'nomprenom',
-                 ],
-                 
-             ])->distinct()->toArray();
-         
-             /* send result */
-             $this->set([
-                 'success' => true,
-                 'data' => $employes,
-                 '_serialize' => ['success', 'data']
-             ]);
-         }
-
-/**For chart*/
-         public function getEmploye()
         {
             /* search */
             $employes = $this->Employes->find('all', [
-                'fields' => [
-                    'nomprenom',
+                'contain' => [
+                    'Infoemployes',
                 ],
             ])->distinct()->toArray();
-            
-            /* create list */
-            $employeList = [];
-            foreach ($employes as $employe) {
-                $employeList[] = $employe['nomprenom'];
-            }
-            
+
+            // Extract the "nomprenom" property from each employee
+            $data = array_map(function ($employe) {
+                return [
+                    'nomprenom' => $employe->infoemploye->nomprenom
+                ];
+            }, $employes);
+
             /* send result */
             $this->set([
                 'success' => true,
-                'data' => $employeList,
+                'data' => $data,
                 '_serialize' => ['success', 'data']
             ]);
         }
+
+
+        /*For chart*/
+        public function employeForChart()
+        {
+            /* search */
+            $employes = $this->Employes->find('all', [
+                'contain' => [
+                    'Infoemployes',
+                ],
+            ])->distinct()->toArray();
+
+            // Extract the "nomprenom" property from each employee
+            $data = array_map(function ($employe) {
+                return [
+                    'nomprenom' => $employe->infoemploye->nomprenom
+                ];
+            }, $employes);
+
+            $nomprenomList = [];
+            foreach ($data as $nom) {
+                $nomprenomList[] = $nom['nomprenom'];
+            }
+
+            /* send result */
+            $this->set([
+                'success' => true,
+                'data' => $nomprenomList,
+                '_serialize' => ['success', 'data']
+            ]);
+        }
+
+
+
+
+
+
+
+
+        /*get la fiche d'évaluation de l'employe avec les points des indicateurs et les scores 
+        des compétences et les souscompétences */
+
+        public function getficheevalByEmp(){
+            $id = $this->request->getQuery('id');
+    
+            /* search */
+            if (1 == 1) {
+                if (!isset($id) or empty($id) or $id == null) {
+                    throw new UnauthorizedException('Id is Required');
+                }
+    
+                if (!is_numeric($id)) {
+                    throw new UnauthorizedException('Id is not Valid');
+                }
+            }
+    
+           $employes = $this->Employes->find('all', [
+    
+            'conditions'=> [
+                'Employes.id' => $id
+            ],
+            'contain' => [
+                'Infoemployes','Categories',
+                'Categories.Detailprofilpostes.Formcompetences.Competences.Scorecompetences'
+                =>['conditions'=> [
+                    'employe_id' => $id
+                ]],
+                'Categories.Detailprofilpostes.Formcompetences.Indicateursuivis.Pointindicateurs'
+                =>['conditions'=> [
+                    'employe_id' => $id
+                ]],
+                'Categories.Detailprofilpostes.Formcompetences.Souscompetences.Scoresouscomps'
+                =>['conditions'=> [
+                    'employe_id' => $id
+                ]],
+                'Categories.Detailprofilpostes.Formcompetences.Souscompetences.Indicasoucompas.Pointindicasous'
+                =>['conditions'=> ['employe_id' => $id]],
+            ],
+            ])->first();
+
+            /* send result */
+            $this->set([
+                'success' => true,
+                'data' => $employes,
+                '_serialize' => ['success', 'data']
+            ]);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

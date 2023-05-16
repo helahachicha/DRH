@@ -13,6 +13,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\FormcompetencesTable&\Cake\ORM\Association\BelongsTo $Formcompetences
  * @property \App\Model\Table\IndicasoucompasTable&\Cake\ORM\Association\HasMany $Indicasoucompas
+ * @property \App\Model\Table\ScoresouscompsTable&\Cake\ORM\Association\HasMany $Scoresouscomps
  *
  * @method \App\Model\Entity\Souscompetence newEmptyEntity()
  * @method \App\Model\Entity\Souscompetence newEntity(array $data, array $options = [])
@@ -53,6 +54,9 @@ class SouscompetencesTable extends Table
             'joinType' => 'INNER',
         ]);
         $this->hasMany('Indicasoucompas', [
+            'foreignKey' => 'souscompetence_id',
+        ]);
+        $this->hasMany('Scoresouscomps', [
             'foreignKey' => 'souscompetence_id',
         ]);
     }
