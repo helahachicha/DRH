@@ -26,14 +26,15 @@ export class DetailFicheDevaluComponent implements OnInit {
   ngOnInit(): void {  
    //this.getDetailByEmpID()
    //this.getFormcompetencebyDetailppId()
-
+   this.getemploaById()
   }
   getemploaById() {
     this.id = this.route.snapshot.params['id'];
     this.dataService.get('Employes/getficheevalByEmp.json?id=' + this.id).subscribe(
       res => {
         this.Employes = res.data;
-        console.log('test', this.Employes)
+
+        console.log('testinggg', this.Employes[0].category.detailprofilpostes[0].formcompetences[1].souscompetences)
       })
   }
 //getDetailByEmpID(){

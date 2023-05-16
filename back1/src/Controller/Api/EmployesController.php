@@ -308,7 +308,7 @@ class EmployesController extends AppController
                 'Categories.Detailprofilpostes.Formcompetences.Souscompetences.Indicasoucompas.Pointindicasous'
                 =>['conditions'=> ['employe_id' => $id]],
             ],
-            ])->first();
+            ])->toArray();
 
             /* send result */
             $this->set([

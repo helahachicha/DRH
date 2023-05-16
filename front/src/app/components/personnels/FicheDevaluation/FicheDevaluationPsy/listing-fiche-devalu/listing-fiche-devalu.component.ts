@@ -10,7 +10,7 @@ import { DataService } from 'src/app/shared/service/data.service';
 })
 export class ListingFicheDevaluComponent implements OnInit {
   id:any
-  public Employes
+  public employe
   constructor(
     private dataService:DataService,
     private router :Router,
@@ -23,8 +23,8 @@ export class ListingFicheDevaluComponent implements OnInit {
 
   getallnom() {
     this.dataService.get('Employes/getAllEmploye.json').subscribe(res => {
-      this.Employes = res.data;
-    //  console.log(this.Employes)
+      this.employe = res.data;
+     console.log(this.employe)
     })
   }
   deletenom(id){

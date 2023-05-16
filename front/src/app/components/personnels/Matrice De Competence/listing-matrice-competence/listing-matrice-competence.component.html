@@ -312,9 +312,7 @@
                       <td *ngIf="mat.note">
                         <input [(ngModel)]="mat.note" style="text-align: center;" (change)="onChangeEval(mat.id, emp.id, $event)"/>
                       </td>
-                      <td *ngIf="!mat.note">
-                        <input  style="text-align: center;" (change)="onChangeEval(mat.id, emp.id, $event)"/>
-                      </td>
+                   
                      
                     </ng-container>
                     <ng-container *ngFor="let val of emp.polycompetences">
