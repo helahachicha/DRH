@@ -207,6 +207,9 @@ class EmployesController extends AppController
         {
             /* search */
             $employes = $this->Employes->find('all', [
+                'fiels' => [
+                    'id',
+                ],
                 'contain' => [
                     'Infoemployes',
                 ],
@@ -215,6 +218,7 @@ class EmployesController extends AppController
             // Extract the "nomprenom" property from each employee
             $data = array_map(function ($employe) {
                 return [
+                    'id' => $employe->id,
                     'nomprenom' => $employe->infoemploye->nomprenom
                 ];
             }, $employes);
