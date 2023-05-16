@@ -43,6 +43,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.getallcalculPolyval();
     this.getTotalpolyVal();
     this.getTotalpolyComp();
+    this.calculTotalPolycomp ();
   }
   
 
@@ -147,12 +148,33 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   }
 
 
+  calculTotalPolycomp() {
+    this.dataService.get('polycompetences/calculTotalcomp.json').subscribe(
+      res => {
+        console.log('res', res.data);
+      },
+
+    );
+  }
+
+  calculTotalPolyval() {
+    this.dataService.get('polyvalences/calculTotalval.json').subscribe(
+      res => {
+        console.log('res', res.data);
+      },
+
+    );
+  }
+
+
+
   getallcalculPolyval() {
     this.dataService.get('Polyvalences/getallPolyvalence.json').subscribe(res => {
       this.Polyvalences = res.data;
       console.log('testpoly', this.Polyvalences)
     })
   }
+  
   getTotalpolyComp() {
     this.dataService.get('Totalpolycompetences/getAllTotalpolycompetence.json').subscribe(
       res => {

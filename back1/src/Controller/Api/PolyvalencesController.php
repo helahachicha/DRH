@@ -135,13 +135,13 @@ class PolyvalencesController extends AppController
             $success = $this->Totalpolyvalences->save($totalpolyvalence);
         }
 
+
         /*send result */
         $this->set([
             'success' => true,
             'data' => $polyvalence,
-            'total' => $total,
-            'get' => $totalpolyvalence,
-            '_serialize' => ['success', 'data', 'total', 'get']
+            'total' => $totalpolyvalences,
+            '_serialize' => ['success', 'data', 'total']
         ]);
     }
 

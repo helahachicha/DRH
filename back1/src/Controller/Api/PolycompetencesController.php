@@ -144,11 +144,12 @@ class PolycompetencesController extends AppController
             $success = $this->Totalpolycompetences->save($totalpolycompetences);
         }
 
+
         /*send result */
         $this->set([
             'success' => true,
             'data' => $polycompetences,
-            'total' => $total,
+            'total' => $totalpolycompetences,
             '_serialize' => ['success', 'data', 'total']
         ]);
     }
