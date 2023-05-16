@@ -101,30 +101,39 @@
                                         <div class="item-box">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="staticZone">Niveau Visé</label>
-                                                    <p>{{detailpp.category.niveauvises[0].label}}</p>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p for="staticZone" style="font-weight: bold;">Niveau Visé</p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <p>{{detailpp.category.niveauvises[0].label}}</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                             </div>
-                                            <h4 class="col-md-3 "> Competence{{i+1}}: {{p.competence.label}}
-                                            </h4>
+                                            <h3 class="col-md-4 "> Competence{{i+1}}:
+                                            </h3>
+                                            <br>
+                                            <h4> {{p.competence.label}}</h4>
                                             <div class="d-flex">
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="form-group " *ngFor=" let m of p.indicateursuivis">
-                                                            <p >indicateursuivis</p>
-                                                            <p>{{m.label}}</p>
+                                                           <br>
+                                                            <p>---  {{m.label}}</p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="form-group " *ngFor=" let h of p.souscompetences">
-                                                            <p>lukgj</p>
-                                                            <p>{{h.label}}</p>
-                                                            <div class="col-md-6">
+                                                            
+                                                            <p style="font-size: larger;"> ---  {{h.label}}</p>
+                                                            <div class="col-md-12">
+                                                                <p style="font-weight: bold;">Indicateur de suivis</p>
                                                                 <div class="form-group "
-                                                                    *ngFor=" let o of h.indicasoucompas">
-                                                                    <p>indicasouscomp</p>
-                                                                    <p>{{o.label}}</p>
+                                                                    *ngFor=" let o of h.indicasoucompas;let i=index">
+                                                                    
+                                                                    <p style="font-size: medium;">{{i+1}}: {{o.label}}</p>
                                                                 </div>
                                                             </div>
 
@@ -150,7 +159,7 @@
                                         <h5 class="text-center">Validation</h5>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Fonction éloboration</label>
+                                                <p style="font-weight: bold;">Fonction éloboration</p>
                                                 <input type="text" class="form-control" required="required"
                                                     formControlName="fonctionelaboration"
                                                     [(ngModel)]="detailpp.fonctionelaboration"
@@ -161,7 +170,7 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Nom & Prenom</label>
+                                                <p style="font-weight: bold;">Nom & Prenom</p>
                                                 <input type="text" class="form-control" required="required"
                                                     formControlName="nomprenomelab" [(ngModel)]="detailpp.nomprenomelab"
                                                     [attr.disabled]="enabled?null:''" />
@@ -171,7 +180,7 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Fonction Vérification</label>
+                                                <p style="font-weight: bold;">Fonction Vérification</p>
                                                 <input type="text" class="form-control" required="required"
                                                     formControlName="fonctionverification"
                                                     [(ngModel)]="detailpp.fonctionverification"
@@ -181,7 +190,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Nom & Prenom</label>
+                                                <p style="font-weight: bold;">Nom & Prenom</p>
                                                 <input type="text" class="form-control" required="required"
                                                     formControlName="nomprenomverif"
                                                     [(ngModel)]="detailpp.nomprenomverif"
@@ -191,7 +200,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Fonction abrobation</label>
+                                                <p style="font-weight: bold;">Fonction abrobation</p>
                                                 <input type="text" class="form-control" required="required"
                                                     formControlName="fonctionabrobation"
                                                     [(ngModel)]="detailpp.fonctionabrobation"
@@ -201,7 +210,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Nom & Prenom</label>
+                                                <p style="font-weight: bold;">Nom & Prenom</p>
                                                 <input type="text" class="form-control" required="required"
                                                     formControlName="nomprenomabrob"
                                                     [(ngModel)]="detailpp.nomprenomabrob"
