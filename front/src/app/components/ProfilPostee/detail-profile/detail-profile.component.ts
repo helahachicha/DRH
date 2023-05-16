@@ -45,7 +45,7 @@ export class DetailProfileComponent implements OnInit {
           this.detailpp = res.data;
           let formcompetences = res.data.formcompetences;
           this.open=true;
-          console.log('testt',formcompetences)
+          console.log('competences',this.detailpp.formcompetences[2].souscompetences)
           // affecter les valeurs aux champs de saisie
           this.FormGenerator.patchValue({
             nom: this.detailpp.nom,
@@ -77,13 +77,14 @@ export class DetailProfileComponent implements OnInit {
   getAllCategorie() {
     this.dataService.get('Categories/getAllCategorie.json').subscribe(res => {
       this.Categories = res.data;
-      //console.log('test',this.Categories)
     }
     )
   }
+  nivtest:any
   getAllniveau() {
     this.dataService.get('Niveauvises/getAllNiveauvise.json').subscribe(res => {
       this.Niveauvises = res.data;
+      this.nivtest=this.Niveauvises
 
     }
     )
@@ -97,7 +98,6 @@ export class DetailProfileComponent implements OnInit {
 
  addprofilposte() {
   const data = this.FormGenerator.value
-  //console.log("res.data",data)
 
       this.dataService.post('Profilpostes/addProfilposte.json',data).subscribe(res=> {
         this.router.navigate(['/listingprofilposte'])

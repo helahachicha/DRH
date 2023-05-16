@@ -40,6 +40,7 @@ class DetailprofilpostesController extends AppController
             'Detailprofilpostes.id' => $id
         ],
         'contain' => [
+            'Categories.Niveauvises',
            'Formcompetences.Competences',
             'Formcompetences.Indicateursuivis',
             'Formcompetences.Souscompetences.Indicasoucompas',
