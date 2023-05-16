@@ -202,8 +202,8 @@ class EmployesController extends AppController
     }
 
 
-         /**Liste des employes qui ont des fiches d'évaluation */
-         public function Employes()
+         /***Liste des employes qui ont des fiches d'évaluation */
+         public function getAllEmploye()
         {
             /* search */
             $employes = $this->Employes->find('all', [
