@@ -78,12 +78,13 @@ removedCompetence(index) {
 }
   createForm() {
     this.FormGenerator = this.fb.group({
-      nom: new FormControl('', [Validators.required]),
+      profilposte_id: new FormControl('', [Validators.required]),
       fonction: new FormControl('', [Validators.required]),
       label: new FormControl('', [Validators.required]),
       superhierar: new FormControl('', [Validators.required]),
       supervision: new FormControl('', [Validators.required]),
       interim: new FormControl('', [Validators.required]),
+      niveauvise: new FormControl('', [Validators.required]),
       fonctionelaboration: new FormControl('', [Validators.required]),
       fonctionverification: new FormControl('', [Validators.required]),
       fonctionabrobation: new FormControl('', [Validators.required]),
@@ -97,7 +98,6 @@ removedCompetence(index) {
   createIndicateurGroup(): FormGroup {
     return this.fb.group({
       competence_id: ['', [Validators.required]],
-      niveauvise_id: ['', [Validators.required]],
       Souscompetence:  this.fb.array([this.createSoucomp()]),
       indicateur:  this.fb.array([this.createOption()]),
       // indicateurSoucomp:  this.fb.array([this.createIndicaSouscomp()]),
