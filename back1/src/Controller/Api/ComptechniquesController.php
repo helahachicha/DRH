@@ -185,31 +185,17 @@ class ComptechniquesController extends AppController
            throw new UnauthorizedException('Id is not Valid');
             }
          }
-        $this->loadModel('Testtechniques');
-        $test = $this->Testtechniques->find('all', [
-            'contain' => [
-               'Categories'        
-            ],
-            
-            'conditions'=>[
-                'categorie_id IS'=>$id,
 
-            ],
-        ])->toArray();
-        foreach($test as $t){
-           $tesId=$t->id;
-        }
         $comptechniques = $this->Comptechniques->find('all', [
             'contain' => [
-                'Questions.Reponses'
+               'Testtechniques.Categories',
+               'Questions.Reponses'        
             ],
             
             'conditions'=>[
-                'testtechnique_id IS'=>$tesId
+                'testtechnique_id IS'=>$id,
 
             ],
-           
-           
         ])->toArray();
 
         if(empty($comptechniques)){
