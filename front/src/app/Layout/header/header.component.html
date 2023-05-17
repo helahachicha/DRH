@@ -111,15 +111,22 @@ width: 100%;
 
 
             </a>
-            <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item"><i class="mdi mdi-account me-1 ms-1"></i> My
+            <ul class="dropdown-menu dropdown-menu-end user-dd animated " aria-labelledby="navbarDropdown"     style="
+            
+              position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+              z-index: 1; /* Stay on top */
+              top: 62px; /* Stay at the top */
+              right: 35;
+              overflow-x: hidden; /* Disable horizontal scroll */
+             ">
+              <a class="dropdown-item"><i class="mdi mdi-account me-1 ms-1"></i> Mon
                 Profile</a>
              
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item"  routerLink="/"><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
+              <a class="dropdown-item"  routerLink="/"><i class="fa fa-power-off me-1 ms-1"></i> Déconnecter</a>
               <div class="dropdown-divider"></div>
               <div class="ps-4 p-10">
-                <a  class="btn btn-sm btn-success btn-rounded text-white">View Profile</a>
+                <a  class="btn btn-sm btn-success btn-rounded text-white">Voir Profile</a>
               </div>
             </ul>
           </li>

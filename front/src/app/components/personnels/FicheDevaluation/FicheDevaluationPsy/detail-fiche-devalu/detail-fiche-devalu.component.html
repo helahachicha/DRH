@@ -1,6 +1,6 @@
 <div class="border border-primary mt-1 ">
     <div class="col  ">
-        <h1 class="text-center">Ajouter une fiche d'évaluation psychique</h1>
+        <h1 class="text-center">Detail fiche d'évaluation psychotechnique</h1>
     </div>
 </div>
 
@@ -130,25 +130,23 @@
 
                                     <td class="score">
                                         SCORE:
-                                        <hr>
-                                <tr>
+                                    </td>
+                                    <td class="sc">
 
-                                    {{indicta.score}}
-                                <tr>
-
-                                </tr>
-                                </td>
-
-                                <td style="border: none;" class="final">
-                                    <tr>
+                                        {{indicta.score}}
+                                    </td>
+                                        
+                                
+                                <td  class="final">
+                                    
                                         Résultat
-                                    </tr>
-                                    <hr>
-                                    <tr>
-                                        <p>
-                                        </p>
-                                    </tr>
+                                   <hr>
+                                   <p [ngClass]="indicta.score >= 0.5 ? 'texte-accepter' : 'texte-refuser'">
+                                    {{ indicta.score>= 0.5 ? 'Acceptée' : 'Refusée' }}
+                                  </p>
+                                    
                                 </td>
+                                </tr>
                             </div>
                         </table>
 
@@ -160,12 +158,12 @@
 
                                
                                   <ng-container *ngIf="soucomp.indicasoucompas[0].label!=''">
-                                    <tr class="text-center"  *ngIf="comp.souscompetences.length!=0">
+                                    <tr   *ngIf="comp.souscompetences.length!=0" class="d-flex text-center py-4 justify-content-center" >
 
                                         {{soucomp.label}}
     
                                       </tr>
-                                <tr  *ngFor="let indicasoucomp of soucomp.indicasoucompas" >
+                                <tr  *ngFor="let indicasoucomp of soucomp.indicasoucompas;let c=index" >
 
                                     <td class="n">
                                         <tr>
@@ -204,24 +202,29 @@
                                         </tr>
                                     </td>
                                 </tr>
-                                
+                               
                                 <tr>
                                     <td class="score">
                                         SCORE
 
 
                                     </td>
-                                    <td *ngFor="let test of soucomp.scoresouscomps ">
+                                    <div *ngFor="let test of soucomp.scoresouscomps ">
+                                    <td class="sc">
                                         {{test.score}}
                                     </td>
 
                                     <td class="final">
                                         Résultat
-
+                                        <hr>
+                                        <p [ngClass]="test.score >= 0.5 ? 'texte-accepter' : 'texte-refuser'">
+                                           {{ test.score >= 0.5 ? 'Acceptée' : 'Refusée' }}
+                                          </p>      
 
                                     </td>
-
+                                </div>
                                 </tr>
+                           
                             </ng-container>
 
                             </div>
@@ -233,7 +236,7 @@
 
 
 
-            <button class="btn btn-primary" [routerLink]='["/fiche/liste-fiche-devalu"]'>Terminer</button>
+           
 
         </div>
 
