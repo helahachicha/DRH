@@ -25,7 +25,7 @@
         <div class="text-center h2">
             Information Professionnelles
         </div>
-        <div class="card-body" style="width: 500px;margin-left: 400px;">
+        <div class="card-body" style="width: 500px;margin-left: 370px;">
             <div class="row">
                 <h5 class="col-6"> Nom et Prénom: </h5>
                 <input type="text" class="infopro" formControlName="nomprenom" required="required"
@@ -86,12 +86,12 @@
     </div>
 
 
-    <div class=" p-3 mb-5  rounded mt-2 ">
+    <div class=" p-3 mb-2  rounded mt-2 ">
 
         <div class="text-center h2">
             Information Personnelles
         </div>
-        <div class="card-body" style="width: 1200px;margin-left: 130px;">
+        <div class="card-body" style="width: 1000px;margin-left: 130px;">
 
             <div class="row">
                 <h5 class="col-3"> Date de naissance: </h5>
@@ -235,8 +235,12 @@
                         [(ngModel)]="Infoemployes.dateetatsociale">
                 </div>
             </div>
-        </div>
+            <div class="  mb-2 end-50" style="margin-left:450px;">
 
+                <button type="submit" class="btn btn-primary mt-2 " (click)="editinfoemployer()">Terminer</button>
+            </div>
+        </div>
+        
     </div>
 
     <!-- <div class="shadow p-3 mb-5 bg-body rounded mt-2 col-12 ">
@@ -717,8 +721,5 @@
                 </div>
             </div>
         </div>-->
-    <div class="  mb-2 end-50" style="margin-left: 30px;">
-
-        <button type="submit" class="btn btn-primary mt-2 " (click)="editinfoemployer()">Terminer</button>
-    </div>
+   
 </form>

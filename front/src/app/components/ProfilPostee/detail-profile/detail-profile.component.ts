@@ -49,7 +49,7 @@ export class DetailProfileComponent implements OnInit {
           console.log('competences',this.detailpp)
           // affecter les valeurs aux champs de saisie
           this.FormGenerator.patchValue({
-            nom: this.detailpp.nom,
+            nom: this.detailpp.nom_profilposte.nom,
             fonction: this.detailpp.fonction,
             categorie_id: this.detailpp.categorie_id,
             superhierar: this.detailpp.superhierar,
