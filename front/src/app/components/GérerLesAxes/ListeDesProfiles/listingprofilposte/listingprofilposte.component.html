@@ -3,17 +3,28 @@
     <div class="shadow-lg p-3 mb-5 bg-body rounded mt-5">
 
        
-        <h3 class="text-center mt-5">La liste des profils de poste</h3>
+        <h3 class="text-center mt-5">Liste des categories selon profil de poste</h3>
         <div class=" mb-2 end-50">
             <button type="button" class="btn btn-primary " routerLink="/addprofil/"><i
                     class=" fas fa-plus-circle"></i> Ajouter</button>
+        </div>
+        <div *ngFor="let profil of Profilpostes">
+            <div class="row">
+                <div class="col-3">
+                    <h4 style="color: black;">Nom profil de poste : </h4>
+                </div>
+                <div class="col-1">
+                    <p style="font-size: larger;font-weight: bold;">{{profil.nom}}</p>
+                </div>
+            
+        </div>
         </div>
         <div class=" table-responsive ">
            
             <table class="table table-bordered " >
                 <thead>
                     <tr class="text-bold">
-                        <th colspan="2" style="color:black;"><h5>Nom des profils de poste </h5></th>
+                        <th colspan="2" style="color:black;"><h5>Nom des categories </h5></th>
                     </tr>
                 </thead>
                 <tbody >
@@ -22,7 +33,7 @@
                         <td>
                             <button type="button" class="btn btn-info"routerLink="/Detail-profile/{{p.id}}" ><i
                                 class="far fa-hand-pointer">Afficher </i></button>
-                            <button type="button" class="btn btn-danger" style="margin-left: 5px;"(click)="deleteprofilposte(p.id)"><i class="far fa-trash-alt"
+                            <button type="button" class="btn btn-danger" style="margin-left: 5px;"(click)="deleteCategory(p.id)"><i class="far fa-trash-alt"
                                 >Supprimer</i>
                               </button>
                              

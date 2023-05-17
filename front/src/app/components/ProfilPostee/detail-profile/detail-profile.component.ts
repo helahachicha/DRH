@@ -17,6 +17,7 @@ export class DetailProfileComponent implements OnInit {
   public  Categories
   public Competences
   public Niveauvises
+  public Profilpostes
 
   constructor(
     private dataService: DataService,
@@ -80,6 +81,7 @@ export class DetailProfileComponent implements OnInit {
     }
     )
   }
+ 
   nivtest:any
   getAllniveau() {
     this.dataService.get('Niveauvises/getAllNiveauvise.json').subscribe(res => {

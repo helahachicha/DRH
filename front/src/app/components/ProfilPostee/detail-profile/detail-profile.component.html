@@ -27,16 +27,16 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
 
-                                                    <label for="form_name">Nom du profil de poste</label>
+                                                    <p style="font-weight: bold;" for="form_name">Nom du profil de poste</p>
                                                     <input type="text" class="form-control"
-                                                        placeholder="Nom du profil de poste" required="required"
+                                                        placeholder="Nom du profil de poste"formControlName="nom" [(ngModel)]="detailpp.nom" required="required"
                                                         [attr.disabled]="enabled?null:''" />
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Fonction</label>
+                                                    <p  style="font-weight: bold;">Fonction</p>
                                                     <input type="text" class="form-control" required="required"
                                                         formControlName="fonction" [(ngModel)]="detailpp.fonction"
                                                         [attr.disabled]="enabled?null:''" />
@@ -46,7 +46,7 @@
 
 
                                             <div class="col-md-6">
-                                                <label for="staticZone">Catégorie</label>
+                                                <p  style="font-weight: bold;"for="staticZone">Catégorie</p>
                                                 <select [(ngModel)]="detailpp.categorie_id"
                                                     [attr.disabled]="enabled?null:''" class="form-control"
                                                     id="exampleFormControlSelect2"
@@ -65,7 +65,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Supérieur hiérarchique</label>
+                                                    <p style="font-weight: bold;">Supérieur hiérarchique</p>
                                                     <input type="text" class="form-control" required="required"
                                                         formControlName="superhierar" [(ngModel)]="detailpp.superhierar"
                                                         [attr.disabled]="enabled?null:''" />
@@ -75,7 +75,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Supervision</label>
+                                                    <p style="font-weight: bold;">Supervision</p>
                                                     <input type="text" class="form-control" required="required"
                                                         formControlName="supervision" [(ngModel)]="detailpp.supervision"
                                                         [attr.disabled]="enabled?null:''" />
@@ -85,7 +85,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Intérim</label>
+                                                    <p style="font-weight: bold;">Intérim</p>
                                                     <input type="text" class="form-control" required="required"
                                                         formControlName="interim" [(ngModel)]="detailpp.interim"
                                                         [attr.disabled]="enabled?null:''" />
@@ -120,8 +120,8 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group " *ngFor=" let m of p.indicateursuivis">
-                                                           <br>
-                                                            <p>---  {{m.label}}</p>
+                                                           
+                                                            <p style="line-height: 300%;">---  {{m.label}}</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
@@ -133,7 +133,7 @@
                                                                 <div class="form-group "
                                                                     *ngFor=" let o of h.indicasoucompas;let i=index">
                                                                     
-                                                                    <p style="font-size: medium;">{{i+1}}: {{o.label}}</p>
+                                                                    <p style="font-size: medium; line-height: 300%;">{{i+1}}: {{o.label}}</p>
                                                                 </div>
                                                             </div>
 
@@ -156,7 +156,7 @@
 
                                 <div class="shadow p-3 mb-5 bg-body rounded">
                                     <div class="row">
-                                        <h5 class="text-center">Validation</h5>
+                                        <h3 style="margin-bottom: 20px;" class="text-center">Validation</h3>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <p style="font-weight: bold;">Fonction éloboration</p>

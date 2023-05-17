@@ -23,8 +23,16 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="form_name">Nom du profil de poste</label>
-                                                    <input type="text" formControlName="nom" class="form-control"
-                                                        placeholder="Nom du profil de poste" required="required">
+                                                    <select class="form-control" id="exampleFormControlSelect2"
+                                                    placeholder="Veuillez choisir votre competence"
+                                                    formControlName="nom">
+                                                    <option selected disabled value="">Affecter nom profil de poste</option>
+
+                                                    <option *ngFor="let obj of Profilpostes" [ngValue]="obj.id">
+
+                                                        {{obj.nom}}
+                                                    </option>
+                                                </select>
                                                 </div>
                                             </div>
 
@@ -43,16 +51,9 @@
 
                                             <div class="col-md-6">
                                                 <label for="staticZone">Catégorie</label>
-                                                <select class="form-control" id="exampleFormControlSelect2"
-                                                    placeholder="Veuillez choisir votre competence"
-                                                    formControlName="categorie_id">
-                                                    <option selected disabled value="">Affecter Catégorie</option>
-
-                                                    <option *ngFor="let obj of Categories" [ngValue]="obj.id">
-
-                                                        {{obj.label}}
-                                                    </option>
-                                                </select>
+                                                <input type="text" formControlName="label" class="form-control"
+                                                placeholder="developpeur ..." required="required">
+                                               
                                             </div>
 
                                             <div class="col-md-6">

@@ -33,9 +33,9 @@ export class ListingprofilposteComponent implements OnInit {
     })
   }
 
-  deleteprofilposte(id){
-    this.dataService.delete('Profilpostes/deleteProfilposte.json?id='+id).subscribe(res => {
-      this.getallprofile()
+  deleteCategory(id){
+    this.dataService.delete('Categories/deleteCategorie.json?id='+id).subscribe(res => {
+      this.getAllcategorie()
     })
   }
   getAllcategorie(){

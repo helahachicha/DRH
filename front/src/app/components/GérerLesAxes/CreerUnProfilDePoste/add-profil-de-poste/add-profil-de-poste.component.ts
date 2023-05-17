@@ -15,6 +15,8 @@ export class AddProfilDePosteComponent implements OnInit {
   public  Categories
   public Competences
   public Niveauvises
+  public Profilpostes
+  public open:boolean=false
 
   constructor(
     private dataService:DataService,
@@ -31,6 +33,7 @@ export class AddProfilDePosteComponent implements OnInit {
    this.getAllcompetence();
    this.getAllniveau();
    this.createForm();
+   this.getallprofile()
   }
 
  addprofilposte() {
@@ -61,7 +64,13 @@ export class AddProfilDePosteComponent implements OnInit {
     }
     )
   }
-
+  getallprofile() {
+    this.dataService.get('Profilpostes/getAllProfilposte.json').subscribe(res => {
+      this.Profilpostes = res.data;
+      this.open=true
+      console.log('test', this.Profilpostes)
+    })
+  }
 
 removedCompetence(index) {
   const Indicateur = this.FormGenerator.get('Formcompetence') as FormArray
@@ -71,7 +80,7 @@ removedCompetence(index) {
     this.FormGenerator = this.fb.group({
       nom: new FormControl('', [Validators.required]),
       fonction: new FormControl('', [Validators.required]),
-      categorie_id: new FormControl('', [Validators.required]),
+      label: new FormControl('', [Validators.required]),
       superhierar: new FormControl('', [Validators.required]),
       supervision: new FormControl('', [Validators.required]),
       interim: new FormControl('', [Validators.required]),

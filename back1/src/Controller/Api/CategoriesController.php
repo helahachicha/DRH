@@ -120,4 +120,46 @@ class CategoriesController extends AppController
     
     }
 
+
+
+
+
+    /**
+      * deleteCategorie
+      * @Input: id
+      *
+      * @Output: data
+      */
+
+      public function deleteCategorie(){
+
+        $id = $this->request->getQuery('id');
+
+        $this->request->allowMethod(['post','delete']);
+
+        /* search */
+
+        $categories = $this->Categories->find('all', [
+            'conditions'=>[
+                'id'=>$id,
+            ],
+
+        ])->first();
+
+        /* delete categories  */
+
+        if (1==1){
+            $this->Categories->delete($categories);
+        }
+
+        /*send result */
+
+            $this->set([
+                'success' => true,
+                'data' => "Deleted with success",
+                '_serialize' => ['success','data']
+            ]);
+        }
+
+
 }
