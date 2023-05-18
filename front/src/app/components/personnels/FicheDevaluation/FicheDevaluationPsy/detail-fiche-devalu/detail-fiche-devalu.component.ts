@@ -34,7 +34,7 @@ export class DetailFicheDevaluComponent implements OnInit {
       res => {
         this.Employes = res.data;
 
-        console.log('testinggg', this.Employes[0].category.detailprofilpostes[0].formcompetences[1].souscompetences)
+        console.log('testinggg', this.Employes)
       })
   }
 //getDetailByEmpID(){

@@ -82,7 +82,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       this.Employes = res.data;
 
       this.open = true
-      console.log('Employes',this.Employes)
+    //  console.log('Employes',this.Employes)
     })
   }
   
@@ -104,7 +104,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     if(exist==false){
       this.evalu.push({ MCId : mcId, empId : id, value:evaluation})
     }
-    console.log(this.evalu)
+   // console.log(this.evalu)
   }
   
 
@@ -112,7 +112,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   AddEval(){
 
     this.dataService.post('matrices/addEvaluation.json',this.evalu).subscribe(res=> {
-      console.log('res',res.data)
+     // console.log('res',res.data)
       this.evalu=[]
       })
   }
@@ -121,12 +121,12 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   calculPolyval(id: any, index: number) {
     this.dataService.get('polyvalences/calculPolyvalence.json?id=' + id).subscribe(
       res => {
-        console.log('res', res.data);
+       // console.log('res', res.data);
         // Update the Polyvalence value for the corresponding input field
         this.Employes[0].matrices[index].polyvalence = res.Polyvalence;
       },
       error => {
-        console.log('error', error);
+      //  console.log('error', error);
         // Handle the error here, for example by displaying an error message
       }
     );
@@ -136,12 +136,12 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   calculPolycomp  (id: any, index: number) {
     this.dataService.get('polycompetences/calculPolycompetence.json?id=' + id).subscribe(
       res => {
-        console.log('res', res.data);
+      //  console.log('res', res.data);
         // Update the Polycompetence value for the corresponding input field
         this.Employes[0].matrices[index].polycompetence = res.Polycompetence;
       },
       error => {
-        console.log('error', error);
+      //  console.log('error', error);
         // Handle the error here, for example by displaying an error message
       }
     );
@@ -151,7 +151,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   calculTotalPolycomp() {
     this.dataService.get('polycompetences/calculTotalcomp.json').subscribe(
       res => {
-        console.log('res', res.data);
+     //  console.log('res', res.data);
       },
 
     );
@@ -160,7 +160,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   calculTotalPolyval() {
     this.dataService.get('polyvalences/calculTotalval.json').subscribe(
       res => {
-        console.log('res', res.data);
+      //  console.log('res', res.data);
       },
 
     );
@@ -171,7 +171,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   getallcalculPolyval() {
     this.dataService.get('Polyvalences/getallPolyvalence.json').subscribe(res => {
       this.Polyvalences = res.data;
-      console.log('testpoly', this.Polyvalences)
+     // console.log('testpoly', this.Polyvalences)
     })
   }
   
@@ -179,7 +179,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.dataService.get('Totalpolycompetences/getAllTotalpolycompetence.json').subscribe(
       res => {
         this.Totalpolycompetences = res.data;
-        console.log('totalcomp', this.Totalpolycompetences);
+       // console.log('totalcomp', this.Totalpolycompetences);
        
       },
     );
@@ -187,7 +187,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     getTotalpolyVal() {
         this.dataService.get('Totalpolyvalences/getAllTotalpolyvalence.json').subscribe(res => {
           this.Totalpolyvalences = res.data;
-          console.log('totalpoly', this.Totalpolyvalences)
+        //  console.log('totalpoly', this.Totalpolyvalences)
       })
     }
 }

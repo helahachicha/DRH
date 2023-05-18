@@ -18,7 +18,7 @@
                 <div class="controls">
                   <div class="row">
                     <div class="col-md-6">
-                      <label for="staticZone">Categorie</label>
+                      <p style="font-weight: bold; font-size: large;" for="staticZone">Categorie</p>
                       <select class="form-control" id="exampleFormControlSelect2"
                         placeholder="Veuillez choisir votre Thème de formation" formControlName="categorie_id">
                         <option selected disabled value="">Affecter categorie</option>
@@ -31,102 +31,100 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="form_name">Nom Test Technique</label>
-                        <input type="text" formControlName="label" class="form-control"
-                          placeholder="Nom Test Technique" required="required">
+                        <p style="font-weight: bold;font-size: large;" for="form_name">Nom Test Technique</p>
+                        <input type="text" formControlName="label" class="form-control" placeholder="Nom Test Technique"
+                          required="required">
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="mt-2 mb-2 end-50 ">
                   <button (click)="addCompetence()" type="button" class="btn btn-primary "><i
-                          class=" fas fa-plus-circle"></i>
-                          Ajouter un competence technique</button>
-              </div>
+                      class=" fas fa-plus-circle"></i>
+                    Ajouter competence technique</button>
+                </div>
 
 
-              <div class="shadow p-3 mb-5 bg-body rounded">
-                <div class="item-box" formArrayName="Competence"
+                <div class="shadow p-3 mb-5 bg-body rounded">
+                  <div class="item-box" formArrayName="Competence"
                     *ngFor="let competence of FormtestData.controls; let i = index">
                     <div [formGroupName]="i">
                       <hr>
                       <div class="row">
-                          <div class="col-md-3">
-                              <h4>Competence technique: {{i+1}}</h4>
-                          </div>
-                          <div class="col-md-2">
-                              <button class="btn btn-danger"
-                                  (click)="removedCompetence(i)"><i
-                                      class="bi bi-trash"></i></button>
-                                      <input type="text" class="form-control" formControlName="label">
-                          </div>
-                      </div>
-                      <div class="mt-2 mb-2 end-50 ">
-                        <button (click)="addQuestRep(i)" type="button"
-                            class="btn btn-primary "><i class=" fas fa-plus-circle"></i>
-                            Ajouter un question</button>
-
-
-
-                            <div class="item-box" formArrayName="QuestReponse">
-                              <div *ngFor="let questReponse of competence.get('QuestReponse').controls; let j = index"
-                                 [formGroupName]="j">
-                                 <div class="row">
-                                 <div class="col-md-3">
-                                 <h4>Question {{j+1}}</h4>
-                                 </div>
-                                 <div class="col-md-2">
-                                  <div>
-                                    <label>Question :</label>
-                                    <input type="text" formControlName="question" required>
-                                </div>
-                                     <button class="btn btn-danger" style="margin-bottom: 5px;"
-                                         (click)="removeQuestRep(i,j)"><i
-                                             class="bi bi-trash"></i></button>
-                                 </div>
-                             </div>
-                                 <div>
-
-                                     <button (click)="addReponse(i,j)" type="button"
-                                     class="btn btn-primary "><i class=" fas fa-plus-circle"></i>
-                                     Ajouter un reponse</button>
-                                 </div>
-
-                                 <div class="item-box" formArrayName="reponse">
-                                  <div *ngFor="let reponse of questReponse.get('reponse').controls; let k= index"
-                                     [formGroupName]="k">
-                                     <div class="row">
-                                     <div class="col-md-3">
-                                     <h4>Reponse {{k+1}}</h4>
-                                     </div>
-                                     <div class="col-md-2">
-                                      <div>
-                                        <label>Reponse :</label>
-                                        <input type="text" formControlName="label" required>
-                                    </div>
-                                         <button class="btn btn-danger" style="margin-bottom: 5px;"
-                                             (click)="removeReponse(i,j)"><i
-                                                 class="bi bi-trash"></i></button>
-                                     </div>
-                                 </div>
-
-
-
-
-
-                                     </div>
-                                     </div>
-
-
-
-                                 </div>
-                                 </div>
-
-                    </div>
-                      </div>
-
-
+                        <div class="col-4">
+                          <h4>Competence technique: {{i+1}} :</h4>
                         </div>
+
+                        <div class="col-1">
+                          <button class="btn btn-danger" (click)="removedCompetence(i)"><i
+                              class="bi bi-trash"></i></button>
+                        </div>
+                        <div class="col-2">
+                          <input type="text" class="form-control" formControlName="label" placeholder="Ex: SQL">
+                        </div>
+                      </div>
+                      <div class="mt-2 mb-2  ">
+                        <button (click)="addQuestRep(i)" type="button" class="btn btn-primary mb-3 "><i
+                            class=" fas fa-plus-circle"></i>
+                          Ajouter un question</button>
+                        <div class="item-box" formArrayName="QuestReponse">
+                          <div *ngFor="let questReponse of competence.get('QuestReponse').controls; let j = index"
+                            [formGroupName]="j">
+                            <div class="row">
+                              <div class="col-4">
+                                <h4>Question {{j+1}} : </h4>
+                              </div>
+                              <div class="col-1">
+                                <button class="btn btn-danger" style="margin-bottom: 5px;"
+                                (click)="removeQuestRep(i,j)"><i class="bi bi-trash"></i></button>
+                             
+                              </div>
+                              <div class="col-2">
+                                <input type="text" formControlName="question" class="form-control" required placeholder="A.1. Quelle est .....">
+                              </div>
+                            </div>
+                            <div>
+
+                              <button (click)="addReponse(i,j)" type="button" class="btn btn-primary mb-3"><i
+                                  class=" fas fa-plus-circle"></i>
+                                Ajouter un reponse</button>
+                            </div>
+
+                            <div class="item-box" formArrayName="reponse">
+                              <div *ngFor="let reponse of questReponse.get('reponse').controls; let k= index"
+                                [formGroupName]="k">
+                                <div class="row">
+                                  <div class="col-4">
+                                    <h4>Reponse {{k+1}} : </h4>
+                                  </div>
+                                  <div class="col-1">
+                                
+                                      <button class="btn btn-danger" style="margin-bottom: 5px;"
+                                      (click)="removeReponse(i,j)"><i class="bi bi-trash"></i></button>
+                                   
+                                    </div>
+                                    <div class="col-2">
+                                      <input type="text" formControlName="label"  class="form-control" required placeholder="Une méthode est....">
+                                  </div>
+                                </div>
+
+
+
+
+
+                              </div>
+                            </div>
+
+
+
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                  </div>
                 </div>
 
                 <div class="mt-2 mb-2 end-50">

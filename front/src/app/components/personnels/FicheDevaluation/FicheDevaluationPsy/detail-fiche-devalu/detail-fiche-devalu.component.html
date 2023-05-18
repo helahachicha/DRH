@@ -17,27 +17,27 @@
                 <div class="form-group">
                     <div class="form-group">
 
-                        <label for="staticZone">Nom et Prénom</label>
+                        <p style="font-weight: bold ;" for="staticZone">Nom et Prénom</p> 
                         <p>{{obj.infoemploye.nomprenom}}</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-5">
                 <div class="form-group">
-                    <label for="form_name">Objet D'évaluation</label>
+                    <p style="font-weight: bold ;" for="form_name">Objet D'évaluation</p>
                     <p>{{obj.objetevaluation}}</p>
                 </div>
             </div>
             <div class="col-md-5">
                 <div class="form-group">
-                    <label for="form_name">Date d'evaluation </label>
+                    <p style="font-weight: bold ;" for="form_name">Date d'evaluation </p>
                     <p>{{obj.dateevaluation}}
                     </p>
                 </div>
             </div>
             <div class="col-md-5">
                 <div class="form-group">
-                    <label for="form_name">Décision de la direction</label>
+                    <p style="font-weight: bold ;" for="form_name">Décision de la direction</p>
                     <p>{{obj.decisiondirection}}</p>
 
                 </div>
@@ -45,7 +45,7 @@
             <div class="col-md-5">
                 <div class="form-group">
 
-                    <label for="staticZone">Catégorie</label>
+                    <p style="font-weight: bold ;" for="staticZone">Catégorie</p>
                     <p>{{obj.category.label}}
                 </div>
             </div>
@@ -53,7 +53,7 @@
 
             <div class="col-md-5">
                 <div class="form-group">
-                    <label for="form_name">Niveau</label>
+                    <p style="font-weight: bold ;" for="form_name">Niveau</p>
                     <!--
                                                 <div *ngFor="let niveau of competences.category.niveauvises">
                                                           {{niveau.label}}
@@ -78,7 +78,7 @@
                 <tbody>
                     <tr class="text-bold " *ngFor="let comp of item.formcompetences ">
 
-                        <th colspan="3">
+                        <th colspan="3" style="color: black;">
                             {{comp.competence.label}}
 
                         </th>

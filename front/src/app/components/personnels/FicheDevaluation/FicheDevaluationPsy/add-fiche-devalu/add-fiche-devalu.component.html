@@ -1,6 +1,6 @@
 <div class="border border-primary mt-1 ">
   <div class="col  ">
-    <h1 class="text-center">Ajouter une fiche d'évaluation psychique</h1>
+    <h1 class="text-center">Ajouter fiche d'évaluation psychotechnique</h1>
   </div>
 </div>
 
@@ -17,7 +17,7 @@
           <div class="form-group">
             <div class="form-group">
 
-              <label for="staticZone">Nom et Prénom</label>
+              <p style="font-weight: bold;" for="staticZone">Nom et Prénom</p>
               <select class="form-control" id="exampleFormControlSelect2"
                 placeholder="Veuillez choisir votre competence" formControlName="infoemploye_id">
                 <option selected disabled value="">Affecter Nom
@@ -33,20 +33,20 @@
         </div>
         <div class="col-md-5">
           <div class="form-group">
-            <label for="form_name">Objet D'évaluation</label>
+            <p style="font-weight: bold;" for="form_name">Objet D'évaluation</p>
             <input type="text" formControlName="objetevaluation" class="form-control" placeholder="objet"
               required="required">
           </div>
         </div>
         <div class="col-md-5">
           <div class="form-group">
-            <label for="form_name">Date d'evaluation </label>
+            <p style="font-weight: bold;" for="form_name">Date d'evaluation </p>
             <input type="date" formControlName="dateevaluation" class="form-control" required="required">
           </div>
         </div>
         <div class="col-md-5">
           <div class="form-group">
-            <label for="form_name">Décision de la direction</label>
+            <p style="font-weight: bold;" for="form_name">Décision de la direction</p>
             <input type="text" formControlName="decisiondirection" class="form-control" placeholder="Décision"
               required="required">
           </div>
@@ -54,7 +54,7 @@
         <div class="col-md-5">
           <div class="form-group">
 
-            <label for="staticZone">Catégorie</label>
+            <p style="font-weight: bold;" for="staticZone">Catégorie</p>
             <select (change)="onChangeData($event)" class="form-control" id="exampleFormControlSelect2"
               placeholder="Veuillez choisir votre competence" formControlName="categorie_id">
               <option selected disabled value="">Affecter Catégorie
@@ -71,7 +71,7 @@
 
         <div class="col-md-5" *ngIf="competences">
           <div class="form-group">
-            <label for="form_name">Niveau</label>
+            <p style="font-weight: bold;" for="form_name">Niveau</p>
             <!--
                                               <div *ngFor="let niveau of competences.category.niveauvises">
                                                         {{niveau.label}}
@@ -141,9 +141,9 @@
 
                 <tr *ngIf="formCompteance[i].indicateursuivis[0].label!=''">
 
-                  <td class="score">
+                  <td class="score ">
 
-                    <button class="btn btn-primary" (click)="calculerIndic()">Calculer</button>
+                    <button class="btn btn-primary " style="margin-left: 300px;" (click)="calculerIndic()">Calculer</button>
 
                   </td>
 
@@ -155,7 +155,7 @@
               <table *ngFor="let sousCompetence of formCompteance[i].souscompetences;let k=index">
 
                 <div *ngIf="sousCompetence.label !== ''">
-                  <tr class="text-center mt-5 mb-5">
+                  <tr class="text-center mt-5 mb-5"  class="d-flex text-center py-4 justify-content-center">
 
                     {{sousCompetence.label}}
 
@@ -207,7 +207,7 @@
 
 
 
-                      <button class="btn btn-primary" (click)="calculerIndicSou()">Calculer
+                      <button class="btn btn-primary" style="margin-left: 300px;" (click)="calculerIndicSou()">Calculer
                       </button>
                     </td>
                   </tr>
