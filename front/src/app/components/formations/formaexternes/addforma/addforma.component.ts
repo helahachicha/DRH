@@ -14,27 +14,9 @@ export class AddformaComponent implements OnInit {
 data: any;
 message: any;
 public Themeformations
+public externeForm: FormGroup;
 
 
-public externeForm = new FormGroup({
-  typecomp: new FormControl('', [Validators.required]),
-  themeformation_id: new FormControl('', [Validators.required]),
-  participant: new FormControl('', [Validators.required]),
-  nbparticipant: new FormControl('', [Validators.required]),
-  raisonforma: new FormControl('', [Validators.required]),
-  organismeforma: new FormControl('', [Validators.required]),
-  formalite: new FormControl('', [Validators.required]),
-  formateur: new FormControl('', [Validators.required]),
-  raisonchoix: new FormControl('', [Validators.required]),
-  dureeforma: new FormControl('', [Validators.required]),
-  nbjour: new FormControl('', [Validators.required]),
-  nbhjour: new FormControl('', [Validators.required]),
-  date: new FormControl('', [Validators.required]),
-  horaireforma: new FormControl('', [Validators.required]),
-  pause: new FormControl('', [Validators.required]),
-  lieuforma: new FormControl('', [Validators.required]),
-});
-  
   constructor( 
     private dataService:DataService,
     private router :Router
@@ -42,6 +24,26 @@ public externeForm = new FormGroup({
 
   ngOnInit(): void {
     this.getallthemeforma();
+
+    this.externeForm = new FormGroup({
+      typecomp: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+      themeformation_id: new FormControl('', [Validators.required]),
+      participant: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+      nbparticipant: new FormControl('', [Validators.required]),
+      raisonforma: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+      organismeforma: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+      formalite: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+      formateur: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+      raisonchoix: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+      dureeforma: new FormControl('', [Validators.required]),
+      nbjour: new FormControl('', [Validators.required]),
+      nbhjour: new FormControl('', [Validators.required]),
+      date: new FormControl('', [Validators.required]),
+      horaireforma: new FormControl('', [Validators.required]),
+      pause: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+      lieuforma: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+    });
+      
     
   }
 
