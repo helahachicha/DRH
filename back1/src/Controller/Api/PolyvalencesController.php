@@ -140,8 +140,7 @@ class PolyvalencesController extends AppController
         $this->set([
             'success' => true,
             'data' => $polyvalence,
-            'total' => $totalpolyvalences,
-            '_serialize' => ['success', 'data', 'total']
+            '_serialize' => ['success', 'data']
         ]);
     }
 
