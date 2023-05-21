@@ -156,7 +156,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       },
     );
   }
-
+//dxfcgvbhjn,kl;m:
   calculTotalPolyval() {
     this.dataService.get('polyvalences/calculTotalval.json').subscribe(
       res => {

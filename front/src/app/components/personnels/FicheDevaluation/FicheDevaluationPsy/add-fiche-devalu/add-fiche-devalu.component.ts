@@ -149,6 +149,7 @@ export class AddFicheDevaluComponent implements OnInit {
          exist=true
        }
      });
+     
 
      if(exist==false){
        this.pointsoucomp.push({ SoucompetenceId : souscomp_id,indicateurSouId : id,value:point1})
