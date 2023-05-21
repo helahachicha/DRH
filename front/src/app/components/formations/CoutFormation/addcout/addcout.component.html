@@ -3,7 +3,7 @@
         <button type="button" class="btn btn-primary " routerLink="/coutlisting"><i
                 class="  fas fa-arrow-alt-circle-left"></i> REV</button>
     </div>
-    <div class=" text-center mt-5 ">
+    <div class=" text-center mt-2 ">
 
         <h1>Ajouter le cout de formation externe</h1>
 
@@ -24,6 +24,14 @@
                             <div class="controls">
 
                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Nombre de formation</label>
+                                            <input type="number" class="form-control" placeholder="0"
+                                                required="required" >
+
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="form-label">Cout formateur/h en DT</label>
@@ -79,7 +87,7 @@
                                     <div class="col-md-12">
 
                                         <button class="btn btn-primary m-5" type="submit"
-                                            (click)="submit()">Ajouter</button>
+                                            (click)="submit()"><i class=" fas fa-plus-circle"></i> Ajouter</button>
                                         
                                     </div>
                                 </div>

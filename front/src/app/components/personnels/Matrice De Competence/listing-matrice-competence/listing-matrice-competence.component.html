@@ -288,7 +288,7 @@
 
           <div class="table-responsive">
             <div class="table-responsive">
-              <button class="btn btn-primary mb-2" (click)="AddEval()">Modifier</button>     
+              <button class="btn btn-primary mb-3" (click)="AddEval()">Modifier</button>     
               <table class="table  table-bordered align-items-center table-flush">
                 <thead>
                   <tr >
@@ -297,13 +297,14 @@
                     <th scope="col"style="background-color: rgb(163, 203, 234); color: #004e75;text-align: center;">Catégorie</th>
 
                     <th scope="col" style="background-color: rgba(142, 147, 153, 0.429);color: black;text-align: center;" *ngFor="let mat of Employes[0].matrices"> 
-                      {{mat.matricecompetence.label}}
-                      <button class="btn " 
-                      (click)="calculPolyval(mat.matricecompetence.id)"><i class="fas fa-calculator"></i> </button>
-                     
+                      
+                      {{mat.matricecompetence.label}} 
+                      <button class="btn end-0"   
+                      (click)="calculPolyval(mat.matricecompetence.id)">  <i class="fas fa-calculator"></i></button>
+                   
                     </th>
                           <!--total polycompetence-->
-                    <th scope="col"style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center;font-weight:bold;" *ngFor="let totalcom of Totalpolycompetences">
+                    <th scope="col"style="background-color: rgb(163, 203, 234); color:#004e75; text-align: start;font-weight:bold;" *ngFor="let totalcom of Totalpolycompetences">
                       Polycompétences<br> ({{totalcom.valeur}}%) <button class="btn" 
                       (click)="calculTotalPolycomp()"><i class="fas fa-calculator"></i> </button></th>
 
@@ -339,8 +340,8 @@
                   <tr>
                     <!---total polyvalence -->
                     
-                      <td colspan="3" style="background-color: rgb(163, 203, 234); color:#004e75; text-align: center; font-weight:bold;"*ngFor="let totalval of Totalpolyvalences">
-                        Polyvalences<br>({{totalval.valeur}}%)<br><button class="btn" 
+                      <td colspan="3" style="background-color: rgb(163, 203, 234); color:#004e75; text-align:center; font-weight:bold;"*ngFor="let totalval of Totalpolyvalences">
+                        Polyvalences<br>({{totalval.valeur}}%)<button class="btn" 
                         (click)="calculTotalPolyval()"><i class="fas fa-calculator"></i></button> </td>
                    <!--polyvalence de chaque sous competence -->
                     <td *ngFor="let vall of Polyvalences">
