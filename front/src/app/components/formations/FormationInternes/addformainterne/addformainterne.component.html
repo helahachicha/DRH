@@ -1,124 +1,104 @@
 <div class="container">
-
-    <div class=" text-left mt-5 ">
-        <button type="button" class="btn btn-primary " routerLink="/formainternelisting"><i
-                class="  fas fa-arrow-alt-circle-left"></i> REV</button>
+    <div class="text-left mt-5">
+      <button type="button" class="btn btn-primary" routerLink="/formainternelisting"><i class="fas fa-arrow-alt-circle-left"></i> REV</button>
     </div>
-
-    <div class=" text-center mt-2 ">
-
-        <h1>Créer une formation interne</h1>
-
+  
+    <div class="text-center mt-5">
+      <h1>Créer une formation interne</h1>
     </div>
-
-
-
-    <div class="row ">
-
-        <div class="col-lg-10 mx-auto">
-            <div class="card mt-2 mx-auto p-4 bg-light">
-                <div class="card-body bg-light">
-
-                    <div class="container">
-                        <form id="contact-form" role="form" [formGroup]="interneForm">
-
-
-
-                            <div class="controls">
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="form-label">Type de compétence</label>
-                                            <input type="text" class="form-control" placeholder="Type"
-                                                required="required" formControlName="tycomp">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="staticZone">Thème de formation</label>
-                                        <select class="form-control" id="exampleFormControlSelect2"
-                                            placeholder="Veuillez choisir votre Thème de formation"
-                                            formControlName="themeformation_id">
-                                            <option selected disabled value="">Affecter Thème de formation</option>
-
-                                            <option *ngFor="let obj of Themeformations" [ngValue]="obj.id">
-
-                                                {{obj.label}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="form_label">Animateur</label>
-                                            <input type="text" class="form-control" placeholder="Animateur"
-                                                required="required" formControlName="animateur">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="form_label">Poste</label>
-                                            <input type="text" class="form-control" placeholder="Poste"
-                                                required="required" formControlName="poste">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="form_label">Date</label>
-                                            <input type="date" class="form-control" required="required"
-                                                formControlName="date">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="form_label">Heur entrer </label>
-                                            <input type="time" class="form-control" required="required"
-                                                formControlName="hentrer">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="form_label">Heur sortie</label>
-                                            <input type="time" class="form-control" required="required"
-                                                formControlName="hsortie">
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <span class="text-succes" style="color:red">{{message}}</span>
-                                            
-                                    </div>
-                                    <div class="col-md-12">
-
-                                        <button class="btn btn-primary m-5" type="submit"
-                                            (click)="submit()" routerLink="/formainternelisting/"><i class=" fas fa-plus-circle"></i> Ajouter</button>
-                                        
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </form>
+  
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="card mt-2 mx-auto p-4 bg-light">
+          <div class="card-body bg-light">
+            <div class="container">
+              <form id="contact-form" role="form" [formGroup]="interneForm">
+  
+                <div class="controls">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="form-label">Type de compétence</label>
+                        <input type="text" class="form-control" placeholder="Type" required formControlName="tycomp">
+                        <div *ngIf="interneForm.get('tycomp').errors?.required" class="error-message" style="color:red">
+                          *Ce champ est obligatoire.</div>
+                            <div *ngIf="interneForm.get('tycomp').errors?.pattern && (interneForm.get('tycomp').dirty || interneForm.get('tycomp').touched)" 
+                            class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div>
+                      </div>
                     </div>
+                    <div class="col-md-6">
+                      <label for="staticZone">Thème de formation</label>
+                      <select class="form-control" id="exampleFormControlSelect2" placeholder="Veuillez choisir votre Thème de formation" formControlName="themeformation_id">
+                        <option selected disabled value="">Affecter Thème de formation</option>
+                        <option *ngFor="let obj of Themeformations" [ngValue]="obj.id">{{obj.label}}</option>
+                      </select>
+                      <div *ngIf="interneForm.get('themeformation_id').errors?.required" class="error-message" style="color:red">
+                        *Ce champ est obligatoire.</div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="form_label">Animateur</label>
+                        <input type="text" class="form-control" placeholder="Animateur" required formControlName="animateur">
+                        <div *ngIf="interneForm.get('animateur').errors?.required" class="error-message" style="color:red">*Ce champ est obligatoire.</div>
+                        <div *ngIf="interneForm.get('animateur').errors?.pattern && (interneForm.get('animateur').dirty || interneForm.get('animateur').touched)" 
+                        class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="form_label">Poste</label>
+                        <input type="text" class="form-control" placeholder="Poste" required formControlName="poste">
+                        <div *ngIf="interneForm.get('poste').errors?.required" class="error-message" style="color:red">
+                            *Ce champ est obligatoire.</div>
+                        <div *ngIf="interneForm.get('poste').errors?.pattern && (interneForm.get('poste').dirty || interneForm.get('poste').touched)" 
+                        class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="form_label">Date</label>
+                        <input type="date" class="form-control" required formControlName="date">
+                        <div *ngIf="interneForm.get('date').errors?.required" class="error-message" style="color:red">*Ce champ est obligatoire.</div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="form_label">Heure d'entrer</label>
+                        <input type="time" class="form-control" required formControlName="hentrer">
+                        <div *ngIf="interneForm.get('hentrer').errors?.required" class="error-message" style="color:red">*Ce champ est obligatoire.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="form_label">Heure de sortie</label>
+                        <input type="time" class="form-control" required formControlName="hsortie">
+                        <div *ngIf="interneForm.get('hsortie').errors?.required" class="error-message" style="color:red">*Ce champ est obligatoire.</div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-md-12">
+                      <span class="text-success" style="color:red">{{message}}</span>
+                    </div>
+                    <div class="col-md-12">
+                      <button class="btn btn-primary m-5" type="submit" [disabled]="interneForm.invalid" 
+                      (click)="submit()"  routerLink="/formainternelisting"> <i class=" fas fa-plus-circle"></i>Ajouter</button>
+                    </div>
+                  </div>
+  
                 </div>
-
-
+              </form>
             </div>
-            <!-- /.8 -->
-
+          </div>
         </div>
-        <!-- /.row-->
-
+      </div>
     </div>
-</div>
+  </div>
+  

@@ -50,25 +50,8 @@ class FormainternesController extends AppController
             $formainternes->hentrer=$data->hentrer; 
             $formainternes->hsortie=$data->hsortie;     
 
-            if (!empty($formainternes->tycomp && preg_match('/^[a-zA-Z]+$/', $formainternes->tycomp)) 
-            and !empty($formainternes->themeformation_id)
-            and !empty($formainternes->animateur && preg_match('/^[a-zA-Z]+$/', $formainternes->animateur))
-            and !empty($formainternes->poste && preg_match('/^[a-zA-Z]+$/', $formainternes->poste))
-            and !empty($formainternes->date)and !empty($formainternes->hentrer) 
-            and !empty($formainternes->hsortie)) {
-                if ($this->Formainternes->save($formainternes)){
-                    $message= "Formation ajouter avec succés !";
-                }
-                    
-            } else if (empty($formainternes->tycomp) or empty($formainternes->themeformation_id)
-            or empty($formainternes->animateur)or empty($formainternes->poste)
-            or empty($formainternes->date)or empty($formainternes->hentrer) 
-            or empty($formainternes->hsortie)) {
-                $message = "Remplir tous les champs !";    
-            } else {
-                $message = "Les champs 'Type de compétence', 'Animateur' et 'Poste' doit 
-                être des chaînes de caractères non vide !"; 
-            }
+            $this->Formainternes->save($formainternes);
+
         }
 
          /*send result */
