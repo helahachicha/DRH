@@ -43,7 +43,6 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.getallcalculPolyval();
     this.getTotalpolyVal();
     this.getTotalpolyComp();
-    this.calculTotalPolycomp ();
   }
   
 
@@ -123,6 +122,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       res => {
        // console.log('res', res.data);
         // Update the Polyvalence value for the corresponding input field
+        this. getallcalculPolyval()
         this.Employes[0].matrices[index].polyvalence = res.Polyvalence;
       },
       error => {
@@ -139,6 +139,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       //  console.log('res', res.data);
         // Update the Polycompetence value for the corresponding input field
         this.Employes[0].matrices[index].polycompetence = res.Polycompetence;
+
       },
       error => {
       //  console.log('error', error);
@@ -151,17 +152,16 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   calculTotalPolycomp() {
     this.dataService.get('polycompetences/calculTotalcomp.json').subscribe(
       res => {
-     //  console.log('res', res.data);
+        this. getTotalpolyComp();
       },
-
     );
   }
 
   calculTotalPolyval() {
     this.dataService.get('polyvalences/calculTotalval.json').subscribe(
       res => {
-      //  console.log('res', res.data);
-      },
+   this.getTotalpolyVal();
+    },
 
     );
   }
@@ -171,7 +171,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   getallcalculPolyval() {
     this.dataService.get('Polyvalences/getallPolyvalence.json').subscribe(res => {
       this.Polyvalences = res.data;
-     // console.log('testpoly', this.Polyvalences)
+      console.log(this.Polyvalences);
     })
   }
   

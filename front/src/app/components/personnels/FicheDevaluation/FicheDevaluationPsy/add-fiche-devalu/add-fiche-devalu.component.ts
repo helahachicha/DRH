@@ -35,8 +35,9 @@ export class AddFicheDevaluComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getAllCategorie()
     this.getAllNom()
+    this.getAllCategorie()
+  
   }
 
   
@@ -49,8 +50,8 @@ export class AddFicheDevaluComponent implements OnInit {
   getAllNom() {
     this.dataService.get('Infoemployes/getAllInfoemploye.json').subscribe(res => {
       this.Infoemployes = res.data;
-         //console.log('tes',this.Infoemployes)
-    }
+        
+        }
     )
   }
 
@@ -128,8 +129,6 @@ export class AddFicheDevaluComponent implements OnInit {
       })
 
   }
-
-
   pointsoucomp=[];
 
   onChangePointIndicateur(souscomp_id:any,id:any,event:any){
@@ -187,7 +186,7 @@ export class AddFicheDevaluComponent implements OnInit {
       this.result1=0
       })
   }
-
+ 
 
 
 }
