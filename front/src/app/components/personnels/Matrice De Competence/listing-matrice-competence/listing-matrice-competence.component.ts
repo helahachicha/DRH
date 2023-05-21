@@ -24,6 +24,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   public Totalpolyvalences
   public Totalpolycompetences
   public Matrices
+  public Polycompetences
 
  
   
@@ -43,6 +44,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     this.getallcalculPolyval();
     this.getTotalpolyVal();
     this.getTotalpolyComp();
+    this.getallcalculPolycomp();
   }
   
 
@@ -138,6 +140,7 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       res => {
       //  console.log('res', res.data);
         // Update the Polycompetence value for the corresponding input field
+        this.getallcalculPolycomp();
         this.Employes[0].matrices[index].polycompetence = res.Polycompetence;
 
       },
@@ -166,7 +169,12 @@ export class ListingMatriceCompetenceComponent implements OnInit {
     );
   }
 
-
+  getallcalculPolycomp() {
+    this.dataService.get('Polycompetences/getAllPolycompetence.json').subscribe(res => {
+      this.Polycompetences = res.data;
+      //console.log(this.Polycompetences);
+    })
+  }
 
   getallcalculPolyval() {
     this.dataService.get('Polyvalences/getallPolyvalence.json').subscribe(res => {
