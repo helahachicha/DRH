@@ -143,9 +143,12 @@ class EmployesController extends AppController
                 $matrice->matricecompetence_id = $matricecompetence->id;
                 $this->Matrices->save($matrice);
             }
-
-            $this->Matrices->save($matrice);
-        }
+            $this->loadModel('Polycompetences');
+                $polycompetences = $this->Polycompetences->newEmptyEntity();
+                $polycompetences->valeur = "0";
+                $polycompetences->employe_id = $savedEmployes->id;
+                $this->Polycompetences->save($polycompetences);
+            }
 
         /* send result */
         $this->set([
