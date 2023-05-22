@@ -18,9 +18,9 @@ export class AddFicheDevaluComponent implements OnInit {
 
   public ficheForm = new FormGroup({
     infoemploye_id: new FormControl('', [Validators.required]),
-    objetevaluation: new FormControl('', [Validators.required]),
+    objetevaluation: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
     dateevaluation: new FormControl('', [Validators.required]),
-    decisiondirection: new FormControl('', [Validators.required]),
+    decisiondirection: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
     categorie_id: new FormControl('', [Validators.required]),
 
   });
