@@ -28,6 +28,8 @@
                   {{obj.nomprenom}}
                 </option>
               </select>
+              <div class="text-center d-flex flex-column" *ngIf="ficheForm.get('infoemploye_id').errors?.required" class="error-message" style="color:red" >
+                *Ce champ est obligatoire.</div>
             </div>
           </div>
         </div>
@@ -36,12 +38,18 @@
             <p style="font-weight: bold;" for="form_name">Objet D'évaluation</p>
             <input type="text" formControlName="objetevaluation" class="form-control" placeholder="objet"
               required="required">
+              <div class="text-center d-flex flex-column" *ngIf="ficheForm.get('objetevaluation').errors?.required" class="error-message" style="color:red" >
+                *Ce champ est obligatoire.</div>
+                  <div *ngIf="ficheForm.get('objetevaluation').errors?.pattern && (ficheForm.get('objetevaluation').dirty || ficheForm.get('objetevaluation').touched)" 
+                  class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div>
           </div>
         </div>
         <div class="col-md-5">
           <div class="form-group">
             <p style="font-weight: bold;" for="form_name">Date d'evaluation </p>
             <input type="date" formControlName="dateevaluation" class="form-control" required="required">
+            <div class="text-center d-flex flex-column" *ngIf="ficheForm.get('dateevaluation').errors?.required" class="error-message" style="color:red" >
+              *Ce champ est obligatoire.</div>
           </div>
         </div>
         <div class="col-md-5">
@@ -49,6 +57,10 @@
             <p style="font-weight: bold;" for="form_name">Décision de la direction</p>
             <input type="text" formControlName="decisiondirection" class="form-control" placeholder="Décision"
               required="required">
+              <div class="text-center d-flex flex-column" *ngIf="ficheForm.get('decisiondirection').errors?.required" class="error-message" style="color:red" >
+                *Ce champ est obligatoire.</div>
+                  <div *ngIf="ficheForm.get('decisiondirection').errors?.pattern && (ficheForm.get('decisiondirection').dirty || ficheForm.get('decisiondirection').touched)" 
+                  class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div>
           </div>
         </div>
         <div class="col-md-5">
@@ -65,6 +77,8 @@
                 {{obj.label}}
               </option>
             </select>
+            <div class="text-center d-flex flex-column" *ngIf="ficheForm.get('categorie_id').errors?.required" class="error-message" style="color:red" >
+              *Ce champ est obligatoire.</div>
           </div>
         </div>
 
@@ -72,10 +86,10 @@
         <div class="col-md-5" *ngIf="competences">
           <div class="form-group">
             <p style="font-weight: bold;" for="form_name">Niveau</p>
-            <!--
-                                              <div *ngFor="let niveau of competences.category.niveauvises">
-                                                        {{niveau.label}}
-                                                </div> -->
+            
+              <div *ngFor="let niveau of competences.category.niveauvises">
+                  {{niveau.label}}
+              </div> 
           </div>
         </div>
 
@@ -226,8 +240,8 @@
 
           </tbody>
         </table>
-
-        <button class="btn btn-primary" [routerLink]='["/fiche/liste-fiche-devalu"]'>Terminer</button>
+        
+        <button class="btn btn-primary" [disabled]="ficheForm.invalid" [routerLink]='["/fiche/liste-fiche-devalu"]'>Terminer</button>
 
       </div>
 
