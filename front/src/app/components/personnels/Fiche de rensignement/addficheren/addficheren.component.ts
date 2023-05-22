@@ -12,20 +12,25 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class AddficherenComponent implements OnInit {
 public Postes
   public moyenForm = new FormGroup({
-    nomprenom: new FormControl('', [Validators.required]),
-    adresse: new FormControl('', [Validators.required]),
-    telprof: new FormControl('', [Validators.required]),
-    telpersonnel: new FormControl('', [Validators.required]),
-    contact: new FormControl('', [Validators.required]),
-    mailprof: new FormControl('', [Validators.required]),
-    mailpersonnel: new FormControl('', [Validators.required]),
-    servicetravail: new FormControl('', [Validators.required]),
+    nomprenom: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+    adresse: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+    telprof: new FormControl('', [Validators.required,Validators.pattern(/^\d{1,8}$/),
+      this.maxLengthValidator(8)
+    ]),
+    telpersonnel: new FormControl('', [Validators.required,Validators.pattern(/^\d{1,8}$/),
+      this.maxLengthValidator(8)]),
+    contact: new FormControl('', [Validators.required,Validators.pattern(/^\d{1,8}$/),
+      this.maxLengthValidator(8)]),
+    mailprof: new FormControl('', [Validators.required, Validators.email]),
+    mailpersonnel: new FormControl('', [Validators.required, Validators.email]),
+    servicetravail: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
     poste_id: new FormControl('', [Validators.required]),
     datenaissance: new FormControl('', [Validators.required]),
-    lieu: new FormControl('', [Validators.required]),
-    nationnalite: new FormControl('', [Validators.required]),
-    cin: new FormControl('', [Validators.required]),
-    delivreea: new FormControl('', [Validators.required]),
+    lieu: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+    nationnalite: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+    cin: new FormControl('', [Validators.required,Validators.pattern(/^\d{1,8}$/),
+    this.maxLengthValidator(8)]),
+    delivreea: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
     datedelivrance: new FormControl('', [Validators.required]),
     permis: new FormControl('', [Validators.required]),
     datepermis: new FormControl('', [Validators.required]),
@@ -33,7 +38,7 @@ public Postes
     moytransport: new FormControl('', [Validators.required]),
     estimatransport: new FormControl('', [Validators.required]),
     etatsociale: new FormControl('', [Validators.required]),
-    dateetatsociale: new FormControl('', [Validators.required]),
+    dateetatsociale: new FormControl('', [Validators.pattern('^[a-zA-Z ]*$')]),
     
   });
 
@@ -68,6 +73,17 @@ public Postes
     })
   }
 
+
+
+  maxLengthValidator(maxLength: number) {
+    return (control: FormControl) => {
+      const value = control.value;
+      if (value && value.toString().length > maxLength) {
+        return { maxLengthExceeded: true };
+      }
+      return null;
+    };
+  }
    /*onCheckChangeMoyen(event) {
     var formArray: FormArray = this.moyenForm.get('label') as FormArray;
   

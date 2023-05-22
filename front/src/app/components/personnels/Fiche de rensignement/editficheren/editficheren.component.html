@@ -30,41 +30,73 @@
                 <h5 class="col-6"> Nom et Prénom: </h5>
                 <input type="text" class="infopro" formControlName="nomprenom" required="required"
                     [(ngModel)]="Infoemployes.nomprenom">
+                    <div class="text-center d-flex flex-column" *ngIf="moyenForm.get('nomprenom').errors?.required" class="error-message" style="color:red" >
+                        *Ce champ est obligatoire.</div>
+                          <div *ngIf="moyenForm.get('nomprenom').errors?.pattern && (moyenForm.get('nomprenom').dirty || moyenForm.get('nomprenom').touched)" 
+                          class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div>
             </div>
             <div class="row mt-2">
                 <h5 class="col-6"> Adresse : </h5>
                 <input type="text" class="infopro" formControlName="adresse" [(ngModel)]="Infoemployes.adresse">
+                <div class="text-center d-flex flex-column" *ngIf="moyenForm.get('adresse').errors?.required" class="error-message" style="color:red" >
+                    *Ce champ est obligatoire.</div>
+                      <div *ngIf="moyenForm.get('adresse').errors?.pattern && (moyenForm.get('adresse').dirty || moyenForm.get('adresse').touched)" 
+                      class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div>
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-6"> Tél professionnel: </h5>
-                <input type="tel" class="infopro" formControlName="telprof" [(ngModel)]="Infoemployes.telprof">
+                <input type="tel" class="infopro" formControlName="telprof" [(ngModel)]="Infoemployes.telprof" maxlength="8">
+                <div class="text-center d-flex flex-column" *ngIf="moyenForm.get('telprof').errors?.required" class="error-message" style="color:red" >
+                    *Ce champ est obligatoire.</div>
+                      <div *ngIf="moyenForm.get('telprof').errors?.pattern && (moyenForm.get('telprof').dirty || moyenForm.get('telprof').touched)" 
+                      class="error-message" style="color:red">*Ce champ ne contient que des chiffres.</div>
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-6"> Tél personnel: </h5>
                 <input type="tel" class="infopro" formControlName="telpersonnel"
-                    [(ngModel)]="Infoemployes.telpersonnel">
+                    [(ngModel)]="Infoemployes.telpersonnel" maxlength="8">
+                    <div class="text-center d-flex flex-column" *ngIf="moyenForm.get('telpersonnel').errors?.required" class="error-message" style="color:red" >
+                        *Ce champ est obligatoire.</div>
+                          <div *ngIf="moyenForm.get('telpersonnel').errors?.pattern && (moyenForm.get('telpersonnel').dirty || moyenForm.get('telpersonnel').touched)" 
+                          class="error-message" style="color:red">*Ce champ ne contient que des chiffres.</div>
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-6 mb-3">Contact en cas d’urgence: </h5>
-                <input type="tel" class="infopro" formControlName="contact" [(ngModel)]="Infoemployes.contact">
+                <input type="tel" class="infopro" formControlName="contact" [(ngModel)]="Infoemployes.contact" maxlength="8">
+                <div class="text-center d-flex flex-column" *ngIf="moyenForm.get('contact').errors?.required" class="error-message" style="color:red" >
+                    *Ce champ est obligatoire.</div>
+                      <div *ngIf="moyenForm.get('contact').errors?.pattern && (moyenForm.get('contact').dirty || moyenForm.get('contact').touched)" 
+                      class="error-message" style="color:red">*Ce champ ne contient que des chiffres.</div>
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-6">Mail professionnel: </h5>
                 <input type="email" class="infopro" formControlName="mailprof" [(ngModel)]="Infoemployes.mailprof">
+                <div class="text-center d-flex flex-column" *ngIf="moyenForm.get('mailprof').errors?.required" class="error-message" style="color:red" >
+                    *Ce champ est obligatoire.</div>
+                      <div *ngIf="moyenForm.get('mailprof').errors?.email" 
+                      class="error-message" style="color:red">*Saisir un e-mail valide.</div>
             </div>
             <div class="row mt-2">
                 <h5 class="col-6">Mail personnel: </h5>
                 <input type="email" class="infopro" formControlName="mailpersonnel"
                     [(ngModel)]="Infoemployes.mailpersonnel">
+                    <div class="text-center d-flex flex-column" *ngIf="moyenForm.get('mailpersonnel').errors?.required" class="error-message" style="color:red" >
+                        *Ce champ est obligatoire.</div>
+                          <div *ngIf="moyenForm.get('mailpersonnel').errors?.email" 
+                          class="error-message" style="color:red">*Saisir un e-mail valide.</div>
             </div>
             <div class="row mt-2">
                 <h5 class="col-6">Service de travail: </h5>
                 <input type="email" class="infopro" formControlName="servicetravail"
                     [(ngModel)]="Infoemployes.servicetravail">
+                    <div class="text-center d-flex flex-column" *ngIf="moyenForm.get('servicetravail').errors?.required" class="error-message" style="color:red" >
+                        *Ce champ est obligatoire.</div>
+                          <div *ngIf="moyenForm.get('servicetravail').errors?.pattern && (moyenForm.get('servicetravail').dirty || moyenForm.get('servicetravail').touched)" 
+                          class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div>
             </div>
             <div class="row mt-2">
                 <!--  <h5 class="col-6">Poste: </h5>
@@ -97,30 +129,53 @@
                 <h5 class="col-3"> Date de naissance: </h5>
                 <input type="date" formControlName="datenaissance" required="required"
                     [ngModel]="Infoemployes.datenaissance | date:'yyyy-MM-dd'">
-
+                <!-- Ha4i lezemha required datenaissance -->
+                <!--<div class="text-center d-flex flex-column" *ngIf="moyenForm.get('datenaissance').errors?.required" class="error-message" style="color:red" >
+                    *Ce champ est obligatoire.</div>-->
                 <h5 class="col-1"> Lieu: </h5>
                 <input type="text" class="lieu" formControlName="lieu" required="required"
                     [(ngModel)]="Infoemployes.lieu">
+                    <!-- Ha4i tab3a champ nationnalite -->
+                <!--<div class="text-center d-flex flex-column" *ngIf="moyenForm.get('lieu').errors?.required" class="error-message" style="color:red" >
+                    *Ce champ est obligatoire.</div>
+                      <div *ngIf="moyenForm.get('lieu').errors?.pattern && (moyenForm.get('lieu').dirty || moyenForm.get('lieu').touched)" 
+                      class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div>-->
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-3">Nationalité: </h5>
                 <input type="text" class="lieu" formControlName="nationnalite" required="required"
                     [(ngModel)]="Infoemployes.nationnalite">
-
+                <!-- Ha4i tab3a champ nationnalite -->
+                <!--<div class="text-center d-flex flex-column" *ngIf="moyenForm.get('nationnalite').errors?.required" class="error-message" style="color:red" >
+                    *Ce champ est obligatoire.</div>
+                      <div *ngIf="moyenForm.get('nationnalite').errors?.pattern && (moyenForm.get('nationnalite').dirty || moyenForm.get('nationnalite').touched)" 
+                      class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div> -->
                 <h5 class="col-1"> N°CIN: </h5>
-                <input type="number" class="lieu" formControlName="cin" required="required"
+                <input type="number" class="lieu" formControlName="cin" required="required" maxlength="8"
                     [(ngModel)]="Infoemployes.cin">
+                <!-- Ha4i teb3a bita9t ta3rif ye9bel kan 8 nwamer w ye9bel kan nwamer mch des lettres-->
+                <!--<div class="text-center d-flex flex-column" *ngIf="moyenForm.get('cin').errors?.required" class="error-message" style="color:red" >
+                    *Ce champ est obligatoire.</div>
+                      <div *ngIf="moyenForm.get('cin').errors?.pattern && (moyenForm.get('cin').dirty || moyenForm.get('cin').touched)" 
+                      class="error-message" style="color:red">*Ce champ ne contient que des chiffres.</div>-->
             </div>
 
             <div class="row mt-2">
                 <h5 class="col-3">Délivrée à:</h5>
                 <input type="text" class="lieu" formControlName="delivreea" required="required"
                     [(ngModel)]="Infoemployes.delivreea">
-
+                <!-- Ha4i tab3a champ delivreea -->
+                <!--<div class="text-center d-flex flex-column" *ngIf="moyenForm.get('delivreea').errors?.required" class="error-message" style="color:red" >
+                    *Ce champ est obligatoire.</div>
+                      <div *ngIf="moyenForm.get('delivreea').errors?.pattern && (moyenForm.get('delivreea').dirty || moyenForm.get('delivreea').touched)" 
+                      class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div> -->
                 <h5 class="col-1"> Le: </h5>
                 <input type="date" class="lieu" formControlName="datedelivrance" required="required"
-                [ngModel]="Infoemployes.datedelivrance | date:'yyyy-MM-dd'">
+                [ngModel]="Infoemployes.datedelivrance | date:'yyyy-MM-dd'">*
+                <!-- Ha4i teb3a datedelivrance lezemha required -->
+                <!--<div class="text-center d-flex flex-column" *ngIf="moyenForm.get('datedelivrance').errors?.required" class="error-message" style="color:red" >
+                    *Ce champ est obligatoire.</div>-->
             </div>
 
             <div class="row">
@@ -233,6 +288,9 @@
                     <p class=" col-5">Si marié(e) ou divorcé(e) depuis quand?</p>
                     <input type="text" class="dateetatsociale" formControlName="dateetatsociale"
                         [(ngModel)]="Infoemployes.dateetatsociale">
+                    <!-- Ha4i teb3a dateetatsociale-->
+                    <!--<div *ngIf="moyenForm.get('dateetatsociale').errors?.pattern && (moyenForm.get('dateetatsociale').dirty || moyenForm.get('dateetatsociale').touched)" 
+                      class="error-message" style="color:red">*Ce champ ne contient que des lettres.</div> -->
                 </div>
             </div>
             <div class="  mb-2 end-50" style="margin-left:450px;">
