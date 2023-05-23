@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 17 mai 2023 à 00:08
+-- Généré le : mar. 23 mai 2023 à 18:10
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -493,10 +493,10 @@ CREATE TABLE `infoemployes` (
 --
 
 INSERT INTO `infoemployes` (`id`, `nomprenom`, `adresse`, `telprof`, `telpersonnel`, `contact`, `mailprof`, `mailpersonnel`, `servicetravail`, `poste_id`, `datenaissance`, `lieu`, `nationnalite`, `cin`, `delivreea`, `datedelivrance`, `permis`, `datepermis`, `logement`, `moytransport`, `estimatransport`, `etatsociale`, `dateetatsociale`, `created`, `modified`) VALUES
-(1, 'ALI HARBI', 'Rue beb saadoun', 21456322, 25897654, 26548578, 'aliharbi@gmail.com', 'aliharbi@gmail.com', 'service dev', 1, '2023-05-07 00:00:00', 'tunis', 'tunisien', 12032123, 'tunis', '2023-05-02 00:00:00', 'Oui', '2023-05-09 00:00:00', 'Propre', 'moto', '22:28:00', 'Marié(e)', '15 ans ', '2023-05-16 20:54:52', '2023-05-16 20:54:52'),
-(2, 'HAMA HARBI', 'Rue halfawin', 21456321, 23152423, 26542321, 'hamaharbi@gmail.com', 'hamaharbi@gmail.com', 'service dev', 1, '2023-05-06 00:00:00', 'tunis', 'tunisien', 12045215, 'tunis', '2023-05-03 00:00:00', 'Oui', '2023-05-17 00:00:00', 'Loyer', 'moto', '23:31:00', 'Marié(e)', '2 ans ', '2023-05-16 21:27:18', '2023-05-16 21:27:18'),
-(3, 'AMINE BANNOUR', 'Rue beb jdid', 25365214, 25412365, 28975645, 'aminebannour@gmail.com', 'aminebannour@gmail.com', 'service dev', 1, '2023-05-06 00:00:00', 'tunis', 'tunisien', 14029111, 'tunis', '2023-05-19 00:00:00', 'Non', '0000-00-00 00:00:00', 'Loyer', 'moto', '23:51:00', 'Célibataire', '', '2023-05-16 21:51:13', '2023-05-16 21:51:13'),
-(4, 'BILEL IFA', 'Rue rades ', 26543215, 23524561, 26542325, 'bilelifa@gamil.com', 'bilelifa@gamil.com', 'service dev', 1, '2023-05-27 00:00:00', 'tunis', 'tunisien', 12035465, 'tunis', '2023-05-31 00:00:00', 'Non', '0000-00-00 00:00:00', 'Loyer', 'moto', '00:03:00', 'Marié(e)', '9 ans ', '2023-05-16 22:01:49', '2023-05-16 22:01:49');
+(1, 'ALA MESFAR', 'Rue beb saadoun', 21456322, 25897654, 26548578, 'aliharbi@gmail.com', 'aliharbi@gmail.com', 'service dev', 1, '2023-05-07 00:00:00', 'tunis', 'tunisien', 12032123, 'tunis', '2023-05-02 00:00:00', 'Oui', '2023-05-09 00:00:00', 'Propre', 'moto', '22:28:00', 'Marié(e)', '15 ans ', '2023-05-16 20:54:52', '2023-05-16 20:54:52'),
+(2, 'NOUR DAMMAK', 'Rue halfawin', 21456321, 23152423, 26542321, 'hamaharbi@gmail.com', 'hamaharbi@gmail.com', 'service dev', 1, '2023-05-06 00:00:00', 'tunis', 'tunisien', 12045215, 'tunis', '2023-05-03 00:00:00', 'Oui', '2023-05-17 00:00:00', 'Loyer', 'moto', '23:31:00', 'Marié(e)', '2 ans ', '2023-05-16 21:27:18', '2023-05-16 21:27:18'),
+(3, 'SKANDER ELLOUCHE', 'Rue beb jdid', 25365214, 25412365, 28975645, 'aminebannour@gmail.com', 'aminebannour@gmail.com', 'service dev', 1, '2023-05-06 00:00:00', 'tunis', 'tunisien', 14029111, 'tunis', '2023-05-19 00:00:00', 'Non', '0000-00-00 00:00:00', 'Loyer', 'moto', '23:51:00', 'Célibataire', '', '2023-05-16 21:51:13', '2023-05-16 21:51:13'),
+(4, 'AHMED TRABELSI', 'Rue rades ', 26543215, 23524561, 26542325, 'bilelifa@gamil.com', 'bilelifa@gamil.com', 'service dev', 1, '2023-05-27 00:00:00', 'tunis', 'tunisien', 12035465, 'tunis', '2023-05-31 00:00:00', 'Non', '0000-00-00 00:00:00', 'Loyer', 'moto', '00:03:00', 'Marié(e)', '9 ans ', '2023-05-16 22:01:49', '2023-05-16 22:01:49');
 
 -- --------------------------------------------------------
 
@@ -573,7 +573,7 @@ INSERT INTO `matrices` (`id`, `note`, `employe_id`, `matricecompetence_id`, `cre
 (15, 'B', 1, 15, '2023-05-16 21:02:52', '2023-05-16 21:06:14'),
 (16, 'C', 1, 16, '2023-05-16 21:02:52', '2023-05-16 21:06:14'),
 (17, 'Ne', 1, 17, '2023-05-16 21:02:52', '2023-05-16 21:02:52'),
-(18, 'Ne', 1, 18, '2023-05-16 21:02:52', '2023-05-16 21:02:52'),
+(18, 'B', 1, 18, '2023-05-16 21:02:52', '2023-05-23 16:06:42'),
 (19, 'B', 2, 1, '2023-05-16 21:27:40', '2023-05-16 21:29:06'),
 (20, 'A', 2, 2, '2023-05-16 21:27:40', '2023-05-16 21:29:06'),
 (21, 'A', 2, 3, '2023-05-16 21:27:40', '2023-05-16 21:29:06'),
@@ -792,8 +792,8 @@ CREATE TABLE `polycompetences` (
 --
 
 INSERT INTO `polycompetences` (`id`, `valeur`, `employe_id`, `created`, `modified`) VALUES
-(1, 44.1667, 1, '2023-05-16 21:05:02', '2023-05-16 21:06:16'),
-(2, 66.6667, 2, '2023-05-16 21:29:10', '2023-05-16 21:29:10'),
+(1, 46.9444, 1, '2023-05-16 21:05:02', '2023-05-23 16:07:56'),
+(2, 66.6667, 2, '2023-05-16 21:29:10', '2023-05-23 16:07:58'),
 (3, 72.2222, 3, '2023-05-16 21:53:27', '2023-05-16 21:53:27'),
 (4, 35.8333, 4, '2023-05-16 22:03:58', '2023-05-16 22:03:58');
 
@@ -833,7 +833,7 @@ INSERT INTO `polyvalences` (`id`, `valeur`, `matricecompetence_id`, `created`, `
 (15, 68.75, 15, '2023-05-16 21:05:19', '2023-05-16 22:04:15'),
 (16, 68.75, 16, '2023-05-16 21:05:20', '2023-05-16 22:04:17'),
 (17, 43.75, 17, '2023-05-16 21:05:20', '2023-05-16 22:04:17'),
-(18, 50, 18, '2023-05-16 21:05:22', '2023-05-16 22:04:19');
+(18, 62.5, 18, '2023-05-16 21:05:22', '2023-05-23 16:06:58');
 
 -- --------------------------------------------------------
 
@@ -1166,7 +1166,7 @@ CREATE TABLE `totalpolycompetences` (
 --
 
 INSERT INTO `totalpolycompetences` (`id`, `valeur`, `created`, `modified`) VALUES
-(1, 54.7222, '2023-05-07 20:06:40', '2023-05-16 22:08:30');
+(1, 55.4166, '2023-05-07 20:06:40', '2023-05-23 16:07:09');
 
 -- --------------------------------------------------------
 
