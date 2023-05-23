@@ -127,23 +127,28 @@
                                         <input type="email" class="form-control form-control-user"
                                             id="exampleInputEmail" aria-describedby="emailHelp"
                                             placeholder="Entrez l'adresse e-mail..."  formControlName="email" required>
+                                            <div class="text-center d-flex flex-column" *ngIf="userForm.get('email').errors?.required"
+                            class="error-message" style="color:red">
+                            *</div>
+                        <div *ngIf="userForm.get('email').errors?.email" class="error-message" style="color:red">
+                            *Saisir un e-mail valide.</div>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
                                         id="inputPassword" placeholder="Mot de passe" formControlName="password" required>
                                     </div>
-                                  <!--  <div class="form-group">
+                                 <!--  <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
                                             <input type="checkbox" class="custom-control-input" id="customCheck">
                                             <label class="custom-control-label" for="customCheck">Mémoriser le mot de passe</label>
                                         </div>
-                                    </div>-->
+                                    </div>--> 
                                     <hr>
                                     <a class="btn btn-primary btn-user btn-block"  (click)="submit()">
                                       Connexion
                                     </a>
                                 </form>
-                                <hr>
+                              
                               <!--  <div class="text-center">
                                     <a class="small" routerLink="/forgetpass">Mot de passe oublié?</a>
                                 </div>-->
