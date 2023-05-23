@@ -9,17 +9,17 @@
   }
   
   .infopro{   
-    width: 48% ; 
+    width: 80% ; 
     box-sizing: border-box;
   }
 
   input[type=date]{
-    width: 25%;
+    width: 50%;
     box-sizing: border-box;
   }
 
   .lieu{
-    width: 25%;
+    width: 80%;
     box-sizing: border-box;
   }
   .number{
@@ -30,4 +30,9 @@
     width: 100%;
     box-sizing: border-box;
   }
- 
+ select{
+  width: 250px;
+ }
+ .datee{
+  width: 20%;
+ }

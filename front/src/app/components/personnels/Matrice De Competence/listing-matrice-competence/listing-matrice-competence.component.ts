@@ -140,9 +140,10 @@ export class ListingMatriceCompetenceComponent implements OnInit {
       res => {
       //  console.log('res', res.data);
         // Update the Polycompetence value for the corresponding input field
-       
+        
+        window.location.reload()
         this.Employes[0].matrices[index].polycompetence = res.Polycompetence;
-        this.getallcalculPolycomp();
+       
       },
       error => {
       //  console.log('error', error);
