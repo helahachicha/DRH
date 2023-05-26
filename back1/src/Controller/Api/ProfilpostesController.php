@@ -157,56 +157,6 @@ class ProfilpostesController extends AppController
         ]);
    }
 
-
-
-
-
-
-
-
-     /**
-     * editProfilposte
-     *
-     * @Input:
-     *         data:
-     *          nom (String) *Required
-     *          poste_id (Int) *Required
-     *
-     * @Output: data : success message
-     */
-    public function editProfilposte(){
-
-        $this->request->allowMethod(['post', 'put']);
-
-        /* format data */
-        if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']);
-            //$data=$this->request->getData();
-            //debug ($data);die;
-        }
-
-        $id=$this->request->getQuery('id');
-        $profilpostes=$this->Profilpostes->get($id);
-         /* create profilpostes entity */
-        if (1==1){
-            $profilpostes->nom=$data->nom;
-            $profilpostes->poste_id=$data->poste_id;
-            $profilpostes->categorie=$data->categorie;
-
-            $this->Profilpostes->save($profilpostes);
-        }
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' =>  "Updated with success",
-            '_serialize' => ['success', 'data']
-        ]);
-
-    }
-
-
-
     /**
     * getAllProfilposte
     *
@@ -235,42 +185,4 @@ class ProfilpostesController extends AppController
         ]);
     }
 
-
-     /**
-      * deleteProfilposte
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-
-     public function deleteProfilposte(){
-
-        $id = $this->request->getQuery('id');
-
-        $this->request->allowMethod(['post','delete']);
-
-        /* search */
-
-        $profilpostes = $this->Profilpostes->find('all', [
-            'conditions'=>[
-                'id'=>$id,
-            ],
-
-        ])->first();
-
-        /* delete profilpostes  */
-
-        if (1==1){
-            $this->Profilpostes->delete($profilpostes);
-        }
-
-        /*send result */
-
-            $this->set([
-                'success' => true,
-                'data' => "Deleted with success",
-                '_serialize' => ['success','data']
-            ]);
-        }
 }

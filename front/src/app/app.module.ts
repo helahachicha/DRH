@@ -28,6 +28,7 @@ import { FormationInternesModule } from './components/formations/FormationIntern
 import { FormaexternesModule } from './components/formations/formaexternes/formaexternes.module';
 import { CoutFormationModule } from './components/formations/CoutFormation/cout-formation.module';
 import { AuthentificationModule } from './Authentification/authentification.module';
+import { NgToastModule } from 'ng-angular-popup';
 
 
 
@@ -70,7 +71,8 @@ import { AuthentificationModule } from './Authentification/authentification.modu
     FormaexternesModule,
     CoutFormationModule,
     AuthentificationModule,
-  
+    NgToastModule,
+    
 
   ],
   providers: [],

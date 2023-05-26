@@ -20,7 +20,6 @@ class MatricecompetencesController extends AppController
             'fields' => [
                 'label',
             ],
-            'limit' => 16,
         ]);
         
         $matricecompetencesList = [];

@@ -87,51 +87,6 @@ class TesttechniquesController extends AppController
     }
 
 
-
-
-
-
-     /**
-     * editTesttechnique
-     *
-     * @Input:
-     *         data:
-     *          label(String) *Required
-     *          categorie_id (Int) *Required
-     *
-     * @Output: data : success message
-     */
-    public function editTesttechnique(){
-
-        $this->request->allowMethod(['post', 'put']);
-
-        /* format data */
-        if (1 == 1) {
-            $querry=$this->request->getData();
-            $data=json_decode($querry['data']);
-            //$data=$this->request->getData();
-            //debug ($data);die;
-        }
-
-        $id=$this->request->getQuery('id');
-        $testtechniques=$this->Testtechniques->get($id);
-         /* create testtechniques entity */
-        if (1==1){
-            $testtechniques->label=$data->label;
-            $testtechniques->categorie_id=$data->categorie_id;
-
-            $this->Testtechniques->save($testtechniques);
-        }
-        /*send result */
-        $this->set([
-            'success' => true,
-            'data' =>  "Updated with success",
-            '_serialize' => ['success', 'data']
-        ]);
-
-    }
-
-
     /**
     * getAllTesttechnique
     *
@@ -157,52 +112,7 @@ class TesttechniquesController extends AppController
         ]);
     }
 
-
-
-
-    /**
-      * getTesttechnique
-      *
-      * @Input: id
-      *
-      * @Output: data
-      */
-     public function getTesttechnique(){
-
-         $id = $this->request->getQuery('id');
-
-         /* search */
-         if(1==1){
-             if (!isset($id) or empty($id) or $id == null ){
-                throw new UnauthorizedException('Id is Required');
-             }
-
-             if(!is_numeric($id)){
-                throw new UnauthorizedException('Id is not Valid');
-             }
-         }
-
-         $testtechniques = $this->Testtechniques->find('all', [
-             'conditions'=>[
-                 'id IS'=>$id,
-             ],
-
-         ])->first();
-         // debug($testtechniques);die;
-
-         if(empty($testtechniques)){
-            throw new UnauthorizedException('Testtechniques not found');
-        }
-
-        /*send result */
-
-        $this->set([
-            'success' => true,
-            'data' => $testtechniques,
-            '_serialize' => ['success', 'data']
-        ]);
-     }
-
+    
      /**
       * deleteTesttechnique
       *

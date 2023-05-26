@@ -60,8 +60,5 @@ class MatricesController extends AppController
         ]);
         
     }
-    
-    
-
 
 }

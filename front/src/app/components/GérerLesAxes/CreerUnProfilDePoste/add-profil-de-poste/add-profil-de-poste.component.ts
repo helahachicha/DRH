@@ -34,6 +34,8 @@ export class AddProfilDePosteComponent implements OnInit {
    this.getAllniveau();
    this.createForm();
    this.getallprofile()
+
+  
   }
 
  addprofilposte() {

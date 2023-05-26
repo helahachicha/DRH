@@ -337,17 +337,4 @@ class EmployesController extends AppController
             ]);
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

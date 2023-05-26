@@ -37,7 +37,6 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   
   ngOnInit(): void {
     this.getallechelle(); 
-    this.getallmatricecompetence();
     this.getalldepartement();
     this.getallEmployer();
     this.getallabreviation();
@@ -64,13 +63,6 @@ export class ListingMatriceCompetenceComponent implements OnInit {
   }
 
   
- getallmatricecompetence() {
-    this.dataService.get('Matricecompetences/getAllMatricecompetence.json').subscribe(res => {
-      this.Matricecompetences = res.data;
-      this.open = true
-     // console.log('tes1',this.Matricecompetences)
-    })
-  }
   getalldepartement() {
     this.dataService.get('Departements/getAllDepartement.json').subscribe(res => {
       this.Departements = res.data;

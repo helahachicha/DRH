@@ -48,9 +48,6 @@ class DetailprofilpostesController extends AppController
         ],
     ])->first();
 
-
-
-
         /* send result */
         $this->set([
             'success' => true,
@@ -58,6 +55,5 @@ class DetailprofilpostesController extends AppController
             '_serialize' => ['success', 'data']
         ]);
     }
-
 
 }
