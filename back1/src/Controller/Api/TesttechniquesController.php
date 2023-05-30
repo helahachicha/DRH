@@ -150,4 +150,77 @@ class TesttechniquesController extends AppController
                 '_serialize' => ['success','data']
             ]);
         }
+
+
+
+
+    //edit test 
+    
+    public function editTesttechnique()
+    {
+        $this->loadModel('Comptechniques');
+        $this->loadModel('Questions');
+        $this->loadModel('Reponses');
+        $this->request->allowMethod(['post', 'put']);
+
+        /* format data */
+        if (1 == 1) {
+            $querry=$this->request->getData();
+            $data=json_decode($querry['data']);
+            //$data=$this->request->getData();
+        // debug($data);
+        }
+        $id=$this->request->getQuery('id');
+        $formaexternes=$this->Formaexternes->get($id);
+
+            
+        /* update testtechniques entity */
+        $testtechniques = $this->Testtechniques->get($id);
+        $testtechniques->label = $data->label;
+        $testtechniques->categorie_id = $data->categorie_id;
+        $savedTest = $this->Testtechniques->save($testtechniques);
+            
+        /* update or create comptechniques entity */
+        foreach ($data->Competence as $comptech) {
+            if (isset($comptech->id)) {
+                $comptechniques = $this->Comptechniques->get($comptech->id);
+            }else {
+                $comptechniques = $this->Comptechniques->newEmptyEntity();
+            }
+            $comptechniques->label = $comptech->label;
+            $comptechniques->testtechnique_id = $savedTest->id;
+            $savedComptech = $this->Comptechniques->save($comptechniques);
+
+            /* update or create question entity */
+            foreach ($comptech->QuestReponse as $quest) {
+                if (isset($quest->id)) {
+                    $questions = $this->Questions->get($quest->id);
+                } else {
+                    $questions = $this->Questions->newEmptyEntity();
+                }
+                $questions->label = $quest->question;
+                $questions->comptechnique_id = $savedComptech->id;
+                $savedQuest = $this->Questions->save($questions);
+
+                foreach ($quest->reponse as $rep) {
+                    if (isset($rep->id)) {
+                        $reponses = $this->Reponses->get($rep->id);
+                    } else {
+                        $reponses = $this->Reponses->newEmptyEntity();
+                    }
+                    $reponses->label = $rep->label;
+                    $reponses->question_id = $savedQuest->id;
+                    $this->Reponses->save($reponses);
+                }
+            }
+        }
+
+        /* send result */
+        $this->set([
+            'success' => true,
+            'data' => "Updated with success",
+            '_serialize' => ['success', 'data']
+        ]);
+    }
+
 }
