@@ -171,7 +171,7 @@ class TesttechniquesController extends AppController
         // debug($data);
         }
         $id=$this->request->getQuery('id');
-        $formaexternes=$this->Formaexternes->get($id);
+        $testtechniques=$this->Testtechniques->get($id);
 
             
         /* update testtechniques entity */
