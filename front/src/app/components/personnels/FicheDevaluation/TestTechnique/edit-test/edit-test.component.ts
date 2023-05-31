@@ -13,7 +13,10 @@ public Testtechniques
 id:any
 data:any;
   message:any;
-
+  public testForm = new FormGroup({
+    label: new FormControl('', [Validators.required]), 
+ 
+   });
   constructor(
     private dataService:DataService,
     private router :Router,
@@ -67,7 +70,7 @@ data1:any
 
 
   editTest() {
-    this.dataService.post('Testtechniques/editTesttechnique.json?id=' + this.id, this.Testtechniques).subscribe(res => {
+    this.dataService.post('Testtechniques/editTesttechnique.json?id=' + this.id, this.testForm).subscribe(res => {
       this.data = res;
       this.message=this.data.message;
       if (this.message=="Formation modifier avec succés !"){
