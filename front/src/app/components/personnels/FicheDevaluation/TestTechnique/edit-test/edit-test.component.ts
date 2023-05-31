@@ -11,37 +11,73 @@ import { DataService } from 'src/app/shared/service/data.service';
 export class EditTestComponent implements OnInit {
 public Testtechniques
 id:any
-public testForm = new FormGroup({
+data:any;
+  message:any;
 
-  label1: new FormControl('', [Validators.required]),
-  label2: new FormControl('', [Validators.required]),
-  label3: new FormControl('', [Validators.required]),  
-});
   constructor(
     private dataService:DataService,
     private router :Router,
     private route:ActivatedRoute
   ) { }
-
+data1:any
   ngOnInit(): void {
-    this.gettestById()
-    this.getallthemeforma()
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      this.dataService.get('Comptechniques/getComptechByTesttech.json?id='+id).subscribe(
+        res => {
+        this.Testtechniques=res.data; 
+        console.log(this.Testtechniques) 
+       
+       // console.log('testtt',this.Testtechniques)
+      })
+  }); 
+    
   }
-  gettestById() {
-    this.id=this.route.snapshot.params['id'];
-    this.dataService.get('Testtechniques/getTesttechnique.json?id='+this.id).subscribe(
-      res => {
-      this.Testtechniques=res.data;
+
+  onchangevalue(id:any,event:any){
+   
+    for (let index = 0; index < this.Testtechniques.length; index++) {
+      const element = this.Testtechniques[index];
+      if(element.id==id){
+        this.Testtechniques[index].label=event.target.value
+      }
+      
+    }
+  }
+  onchangevalueQuestion(id:any,event:any){
+   
+    for (let index = 0; index < this.Testtechniques.questions.length; index++) {
+      const element = this.Testtechniques.questions[index];
+      if(element.id==id){
+        this.Testtechniques.questions[index].label=event.target.value
+      }
+      
+    }
+  }
+  onchangevalueRepense(id:any,event:any){
+   
+    for (let index = 0; index < this.Testtechniques.questions.reponses.length; index++) {
+      const element = this.Testtechniques.questions.reponses[index];
+      if(element.id==id){
+        this.Testtechniques.questions.reponses[index].label=event.target.value
+      }
+      
+    }
+  }
+
+
+  editTest() {
+    this.dataService.post('Testtechniques/editTesttechnique.json?id=' + this.id, this.Testtechniques).subscribe(res => {
+      this.data = res;
+      this.message=this.data.message;
+      if (this.message=="Formation modifier avec succés !"){
+        this.router.navigate(['/listingtest'])
+      }
+      console.log(this.message);
+      
     })
+
   }
-  edittest(){    
-    this.dataService.post('Testtechniques/editTesttechnique.json?id='+this.id,this.testForm.value).subscribe(res=> {
-    this.router.navigate(['/listingtest'])
-    })
-  }
-  getallthemeforma() {
-    this.dataService.get('Testtechniques/getAllTesttechnique.json').subscribe(res => {
-      this.Testtechniques = res.data;
-    })
-  }
+  
+  
 }

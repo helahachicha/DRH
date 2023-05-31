@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgToastService } from 'ng-angular-popup';
+
 import { DataService } from 'src/app/shared/service/data.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class AddformainterneComponent implements OnInit {
   public interneForm: FormGroup;
 
   constructor(
-    private dataService: DataService,private toast: NgToastService
+    private dataService: DataService,
   ) { }
 
   ngOnInit(): void {
@@ -40,7 +40,6 @@ export class AddformainterneComponent implements OnInit {
       this.message = this.data.message;
       if (this.message == "Formation ajouter avec succés !") {
         this.interneForm.reset();
-        this.toast.success({detail:"تمت العملية بنجاح",summary:'تم إنشاء الحساب بنجاح',duration:5000});
       }
       console.log(this.message);
     });
