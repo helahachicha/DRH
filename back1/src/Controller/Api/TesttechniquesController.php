@@ -175,7 +175,6 @@ class TesttechniquesController extends AppController
 
             
         /* update testtechniques entity */
-        $testtechniques = $this->Testtechniques->get($id);
         $testtechniques->label = $data->label;
         $testtechniques->categorie_id = $data->categorie_id;
         $savedTest = $this->Testtechniques->save($testtechniques);
