@@ -157,71 +157,67 @@ class TesttechniquesController extends AppController
     //edit test 
 
     public function editTesttechnique()
-{
-    $this->loadModel('Comptechniques');
-    $this->loadModel('Questions');
-    $this->loadModel('Reponses');
-    $this->request->allowMethod(['post', 'put']);
+    {
+        $this->loadModel('Comptechniques');
+        $this->loadModel('Questions');
+        $this->loadModel('Reponses');
+        $this->request->allowMethod(['post', 'put']);
 
-    $querry=$this->request->getData();
-    $data=json_decode($querry['data']);
-    
-    $id = $this->request->getQuery('id');
-    $testtechniques = $this->Testtechniques->get($id);
+        $querry = $this->request->getData('data');
+        $data = json_decode($querry);
 
-    /* update testtechniques entity */
-    $testtechniques->label = $data['label'];
-    $testtechniques->categorie_id = $data['categorie_id'];
-    $savedTest = $this->Testtechniques->save($testtechniques);
+        $id = $this->request->getQuery('id');
+        $testtechniques = $this->Testtechniques->get($id);
 
-    /* update or create comptechniques entity */
-    if (isset($data['Competence']) && is_array($data['Competence'])) {
-        foreach ($data['Competence'] as $comptech) {
-            if (isset($comptech['id'])) {
-                $comptechniques = $this->Comptechniques->get($comptech['id']);
-            } else {
-                $comptechniques = $this->Comptechniques->newEmptyEntity();
-            }
-            $comptechniques->label = $comptech['label'];
-            $comptechniques->testtechnique_id = $savedTest->id;
-            $savedComptech = $this->Comptechniques->save($comptechniques);
+        /* update or create comptechniques entity */
+        if (isset($data->Competence) && is_array($data->Competence)) {
+            foreach ($data->Competence as $comptech) {
+                if (isset($comptech->id)) {
+                    $comptechniques = $this->Comptechniques->get($comptech->id);
+                } else {
+                    $comptechniques = $this->Comptechniques->newEmptyEntity();
+                }
+                $comptechniques->label = $comptech->label;
+                $comptechniques->testtechnique_id = $comptech->testtechnique_id;
+                $savedComptech = $this->Comptechniques->save($comptechniques);
 
-            /* update or create question entity */
-            if (isset($comptech['QuestReponse']) && is_array($comptech['QuestReponse'])) {
-                foreach ($comptech['QuestReponse'] as $quest) {
-                    if (isset($quest['id'])) {
-                        $questions = $this->Questions->get($quest['id']);
-                    } else {
-                        $questions = $this->Questions->newEmptyEntity();
-                    }
-                    $questions->label = $quest['question'];
-                    $questions->comptechnique_id = $savedComptech->id;
-                    $savedQuest = $this->Questions->save($questions);
+                /* update or create question entity */
+                if (isset($comptech->QuestReponse) && is_array($comptech->QuestReponse)) {
+                    foreach ($comptech->QuestReponse as $quest) {
+                        if (isset($quest->id)) {
+                            $questions = $this->Questions->get($quest->id);
+                        } else {
+                            $questions = $this->Questions->newEmptyEntity();
+                        }
+                        $questions->label = $quest->question;
+                        $questions->comptechnique_id = $quest->comptechnique_id;
+                        $savedQuest = $this->Questions->save($questions);
 
-                    if (isset($quest['reponse']) && is_array($quest['reponse'])) {
-                        foreach ($quest['reponse'] as $rep) {
-                            if (isset($rep['id'])) {
-                                $reponses = $this->Reponses->get($rep['id']);
-                            } else {
-                                $reponses = $this->Reponses->newEmptyEntity();
+                        if (isset($quest->reponse) && is_array($quest->reponse)) {
+                            foreach ($quest->reponse as $rep) {
+                                if (isset($rep->id)) {
+                                    $reponses = $this->Reponses->get($rep->id);
+                                } else {
+                                    $reponses = $this->Reponses->newEmptyEntity();
+                                }
+                                $reponses->label = $rep->label;
+                                $reponses->question_id = $rep->question_id;
+                                $this->Reponses->save($reponses);
                             }
-                            $reponses->label = $rep['label'];
-                            $reponses->question_id = $savedQuest->id;
-                            $this->Reponses->save($reponses);
                         }
                     }
                 }
             }
         }
+
+        /* send result */
+        $this->set([
+            'success' => true,
+            'data' => "Updated with success",
+            '_serialize' => ['success', 'data']
+        ]);
     }
 
-    /* send result */
-    $this->set([
-        'success' => true,
-        'data' => "Updated with success",
-        '_serialize' => ['success', 'data']
-    ]);
-}
 
     
 

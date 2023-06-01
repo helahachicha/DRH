@@ -72,6 +72,7 @@ data1:any
 
 
   editTest() {
+    this.id=1
     this.dataService.post('Testtechniques/editTesttechnique.json?id=' + this.id, this.Testtechniques).subscribe(res => {
       this.data = res;
       this.message=this.data.message;

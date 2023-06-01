@@ -18,7 +18,8 @@ import { EditTestComponent } from './edit-test/edit-test.component';
     ReactiveFormsModule,
     SharedModule,
     CommonModule,
-    TestTechniqueRoutingModule
+    TestTechniqueRoutingModule,
+    
   ]
 })
 export class TestTechniqueModule { }
