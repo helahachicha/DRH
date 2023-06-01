@@ -44,7 +44,7 @@ data1:any
       if(element.id==id){
         this.Testtechniques[index].label=event.target.value
       }
-      
+      console.log(this.Testtechniques)
     }
   }
   onchangevalueQuestion(id:any,event:any){
@@ -54,7 +54,8 @@ data1:any
       if(element.id==id){
         this.Testtechniques.questions[index].label=event.target.value
       }
-      
+      console.log(this.Testtechniques.questions)
+
     }
   }
   onchangevalueRepense(id:any,event:any){
@@ -64,13 +65,14 @@ data1:any
       if(element.id==id){
         this.Testtechniques.questions.reponses[index].label=event.target.value
       }
-      
+      console.log(this.Testtechniques.questions.reponses)
+
     }
   }
 
 
   editTest() {
-    this.dataService.post('Testtechniques/editTesttechnique.json?id=' + this.id, this.testForm).subscribe(res => {
+    this.dataService.post('Testtechniques/editTesttechnique.json?id=' + this.id, this.Testtechniques).subscribe(res => {
       this.data = res;
       this.message=this.data.message;
       if (this.message=="Formation modifier avec succés !"){
