@@ -167,24 +167,25 @@
             </li>
         </ul>
         <hr>
-        <form id="contact-form" role="form" >
+       
+        <form id="contact-form" role="form"  [formGroup]="testForm" >
             <div>
                 <div class="mt-3 mb-2" >
                     <div >
                         <div *ngFor="let test of Testtechniques">
                         <h3  >
                             <input  type="text" class="form-control" (change)="onchangevalue(test.id,$event)" 
-                                value="{{test.label}}">
+                            [(value)]="test.label"  >
                         </h3>
                         <div *ngFor="let question of test.questions;let j =index">
                             <h3  >
                             <input  type="text" class="form-control" (change)="onchangevalueQuestion(question.id,$event)" 
-                                value="{{question.label}}" >
+                            [(value)]="question.label"  >
                                 </h3>
                                 <div *ngFor="let reponse of test.questions[j].reponses">
                                     <h3  >
                                     <input  type="text" class="form-control" (change)="onchangevalueRepense(reponse.id,$event)" 
-                                    value="{{reponse.label}}">
+                                    [(value)]="reponse.label" >
                                     </h3>
                                 </div>
                             </div>

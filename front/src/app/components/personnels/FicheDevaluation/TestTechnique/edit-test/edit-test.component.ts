@@ -13,7 +13,10 @@ public Testtechniques
 id:any
 data:any;
   message:any;
-
+  public testForm = new FormGroup({
+    label: new FormControl('', [Validators.required]), 
+ 
+   });
   constructor(
     private dataService:DataService,
     private router :Router,
@@ -41,7 +44,7 @@ data1:any
       if(element.id==id){
         this.Testtechniques[index].label=event.target.value
       }
-      
+      console.log(this.Testtechniques)
     }
   }
   onchangevalueQuestion(id:any,event:any){
@@ -51,7 +54,8 @@ data1:any
       if(element.id==id){
         this.Testtechniques.questions[index].label=event.target.value
       }
-      
+      console.log(this.Testtechniques.questions)
+
     }
   }
   onchangevalueRepense(id:any,event:any){
@@ -61,7 +65,8 @@ data1:any
       if(element.id==id){
         this.Testtechniques.questions.reponses[index].label=event.target.value
       }
-      
+      console.log(this.Testtechniques.questions.reponses)
+
     }
   }
 
